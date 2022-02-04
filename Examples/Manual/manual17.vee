@@ -1,0 +1,246 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:13:54 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "HP 3852A"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 12)
+(popupTitleText "Downloading To Instruments")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 START25)
+(device 2 IODEVICE
+(properties
+(name "HP 3852A ( @ 714)")
+(transactions 1 "WRITE TEXT \"SCRATCH\" STR EOL"))
+(implementation
+(iopath "HP 3852A")))
+(device 3 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 4 FROMFILE
+(properties
+(transactions 1 "READ TEXT x STR MAXFW:80"))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/manual/manual17.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 5 IODEVICE
+(properties
+(name "HP 3852A ( @ 714)")
+(transactions 1 "WRITE TEXT MySub STR EOL"))
+(interface
+(input 1
+(name "Mysub")
+(tag "A")
+(optional yes)))
+(implementation
+(iopath "HP 3852A")))
+(device 6 START25)
+(device 7 IODEVICE
+(properties
+(name "HP 3852A ( @ 714)")
+(transactions 1 "WRITE TEXT \"CALL BEEP2\" STR EOL"))
+(implementation
+(iopath "HP 3852A")))
+(device 8 NOTE
+(properties
+(name "Thread #2")
+(text2 1 "This thread calls the subroutine. ")))
+(device 9 BREAK)
+(device 10 NOTE
+(properties
+(name "Thread #1")
+(text2 3 "This thread erases the HP 3852A\'s "
+"subroutine memory and downloads the" "specified subroutine.")))
+(device 11 NOTE
+(properties
+(name "Info About")
+(text2 16 "Overview:" "This program illustrates one method for downloading"
+"measurement subroutines or macros to programmable" "instruments. " ""
+"Details:" "The program  uses the HP 3852A Data Acquisition "
+"system as an example of an intelligent, programmable "
+"instrument.  The subroutine \"BEEP2\" downloaded to "
+"the HP 3852A simply sounds the HP 3852A beeper twice.  " ""
+"The downloaded subroutine is created andmaintained "
+"in a separate text file.  Thread #1 reads the text "
+"file and downloads it to the instrument.  Thread #2 "
+"calls the subroutine in the HP 3852A." "")))
+(configuration
+(connect D1:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:1 D4:0)
+(connect D4:1 D5:1)
+(connect D6:0 D7:0)
+(connect D4:2 D9:0)))
+(contextCarrier
+(wndRestoredOrigin 166 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 204 10)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -20 30))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 69 39))
+(title off)
+(pinCenter -30 130))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 271 43))
+(terminals on)
+(pinCenter -30 210))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -30 280))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 392 72))
+(terminals on)
+(pinCenter 45 390))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 251 53))
+(terminals on)
+(pinCenter 500 390))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 69 39))
+(title off)
+(pinCenter 20 480))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 289 64)
+(iconImage "io.icn"))
+(open
+(extent 325 52))
+(terminals on)
+(pinCenter 20 570))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 337 46)
+(editing disabled))
+(pinCenter 420 570))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 70 30))
+(terminals on)
+(pinCenter 300 450))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 362 73)
+(editing disabled))
+(pinCenter 490 290))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 535 193)
+(editing disabled))
+(pinCenter 430 120))
+(connect D1:0 D2:0
+(points 2 -30 152 -30 168))
+(connect D2:0 D3:0
+(points 2 -30 234 -30 245))
+(connect D3:1 D4:0
+(points 3 27 280 50 280 50 333))
+(connect D4:1 D5:1
+(points 4 283 370 300 370 300 390 322 390))
+(connect D6:0 D7:0
+(points 2 20 502 20 523))
+(connect D4:2 D9:0
+(points 3 283 410 300 410 300 435)))
+(stackingOrder 2 1 3 7 6 8 11 10 5 9 4 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

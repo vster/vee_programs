@@ -1,0 +1,1332 @@
+(saveFormat "7.0")
+(date "Tue 15/Aug/2006 12:10:44 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(sysconfig
+(iodevice "scope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 15)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "agdso3202a")
+(ppAddr "GPIB0::15::INSTR")
+(eoiEnabled 1)
+(model "agdso3202a"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 75)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ParseIdString")
+(trigMode deg)
+(nextID 69)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Y")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 18 FORMULA
+(properties
+(name "strLen(str)")
+(expr 1 "strLen(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 FORMULA
+(properties
+(name "strPosChar(str1,chars)")
+(expr 1 "strPosChar(str1,chars)"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(input 2
+(name "chars")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 LITERALCONSTANT
+(properties
+(name "comma"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ","))
+(initValue Text
+(data  ""))))
+(device 33 FROMGLOBAL
+(properties
+(name "Get idString")
+(globalName "idString"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 39 CONSTANT
+(properties
+(name "UInt8"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  0))
+(initValue UInt8
+(data  0))))
+(device 43 FORMULA
+(properties
+(name "strFromThru(str,from,thru)")
+(expr 1 "strFromThru(str,from,thru-1)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(input 2
+(name "from")
+(optional yes))
+(input 3
+(name "thru")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 44 FORMULA
+(properties
+(name "strFromThru(str,from,thru)")
+(expr 1 "strFromThru(str,from+1,thru)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(input 2
+(name "from")
+(optional yes))
+(input 3
+(name "thru")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 45 TOGLOBAL
+(properties
+(name "Set stringLength")
+(globalName "stringLength"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 46 FROMGLOBAL
+(properties
+(name "Get stringLength")
+(globalName "stringLength"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 47 TOGLOBAL
+(properties
+(name "Set idString")
+(globalName "idString"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 48 TOGLOBAL
+(properties
+(name "Set stringLength")
+(globalName "stringLength"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 49 FORMULA
+(properties
+(name "strLen(str)")
+(expr 1 "strLen(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 50 IFTHENELSE
+(properties
+(name "If A == B")
+(cases 1 "index==origStringLength"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 51 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 54 TOGLOBAL
+(properties
+(name "Set index")
+(globalName "index"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 55 FROMGLOBAL
+(properties
+(name "Get index")
+(globalName "index"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 56 IFTHENELSE
+(properties
+(name "If A == B")
+(cases 1 "A==-1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 58 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 59 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 60 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 61 BREAK)
+(device 63 FORRANGE
+(properties
+(from 0)
+(thru 9)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 64 TOGLOBAL
+(properties
+(name "Set origStringLength")
+(globalName "origStringLength"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 65 FORMULA
+(properties
+(expr 1 "A[2]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 66 FORMULA
+(properties
+(expr 1 "A[1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 67 FROMGLOBAL
+(properties
+(name "Get idString")
+(globalName "idString"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 68 NOTE
+(properties
+(name "Parsing Algorithm")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Function parses the instrument identification string stored in the \"idString\" global variable. The parsing method is:\\par\r\n1)  locate the first occurance of a comma in the string using the strPosChar() function.\\par\r\n2)  extract the characters starting with the first position to the position of the comma - 1.\\par\r\n3)  output the characters of the string starting from position of the first comma + 1 to the last character.\\par\r\n4)  repeat until the string length = 0.  \\par\r\n}\r\n"
+)))
+(configuration
+(connect D25:1 D0:1)
+(connect D3:1 D1:1)
+(connect D2:1 D1:2)
+(connect D21:1 D3:0)
+(connect D3:1 D5:1)
+(connect D4:1 D5:2)
+(connect D15:1 D5:3)
+(connect D3:1 D6:1)
+(connect D15:1 D6:2)
+(connect D8:1 D6:3)
+(connect D0:1 D7:1)
+(connect D5:0 D8:0)
+(connect D6:1 D9:1)
+(connect D11:1 D10:1)
+(connect D6:1 D11:1)
+(connect D6:0 D12:0)
+(connect D5:1 D13:1)
+(connect D12:1 D13:2)
+(connect D17:1 D14:1)
+(connect D1:0 D15:0)
+(connect D1:1 D16:1)
+(connect D18:1 D17:1)
+(connect D19:1 D17:2)
+(connect D16:1 D18:0)
+(connect D0:1 D18:1)
+(connect D16:2 D19:0)
+(connect D1:1 D19:1)
+(connect D13:0 D20:0)
+(connect D25:0 D21:0)
+(connect D0:1 D22:1)
+(connect D13:1 D23:1)
+(connect D13:1 D24:1)
+(connect D24:1 O1:1)
+(connect D23:1 O2:1)))
+(contextCarrier
+(wndOrigin 2 872)
+(wndRestoredOrigin 171 370)
+(wndRestoredExtent 429 368)
+(wndState min)
+(active detail)
+(detail
+(extent 960 633)
+(anchorPt 297 250)
+(configuration
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 107 50))
+(terminals on)
+(pinCenter -120 -170))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 138 25))
+(open
+(extent 176 50))
+(terminals on)
+(pinCenter 90 30))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 64 14))
+(open
+(extent 174 29))
+(pinCenter -150 70))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -150 20))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 74 24))
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter -150 140))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 156 34))
+(open
+(extent 192 70))
+(terminals on)
+(pinCenter 90 110))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 156 34))
+(open
+(extent 192 70))
+(terminals on)
+(pinCenter 110 280))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 114 14))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 210 -180))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 114 34))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 100 200))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 290 250))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 420 290))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 107 50))
+(terminals on)
+(pinCenter 280 290))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 164 51))
+(terminals on)
+(pinCenter 100 330))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 250 110))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 55 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 490 -60))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 74 14))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -150 190))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 62 51))
+(terminals on)
+(pinCenter 140 -70))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 400 -60))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 290 -70))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 290 -20))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 250 170))
+(devCarrierFor 63
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter -220 -60))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 123 15))
+(open
+(extent 89 51))
+(terminals on)
+(pinCenter 210 -140))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 410 110))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 410 70))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -220 -170))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 107 51)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 430 -140))
+(connect D25:1 D0:1
+(points 2 -183 -170 -154 -170))
+(connect D3:1 D1:1
+(points 2 -113 20 18 20))
+(connect D2:1 D1:2
+(points 4 -116 70 -90 70 -90 40 18 40))
+(connect D21:1 D3:0
+(points 3 -184 -60 -150 -60 -150 10))
+(connect D3:1 D5:1
+(points 4 -113 20 -70 20 -70 100 9 100))
+(connect D4:1 D5:2
+(points 4 -111 140 -100 140 -100 110 9 110))
+(connect D15:1 D5:3
+(points 4 -111 190 -90 190 -90 120 9 120))
+(connect D3:1 D6:1
+(points 6 -113 20 -70 20 -70 100 -10 100 -10 270 29 270))
+(connect D15:1 D6:2
+(points 4 -111 190 -80 190 -80 280 29 280))
+(connect D8:1 D6:3
+(points 6 159 200 180 200 180 240 10 240 10 290 29 290))
+(connect D0:1 D7:1
+(points 4 -87 -170 -70 -170 -70 -180 150 -180))
+(connect D5:0 D8:0
+(points 4 90 129 90 140 100 140 100 180))
+(connect D6:1 D9:1
+(points 4 190 280 220 280 220 250 253 250))
+(connect D11:1 D10:1
+(points 2 313 290 368 290))
+(connect D6:1 D11:1
+(points 4 190 280 220 280 220 290 246 290))
+(connect D6:0 D12:0
+(points 4 110 299 110 310 100 310 100 315))
+(connect D5:1 D13:1
+(points 4 170 110 190 110 190 100 221 100))
+(connect D12:1 D13:2
+(points 6 126 320 210 320 210 240 200 240 200 120 221 120))
+(connect D17:1 D14:1
+(points 2 415 -60 460 -60))
+(connect D1:0 D15:0
+(points 4 90 45 90 170 -150 170 -150 180))
+(connect D1:1 D16:1
+(points 6 161 30 180 30 180 -20 90 -20 90 -70 113 -70))
+(connect D18:1 D17:1
+(points 2 307 -70 384 -70))
+(connect D19:1 D17:2
+(points 4 307 -20 330 -20 330 -50 384 -50))
+(connect D16:1 D18:0
+(points 5 166 -80 200 -80 200 -100 290 -100 290 -80))
+(connect D0:1 D18:1
+(points 8 -87 -170 -70 -170 -70 -140 130 -140 130 -110 190 -110 190 -70 272 -70))
+(connect D16:2 D19:0
+(points 5 166 -60 190 -60 190 -40 290 -40 290 -30))
+(connect D1:1 D19:1
+(points 4 161 30 180 30 180 -20 272 -20))
+(connect D13:0 D20:0
+(points 2 250 125 250 160))
+(connect D25:0 D21:0
+(points 2 -220 -160 -220 -88))
+(connect D0:1 D22:1
+(points 4 -87 -170 -70 -170 -70 -140 146 -140))
+(connect D13:1 D23:1
+(points 6 279 110 300 110 300 100 350 100 350 110 382 110))
+(connect D13:1 D24:1
+(points 6 279 110 300 110 300 100 350 100 350 70 382 70))
+(connect D24:1 O1:1
+(points 4 437 70 540 70 540 -94 662 -94))
+(connect D23:1 O2:1
+(points 4 437 110 460 110 460 226 662 226)))
+(stackingOrder 16 18 17 14 19 1 21 3 2 4 15 5 13 20 6 22 7 25 0 9 11 10 12 26 24
+23 8)))))
+(device 4 CALL
+(properties
+(name "Call ParseIdString")
+(callFunc "ParseIdString")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))))
+(device 5 DECLVAR
+(properties
+(name "Declare idString")
+(scope glob)
+(globalName "idString"))
+(implementation
+(value Text
+(data  ""))))
+(device 12 TEXTDISPLAY
+(properties
+(name "Model Number"))
+(interface
+(input 1
+(name "Data"))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Serial Number"))
+(interface
+(input 1
+(name "Data"))))
+(device 31 TEXTDISPLAY
+(properties
+(name "Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 32 IODEVICE
+(properties
+(name "scope (agdso3202a @ 715)")
+(transactions 20 "WRITE TEXT \":MEASURE:FREQUENCY? CHAN1\" EOL"
+"READ TEXT frequency REAL64" "WRITE TEXT \":MEASURE:PERIOD? CHAN1\" EOL"
+"READ TEXT period REAL64" "WRITE TEXT \":MEASURE:PDUTY? CHAN1\" EOL"
+"READ TEXT pdutycycle REAL64" "WRITE TEXT \":MEASURE:PWID? CHAN1\" EOL"
+"READ TEXT pulsewidth REAL64" "WRITE TEXT \":MEASURE:RIS? CHAN1\" EOL"
+"READ TEXT risetime REAL64" "WRITE TEXT \":MEASURE:VAMP? CHAN1\" EOL"
+"READ TEXT voltageamplitude REAL64" "WRITE TEXT \":MEASURE:VAV? CHAN1\" EOL"
+"READ TEXT averagevoltage REAL64" "WRITE TEXT \":MEASURE:VMAX? CHAN1\" EOL"
+"READ TEXT maxvoltage REAL64" "WRITE TEXT \":MEASURE:VMIN? CHAN1\" EOL"
+"READ TEXT minvoltage REAL64" "WRITE TEXT \":MEASURE:NWID? CHAN1\" EOL"
+"READ TEXT npulsewidth REAL64"))
+(interface
+(output 1
+(name "frequency")
+(optional yes))
+(output 2
+(name "period")
+(optional yes))
+(output 3
+(name "pdutycycle")
+(optional yes))
+(output 4
+(name "pulsewidth")
+(optional yes))
+(output 5
+(name "risetime")
+(optional yes))
+(output 6
+(name "voltageamplitude")
+(optional yes))
+(output 7
+(name "averagevoltage")
+(optional yes))
+(output 8
+(name "maxvoltage")
+(optional yes))
+(output 9
+(name "minvoltage")
+(optional yes))
+(output 10
+(name "npulsewidth")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 35 TEXTDISPLAY
+(properties
+(name "Period"))
+(interface
+(input 1
+(name "Data"))))
+(device 36 TEXTDISPLAY
+(properties
+(name "Duty Cycle"))
+(interface
+(input 1
+(name "Data"))))
+(device 38 TEXTDISPLAY
+(properties
+(name "Pulse Width"))
+(interface
+(input 1
+(name "Data"))))
+(device 39 TEXTDISPLAY
+(properties
+(name "Rise Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 40 TEXTDISPLAY
+(properties
+(name "Voltage Amplitude"))
+(interface
+(input 1
+(name "Data"))))
+(device 41 TEXTDISPLAY
+(properties
+(name "Average Voltage"))
+(interface
+(input 1
+(name "Data"))))
+(device 42 TEXTDISPLAY
+(properties
+(name "Maximum Voltage"))
+(interface
+(input 1
+(name "Data"))))
+(device 43 TEXTDISPLAY
+(properties
+(name "Minimum Voltage"))
+(interface
+(input 1
+(name "Data"))))
+(device 51 IODEVICE
+(properties
+(name "scope (agdso3202a @ 715)")
+(transactions 2 "WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 52 TOGLOBAL
+(properties
+(name "Set idString")
+(globalName "idString"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 53 DECLVAR
+(properties
+(name "Declare index")
+(scope glob)
+(globalName "index"))
+(implementation
+(value Int32
+(data  0))))
+(device 54 DECLVAR
+(properties
+(name "Declare origStringLength")
+(scope glob)
+(globalName "origStringLength"))
+(implementation
+(value Int32
+(data  0))))
+(device 55 DECLVAR
+(properties
+(name "Declare stringLength")
+(scope glob)
+(globalName "stringLength"))
+(implementation
+(value Int32
+(data  0))))
+(device 56 TEXTDISPLAY
+(properties
+(name "Negative Pulse Width"))
+(interface
+(input 1
+(name "Data"))))
+(device 59 EXITPROCESS
+(properties
+(code 0)))
+(device 63 NOTE
+(properties
+(name "Instructions")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;\\red0\\green128\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs29 This sample program demonstrates measuring the parameters of a waveform using the \\b DSO3000 family of scopes \\b0 and \\b VEE Pro\'s Direct IO functionality\\b0 . \\par\r\n\\cf2\\fs24\\par\r\n\\cf3\\fs29 First: Attach the source of a waveform signal to channel one of the oscilloscope. \\par\r\n\\par\r\nSecond: Press the Measure button below.\\par\r\n}\r\n"
+)))
+(device 64 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This first Direct IO object is configured to GPIB address 715.\\par\r\nIt uses a series of Write/Read transactions to measure each of the signal parameters.The first line commands the oscilloscope \\par\r\nto perform an Autoscale before measuring the parameters.\\par\r\n}\r\n"
+)))
+(device 66 START25
+(properties
+(name "Measure")))
+(device 67 NOTE
+(properties
+(name "Oscilloscope Measurement Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The purpose of this sample is to show how to use VEE Pro to retrieve analog data from an Keysight 3000-series DSO  oscilloscope and display it in VEE data display objects.\\par\r\n\\par\r\nThe data could also be sent to a text file, to Excel or MATLAB for reporting or data analysis using the available VEE Excel objects or the MATLAB Script object.\\par\r\n\\par\r\nPlease press the Measure button in the VEE window to start this sample. The program will stop when it is complete.\\par\r\n\\par\r\nIn this example, the identification and serial number of the oscilloscope are read and displayed. Then, the oscilloscope is commanded to measue 10 waveform parameters of the input signal and these are displayed. \\par\r\n\\par\r\nNote that you can double click on the \"Note Pad\" objects in the Detail view to see help for the various steps in the program.\\par\r\n}\r\n"
+)))
+(device 68 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 or greater to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.2\\par\r\n   as a minimum.\\par\r\n -Apply a signal to the oscilloscope                                            \\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 715 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 69 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 72 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This Direct IO object requests the instrument identification \\par\r\nstring from the instrument and stores the data in a global variable called \"idString\".\\par\r\n}\r\n"
+)))
+(device 73 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This Direct IO object calls the User Function \"ParseIdString\" which then extracts the oscilloscope\'s model number and serial number from the instrument identification string stored in the global variable  \"idString\"\\par\r\n.\\par\r\n}\r\n"
+)))
+(device 74 IODEVICE
+(properties
+(name "scope (agdso3202a @ 715)")
+(transactions 2 "WRITE TEXT \":AUT\" EOL" "WAIT INTERVAL:3"))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(configuration
+(connect D14:0 D0:0)
+(connect D0:1 D2:1)
+(connect D0:2 D3:1)
+(connect D5:1 D4:1)
+(connect D29:0 D5:0)
+(connect D5:2 D6:1)
+(connect D5:3 D7:1)
+(connect D5:4 D8:1)
+(connect D5:5 D9:1)
+(connect D5:6 D10:1)
+(connect D5:7 D11:1)
+(connect D5:8 D12:1)
+(connect D5:9 D13:1)
+(connect D5:0 D14:0)
+(connect D14:1 D15:1)
+(connect D5:10 D19:1)
+(connect D0:0 D20:0)
+(connect D23:0 D29:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 10 32)
+(wndState res)
+(active panel)
+(panel
+(extent 998 543)
+(drawGrid "on")
+(widget 6 detail
+(relativeOrigin 380 150)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 254 36))
+(widget 4 detail
+(relativeOrigin 380 80)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 254 36))
+(widget 7 detail
+(relativeOrigin 380 220)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 254 36))
+(widget 8 detail
+(relativeOrigin 370 380)
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 254 36))
+(widget 9 detail
+(relativeOrigin 370 300)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 254 36))
+(widget 10 detail
+(relativeOrigin 670 80)
+(PID 5)
+(title on)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 254 36))
+(widget 11 detail
+(relativeOrigin 670 150)
+(PID 6)
+(title on)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 254 36))
+(widget 12 detail
+(relativeOrigin 670 290)
+(PID 7)
+(title on)
+(tabStop off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 254 36))
+(widget 13 detail
+(relativeOrigin 670 220)
+(PID 8)
+(title on)
+(tabStop off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 254 36))
+(widget 2 detail
+(relativeOrigin 380 10)
+(PID 9)
+(title on)
+(tabStop off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 254 36))
+(widget 3 detail
+(relativeOrigin 670 10)
+(PID 10)
+(title on)
+(tabStop off)
+(tabIndex 10)
+(borderStyle flat)
+(extent 254 36))
+(widget 19 detail
+(relativeOrigin 660 382)
+(PID 11)
+(title on)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 254 36))
+(widget 21 detail
+(relativeOrigin 0 10)
+(PID 12)
+(title off)
+(tabIndex 12)
+(borderStyle flat)
+(extent 316 296)
+(editing enabled))
+(widget 23 detail
+(relativeOrigin 40 370)
+(font "Arial" 18 bold)
+(PID 13)
+(title off)
+(tabIndex 13)
+(borderStyle none)
+(extent 210 80)))
+(detail
+(extent 792 405)
+(anchorPt 273 -244)
+(configuration
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 214 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 130 870))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 164 14))
+(open
+(extent 195 103))
+(pinCenter 350 410))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 254 36))
+(pinCenter 340 860))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 254 36))
+(pinCenter 340 890))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 254 36))
+(pinCenter 380 520))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 169 105)
+(iconImage "io.icn"))
+(open
+(extent 384 546))
+(terminals on)
+(pinCenter 130 630))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 54 14))
+(open
+(extent 254 36))
+(pinCenter 380 550))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 254 36))
+(pinCenter 370 610))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 254 36))
+(pinCenter 380 580))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 84 14))
+(open
+(extent 254 36))
+(pinCenter 530 600))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 254 36))
+(pinCenter 540 660))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 96 15))
+(open
+(extent 254 36))
+(pinCenter 540 630))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 106 15))
+(open
+(extent 254 36))
+(pinCenter 540 690))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 104 15))
+(open
+(extent 254 36))
+(pinCenter 540 720))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 169 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 130 760))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 310 760))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 144 14))
+(open
+(extent 195 103))
+(pinCenter 540 410))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 150 15))
+(open
+(extent 195 103))
+(pinCenter 540 440))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 164 14))
+(open
+(extent 195 103))
+(pinCenter 350 440))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 254 36))
+(pinCenter 550 750))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 130 950))
+(devCarrierFor 63
+(active icon)
+(icon
+(extent 70 51)
+(iconImage "notepad.icn"))
+(open
+(extent 414 216)
+(editing enabled))
+(pinCenter -210 420))
+(devCarrierFor 64
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter -220 560))
+(devCarrierFor 66
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 104 34))
+(title off)
+(pinCenter 130 420))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 335 51)
+(iconImage "notepad.icn"))
+(open
+(extent 464 126)
+(editing enabled))
+(pinCenter -80 320))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 170 320))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 334 64)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 420 320))
+(devCarrierFor 72
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -220 770))
+(devCarrierFor 73
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 106)
+(editing enabled))
+(pinCenter -220 920))
+(devCarrierFor 74
+(active icon)
+(icon
+(extent 169 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 130 490))
+(connect D14:0 D0:0
+(points 2 130 788 130 855))
+(connect D0:1 D2:1
+(points 2 239 860 293 860))
+(connect D0:2 D3:1
+(points 4 239 880 260 880 260 890 293 890))
+(connect D5:1 D4:1
+(points 4 217 580 240 580 240 520 346 520))
+(connect D29:0 D5:0
+(points 2 130 518 130 575))
+(connect D5:2 D6:1
+(points 4 217 590 250 590 250 550 350 550))
+(connect D5:3 D7:1
+(points 4 217 600 240 600 240 610 336 610))
+(connect D5:4 D8:1
+(points 6 217 610 230 610 230 620 260 620 260 580 341 580))
+(connect D5:5 D9:1
+(points 8 217 620 230 620 230 630 410 630 410 620 440 620 440 600 485 600))
+(connect D5:6 D10:1
+(points 6 217 630 230 630 230 650 240 650 240 660 483 660))
+(connect D5:7 D11:1
+(points 4 217 640 420 640 420 630 489 630))
+(connect D5:8 D12:1
+(points 6 217 650 230 650 230 670 240 670 240 690 484 690))
+(connect D5:9 D13:1
+(points 4 217 660 250 660 250 720 485 720))
+(connect D5:0 D14:0
+(points 2 130 685 130 732))
+(connect D14:1 D15:1
+(points 2 217 760 273 760))
+(connect D5:10 D19:1
+(points 8 217 670 230 670 230 700 240 700 240 730 370 730 370 750 483 750))
+(connect D0:0 D20:0
+(points 2 130 885 130 922))
+(connect D23:0 D29:0
+(points 2 130 439 130 462)))
+(stackingOrder 15 0 20 2 3 23 22 14 27 28 21 1 17 16 18 25 26 5 4 6 8 7 19 13 12
+10 11 9 29 24))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

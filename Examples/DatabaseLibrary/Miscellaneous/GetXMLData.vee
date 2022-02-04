@@ -1,0 +1,339 @@
+(saveFormat "7.0")
+(date "Mon 11/Aug/2008 09:48:50 ")
+(veerev "9.0.11610.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Data.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Drawing.dll"))
+(assemblyRef 4
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces
+"System.Data,System.Data.Common,System.Data.Odbc,System.Data.OleDb,System.Data.Sql,System.Data.SqlClient,"
+))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "Show Data in DataGrid")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(popupTitleBackgroundColor "UserObject"))
+(interface
+(input 1
+(name "DataSource")
+(optional yes)))
+(deviceList
+(device 0 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.DataGrid")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(transactions 3
+"dataGrid = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.DataGrid\")"
+"dataGrid.SetDataBinding(dataSource, \"\")"
+"dataGrid.Dock = System.Windows.Forms.DockStyle.Fill")
+(parmInfo 9 "3" "T 0" "T 0" "T 0" "2" "T 0" "T 0" "1" "T 0")
+(memberInfos 3 "Void .ctor()"
+"Void SetDataBinding(System.Object, System.String)"
+"System.Windows.Forms.DockStyle Dock")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGrid, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataGrid"))
+(interface
+(input 1
+(name "dataSource")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "dataGrid")
+(optional yes)))
+(implementation))
+(device 1 FORMULA
+(properties
+(name "Add DataGrid to container")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(expr 1 "ContainerControl.Controls.Add(dataGrid);"))
+(interface
+(input 1
+(name "dataGrid")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 DOTNETCONTROL
+(properties
+(name "ContainerControl")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableName ContainerControl)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ContainerControl"))
+(implementation
+(state 325 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+000000040000000608000000083331342C20333536060900000004302C2030060A0000000130060B
+000000000B
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 359)
+(drawGrid "on")
+(widget 2 detail
+(relativeOrigin 0 0)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 314 356)))
+(detail
+(extent 546 153)
+(anchorPt 119 52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 204 25))
+(open
+(extent 634 116))
+(terminals on)
+(pinCenter 170 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 154 25))
+(open
+(extent 254 86))
+(terminals on)
+(pinCenter 400 80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 314 356))
+(pinCenter 220 320))
+(connect I1:1 D0:1
+(points 4 -119 24 10 24 10 80 65 80))
+(connect D0:1 D1:1
+(points 2 274 80 320 80)))
+(stackingOrder 0 1 2))))
+(device 1 CONFIRM25
+(properties
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 FORMULA
+(properties
+(name "Create DataSet")
+(variableScope cont)
+(expr 1 "dataset = CreateInstance(\"System.Data\", \"System.Data.DataSet\" );"))
+(interface
+(output 1
+(name "dataset")
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "dataSet.ReadXml(fileName);")
+(variableScope cont)
+(expr 1 "dataSet.ReadXml(fileName);"))
+(interface
+(input 1
+(name "dataSet")
+(optional yes))
+(input 2
+(name "fileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FILESELECT
+(properties
+(name "File Name Selection")
+(variableScope cont)
+(prompt "Enter File Name:")
+(initialDirectory "~installDir\\Examples\\DatabaseLibrary\\Miscellaneous\\")
+(initialFile "*.*")
+(dialogMode Reading))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 5 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example will show you how to use DataSet to read XML Data and Show Data in DataGrid.\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:0 D0:0)
+(connect D2:1 D0:1)
+(connect D0:0 D1:0)
+(connect D2:1 D3:1)
+(connect D4:1 D3:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 710 392)
+(wndState max)
+(active detail)
+(detail
+(extent 901 621)
+(anchorPt -268 -39)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 137 15))
+(open
+(extent 319 359)
+(carbonCopy))
+(terminals on)
+(pinCenter 815 440))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 44 24))
+(title off)
+(pinCenter 790 650))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 396 50))
+(terminals on)
+(pinCenter 390 180))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 172 25))
+(open
+(extent 192 50))
+(terminals on)
+(pinCenter 790 190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 252 106))
+(terminals on)
+(pinCenter 390 260))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 66)
+(editing disabled))
+(pinCenter 820 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 470 110))
+(connect D3:0 D0:0
+(points 2 790 205 790 240))
+(connect D2:1 D0:1
+(points 4 438 180 540 180 540 440 573 440))
+(connect D0:0 D1:0
+(points 2 790 622 790 635))
+(connect D2:1 D3:1
+(points 2 438 180 701 180))
+(connect D4:1 D3:2
+(points 4 453 250 470 250 470 200 701 200)))
+(stackingOrder 3 2 4 6 0 1 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,315 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:09:59 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SEQUENCER
+(properties
+(transactions 4 "test1 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test2 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test3 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test4 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"))
+(interface
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logfields "name" "pass" "result")))
+(device 1 FORCOUNT
+(properties
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 TODATASET
+(interface
+(input 1
+(name "input")
+(tag "inRecord")
+(requires
+(datatype Record))
+(lock constraints)))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 FORMULA
+(properties
+(name "min(x)")
+(expr 1 "min(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "max(x)")
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "mean(x)")
+(expr 1 "mean(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "sdev(x)")
+(expr 1 "sdev(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "get all test2 results")
+(expr 1 "A[*].test2.result"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 12 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D1:1 D0:0)
+(connect D0:2 D2:1)
+(connect D1:0 D2:2)
+(connect D0:2 D3:1)
+(connect D8:1 D4:1)
+(connect D8:1 D5:1)
+(connect D8:1 D6:1)
+(connect D8:1 D7:1)
+(connect D2:1 D8:1)
+(connect D4:1 D9:1)
+(connect D5:1 D10:1)
+(connect D6:1 D11:1)
+(connect D7:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 843 567)
+(anchorPt -82 63)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 265 117))
+(terminals on)
+(pinCenter 360 180))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 650 150))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 147 58))
+(terminals on)
+(pinCenter 555 50))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 38 0))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 640 310))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 640 380))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 49 0))
+(open
+(extent 76 31))
+(terminals on)
+(pinCenter 640 440))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 43 0))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 640 510))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 115 37))
+(terminals on)
+(pinCenter 390 320))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 810 310))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 800 380))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 810 440))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 800 510))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 260 -30))
+(connect D1:1 D0:0
+(points 3 190 70 370 70 370 101))
+(connect D0:2 D2:1
+(points 4 545 210 570 210 570 140 621 140))
+(connect D1:0 D2:2
+(points 5 140 88 140 260 600 260 600 160 621 160))
+(connect D0:2 D3:1
+(points 6 545 210 570 210 570 90 420 90 420 50 439 50))
+(connect D8:1 D4:1
+(points 4 500 320 520 320 520 310 572 310))
+(connect D8:1 D5:1
+(points 4 500 320 520 320 520 380 572 380))
+(connect D8:1 D6:1
+(points 4 500 320 520 320 520 440 569 440))
+(connect D8:1 D7:1
+(points 6 500 320 520 320 520 440 540 440 540 510 572 510))
+(connect D2:1 D8:1
+(points 8 679 150 700 150 700 250 550 250 550 360 280 360 280 320 300 320))
+(connect D4:1 D9:1
+(points 2 728 310 747 310))
+(connect D5:1 D10:1
+(points 2 728 380 737 380))
+(connect D6:1 D11:1
+(points 2 730 440 747 440))
+(connect D7:1 D12:1
+(points 2 728 510 737 510)))
+(stackingOrder 1 2 3 4 5 6 8 9 10 11 7 12 0 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

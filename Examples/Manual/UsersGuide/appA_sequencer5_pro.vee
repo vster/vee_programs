@@ -1,0 +1,597 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 19:53:36 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 27)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SEQUENCER
+(properties
+(variableScope cont)
+(transactions 4 "test1 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test2 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test3 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"
+"test4 LOGEN TESTEX:random(0, 1) \tLIMITEX: .5 LE 0.5 \t"))
+(interface
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logfields "name" "pass" "result" "timestamp")))
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 COLLECTOR
+(properties
+(variableScope cont)
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 TODATASET
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "input")
+(tag "inRecord")
+(requires
+(datatype Record))
+(lock constraints)))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 FORMULA
+(properties
+(name "min(x)")
+(variableScope cont)
+(expr 1 "min(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "max(x)")
+(variableScope cont)
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "mean(x)")
+(variableScope cont)
+(expr 1 "mean(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "sdev(x)")
+(variableScope cont)
+(expr 1 "sdev(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "get all test2 results")
+(variableScope cont)
+(expr 1 "A[*].test2.result"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 13 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 14 START25
+(properties
+(variableScope cont)))
+(device 15 START25
+(properties
+(variableScope cont)))
+(device 16 FROMDATASET
+(properties
+(variableScope cont)
+(readRecs all)
+(expr 1 "1"))
+(interface
+(output 1
+(name "Rec")
+(tag "records")))
+(implementation
+(attr iopath file read "myFile"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 18 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a[*].test1.timestamp"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a[*].test2.timestamp"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a[*].test3.timestamp"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a[*].test4.timestamp"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 SCROLLINGTEXTDISPLAY
+(properties
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 23 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "D")
+(optional yes))
+(input 4
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 24 TOSTRING
+(properties
+(variableScope cont)
+(transactions 1 "WRITE TEXT a TIME:HMS:H24 EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 25 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 26 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Click on Start button to begin.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D13:0 D0:0)
+(connect D14:0 D1:0)
+(connect D0:2 D2:1)
+(connect D1:0 D2:2)
+(connect D0:2 D3:1)
+(connect D8:1 D4:1)
+(connect D8:1 D5:1)
+(connect D8:1 D6:1)
+(connect D8:1 D7:1)
+(connect D2:1 D8:1)
+(connect D4:1 D9:1)
+(connect D5:1 D10:1)
+(connect D6:1 D11:1)
+(connect D7:1 D12:1)
+(connect D1:1 D13:0)
+(connect D15:0 D16:0)
+(connect D16:1 D17:1)
+(connect D16:1 D18:1)
+(connect D16:1 D19:1)
+(connect D16:1 D20:1)
+(connect D23:1 D21:1)
+(connect D17:1 D22:1)
+(connect D18:1 D22:2)
+(connect D19:1 D22:3)
+(connect D20:1 D22:4)
+(connect D22:1 D23:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 843 567)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt -82 110)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 265 117))
+(terminals on)
+(pinCenter 350 180))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 610 220))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 147 58))
+(terminals on)
+(pinCenter 685 120))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 38 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 540 290))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 540 340))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 49 15))
+(open
+(extent 76 31))
+(terminals on)
+(pinCenter 550 390))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 43 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 370 370))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 660 290))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 660 340))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 660 390))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 660 440))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 360 60))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 140 10))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 140 520))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 206 105))
+(terminals on)
+(pinCenter 140 570))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 145 57))
+(terminals on)
+(pinCenter 340 630))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 145 57))
+(terminals on)
+(pinCenter 340 720))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 145 57))
+(terminals on)
+(pinCenter 340 810))
+(devCarrierFor 21
+(active open)
+(icon)
+(open
+(extent 145 57))
+(terminals on)
+(pinCenter 340 900))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 255 167)
+(noformatter))
+(pinCenter 680 890))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 82))
+(terminals on)
+(pinCenter 565 700))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 650 550))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 404 66)
+(editing disabled))
+(pinCenter 270 -70))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 224 46)
+(editing disabled))
+(pinCenter 570 -50))
+(connect D13:0 D0:0
+(points 2 360 78 360 101))
+(connect D14:0 D1:0
+(points 2 140 23 140 44))
+(connect D0:2 D2:1
+(points 2 535 210 581 210))
+(connect D1:0 D2:2
+(points 5 140 98 140 260 570 260 570 230 581 230))
+(connect D0:2 D3:1
+(points 4 535 210 560 210 560 120 569 120))
+(connect D8:1 D4:1
+(points 4 480 370 500 370 500 290 518 290))
+(connect D8:1 D5:1
+(points 4 480 370 500 370 500 340 517 340))
+(connect D8:1 D6:1
+(points 4 480 370 500 370 500 390 523 390))
+(connect D8:1 D7:1
+(points 4 480 370 500 370 500 440 526 440))
+(connect D2:1 D8:1
+(points 8 639 220 650 220 650 250 580 250 580 270 260 270 260 370 280 370))
+(connect D4:1 D9:1
+(points 2 561 290 597 290))
+(connect D5:1 D10:1
+(points 2 562 340 597 340))
+(connect D6:1 D11:1
+(points 2 577 390 597 390))
+(connect D7:1 D12:1
+(points 2 574 440 597 440))
+(connect D1:1 D13:0
+(points 5 190 80 210 80 210 0 360 0 360 24))
+(connect D15:0 D16:0
+(points 2 140 533 140 560))
+(connect D16:1 D17:1
+(points 4 185 570 210 570 210 630 235 630))
+(connect D16:1 D18:1
+(points 4 185 570 210 570 210 720 235 720))
+(connect D16:1 D19:1
+(points 4 185 570 210 570 210 810 235 810))
+(connect D16:1 D20:1
+(points 4 185 570 210 570 210 900 235 900))
+(connect D23:1 D21:1
+(points 6 817 550 840 550 840 760 530 760 530 890 550 890))
+(connect D17:1 D22:1
+(points 4 465 630 490 630 490 670 526 670))
+(connect D18:1 D22:2
+(points 4 465 720 490 720 490 690 526 690))
+(connect D19:1 D22:3
+(points 4 465 810 500 810 500 710 526 710))
+(connect D20:1 D22:4
+(points 4 465 900 510 900 510 730 526 730))
+(connect D22:1 D23:1
+(points 6 613 700 630 700 630 620 490 620 490 550 503 550)))
+(stackingOrder 14 9 10 4 2 19 23 20 18 15 16 22 21 17 1 13 3 8 11 12 5 6 7 24 25
+0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

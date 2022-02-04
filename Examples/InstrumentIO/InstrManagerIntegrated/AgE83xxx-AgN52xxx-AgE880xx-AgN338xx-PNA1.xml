@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE83xxx-AgN52xxx-AgE880xx-AgN338xx-PNA1.vee">
+		<Description>Setup multiple traces in a PNA, sweep, download and display data</Description>
+		<LogicalInstrument name="VNA">
+			<SupportedInstruments>
+				<Instrument idn="agN5230A"/>
+				<Instrument idn="agN5250A"/>
+				<Instrument idn="agN3381A"/>
+				<Instrument idn="agN3382A"/>
+				<Instrument idn="agN3383A"/>
+				<Instrument idn="agE8361A"/>
+				<Instrument idn="agE8362A"/>
+				<Instrument idn="agE8362B"/>
+				<Instrument idn="agE8363A"/>
+				<Instrument idn="agE8363B"/>
+				<Instrument idn="agE8364A"/>
+				<Instrument idn="agE8364B"/>
+				<Instrument idn="agE8356A"/>
+				<Instrument idn="agE8357A"/>
+				<Instrument idn="agE8358A"/>
+				<Instrument idn="agE8801A"/>
+				<Instrument idn="agE8802A"/>
+				<Instrument idn="agE8803A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

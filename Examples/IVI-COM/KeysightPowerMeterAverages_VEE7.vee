@@ -1,0 +1,1563 @@
+(saveFormat "7.0")
+(date "Thu 28/Apr/2005 14:44:13 ")
+(veerev "7.5.7621.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"Agilent.AgilentRFPowerMeter.Interop, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(libid "{11222A33-6CF1-4C44-9DC4-B6851EEF6B4E}")
+(desc "IVI AgilentRFPowerMeter (Agilent Technologies) 2.0 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\AgilentRFPowerMeter.dll")
+(verMajor 2)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Agilent.AgilentRFPowerMeter.Interop.DLL"
+))
+(selectedNamespaces "Agilent.AgilentRFPowerMeter.Interop,"))
+(properties
+(trigMode deg)
+(nextID 103)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "DriverInitialized")
+(trigMode deg)
+(nextID 25)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.Initialized;")
+(expr 1 "AgilentRFPowerMeterClass.Initialized;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(name "Driver Not Initialised")
+(cases 1 "(A!=0)*(\"Driver Initialized when it Should not be\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "IdQuery and Reset EPM")
+(expr 3 "IdQuery = asVariantBool(IdQuery);" "Reset = asVariantBool(Reset);"
+"AgilentRFPowerMeterClass.Initialize(ResourceName, IdQuery, Reset, OptionString);"
+))
+(interface
+(input 1
+(name "ResourceName")
+(optional yes))
+(input 2
+(name "IdQuery")
+(optional yes))
+(input 3
+(name "Reset")
+(optional yes))
+(input 4
+(name "OptionString")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Blank"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 5 CONSTANT
+(properties
+(name "Bool 1"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  1))
+(initValue Int16
+(data  0))))
+(device 7 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.Initialized;")
+(expr 1 "AgilentRFPowerMeterClass.Initialized;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 IFTHENELSE
+(properties
+(name "Driver Initialized")
+(cases 1 "(A!=1)*(\"Driver is not Initialized when it Should be\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 10 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "D")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 15 ACCUMULATOR
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 16 FORMULA
+(properties
+(name "errorInfo()")
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "rec.field")
+(expr 1 "\"  \"+ rec.message +\"  \""))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "Create Address String")
+(expr 1 "\"GPIB0::\"+Instaddress+\"::INSTR\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.WaitForOperationComplete(MaxTimeMilliseconds);")
+(expr 1 "AgilentRFPowerMeterClass.WaitForOperationComplete(6000);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)
+(connect D11:1 D2:1)
+(connect D4:1 D2:2)
+(connect D4:1 D2:3)
+(connect D3:1 D2:4)
+(connect D2:0 D5:0)
+(connect D5:0 D6:0)
+(connect D5:1 D6:1)
+(connect D1:1 D7:1)
+(connect D6:1 D7:2)
+(connect D10:1 D7:3)
+(connect D7:1 D8:1)
+(connect D2:2 D9:0)
+(connect D9:1 D10:1)
+(connect D6:0 D12:0)
+(connect D8:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 2128 879)
+(anchorPt 3 -33)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 213 50))
+(terminals on)
+(pinCenter 230 200))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 121 25))
+(open
+(extent 290 51))
+(terminals on)
+(pinCenter 440 200))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 143 45))
+(open
+(extent 463 110))
+(terminals on)
+(pinCenter 410 260))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 174 29))
+(pinCenter 270 310))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 39 15))
+(open
+(extent 75 29)
+(showFormat int))
+(pinCenter 217 277))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 213 50))
+(terminals on)
+(pinCenter 447 317))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 94 25))
+(open
+(extent 303 51))
+(terminals on)
+(pinCenter 457 387))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 36 45))
+(open
+(extent 12 90))
+(terminals on)
+(pinCenter 790 300))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 265 37))
+(pinCenter 940 300))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 104 50))
+(terminals on)
+(pinCenter 580 420))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 47 15))
+(open
+(extent 205 67))
+(terminals on)
+(pinCenter 680 420))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 285 50))
+(terminals on)
+(pinCenter 97 237))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 426 15))
+(open
+(extent 438 50))
+(terminals on)
+(pinCenter 460 480))
+(connect D0:1 D1:1
+(points 2 322 200 377 200))
+(connect D1:0 D2:0
+(points 4 440 215 440 230 410 230 410 235))
+(connect D11:1 D2:1
+(points 4 166 237 251 237 251 240 336 240))
+(connect D4:1 D2:2
+(points 4 239 277 260 277 260 250 336 250))
+(connect D4:1 D2:3
+(points 4 239 277 260 277 260 260 336 260))
+(connect D3:1 D2:4
+(points 4 290 310 310 310 310 270 336 270))
+(connect D2:0 D5:0
+(points 4 410 285 410 300 447 300 447 307))
+(connect D5:0 D6:0
+(points 4 447 327 447 340 457 340 457 372))
+(connect D5:1 D6:1
+(points 6 539 317 560 317 560 350 390 350 390 387 407 387))
+(connect D1:1 D7:1
+(points 4 503 190 580 190 580 290 769 290))
+(connect D6:1 D7:2
+(points 4 506 377 580 377 580 300 769 300))
+(connect D10:1 D7:3
+(points 4 706 420 730 420 730 310 769 310))
+(connect D7:1 D8:1
+(points 2 810 300 900 300))
+(connect D2:2 D9:0
+(points 5 484 270 570 270 570 390 580 390 580 410))
+(connect D9:1 D10:1
+(points 2 612 420 654 420))
+(connect D6:0 D12:0
+(points 4 457 402 457 436 460 436 460 470))
+(connect D8:1 O1:1
+(points 4 979 300 1000 300 1000 472 2124 472)))
+(stackingOrder 5 4 8 6 1 9 7 10 11 0 3 2 12)))))
+(device 0 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 Execute a CLEAR on the HPIB card.\\par\r\n}\r\n"
+)))
+(device 1 HPIBTRANSACTION
+(properties
+(name "Interface Op\'s: GPIB7 @ 7")
+(transactions 1 "EXECUTE CLEAR"))
+(implementation
+(gateway "This host")
+(channel 7)
+(timeout 5)))
+(device 2 CALL
+(properties
+(name "Call DriverInitialized")
+(callFunc "DriverInitialized")
+(parmMode rev30))
+(interface
+(output 1
+(name "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TOGLOBAL
+(properties
+(name "Set Instaddress")
+(globalName "Instaddress"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Default Power Meter Address"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "13"))
+(initValue Text
+(data  ""))))
+(device 5 FORMULA
+(properties
+(name
+"Set AgilentRFPowerMeterClass = CreateInstance(\"Agilent.AgilentRFPowerMeter.Interop\", \"Agilent.AgilentRFPowerMeter.Interop.AgilentRFPowerMeterClass\" );"
+)
+(expr 1
+"Set AgilentRFPowerMeterClass = CreateInstance(\"Agilent.AgilentRFPowerMeter.Interop\", \"Agilent.AgilentRFPowerMeter.Interop.AgilentRFPowerMeterClass\" );"
+))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DECLVAR
+(properties
+(name "Declare AgilentRFPowerMeterClass")
+(scope glob)
+(globalName "AgilentRFPowerMeterClass"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 7 NOTE
+(properties
+(name "About PowerMeter_Averages.VEE")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang2057\\f0\\fs24 Keysight Vee sample program for the   RF power meters. The program \\par\r\nuses the manual filter mode which allows the user \\par\r\nto set the filter length (a.k.a. averages). \\lang1033\\f1\\par\r\n}\r\n"
+)))
+(device 8 FORMULA
+(properties
+(name "iAgilentRFPowerMeterStatus.Clear( );")
+(expr 1 "iAgilentRFPowerMeterStatus.Clear( );"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterStatus")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.Status;")
+(expr 1 "AgilentRFPowerMeterClass.Status;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent *CLS\\par\r\n}\r\n"
+)))
+(device 13 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent *OPC?\\par\r\n}\r\n"
+)))
+(device 14 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 Iniialise the IVI COM driver \\par\r\n}\r\n"
+)))
+(device 15 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.IAgilentRFPowerMeterChannels_Item(CHA);")
+(expr 1 "AgilentRFPowerMeterClass.IAgilentRFPowerMeterChannels_Item(\"A\");"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "iAgilentRFPowerMeterChannelTrigger.ContinuousEnabled = OFF;")
+(expr 1 "AgilentRFPowerMeterClass.IAgilentRFPowerMeterChannels_Item(\"A\");"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterChannelTrigger")
+(optional yes))
+(input 2
+(name "value")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "asVariantBool(False)")
+(expr 1 "asVariantBool(FALSE)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent INIT1:CONT OFF\\par\r\n}\r\n"
+)))
+(device 19 FORMULA
+(properties
+(name "iAgilentRFPowerMeterChannelAveraging.Count;")
+(expr 1 "iAgilentRFPowerMeterChannelAveraging.Count;"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterChannelAveraging")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name "iAgilentRFPowerMeterChannelAveraging.Count = value;")
+(expr 1 "iAgilentRFPowerMeterChannelAveraging.Count = value;"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterChannelAveraging")
+(optional yes))
+(input 2
+(name "value")
+(optional yes))))
+(device 22 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 Select the Channel to use and return the reference object\\par\r\n}\r\n"
+)))
+(device 23 TOGLOBAL
+(properties
+(name "Set CHA")
+(globalName "CHA"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 24 DECLVAR
+(properties
+(name "Declare CHA")
+(scope glob)
+(globalName "CHA"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 25 FROMGLOBAL
+(properties
+(name "Get CHA")
+(globalName "CHA"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 26 FROMGLOBAL
+(properties
+(name "Get CHA")
+(globalName "CHA"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 27 FROMGLOBAL
+(properties
+(name "Get CHA")
+(globalName "CHA"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 28 CONSTANT
+(properties
+(name "Set average count to 128"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  128))
+(initValue Int32
+(data  0))))
+(device 29 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent SENS1:AVER:COUN 128\\par\r\n}\r\n"
+)))
+(device 30 FORMULA
+(properties
+(name
+"AgilentRFPowerMeterAveragingModeEnum.AgilentRFPowerMeterAveragingModeManual")
+(expr 1
+"AgilentRFPowerMeterAveragingModeEnum.AgilentRFPowerMeterAveragingModeManual"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "AgilentRFPowerMeterAveragingModeEnum.Equals(obj);")
+(expr 1 "AgilentRFPowerMeterAveragingModeEnum.Equals(obj);"))
+(interface
+(input 1
+(name "AgilentRFPowerMeterAveragingModeEnum")
+(optional yes))
+(input 2
+(name "obj")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 FORMULA
+(properties
+(name "iAgilentRFPowerMeterChannelAveraging.Mode;")
+(expr 1 "iAgilentRFPowerMeterChannelAveraging.Mode;"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterChannelAveraging")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 FORMULA
+(properties
+(name "Check the average mode is manual")
+(expr 1 "(a==1? 0:1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 36 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "Averaging Mode is AUTO")
+(midlabel "Mid")
+(lowlabel "Averaging Mode is Manual"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 37 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 Shows the use of enum values to check Average State\\par\r\n}\r\n"
+)))
+(device 39 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.CalibratorEnabled = value;")
+(expr 1 "AgilentRFPowerMeterClass.CalibratorEnabled = value;"))
+(interface
+(input 1
+(name "value")
+(optional yes))))
+(device 40 FORMULA
+(properties
+(name "asVariantBool(TRUE)")
+(expr 1 "asVariantBool(TRUE)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent OUTP:ROSC ON\\par\r\n}\r\n"
+)))
+(device 42 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.WaitForOperationComplete(MaxTimeMilliseconds);")
+(expr 1
+"AgilentRFPowerMeterClass.WaitForOperationComplete(MaxTimeMilliseconds);"))
+(interface
+(input 1
+(name "MaxTimeMilliseconds")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 44 FORMULA
+(properties
+(name "iAgilentRFPowerMeterMeasurements.Initiate( );")
+(expr 1 "iAgilentRFPowerMeterMeasurements.Initiate( );"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterMeasurements")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 45 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.Measurements;")
+(expr 1 "AgilentRFPowerMeterClass.Measurements;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 46 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 SCPI equivalent INIT\\par\r\n}\r\n"
+)))
+(device 47 FORMULA
+(properties
+(name "iAgilentRFPowerMeterMeasurement.Fetch(MaxTime);")
+(expr 1 "iAgilentRFPowerMeterMeasurement.Fetch(MaxTime);"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterMeasurement")
+(optional yes))
+(input 2
+(name "MaxTime")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 50 TEXTDISPLAY
+(properties
+(name "Data"))
+(interface
+(input 1
+(name "Data"))))
+(device 51 FORMULA
+(properties
+(name "rec.field")
+(expr 1 "\"  \"+ rec.message +\"  \""))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 52 FORMULA
+(properties
+(name "errorInfo()")
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 53 TEXTDISPLAY
+(properties
+(name "Error Message"))
+(interface
+(input 1
+(name "Data"))))
+(device 54 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.Close( );")
+(expr 1 "AgilentRFPowerMeterClass.Close( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 55 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang2057\\f0\\fs17 Close the driver \\par\r\n}\r\n"
+)))
+(device 95 CONSTANT
+(properties
+(name "1000mS"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1000))
+(initValue Int32
+(data  0))))
+(device 97 CONSTANT
+(properties
+(name "10000mS"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  50000))
+(initValue Int32
+(data  0))))
+(device 93 CONSTANT
+(properties
+(name "1000mS"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1000))
+(initValue Int32
+(data  0))))
+(device 11 FORMULA
+(properties
+(name "AgilentRFPowerMeterClass.WaitForOperationComplete(MaxTimeMilliseconds);")
+(expr 1
+"AgilentRFPowerMeterClass.WaitForOperationComplete(MaxTimeMilliseconds);"))
+(interface
+(input 1
+(name "MaxTimeMilliseconds")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 98 FORMULA
+(properties
+(name "iAgilentRFPowerMeterMeasurements.Item(Name);")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f2\\fswiss\\fcharset0 Arial;}}\r\n\\viewkind4\\uc1\\pard\\i\\f0\\fs24 This gets the pointer to the measurement interface for each of the measurements ie 1,2,3,4\\par\r\n\\par\r\nSo this then exposes the Calc, Sense etc commands that take 1,2,3,4 as part of their SCPI \\i0\\f1\\fs17\\par\r\n\\f2\\fs20\\par\r\n}\r\n"
+)
+(expr 1 "iAgilentRFPowerMeterMeasurements.Item(Name);"))
+(interface
+(input 1
+(name "iAgilentRFPowerMeterMeasurements")
+(optional yes))
+(input 2
+(name "Name")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 99 LITERALCONSTANT
+(properties
+(name "Measurement 1"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "1"))
+(initValue Text
+(data  ""))))
+(device 101 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 " This example is provided as an"
+" illustration \"as is\", and Keysight Technologies"
+" makes no warranty of any kind" " with regard to this example.")))
+(device 102 NOTE
+(properties
+(name "Using IVI COM Driver with the EPM Power Meter")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f2\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs20 NOTE: this example was written for VEE 7.0 and it also works with VEE 7.5.  However, with VEE 7.5, there is an easier way to use IVI-COM driver and it is integrated with Instrument Manager.  Please refer to other IVI-COM examples in this directory.\\par\r\n\\cf0\\b0\\f1\\fs17\\par\r\nThis example demonstrates the use of IVI-COM drivers in VEE through the\\par\r\n.NET interop.  \\par\r\n\\par\r\nTo use this example, you need to have AgilentRFPowerMeter IVI-COM driver \\par\r\nVersion 2.0.0.21 or later installed.  You can download the driver from http://www.keysight.com/find/adn.  \\par\r\n\\par\r\nAfter you have installed the AgilentRFPowerMeter IVI-COM driver, you can see the\\par\r\nexamples installed with the AgilentRFPowerMeter driver.  This VEE program has almost\\par\r\na one-to-one correspondence to the VEE example program in the examples\\\\contrib\\\\instruments\\\\EPM_Averages_SPOLL.vee \\par\r\n\\par\r\nTo use a IVI-COM driver through .NET interop, choose\\par\r\nDevice > .NET Assembly References, then choose the COM tab.  This will take\\par\r\nsome time as VEE searchs for all of the installed COM type libraries on \\par\r\nyour machine.  For this VEE program, select the IVI AgilentRFPowerMeter (Keysight Technologies) 2.0 Type Library.  Choose OK.  VEE \\par\r\nautomatically loads the interop assemblies for these type libraries.  \\par\r\nIf you have installed the drivers correctly, they should all be primary \\par\r\ninterop assemblies issued by IVI and Keysight.  \\par\r\n\\par\r\nBefore you do anything else with an IVI-COM driver, you have to create it.  \\par\r\nYou do this by calling the constructor of the IVI-COM driver class.  In this \\par\r\ncase, go to the Function & Object Browser, select .NET Objects under Type, \\par\r\nselect Agilent.AgilentRFPowerMeter.Interop under Assemblies, select \\par\r\nAgilentRFPowerMeterClass under Class, and select Constructor under Members.  \\par\r\nChoose the Create Instance button.  The formula template is created for you.  \\par\r\n\\par\r\nThe second thing you must do with an IVI-COM driver is to call Initialize \\par\r\non the IVI-COM driver class.  Open the Function & Object Browser again, \\par\r\nand scroll to Initialize under Member and create the template.  Fill in \\par\r\nthe resource name, etc.    \\par\r\n\\par\r\nBefore you exit VEE, you must call Close on the IVI-COM driver to release\\par\r\nresources, otherwise, VEE processes are left running.  This is a \\par\r\npeculiarity of IVI-COM drivers.\\cf1\\f2\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D4:0 D1:0)
+(connect D5:0 D2:0)
+(connect D4:1 D3:1)
+(connect D1:0 D5:0)
+(connect D9:1 D8:1)
+(connect D2:0 D9:0)
+(connect D50:0 D13:0)
+(connect D15:0 D14:0)
+(connect D22:1 D14:1)
+(connect D15:1 D14:2)
+(connect D22:0 D15:0)
+(connect D24:0 D17:0)
+(connect D24:1 D17:1)
+(connect D25:0 D18:0)
+(connect D23:1 D18:1)
+(connect D25:1 D18:2)
+(connect D13:1 D20:1)
+(connect D13:0 D22:0)
+(connect D14:0 D23:0)
+(connect D18:0 D24:0)
+(connect D23:0 D25:0)
+(connect D17:0 D27:0)
+(connect D27:1 D28:1)
+(connect D29:1 D28:2)
+(connect D27:0 D29:0)
+(connect D24:1 D29:1)
+(connect D28:1 D30:1)
+(connect D30:1 D31:1)
+(connect D29:0 D33:0)
+(connect D34:1 D33:1)
+(connect D33:0 D36:0)
+(connect D47:1 D36:1)
+(connect D38:0 D37:0)
+(connect D38:1 D37:1)
+(connect D36:0 D38:0)
+(connect D48:0 D40:0)
+(connect D51:1 D40:1)
+(connect D48:1 D40:2)
+(connect D40:1 D41:1)
+(connect D43:1 D42:1)
+(connect D40:2 D43:0)
+(connect D42:1 D44:1)
+(connect D40:0 D45:0)
+(connect D51:0 D48:0)
+(connect D9:0 D50:0)
+(connect D49:1 D50:1)
+(connect D37:0 D51:0)
+(connect D38:1 D51:1)
+(connect D52:1 D51:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 606 641)
+(wndState max)
+(active detail)
+(detail
+(extent 841 619)
+(anchorPt 257 298)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 275 35)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 520 80))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 155 51)
+(iconImage "io.icn"))
+(open
+(extent 230 44))
+(terminals on)
+(pinCenter 220 100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 220 220))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 95 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 430 20))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 174 15))
+(open
+(extent 210 29))
+(pinCenter 220 20))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 744 25))
+(open
+(extent 727 65))
+(terminals on)
+(pinCenter 220 170))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 167 15))
+(open
+(extent 328 104))
+(pinCenter 490 -60))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 201 0)
+(iconImage "notepad.icn"))
+(open
+(extent 534 136)
+(editing enabled))
+(pinCenter 260 -350))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 173 15))
+(open
+(extent 208 50))
+(terminals on)
+(pinCenter 440 270))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 161 15))
+(open
+(extent 197 50))
+(terminals on)
+(pinCenter 220 270))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 144 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 740 280))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 144 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 740 340))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 204 34)
+(editing enabled))
+(title off)
+(bg "Beige")
+(titleBg "Med Light Blue")
+(pinCenter 710 230))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 336 15))
+(open
+(extent 365 50))
+(terminals on)
+(pinCenter 210 380))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 345 25))
+(open
+(extent 370 50))
+(terminals on)
+(pinCenter 220 450))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 140 50))
+(terminals on)
+(pinCenter -50 460))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 234 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 700 460))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 237 15))
+(open
+(extent 266 50))
+(terminals on)
+(pinCenter 220 580))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 283 25))
+(open
+(extent 308 50))
+(terminals on)
+(pinCenter 220 520))
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 34)
+(editing enabled))
+(title off)
+(bg "Beige")
+(titleBg "Med Light Blue")
+(pinCenter 660 390))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 440 380))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 311 104))
+(pinCenter 480 -100))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -20 420))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 20 510))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -80 630))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 184 29)
+(showFormat int))
+(pinCenter -30 540))
+(devCarrierFor 29
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 234 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 700 530))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 429 15))
+(open
+(extent 440 50))
+(terminals on)
+(pinCenter 220 630))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 286 25))
+(open
+(extent 310 50))
+(terminals on)
+(pinCenter 610 640))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 234 15))
+(open
+(extent 263 50))
+(terminals on)
+(pinCenter 220 680))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 214 15))
+(open
+(extent 170 50))
+(terminals on)
+(pinCenter 910 640))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 26 15))
+(open
+(extent 184 44)
+(fastmode on)
+(layout rectangle))
+(title off)
+(pinCenter 1140 640))
+(devCarrierFor 37
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 34)
+(editing enabled))
+(title off)
+(bg "Beige")
+(titleBg "Med Light Blue")
+(pinCenter 660 700))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 279 15))
+(open
+(extent 304 50))
+(terminals on)
+(pinCenter 220 770))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 129 15))
+(open
+(extent 140 50))
+(terminals on)
+(pinCenter -40 770))
+(devCarrierFor 41
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 234 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 700 760))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 426 15))
+(open
+(extent 438 50))
+(terminals on)
+(pinCenter 220 820))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 233 15))
+(open
+(extent 262 50))
+(terminals on)
+(pinCenter 220 890))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 214 15))
+(open
+(extent 245 50))
+(terminals on)
+(pinCenter -90 890))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 234 34)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(titleBg "Med Light Blue")
+(pinCenter 700 890))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 269 25))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 220 960))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 30 0))
+(open
+(extent 121 22))
+(pinCenter 460 950))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 47 15))
+(open
+(extent 205 67))
+(terminals on)
+(pinCenter 510 1010))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 104 50))
+(terminals on)
+(pinCenter 390 1010))
+(devCarrierFor 53
+(active open)
+(icon
+(extent 89 0))
+(open
+(extent 494 46))
+(pinCenter 810 1010))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 171 15))
+(open
+(extent 206 50))
+(terminals on)
+(pinCenter 220 1050))
+(devCarrierFor 55
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 134 34)
+(editing enabled))
+(title off)
+(bg "Beige")
+(titleBg "Med Light Blue")
+(pinCenter 750 1070))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 87 29)
+(showFormat int))
+(pinCenter -70 820))
+(devCarrierFor 97
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 95 29)
+(showFormat int))
+(pinCenter 0 1010))
+(devCarrierFor 93
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 87 29)
+(showFormat int))
+(pinCenter -80 330))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 426 15))
+(open
+(extent 454 526))
+(terminals on)
+(pinCenter 230 320))
+(devCarrierFor 98
+(active icon)
+(icon
+(extent 254 25))
+(open
+(extent 281 50))
+(terminals on)
+(pinCenter -70 950))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 94 15))
+(open
+(extent 174 29))
+(pinCenter -270 960))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 395 89)
+(editing disabled))
+(pinCenter 160 -480))
+(devCarrierFor 102
+(active open)
+(icon
+(extent 283 0)
+(iconImage "notepad.icn"))
+(open
+(extent 434 536)
+(editing disabled))
+(pinCenter -250 -230))
+(connect D4:0 D1:0
+(points 2 220 37 220 57))
+(connect D5:0 D2:0
+(points 2 220 185 220 210))
+(connect D4:1 D3:1
+(points 2 327 20 380 20))
+(connect D1:0 D5:0
+(points 2 220 124 220 155))
+(connect D9:1 D8:1
+(points 2 303 270 351 270))
+(connect D2:0 D9:0
+(points 2 220 230 220 260))
+(connect D50:0 D13:0
+(points 4 230 330 230 340 210 340 210 370))
+(connect D15:0 D14:0
+(points 6 -50 470 -50 480 40 480 40 420 220 420 220 435))
+(connect D22:1 D14:1
+(points 4 8 420 30 420 30 440 45 440))
+(connect D15:1 D14:2
+(points 2 16 460 45 460))
+(connect D22:0 D15:0
+(points 4 -20 430 -20 440 -50 440 -50 450))
+(connect D24:0 D17:0
+(points 10 -80 640 -80 660 -20 660 -20 640 -10 640 -10 590 90 590 90 560 220 560
+220 570))
+(connect D24:1 D17:1
+(points 4 -52 630 -20 630 -20 580 99 580))
+(connect D25:0 D18:0
+(points 6 -30 550 -30 560 70 560 70 500 220 500 220 505))
+(connect D23:1 D18:1
+(points 2 48 510 76 510))
+(connect D25:1 D18:2
+(points 4 46 540 60 540 60 530 76 530))
+(connect D13:1 D20:1
+(points 2 380 380 412 380))
+(connect D13:0 D22:0
+(points 6 210 390 210 410 30 410 30 390 -20 390 -20 410))
+(connect D14:0 D23:0
+(points 4 220 465 220 490 20 490 20 500))
+(connect D18:0 D24:0
+(points 6 220 535 220 550 80 550 80 570 -80 570 -80 620))
+(connect D23:0 D25:0
+(points 6 20 520 20 530 10 530 10 520 -30 520 -30 530))
+(connect D17:0 D27:0
+(points 2 220 590 220 620))
+(connect D27:1 D28:1
+(points 2 437 630 464 630))
+(connect D29:1 D28:2
+(points 4 339 680 440 680 440 650 464 650))
+(connect D27:0 D29:0
+(points 2 220 640 220 670))
+(connect D24:1 D29:1
+(points 4 -52 630 -30 630 -30 680 100 680))
+(connect D28:1 D30:1
+(points 2 755 640 800 640))
+(connect D30:1 D31:1
+(points 2 1019 640 1045 640))
+(connect D29:0 D33:0
+(points 2 220 690 220 760))
+(connect D34:1 D33:1
+(points 2 27 770 78 770))
+(connect D33:0 D36:0
+(points 2 220 780 220 810))
+(connect D47:1 D36:1
+(points 2 -42 820 4 820))
+(connect D38:0 D37:0
+(points 6 -90 900 -90 910 -80 910 -80 860 220 860 220 880))
+(connect D38:1 D37:1
+(points 2 19 890 101 890))
+(connect D36:0 D38:0
+(points 4 220 830 220 850 -90 850 -90 880))
+(connect D48:0 D40:0
+(points 6 0 1020 0 1040 60 1040 60 930 220 930 220 945))
+(connect D51:1 D40:1
+(points 2 59 950 83 950))
+(connect D48:1 D40:2
+(points 4 32 1010 50 1010 50 970 83 970))
+(connect D40:1 D41:1
+(points 2 357 950 397 950))
+(connect D43:1 D42:1
+(points 2 422 1010 484 1010))
+(connect D40:2 D43:0
+(points 5 357 970 380 970 380 980 390 980 390 1000))
+(connect D42:1 D44:1
+(points 2 536 1010 560 1010))
+(connect D40:0 D45:0
+(points 2 220 975 220 1040))
+(connect D51:0 D48:0
+(points 4 -70 965 -70 990 0 990 0 1000))
+(connect D9:0 D50:0
+(points 4 220 280 220 290 230 290 230 310))
+(connect D49:1 D50:1
+(points 4 -52 330 -30 330 -30 320 14 320))
+(connect D37:0 D51:0
+(points 6 220 900 220 920 50 920 50 930 -70 930 -70 935))
+(connect D38:1 D51:1
+(points 6 19 890 40 890 40 920 -210 920 -210 940 -200 940))
+(connect D52:1 D51:2
+(points 2 -221 960 -200 960)))
+(stackingOrder 0 1 5 6 10 11 12 16 19 21 22 23 17 25 26 27 29 28 30 31 32 33 15
+34 35 36 38 37 39 24 40 41 46 47 8 49 44 42 43 48 51 52 45 2 18 13 50 14 9 20 3
+4 53 7 54))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

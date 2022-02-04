@@ -1,0 +1,2970 @@
+(saveFormat "7.0")
+(date "Fri 31/Mar/2006 14:59:56 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.146 M.19 M.137 M)
+(sysconfig
+(iodevice "PowerSupply"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 5)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "agvisa")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 196)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 NOTE
+(properties
+(name "Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fmodern\\fcharset0 Courier New;}{\\f2\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The purpose of this sample is to show how to use VEE to set the outputs and retrieve data from a N6700B modular power supply. \\par\r\nThe program will read the mainframe id string and read the identies of the installed modules.\\par\r\nBased on the number of installed modules, the program will set the output voltage, output current limit, and output state of the modules.\\par\r\nThe actual output voltage and current will be read back.\\par\r\nThe output power of each module in the power supply will be calculated and displayed on a strip chart.\\par\r\nChange the initial voltage and current values and the output enable state\\par\r\n\\par\r\nPlease press the Run button in the VEE menu from the Panel or the Detail view to start this sample. And to stop it, if it is not already done, just press the Stop button in the same VEE menu.\\par\r\n\\cf0\\f1\\fs20\\par\r\nNote that you can double click on the \"Note Pad\" objects in the Detail view to see help in the various steps in the program.\\par\r\n\\par\r\n\\b\\f2\\par\r\n}\r\n"
+)))
+(device 3 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.1\\par\r\n   as a minimum.\\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 705 on the GPIB bus.\\par\r\n}\r\n"
+)))
+(device 14 TEXTDISPLAY
+(properties
+(name "InstrID"))
+(interface
+(input 1
+(name "Data"))))
+(device 19 CONTEXT
+(properties
+(name "InstrPreset")
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "ID Response")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 5 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 6 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 2 "WRITE TEXT \"SYSTEM:CHANNEL:COUNT?\" EOL" "READ TEXT x REAL64")
+)
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 11 NOTE
+(properties
+(name "InstrPreset")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object resets the instrument (*RST), clears the status registers and error queue (*CLS) and gets the instrument ID string (*IDN?).\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(wndOrigin 162 630)
+(wndRestoredOrigin 22 22)
+(wndRestoredExtent 844 222)
+(wndState min)
+(active detail)
+(detail
+(extent 900 633)
+(anchorPt -391 -65)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 234 106))
+(terminals on)
+(pinCenter 650 130))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 364 206))
+(terminals on)
+(pinCenter 650 380))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1000 390))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 640 -40))
+(connect D0:0 D1:0
+(points 2 650 185 650 256))
+(connect D1:1 D2:1
+(points 4 864 380 880 380 880 390 937 390))
+(connect D0:1 O1:1
+(points 4 799 130 1128 130 1128 381 1290 381)))
+(stackingOrder 0 3 1 2))))
+(device 127 CONTEXT
+(properties
+(name "VEE Analysis - Calculate Power")
+(trigMode deg)
+(nextID 21)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(type data)
+(name "Power")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 19 FORMULA
+(properties
+(expr 1 "voltage*current"))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 NOTE
+(properties
+(name "VEE Analysis - Calculate Power")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object calculates the measured output power of the power supply using the measured voltage and current.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1140 563)
+(anchorPt 183 -137)
+(configuration
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 315 640))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 189 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 290 470))
+(connect I1:1 D0:1
+(points 4 -183 278 -60 278 -60 630 180 630))
+(connect I2:1 D0:2
+(points 4 -183 558 -60 558 -60 650 180 650))
+(connect D0:1 O1:1
+(points 4 440 640 460 640 460 418 956 418)))
+(stackingOrder 0 1))))
+(device 130 CONTEXT
+(properties
+(name "Read Channel 1 Output Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Voltage")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Current")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"MEASURE:VOLTAGE? (@1)\" EOL"
+"READ TEXT VOLTAGE REAL64" "WRITE TEXT \"MEASURE:CURRENT? (@1)\" EOL"
+"READ TEXT CURRENT REAL64"))
+(interface
+(output 1
+(name "VOLTAGE")
+(optional yes))
+(output 2
+(name "CURRENT")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 NOTE
+(properties
+(name "Read Channel 1 Output Values")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object reads the measured voltage and current.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -115 -109)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 545 420))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 187 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 76)
+(editing enabled))
+(pinCenter 550 220))
+(connect D0:1 O1:1
+(points 4 779 390 800 390 800 178 464 178))
+(connect D0:2 O2:1
+(points 4 779 450 800 450 800 338 464 338)))
+(stackingOrder 0 1))))
+(device 134 CONSTANT
+(properties
+(name "Voltage Setting"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  4))
+(initValue Real
+(data  0))))
+(device 135 CONSTANT
+(properties
+(name "Current Limit"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 136 TOGGLE25
+(properties
+(name "Output Enable"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 137 CONTEXT
+(properties
+(name "Program Channel 1 Settings")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage Setting Chan 1")
+(optional yes))
+(input 2
+(name "Current Limit 1")
+(optional yes))
+(input 3
+(name "Output Enable 1")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"VOLTAGE \", A, \", (@1)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"CURRENT \", A, \", (@1)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 2 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"OUTPUT \", A, \", (@1)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 3 NOTE
+(properties
+(name "Program Channel 1 Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object programs the desired voltage, the current limit and the output state.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:0 D1:0)
+(connect I2:1 D1:1)
+(connect D1:0 D2:0)
+(connect I3:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 630)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 350 300)
+(wndState min)
+(active detail)
+(detail
+(extent 840 633)
+(anchorPt -110 -72)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 56))
+(terminals on)
+(pinCenter 460 360))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 510))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 660))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 171 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 450 190))
+(connect I1:1 D0:1
+(points 4 110 174 -10 174 -10 360 295 360))
+(connect D0:0 D1:0
+(points 2 460 390 460 461))
+(connect I2:1 D1:1
+(points 4 110 384 -10 384 -10 510 290 510))
+(connect D1:0 D2:0
+(points 2 460 540 460 611))
+(connect I3:1 D2:1
+(points 4 110 594 -10 594 -10 660 290 660)))
+(stackingOrder 0 2 1 3))))
+(device 141 TEXTDISPLAY
+(properties
+(name "Actual Output Voltage (V)"))
+(interface
+(input 1
+(name "Data"))))
+(device 142 TEXTDISPLAY
+(properties
+(name "Actual Output Current (A)"))
+(interface
+(input 1
+(name "Data"))))
+(device 143 TEXTDISPLAY
+(properties
+(name "Actual Output Power (W)"))
+(interface
+(input 1
+(name "Data"))))
+(device 144 CONTEXT
+(properties
+(name "Check for Errors")
+(trigMode deg)
+(nextID 8)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 2 "WRITE TEXT \"SYSTEM:ERROR?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 2 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 BREAK)
+(device 4 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 7 NOTE
+(properties
+(name "Check for Errors")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object queries the power supply for errors.  It will query the error queue until the response is zero, or no error.  The If/Then/Else object has a type constraint on the input.  It will convert the error response to an integer.  This makes the test for zero easier.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:0)
+(connect D1:0 D2:0)
+(connect D1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D1:1 D4:1)
+(connect D0:0 D4:2)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -76 34)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 250 190))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 86))
+(terminals on)
+(pinCenter 470 390))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 745 390))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 880 450))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 750 550))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 97 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 136)
+(editing enabled))
+(pinCenter 620 90))
+(connect D0:1 D1:0
+(points 3 286 190 470 190 470 326))
+(connect D1:0 D2:0
+(points 6 470 435 470 460 650 460 650 320 750 320 750 344))
+(connect D1:1 D2:1
+(points 2 634 390 685 390))
+(connect D2:1 D3:0
+(points 3 814 380 880 380 880 440))
+(connect D1:1 D4:1
+(points 4 634 390 670 390 670 540 721 540))
+(connect D0:0 D4:2
+(points 3 250 218 250 560 721 560))
+(connect D4:1 O1:1
+(points 4 779 550 920 550 920 115 425 115)))
+(stackingOrder 0 1 3 2 4 5))))
+(device 145 TEXTDISPLAY
+(properties
+(name "Instrument Errors Que"))
+(interface
+(input 1
+(name "Data"))))
+(device 146 CONTEXT
+(properties
+(name "Identify Modules")
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "InstalledModules")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Identify Modules")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This user object queries the mainframe for the number of installed modules.  It then uses that information to query the module model and serial number.  A local variable is used to create the string of module models and serial numbers.\\par\r\n}\r\n"
+)))
+(device 6 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"SYSTEM:CHANNEL:MODEL? (@\", channel, \")\" EOL"
+"READ TEXT Y STR" "WRITE TEXT \"SYSTEM:CHANNEL:SERIAL? (@\", channel, \")\" EOL"
+"READ TEXT x STR"))
+(interface
+(input 1
+(name "Channel")
+(optional yes))
+(output 1
+(name "Y")
+(optional yes))
+(output 2
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 7 TEXTDISPLAY
+(properties
+(name "Number of Channels"))
+(interface
+(input 1
+(name "Data"))))
+(device 12 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 2 "WRITE TEXT \"SYSTEM:CHANNEL:COUNT?\" EOL"
+"READ TEXT Channels INT32"))
+(interface
+(output 1
+(name "Channels")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 13 FORRANGE
+(properties
+(from 1)
+(thru 1)
+(step 1))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 14 SCROLLINGTEXTDISPLAY
+(properties
+(name "Installed Modules")
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 19 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT A+\"  \"+B+\";  \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 21 TOGLOBAL
+(properties
+(name "Set G_N6700a_Sample_Number_Of_Channels")
+(globalName "G_N6700a_Sample_Number_Of_Channels"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 22 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"DISPLAY:VIEW METER4\" EOL"))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 33 TOGLOBAL
+(properties
+(name "Set g_agn6700b_modules")
+(globalName "g_agn6700b_modules"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 34 LITERALCONSTANT
+(properties
+(name "null"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 35 FORMULA
+(properties
+(expr 1 "g_agn6700b_modules=g_agn6700b_modules+a"))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 40 DECLVAR
+(properties
+(name "Declare g_agn6700b_modules")
+(scope con)
+(globalName "g_agn6700b_modules"))
+(implementation
+(value Text
+(data  ""))))
+(device 41 FROMGLOBAL
+(properties
+(name "Get g_agn6700b_modules")
+(globalName "g_agn6700b_modules"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(configuration
+(connect D4:1 D1:1)
+(connect D3:1 D2:1)
+(connect D8:0 D3:0)
+(connect D3:1 D4:1)
+(connect D1:1 D5:1)
+(connect D1:1 D6:1)
+(connect D1:2 D6:2)
+(connect D3:1 D7:1)
+(connect D9:0 D8:0)
+(connect D10:1 D9:1)
+(connect D6:1 D11:1)
+(connect D4:0 D13:0)
+(connect D13:1 O1:1)))
+(contextCarrier
+(wndOrigin 322 630)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 844 222)
+(wndState min)
+(active detail)
+(detail
+(extent 880 633)
+(anchorPt -26 365)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 96 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 280 -430))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 384 116))
+(terminals on)
+(pinCenter 675 380))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 126 0))
+(open
+(extent 162 22))
+(pinCenter 720 100))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 86))
+(terminals on)
+(pinCenter 260 100))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 280 380))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 184 66)
+(noformatter))
+(pinCenter 1230 200))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 1110 370))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 289 15))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 820 200))
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 280 -50))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 161 15))
+(open
+(extent 129 51))
+(terminals on)
+(pinCenter 280 -150))
+(devCarrierFor 34
+(active open)
+(icon
+(extent 24 0))
+(open
+(extent 74 36))
+(pinCenter 120 -150))
+(devCarrierFor 35
+(active open)
+(icon)
+(open
+(extent 304 56))
+(terminals on)
+(pinCenter 1600 370))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 189 15))
+(open
+(extent 225 103))
+(pinCenter 270 -280))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 162 15))
+(open
+(extent 128 51))
+(terminals on)
+(pinCenter 280 680))
+(connect D4:1 D1:1
+(points 2 332 380 420 380))
+(connect D3:1 D2:1
+(points 2 484 100 636 100))
+(connect D8:0 D3:0
+(points 2 280 -20 280 36))
+(connect D3:1 D4:1
+(points 6 484 100 500 100 500 170 210 170 210 380 228 380))
+(connect D1:1 D5:1
+(points 6 899 350 930 350 930 280 990 280 990 200 1135 200))
+(connect D1:1 D6:1
+(points 2 899 350 963 350))
+(connect D1:2 D6:2
+(points 4 899 410 920 410 920 390 963 390))
+(connect D3:1 D7:1
+(points 4 484 100 620 100 620 200 673 200))
+(connect D9:0 D8:0
+(points 2 280 -140 280 -99))
+(connect D10:1 D9:1
+(points 2 159 -150 197 -150))
+(connect D6:1 D11:1
+(points 2 1277 370 1415 370))
+(connect D4:0 D13:0
+(points 2 280 422 280 670))
+(connect D13:1 O1:1
+(points 4 363 680 380 680 380 -49 905 -49)))
+(stackingOrder 4 3 2 1 8 10 9 0 12 13 6 5 11 7))))
+(device 150 YPLOT
+(properties
+(name "Output Power"))
+(interface
+(input 1
+(name "Channel 1")
+(lock constraints))
+(input 2
+(name "Channel 2")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Channel 3")
+(lock constraints)
+(optional yes))
+(input 4
+(name "Channel 4")
+(lock constraints)
+(optional yes))
+(input 5
+(type control)
+(name "Auto Scale Y")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(graphMode strip)
+(bufferSize 10000)))
+(device 152 LABEL
+(properties
+(name "Channel 1")
+(labelValue "Channel 1"))
+(implementation))
+(device 153 TOGGLE25
+(properties
+(name "Output Enable"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 154 CONSTANT
+(properties
+(name "Current Limit"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.3))
+(initValue Real
+(data  0))))
+(device 155 LABEL
+(properties
+(name "Channel 2")
+(labelValue "Channel 2"))
+(implementation))
+(device 156 CONSTANT
+(properties
+(name "Voltage Setting"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  7))
+(initValue Real
+(data  0))))
+(device 157 TOGGLE25
+(properties
+(name "Output Enable"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 158 CONSTANT
+(properties
+(name "Current Limit"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 159 LABEL
+(properties
+(name "Channel 3")
+(labelValue "Channel 3"))
+(implementation))
+(device 160 CONSTANT
+(properties
+(name "Voltage Setting"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  8))
+(initValue Real
+(data  0))))
+(device 161 TOGGLE25
+(properties
+(name "Output Enable"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 162 CONSTANT
+(properties
+(name "Current Limit"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 163 LABEL
+(properties
+(name "Channel 4")
+(labelValue "Channel 4"))
+(implementation))
+(device 164 CONSTANT
+(properties
+(name "Voltage Setting"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  25))
+(initValue Real
+(data  0))))
+(device 165 CONTEXT
+(properties
+(name "Program Channel 2 Settings")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage Setting Chan 2")
+(optional yes))
+(input 2
+(name "Current Limit 2")
+(optional yes))
+(input 3
+(name "Output Enable 2")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"VOLTAGE \", A, \", (@2)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"CURRENT \", A, \", (@2)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 2 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"OUTPUT \", A, \", (@2)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 3 NOTE
+(properties
+(name "Program Channel 2 Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object programs the desired voltage, the current limit and the output state.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:0 D1:0)
+(connect I2:1 D1:1)
+(connect D1:0 D2:0)
+(connect I3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -84 -35)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 56))
+(terminals on)
+(pinCenter 460 360))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 510))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 660))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 171 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 450 180))
+(connect I1:1 D0:1
+(points 4 84 84 -10 84 -10 360 295 360))
+(connect D0:0 D1:0
+(points 2 460 390 460 461))
+(connect I2:1 D1:1
+(points 4 84 184 -10 184 -10 510 290 510))
+(connect D1:0 D2:0
+(points 2 460 540 460 611))
+(connect I3:1 D2:1
+(points 4 84 284 -10 284 -10 660 290 660)))
+(stackingOrder 0 2 1 3))))
+(device 166 CONTEXT
+(properties
+(name "Program Channel 3 Settings")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage Setting Chan 3")
+(optional yes))
+(input 2
+(name "Current Limit 3")
+(optional yes))
+(input 3
+(name "Output Enable 3")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"VOLTAGE \", A, \", (@3)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"CURRENT \", A, \", (@3)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 2 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"OUTPUT \", A, \", (@3)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 3 NOTE
+(properties
+(name "Program Channel 3 Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object programs the desired voltage, the current limit and the output state.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:0 D1:0)
+(connect I2:1 D1:1)
+(connect D1:0 D2:0)
+(connect I3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 24 -58)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 56))
+(terminals on)
+(pinCenter 460 360))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 510))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 660))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 171 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 430 180))
+(connect I1:1 D0:1
+(points 4 -24 107 -10 107 -10 360 295 360))
+(connect D0:0 D1:0
+(points 2 460 390 460 461))
+(connect I2:1 D1:1
+(points 4 -24 207 -10 207 -10 510 290 510))
+(connect D1:0 D2:0
+(points 2 460 540 460 611))
+(connect I3:1 D2:1
+(points 4 -24 307 -10 307 -10 660 290 660)))
+(stackingOrder 0 2 1 3))))
+(device 167 CONTEXT
+(properties
+(name "Program Channel 4 Settings")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage Setting Chan 4")
+(optional yes))
+(input 2
+(name "Current Limit 4")
+(optional yes))
+(input 3
+(name "Output Enable 4")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"VOLTAGE \", A, \", (@4)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"CURRENT \", A, \", (@4)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 2 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 1 "WRITE TEXT \"OUTPUT \", A, \", (@4)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 3 NOTE
+(properties
+(name "Program Channel 4 Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object programs the desired voltage, the current limit and the output state.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:0 D1:0)
+(connect I2:1 D1:1)
+(connect D1:0 D2:0)
+(connect I3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 24 -58)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 56))
+(terminals on)
+(pinCenter 460 360))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 510))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 460 660))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 171 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 440 170))
+(connect I1:1 D0:1
+(points 4 -24 107 -10 107 -10 360 295 360))
+(connect D0:0 D1:0
+(points 2 460 390 460 461))
+(connect I2:1 D1:1
+(points 4 -24 207 -10 207 -10 510 290 510))
+(connect D1:0 D2:0
+(points 2 460 540 460 611))
+(connect I3:1 D2:1
+(points 4 -24 307 -10 307 -10 660 290 660)))
+(stackingOrder 0 2 1 3))))
+(device 168 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels>=2"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 169 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels>=3"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 170 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels==4"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 171 LABEL
+(properties
+(name "Channel 4")
+(labelValue "Channel 4"))
+(implementation))
+(device 172 LABEL
+(properties
+(name "Channel 3")
+(labelValue "Channel 3"))
+(implementation))
+(device 173 LABEL
+(properties
+(name "Channel 2")
+(labelValue "Channel 2"))
+(implementation))
+(device 174 LABEL
+(properties
+(name "Channel 1")
+(labelValue "Channel 1"))
+(implementation))
+(device 175 TEXTDISPLAY
+(properties
+(name "Actual Output Current (A)"))
+(interface
+(input 1
+(name "Data"))))
+(device 176 TEXTDISPLAY
+(properties
+(name "Actual Output Voltage (V)"))
+(interface
+(input 1
+(name "Data"))))
+(device 177 TEXTDISPLAY
+(properties
+(name "Actual Output Current (A)"))
+(interface
+(input 1
+(name "Data"))))
+(device 178 TEXTDISPLAY
+(properties
+(name "Actual Output Voltage (V)"))
+(interface
+(input 1
+(name "Data"))))
+(device 179 TEXTDISPLAY
+(properties
+(name "Actual Output Current (A)"))
+(interface
+(input 1
+(name "Data"))))
+(device 180 TEXTDISPLAY
+(properties
+(name "Actual Output Voltage (V)"))
+(interface
+(input 1
+(name "Data"))))
+(device 181 TEXTDISPLAY
+(properties
+(name "Actual Output Power (W)"))
+(interface
+(input 1
+(name "Data"))))
+(device 182 TEXTDISPLAY
+(properties
+(name "Actual Output Power (W)"))
+(interface
+(input 1
+(name "Data"))))
+(device 183 TEXTDISPLAY
+(properties
+(name "Actual Output Power (W)"))
+(interface
+(input 1
+(name "Data"))))
+(device 184 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels==4"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 185 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels>=3"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 186 IFTHENELSE
+(properties
+(cases 1 "G_N6700a_Sample_Number_Of_Channels>=2"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 187 CONTEXT
+(properties
+(name "Read Channel 2 Output Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Voltage")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Current")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"MEASURE:VOLTAGE? (@2)\" EOL"
+"READ TEXT VOLTAGE REAL64" "WRITE TEXT \"MEASURE:CURRENT? (@2)\" EOL"
+"READ TEXT CURRENT REAL64"))
+(interface
+(output 1
+(name "VOLTAGE")
+(optional yes))
+(output 2
+(name "CURRENT")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 NOTE
+(properties
+(name "Read Channel 2 Output Values")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object reads the measured voltage and current.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -301 -40)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 545 420))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 187 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 76)
+(editing enabled))
+(pinCenter 540 180))
+(connect D0:1 O1:1
+(points 4 779 390 800 390 800 109 650 109))
+(connect D0:2 O2:1
+(points 4 779 450 800 450 800 269 650 269)))
+(stackingOrder 0 1))))
+(device 188 CONTEXT
+(properties
+(name "Read Channel 3 Output Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Voltage")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Current")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"MEASURE:VOLTAGE? (@3)\" EOL"
+"READ TEXT VOLTAGE REAL64" "WRITE TEXT \"MEASURE:CURRENT? (@3)\" EOL"
+"READ TEXT CURRENT REAL64"))
+(interface
+(output 1
+(name "VOLTAGE")
+(optional yes))
+(output 2
+(name "CURRENT")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 NOTE
+(properties
+(name "Read Channel 3 Output Values")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object reads the measured voltage and current.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -224 -124)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 545 420))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 187 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 76)
+(editing enabled))
+(pinCenter 560 230))
+(connect D0:1 O1:1
+(points 4 779 390 800 390 800 193 573 193))
+(connect D0:2 O2:1
+(points 4 779 450 800 450 800 353 573 353)))
+(stackingOrder 0 1))))
+(device 189 CONTEXT
+(properties
+(name "Read Channel 4 Output Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Voltage")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Current")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "PowerSupply ( @ 705)")
+(transactions 4 "WRITE TEXT \"MEASURE:VOLTAGE? (@4)\" EOL"
+"READ TEXT VOLTAGE REAL64" "WRITE TEXT \"MEASURE:CURRENT? (@4)\" EOL"
+"READ TEXT CURRENT REAL64"))
+(interface
+(output 1
+(name "VOLTAGE")
+(optional yes))
+(output 2
+(name "CURRENT")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "PowerSupply")))
+(device 1 NOTE
+(properties
+(name "Read Channel 4 Output Values")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object reads the measured voltage and current.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -184 -53)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 545 420))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 187 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 76)
+(editing enabled))
+(pinCenter 550 210))
+(connect D0:1 O1:1
+(points 4 779 390 800 390 800 122 533 122))
+(connect D0:2 O2:1
+(points 4 779 450 800 450 800 282 533 282)))
+(stackingOrder 0 1))))
+(device 190 CONTEXT
+(properties
+(name "VEE Analysis - Calculate Power")
+(trigMode deg)
+(nextID 21)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(type data)
+(name "Power")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 19 FORMULA
+(properties
+(expr 1 "voltage*current"))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 NOTE
+(properties
+(name "VEE Analysis - Calculate Power")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object calculates the measured output power of the power supply using the measured voltage and current.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1140 563)
+(anchorPt 44 -300)
+(configuration
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 315 640))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 189 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 280 440))
+(connect I1:1 D0:1
+(points 4 -44 441 -60 441 -60 630 180 630))
+(connect I2:1 D0:2
+(points 4 -44 721 -60 721 -60 650 180 650))
+(connect D0:1 O1:1
+(points 4 440 640 460 640 460 581 1095 581)))
+(stackingOrder 0 1))))
+(device 191 CONTEXT
+(properties
+(name "VEE Analysis - Calculate Power")
+(trigMode deg)
+(nextID 21)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(type data)
+(name "Power")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 19 FORMULA
+(properties
+(expr 1 "voltage*current"))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 NOTE
+(properties
+(name "VEE Analysis - Calculate Power")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object calculates the measured output power of the power supply using the measured voltage and current.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1140 563)
+(anchorPt 97 -108)
+(configuration
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 315 640))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 189 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 280 460))
+(connect I1:1 D0:1
+(points 4 -97 249 -60 249 -60 630 180 630))
+(connect I2:1 D0:2
+(points 4 -97 529 -60 529 -60 650 180 650))
+(connect D0:1 O1:1
+(points 4 440 640 460 640 460 389 1042 389)))
+(stackingOrder 0 1))))
+(device 192 CONTEXT
+(properties
+(name "VEE Analysis - Calculate Power")
+(trigMode deg)
+(nextID 21)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(type data)
+(name "Power")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 19 FORMULA
+(properties
+(expr 1 "voltage*current"))
+(interface
+(input 1
+(name "Voltage")
+(optional yes))
+(input 2
+(name "Current")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 NOTE
+(properties
+(name "VEE Analysis - Calculate Power")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This User Object calculates the measured output power of the power supply using the measured voltage and current.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1140 563)
+(anchorPt 20 -113)
+(configuration
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 315 640))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 189 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 300 460))
+(connect I1:1 D0:1
+(points 4 -20 254 -60 254 -60 630 180 630))
+(connect I2:1 D0:2
+(points 4 -20 534 -60 534 -60 650 180 650))
+(connect D0:1 O1:1
+(points 4 440 640 460 640 460 394 1119 394)))
+(stackingOrder 0 1))))
+(device 193 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 194 TEXTDISPLAY
+(properties
+(name "Installed Modules and Serial Numbers"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D4:1 D3:1)
+(connect D6:1 D5:1)
+(connect D6:2 D5:2)
+(connect D59:1 D6:0)
+(connect D16:0 D10:0)
+(connect D7:1 D10:1)
+(connect D8:1 D10:2)
+(connect D9:1 D10:3)
+(connect D6:1 D11:1)
+(connect D6:2 D12:1)
+(connect D5:1 D13:1)
+(connect D50:0 D14:0)
+(connect D14:1 D15:1)
+(connect D4:0 D16:0)
+(connect D5:1 D17:1)
+(connect D56:1 D17:2)
+(connect D57:1 D17:3)
+(connect D58:1 D17:4)
+(connect D17:0 D17:5)
+(connect D34:1 D31:0)
+(connect D22:1 D31:1)
+(connect D20:1 D31:2)
+(connect D19:1 D31:3)
+(connect D35:1 D32:0)
+(connect D26:1 D32:1)
+(connect D24:1 D32:2)
+(connect D23:1 D32:3)
+(connect D36:1 D33:0)
+(connect D30:1 D33:1)
+(connect D28:1 D33:2)
+(connect D27:1 D33:3)
+(connect D10:0 D34:0)
+(connect D34:0 D35:0)
+(connect D35:0 D36:0)
+(connect D53:2 D41:1)
+(connect D53:1 D42:1)
+(connect D54:2 D43:1)
+(connect D54:1 D44:1)
+(connect D55:2 D45:1)
+(connect D55:1 D46:1)
+(connect D56:1 D47:1)
+(connect D57:1 D48:1)
+(connect D58:1 D49:1)
+(connect D51:0 D50:0)
+(connect D52:0 D51:0)
+(connect D6:0 D52:0)
+(connect D52:1 D53:0)
+(connect D51:1 D54:0)
+(connect D50:1 D55:0)
+(connect D53:1 D56:1)
+(connect D53:2 D56:2)
+(connect D54:1 D57:1)
+(connect D54:2 D57:2)
+(connect D55:1 D58:1)
+(connect D55:2 D58:2)
+(connect D36:0 D59:0)
+(connect D16:1 D60:1)))
+(contextCarrier
+(wndOrigin 5 2)
+(wndState res)
+(active panel)
+(panel
+(extent 1003 619)
+(drawGrid "on")
+(widget 3 detail
+(relativeOrigin 30 110)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 336 28)
+(scFont "Arial" 12))
+(widget 1 detail
+(relativeOrigin 30 0)
+(PID 5)
+(title on)
+(tabIndex 5)
+(borderStyle flat)
+(extent 936 78)
+(editing enabled))
+(widget 18 detail
+(relativeOrigin 70 170)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 90 21)
+(just c))
+(widget 7 detail
+(relativeOrigin 50 200)
+(PID 7)
+(title on)
+(tabIndex 7)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 8 detail
+(relativeOrigin 50 260)
+(PID 8)
+(title on)
+(tabIndex 8)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 20 detail
+(relativeOrigin 310 260)
+(PID 9)
+(title on)
+(tabIndex 9)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 22 detail
+(relativeOrigin 310 200)
+(PID 10)
+(title on)
+(tabIndex 10)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 21 detail
+(relativeOrigin 340 170)
+(PID 11)
+(title off)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 80 21)
+(just c))
+(widget 9 detail
+(relativeOrigin 64 320)
+(PID 12)
+(title off)
+(tabIndex 12)
+(borderStyle convex)
+(extent 99 19)
+(scaled off)
+(format check box))
+(widget 19 detail
+(relativeOrigin 324 320)
+(PID 13)
+(title off)
+(tabIndex 13)
+(borderStyle convex)
+(extent 102 19)
+(scaled off)
+(format check box))
+(widget 26 detail
+(relativeOrigin 590 200)
+(PID 14)
+(title on)
+(tabIndex 14)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 23 detail
+(relativeOrigin 604 320)
+(PID 15)
+(title off)
+(tabIndex 15)
+(borderStyle convex)
+(extent 99 19)
+(scaled off)
+(format check box))
+(widget 24 detail
+(relativeOrigin 590 260)
+(PID 16)
+(title on)
+(tabIndex 16)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 25 detail
+(relativeOrigin 610 170)
+(PID 17)
+(title off)
+(tabStop off)
+(tabIndex 17)
+(borderStyle flat)
+(extent 80 21)
+(just c))
+(widget 28 detail
+(relativeOrigin 820 260)
+(PID 18)
+(title on)
+(tabIndex 18)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 27 detail
+(relativeOrigin 834 320)
+(PID 19)
+(title off)
+(tabIndex 19)
+(borderStyle convex)
+(extent 99 19)
+(scaled off)
+(format check box))
+(widget 30 detail
+(relativeOrigin 820 200)
+(PID 20)
+(title on)
+(tabIndex 20)
+(borderStyle flat)
+(extent 126 28)
+(showFormat real))
+(widget 29 detail
+(relativeOrigin 850 170)
+(PID 21)
+(title off)
+(tabStop off)
+(tabIndex 21)
+(borderStyle flat)
+(extent 80 21)
+(just c))
+(widget 17 detail
+(relativeOrigin 30 450)
+(PID 35)
+(title on)
+(tabIndex 35)
+(borderStyle flat)
+(extent 936 148)
+(displayMode 5)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Supply Output")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.0015 0.0015 4 linear))
+(domain 0 19.99999999999992 4 linear)
+(trace 0 onScale 0
+(name "Channel 1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Channel 2")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "Channel 3")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "Channel 4")
+(traceColor "Blue")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(widget 60 detail
+(relativeOrigin 400 110)
+(PID 37)
+(title on)
+(tabStop off)
+(tabIndex 37)
+(borderStyle flat)
+(extent 566 28)
+(scFont "Arial" 12))
+(widget 11 detail
+(relativeOrigin 30 350)
+(PID 22)
+(title on)
+(tabStop off)
+(tabIndex 22)
+(borderStyle flat)
+(extent 166 18))
+(widget 42 detail
+(relativeOrigin 290 350)
+(PID 26)
+(title on)
+(tabStop off)
+(tabIndex 26)
+(borderStyle flat)
+(extent 166 18))
+(widget 12 detail
+(relativeOrigin 30 400)
+(PID 23)
+(title on)
+(tabStop off)
+(tabIndex 23)
+(borderStyle flat)
+(extent 166 18))
+(widget 41 detail
+(relativeOrigin 290 400)
+(PID 25)
+(title on)
+(tabStop off)
+(tabIndex 25)
+(borderStyle flat)
+(extent 166 18))
+(widget 43 detail
+(relativeOrigin 570 400)
+(PID 28)
+(title on)
+(tabStop off)
+(tabIndex 28)
+(borderStyle flat)
+(extent 166 18))
+(widget 44 detail
+(relativeOrigin 570 350)
+(PID 29)
+(title on)
+(tabStop off)
+(tabIndex 29)
+(borderStyle flat)
+(extent 166 18))
+(widget 45 detail
+(relativeOrigin 800 400)
+(PID 31)
+(title on)
+(tabStop off)
+(tabIndex 31)
+(borderStyle flat)
+(extent 166 18))
+(widget 46 detail
+(relativeOrigin 800 350)
+(PID 32)
+(title on)
+(tabStop off)
+(tabIndex 32)
+(borderStyle flat)
+(extent 166 18)))
+(detail
+(extent 567 405)
+(anchorPt 2 199)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 600 -160))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 86)
+(editing enabled))
+(pinCenter 200 -160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 360 -160))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 414 46))
+(pinCenter 670 -40))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 66 15))
+(terminals on)
+(pinCenter 380 -40))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 189 25))
+(terminals on)
+(pinCenter 630 1040))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 187 25))
+(terminals on)
+(pinCenter 380 1040))
+(devCarrierFor 134
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 144 26)
+(showFormat real))
+(pinCenter -530 280))
+(devCarrierFor 135
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 115 28)
+(showFormat real))
+(pinCenter -540 370))
+(devCarrierFor 136
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 103 23)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter -540 440))
+(devCarrierFor 137
+(active icon)
+(icon
+(extent 171 54))
+(terminals on)
+(pinCenter 380 310))
+(devCarrierFor 141
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1230 1060))
+(devCarrierFor 142
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1230 1140))
+(devCarrierFor 143
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 181 22))
+(pinCenter 1230 1220))
+(devCarrierFor 144
+(active icon)
+(icon
+(extent 97 15))
+(terminals on)
+(pinCenter 380 1670))
+(devCarrierFor 145
+(active open)
+(icon
+(extent 134 0))
+(open
+(extent 254 66))
+(pinCenter 750 1670))
+(devCarrierFor 146
+(active icon)
+(icon
+(extent 96 15))
+(terminals on)
+(pinCenter 380 150))
+(devCarrierFor 150
+(active open)
+(icon
+(extent 81 0)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Supply Output")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.0015 0.0015 4 linear))
+(domain 0 20.00000000000011 4 linear)
+(trace 0 onScale 0
+(name "Channel 1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Channel 2")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "Channel 3")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "Channel 4")
+(traceColor "Blue")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(terminals on)
+(pinCenter 1490 1580))
+(devCarrierFor 152
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 94 34)
+(just c))
+(title off)
+(pinCenter -520 190))
+(devCarrierFor 153
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 103 23)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter -350 440))
+(devCarrierFor 154
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 115 28)
+(showFormat real))
+(pinCenter -350 370))
+(devCarrierFor 155
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter -340 190))
+(devCarrierFor 156
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 144 26)
+(showFormat real))
+(pinCenter -340 280))
+(devCarrierFor 157
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 103 23)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter -170 440))
+(devCarrierFor 158
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 115 28)
+(showFormat real))
+(pinCenter -170 370))
+(devCarrierFor 159
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter -150 190))
+(devCarrierFor 160
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 144 26)
+(showFormat real))
+(pinCenter -160 280))
+(devCarrierFor 161
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 103 23)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 0 440))
+(devCarrierFor 162
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 115 28)
+(showFormat real))
+(pinCenter 0 370))
+(devCarrierFor 163
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter 20 190))
+(devCarrierFor 164
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 144 26)
+(showFormat real))
+(pinCenter 20 280))
+(devCarrierFor 165
+(active icon)
+(icon
+(extent 171 54))
+(terminals on)
+(pinCenter 750 520))
+(devCarrierFor 166
+(active icon)
+(icon
+(extent 171 54))
+(terminals on)
+(pinCenter 750 640))
+(devCarrierFor 167
+(active icon)
+(icon
+(extent 171 54))
+(terminals on)
+(pinCenter 750 770))
+(devCarrierFor 168
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 430))
+(devCarrierFor 169
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 580))
+(devCarrierFor 170
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 720))
+(devCarrierFor 171
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter 1950 980))
+(devCarrierFor 172
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter 1710 980))
+(devCarrierFor 173
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 84 34)
+(just c))
+(title off)
+(pinCenter 1450 980))
+(devCarrierFor 174
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 94 34)
+(just c))
+(title off)
+(pinCenter 1230 980))
+(devCarrierFor 175
+(active open)
+(icon
+(extent 147 15))
+(open
+(extent 183 22))
+(pinCenter 1450 1140))
+(devCarrierFor 176
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1450 1060))
+(devCarrierFor 177
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1720 1140))
+(devCarrierFor 178
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1720 1060))
+(devCarrierFor 179
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1950 1150))
+(devCarrierFor 180
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 183 22))
+(pinCenter 1950 1060))
+(devCarrierFor 181
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 181 22))
+(pinCenter 1450 1220))
+(devCarrierFor 182
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 181 22))
+(pinCenter 1720 1220))
+(devCarrierFor 183
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 181 22))
+(pinCenter 1950 1220))
+(devCarrierFor 184
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 1430))
+(devCarrierFor 185
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 1290))
+(devCarrierFor 186
+(active open)
+(icon)
+(open
+(extent 293 51))
+(terminals on)
+(pinCenter 375 1140))
+(devCarrierFor 187
+(active icon)
+(icon
+(extent 187 25))
+(terminals on)
+(pinCenter 680 1180))
+(devCarrierFor 188
+(active icon)
+(icon
+(extent 187 25))
+(terminals on)
+(pinCenter 680 1350))
+(devCarrierFor 189
+(active icon)
+(icon
+(extent 187 25))
+(terminals on)
+(pinCenter 680 1510))
+(devCarrierFor 190
+(active icon)
+(icon
+(extent 189 25))
+(terminals on)
+(pinCenter 930 1180))
+(devCarrierFor 191
+(active icon)
+(icon
+(extent 189 25))
+(terminals on)
+(pinCenter 920 1350))
+(devCarrierFor 192
+(active icon)
+(icon
+(extent 189 25))
+(terminals on)
+(pinCenter 910 1510))
+(devCarrierFor 193
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 380 890))
+(devCarrierFor 194
+(active open)
+(icon
+(extent 232 0))
+(open
+(extent 644 66))
+(pinCenter 830 150))
+(connect D4:1 D3:1
+(points 2 415 -40 460 -40))
+(connect D6:1 D5:1
+(points 2 476 1030 533 1030))
+(connect D6:2 D5:2
+(points 2 476 1050 533 1050))
+(connect D59:1 D6:0
+(points 5 416 890 440 890 440 940 380 940 380 1025))
+(connect D16:0 D10:0
+(points 2 380 160 380 280))
+(connect D7:1 D10:1
+(points 6 -456 280 -440 280 -440 320 120 320 120 290 292 290))
+(connect D8:1 D10:2
+(points 6 -480 370 -460 370 -460 470 130 470 130 310 292 310))
+(connect D9:1 D10:3
+(points 6 -486 440 -470 440 -470 410 90 410 90 330 292 330))
+(connect D6:1 D11:1
+(points 6 476 1030 510 1030 510 1010 1070 1010 1070 1060 1136 1060))
+(connect D6:2 D12:1
+(points 6 476 1050 500 1050 500 1070 580 1070 580 1140 1136 1140))
+(connect D5:1 D13:1
+(points 4 727 1040 1060 1040 1060 1220 1137 1220))
+(connect D50:0 D14:0
+(points 2 380 1458 380 1660))
+(connect D14:1 D15:1
+(points 2 431 1670 620 1670))
+(connect D4:0 D16:0
+(points 2 380 -30 380 140))
+(connect D5:1 D17:1
+(points 6 727 1040 1060 1040 1060 1220 1120 1220 1120 1480 1239 1480))
+(connect D56:1 D17:2
+(points 6 1027 1180 1050 1180 1050 1250 1220 1250 1220 1530 1239 1530))
+(connect D57:1 D17:3
+(points 4 1017 1350 1210 1350 1210 1580 1239 1580))
+(connect D58:1 D17:4
+(points 4 1007 1510 1060 1510 1060 1630 1239 1630))
+(connect D17:0 D17:5
+(points 5 1460 1722 1460 1740 1220 1740 1220 1680 1239 1680))
+(connect D34:1 D31:0
+(points 3 564 420 750 420 750 490))
+(connect D22:1 D31:1
+(points 8 -266 280 -250 280 -250 320 80 320 80 360 590 360 590 500 662 500))
+(connect D20:1 D31:2
+(points 6 -290 370 -270 370 -270 490 600 490 600 520 662 520))
+(connect D19:1 D31:3
+(points 6 -296 440 -280 440 -280 510 590 510 590 540 662 540))
+(connect D35:1 D32:0
+(points 3 564 570 750 570 750 610))
+(connect D26:1 D32:1
+(points 12 -86 280 -70 280 -70 320 -80 320 -80 410 70 410 70 420 90 420 90 630
+590 630 590 620 662 620))
+(connect D24:1 D32:2
+(points 4 -110 370 -90 370 -90 640 662 640))
+(connect D23:1 D32:3
+(points 6 -116 440 -100 440 -100 480 580 480 580 660 662 660))
+(connect D36:1 D33:0
+(points 3 564 710 750 710 750 740))
+(connect D30:1 D33:1
+(points 6 94 280 110 280 110 770 580 770 580 750 662 750))
+(connect D28:1 D33:2
+(points 6 60 370 80 370 80 780 590 780 590 770 662 770))
+(connect D27:1 D33:3
+(points 4 54 440 70 440 70 790 662 790))
+(connect D10:0 D34:0
+(points 2 380 339 380 384))
+(connect D34:0 D35:0
+(points 2 380 458 380 534))
+(connect D35:0 D36:0
+(points 2 380 608 380 674))
+(connect D53:2 D41:1
+(points 8 776 1190 810 1190 810 1150 1050 1150 1050 1170 1340 1170 1340 1140
+1356 1140))
+(connect D53:1 D42:1
+(points 6 776 1170 800 1170 800 1090 1340 1090 1340 1060 1356 1060))
+(connect D54:2 D43:1
+(points 6 776 1360 800 1360 800 1320 1560 1320 1560 1140 1626 1140))
+(connect D54:1 D44:1
+(points 12 776 1340 790 1340 790 1310 1340 1310 1340 1180 1350 1180 1350 1170
+1550 1170 1550 1130 1560 1130 1560 1060 1626 1060))
+(connect D55:2 D45:1
+(points 6 776 1520 790 1520 790 1400 1830 1400 1830 1150 1856 1150))
+(connect D55:1 D46:1
+(points 10 776 1500 800 1500 800 1390 1570 1390 1570 1170 1820 1170 1820 1140
+1830 1140 1830 1060 1856 1060))
+(connect D56:1 D47:1
+(points 6 1027 1180 1050 1180 1050 1250 1330 1250 1330 1220 1357 1220))
+(connect D57:1 D48:1
+(points 4 1017 1350 1580 1350 1580 1220 1627 1220))
+(connect D58:1 D49:1
+(points 6 1007 1510 1050 1510 1050 1380 1840 1380 1840 1220 1857 1220))
+(connect D51:0 D50:0
+(points 2 380 1318 380 1384))
+(connect D52:0 D51:0
+(points 2 380 1168 380 1244))
+(connect D6:0 D52:0
+(points 2 380 1055 380 1094))
+(connect D52:1 D53:0
+(points 5 564 1130 570 1130 570 1150 680 1150 680 1165))
+(connect D51:1 D54:0
+(points 3 564 1280 680 1280 680 1335))
+(connect D50:1 D55:0
+(points 3 564 1420 680 1420 680 1495))
+(connect D53:1 D56:1
+(points 2 776 1170 833 1170))
+(connect D53:2 D56:2
+(points 2 776 1190 833 1190))
+(connect D54:1 D57:1
+(points 2 776 1340 823 1340))
+(connect D54:2 D57:2
+(points 2 776 1360 823 1360))
+(connect D55:1 D58:1
+(points 2 776 1500 813 1500))
+(connect D55:2 D58:2
+(points 2 776 1520 813 1520))
+(connect D36:0 D59:0
+(points 2 380 748 380 862))
+(connect D16:1 D60:1
+(points 2 430 150 505 150)))
+(stackingOrder 0 3 15 9 8 7 19 20 22 23 24 26 27 28 30 34 35 36 21 25 29 12 11
+18 40 42 39 38 44 41 46 13 47 50 51 52 43 48 45 49 37 59 17 1 60 31 32 33 6 53
+54 55 58 57 56 5 14 10 4 2 16))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

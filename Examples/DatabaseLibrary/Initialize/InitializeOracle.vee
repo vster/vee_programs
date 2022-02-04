@@ -1,0 +1,841 @@
+(saveFormat "7.0")
+(date "Mon 04/Aug/2008 14:51:22 ")
+(veerev "9.0.11603.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Data.dll"))
+(selectedNamespaces
+"System.Data,System.Data.Common,System.Data.Odbc,System.Data.OleDb,System.Data.Sql,System.Data.SqlClient,"
+))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "Quit Database Library")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'QuitDatabaseLibrary\'")
+(customHelpMenuHelpLink "To_Quit_the_VEE_Database_Library")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fswiss\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Quit Database Library will automatically call \'Close Database\' internally. So you may not explicitly call \'Close Database\' before Quit Database Library.\\cf0\\f1\\fs20\\par\r\n}\r\n"
+)
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(popupTitleBackgroundColor "UserObject"))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call dbLib.QuitDatabaseLibrary")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'QuitDatabaseLibrary\'")
+(customHelpMenuHelpLink "To_Quit_the_VEE_Database_Library")
+(variableScope cont)
+(callFunc "dbLib.QuitDatabaseLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'QuitDatabaseLibrary\'")
+(customHelpMenuHelpLink "To_Quit_the_VEE_Database_Library")
+(variableScope cont)
+(libName "dbLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 326 281)
+(anchorPt 280 86)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 189 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 160 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 160 200))
+(connect D0:0 D1:0
+(points 2 160 80 160 164)))
+(stackingOrder 1 0))))
+(device 1 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 3 CALL
+(properties
+(name "Call dbLib.GetConnectionState")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'GetConnectionState\'")
+(customHelpMenuHelpLink "To_Get_Connection_State")
+(variableScope cont)
+(callFunc "dbLib.GetConnectionState")
+(parmMode rev30))
+(interface
+(output 1
+(name "ConnectionState")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call dbLib.OpenDatabase")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'OpenDatabase\'")
+(customHelpMenuHelpLink "To_Open_a_Database")
+(variableScope cont)
+(callFunc "dbLib.OpenDatabase")
+(parmMode rev30)))
+(device 5 CALL
+(properties
+(name "Call dbLib.GetConnectionState")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on the Database Library function \'GetConnectionState\'")
+(customHelpMenuHelpLink "To_Get_Connection_State")
+(variableScope cont)
+(callFunc "dbLib.GetConnectionState")
+(parmMode rev30))
+(interface
+(output 1
+(name "ConnectionState")
+(lock name constraints)
+(optional yes))))
+(device 6 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example uses \"Initialize Oracle\" to Initialize Database then open the connection, show connection state.\\par\r\n\\par\r\nMake sure \\cf2\\b User Name \\cf1\\b0 and \\cf2\\b Password \\cf1\\b0 are correct.\\par\r\n}\r\n"
+)))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 8 CONTEXT
+(properties
+(name "Initialize Oracle")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Initialize Oracle\'")
+(customHelpMenuHelpLink "To_Initialize_Oracle")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CONTEXT
+(properties
+(name "Build Sql Server ConnectionString")
+(variableScope cont)
+(trigMode deg)
+(nextID 23)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "connectionString")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 3 FORMULA
+(properties
+(name "ConnectionStringBuilder")
+(variableScope cont)
+(expr 1
+"dbconnectionstringbuilder = CreateInstance(\"System.Data\", \"System.Data.Common.DbConnectionStringBuilder\" );"
+))
+(interface
+(output 1
+(name "dbconnectionstringbuilder")
+(optional yes))))
+(device 17 LITERALCONSTANT
+(properties
+(name "True")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "True"))
+(initValue Text
+(data  ""))))
+(device 18 DOTNETBUILDER
+(properties
+(name "System.Data.Common.DbConnectionStringBuilder")
+(variableScope cont)
+(transactions 4 "dbConnectionStringBuilder.Add(\"User ID\", UserID)"
+"dbConnectionStringBuilder.Add(\"Password\", Password)"
+"dbConnectionStringBuilder.Add(\"Persist Security Info\", PersistSecurity)"
+"connectionString = dbConnectionStringBuilder.ConnectionString")
+(parmInfo 11 "2" "T 0" "T 0" "2" "T 0" "T 0" "2" "T 0" "T 0" "1" "T 0")
+(memberInfos 4 "Void Add(System.String, System.Object)"
+"Void Add(System.String, System.Object)"
+"Void Add(System.String, System.Object)" "System.String ConnectionString")
+(statics 4 "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Data.Common.DbConnectionStringBuilder, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dbConnectionStringBuilder"))
+(interface
+(input 1
+(name "dbConnectionStringBuilder")
+(optional yes))
+(input 2
+(name "UserID")
+(requires
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "Password")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 4
+(name "PersistSecurity")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "connectionString")
+(optional yes)))
+(implementation))
+(device 19 LITERALCONSTANT
+(properties
+(name "User Name")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "System"))
+(initValue Text
+(data  ""))))
+(device 20 LITERALCONSTANT
+(properties
+(name "Password")
+(variableScope cont)
+(secureInput 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 21 LABEL
+(properties
+(name "UserName")
+(variableScope cont)
+(labelValue "UserName"))
+(implementation))
+(device 22 LABEL
+(properties
+(name "Password")
+(variableScope cont)
+(labelValue "Password"))
+(implementation))
+(configuration
+(connect D0:1 D2:1)
+(connect D3:1 D2:2)
+(connect D4:1 D2:3)
+(connect D1:1 D2:4)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 437 87)
+(drawGrid "on")
+(widget 3 detail
+(relativeOrigin 80 10)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 346 29))
+(widget 4 detail
+(relativeOrigin 80 50)
+(bg "Light Blue Gray")
+(PID 2)
+(title off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 346 29))
+(widget 5 detail
+(relativeOrigin 0 13)
+(bg "Light Blue Gray")
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle none)
+(extent 73 27)
+(just l))
+(widget 6 detail
+(relativeOrigin 0 53)
+(bg "Light Blue Gray")
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle none)
+(extent 68 27)
+(just l))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 978 622)
+(anchorPt -300 -220)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 659 50))
+(terminals on)
+(pinCenter 410 460))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 29 15))
+(open
+(extent 174 29))
+(pinCenter 500 580))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 305 45))
+(open
+(extent 404 166))
+(terminals on)
+(pinCenter 950 520))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 134 14))
+(open
+(extent 174 29))
+(pinCenter 400 500))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 134 14))
+(open
+(extent 174 29))
+(pinCenter 400 540))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 67 0))
+(open
+(extent 73 27)
+(just l))
+(title off)
+(pinCenter 380 350))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 61 0))
+(open
+(extent 68 27)
+(just l))
+(title off)
+(pinCenter 470 350))
+(connect D0:1 D2:1
+(points 2 486 460 575 460))
+(connect D3:1 D2:2
+(points 2 469 500 575 500))
+(connect D4:1 D2:3
+(points 2 469 540 575 540))
+(connect D1:1 D2:4
+(points 2 517 580 575 580))
+(connect D2:1 O1:1
+(points 6 1264 520 1270 520 1270 530 1260 530 1260 530 1277 530)))
+(stackingOrder 1 0 6 5 3 4 2))))
+(device 14 CALL
+(properties
+(name "Call dbLib.CreateConnection")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Create Connection\'")
+(customHelpMenuHelpLink "To_Create_Connection")
+(variableScope cont)
+(callFunc "dbLib.CreateConnection")
+(parmMode rev30))
+(interface
+(input 1
+(name "ConnectionString")
+(optional yes))))
+(device 15 CONTEXT
+(properties
+(name "Select Data Provider")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f3\\fswiss\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green128\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If you hope to use a different Data Provider which is not included in this default list, please run program first to get all Data Provider information in local machine, then choose the corresponding one.\\par\r\n\\par\r\n\\cf1\\f1 Example: \\cf0\\f0 If you want to connect to SQLite which is an open source Database. You have to run program then choose \"SQLite Data Provider\". It will save this selection when you save program, that meas you do not have to run program first then select corresponding Data Provider when next time using the same program.\\par\r\n\\par\r\n\\cf2\\f1 Note:\\cf0\\f0  When you trying to use special Data Provider, you have to mannually install it, Windows will only supply these four Data Providers by default.\\f2\\fs17\\par\r\n\\f3\\fs20\\par\r\n}\r\n"
+)
+(variableScope cont)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call dbLib.GetDataProviders")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(callFunc "dbLib.GetDataProviders")
+(parmMode rev30))
+(interface
+(output 1
+(name "Name")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Description")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "InvariantName")
+(lock name constraints)
+(optional yes))
+(output 4
+(name "AssemblyQualifiedName")
+(lock name constraints)
+(optional yes))))
+(device 1 ENUMCONSTANT
+(properties
+(name "Data Provider List")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Odbc Data Provider" 0)
+("OleDb Data Provider" 1)
+("OracleClient Data Provider" 2)
+("SqlClient Data Provider" 3))
+(data  "OracleClient Data Provider"))
+(initValue Text
+(data  "Odbc Data Provider"))))
+(device 5 FORMULA
+(properties
+(name "Convert Provider Name to InvariantName")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(expr 1 "InvariantNameArray[SelectedNumber];"))
+(interface
+(input 1
+(name "SelectedNumber")
+(optional yes))
+(input 2
+(name "InvariantNameArray")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(libType userFunction)
+(libName "dbLib")
+(fileName
+"C:\\vee\\Main\\Src\\BuiltComponents\\Debug\\Lib\\DatabaseLibrary\\DatabaseLibrary.vxe"
+))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 7 FORMULA
+(properties
+(name "Database Runtime Library File Specifier")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(expr 1 "installDir() + \"\\\\Lib\\\\DatabaseLibrary\\\\DatabaseLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 CALL
+(properties
+(name "Call dbLib.DeclareVariable")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(callFunc "dbLib.DeclareVariable")
+(parmMode rev30)))
+(device 10 CALL
+(properties
+(name "Call dbLib.SetProviderInvariantName")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Initializing a Database, and calling \'Select Data Provider\'")
+(customHelpMenuHelpLink "To_Select_a_Data_Provider")
+(variableScope cont)
+(callFunc "dbLib.SetProviderInvariantName")
+(parmMode rev30))
+(interface
+(input 1
+(name "providerInvariantName")
+(optional yes))))
+(configuration
+(connect D5:0 D0:0)
+(connect D0:0 D1:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D1:2 D2:1)
+(connect D0:3 D2:2)
+(connect D4:0 D3:0)
+(connect D4:1 D3:1)
+(connect D3:0 D5:0)
+(connect D2:1 D6:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 428 60)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Gold")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 426 56)
+(format dropDown)))
+(detail
+(extent 461 298)
+(anchorPt 6 183)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 171 45))
+(open
+(extent 176 90))
+(terminals on)
+(pinCenter 230 90))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 114 25))
+(open
+(extent 173 25)
+(format dropDown))
+(pinCenter 230 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 245 25))
+(open
+(extent 174 66))
+(terminals on)
+(pinCenter 610 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 228 86))
+(pinCenter 230 -60))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 254 14))
+(open
+(extent 334 56))
+(terminals on)
+(pinCenter 230 -120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 161 45))
+(open
+(extent 176 90))
+(terminals on)
+(pinCenter 230 0))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 224 24))
+(open
+(extent 234 56))
+(terminals on)
+(pinCenter 450 330))
+(connect D5:0 D0:0
+(points 2 230 25 230 65))
+(connect D0:0 D1:0
+(points 2 230 115 230 187))
+(connect D0:1 D1:1
+(points 6 318 70 330 70 330 50 120 50 120 220 141 220))
+(connect D0:0 D2:0
+(points 4 230 115 230 150 610 150 610 225))
+(connect D1:2 D2:1
+(points 2 319 230 485 230))
+(connect D0:3 D2:2
+(points 4 318 90 360 90 360 250 485 250))
+(connect D4:0 D3:0
+(points 2 230 -111 230 -70))
+(connect D4:1 D3:1
+(points 6 359 -120 380 -120 380 -90 170 -90 170 -60 186 -60))
+(connect D3:0 D5:0
+(points 2 230 -50 230 -25))
+(connect D2:1 D6:1
+(points 6 735 240 760 240 760 280 320 280 320 330 335 330)))
+(stackingOrder 2 3 0 4 5 6 1))))
+(configuration
+(connect D2:0 D1:0)
+(connect D0:1 D1:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 446 96)
+(drawGrid "on")
+(widget 0 panel
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 446 96)
+(carbonCopy)))
+(detail
+(extent 965 679)
+(anchorPt 284 -23)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 203 44))
+(open
+(extent 444 86)
+(carbonCopy))
+(terminals on)
+(titleBg "Green")
+(pinCenter -50 350))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 174 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 250 350))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 122 15))
+(open
+(extent 424 56)
+(carbonCopy))
+(pinCenter 250 200))
+(connect D2:0 D1:0
+(points 2 250 230 250 340))
+(connect D0:1 D1:1
+(points 2 54 350 160 350)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D3:0 D0:0)
+(connect D5:1 D1:1)
+(connect D3:1 D2:1)
+(connect D4:0 D3:0)
+(connect D5:0 D4:0)
+(connect D8:0 D5:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 743 348)
+(wndState max)
+(active detail)
+(detail
+(extent 971 513)
+(anchorPt 168 -7)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 130 15))
+(terminals on)
+(pinCenter 390 470))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 274 56))
+(pinCenter 720 260))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 274 46))
+(pinCenter 720 400))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 400))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 157 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 330))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 260))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 96)
+(editing disabled))
+(pinCenter 50 270))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 60 390))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 91 14))
+(open
+(extent 444 96)
+(carbonCopy))
+(terminals on)
+(pinCenter 390 110))
+(connect D3:0 D0:0
+(points 2 390 410 390 460))
+(connect D5:1 D1:1
+(points 2 485 260 580 260))
+(connect D3:1 D2:1
+(points 2 485 400 580 400))
+(connect D4:0 D3:0
+(points 2 390 340 390 390))
+(connect D5:0 D4:0
+(points 2 390 270 390 320))
+(connect D8:0 D5:0
+(points 2 390 160 390 250)))
+(stackingOrder 0 1 2 3 4 5 8 6 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

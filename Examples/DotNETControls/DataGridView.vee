@@ -1,0 +1,942 @@
+(saveFormat "7.0")
+(date "Thu 07/Aug/2008 11:44:50 ")
+(veerev "9.0.11606.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(watchvariableslist
+(windowname Watch1
+(varname "dataGrid")))
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Data.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Drawing.dll"
+))
+(assemblyRef 4
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 50)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 3)
+(context 2
+(properties
+(name "dataGridView_MouseUp")
+(variableName dataGridView_MouseUp)
+(variableScope glob)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "global1_MouseUp")
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 3 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "x = e.x;" "y = e.y;"))
+(interface
+(input 1
+(name "e")
+(optional yes))
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes))
+(output 3
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.DataGridView+HitTestInfo")
+(variableScope cont)
+(transactions 1 "return = hitTestInfo.ToString()")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "System.String ToString()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGrid+HitTestInfo, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "hitTestInfo"))
+(interface
+(input 1
+(name "hitTestInfo")
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 7 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "label.Text = a + \" Clicked\"; "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.DataGridView")
+(variableScope cont)
+(transactions 1 "return = dataGridView.HitTest(x, y)")
+(parmInfo 4 "3" "T 0" "T 0" "T 0")
+(memberInfos 1 "HitTestInfo HitTest(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataGridView"))
+(interface
+(input 1
+(name "dataGridView")
+(optional yes))
+(input 2
+(name "x")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "y")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(configuration
+(connect I2:1 D0:1)
+(connect D3:1 D1:1)
+(connect D1:1 D2:1)
+(connect I1:1 D3:1)
+(connect D0:1 D3:2)
+(connect D0:2 D3:3)))
+(contextCarrier
+(active detail)
+(detail
+(extent 712 391)
+(anchorPt 42 -40)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 50 34))
+(open
+(extent 145 65))
+(terminals on)
+(pinCenter 100 340))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 305 15))
+(open
+(extent 253 74))
+(terminals on)
+(pinCenter 600 250))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 474 66))
+(terminals on)
+(pinCenter 450 460))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 233 34))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 280 250))
+(connect I2:1 D0:1
+(points 4 -42 335 -10 335 -10 340 72 340))
+(connect D3:1 D1:1
+(points 2 399 250 445 250))
+(connect D1:1 D2:1
+(points 6 755 250 780 250 780 350 160 350 160 460 180 460))
+(connect I1:1 D3:1
+(points 4 -42 135 -30 135 -30 240 161 240))
+(connect D0:1 D3:2
+(points 4 127 330 140 330 140 250 161 250))
+(connect D0:2 D3:3
+(points 4 127 340 150 340 150 260 161 260)))
+(stackingOrder 2 0 1 3))))
+(context 0
+(properties
+(name "GenerateRandom2DArray")
+(variableName GenerateRandom2DArray)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Random")
+(variableScope cont)
+(expr 1 "arr[a,b] = random(1,100); "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 TOGLOBAL
+(properties
+(name "Set arr")
+(variableScope cont)
+(globalName "arr"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 ALLOCATEARRAY
+(properties
+(name "Alloc Real64")
+(variableScope cont))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 2)
+(dimSizes "10" "10")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 4 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect D2:1 D0:0)
+(connect D4:1 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D1:1)
+(connect D4:1 D2:0)
+(connect D3:0 D4:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 732 391)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 52 34))
+(open
+(extent 194 66))
+(terminals on)
+(pinCenter 320 250))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 300 130))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 200 260))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 190 137))
+(terminals on)
+(pinCenter 200 130))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 180))
+(connect D2:1 D0:0
+(points 5 236 260 270 260 270 210 320 210 320 230))
+(connect D4:1 D0:1
+(points 6 176 180 200 180 200 210 260 210 260 240 291 240))
+(connect D2:1 D0:2
+(points 2 236 260 291 260))
+(connect D3:1 D1:1
+(points 2 240 130 277 130))
+(connect D4:1 D2:0
+(points 3 176 180 200 180 200 232))
+(connect D3:0 D4:0
+(points 6 200 140 200 160 260 160 260 100 140 100 140 152)))
+(stackingOrder 0 1 2 3 4)))))
+(device 2 CONFIRM25
+(properties
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 5 DOTNETBUILDER
+(properties
+(name "Create DataSet, Add DataTable to DataSet")
+(variableScope cont)
+(transactions 2
+"dataSet = CreateInstance(\"System.Data\", \"System.Data.DataSet\")"
+"dataSet.Tables.Add(table)")
+(parmInfo 6 "3" "T 0" "T 0" "T 0" "1" "T 0")
+(memberInfos 2 "Void .ctor()" "Void Add(System.Data.DataTable)")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Data.DataSet, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataSet"))
+(interface
+(input 1
+(name "table")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "dataSet")
+(optional yes)))
+(implementation))
+(device 6 DOTNETBUILDER
+(properties
+(name "Create DataTable")
+(variableScope cont)
+(transactions 1
+"dataTable = CreateInstance(\"System.Data\", \"System.Data.DataTable\", \"Table 1\")"
+)
+(parmInfo 5 "4" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(System.String)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.DataTable, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataTable"))
+(interface
+(output 1
+(name "dataTable")
+(optional yes)))
+(implementation))
+(device 9 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 11 DOTNETBUILDER
+(properties
+(name "Add a Column to DataTable and Force Cell Type")
+(variableScope cont)
+(transactions 1 "return = dataTable.Columns.Add(columnName, type)")
+(parmInfo 4 "3" "T 0" "T 0" "T 0")
+(memberInfos 1 "System.Data.DataColumn Add(System.String, System.Type)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.DataTable, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataTable"))
+(interface
+(input 1
+(name "dataTable")
+(optional yes))
+(input 2
+(name "columnName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "type")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 12 FORMULA
+(properties
+(name "ColumnName")
+(variableScope cont)
+(expr 1 "\"Column\" + a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 DOTNETBUILDER
+(properties
+(name "Create and add a row to DataTable")
+(variableScope cont)
+(transactions 2 "row = dataTable.NewRow()" "dataTable.Rows.Add(row)")
+(parmInfo 4 "1" "T 0" "1" "T 0")
+(memberInfos 2 "System.Data.DataRow NewRow()" "Void Add(System.Data.DataRow)")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Data.DataTable, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataTable"))
+(interface
+(input 1
+(name "dataTable")
+(optional yes))
+(output 1
+(name "row")
+(optional yes)))
+(implementation))
+(device 17 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 20 DOTNETBUILDER
+(properties
+(name "Set Cell content")
+(variableScope cont)
+(transactions 1 "dataRow.Item(columnIndex) = item")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "System.Object Item [Int32]")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.DataRow, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataRow"))
+(interface
+(input 1
+(name "dataRow")
+(optional yes))
+(input 2
+(name "item")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "columnIndex")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 21 FORMULA
+(properties
+(name "arr[a,b]")
+(variableScope cont)
+(expr 1 "arr[a,b]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 25 DOTNETCONTROL
+(properties
+(name "ContainerControl")
+(variableName ContainerControl)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ContainerControl"))
+(implementation
+(state 325 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+000000040000000608000000083432342C20313736060900000004302C2030060A0000000130060B
+000000000B
+)))
+(device 26 FORMULA
+(properties
+(name "Add DataGrid to container")
+(variableScope cont)
+(expr 1 "containercontrol.Controls.Add(dataGridView);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 36 FORMULA
+(properties
+(name "System.Double")
+(variableScope cont)
+(expr 1 "System.Double"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 37 CALL
+(properties
+(name "Call GenerateRandom2DArray")
+(variableScope cont)
+(callFunc "GenerateRandom2DArray")
+(parmMode rev30)))
+(device 38 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 502 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F090000000A0A170000000902000000090300000010020000000800000006040000000453697A65
+0605000000044E616D650606000000084C6F636174696F6E06070000000454657874060800000008
+546162496E646578060900000004466F6E74060A0000001A557365436F6D70617469626C65546578
+7452656E646572696E67060B0000000954657874416C69676E100300000008000000060C00000007
+3431342C203334060D00000000060E00000004302C2030060F000000305479706520696E20616E79
+206E756D6265722E20436C69636B20636F6C756D6E2068656164657220746F20536F72742E061000
+00000130061100000017417269616C2C20313270742C207374796C653D426F6C6406120000000454
+72756506130000000C4D6964646C6543656E7465720B
+)))
+(device 39 NOTE
+(properties
+(name "README")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of couple Windows Forms controls, DataGridView and ContainerControl. \\par\r\n\\par\r\nContainControl alone is not very useful.  It is used to contain and group other controls.  In this case, a DataGridView is contained inside the ContainerControl.\\par\r\n\\par\r\nWhen building a composite control, only place the container (parent) directly on the VEE workspace.  Add the child controls programmatically to the parent as we did here in code.   \\par\r\n\\par\r\nDataGridView can be as complex as you want (see MSDN documentation).  In this simple example, we used the DataGridView to display a random two dimensional Real64 array.  You can edit the cells and even add new rows of data.  \\par\r\n\\par\r\nWe updated the Label Text by handling the MouseUp event of the DataGridView.  To create an Event Handler for DataGridView, we declared the DataGridView object and used the CreateEvent context menu.\\par\r\n\\par\r\n\\b Tip\\par\r\n\\b0 To get a .NET Op Builder to build DataTaleView operations, go to Device->.NET Operation Builder, then click on Find toolbar button and type in \"datagridview\".  You can quickly find any .NET type in your referenced assemblies using this handy tool.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Building Composite Control\\par\r\nDesign time property change\\par\r\nRun time property change\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: DataGridView, ContainerControl\\par\r\n\\par\r\n}\r\n"
+)))
+(device 40 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 41 DECLVAR
+(properties
+(name "Declare dataGridView")
+(scope glob)
+(globalName "dataGridView"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.DataGridView"))))
+(device 43 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.DataGridView")
+(variableScope cont)
+(transactions 3
+"dataGridView = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.DataGridView\")"
+"dataGridView.DataSource = dataSource"
+"dataGridView.Dock = System.Windows.Forms.DockStyle.Fill")
+(parmInfo 8 "3" "T 0" "T 0" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Void .ctor()" "System.Object DataSource"
+"System.Windows.Forms.DockStyle Dock")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataGridView"))
+(interface
+(input 1
+(name "dataSource")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 45 FORMULA
+(properties
+(name "dataSet.Tables.Item(0);")
+(variableScope cont)
+(expr 1 "dataSet.Tables.Item(0);"))
+(interface
+(input 1
+(name "dataSet")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 48 DOTNETBUILDER
+(properties
+(name "AutoResizeColumns()")
+(variableScope cont)
+(transactions 1 "dataGridView.AutoResizeColumns()")
+(parmInfo 1 "0")
+(memberInfos 1 "Void AutoResizeColumns()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataGridView"))
+(implementation))
+(configuration
+(connect D2:1 D1:1)
+(connect D14:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:1 D4:0)
+(connect D2:1 D4:1)
+(connect D5:1 D4:2)
+(connect D13:1 D4:3)
+(connect D3:1 D5:1)
+(connect D7:1 D6:0)
+(connect D2:1 D6:1)
+(connect D3:0 D7:0)
+(connect D6:0 D8:0)
+(connect D6:1 D8:1)
+(connect D9:1 D8:2)
+(connect D10:1 D8:3)
+(connect D7:1 D9:1)
+(connect D10:1 D9:2)
+(connect D7:1 D10:0)
+(connect D19:0 D12:0)
+(connect D7:0 D19:0)
+(connect D20:1 D19:1)
+(connect D1:1 D20:1)
+(connect D12:0 D21:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 391)
+(wndState max)
+(active detail)
+(detail
+(extent 819 621)
+(anchorPt 27 205)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 30 -140))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 254 15))
+(open
+(extent 334 66))
+(terminals on)
+(pinCenter 460 250))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -30 100))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -50 190))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 289 34))
+(open
+(extent 294 66))
+(terminals on)
+(pinCenter 290 200))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 85 24))
+(open
+(extent 118 50))
+(terminals on)
+(pinCenter 70 200))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 210 25))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 460 310))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -50 300))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 94 34))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 460 380))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 42 34))
+(open
+(extent 84 76))
+(terminals on)
+(pinCenter 230 370))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 80 400))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 424 176))
+(pinCenter 320 0))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 154 15))
+(open
+(extent 254 86))
+(terminals on)
+(pinCenter 180 660))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 70 230))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 183 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter -30 -60))
+(devCarrierFor 38
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 414 34))
+(title off)
+(pinCenter 320 -140))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 344 486)
+(editing disabled))
+(pinCenter 810 160))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 810 -140))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 345 124))
+(pinCenter 480 140))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 233 15))
+(open
+(extent 584 116))
+(terminals on)
+(pinCenter 180 590))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 140 15))
+(open
+(extent 121 50))
+(terminals on)
+(pinCenter -60 590))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 384 96))
+(terminals on)
+(pinCenter 180 710))
+(connect D2:1 D1:1
+(points 6 25 100 130 100 130 240 160 240 160 250 330 250))
+(connect D14:0 D2:0
+(points 2 -30 -50 -30 85))
+(connect D2:0 D3:0
+(points 4 -30 115 -30 140 -50 140 -50 162))
+(connect D3:1 D4:0
+(points 5 -14 190 10 190 10 160 290 160 290 180))
+(connect D2:1 D4:1
+(points 4 25 100 130 100 130 190 143 190))
+(connect D5:1 D4:2
+(points 2 115 200 143 200))
+(connect D13:1 D4:3
+(points 6 118 230 140 230 140 220 120 220 120 210 143 210))
+(connect D3:1 D5:1
+(points 4 -14 190 10 190 10 200 25 200))
+(connect D7:1 D6:0
+(points 5 -14 300 90 300 90 280 460 280 460 295))
+(connect D2:1 D6:1
+(points 6 25 100 130 100 130 240 160 240 160 310 352 310))
+(connect D3:0 D7:0
+(points 2 -50 218 -50 272))
+(connect D6:0 D8:0
+(points 2 460 325 460 360))
+(connect D6:1 D8:1
+(points 6 567 310 590 310 590 420 390 420 390 370 410 370))
+(connect D9:1 D8:2
+(points 4 253 370 270 370 270 380 410 380))
+(connect D10:1 D8:3
+(points 6 116 400 140 400 140 410 270 410 270 390 410 390))
+(connect D7:1 D9:1
+(points 6 -14 300 90 300 90 340 150 340 150 360 206 360))
+(connect D10:1 D9:2
+(points 4 116 400 140 400 140 380 206 380))
+(connect D7:1 D10:0
+(points 5 -14 300 90 300 90 340 80 340 80 372))
+(connect D19:0 D12:0
+(points 2 180 600 180 650))
+(connect D7:0 D19:0
+(points 4 -50 328 -50 450 180 450 180 580))
+(connect D20:1 D19:1
+(points 2 12 590 61 590))
+(connect D1:1 D20:1
+(points 6 589 250 610 250 610 460 -150 460 -150 590 -133 590))
+(connect D12:0 D21:0
+(points 2 180 670 180 700)))
+(stackingOrder 8 9 13 3 6 17 0 15 4 5 2 14 16 1 18 7 10 19 20 12 21 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

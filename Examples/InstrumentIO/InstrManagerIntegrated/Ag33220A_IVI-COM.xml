@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag33220A_IVI-COM.vee">
+		<Description>Download a predefined signal into the generator and output it via the use of the instrument IVI-COM driver</Description>
+		<LogicalInstrument name="FunctionGenerator">
+			<SupportedInstruments>
+				<Instrument idn="Ag33220A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

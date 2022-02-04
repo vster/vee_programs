@@ -1,0 +1,127 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:40 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(activexControls
+(activexControl 1
+(libid "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}")
+(desc "Microsoft Windows Common Controls 6.0")
+(filename "C:\\WINDOWS\\SYSTEM\\MSCOMCTL.OCX")
+(verMajor 2)
+(verMinor 0)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 ACTIVEXCONTROL
+(properties
+(name "ProgressBar")
+(variableName "ProgressBar")
+(objectType "MSComctlLib.ProgressBar"))
+(implementation
+(license 37 #H
+9D9EA8B1B2BDC3DAC9DBDFF7FDECF7FE380C0F21323C31323C434A516E676D72788F938A00
+)
+(state 80 #H
+2143341208000000131E0000B9030000018AAB97000006001C000000000000000000C84200000000
+01EFCDAB00000500C4EF120006000000FFFFFFFFFFFFFFFFD0EF12001FDEECBD01000500D0EF1200
+)))
+(device 6 FORRANGE
+(properties
+(from 0)
+(thru 100)
+(step 10))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 7 DELAY
+(properties
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 10 FORMULA
+(properties
+(name "ProgressBar.Value = value;")
+(expr 1 "ProgressBar.Value = value;"))
+(interface
+(input 1
+(name "value")
+(optional yes))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:0 D2:0)
+(connect D1:1 D3:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 291 36))
+(pinCenter 420 120))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 200 220))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 420 320))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 163 0))
+(open
+(extent 180 42))
+(terminals on)
+(pinCenter 425 220))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 210 390))
+(connect D3:0 D2:0
+(points 2 420 243 420 284))
+(connect D1:1 D3:1
+(points 2 252 220 292 220)))
+(stackingOrder 0 3 2 1 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

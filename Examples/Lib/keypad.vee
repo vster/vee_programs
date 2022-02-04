@@ -1,0 +1,1417 @@
+(saveFormat "7.0")
+(date "Mon 27/Aug/2007 16:15:14 ")
+(veerev "8.5.10423.0 Beta2 - Botticelli")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Numeric KeyPad Example")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name " + ")
+(variableScope cont)
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 CONTEXT
+(properties
+(name "Keybd")
+(description2 24 "Keybd accepts numeric user input using only a"
+"pointing device.  As each button is operated,"
+"the resulting text character is accumulated in"
+"the display; no format checking is performed." ""
+"The \"Cancel\" button exits the Keybd User Object"
+"via the Raise Error mechanism.  This prevents "
+"entered data from appearing on the data output"
+"pin.  The \"Accept\" button sends the accumulated"
+"text string out the \"data\" terminal.  The \"CE\""
+"button clears the display entry without exiting" "the Keybd object." ""
+"Note that the output of the Keybd is NOT a number,"
+"but a text string that, if properly formed, can"
+"be interpreted as a number by math operations. It"
+"it not necessary to convert the text string to a"
+"number explicitly, since math objects do this" "before using the number." ""
+"Because the location of the buttons is not \"fixed\""
+"unless the user object is Secured, it is suggested"
+"that you secure the Keybd to prevent this from" "happening. ")
+(variableScope cont)
+(trigMode deg)
+(nextID 47)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "data")
+(lock constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name " 2 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 CONFIRM25
+(properties
+(name " 3 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 CONFIRM25
+(properties
+(name " 4 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 3 CONFIRM25
+(properties
+(name " 5 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 4 CONFIRM25
+(properties
+(name " 7 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 5 CONFIRM25
+(properties
+(name " 9 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 6 CONFIRM25
+(properties
+(name "Accept")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 7 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 8 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(input 7
+(name "G")
+(optional yes))
+(input 8
+(name "H")
+(optional yes))
+(input 9
+(name "I")
+(optional yes))
+(input 10
+(name "J")
+(optional yes))
+(input 11
+(name "K")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 9 CONFIRM25
+(properties
+(name " 6 ")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 10 LITERALCONSTANT
+(properties
+(name "\"3\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "3"))
+(initValue Text
+(data  ""))))
+(device 11 LITERALCONSTANT
+(properties
+(name "\"2\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "2"))
+(initValue Text
+(data  ""))))
+(device 12 CONFIRM25
+(properties
+(name " 1 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 13 LITERALCONSTANT
+(properties
+(name "\"1\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "1"))
+(initValue Text
+(data  ""))))
+(device 14 LITERALCONSTANT
+(properties
+(name "\"0\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "0"))
+(initValue Text
+(data  ""))))
+(device 15 CONFIRM25
+(properties
+(name " 0 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 16 LITERALCONSTANT
+(properties
+(name "\".\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "."))
+(initValue Text
+(data  ""))))
+(device 17 CONFIRM25
+(properties
+(name " . ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 18 CONFIRM25
+(properties
+(name "CE")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 19 LITERALCONSTANT
+(properties
+(name "\"6\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "6"))
+(initValue Text
+(data  ""))))
+(device 20 LITERALCONSTANT
+(properties
+(name "\"5\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "5"))
+(initValue Text
+(data  ""))))
+(device 21 LITERALCONSTANT
+(properties
+(name "\"4\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "4"))
+(initValue Text
+(data  ""))))
+(device 22 LITERALCONSTANT
+(properties
+(name "\"7\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "7"))
+(initValue Text
+(data  ""))))
+(device 23 LITERALCONSTANT
+(properties
+(name "\"8\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "8"))
+(initValue Text
+(data  ""))))
+(device 24 LITERALCONSTANT
+(properties
+(name "\"9\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "9"))
+(initValue Text
+(data  ""))))
+(device 25 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 0)
+(message "Done")))
+(device 26 ACCUMULATOR
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 28 CONFIRM25
+(properties
+(name "Cancel")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 30 NEXT
+(properties
+(variableScope cont)))
+(device 31 CONFIRM25
+(properties
+(name " 8 ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 32 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D30:1 D0:0)
+(connect D30:1 D1:0)
+(connect D30:1 D2:0)
+(connect D30:1 D3:0)
+(connect D30:1 D4:0)
+(connect D30:1 D5:0)
+(connect D6:1 D7:0)
+(connect D13:1 D8:1)
+(connect D11:1 D8:2)
+(connect D10:1 D8:3)
+(connect D21:1 D8:4)
+(connect D20:1 D8:5)
+(connect D19:1 D8:6)
+(connect D22:1 D8:7)
+(connect D23:1 D8:8)
+(connect D24:1 D8:9)
+(connect D14:1 D8:10)
+(connect D16:1 D8:11)
+(connect D30:1 D9:0)
+(connect D1:1 D10:0)
+(connect D0:1 D11:0)
+(connect D30:1 D12:0)
+(connect D12:1 D13:0)
+(connect D15:1 D14:0)
+(connect D30:1 D15:0)
+(connect D17:1 D16:0)
+(connect D30:1 D17:0)
+(connect D30:1 D18:0)
+(connect D9:1 D19:0)
+(connect D3:1 D20:0)
+(connect D2:1 D21:0)
+(connect D4:1 D22:0)
+(connect D29:1 D23:0)
+(connect D5:1 D24:0)
+(connect D27:1 D25:0)
+(connect D8:1 D26:1)
+(connect D18:1 D26:2)
+(connect D26:0 D28:0)
+(connect D30:1 D29:0)
+(connect D26:1 O1:1))
+(ShowOnExecPanel
+(relativeOrigin 23 102)))
+(contextCarrier
+(active detail)
+(panel
+(extent 232 346)
+(gridSize 2)
+(drawGrid "off")
+(widget 4 detail
+(relativeOrigin 18 180)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 52 40))
+(widget 3 detail
+(relativeOrigin 86 128)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 5)
+(borderStyle none)
+(extent 52 40))
+(widget 29 detail
+(relativeOrigin 86 180)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 8)
+(borderStyle none)
+(extent 52 40))
+(widget 2 detail
+(relativeOrigin 18 128)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 52 40))
+(widget 12 detail
+(relativeOrigin 18 74)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 4)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 52 40))
+(widget 0 detail
+(relativeOrigin 86 74)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 5)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 52 40))
+(widget 9 detail
+(relativeOrigin 156 128)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 6)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 52 40))
+(widget 1 detail
+(relativeOrigin 156 74)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 7)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 52 40))
+(widget 5 detail
+(relativeOrigin 156 180)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 8)
+(title off)
+(tabIndex 9)
+(borderStyle none)
+(extent 52 40))
+(widget 18 detail
+(relativeOrigin 17 233)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 9)
+(title off)
+(tabIndex 10)
+(borderStyle none)
+(extent 52 40))
+(widget 15 detail
+(relativeOrigin 86 232)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 10)
+(title off)
+(tabIndex 11)
+(borderStyle none)
+(extent 52 40))
+(widget 17 detail
+(relativeOrigin 155 232)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 11)
+(title off)
+(tabIndex 12)
+(borderStyle none)
+(extent 52 40))
+(widget 6 detail
+(relativeOrigin 18 290)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 12)
+(title off)
+(tabIndex 13)
+(borderStyle none)
+(extent 80 40))
+(widget 27 detail
+(relativeOrigin 128 290)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 13)
+(title off)
+(tabIndex 14)
+(borderStyle none)
+(extent 80 40))
+(widget 26 detail
+(relativeOrigin 12 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 14)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 202 42))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 838 615)
+(anchorPt 218 123)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 10 -30))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 100 -30))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter -90 110))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 0 110))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter -90 250))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 90 250))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 76 37))
+(title off)
+(pinCenter 320 -30))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 145 25))
+(open)
+(terminals on)
+(pinCenter 400 30))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 46 114))
+(open)
+(terminals on)
+(pinCenter 270 150))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 90 110))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 140 20))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 50 20))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter -80 -30))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter -40 20))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter -50 450))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter -90 400))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 40 450))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 0 400))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 40 37))
+(title off)
+(pinCenter 90 400))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 140 160))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 40 160))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter -50 160))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter -50 300))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 40 300))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 23))
+(pinCenter 140 300))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 140 63))
+(pinCenter 400 430))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 121 34))
+(pinCenter 380 160))
+(devCarrierFor 28
+(active open)
+(icon)
+(open
+(extent 76 37))
+(title off)
+(pinCenter 330 330))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 380 210))
+(devCarrierFor 31
+(active open)
+(icon)
+(open
+(extent 49 37))
+(title off)
+(pinCenter 0 250))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 54 36)
+(iconImage "loop.icn")
+(label off))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter -170 -80))
+(connect D30:1 D0:0
+(points 3 -141 -80 10 -80 10 -51))
+(connect D30:1 D1:0
+(points 3 -141 -80 100 -80 100 -51))
+(connect D30:1 D2:0
+(points 7 -141 -80 -130 -80 -130 -40 -140 -40 -140 70 -90 70 -90 89))
+(connect D30:1 D3:0
+(points 7 -141 -80 -130 -80 -130 -40 -140 -40 -140 70 0 70 0 89))
+(connect D30:1 D4:0
+(points 7 -141 -80 -130 -80 -130 -40 -140 -40 -140 210 -90 210 -90 229))
+(connect D30:1 D5:0
+(points 9 -141 -80 -130 -80 -130 -40 -140 -40 -140 210 -20 210 -20 220 90 220 90
+229))
+(connect D6:1 D7:0
+(points 3 360 -30 400 -30 400 15))
+(connect D13:1 D8:1
+(points 6 -15 20 10 20 10 70 150 70 150 100 244 100))
+(connect D11:1 D8:2
+(points 6 75 20 90 20 90 60 140 60 140 110 244 110))
+(connect D10:1 D8:3
+(points 4 165 20 190 20 190 120 244 120))
+(connect D21:1 D8:4
+(points 6 -25 160 -10 160 -10 210 180 210 180 130 244 130))
+(connect D20:1 D8:5
+(points 6 65 160 90 160 90 200 190 200 190 140 244 140))
+(connect D19:1 D8:6
+(points 4 165 160 200 160 200 150 244 150))
+(connect D22:1 D8:7
+(points 6 -25 300 -10 300 -10 340 210 340 210 160 244 160))
+(connect D23:1 D8:8
+(points 6 65 300 90 300 90 350 230 350 230 170 244 170))
+(connect D24:1 D8:9
+(points 4 165 300 200 300 200 180 244 180))
+(connect D14:1 D8:10
+(points 10 -25 450 -10 450 -10 430 50 430 50 360 190 360 190 270 170 270 170 190
+244 190))
+(connect D16:1 D8:11
+(points 4 65 450 220 450 220 200 244 200))
+(connect D30:1 D9:0
+(points 9 -141 -80 -130 -80 -130 -40 -140 -40 -140 70 0 70 0 80 90 80 90 89))
+(connect D1:1 D10:0
+(points 3 127 -30 140 -30 140 5))
+(connect D0:1 D11:0
+(points 3 37 -30 50 -30 50 5))
+(connect D30:1 D12:0
+(points 3 -141 -80 -80 -80 -80 -51))
+(connect D12:1 D13:0
+(points 3 -53 -30 -40 -30 -40 5))
+(connect D15:1 D14:0
+(points 3 -63 400 -50 400 -50 435))
+(connect D30:1 D15:0
+(points 7 -141 -80 -130 -80 -130 -40 -140 -40 -140 350 -90 350 -90 379))
+(connect D17:1 D16:0
+(points 3 27 400 40 400 40 435))
+(connect D30:1 D17:0
+(points 7 -141 -80 -130 -80 -130 -40 -140 -40 -140 350 0 350 0 379))
+(connect D30:1 D18:0
+(points 9 -141 -80 -130 -80 -130 -40 -140 -40 -140 350 80 350 80 370 90 370 90
+379))
+(connect D9:1 D19:0
+(points 5 117 110 130 110 130 120 140 120 140 145))
+(connect D3:1 D20:0
+(points 3 27 110 40 110 40 145))
+(connect D2:1 D21:0
+(points 3 -63 110 -50 110 -50 145))
+(connect D4:1 D22:0
+(points 3 -63 250 -50 250 -50 285))
+(connect D29:1 D23:0
+(points 3 27 250 40 250 40 285))
+(connect D5:1 D24:0
+(points 3 117 250 140 250 140 285))
+(connect D27:1 D25:0
+(points 3 370 330 400 330 400 378))
+(connect D8:1 D26:1
+(points 2 295 150 317 150))
+(connect D18:1 D26:2
+(points 6 112 400 240 400 240 250 310 250 310 170 317 170))
+(connect D26:0 D28:0
+(points 2 380 179 380 195))
+(connect D30:1 D29:0
+(points 9 -141 -80 -130 -80 -130 -40 -140 -40 -140 210 -20 210 -20 220 0 220 0
+229))
+(connect D26:1 O1:1
+(points 4 443 160 500 160 500 24 619 24)))
+(stackingOrder 0 6 8 25 27 4 29 17 15 23 22 13 11 1 10 2 3 9 21 20 19 5 24 18 14
+16 12 28 30 7 26))))
+(device 4 FORMULA
+(properties
+(name " + ")
+(variableScope cont)
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 CONSTANT
+(properties
+(name "100")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  100))
+(initValue Real
+(data  0))))
+(device 6 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 7 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Real64))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 9 METER
+(properties
+(variableScope cont)
+(range 0 10000)
+(redRange -1 1)
+(yellowRange -0.8 0.8)
+(greenRange -0.5 0.5))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 10 TEXTDISPLAY
+(properties
+(name "String Concatenate")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Formula converted to Real")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:      Illustrate the use of the File->Merge \"KeyPad\" library device.\\par\r\n\\par\r\nUSER INPUT REQUIRED: Press Run, then try entering various numbers with the \\par\r\n              keypad.\\par\r\n\\par\r\nEXPLANATION:  The Show Description menu selection for the KeyPad has a \\par\r\n              description on the use of the object.  Note that no format \\par\r\n              checking is performed, so numbers with multiple decimal points,\\par\r\n              for example, will not convert reliably to a real number.\\par\r\n\\par\r\nIMPORTANT:    Because the data output of the KeyPad object is a TEXT string \\par\r\n              representing the entered digits, some math operations may not\\par\r\n              occur as you would think.  For example, the + operation is \\par\r\n              defined as \"concatenation\" for strings.  When we try to add a\\par\r\n              Real number (100.0 for example) to the output of the numKeyPad,\\par\r\n              the the Real number is converted to a string and the output is\\par\r\n              the concatenation of the input strings.\\par\r\n\\par\r\n              To FORCE a string to be converted to a real number, the Formula\\par\r\n              box can be used.  Note that the input terminal accepts only \\par\r\n              type Real.  This was done by double-clicking on the \"A\" \\par\r\n              terminal and changing the Required Type to Real.  After doing \\par\r\n              this, any input data containers arriving at the A input will \\par\r\n              be converted to a Real number if possible.  To detect erroneous\\par\r\n              conversion, you can add an Error Output to the Formula object.\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 194 32)))
+(contextCarrier
+(active panel)
+(panel
+(extent 719 523)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 300 480)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 720 470)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 284 302)
+(anchorPt 109 161)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter -1 -73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 79)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 100 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 525 292)
+(anchorPt 251 102)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 841 510)
+(carbonCopy))
+(pinCenter 70 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 70 75 70 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 70 -10 70 45)))
+(stackingOrder 0 1 2))))
+(device 13 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(configuration
+(connect D2:1 D1:1)
+(connect D4:1 D1:2)
+(connect D0:1 D2:0)
+(connect D4:1 D3:1)
+(connect D6:1 D3:2)
+(connect D2:1 D6:1)
+(connect D2:1 D7:1)
+(connect D2:1 D8:1)
+(connect D1:1 D9:1)
+(connect D3:1 D10:1)
+(connect D2:2 D12:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 810 588)
+(anchorPt 44 21)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 20 20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 61 110))
+(terminals on)
+(pinCenter 640 250))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 232 355)
+(carbonCopy))
+(terminals on)
+(pinCenter 120 270))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 61 110))
+(terminals on)
+(pinCenter 640 310))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 28 16))
+(open
+(extent 120 32)
+(showFormat real))
+(pinCenter 570 280))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 540 510))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "formula.icn"))
+(open
+(extent 69 60))
+(terminals on)
+(pinCenter 410 260))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 143 44))
+(pinCenter 420 150))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 150 124)
+(layout horizontal)
+(fastmode off))
+(pinCenter 420 390))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 172 0))
+(open
+(extent 229 36))
+(pinCenter 640 160))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 235 0))
+(open
+(extent 229 36)
+(formatter
+(realFormat standard)
+(realSigDigits 12)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 640 410))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(pinCenter 470 50))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "stop.icn"))
+(open
+(extent 120 34))
+(pinCenter 290 510))
+(connect D2:1 D1:1
+(points 6 161 260 300 260 300 190 520 190 520 240 614 240))
+(connect D4:1 D1:2
+(points 4 586 280 600 280 600 260 614 260))
+(connect D0:1 D2:0
+(points 3 77 20 120 20 120 255))
+(connect D4:1 D3:1
+(points 4 586 280 600 280 600 300 614 300))
+(connect D6:1 D3:2
+(points 4 497 260 520 260 520 320 614 320))
+(connect D2:1 D6:1
+(points 2 161 260 343 260))
+(connect D2:1 D7:1
+(points 4 161 260 300 260 300 150 346 150))
+(connect D2:1 D8:1
+(points 4 161 260 300 260 300 390 342 390))
+(connect D1:1 D9:1
+(points 8 665 250 690 250 690 220 530 220 530 180 510 180 510 160 523 160))
+(connect D3:1 D10:1
+(points 6 665 310 690 310 690 350 510 350 510 410 523 410))
+(connect D2:2 D12:0
+(points 3 161 280 290 280 290 475)))
+(stackingOrder 11 0 12 8 7 10 4 9 5 2 6 3 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

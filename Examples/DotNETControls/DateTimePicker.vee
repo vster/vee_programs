@@ -1,0 +1,198 @@
+(saveFormat "7.0")
+(date "Thu 14/Apr/2005 16:35:29 ")
+(veerev "7.5.7614.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "DateTimePicker_ValueChanged")
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "label.Text = sender.Value.ToString(); "))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 654 348)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 264 66))
+(terminals on)
+(pinCenter 310 170))
+(connect I1:1 D0:1
+(points 4 0 83 10 83 10 170 125 170)))))))
+(device 4 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 6 DOTNETCONTROL
+(properties
+(name "DateTimePicker")
+(variableName DateTimePicker)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.DateTimePicker"))
+(implementation
+(state 324 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000854616249
+6E64657806050000000453697A650606000000084C6F636174696F6E0607000000044E616D651003
+00000004000000060800000001300609000000073235342C203231060A00000004302C2030060B00
+0000000B
+)))
+(device 7 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 430 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F070000000A0A0B0000000902000000090300000010020000000700000006040000000954657874
+416C69676E060500000008546162496E64657806060000000453697A650607000000045465787406
+08000000084C6F636174696F6E060900000004466F6E74060A000000044E616D6510030000000700
+0000060B0000000C4D6964646C6543656E746572060C0000000130060D000000073335342C203434
+060E0000001253656C6563746564204461746554696D653A060F00000004302C2030061000000017
+417269616C2C20313270742C207374796C653D426F6C640611000000000B
+)))
+(device 9 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of couple Windows Forms control, DateTimePicker and Label.  \\par\r\n\\par\r\nWe updated the label text by handling the ValueChanged event of DateTimePicker.  We created the event handler using its \"Create Event handler\" context menu.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Design time property change\\par\r\nRun time property change\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: DateTimePicker, Label\\par\r\n\\par\r\n}\r\n"
+)))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 734 348)
+(wndState max)
+(active detail)
+(detail
+(extent 962 523)
+(anchorPt -56 -19)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 100 80))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 254 26))
+(pinCenter 270 180))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 354 44))
+(title off)
+(pinCenter 320 90))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 344 486)
+(editing disabled))
+(pinCenter 720 370))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 710 70)))
+(stackingOrder 1 4 3 0 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

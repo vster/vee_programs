@@ -1,0 +1,220 @@
+(saveFormat "7.0")
+(date "Tue 12/Apr/2005 11:10:33 ")
+(veerev "7.5.7612.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 4)
+(context 0
+(properties
+(name "TrackBar_Scroll")
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "label.Text = \"Track Bar Position: \" + trackbar.Value"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I2:1 D0:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 712 391)
+(anchorPt 1 -8)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 404 101))
+(terminals on)
+(pinCenter 350 210))
+(connect I2:1 D0:1
+(points 4 -1 303 10 303 10 210 115 210)))))))
+(device 1 CONFIRM25
+(properties
+(name "Done")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 413 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F060000000A0A0B0000000902000000090300000010020000000600000006040000000854616249
+6E64657806050000000453697A65060600000004546578740607000000084C6F636174696F6E0608
+00000004466F6E740609000000044E616D65100300000006000000060A0000000130060B00000007
+3239342C203334060C000000174D6F76652074686520547261636B4261722062656C6F77060D0000
+0004302C2030060E00000022417269616C2C2031342E323570742C207374796C653D426F6C642C20
+4974616C6963060F000000000B
+)))
+(device 3 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 4 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of two Windows Forms controls, Label and TrackBar. When you move the TrackBar, you should see that the Label text changes according to the TrackBar position. This is achieved by handling the Scroll event of the TrackBar.  To create an event handler, use the Create Event Handler context menu of the control.  \\par\r\n\\par\r\nWe set the font and the initial text of the Label at design time by setting its Font and Text property using the Control Properties context menu.     \\par\r\n\\par\r\nWe changed the text of the Label at run time by setting its Text Property via a formula box.  \\par\r\n\\par\r\nWe also changed couple properties of TrackBar at run time.   This was done via the \"Generate .NET Operation Builder\" context menu from the TrackBar control.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Design time property change\\par\r\nRun time property change\\par\r\nEvent handling\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: Label, TrackBar\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 10 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.TrackBar")
+(transactions 2 "TrackBar.Maximum = 100" "TrackBar.LargeChange = 10")
+(parmInfo 4 "1" "T 0" "1" "T 0")
+(memberInfos 2 "Int32 Maximum" "Int32 LargeChange")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TrackBar, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "TrackBar"))
+(implementation))
+(device 13 DOTNETCONTROL
+(properties
+(name "TrackBar")
+(variableName TrackBar)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.TrackBar"))
+(implementation
+(state 324 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000854616249
+6E6465780605000000044E616D650606000000084C6F636174696F6E06070000000453697A651003
+0000000400000006080000000130060900000000060A00000004302C2030060B000000073237342C
+2034350B
+)))
+(configuration))
+(contextCarrier
+(wndRestoredOrigin 23 7)
+(wndRestoredExtent 734 348)
+(wndState max)
+(active detail)
+(detail
+(extent 797 619)
+(anchorPt -81 -23)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 140 160))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 294 34))
+(title off)
+(pinCenter 260 220))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 590 70))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 446)
+(editing disabled))
+(pinCenter 630 360))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 260 420))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 53 0))
+(open
+(extent 274 26))
+(pinCenter 250 310)))
+(stackingOrder 5 0 3 2 1 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

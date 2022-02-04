@@ -1,0 +1,565 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:36:37 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "fgen"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 7)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(eoiEnabled 0)
+(model "hp3325b"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Enumerated input Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 HPIDSTATE
+(properties
+(name "fgen(NOT LIVE)"))
+(interface
+(input 1
+(name "FUNCTION")
+(tag "FUNCTION")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hp3325b.cid")
+(driver "fgen")
+(state
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "SINE"))
+(idComp
+(name "FREQ_UPPER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 60999999.999))
+(idComp
+(name "FREQUENCY")
+(typeStr "Real")
+(state "Valid")
+(value 1000))
+(idComp
+(name "AMPLITUDE_LOWER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "AMPLITUDE_UPPER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "AMPLITUDE")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "AUNITS")
+(typeStr "Enum")
+(state "Valid")
+(value "VPP"))
+(idComp
+(name "OFFSET_LOWER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value -4.502))
+(idComp
+(name "OFFSET_UPPER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 4.502))
+(idComp
+(name "OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PHASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "START_FREQ")
+(typeStr "Real")
+(state "Valid")
+(value 1000000))
+(idComp
+(name "STOP_FREQ")
+(typeStr "Real")
+(state "Valid")
+(value 10000000))
+(idComp
+(name "MKR_FREQ")
+(typeStr "Real")
+(state "Valid")
+(value 5000000))
+(idComp
+(name "SWEEP_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "SWEEP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "TERMINALS")
+(typeStr "Enum")
+(state "Valid")
+(value "FRONT"))
+(idComp
+(name "CALIBRATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLE"))
+(idComp
+(name "MOD_FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "MOD_FREQ_UPPER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 10000))
+(idComp
+(name "MOD_FREQUENCY")
+(typeStr "Real")
+(state "Valid")
+(value 1000))
+(idComp
+(name "MOD_AMP_UPPER_LIM")
+(typeStr "Real")
+(state "Valid")
+(value 12))
+(idComp
+(name "MOD_AMPLITUDE")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "MOD_AMPLITUDE_UNITS")
+(typeStr "Enum")
+(state "Valid")
+(value "VPP"))
+(idComp
+(name "AM")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PM")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INSTR_STATUS_MASK")
+(typeStr "Int16")
+(state "Valid")
+(value 0)))))
+(device 3 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 4 ENUMCONSTANT
+(properties
+(name "Enum")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("STEADY DC" 0)
+("SINUSOIDAL" 1)
+("PULSED" 2)
+("UP-DOWN" 3)
+("SAWTOOTH" 4)
+("TOOTHSAW" 5))
+(data  "SINUSOIDAL"))
+(initValue Text
+(data  "STEADY DC"))))
+(device 5 ENUMCONSTANT
+(properties
+(name "Enum")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("DC Only" 0)
+("Sine" 1)
+("Square" 2)
+("Triangle" 3)
+("+Ramp" 4)
+("-Ramp" 5))
+(data  "Sine"))
+(initValue Text
+(data  "DC Only"))))
+(device 6 NOTE
+(properties
+(name "To Operate:")
+(text2 3 "Select a function" "for the fgen from" "either of the Enums")))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 8 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 36
+"PURPOSE:   How to use an \"Enum\" device to generate an input for an ID device "
+"           that uses numbers to select internal states. " "     "
+"USER INPUT REQUIRED:  Select various \"Enum\" selections and observe that the "
+"           fgen FUNCTION field follows the selections.  Use either \"Enum\" "
+"           device to see that the names do not need to match in order to "
+"           operate properly." "  "
+"EXPLANATION: The first step is to determine what the allowable numeric codes "
+"           are for the particular ID function that you want to control.  There"
+"           are two ways to accomplish this.  First, if you have not yet added"
+"           the Input Terminal for the function, use the \"Add Data Input\""
+"           selection to show the list of all inputs that can be added.  Those"
+"           that require a numeric input to set a particular function are"
+"           followed by (enum, 0 to n), where n is a digit. For this example,"
+"           the \"Add Data Input\" showed FUNCTION (enum, 0 to 5).  To determine"
+"           which function corresponds to which number, you must position "
+"           the pointer over the field and left-click to bring up the "
+"           selection dialog box.  The order of the entries in this list "
+"           corresponds to the enum numbers 0 to n." ""
+"           The next step is to build an \"Enum\" device that has the same "
+"           number of entries as required by the ID function.  It is not "
+"           necessary for the names to match the ID dialog box list, since "
+"           only the order is important.  " ""
+"           The final step is to use an \"ordinal(x)\" device, found under the "
+"           Math --->RealParts menu, to convert the selected Enum value to a"
+"           digit representing the selected \"Enum\" field.  Sending this digit"
+"           to the fgen causes the FUNCTION selection to be set to the \"n-th\" "
+"           entry in the fgen FUNCTION dialog box list." ""
+"           In this example, the \"Enum\" device (with the format set to "
+"           \"buttons\"), has the \"Auto Execute\" mode enabled so that changing"
+"           a selection causes the connected devices to execute without "
+"           pressing RUN.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 4 1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 837 510)
+(widget 0 detail
+(relativeOrigin 3 5)
+(title off)
+(borderStyle flat)
+(extent 827 463)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 379 475)
+(title off)
+(borderStyle flat)
+(extent 71 30)))
+(detail
+(extent 866 520)
+(anchorPt 182 57)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 257 74)
+(widget 1 detail
+(relativeOrigin 74 14)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 890 574)
+(anchorPt 380 245)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 837 510)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 72 68))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 72 83 72 98 -208 98 -208 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 72 -10 72 53)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D5:1 D0:1)
+(connect D4:1 D1:1)
+(connect D3:1 D2:1)
+(connect D0:1 D3:1)
+(connect D1:1 D3:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 447)
+(anchorPt 250 227)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 0 210))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 78 64)
+(iconImage "inst.icn"))
+(open
+(extent 214 213)
+(visiblePanels 3 "MAIN_PANEL" "ENTRY_PANEL" "TOP_PANEL"))
+(terminals on)
+(pinCenter 395 100))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 140 100))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 144 149)
+(format buttons))
+(pinCenter -160 210))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 144 151)
+(format buttons))
+(pinCenter -160 0))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 0)
+(iconImage "notepad.icn"))
+(open
+(extent 199 73)
+(editing disabled))
+(pinCenter 160 -170))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 470 -210))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 257 74)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -100 -150))
+(connect D5:1 D0:1
+(points 4 -86 -40 -70 -40 -70 0 -58 0))
+(connect D4:1 D1:1
+(points 4 -86 170 -70 170 -70 210 -58 210))
+(connect D3:1 D2:1
+(points 2 165 100 205 100))
+(connect D0:1 D3:1
+(points 4 57 0 80 0 80 90 114 90))
+(connect D1:1 D3:2
+(points 4 57 210 80 210 80 110 114 110)))
+(stackingOrder 0 1 2 3 4 5 6 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

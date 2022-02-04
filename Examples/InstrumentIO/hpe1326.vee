@@ -1,0 +1,1139 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:37:02 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hpe1326"
+(type VXI)
+(gateway "This host")
+(channel 16)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1326.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))
+(blockSize 1048576)
+(vxiAccess
+(A16
+(word D16))
+(extended
+(word D16)))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 23)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "hpe1326"))
+(interface
+(input 1
+(name "SAMP_COUNT")
+(tag "SAMP_COUNT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "SAMP_TIME")
+(tag "SAMP_TIME")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "START_READINGS")
+(tag "START_READINGS")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1326.cid")
+(driver "hpe1326")
+(state
+(idComp
+(name "LFREQ")
+(typeStr "Enum")
+(state "Valid")
+(value "SIXTY"))
+(idComp
+(name "STRAIN_CHOICES")
+(typeStr "Enum")
+(state "Valid")
+(value "GAGE"))
+(idComp
+(name "MODULE_CHOICES")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAPABILITY1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY7")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MUX_CARDS")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DVM_REV")
+(typeStr "Real")
+(state "Valid")
+(value 5.01))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "BURST"))
+(idComp
+(name "TERM")
+(typeStr "Enum")
+(state "Valid")
+(value "MULTIMETER"))
+(idComp
+(name "MIN_CHAN1")
+(typeStr "Int16")
+(state "Valid")
+(value 2200))
+(idComp
+(name "MAX_CHAN1")
+(typeStr "Int16")
+(state "Valid")
+(value 2200))
+(idComp
+(name "MIN_CHAN2")
+(typeStr "Int16")
+(state "Valid")
+(value 100))
+(idComp
+(name "MAX_CHAN2")
+(typeStr "Int16")
+(state "Valid")
+(value 12177))
+(idComp
+(name "FIRST_CHANNEL")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "FIRST_CHAN")
+(typeStr "Int16")
+(state "Valid")
+(value 100))
+(idComp
+(name "LAST_CHANNEL")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "LAST_CHAN")
+(typeStr "Int16")
+(state "Valid")
+(value 100))
+(idComp
+(name "UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "Volts DC"))
+(idComp
+(name "THERM_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "FTH2252"))
+(idComp
+(name "STRAIN_GAGE_PARMS")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 112)
+(values ( 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3)))
+(idComp
+(name "GFACT_0")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_1")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_2")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_3")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_4")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_5")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_6")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFACT_7")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "POISR_0")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_1")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_2")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_3")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_4")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_5")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_6")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POISR_7")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "DCV"))
+(idComp
+(name "GAGE_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "AZERO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "MAX_TRIG")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "TRIG_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "MAX_SAMP")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "SAMP_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 10000))
+(idComp
+(name "MIN_SAMP_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 6.999999999999999E-005))
+(idComp
+(name "SAMP_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SAMP_SOUR")
+(typeStr "Enum")
+(state "Valid")
+(value "TIM"))
+(idComp
+(name "TRIG")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "ENTRY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "FETCH_LATER"))
+(idComp
+(name "VOLT_APER")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "RES_APER")
+(typeStr "Real")
+(state "Valid")
+(value 0.0167))
+(idComp
+(name "VOLT_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "RES_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "RANGER")
+(typeStr "Enum")
+(state "Valid")
+(value "R3"))
+(idComp
+(name "VOLT_RANGE")
+(typeStr "Real")
+(state "Valid")
+(value 8))
+(idComp
+(name "RES_RANGE")
+(typeStr "Real")
+(state "Valid")
+(value 16384))
+(idComp
+(name "APER_LIST")
+(typeStr "Enum")
+(state "Valid")
+(value "U10"))
+(idComp
+(name "RESO_LIST")
+(typeStr "Enum")
+(state "Valid")
+(value "U10"))
+(idComp
+(name "DELAY_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DELAY")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OCOMP")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CARD1")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD2")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD3")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD4")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD5")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD6")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD7")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "TTLT0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "E1411B")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CARD8")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD9")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD10")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD11")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD12")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD13")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD14")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD15")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD16")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD17")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD18")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD19")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD20")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CARD21")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "CAPABILITY8")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY9")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY10")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY11")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY12")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY13")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY14")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY15")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY16")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY17")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY18")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY19")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY20")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAPABILITY21")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRAIN_GAGE_PARMS2")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 112)
+(values ( 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3)))
+(idComp
+(name "STRAIN_GAGE_PARMS3")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 112)
+(values ( 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3 2
+0.3 2 0.3 2 0.3 2 0.3 2 0.3 2 0.3)))
+(idComp
+(name "RDNGSDESTINATION")
+(typeStr "Enum")
+(state "Valid")
+(value "FILE"))
+(idComp
+(name "FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "hpe1326.dat"))
+(idComp
+(name "TRANSFER_FORMAT")
+(typeStr "Enum")
+(state "Valid")
+(value "REAL32")))))
+(device 1 HPIDINCR
+(properties
+(name "hpe1326"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1326.cid")
+(driver "hpe1326")))
+(device 2 CONSTANT
+(properties
+(name "reset"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 4 FROMFILE
+(properties
+(transactions 1 "READ BINBLOCK x INT32 ARRAY:*"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "hpe1326.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 5 FORMULA
+(properties
+(expr 1
+"bitor(bitor(bitshift(A, 24), bitand(255, bitshift(a, -24))), bitor(bitshift(bitand(a, 65280), 8), bitshift(bitand(a, 16711680), -8)))"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TOFILE
+(properties
+(transactions 1 "WRITE BINBLOCK a INT32 EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "temp"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 FROMFILE
+(properties
+(transactions 1 "READ BINBLOCK x REAL32 ARRAY:*"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "temp"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 10 CONSTANT
+(properties
+(name "read"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 11 CONSTANT
+(properties
+(name "Start"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 13 HPIDINCR
+(properties
+(name "hpe1326"))
+(interface
+(input 1
+(name "UPLOAD_FILE")
+(tag "UPLOAD_FILE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1326.cid")
+(driver "hpe1326")))
+(device 14 DELAY
+(properties
+(delay 10))
+(interface
+(input 1
+(name "Delay")
+(tag "Delay")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 16 NOTE
+(properties
+(text2 6 "This program takes readings from the HP E1326.  After a delay"
+"to take the readings, the readings are uploaded to a file."
+"Because the data are in an MSB byte order and the PC needs the"
+"LSB byte order, a byte swapping formula is used to convert the"
+"data to the PC format.  The readings are then displayed on the" "XY display."))
+)
+(device 17 SLIDER
+(properties
+(name "Sample Time")
+(range 6.999999999999999E-005 0.065534)
+(detents 0.001))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0.001))
+(initValue Real
+(data  0))))
+(device 18 SLIDER
+(properties
+(name "Number Samples")
+(range 10 32767)
+(detents 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  10000))
+(initValue Int32
+(data  0))))
+(device 19 FORMULA
+(properties
+(name "a * b")
+(expr 1 "A*B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 21 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 10)))
+(device 22 START25)
+(configuration
+(connect D1:0 D0:0)
+(connect D13:1 D0:1)
+(connect D12:1 D0:2)
+(connect D8:1 D0:3)
+(connect D17:0 D1:0)
+(connect D2:1 D1:1)
+(connect D9:0 D3:0)
+(connect D3:1 D4:1)
+(connect D4:1 D5:1)
+(connect D5:0 D6:0)
+(connect D10:1 D9:0)
+(connect D7:1 D9:1)
+(connect D0:0 D10:0)
+(connect D14:1 D10:1)
+(connect D13:1 D14:1)
+(connect D12:1 D14:2)
+(connect D16:1 D15:1)
+(connect D15:0 D15:2)
+(connect D6:1 D16:1)
+(connect D14:1 D16:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 973 584)
+(anchorPt 330 248)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 64))
+(open
+(extent 428 213)
+(visiblePanels 8 "UNSTR_SGL" "UPLOAD_EM" "MULTIMETER" "UPLOAD_START"
+"MIDI_START" "RUN_START" "VOLT_RES2" "FETCHER"))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 64))
+(open
+(extent 14 30))
+(terminals on)
+(pinCenter 0 -80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 62 26))
+(open
+(extent 90 30)
+(showFormat int))
+(pinCenter -80 -80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 91 25))
+(open
+(extent 290 126))
+(terminals on)
+(pinCenter -20 190))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 680 70))
+(terminals on)
+(pinCenter 90 190))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 290 145))
+(terminals on)
+(pinCenter 180 190))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 94 24))
+(open
+(extent 290 126))
+(terminals on)
+(pinCenter -20 250))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 90 30)
+(showFormat int))
+(pinCenter -100 130))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 58 29))
+(open
+(extent 90 30)
+(showFormat int))
+(pinCenter -90 20))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 64))
+(open
+(extent 19 30))
+(terminals on)
+(pinCenter -20 130))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 59 28))
+(open
+(extent 76 32))
+(pinCenter 0 60))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 579 138)
+(editing enabled))
+(pinCenter 340 -100))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 160 191)
+(layout vertical)
+(fastmode off))
+(pinCenter -230 140))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 117 0))
+(open
+(extent 178 180)
+(layout vertical)
+(fastmode off))
+(pinCenter -230 -90))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 34 25))
+(open)
+(terminals on)
+(pinCenter -70 60))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 330 267)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -4 4 4 linear))
+(domain 0 10 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 430 150))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 158 52))
+(open
+(extent 140 42))
+(terminals on)
+(pinCenter 120 260))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 67 37))
+(title off)
+(pinCenter 0 -170))
+(connect D1:0 D0:0
+(points 2 0 -46 0 -35))
+(connect D13:1 D0:1
+(points 6 -139 -90 -120 -90 -120 -30 -50 -30 -50 -20 -42 -20))
+(connect D12:1 D0:2
+(points 8 -148 140 -140 140 -140 110 -130 110 -130 -20 -50 -20 -50 0 -42 0))
+(connect D8:1 D0:3
+(points 2 -59 20 -42 20))
+(connect D17:0 D1:0
+(points 2 0 -149 0 -115))
+(connect D2:1 D1:1
+(points 2 -47 -80 -42 -80))
+(connect D9:0 D3:0
+(points 2 -20 164 -20 175))
+(connect D3:1 D4:1
+(points 2 28 190 48 190))
+(connect D4:1 D5:1
+(points 2 131 190 138 190))
+(connect D5:0 D6:0
+(points 4 180 205 180 220 -20 220 -20 235))
+(connect D10:1 D9:0
+(points 5 32 60 50 60 50 90 -20 90 -20 95))
+(connect D7:1 D9:1
+(points 2 -75 130 -62 130))
+(connect D0:0 D10:0
+(points 2 0 34 0 43))
+(connect D14:1 D10:1
+(points 2 -51 60 -32 60))
+(connect D13:1 D14:1
+(points 6 -139 -90 -120 -90 -120 -30 -110 -30 -110 50 -90 50))
+(connect D12:1 D14:2
+(points 6 -148 140 -140 140 -140 110 -130 110 -130 70 -90 70))
+(connect D16:1 D15:1
+(points 4 201 260 240 260 240 80 262 80))
+(connect D15:0 D15:2
+(points 5 430 286 430 310 250 310 250 220 262 220))
+(connect D6:1 D16:1
+(points 2 29 250 38 250))
+(connect D14:1 D16:2
+(points 10 -51 60 -40 60 -40 90 -70 90 -70 100 -90 100 -90 280 20 280 20 270 38
+270)))
+(stackingOrder 14 9 1 7 15 0 17 11 8 2 16 12 13 10 3 4 5 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

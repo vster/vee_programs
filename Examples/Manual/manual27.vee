@@ -1,0 +1,160 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:15:04 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Importing  An Array From a Text File")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 NOTE
+(properties
+(name "Info About")
+(text2 23 "Overview:" "This program illustrates one way to import an array "
+"from a text file.  In this case, the dimensions of"
+"the array are contained in the file header." "" "Details:"
+"The file being read must contain a header that"
+"specifies the size of each of the array\'s two"
+"dimensions.  The first number in the file"
+"is the number of columns and the second number "
+"is the number of rows.  The numbers that follow"
+"are the elements in the array, each separated by "
+"whitespace.  Here are the contents of a typical" "data file:" "" "    2"
+"    3" "    1.1  2.2" "    3.3  4.4" "    5.5  6.6" "" "" "    ")))
+(device 2 START25)
+(device 3 FROMFILE
+(properties
+(transactions 2 "READ TEXT cols, rows REAL64"
+"READ TEXT x REAL64 ARRAY:rows, cols"))
+(interface
+(output 1
+(name "rows")
+(optional yes))
+(output 2
+(name "X")
+(optional yes))
+(output 3
+(name "cols")
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Manual/manual27.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(properties
+(name "Columns"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Rows"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D2:0 D3:0)
+(connect D3:2 D4:1)
+(connect D3:3 D5:1)
+(connect D3:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 757 47)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 537 201)
+(editing disabled))
+(pinCenter -470 80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 67 37))
+(title off)
+(pinCenter -500 220))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 427 155))
+(terminals on)
+(pinCenter -505 390))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 303 357))
+(pinCenter 120 290))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 147 39))
+(pinCenter -140 440))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 147 39))
+(pinCenter -140 250))
+(connect D2:0 D3:0
+(points 2 -500 241 -500 292))
+(connect D3:2 D4:1
+(points 6 -249 390 -240 390 -240 380 -220 380 -220 290 -34 290))
+(connect D3:3 D5:1
+(points 2 -249 440 -216 440))
+(connect D3:1 D6:1
+(points 4 -249 340 -230 340 -230 250 -216 250)))
+(stackingOrder 1 3 5 6 4 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

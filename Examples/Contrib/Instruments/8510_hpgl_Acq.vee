@@ -1,0 +1,250 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 15:01:08 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{E5337C5C-89B1-11D4-98D4-0060B0691320}")
+(desc "HPGL2PIC")
+(filename "d:\\Program Files\\Agilent\\IntuiLink\\VNA\\HPGL2PIC.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)))
+(activexControls
+(activexControl 1
+(libid "{6B7E6392-850A-101B-AFC0-4210102A8DA7}")
+(desc "Microsoft Windows Common Controls 5.0 (SP2)")
+(filename "C:\\WINNT\\System32\\COMCTL32.OCX")
+(verMajor 1)
+(verMinor 3)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 34)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 2 "WRITE TEXT \"OUTPIDEN\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 3 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 2 "WAIT INTERVAL:1"
+"WRITE TEXT \"OUTPPLOT 250,596,10250,7796\" STR EOL"))
+(implementation
+(iopath "nwa")))
+(device 6 TOFILE
+(properties
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "myVnaPlot.hgl"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 16 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 1 "READ TEXT hpglDataOut STR"))
+(interface
+(output 1
+(name "hpglDataOut")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 17 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 18 BREAK)
+(device 20 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 21 START25)
+(device 26 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 33 NOTE
+(properties
+(name "ABOUT:8510_hpgl_Acq.vee")
+(text2 8 "An Keysight Vee programming sample for "
+"acquiring and dumping the HPGL graphics " "from the 8510 family network "
+"analyzers. The file is saved to a drive "
+"on the controlling PC. Once acquired " "the user can utilize various HPGL"
+"filters for importing the image into " "many popular desktop publishing tools."
+)))
+(configuration
+(connect D8:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D7:1 D3:1)
+(connect D5:1 D4:0)
+(connect D2:0 D5:0)
+(connect D3:0 D6:0)
+(connect D4:1 D7:1)
+(connect D4:2 D7:2)
+(connect D4:1 D9:1)))
+(contextCarrier
+(wndOrigin 18 4)
+(wndState res)
+(active detail)
+(detail
+(extent 1090 657)
+(anchorPt 153 -50)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 428 67))
+(terminals on)
+(pinCenter 100 160))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 333 60))
+(pinCenter 560 160))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 363 73))
+(terminals on)
+(pinCenter 100 290))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 235 127))
+(terminals on)
+(pinCenter 680 510))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 363 73))
+(terminals on)
+(pinCenter 140 520))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 100 390))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 680 610))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 470 510))
+(devCarrierFor 21
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 100 70))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 138 15))
+(open
+(extent 195 147)
+(noformatter))
+(pinCenter 570 310))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 355 167)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Med Light Teal")
+(pinCenter 300 380))
+(connect D8:0 D0:0
+(points 2 100 83 100 106))
+(connect D0:1 D1:1
+(points 2 346 160 391 160))
+(connect D0:0 D2:0
+(points 2 100 196 100 233))
+(connect D7:1 D3:1
+(points 2 499 510 530 510))
+(connect D5:1 D4:0
+(points 3 136 390 170 390 170 463))
+(connect D2:0 D5:0
+(points 2 100 329 100 362))
+(connect D3:0 D6:0
+(points 2 680 576 680 600))
+(connect D4:1 D7:1
+(points 2 414 500 441 500))
+(connect D4:2 D7:2
+(points 4 414 540 420 540 420 520 441 520))
+(connect D4:1 D9:1
+(points 4 414 500 430 500 430 310 470 310)))
+(stackingOrder 1 5 0 2 4 3 7 8 9 6 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,174 @@
+(saveFormat "7.0")
+(date "Thu 03/Feb/2022 17:54:38 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "fgen ( @(NOT LIVE))")
+(variableScope cont))
+(implementation
+(ioDevType 13)
+(iopath "fgen")))
+(device 1 IODEVICE
+(properties
+(name "fgen ( @(NOT LIVE))")
+(variableScope cont))
+(implementation
+(ioDevType 13)
+(iopath "fgen")))
+(device 2 IODEVICE
+(properties
+(name "fgen ( @(NOT LIVE))")
+(variableScope cont)
+(transactions 1 "WRITE TEXT \"AM 5 VO\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 13)
+(iopath "fgen")))
+(device 3 IODEVICE
+(properties
+(name "fgen ( @(NOT LIVE))")
+(variableScope cont)
+(transactions 1 "WRITE TEXT \"FR\", A, \"HZ\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(ioDevType 13)
+(iopath "fgen")))
+(configuration))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1311 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 270 280))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 260 280))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 810 580))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 850 270)))
+(stackingOrder 0 1 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

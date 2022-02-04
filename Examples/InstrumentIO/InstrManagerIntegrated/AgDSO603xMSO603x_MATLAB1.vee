@@ -1,0 +1,1152 @@
+(saveFormat "7.0")
+(date "Wed 29/Mar/2006 13:45:25 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 7)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "agdso6034a")
+(ppAddr "GPIB0::7::INSTR")
+(eoiEnabled 1)
+(model "agdso6034a"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 154)
+(popupTitleText "xcorr")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 28 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 60 NOTE
+(properties
+(name "Detailed Explanation")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE: To illustrate how to use a MATLAB function such as \"xcorr\" in VEE.\\par\r\n   \\par\r\nEXPLANATION: In this example, we show the user how to convert 1 dimensional arrays of waveform data into real data, how to use MATLAB\'s \"xcorr\" function in the MATLAB Script VEE Object and how the MATLAB plot function works.\\par\r\n\\par\r\nThe MATLAB Script Object is used to access the power of MATLAB software within VEE. This object is similar to a VEE Formula object.  MATLAB Script commands can be entered in the formula field, and data can be passed using input and output pins.\\par\r\n\\par\r\nMany predefined functions are available when you create a MATLAB Script object from the Function & Object Browser. Alternately, the default object available from the Device menu has two inputs, one output, and an example script (X=A+B).  Any of these example objects can be modified to have a different number of input or output pins and a different set of MATLAB Script commands.  There are approximately 1500 functions available in the MATLAB Script engine supplied with VEE.  The MATLAB Signal Processing Toolkit provides about 200 more functions.  VEE\'s Function & Object Browser shows about 500 of the most popular functions.  Consult the MATLAB HelpDesk for information about all the  MATLAB functions. \\par\r\n\\par\r\nFor more Information about the VEE Pro software used to create this sample program, please visit www.keysight.com/find/vee. \\par\r\n             \\par\r\n             \\par\r\n}\r\n"
+)))
+(device 74 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Direct IO in VEE is used to comunicate with the\\par\r\noscilloscope. Commands are issued to make a set\\par\r\nof measurements and the data is imported into\\par\r\nVEE. The data consists of the waveform and\\par\r\nconversion factors.\\par\r\n\\par\r\nThe waveform data is converted or \"scaled\" using\\par\r\nthe conversion factors to calculate real-world units.\\par\r\nRefer to the Waveform Commands chapter of the\\par\r\noscilloscope Programmer\'s Reference manual.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 75 MATLABSCRIPT
+(properties
+(name "Scale Waveform")
+(matlabexpr 1 "X=origin+(waveform*increment)"))
+(interface
+(input 1
+(name "waveform")
+(requires
+(datatype Real64))
+(optional yes))
+(input 2
+(name "origin")
+(optional yes))
+(input 3
+(name "increment")
+(optional yes))
+(output 1
+(name "X")
+(optional yes))))
+(device 78 IODEVICE
+(properties
+(name "measure_waveform_data_ch1")
+(transactions 9 "WRITE TEXT \":DIGITIZE\" EOL"
+"WRITE TEXT \":WAVEFORM:FORMAT WORD\" EOL"
+"WRITE TEXT \":WAVEFORM:SOURCE CHAN1\" EOL" "WRITE TEXT \":WAVEFORM:DATA?\" EOL"
+"READ BINBLOCK x INT16 ARRAY:*" "WRITE TEXT \":WAVEFORM:YOR?\" EOL"
+"READ TEXT yor STR" "WRITE TEXT \":WAVEFORM:YINC?\" EOL" "READ TEXT yinc STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "yor")
+(optional yes))
+(output 3
+(name "yinc")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 85 IODEVICE
+(properties
+(name "measure_waveform_data_ch2")
+(transactions 7 "WRITE TEXT \":WAVEFORM:SOURCE CHAN2\" EOL"
+"WRITE TEXT \":WAVEFORM:DATA?\" EOL" "READ BINBLOCK x INT16 ARRAY:*"
+"WRITE TEXT \":WAVEFORM:YOR?\" EOL" "READ TEXT yor STR"
+"WRITE TEXT \":WAVEFORM:YINC?\" EOL" "READ TEXT yinc STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "yor")
+(optional yes))
+(output 3
+(name "yinc")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 88 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "cross_correlation"))
+(initValue Text
+(data  ""))))
+(device 89 MATLABSCRIPT
+(properties
+(name "MATLAB Script: XCORR Function")
+(matlabexpr 1 "c = xcorr(x,y,A,\'coeff\');")
+(matlabHelpLink "help/toolbox/signal/xcorr.html"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(input 3
+(name "A")
+(optional yes))
+(output 1
+(name "c")
+(optional yes))))
+(device 91 MATLABSCRIPT
+(properties
+(name "MATLAB Script: SIZE")
+(matlabexpr 1 "d = size(X,1);")
+(matlabHelpLink "help/techdoc/ref/size.html"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "d")
+(optional yes))))
+(device 94 MATLABSCRIPT
+(properties
+(name "MATLAB Script: Plot the Correlation")
+(matlabexpr 15 "fig=findobj(\'Type\',\'Figure\',\'Tag\',tagname);"
+"if isempty(fig)," "  fig=figure(\'Tag\',tagname);" "else," "  figure(fig),"
+"end," "plot(-A:A,Y);" "xlabel(\'LAG\');" "ylabel(\'Y\');"
+"title(\'Cross-correlation of CH1 and CH2\');"
+"set(gcf,\'Units\',\'Pixels\');                          % Set pos/size units to pixels"
+"set(gcf, \'Position\',[10,25,500,400]); % Move/size figure. [X,Y,W,H] 1,1: lower left"
+"set(gcf,\'NumberTitle\',\'Off\');                   % Turn off \'Figure No1\' in title"
+"set(gcf,\'Name\',\'From VEE\');                 % Figure title" "")
+(matlabHelpLink "help/techdoc/ref/plot.html"))
+(interface
+(input 1
+(name "Y")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "tagname")
+(optional yes))))
+(device 95 FORMULA
+(properties
+(name "Convert  String to Real")
+(expr 1 "asReal64(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 96 FORMULA
+(properties
+(name "Convert String to Real")
+(expr 1 "asReal64(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 97 FORMULA
+(properties
+(name "Convert String to Real")
+(expr 1 "asReal64(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 98 FORMULA
+(properties
+(name "Convert String to Real")
+(expr 1 "asReal64(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 99 MATLABSCRIPT
+(properties
+(name "Scale Waveform")
+(matlabexpr 1 "X=origin+(waveform*increment)"))
+(interface
+(input 1
+(name "waveform")
+(requires
+(datatype Real64))
+(optional yes))
+(input 2
+(name "origin")
+(optional yes))
+(input 3
+(name "increment")
+(optional yes))
+(output 1
+(name "X")
+(optional yes))))
+(device 100 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The \"xcorr\" function returns the cross-correlation\\par\r\nsequence over the lag range[-maxlags:maxlags] and \\par\r\nthe \'coef\" option normalizes the sequence so the \\par\r\nautocorrelations at zero lag are identically 1.0.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 101 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Calculate the LAG range\\par\r\n}\r\n"
+)))
+(device 103 MESSAGEBOX
+(properties
+(name "Connect Signals Message Box")
+(position 25 82)
+(message
+"Please  connect the signals to be cross-correlated to channels 1 and 2. Then press \"OK\"."
+)
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 107 EXITPROCESS
+(properties
+(code 0)))
+(device 108 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 109 CONFIRM25
+(properties
+(name "Start Measurement")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 113 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Press Start Measurement to Begin"))
+(initValue Text
+(data  ""))))
+(device 114 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 118 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 119 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  " Measuring CH1"))
+(initValue Text
+(data  ""))))
+(device 121 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 122 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Calculating  the Cross-Correlation"))
+(initValue Text
+(data  ""))))
+(device 124 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 125 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Plotting Correlation"))
+(initValue Text
+(data  ""))))
+(device 127 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 128 FROMGLOBAL
+(properties
+(name "Get status")
+(globalName "status"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 129 TEXTDISPLAY
+(properties
+(name "Program Status"))
+(interface
+(input 1
+(name "Data"))))
+(device 130 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Press Start Measurement to Begin"))
+(initValue Text
+(data  ""))))
+(device 131 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 134 DELAY
+(properties
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 135 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 136 EXITPROCESS
+(properties
+(code 0)))
+(device 137 CONFIRM25
+(properties
+(name "Stop Measurement")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 138 DELAY
+(properties
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 139 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 140 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Measuring CH2"))
+(initValue Text
+(data  ""))))
+(device 141 DELAY
+(properties
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 142 DELAY
+(properties
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 147 LABEL
+(properties
+(name "Advanced Math Function Using Embedded MATLAB")
+(labelValue "Advanced Math Function Using Embedded MATLAB"))
+(implementation))
+(device 148 DELAY
+(properties
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 149 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "End Program"))
+(initValue Text
+(data  ""))))
+(device 150 TOGLOBAL
+(properties
+(name "Set status")
+(globalName "status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 151 NOTE
+(properties
+(name " Program Overview")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs17 This example utilizes VEE\'s embedded MATLAB functions to compute the cross-correlation between analog channels 1 and 2 then display the results. You can change the MATLAB script displayed in the adjacent text box.\\par\r\n\\par\r\nIf VEE\'s Program Explorer and Property windows are open (to the left of this panel), close them by clicking on the \"x\" on each window\'s title bar. Use the View menu to re-enable them later.\\par\r\n\\par\r\nTo run the program, click the Run button in the toolbar at the top of the screen or click (Ctrl+G).\\par\r\n}\r\n"
+)))
+(device 152 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 153 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 or greater to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.1\\par\r\n   as a minimum.\\par\r\n -Apply a signal to the oscilloscope                                            \\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 707 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D4:1 D3:1)
+(connect D10:1 D3:2)
+(connect D11:1 D3:3)
+(connect D38:1 D4:0)
+(connect D41:1 D5:0)
+(connect D42:1 D7:0)
+(connect D3:1 D7:1)
+(connect D14:1 D7:2)
+(connect D8:1 D7:3)
+(connect D3:1 D8:1)
+(connect D27:0 D9:0)
+(connect D7:1 D9:1)
+(connect D8:1 D9:2)
+(connect D6:1 D9:3)
+(connect D4:2 D10:1)
+(connect D4:3 D11:1)
+(connect D5:2 D12:1)
+(connect D5:3 D13:1)
+(connect D5:1 D14:1)
+(connect D12:1 D14:2)
+(connect D13:1 D14:3)
+(connect D20:1 D17:0)
+(connect D17:2 D18:0)
+(connect D21:0 D19:0)
+(connect D19:1 D20:0)
+(connect D21:1 D22:1)
+(connect D24:1 D23:1)
+(connect D17:1 D24:0)
+(connect D26:1 D25:1)
+(connect D13:0 D26:0)
+(connect D28:1 D27:1)
+(connect D7:0 D28:0)
+(connect D32:0 D29:0)
+(connect D29:1 D30:0)
+(connect D30:1 D31:1)
+(connect D32:1 D33:1)
+(connect D31:0 D34:0)
+(connect D44:1 D36:0)
+(connect D35:1 D37:0)
+(connect D23:0 D38:0)
+(connect D40:1 D39:1)
+(connect D4:0 D40:0)
+(connect D39:0 D41:0)
+(connect D26:0 D42:0)
+(connect D46:0 D44:0)
+(connect D37:1 D45:0)
+(connect D45:1 D46:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 628 357)
+(drawGrid "off")
+(widget 37 detail
+(relativeOrigin 490 280)
+(bg "Light Blue")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 5)
+(borderStyle convex)
+(extent 127 57))
+(widget 20 detail
+(relativeOrigin 10 280)
+(bg "Light Blue")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 3)
+(borderStyle convex)
+(extent 127 57))
+(widget 31 detail
+(relativeOrigin 170 280)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 287 39))
+(widget 43 detail
+(relativeOrigin 80 -10)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 475 65)
+(just c))
+(widget 7 detail
+(relativeOrigin 400 40)
+(bg "Light Blue Gray")
+(PID 4)
+(title on)
+(tabIndex 2)
+(borderStyle flat)
+(extent 217 88))
+(widget 47 detail
+(relativeOrigin 10 40)
+(bg "Light Blue Gray")
+(PID 5)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 377 208)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 531 340)
+(anchorPt 988 438)
+(configuration
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter 1080 1070))
+(devCarrierFor 60
+(active open)
+(icon
+(extent 124 25))
+(open
+(extent 482 194)
+(editing enabled))
+(titleBg "Teal")
+(pinCenter -830 -110))
+(devCarrierFor 74
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 415 217)
+(editing enabled))
+(pinCenter -110 40))
+(devCarrierFor 75
+(active icon)
+(icon
+(extent 97 34))
+(open
+(extent 155 67))
+(terminals on)
+(pinCenter -40 190))
+(devCarrierFor 78
+(active icon)
+(icon
+(extent 184 51)
+(iconImage "io.icn"))
+(open
+(extent 275 187))
+(terminals on)
+(pinCenter -510 280))
+(devCarrierFor 85
+(active icon)
+(icon
+(extent 184 51)
+(iconImage "io.icn"))
+(open
+(extent 275 187))
+(terminals on)
+(pinCenter -510 430))
+(devCarrierFor 88
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -140 610))
+(devCarrierFor 89
+(active open)
+(icon
+(extent 195 34))
+(open
+(extent 185 87))
+(terminals on)
+(pinCenter -340 580))
+(devCarrierFor 91
+(active icon)
+(icon
+(extent 122 15))
+(open
+(extent 98 31))
+(terminals on)
+(pinCenter -190 480))
+(devCarrierFor 94
+(active icon)
+(icon
+(extent 209 34))
+(open
+(extent 315 277))
+(terminals on)
+(pinCenter 70 560))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 134 15))
+(open
+(extent 98 31))
+(terminals on)
+(pinCenter -190 190))
+(devCarrierFor 96
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 98 31))
+(terminals on)
+(pinCenter -200 230))
+(devCarrierFor 97
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 98 31))
+(terminals on)
+(pinCenter -210 320))
+(devCarrierFor 98
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 98 31))
+(terminals on)
+(pinCenter -210 350))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 97 34))
+(open
+(extent 155 67))
+(terminals on)
+(pinCenter -40 300))
+(devCarrierFor 100
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 385 157)
+(editing enabled))
+(pinCenter -270 740))
+(devCarrierFor 101
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 225 45)
+(editing enabled))
+(title off)
+(pinCenter -100 420))
+(devCarrierFor 103
+(active icon)
+(icon
+(extent 184 25))
+(open
+(extent 235 127))
+(terminals on)
+(pinCenter -470 110))
+(devCarrierFor 107
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -640 190))
+(devCarrierFor 108
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -540 -70))
+(devCarrierFor 109
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 135 35))
+(title off)
+(pinCenter -500 10))
+(devCarrierFor 113
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -540 -140))
+(devCarrierFor 114
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -460 -140))
+(devCarrierFor 118
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -370 180))
+(devCarrierFor 119
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -470 180))
+(devCarrierFor 121
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -450 500))
+(devCarrierFor 122
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -540 500))
+(devCarrierFor 124
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 160 500))
+(devCarrierFor 125
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 80 500))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 270 320))
+(devCarrierFor 128
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 290 410))
+(devCarrierFor 129
+(active open)
+(icon
+(extent 141 0))
+(open
+(extent 177 22))
+(pinCenter 370 480))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 270 240))
+(devCarrierFor 131
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 350 240))
+(devCarrierFor 134
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 370 550))
+(devCarrierFor 135
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 280 590))
+(devCarrierFor 136
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 390 820))
+(devCarrierFor 137
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 147 35))
+(title off)
+(pinCenter 320 650))
+(devCarrierFor 138
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter -430 210))
+(devCarrierFor 139
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -530 350))
+(devCarrierFor 140
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -590 340))
+(devCarrierFor 141
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter -460 350))
+(devCarrierFor 142
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter -540 550))
+(devCarrierFor 147
+(active open)
+(icon
+(extent 308 0))
+(open
+(extent 475 65)
+(just c))
+(title off)
+(font "Arial" 18)
+(pinCenter -340 -320))
+(devCarrierFor 148
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 340 760))
+(devCarrierFor 149
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 320 700))
+(devCarrierFor 150
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 400 700))
+(devCarrierFor 151
+(active open)
+(icon
+(extent 113 51)
+(iconImage "notepad.icn"))
+(open
+(extent 474 96)
+(editing enabled))
+(pinCenter -830 -290))
+(devCarrierFor 152
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter -270 -250))
+(devCarrierFor 153
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter -250 -160))
+(connect D4:1 D3:1
+(points 6 -416 270 -400 270 -400 260 -100 260 -100 180 -91 180))
+(connect D10:1 D3:2
+(points 2 -121 190 -91 190))
+(connect D11:1 D3:3
+(points 4 -133 230 -110 230 -110 200 -91 200))
+(connect D38:1 D4:0
+(points 5 -410 210 -400 210 -400 230 -510 230 -510 252))
+(connect D41:1 D5:0
+(points 5 -440 350 -430 350 -430 370 -510 370 -510 402))
+(connect D42:1 D7:0
+(points 5 -520 550 -500 550 -500 530 -340 530 -340 516))
+(connect D3:1 D7:1
+(points 10 11 190 40 190 40 390 -280 390 -280 480 -290 480 -290 520 -450 520
+-450 550 -465 550))
+(connect D14:1 D7:2
+(points 8 11 300 50 300 50 470 -60 470 -60 530 -470 530 -470 580 -465 580))
+(connect D8:1 D7:3
+(points 6 -127 480 -110 480 -110 540 -460 540 -460 610 -465 610))
+(connect D3:1 D8:1
+(points 6 11 190 40 190 40 390 -280 390 -280 480 -254 480))
+(connect D27:0 D9:0
+(points 4 160 510 160 520 70 520 70 540))
+(connect D7:1 D9:1
+(points 6 -215 580 -200 580 -200 570 -190 570 -190 550 -37 550))
+(connect D8:1 D9:2
+(points 4 -127 480 -110 480 -110 560 -37 560))
+(connect D6:1 D9:3
+(points 4 -125 610 -80 610 -80 570 -37 570))
+(connect D4:2 D10:1
+(points 4 -416 280 -320 280 -320 190 -260 190))
+(connect D4:3 D11:1
+(points 4 -416 290 -390 290 -390 230 -268 230))
+(connect D5:2 D12:1
+(points 6 -416 430 -410 430 -410 340 -400 340 -400 320 -278 320))
+(connect D5:3 D13:1
+(points 4 -416 440 -400 440 -400 350 -278 350))
+(connect D5:1 D14:1
+(points 4 -416 420 -380 420 -380 290 -91 290))
+(connect D12:1 D14:2
+(points 4 -143 320 -130 320 -130 300 -91 300))
+(connect D13:1 D14:3
+(points 4 -143 350 -120 350 -120 310 -91 310))
+(connect D20:1 D17:0
+(points 5 -430 10 -410 10 -410 50 -470 50 -470 95))
+(connect D17:2 D18:0
+(points 7 -376 120 -360 120 -360 150 -580 150 -580 140 -640 140 -640 162))
+(connect D21:0 D19:0
+(points 2 -540 -130 -540 -98))
+(connect D19:1 D20:0
+(points 5 -504 -70 -480 -70 -480 -30 -500 -30 -500 -10))
+(connect D21:1 D22:1
+(points 2 -525 -140 -493 -140))
+(connect D24:1 D23:1
+(points 2 -455 180 -403 180))
+(connect D17:1 D24:0
+(points 5 -376 100 -350 100 -350 160 -470 160 -470 170))
+(connect D26:1 D25:1
+(points 2 -525 500 -483 500))
+(connect D13:0 D26:0
+(points 6 -210 360 -210 380 -300 380 -300 480 -540 480 -540 490))
+(connect D28:1 D27:1
+(points 2 95 500 127 500))
+(connect D7:0 D28:0
+(points 12 -340 626 -340 640 -330 640 -330 620 -190 620 -190 580 -90 580 -90 540
+-50 540 -50 480 80 480 80 490))
+(connect D32:0 D29:0
+(points 2 270 250 270 292))
+(connect D29:1 D30:0
+(points 5 306 320 330 320 330 370 290 370 290 400))
+(connect D30:1 D31:1
+(points 6 323 410 330 410 330 430 260 430 260 480 279 480))
+(connect D32:1 D33:1
+(points 2 285 240 317 240))
+(connect D31:0 D34:0
+(points 2 370 493 370 540))
+(connect D44:1 D36:0
+(points 3 360 760 390 760 390 792))
+(connect D35:1 D37:0
+(points 5 316 590 330 590 330 620 320 620 320 630))
+(connect D23:0 D38:0
+(points 6 -370 190 -370 200 -400 200 -400 190 -430 190 -430 200))
+(connect D40:1 D39:1
+(points 2 -575 340 -563 350))
+(connect D4:0 D40:0
+(points 4 -510 308 -510 320 -590 320 -590 330))
+(connect D39:0 D41:0
+(points 6 -530 360 -530 380 -420 380 -420 330 -460 330 -460 340))
+(connect D26:0 D42:0
+(points 2 -540 510 -540 540))
+(connect D46:0 D44:0
+(points 4 400 710 400 730 340 730 340 750))
+(connect D37:1 D45:0
+(points 5 396 650 410 650 410 680 320 680 320 690))
+(connect D45:1 D46:1
+(points 2 335 700 367 700)))
+(stackingOrder 0 10 11 6 13 14 3 16 15 8 18 19 22 23 27 29 30 31 33 34 35 25 39
+42 41 38 37 2 21 32 44 45 46 36 7 24 40 20 12 26 28 9 4 5 47 43 48 1 17 49))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

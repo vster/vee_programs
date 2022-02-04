@@ -1,0 +1,132 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 20:33:14 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType userFunction)
+(fileName "RepGen.vee"))
+(implementation))
+(device 2 CALL
+(properties
+(name "Call myLib.BuildRecAry")
+(variableScope cont)
+(callFunc "myLib.BuildRecAry")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 DELETE
+(properties
+(variableScope cont)
+(libName "myLib"))
+(implementation))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 6 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 If the program failed, please update the library File Name to \\{VeeInstallDirectory\\}\\\\Keysight\\\\VEE Pro 9.3\\\\examples\\\\Manual\\\\UsersGuide\\\\RepGen.vee\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D1:0 D3:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 748 472)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt -130 27)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 224 82))
+(pinCenter 260 140))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 260 250))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 234 206))
+(pinCenter 540 250))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 239 55))
+(pinCenter 260 350))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 320 10))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 304 96)
+(editing disabled))
+(pinCenter 670 50))
+(connect D0:0 D1:0
+(points 2 260 183 260 204))
+(connect D1:1 D2:1
+(points 2 380 250 420 250))
+(connect D1:0 D3:0
+(points 2 260 278 260 302)))
+(stackingOrder 1 4 5 0 3 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,78 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:19:03 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 3)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 PCEXECPROG
+(properties
+(command "http://www.keysight.com/")
+(waitForExit 0)
+(runStyle Normal)
+(workingDir ""))
+(interface
+(output 1
+(name "Exit code")
+(lock name constraints))))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 2 NOTE
+(properties
+(text2 4 "This example uses the PC Execute" "object to go to a URL on the web"
+"using your web browser." "")))
+(configuration))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 492 348)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "c.icn"))
+(open
+(extent 291 106))
+(terminals on)
+(pinCenter 215 280))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 210 40))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 251 78)
+(editing disabled))
+(pinCenter 170 140)))
+(stackingOrder 1 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

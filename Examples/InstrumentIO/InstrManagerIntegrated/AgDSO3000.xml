@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgDSO3000.vee">
+		<Description>Displays analog waveform parameters</Description>
+		<LogicalInstrument name="Scope">
+			<SupportedInstruments>
+				<Instrument idn="agdso3062A"/>
+				<Instrument idn="agdso3102A"/>
+				<Instrument idn="agmso3152A"/>
+				<Instrument idn="agmso3202A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

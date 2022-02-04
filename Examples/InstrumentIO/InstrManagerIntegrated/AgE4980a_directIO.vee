@@ -1,0 +1,458 @@
+(saveFormat "7.0")
+(date "Wed 12/Apr/2006 09:27:13 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "lcr_meter"
+(type TCPIP)
+(channel 180)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(errorChecking 0)
+(isIncremental 0)
+(ppAddr "TCPIP0::156.140.156.134 ::inst0::INSTR")
+(model "")
+(VISAddr "TCPIP0::156.140.156.134 ::inst0::INSTR")))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "lcr_meter ( @TCPIP0::156.140.156.134 ::inst0::INSTR)")
+(transactions 6 "WRITE TEXT \":TRIG:SOUR BUS\" EOL"
+"WRITE TEXT \":ABOR;:INIT\" EOL" "WRITE TEXT \":FREQ 1KHZ\" EOL"
+"WRITE TEXT \"TRIG\" EOL" "WRITE TEXT \"FETCH?\" EOL" "READ TEXT x, y REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes))
+(output 3
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "lcr_meter")))
+(device 1 TEXTDISPLAY
+(properties
+(name "Instrument ID"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(name "Capacitance (Cp)"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(properties
+(name "Dissipation Factor (D)"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(properties
+(name "Error Message"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FORMULA
+(properties
+(name "errorInfo()")
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Read Message from Error Record")
+(expr 1 "rec.message"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 CONFIRM25
+(properties
+(name "Make a measurement")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 9 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 10 IODEVICE
+(properties
+(name "lcr_meter ( @TCPIP0::156.140.156.134 ::inst0::INSTR)")
+(transactions 3 "WRITE TEXT \"*RST;*CLS\" EOL" "WRITE TEXT \"*IDN?\" EOL"
+"READ TEXT ID STR"))
+(interface
+(output 1
+(name "ID")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "lcr_meter")))
+(device 11 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 12 DELAY
+(properties
+(delay 5))
+(interface
+(output 1
+(name "Done"))))
+(device 13 EXITCONTEXT)
+(device 14 CONFIRM25
+(properties
+(name "Stop Program")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 15 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 16 EXITPROCESS
+(properties
+(code 0)))
+(device 17 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version 14.1\\par\r\n   as a minimum.\\par\r\n -Apply a device such as a capacitor to the instrument\'s fixture. \\par\r\n\\par\r\nNote that this example is using a LAN interface. The instrument wasat the address \\par\r\nTCPIP0::156.140.156.134 ::inst0::INSTR on the LAN.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 18 NOTE
+(properties
+(name "E4980A Instrument Setup")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18\\par\r\nPlease follow the steps below before executing the example program:\\par\r\n\\par\r\n1) Attach the device to be tested to the fixture.\\par\r\n\\par\r\n2) Press the \"Make a Measurement\" button on the E4980A LCR meter to measure the Capacitance and Dissipation Factor. If an error occurs, the corresponding error message will be displayed. \\par\r\n\\par\r\n3) Press the \"Stop Program\" button to terminate the program.\\par\r\n\\par\r\n4) If the instrument is not attached to the LAN, then use the VEE Pro Instrument Manager to configure the instrument for the correct interface.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 19 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D7:1 D0:0)
+(connect D9:1 D1:1)
+(connect D0:1 D2:1)
+(connect D0:2 D3:1)
+(connect D6:1 D4:1)
+(connect D10:1 D5:0)
+(connect D5:1 D6:1)
+(connect D8:1 D7:0)
+(connect D9:0 D8:0)
+(connect D9:2 D10:1)
+(connect D0:3 D10:2)
+(connect D4:0 D11:0)
+(connect D11:1 D12:0)
+(connect D14:1 D13:0)
+(connect D13:1 D15:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin -1 1)
+(wndState res)
+(active panel)
+(panel
+(extent 1013 427)
+(drawGrid "on")
+(widget 7 detail
+(relativeOrigin 480 310)
+(font "Arial" 14)
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 170 105))
+(widget 4 detail
+(relativeOrigin 0 330)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 356 56))
+(widget 1 detail
+(relativeOrigin 0 20)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 356 68))
+(widget 2 detail
+(relativeOrigin 0 120)
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 356 88))
+(widget 3 detail
+(relativeOrigin 0 230)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 356 68))
+(widget 13 detail
+(relativeOrigin 800 310)
+(font "Arial" 14)
+(PID 5)
+(title off)
+(tabIndex 5)
+(borderStyle none)
+(extent 170 105))
+(widget 17 detail
+(relativeOrigin 360 20)
+(PID 7)
+(title off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 636 236)
+(editing enabled)))
+(detail
+(extent 545 405)
+(anchorPt 65 272)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 326 51)
+(iconImage "io.icn"))
+(open
+(extent 304 166))
+(terminals on)
+(pinCenter 210 180))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 494 66))
+(pinCenter 440 -100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 494 66))
+(pinCenter 500 170))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 132 15))
+(open
+(extent 494 66))
+(pinCenter 500 200))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 674 56))
+(pinCenter 910 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 104 50))
+(terminals on)
+(pinCenter 540 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 203 15))
+(open
+(extent 159 50))
+(terminals on)
+(pinCenter 710 100))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 132 0))
+(open
+(extent 124 44))
+(title off)
+(pinCenter 260 70))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 150 10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 326 51)
+(iconImage "io.icn"))
+(open
+(extent 304 166))
+(terminals on)
+(pinCenter 145 -90))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 450 60))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 910 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 960 220))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 83 0))
+(open
+(extent 134 64))
+(title off)
+(pinCenter -150 30))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -170 -90))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -60 150))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 144 64)
+(iconImage "notepad.icn"))
+(open
+(extent 554 226)
+(editing enabled))
+(pinCenter 240 -260))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 154 51)
+(iconImage "notepad.icn"))
+(open
+(extent 744 206)
+(editing enabled))
+(pinCenter 470 -250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter -60 -250))
+(connect D7:1 D0:0
+(points 5 324 70 340 70 340 110 210 110 210 152))
+(connect D9:1 D1:1
+(points 4 339 -130 360 -130 360 -100 397 -100))
+(connect D0:1 D2:1
+(points 2 375 170 445 170))
+(connect D0:2 D3:1
+(points 4 375 180 410 180 410 200 431 200))
+(connect D6:1 D4:1
+(points 2 814 100 863 100))
+(connect D10:1 D5:0
+(points 3 465 60 540 60 540 90))
+(connect D5:1 D6:1
+(points 2 572 100 606 100))
+(connect D8:1 D7:0
+(points 3 186 10 260 10 260 45))
+(connect D9:0 D8:0
+(points 2 150 -5 150 -18))
+(connect D9:2 D10:1
+(points 4 339 -50 360 -50 360 50 434 50))
+(connect D0:3 D10:2
+(points 4 375 190 400 190 400 70 434 70))
+(connect D4:0 D11:0
+(points 2 910 110 910 140))
+(connect D11:1 D12:0
+(points 3 930 150 960 150 960 210))
+(connect D14:1 D13:0
+(points 5 -134 -90 -110 -90 -110 -40 -150 -40 -150 -5))
+(connect D13:1 D15:0
+(points 3 -81 30 -60 30 -60 114)))
+(stackingOrder 10 5 6 4 11 12 18 16 1 14 13 15 8 7 2 3 0 17 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,230 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 20:38:21 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "Trapping an Error")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 4 ESCAPE
+(properties
+(name "Raise Error #1")
+(variableScope cont)
+(errorCode 2001)
+(message "You Cannot Divide By Zero.  Enter another value for B.")))
+(device 8 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 10 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A==511"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 16 CONSTANT
+(properties
+(name "Real")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 18 CONSTANT
+(properties
+(name "Real")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1))
+(initValue Real
+(data  0))))
+(device 21 FORMULA
+(properties
+(name "A/B")
+(variableScope cont)
+(expr 1 "A/B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 22 ESCAPE
+(properties
+(name "Raise Error #2")
+(variableScope cont)
+(errorCode 511)
+(message "See online help for error number below:"))
+(interface
+(input 1
+(name "Code")
+(tag "Code")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(device 24 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 This example shows how to use the  Raise Error object to trap an error in an VEE program.  For further information, see the \"VEE Help\" topic \"To Trap an Error\".\\par\r\n}\r\n"
+)))
+(device 25 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:1 D0:0)
+(connect D5:1 D1:1)
+(connect D5:2 D2:1)
+(connect D4:1 D5:1)
+(connect D3:1 D5:2)
+(connect D2:2 D6:0)
+(connect D5:2 D6:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1000 573)
+(anchorPt 738 275)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 473 74))
+(pinCenter 0 0))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 143 42))
+(pinCenter -360 -100))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 77 70))
+(terminals on)
+(pinCenter -365 0))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 77 28)
+(showFormat real))
+(pinCenter -690 -10))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 79 27)
+(showFormat real))
+(pinCenter -690 -70))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 26 0))
+(open
+(extent 64 46))
+(terminals on)
+(pinCenter -570 -40))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 368 78))
+(terminals on)
+(pinCenter -190 140))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 354 76)
+(editing disabled))
+(pinCenter -190 -210))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing disabled))
+(pinCenter -560 -240))
+(connect D2:1 D0:0
+(points 5 -284 -20 -260 -20 -260 -80 0 -80 0 -58))
+(connect D5:1 D1:1
+(points 4 -486 -50 -470 -50 -470 -100 -434 -100))
+(connect D5:2 D2:1
+(points 4 -486 -30 -470 -30 -470 0 -436 0))
+(connect D4:1 D5:1
+(points 4 -648 -70 -640 -70 -640 -50 -635 -50))
+(connect D3:1 D5:2
+(points 4 -649 -10 -640 -10 -640 -30 -635 -30))
+(connect D2:2 D6:0
+(points 5 -284 20 -260 20 -260 60 -200 60 -200 80))
+(connect D5:2 D6:1
+(points 6 -486 -30 -470 -30 -470 0 -460 0 -460 140 -427 140)))
+(stackingOrder 2 3 4 0 7 8 1 5 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE4980a_directIO.vee">
+		<Description>E4980A Capacitance Measurement</Description>
+		<LogicalInstrument name="lcr_Meter">
+			<SupportedInstruments>
+				<Instrument idn="agE4980A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

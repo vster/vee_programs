@@ -1,0 +1,488 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:08:09 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F3 F1 F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 4)
+(context 0
+(properties
+(name "BuildRecAry")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 " random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 CONSTANT
+(properties
+(name "Int32"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  5))
+(initValue Int32
+(data  0))))
+(device 3 FORMULA
+(properties
+(expr 1 " (A<=5 ? \"PASS\" : \"FAIL\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "Value")
+(optional yes))
+(input 2
+(name "Limit")
+(optional yes))
+(input 3
+(name "PassFail")
+(optional yes))
+(output 1
+(name "Record"))))
+(device 5 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(configuration
+(connect D0:1 D1:0)
+(connect D1:1 D3:1)
+(connect D1:1 D4:1)
+(connect D2:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 D5:1)
+(connect D0:0 D5:2)
+(connect D5:1 O1:1)))
+(contextCarrier
+(wndOrigin 162 861)
+(wndRestoredOrigin 22 22)
+(wndRestoredExtent 793 405)
+(wndState min)
+(active detail)
+(detail
+(extent 793 405)
+(anchorPt 1 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 70 50))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 140 130))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 230 230))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 238 50))
+(terminals on)
+(pinCenter 250 320))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 169 151))
+(terminals on)
+(pinCenter 500 120))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 650 360))
+(connect D0:1 D1:0
+(points 3 120 50 150 50 150 88))
+(connect D1:1 D3:1
+(points 6 256 130 280 130 280 170 80 170 80 320 98 320))
+(connect D1:1 D4:1
+(points 4 256 130 290 130 290 70 353 70))
+(connect D2:1 D4:2
+(points 4 266 230 300 230 300 120 353 120))
+(connect D3:1 D4:3
+(points 6 421 320 440 320 440 250 330 250 330 170 353 170))
+(connect D4:1 D5:1
+(points 6 647 120 670 120 670 220 610 220 610 350 621 350))
+(connect D0:0 D5:2
+(points 5 70 68 70 80 20 80 20 370 621 370))
+(connect D5:1 O1:1
+(points 4 679 360 700 360 700 202 791 202)))
+(stackingOrder 0 4 1 5 2 3))))
+(context 2
+(properties
+(name "ReportBody")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(deviceList
+(device 0 TOFILE
+(properties
+(transactions 2 "WRITE TEXT A[B].Value, \"|\", A[B].Limit, \"|\" REAL64 FIX:4"
+"WRITE TEXT A[B].PassFail STR FW:5 RJ EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes)))
+(implementation
+(attr iopath file write "report.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 1 FORCOUNT
+(properties
+(count 3))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 624 344)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 477 148))
+(terminals on)
+(pinCenter 340 120))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 110 310))
+(connect I1:1 D0:1
+(points 4 0 171 10 171 10 80 69 80))
+(connect D1:1 D0:2
+(points 6 160 310 180 310 180 250 30 250 30 160 69 160)))
+(stackingOrder 1 0))))
+(context 3
+(properties
+(name "ReportDisplay")
+(trigMode deg)
+(nextID 5)
+(popupMoveable 1))
+(deviceList
+(device 0 FROMFILE
+(properties
+(transactions 1 "READ TEXT x STR ARRAY:*"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "report.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 4 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0))
+(ShowOnExecPanel
+(relativeOrigin 355 178)))
+(contextCarrier
+(wndOrigin 322 861)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 288 271)
+(wndState min)
+(active panel)
+(panel
+(extent 288 271)
+(widget 1 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle flat)
+(extent 257 203)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(widget 2 detail
+(relativeOrigin 100 240)
+(title off)
+(borderStyle none)
+(extent 47 22)))
+(detail
+(extent 648 351)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 231 108))
+(terminals on)
+(pinCenter 180 110))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 257 203)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(title off)
+(pinCenter 500 150))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 39 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 500 310))
+(connect D0:1 D1:1
+(points 4 328 110 350 110 350 150 369 150))
+(connect D1:0 D2:0
+(points 2 500 254 500 296)))
+(stackingOrder 0 1 2))))
+(context 1
+(properties
+(name "ReportHeader")
+(trigMode deg)
+(nextID 1)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 TOFILE
+(properties
+(transactions 5 "WRITE TEXT \"LIMIT TEST\" EOL"
+"WRITE TEXT \"==============\" EOL" "WRITE TEXT now() DATE:DMY TIME:HM:H12 EOL"
+"WRITE TEXT \"==============\" EOL"
+"WRITE TEXT \"Value     Limit      Result\" EOL"))
+(implementation
+(attr iopath file write "report.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration))
+(contextCarrier
+(wndOrigin 2 861)
+(wndRestoredOrigin 42 42)
+(wndRestoredExtent 488 242)
+(wndState min)
+(active detail)
+(detail
+(extent 488 242)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 363 157))
+(terminals on)
+(pinCenter 230 110)))))))
+(device 0 CALL
+(properties
+(name "Call BuildRecAry")
+(callFunc "BuildRecAry")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 1 CALL
+(properties
+(name "Call ReportHeader")
+(callFunc "ReportHeader")
+(parmMode rev30)))
+(device 2 CALL
+(properties
+(name "Call ReportBody")
+(callFunc "ReportBody")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call ReportDisplay")
+(callFunc "ReportDisplay")
+(parmMode rev30)))
+(device 4 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D2:0 D3:0)))
+(contextCarrier
+(wndOrigin 26 24)
+(wndState res)
+(active detail)
+(detail
+(extent 731 418)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 190 170))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 510 60))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 510 170))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 510 280))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 190 360))
+(connect D1:0 D2:0
+(points 2 510 88 510 124))
+(connect D0:1 D2:1
+(points 2 310 170 389 170))
+(connect D2:0 D3:0
+(points 2 510 198 510 234)))
+(stackingOrder 1 2 3 0 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN6700b.vee">
+		<Description>Programs outputs, measure output conditions, and strip charts ouput power</Description>
+		<LogicalInstrument name="PowerSupply">
+			<SupportedInstruments>
+				<Instrument idn="agn6700a"/>
+				<Instrument idn="agn6700b"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,110 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 11:50:07 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINNT\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINNT\\Microsoft.NET\\Framework\\v1.1.4322\\System.dll"))
+(selectedNamespaces "System.Net,"))
+(properties
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Lookup IP Address")
+(expr 1
+"Dns.Resolve(System.Environment.MachineName).AddressList.GetValue(0).ToString();"
+))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 3 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\b\\fs23 IPAddress\\par\r\n\\cf0\\ulnone\\b0\\fs21\\par\r\n\\f1\\fs24 Demonstrates how to easily get IP address of your machine (or any machine).  This example also shows how to access a .NET object array using the GetValue Array method\\cf1\\f2 .  Note that IPHostEntry.AddressList returns an array of IPAddress. \\cf0\\f0\\fs21\\par\r\n\\par\r\n\\b\\f1\\fs24 Assemblies\\b0 : Mscorlib, System\\par\r\n\\b Namespaces\\b0 : System.Net\\par\r\n\\b Classes\\b0 : System.Net.Dns, System.Net.IPHostEntry, System.Environment, System.Array\\f0\\fs21    \\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 592 373)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 12 -5)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 585 57))
+(font "Arial" 14)
+(pinCenter 290 390))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 165 37)
+(scFont "Arial" 18)
+(arFont "Arial" 14))
+(pinCenter 690 390))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 630 80))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 444 246)
+(editing disabled))
+(pinCenter 220 170))
+(connect D0:1 D1:1
+(points 2 585 390 605 390)))
+(stackingOrder 3 2 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

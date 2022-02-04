@@ -1,0 +1,526 @@
+(saveFormat "7.0")
+(date "Wed 02/Mar/2005 13:22:50 ")
+(veerev "7.5.7501.0 Alpha")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 51)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 9 TEXTDISPLAY
+(properties
+(name "Second Ball # of Pins Knocked Down"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "First Roll Result"))
+(interface
+(input 1
+(name "Data"))))
+(device 27 TEXTDISPLAY
+(properties
+(name "Second Roll Result"))
+(interface
+(input 1
+(name "Data"))))
+(device 38 TEXTDISPLAY
+(properties
+(name "First Ball # of Pins Knocked Down"))
+(interface
+(input 1
+(name "Data"))))
+(device 44 CONTEXT
+(properties
+(name "SecondResult")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "PinsKnockedDown")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "RunningTotal")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 "(FirstResult==10 ? 0 : random(0,10-FirstResult))"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(expr 1 "round(SecondRollResult)"))
+(interface
+(input 1
+(name "SecondRollResult")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(expr 1
+"(FirstResult==10 ? \" \" : (SecondRollResult+FirstResult == 10 ? \"SPARE\" : \"OPEN FRAME\"))"
+))
+(interface
+(input 1
+(name "SecondRollResult")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(expr 1 "FirstResult + SecondRollResult"))
+(interface
+(input 1
+(name "SecondRollResult")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D1:1 D3:1)
+(connect D1:1 O1:1)
+(connect D2:1 O2:1)
+(connect D3:1 O3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 597 258)
+(anchorPt -135 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 106 15))
+(open
+(extent 394 50))
+(terminals on)
+(pinCenter 280 80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 50 15))
+(open
+(extent 224 56))
+(terminals on)
+(pinCenter 285 200))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 50 25))
+(open
+(extent 434 66))
+(terminals on)
+(pinCenter 395 380))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 244 56))
+(terminals on)
+(pinCenter 355 530))
+(connect D0:1 D1:1
+(points 6 529 80 550 80 550 130 30 130 30 200 50 200))
+(connect D1:1 D2:1
+(points 6 449 200 470 200 470 250 50 250 50 380 55 380))
+(connect D1:1 D3:1
+(points 6 449 200 470 200 470 250 50 250 50 530 110 530))
+(connect D1:1 O1:1
+(points 4 449 200 560 200 560 48 731 48))
+(connect D2:1 O2:1
+(points 4 664 380 680 380 680 128 731 128))
+(connect D3:1 O3:1
+(points 4 529 530 550 530 550 208 731 208)))
+(stackingOrder 0 1 3 2))))
+(device 45 CONTEXT
+(properties
+(name "FirstResult")
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Roll a Frame")
+(optional yes))
+(output 1
+(type data)
+(name "FirstBallResult")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "FirstRollResult")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Int16"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  0))
+(initValue Int16
+(data  0))))
+(device 1 CONSTANT
+(properties
+(name "Int16"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  10))
+(initValue Int16
+(data  0))))
+(device 2 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 "random(LeastNumberOfPins,MostNumberOfPins)"))
+(interface
+(input 1
+(name "LeastNumberOfPins")
+(optional yes))
+(input 2
+(name "MostNumberOfPins")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(expr 1
+"(FirstRollResult == 10 ? \"STRIKE\" : FirstRollResult+\" knocked down\")"))
+(interface
+(input 1
+(name "FirstRollResult")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DECLVAR
+(properties
+(name "Declare FirstResult")
+(scope glob)
+(globalName "FirstResult"))
+(implementation
+(value Int32
+(data  0))))
+(device 9 TOGLOBAL
+(properties
+(name "Set FirstResult")
+(globalName "FirstResult"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 3 FORMULA
+(properties
+(expr 1 "round(FirstRoll);"))
+(interface
+(input 1
+(name "FirstRoll")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:0)
+(connect D0:0 D1:0)
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D6:1 D3:1)
+(connect D6:1 D5:1)
+(connect D2:1 D6:1)
+(connect D6:1 O1:1)
+(connect D3:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 665 283)
+(anchorPt -1 2)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 31 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 40 120))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 40 190))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 106 25))
+(open
+(extent 294 66))
+(terminals on)
+(pinCenter 385 170))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 50 15))
+(open
+(extent 404 50))
+(terminals on)
+(pinCenter 335 440))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 195 103))
+(pinCenter 180 40))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 104 46))
+(terminals on)
+(pinCenter 540 280))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 50 15))
+(open
+(extent 134 56))
+(terminals on)
+(pinCenter 285 310))
+(connect I1:1 D0:0
+(points 7 1 139 10 139 10 280 -20 280 -20 70 40 70 40 85))
+(connect D0:0 D1:0
+(points 2 40 137 40 155))
+(connect D0:1 D2:1
+(points 4 76 120 90 120 90 150 95 150))
+(connect D1:1 D2:2
+(points 2 76 190 95 190))
+(connect D6:1 D3:1
+(points 6 404 310 420 310 420 360 10 360 10 440 30 440))
+(connect D6:1 D5:1
+(points 4 404 310 460 310 460 280 493 280))
+(connect D2:1 D6:1
+(points 6 584 170 600 170 600 230 140 230 140 310 155 310))
+(connect D6:1 O1:1
+(points 4 404 310 670 310 670 69 665 69))
+(connect D3:1 O2:1
+(points 2 589 440 665 209)))
+(stackingOrder 4 6 2 5 0 1 3))))
+(device 46 CONFIRM25
+(properties
+(name "Roll a Frame")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 47 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 48 ACCUMULATOR
+(properties
+(name "Total Score")
+(clearAtPrerun 0))
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 49 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 50 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The game of bowling below is used to demonstrate the use of Triadic Expressions even though it doesn\'t score correctly. Triadic Expressions are used to create if/then branching within a formula object. They are very powerful and can produce output beyond the standard 0 or 1 of the If/Then object.\\par\r\n\\par\r\nIn the program, the Triadic Expressions are contained within the UserObjects. Note how there are examples of nested Triadic Expressions, and their use within the Random Low/High object.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D4:1 D0:1)
+(connect D5:2 D1:1)
+(connect D4:2 D2:1)
+(connect D5:1 D3:1)
+(connect D5:0 D4:0)
+(connect D6:1 D5:1)
+(connect D7:1 D6:0)
+(connect D4:3 D8:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 512 361)
+(wndState max)
+(active detail)
+(detail
+(extent 740 589)
+(anchorPt -180 123)
+(configuration
+(devCarrierFor 9
+(active open)
+(icon
+(extent 223 0))
+(open
+(extent 259 26))
+(pinCenter 610 240))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 96 15))
+(open
+(extent 234 26))
+(pinCenter 600 170))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 116 15))
+(open
+(extent 254 26))
+(pinCenter 610 300))
+(devCarrierFor 38
+(active open)
+(icon
+(extent 203 15))
+(open
+(extent 239 26))
+(pinCenter 600 90))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 85 34))
+(terminals on)
+(pinCenter 370 300))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 66 25))
+(terminals on)
+(pinCenter 370 160))
+(devCarrierFor 46
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 77 24))
+(title off)
+(pinCenter 280 160))
+(devCarrierFor 47
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 230 100))
+(devCarrierFor 48
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 110 31))
+(pinCenter 540 370))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 520 430))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 654 156)
+(editing enabled))
+(pinCenter 550 -40))
+(connect D4:1 D0:1
+(points 4 415 290 440 290 440 240 478 240))
+(connect D5:2 D1:1
+(points 2 405 170 480 170))
+(connect D4:2 D2:1
+(points 2 415 300 480 300))
+(connect D5:1 D3:1
+(points 4 405 150 430 150 430 90 478 90))
+(connect D5:0 D4:0
+(points 2 370 175 370 280))
+(connect D6:1 D5:1
+(points 2 321 160 334 160))
+(connect D7:1 D6:0
+(points 5 280 100 300 100 300 130 280 130 280 145))
+(connect D4:3 D8:1
+(points 4 415 310 440 310 440 370 482 370)))
+(stackingOrder 7 10 1 2 8 9 3 0 6 5 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

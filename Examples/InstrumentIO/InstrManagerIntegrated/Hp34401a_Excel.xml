@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Hp34401a_Excel.vee">
+		<Description>Retrieve the data from a 34401A and send to Excel</Description>
+		<LogicalInstrument name="DMM">
+			<SupportedInstruments>
+				<Instrument idn="Ag34401A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

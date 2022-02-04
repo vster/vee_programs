@@ -1,0 +1,665 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:03:19 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 20)
+(popupTitleText "Zero fill an array")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 TEXTDISPLAY
+(properties
+(name "Output Array"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(name "Output Array"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 CONSTANT
+(properties
+(name "# of Zeros"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  5))
+(initValue Real
+(data  0))))
+(device 4 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 5 CONSTANT
+(properties
+(name "Total Length"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  9))
+(initValue Real
+(data  0))))
+(device 6 VECTORCONCATENATOR
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 7 FORMULA
+(properties
+(name "ramp(numElem,from,thru)")
+(expr 1 "ramp(numElem, from, thru)"))
+(interface
+(input 1
+(name "numElem")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "from")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 VECTORCONCATENATOR
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 9 TEXTDISPLAY
+(properties
+(name "Output Array"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Output Array"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 FORMULA
+(properties
+(expr 1 "concat(A, ramp(C-B, 0, 0))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 CONSTANT
+(properties
+(name "0"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 13 FORMULA
+(properties
+(name " - ")
+(expr 1 "X-Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FORMULA
+(properties
+(description2 4 "The formula device can incorporate as \"functions\""
+"any of the math or AdvMath selections.  Generally,"
+"the object name gives the syntax to use when" "building a formula.")
+(expr 1 "concat(A, ramp(L, 0, 0))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "L")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 CONSTANT
+(properties
+(name "Input Array"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 22 33 44 55 ]))
+(initValue Real
+(data  0))))
+(device 16 CONSTANT
+(properties
+(name "Input Array"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 22 33 44 55 ]))
+(initValue Real
+(data  0))))
+(device 17 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(input 1
+(name "Dim Size 1")
+(tag "Dim Size 1")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "5")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 19 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 29
+"PURPOSE:     Illustrate several methods of extending an array by zero filling "
+"             to a prescribed length.  Use of math functions within the "
+"             \"Formula\" device is illustrated, as is use of \"Alloc Array\" and "
+"             ramp to generate fixed arrays." ""
+"USER INPUT REQUIRED:  Press RUN, then scroll around the examples, looking at "
+"             the various methods and functions." ""
+"EXPLANATION: Math operations on two or more arrays require that the arrays be "
+"             the same shape and length.  In order to add a 5 element array to "
+"             a 10 element array, the 5 element array must first be zero-filled "
+"             to a length of 10 before the element-by-element output array can "
+"             be generated." ""
+"             Several methods of zero-filling an array are shown in this "
+"             example.  They all make use of \"concatenation\" to combine the "
+"             initial array with an all zero array.  The \"Formula\" object can "
+"             be used to perform the entire operation efficiently in one object,"
+"             or the individual operations can be constructed from the component"
+"             objects.  The output arrays are generated using both constructions"
+"             in each example." ""
+"             Two types of examples are shown.  The first assumes that a fixed "
+"             number of zeros must be added to the input array, while the second"
+"             assumes that a variable length input array must be extended to a "
+"             specified length.  Note that error recovery in cases where the "
+"             input array is larger than the requested output array is not "
+"             illustrated, primarily because the examples are meant as learning "
+"             tools rather than finished functions.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 230 40)))
+(contextCarrier
+(active panel)
+(panel
+(extent 709 582)
+(widget 1 detail
+(relativeOrigin 310 540)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 710 530)
+(editing disabled)))
+(detail
+(extent 330 229)
+(anchorPt 143 57)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 100 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 488 281)
+(anchorPt 254 98)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 72 68))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 72 83 72 98 -208 98 -208 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 72 -10 72 53)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D14:1 D1:1)
+(connect D6:1 D2:1)
+(connect D16:1 D4:1)
+(connect D15:1 D6:1)
+(connect D17:1 D6:2)
+(connect D13:1 D7:1)
+(connect D12:1 D7:2)
+(connect D12:1 D7:3)
+(connect D16:1 D8:1)
+(connect D7:1 D8:2)
+(connect D11:1 D9:1)
+(connect D8:1 D10:1)
+(connect D16:1 D11:1)
+(connect D4:5 D11:2)
+(connect D5:1 D11:3)
+(connect D5:1 D13:1)
+(connect D4:5 D13:2)
+(connect D15:1 D14:1)
+(connect D3:1 D14:2)
+(connect D3:1 D17:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 750 36)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -210 10))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 134 176))
+(pinCenter -180 160))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 134 176))
+(pinCenter -20 160))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 169 32)
+(showFormat real))
+(pinCenter -650 230))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 127 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 70 158))
+(terminals on)
+(pinCenter -650 430))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 137 29)
+(showFormat real))
+(pinCenter -650 510))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 60 50))
+(terminals on)
+(pinCenter -180 290))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 192 34))
+(open)
+(terminals on)
+(pinCenter -370 510))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 120 25))
+(open)
+(terminals on)
+(pinCenter -180 550))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 134 176))
+(pinCenter -180 430))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 134 176))
+(pinCenter -20 430))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 190 76))
+(terminals on)
+(pinCenter -410 430))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 29 19))
+(open
+(extent 150 28)
+(showFormat int))
+(pinCenter -510 520))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter -510 490))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 179 74))
+(terminals on)
+(pinCenter -410 160))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 167 82)
+(showFormat real))
+(pinCenter -650 140))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 160 89)
+(showFormat real))
+(pinCenter -650 320))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 218 115))
+(pinCenter -400 300))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -570 30))
+(connect D14:1 D1:1
+(points 2 -268 160 -250 160))
+(connect D6:1 D2:1
+(points 4 -119 290 -100 290 -100 160 -90 160))
+(connect D16:1 D4:1
+(points 6 -568 320 -560 320 -560 550 -740 550 -740 430 -716 430))
+(connect D15:1 D6:1
+(points 6 -564 140 -550 140 -550 210 -270 210 -270 280 -242 280))
+(connect D17:1 D6:2
+(points 2 -289 300 -242 300))
+(connect D13:1 D7:1
+(points 4 -493 490 -480 490 -480 500 -469 500))
+(connect D12:1 D7:2
+(points 4 -493 520 -480 520 -480 510 -469 510))
+(connect D12:1 D7:3
+(points 2 -493 520 -469 520))
+(connect D16:1 D8:1
+(points 6 -568 320 -560 320 -560 550 -260 550 -260 540 -243 540))
+(connect D7:1 D8:2
+(points 6 -272 510 -260 510 -260 530 -250 530 -250 560 -243 560))
+(connect D11:1 D9:1
+(points 2 -263 430 -250 430))
+(connect D8:1 D10:1
+(points 4 -118 550 -100 550 -100 430 -90 430))
+(connect D16:1 D11:1
+(points 4 -568 320 -560 320 -560 410 -538 410))
+(connect D4:5 D11:2
+(points 4 -584 450 -570 450 -570 430 -538 430))
+(connect D5:1 D11:3
+(points 4 -579 510 -550 510 -550 450 -538 450))
+(connect D5:1 D13:1
+(points 4 -579 510 -550 510 -550 480 -527 480))
+(connect D4:5 D13:2
+(points 4 -584 450 -570 450 -570 500 -527 500))
+(connect D15:1 D14:1
+(points 2 -564 140 -532 140))
+(connect D3:1 D14:2
+(points 4 -563 230 -540 230 -540 180 -532 180))
+(connect D3:1 D17:1
+(points 4 -563 230 -540 230 -540 300 -512 300)))
+(stackingOrder 18 14 1 3 15 8 11 16 4 13 12 5 9 2 7 6 10 17 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

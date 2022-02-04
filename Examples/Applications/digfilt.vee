@@ -1,0 +1,714 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:49:21 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 22)
+(popupTitleText "Digital Filter Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 YPLOT
+(properties
+(name "Elliptical Filter"))
+(interface
+(input 1
+(name "original")
+(lock constraints))
+(input 2
+(name "filtered")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode freqmag)))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "Wf")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.02)))
+(device 4 FORMULA
+(properties
+(name "poles")
+(expr 1 "a[1]*z1+a[2]*z2+a[3]*z3"))
+(interface
+(input 1
+(name "z1")
+(optional yes))
+(input 2
+(name "z2")
+(optional yes))
+(input 3
+(name "z3")
+(optional yes))
+(input 4
+(name "a")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 SHIFTREGISTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Current")
+(lock name constraints))
+(output 2
+(name "1 Prev")
+(lock name constraints))
+(output 3
+(name "2 Prev")
+(optional yes))))
+(device 8 CONSTANT
+(properties
+(name "a[k]"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 0 2.1291 -1.7834 0.5435 ]))
+(initValue Real
+(data  0))))
+(device 9 CONSTANT
+(properties
+(name "b[k]"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 0.05634 -0.0009352400000000001 -0.0009352400000000001 0.05634 ]))
+(initValue Real
+(data  0))))
+(device 10 FORMULA
+(properties
+(name "zeros")
+(expr 1 "b[0]*x+b[1]*z1+b[2]*z2+b[3]*z3"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "z1")
+(optional yes))
+(input 3
+(name "z2")
+(optional yes))
+(input 4
+(name "z3")
+(optional yes))
+(input 5
+(name "b")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 SLIDINGWINDOW
+(properties
+(name "Collector")
+(vecSize 256)
+(triggerSize 256))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 12 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Info About...")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "Info About This Example")
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Overview of Example")
+(text2 45 "PURPOSE:  To illustrate:  "
+"           1) Unbuilding and building time-domain waveforms,"
+"           2) Construction of a 3rd order elliptical digital filter, and"
+"           3) Automatic conversion from the time domain to the frequency domain."
+""
+"USER INPUT REQUIRED: None.  Click on \"Start\" or \"Run\" to run the program."
+""
+"EXPLANATION:  A digital filter operates iteratively on a sequence of numbers.  "
+"          The For Count object, Formula object titled \"x(n)\", and Unbuild "
+"          Waveform object convert the output of the \"Function Generator\" (titled "
+"          \"200Hz Square Wave\") to such a sequence.  The \"+\" is given one number"
+"          after another." ""
+"          The output of the filter, which appears on the output of the Formula"
+"          object titled \"zeros\", is also a sequence of numbers.  The Sliding"
+"          Collector converts the individual numbers into an array and the Build"
+"          Waveform makes the array into a time domain waveform similar to the"
+"          output of the Function Generator." ""
+"          The digital filter is constructed with the Shift Register, Formulas"
+"          (\"poles\" and \"zeros\"), Addition and Constant objects (\"a[k]\" and "
+"          \"b[k]\"). This filter implements an arbitrary 3rd order digital filter"
+"          of the form:" "                               -1     -2     -3"
+"                        b0+b1*z  +b2*z  +b3*z"
+"               H(z) = -------------------------"
+"                               -1     -2    -3"
+"                        1-(a1*z  +a2*z +a3*z  )" ""
+"          The filter is implemented using direct form II. The coefficients of a"
+"          3rd order elliptical filter were obtained from the book \"Digital "
+"          Signal Processing\" by Alan V. Oppenheim and Ronald W.  Schafer, "
+"          page 226. The result of the filtering operation can be seen in the "
+"          display labeled \"Elliptical Filter\".  While the inputs are time domain"
+"          waveforms, the display is done in the frequency domain.  The display "
+"          automatically performs an FFT on the input to change domains." ""
+"          Try changing the parameters of the square wave. If you know the"
+"          coefficients for another of 3rd order or less filter, try changing "
+"          \"a[k]\" and \"b[k]\".  Try changing the display to log or turn on "
+"          markers. The order of the filter can be easily increased by adding "
+"          outputs to the Shift Register, increasing the size of \"a[k]\" and "
+"          \"b[k]\", and editing the formulas in the \"poles\" and \"zeros\" Formula "
+"          objects. " "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 245 66)))
+(contextCarrier
+(active detail)
+(panel
+(extent 709 492)
+(widget 0 detail
+(relativeOrigin 330 440)
+(title off)
+(borderStyle none)
+(extent 65 38))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 710 430)
+(editing disabled)))
+(detail
+(extent 585 523)
+(anchorPt 184 127)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 50 350))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 181 25))
+(open
+(extent 469 285)
+(editing disabled))
+(pinCenter 100 70)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 177 64)
+(widget 1 detail
+(relativeOrigin 30 10)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 399 254)
+(anchorPt 236 58)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 862 529)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 50 50))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 65 50 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 35)))
+(stackingOrder 0 1 2))))
+(device 13 FORCOUNT
+(properties
+(name "256 pts")
+(count 256))
+(interface
+(output 1
+(lock name constraints))))
+(device 14 FROMWAVEFORM
+(interface
+(input 1
+(name "Wf Data")
+(requires
+(datatype Waveform))
+(lock name constraints))
+(output 1
+(name "Real Ary")
+(lock name constraints))
+(output 2
+(name "Interval")
+(lock name constraints))))
+(device 15 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 16 FORMULA
+(properties
+(name "x(n)")
+(expr 1 "b[a]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 VFUNCTIONGENERATOR
+(properties
+(name "200Hz Square Wave")
+(function Square)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(lock name constraints))))
+(device 18 EXITPROCESS
+(properties
+(code 0)))
+(device 19 START25)
+(device 20 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 21 CONSTANT
+(properties
+(name "0.0"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(configuration
+(connect D15:1 D0:1)
+(connect D3:1 D0:2)
+(connect D14:1 D2:1)
+(connect D4:1 D2:2)
+(connect D9:1 D3:1)
+(connect D5:1 D4:1)
+(connect D5:2 D4:2)
+(connect D5:3 D4:3)
+(connect D6:1 D4:4)
+(connect D18:1 D5:1)
+(connect D2:1 D8:1)
+(connect D5:1 D8:2)
+(connect D5:2 D8:3)
+(connect D5:3 D8:4)
+(connect D7:1 D8:5)
+(connect D8:1 D9:1)
+(connect D17:0 D11:0)
+(connect D15:1 D12:1)
+(connect D11:1 D13:1)
+(connect D11:1 D14:1)
+(connect D12:1 D14:2)
+(connect D0:0 D16:0)
+(connect D2:1 D18:1)
+(connect D19:1 D18:2)))
+(contextCarrier
+(wndRestoredOrigin 1 3)
+(wndRestoredExtent 833 618)
+(wndState max)
+(active detail)
+(detail
+(extent 807 600)
+(anchorPt 752 338)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 95 52)
+(iconImage "display.icn"))
+(open
+(extent 354 372)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Mag")
+(domainName "Freq")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 180 4 linear))
+(domain 0 7000 4 linear)
+(trace 0 onScale 0
+(name "original")
+(pen 4)
+(lineType 1)
+(pointType 5))
+(trace 1 onScale 0
+(name "filtered")
+(pen 7)
+(lineType 1)
+(pointType 5)))
+(pinCenter -120 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -210 -290))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter -360 -30))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 116 63)
+(iconImage "build.icn"))
+(open
+(extent 212 54))
+(terminals on)
+(pinCenter -380 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 241 204))
+(terminals on)
+(pinCenter -450 -20))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 105 46))
+(open
+(extent 110 100))
+(terminals on)
+(pinCenter -610 -30))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 46 25))
+(open
+(extent 167 88))
+(pinCenter -660 80))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 46 25))
+(open
+(extent 166 82))
+(pinCenter -660 210))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 304 254))
+(terminals on)
+(pinCenter -460 190))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 67 22))
+(open
+(extent 248 63))
+(terminals on)
+(pinCenter -370 190))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 173 63)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -500 -280))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "loop.icn"))
+(open
+(extent 165 34))
+(pinCenter -670 -210))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 142 25))
+(open
+(extent 80 70))
+(terminals on)
+(pinCenter -480 -120))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 150 34))
+(pinCenter -500 -170))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 79 104))
+(terminals on)
+(pinCenter -360 -160))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 143 26))
+(open
+(extent 239 198))
+(terminals on)
+(pinCenter -660 -120))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "stop.icn"))
+(open
+(extent 120 34))
+(pinCenter -110 230))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 42 24))
+(open
+(extent 111 53))
+(title off)
+(pinCenter -670 -300))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter -690 -30))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 24 16))
+(open
+(extent 69 30)
+(showFormat real))
+(pinCenter -730 -20))
+(connect D15:1 D0:1
+(points 4 -586 -120 -570 -120 -570 -90 -300 -90))
+(connect D3:1 D0:2
+(points 2 -320 90 -300 90))
+(connect D14:1 D2:1
+(points 6 -335 -160 -310 -160 -310 -80 -400 -80 -400 -40 -386 -40))
+(connect D4:1 D2:2
+(points 2 -409 -20 -386 -20))
+(connect D9:1 D3:1
+(points 6 -334 190 -310 190 -310 140 -460 140 -460 90 -441 90))
+(connect D5:1 D4:1
+(points 2 -555 -40 -492 -40))
+(connect D5:2 D4:2
+(points 2 -555 -30 -492 -30))
+(connect D5:3 D4:3
+(points 2 -555 -20 -492 -20))
+(connect D6:1 D4:4
+(points 4 -574 80 -550 80 -550 -10 -492 -10))
+(connect D18:1 D5:1
+(points 2 -673 -30 -665 -30))
+(connect D2:1 D8:1
+(points 6 -335 -30 -310 -30 -310 30 -540 30 -540 170 -502 170))
+(connect D5:1 D8:2
+(points 4 -555 -40 -510 -40 -510 180 -502 180))
+(connect D5:2 D8:3
+(points 4 -555 -30 -520 -30 -520 190 -502 190))
+(connect D5:3 D8:4
+(points 4 -555 -20 -530 -20 -530 200 -502 200))
+(connect D7:1 D8:5
+(points 2 -575 210 -502 210))
+(connect D8:1 D9:1
+(points 2 -419 190 -406 190))
+(connect D17:0 D11:0
+(points 2 -670 -271 -670 -245))
+(connect D15:1 D12:1
+(points 2 -586 -120 -554 -120))
+(connect D11:1 D13:1
+(points 4 -629 -210 -610 -210 -610 -170 -578 -170))
+(connect D11:1 D14:1
+(points 6 -629 -210 -600 -210 -600 -230 -400 -230 -400 -170 -386 -170))
+(connect D12:1 D14:2
+(points 4 -407 -130 -400 -130 -400 -150 -386 -150))
+(connect D0:0 D16:0
+(points 2 -120 188 -110 195))
+(connect D2:1 D18:1
+(points 8 -335 -30 -310 -30 -310 -70 -410 -70 -410 -80 -720 -80 -720 -40 -707
+-40))
+(connect D19:1 D18:2
+(points 2 -716 -20 -707 -20)))
+(stackingOrder 6 7 11 3 9 2 15 13 12 10 16 17 8 14 4 5 18 19 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

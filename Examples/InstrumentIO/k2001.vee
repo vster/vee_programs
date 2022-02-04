@@ -1,0 +1,1868 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:41:13 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "k2001"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "k2001.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(description2 17 "This Application tests the operation of"
+"the Keithley 2001 Digital Multimeter." "\t"
+"     Clicking  on the start button will"
+"set up the instrument,  take the specified"
+"measurements and display the results. The"
+"first instance of the driver sets up the"
+"instrument to perform a DC Volts measurement,"
+"and then performs the measurement, placing the"
+"result in the \"DC Volts\" display.  VEE then"
+"transfers control through the bottom pin of"
+"the first instance of the driver to the top"
+"pin of the second instance. This instance of"
+"the driver sets up the instrument for a AC"
+"Voltage measurement, takes the measurement,"
+"and displays the result in the \"AC Volts\"" "Display.")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Keithley 2001 Digital Multimeter")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "k2001(NOT LIVE)"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "k2001.cid")
+(driver "k2001")
+(state
+(idComp
+(name "INITLZE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "MAIN_PANEL"))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "DC Volts"))
+(idComp
+(name "READ_CMD")
+(typeStr "Enum")
+(state "Valid")
+(value "Meas"))
+(idComp
+(name "OTHER_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CURRENT_AC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "CURRENT_AC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_AC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "VOLT_AC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "VOLT_AC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_AC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CURRENT_DC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "CURRENT_DC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_DC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "RES2_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES2_DIGITS")
+(typeStr "Enum")
+(state "Valid")
+(value "D7"))
+(idComp
+(name "RES2_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES2_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "RES4_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES4_DIGITS")
+(typeStr "Enum")
+(state "Valid")
+(value "D7"))
+(idComp
+(name "RES4_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES4_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "VOLT_DC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "VOLT_DC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_DC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CURRENT_AC_DETECTOR")
+(typeStr "Enum")
+(state "Valid")
+(value "RMS"))
+(idComp
+(name "CURRENT_AC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_AC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_AC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "CURRENT_AC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "CURRENT_AC_COUPLING")
+(typeStr "Enum")
+(state "Valid")
+(value "AC"))
+(idComp
+(name "CURRENT_AC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "CURRENT_AC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 2.1))
+(idComp
+(name "CURRENT_AC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.0002))
+(idComp
+(name "CURRENT_AC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_AC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "CURRENT_AC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "CURRENT_AC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "CURRENT_AC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "VOLT_AC_DETECTOR")
+(typeStr "Enum")
+(state "Valid")
+(value "RMS"))
+(idComp
+(name "VOLT_AC_PWINDOW")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "VOLT_AC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_AC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_AC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "VOLT_AC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_AC_COUPLING")
+(typeStr "Enum")
+(state "Valid")
+(value "AC"))
+(idComp
+(name "VOLT_AC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "VOLT_AC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 775))
+(idComp
+(name "VOLT_AC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.2))
+(idComp
+(name "VOLT_AC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_AC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "VOLT_AC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_AC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "VOLT_AC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "CURRENT_DC_METHOD")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM"))
+(idComp
+(name "CURRENT_DC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_DC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_DC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "CURRENT_DC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "CURRENT_DC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "CURRENT_DC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 2.1))
+(idComp
+(name "CURRENT_DC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.0002))
+(idComp
+(name "CURRENT_DC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_DC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "CURRENT_DC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "CURRENT_DC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "CURRENT_DC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_DC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_DC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_DC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "VOLT_DC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_DC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "VOLT_DC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 1100))
+(idComp
+(name "VOLT_DC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.2))
+(idComp
+(name "VOLT_DC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_DC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "VOLT_DC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_DC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "VOLT_DC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES2_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.01666667))
+(idComp
+(name "RES2_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES2_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES2_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "RES2_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 1050000000))
+(idComp
+(name "RES2_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "RES2_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES2_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "RES2_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "RES2_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "RES2_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES4_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.01666667))
+(idComp
+(name "RES4_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES4_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES4_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "RES4_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 210000))
+(idComp
+(name "RES4_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "RES4_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES4_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "RES4_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "RES4_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "RES4_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "INIT_CONTINUOUS")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "LAYER1_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER1_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER1_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER1_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER1_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER2_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER2_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER2_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_ARM_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LAYER2_ARM_TIMER")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "LAYER3_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER3_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER3_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER3_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_TLINK_SYNC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_ARM_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LAYER3_ARM_TIMER")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "LAYER3_PROTOCOL")
+(typeStr "Enum")
+(state "Valid")
+(value "ASYN"))
+(idComp
+(name "SOURCE_TTL1")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL2")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL3")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL4")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "OUTPUT_TTL1")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL2")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL3")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL4")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "STATUS_MEASURE_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_MEASURE_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_MEASURE_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERATION_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERATION_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERATION_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARM_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARM_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERARM_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARMSEQ_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARMSEQ_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERARMSEQ_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERTRIG_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERTRIG_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERTRIG_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_QUES_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_QUES_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_QUES_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYNC")
+(typeStr "Int16")
+(state "Valid")
+(value 0)))))
+(device 1 TEXTDISPLAY
+(properties
+(name "DC Volts"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 HPIDSTATE
+(properties
+(name "k2001(NOT LIVE)"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "k2001.cid")
+(driver "k2001")
+(state
+(idComp
+(name "INITLZE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "MAIN_PANEL"))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "AC Volts"))
+(idComp
+(name "READ_CMD")
+(typeStr "Enum")
+(state "Valid")
+(value "Read"))
+(idComp
+(name "OTHER_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CURRENT_AC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "CURRENT_AC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_AC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "VOLT_AC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "VOLT_AC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_AC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CURRENT_DC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "CURRENT_DC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_DC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "RES2_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES2_DIGITS")
+(typeStr "Enum")
+(state "Valid")
+(value "D7"))
+(idComp
+(name "RES2_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES2_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "RES4_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES4_DIGITS")
+(typeStr "Enum")
+(state "Valid")
+(value "D7"))
+(idComp
+(name "RES4_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES4_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "VOLT_DC_DIGITS_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_DIGITS")
+(typeStr "Enum")
+(state "Dontcare")
+(value "D6"))
+(idComp
+(name "VOLT_DC_REF_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_DC_REFERENCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CURRENT_AC_DETECTOR")
+(typeStr "Enum")
+(state "Valid")
+(value "RMS"))
+(idComp
+(name "CURRENT_AC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_AC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_AC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "CURRENT_AC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "CURRENT_AC_COUPLING")
+(typeStr "Enum")
+(state "Valid")
+(value "AC"))
+(idComp
+(name "CURRENT_AC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "CURRENT_AC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 2.1))
+(idComp
+(name "CURRENT_AC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.0002))
+(idComp
+(name "CURRENT_AC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_AC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_AC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "CURRENT_AC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "CURRENT_AC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "CURRENT_AC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "VOLT_AC_DETECTOR")
+(typeStr "Enum")
+(state "Valid")
+(value "RMS"))
+(idComp
+(name "VOLT_AC_PWINDOW")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "VOLT_AC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_AC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_AC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "VOLT_AC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_AC_COUPLING")
+(typeStr "Enum")
+(state "Valid")
+(value "AC"))
+(idComp
+(name "VOLT_AC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "VOLT_AC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 775))
+(idComp
+(name "VOLT_AC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.2))
+(idComp
+(name "VOLT_AC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_AC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_AC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "VOLT_AC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_AC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "VOLT_AC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "CURRENT_DC_METHOD")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM"))
+(idComp
+(name "CURRENT_DC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_DC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "CURRENT_DC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "CURRENT_DC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "CURRENT_DC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "CURRENT_DC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 2.1))
+(idComp
+(name "CURRENT_DC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.0002))
+(idComp
+(name "CURRENT_DC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "CURRENT_DC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "CURRENT_DC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "CURRENT_DC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "CURRENT_DC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "CURRENT_DC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_DC_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_DC_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "VOLT_DC_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.016667))
+(idComp
+(name "VOLT_DC_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "VOLT_DC_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "VOLT_DC_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 1100))
+(idComp
+(name "VOLT_DC_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 0.2))
+(idComp
+(name "VOLT_DC_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "VOLT_DC_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "VOLT_DC_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "VOLT_DC_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_DC_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "VOLT_DC_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES2_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.01666667))
+(idComp
+(name "RES2_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES2_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES2_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "RES2_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 1050000000))
+(idComp
+(name "RES2_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "RES2_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES2_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES2_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "RES2_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "RES2_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "RES2_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES4_APER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_NPLC_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_APERTURE")
+(typeStr "Real")
+(state "Valid")
+(value 0.01666667))
+(idComp
+(name "RES4_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RES4_RANGE_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Auto"))
+(idComp
+(name "RES4_RANGE")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "RES4_RANGE_AUL")
+(typeStr "Real")
+(state "Valid")
+(value 210000))
+(idComp
+(name "RES4_RANGE_ALL")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "RES4_FILTER_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "Man"))
+(idComp
+(name "RES4_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "RES4_FILTER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "REP"))
+(idComp
+(name "RES4_FILTER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "RES4_ADV_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "On"))
+(idComp
+(name "RES4_ADV_TYPE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "INIT_CONTINUOUS")
+(typeStr "Enum")
+(state "Valid")
+(value "Off"))
+(idComp
+(name "LAYER1_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER1_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER1_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER1_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER1_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER2_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER2_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER2_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER2_ARM_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LAYER2_ARM_TIMER")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "LAYER3_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "LAYER3_SOURCE_BYPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "ACC"))
+(idComp
+(name "LAYER3_ARM_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_TLINK_INPUT")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "LAYER3_TLINK_OUTPUT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_TLINK_SYNC")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LAYER3_ARM_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LAYER3_ARM_TIMER")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "LAYER3_PROTOCOL")
+(typeStr "Enum")
+(state "Valid")
+(value "ASYN"))
+(idComp
+(name "SOURCE_TTL1")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL2")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL3")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "SOURCE_TTL4")
+(typeStr "Enum")
+(state "Valid")
+(value "False"))
+(idComp
+(name "OUTPUT_TTL1")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL2")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL3")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "OUTPUT_TTL4")
+(typeStr "Enum")
+(state "Valid")
+(value "High"))
+(idComp
+(name "STATUS_MEASURE_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_MEASURE_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_MEASURE_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERATION_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERATION_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERATION_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARM_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARM_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERARM_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARMSEQ_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERARMSEQ_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERARMSEQ_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERTRIG_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_OPERTRIG_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_OPERTRIG_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_QUES_ENABLE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STATUS_QUES_PTR")
+(typeStr "Real")
+(state "Valid")
+(value 32767))
+(idComp
+(name "STATUS_QUES_NTR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYNC")
+(typeStr "Int16")
+(state "Valid")
+(value 0)))))
+(device 3 START25)
+(device 4 TEXTDISPLAY
+(properties
+(name "AC Volts"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 NOTE
+(properties
+(text2 17 "This Application tests the operation of"
+"the Keithley 2001 Digital Multimeter." ""
+"     Clicking  on the start button will"
+"set up the instrument,  take the specified"
+"measurements and display the results. The"
+"first instance of the driver sets up the"
+"instrument to perform a DC Volts measurement,"
+"and then performs the measurement, placing the"
+"result in the \"DC Volts\" display.  VEE then"
+"transfers control through the bottom pin of"
+"the first instance of the driver to the top"
+"pin of the second instance. This instance of"
+"the driver sets up the instrument for a AC"
+"Voltage measurement, takes the measurement,"
+"and displays the result in the \"AC Volts\"" "Display.")))
+(configuration
+(connect D3:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:1 D4:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 880 418)
+(anchorPt 110 188)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 150 65)
+(iconImage "inst.icn"))
+(open
+(extent 214 213)
+(visiblePanels 16 "HPID_MAIN_PANEL" "TOP_PANEL" "VOLT_DC_SUB" "DC_VOLT"
+"CURR_AC_AUTO_RANGE" "AC_CURR_ADVFILT_SUB" "VOLT_AC_AUTO_RANGE"
+"AC_VOLT_ADVFILT_SUB" "CURR_DC_AUTO_RANGE" "DC_CURR_ADVFILT_SUB"
+"VOLT_DC_AUTO_RANGE" "DC_VOLT_ADVFILT_SUB" "LAYER3_MAIN" "TRIGGER_MAIN"
+"MAIN_PANEL" "STATUS_SUMMARY"))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 172 38))
+(pinCenter 200 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 154 67)
+(iconImage "inst.icn"))
+(open
+(extent 214 213)
+(visiblePanels 16 "HPID_MAIN_PANEL" "TOP_PANEL" "VOLT_AC_SUB" "AC_VOLT"
+"CURR_AC_AUTO_RANGE" "AC_CURR_ADVFILT_SUB" "VOLT_AC_AUTO_RANGE"
+"AC_VOLT_ADVFILT_SUB" "CURR_DC_AUTO_RANGE" "DC_CURR_ADVFILT_SUB"
+"VOLT_DC_AUTO_RANGE" "DC_VOLT_ADVFILT_SUB" "LAYER3_MAIN" "TRIGGER_MAIN"
+"MAIN_PANEL" "STATUS_SUMMARY"))
+(terminals on)
+(pinCenter 0 90))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 63 42))
+(title off)
+(pinCenter 0 -90))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 174 35))
+(pinCenter 200 90))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 431 325)
+(editing enabled))
+(pinCenter 520 20))
+(connect D3:0 D0:0
+(points 2 0 -67 0 -35))
+(connect D0:1 D1:1
+(points 2 77 0 111 0))
+(connect D0:0 D2:0
+(points 2 0 35 0 54))
+(connect D2:1 D4:1
+(points 2 79 90 110 90)))
+(stackingOrder 1 4 3 5 0 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

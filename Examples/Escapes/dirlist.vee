@@ -1,0 +1,1027 @@
+(saveFormat "7.0")
+(date "Wed 29/Aug/2007 01:57:02 ")
+(veerev "8.5.10427.1 Beta2 - Botticelli")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.90 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 103)
+(popupTitleText "Directory listing using shell programs")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 16 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 6))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:  Demonstrate how to use whichOS( ) to select which shell commands\\par\r\n          to use to obtain a directory listing from the native OS (HP-UX,\\par\r\n          or Windows95/NT).\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press Run.  The current OS will be determined, and the\\par\r\n         / (root) directory will be listed in the output display.\\par\r\n\\par\r\nEXPLANATION:  VEE runs on a number of operating systems and platforms.  \\par\r\n         Although a majority of VEE\'s functionality is common, there are some \\par\r\n         features which are unique to a platform or are implemented in a\\par\r\n         different way on the various platforms.  whichOS( ) and\\par\r\n         whichPlatform( ) allow you to determine at run-time on which OS\\par\r\n         or platform the program is running.  \\par\r\n\\par\r\n         whichOS( ) returns a text string corresponding to the operating\\par\r\n         system as follows: \\par\r\n            Microsoft Windows\\tab\\tab\\tab\\tab \"Windows_95\" or \"Windows_NT\"\\par\r\n            HP 9000 Series 700      \\tab\\tab \"HP-UX\"\\par\r\n\\tab      \\par\r\n         This example shows how to run an external program from the OS shell,\\par\r\n         and how to obtain the output from the program for use by the VEE\\par\r\n         program.  When HP-UX is detected, the Execute Program object uses a\\par\r\n         transaction to generate the shell request, and a second transaction\\par\r\n         to read the results from the shell.  A read TOKEN format can be\\par\r\n         used instead of a read STRING format to insure a null output when\\par\r\n         the specified directory is empty.\\par\r\n\\par\r\n         Under Windows95/NT, the execute Program object cannot directly read\\par\r\n         the output of a program.  The solution is to create a temporary file\\par\r\n         and redirect the output of the command to this file.  A FromFile is\\par\r\n         then used to read any generated output.  Again, if an empty file is\\par\r\n         possible, the read TOKEN format can be used instead of read STRING.\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 236 71)))
+(contextCarrier
+(active detail)
+(panel
+(extent 709 520)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 710 470)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 300 480)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 866 520)
+(anchorPt 383 209)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 101 18)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 464 258)
+(anchorPt 107 71)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(pinCenter 200 70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(connect D1:0 D0:1
+(points 5 200 85 200 100 -80 100 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 155 -10 200 -10 200 55))
+(connect D0:1 D2:1
+(points 2 59 0 104 0)))
+(stackingOrder 2 0 1))))
+(device 36 NOTE
+(properties
+(variableScope cont)
+(text2 1 "")))
+(device 58 IFTHENELSE
+(properties
+(name "Determine OS")
+(variableScope cont)
+(cases 2 "a==\"HP9000s700\"" "a==\"PC\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 76 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "Unknown OS")))
+(device 84 CONTEXT
+(properties
+(name "Get HP-UX directory")
+(description2 5 "This object uses an HP-UX escape to execute"
+"an \"ls\" command by /bin/sh.  The \"-1\" option"
+"to ls writes files one per line." "" "")
+(variableScope cont)
+(trigMode deg)
+(nextID 6))
+(interface
+(input 1
+(name "str")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "list")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 SHELLESCAPE
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT list STR ARRAY:*")
+(command "/bin/ls -1 /"))
+(interface
+(input 1
+(name "Command")
+(tag "Command")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Exit code")
+(lock name constraints))
+(output 2
+(name "list")
+(optional yes)))
+(implementation
+(attr iopath pipe read "pipe"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))
+(attr iopath pipe write "pipe"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 1 CONTEXT
+(properties
+(name "Replace \"\\\" with \"/\"")
+(description2 12 "The input text string is scanned for all "
+"instances of the \"\\\" char, and each is"
+"replaced with the \"/\" char.  This is most"
+"useful for converting DOS style file" "path names into posix style path names."
+"" "This is done by first breaking the input"
+"string into a 1D array, using \"\\\" as the"
+"array element separator.  This array is"
+"converted back to a string by replacing"
+"the normal \" \" array separator with \"/\"." "")
+(variableScope cont)
+(trigMode deg)
+(nextID 18))
+(interface
+(input 1
+(name "str")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 15 FROMSTRING
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\"\\\\\" ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 16 TOSTRING
+(properties
+(variableScope cont)
+(transactions 1 "WRITE TEXT a STR"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "/")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 782 157)
+(anchorPt 241 78)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 402 70))
+(pinCenter 0 0))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 265 64))
+(pinCenter 360 0))
+(connect I1:1 D0:1
+(points 4 -241 0 -222 0 -222 0 -204 0))
+(connect D0:1 D1:1
+(points 2 203 0 225 0))
+(connect D1:1 O1:1
+(points 4 495 0 510 0 510 0 540 0)))
+(stackingOrder 0 1))))
+(device 2 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "ls failed")))
+(device 3 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Make pathname cannonical, then use\\par\r\nshell to list dir.  The output is \\par\r\nread from the shell into an output\\par\r\narray, one file per element.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 4 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "\"/bin/ls -1 \"+file"))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D4:1 D0:1)
+(connect I1:1 D1:1)
+(connect D5:1 D2:0)
+(connect D1:1 D4:1)
+(connect D0:1 D5:1)
+(connect D0:2 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 708 499)
+(anchorPt 349 199)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 193 71)
+(iconImage "c.icn"))
+(open
+(extent 467 117))
+(terminals on)
+(pinCenter 10 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 148 30))
+(terminals on)
+(pinCenter -205 -150))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 263 64))
+(pinCenter 185 250))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 371 129)
+(editing disabled))
+(pinCenter -155 220))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 201 46))
+(title off)
+(pinCenter 25 -150))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 60 70))
+(terminals on)
+(pinCenter 170 140))
+(connect D4:1 D0:1
+(points 6 128 -150 145 -150 145 -100 -325 -100 -325 0 -306 0))
+(connect I1:1 D1:1
+(points 4 -349 50 -335 50 -335 -150 -282 -150))
+(connect D5:1 D2:0
+(points 5 242 120 275 120 275 190 185 190 185 197))
+(connect D1:1 D4:1
+(points 2 -129 -150 -78 -150))
+(connect D0:1 D5:1
+(points 10 306 -30 345 -30 345 20 335 20 335 80 275 80 275 70 75 70 75 140 107
+140))
+(connect D0:2 O1:1
+(points 4 306 30 345 30 345 50 358 50)))
+(stackingOrder 2 5 1 0 4 3))))
+(device 85 LITERALCONSTANT
+(properties
+(name "DIrectory to list")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "/"))
+(initValue Text
+(data  ""))))
+(device 90 CONTEXT
+(properties
+(name "List Windows/PC DIR")
+(description2 10 "This User Object implements a DOS version of"
+"the DIR command.  Open it the the active view"
+"by double-clicking with the left mouse button." ""
+"Each of the objects has a Show Description"
+"menu choice to give additional details about" "the operation of the object." ""
+"If the directory doesn\'t exist, the output is an" "empty (null) string.")
+(variableScope cont)
+(trigMode deg)
+(nextID 16))
+(interface
+(input 1
+(name "str")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 2 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "DIR failed")))
+(device 3 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Make pathname cannonical, then build shell command to do DIR\\par\r\nlisting.  Execute command and redirect DIR output to temporary file.\\par\r\n}\r\n"
+)))
+(device 4 CONTEXT
+(properties
+(name "Replace \"/\" with \"\\\"")
+(description2 12 "The input text string is scanned for all "
+"instances of the \"/\" char, and each is"
+"replaced with the \"\\\" char.  This is most"
+"useful for converting posix style file" "path names into DOS style path names."
+"" "This is done by first breaking the input"
+"string into a 1D array, using \"/\" as the"
+"array element separator.  This array is"
+"converted back to a string by replacing"
+"the normal \" \" array separator with \"\\\\\"." "")
+(variableScope cont)
+(trigMode deg)
+(nextID 20))
+(interface
+(input 1
+(name "str")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 15 FROMSTRING
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\"/\" ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 16 TOSTRING
+(properties
+(variableScope cont)
+(transactions 1 "WRITE TEXT a STR"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "\\")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 719 157)
+(anchorPt 229 78)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon
+(extent 112 25))
+(open
+(extent 394 70))
+(pinCenter 0 0))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 222 67))
+(pinCenter 340 0))
+(connect I1:1 D0:1
+(points 4 -229 0 -214 0 -214 0 -200 0))
+(connect D0:1 D1:1
+(points 2 199 0 226 0))
+(connect D1:1 O1:1
+(points 2 453 0 489 0)))
+(stackingOrder 0 1))))
+(device 5 PCEXECPROG
+(properties
+(description2 12 "This object just accepts the input string as a"
+"command to run, and runs it.  The command"
+"can be either a DOS command or a Windows"
+"program, but in either case, a separate" "window is used to run the command."
+"" "If the screen becomes black for a few seconds"
+"while running this, the PIF file associated with"
+"the command is set to Full Screen instead of"
+"Windowed mode.  Use pifedit to modify either"
+"COMMAND.PIF or a specific PIF file to change" "this behavior. ")
+(variableScope cont)
+(command
+"cmd /c DIR /B /L /A-D \\ >C:\\Users\\Tester\\AppData\\Local\\Temp\\dirlist.tmp"
+)
+(runStyle Minimized)
+(workingDir ""))
+(interface
+(input 1
+(name "Command")
+(tag "Command")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "Build Command string to compile")
+(description2 13 "Since DIR is a built-in command, rather than an"
+"executable, we need to spawn a copy of the"
+"COMMAND processor to do the dir, then exit." ""
+"The DIR command on DOS 5 and greater allows "
+"for \"clean\" output using the /B option.  The /L"
+"option gives lower case filenames, and the /A-D"
+"option removes directories from the file list.  Note"
+"that hidden and system files will be shown unless"
+"the -H-S options are added to the /A.  " ""
+"Note the space before and after the point the file"
+"name is to be inserted, avoiding syntax errors.")
+(variableScope cont)
+(expr 1
+"\"cmd /c DIR /B /L /A-D \"+file+\" >\"+getEnv(\"temp\")+\"\\\\dirlist.tmp\""))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FROMFILE
+(properties
+(description2 9 "Since DOS programs cannot write directly to "
+"stdout within the ExecuteProgram box, any "
+"output generated by the program must be" "captured in a temporary file." ""
+"This From File reads the output from the DIR"
+"command, one file per line.  It then deletes"
+"the temporary file to avoid cluttering the tmp" "dir.")
+(variableScope cont)
+(transactions 2 "READ TEXT x STR ARRAY:*" "EXECUTE DELETE"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "C:\\Users\\Tester\\AppData\\Local\\Temp\\dirlist.tmp"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 15 FORMULA
+(properties
+(name "filename")
+(variableScope cont)
+(expr 1 "getEnv(\"temp\")+\"\\\\dirlist.tmp\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D3:1 D0:0)
+(connect I1:1 D2:1)
+(connect D4:1 D3:1)
+(connect D2:1 D4:1)
+(connect D3:0 D5:0)
+(connect D6:1 D5:1)
+(connect D5:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 745 600)
+(anchorPt 849 340)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 263 64))
+(pinCenter -70 -80))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 600 60)
+(editing disabled))
+(pinCenter -380 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 148 31))
+(terminals on)
+(pinCenter -580 -260))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "c.icn"))
+(open
+(extent 476 132))
+(pinCenter -420 -130))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 251 31))
+(open
+(extent 421 50))
+(pinCenter -270 -260))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 388 149))
+(terminals on)
+(pinCenter -380 60))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 52 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter -790 60))
+(connect D3:1 D0:0
+(points 3 -180 -130 -70 -130 -70 -98))
+(connect I1:1 D2:1
+(points 4 -849 -41 -690 -41 -690 -260 -657 -260))
+(connect D4:1 D3:1
+(points 6 -57 -260 -40 -260 -40 -320 -680 -320 -680 -130 -661 -130))
+(connect D2:1 D4:1
+(points 2 -504 -260 -483 -260))
+(connect D3:0 D5:0
+(points 4 -420 -62 -420 -50 -400 -50 -400 -35))
+(connect D6:1 D5:1
+(points 2 -762 60 -647 60))
+(connect D5:1 O1:1
+(points 6 -154 60 -130 60 -130 -50 -190 -50 -190 -41 -105 -41)))
+(stackingOrder 1 0 4 2 3 5 6))))
+(device 92 TEXTDISPLAY
+(properties
+(name "Files in Dir")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 94 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 95 NOTE
+(properties
+(name "To Operate")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Click Run to see dir\\par\r\nlisting; click InfoAbout\\par\r\nfor details.\\par\r\n}\r\n"
+)))
+(device 102 FORMULA
+(properties
+(name "whichPlatform()")
+(variableScope cont)
+(expr 1 "whichPlatform()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D10:1 D2:1)
+(connect D2:3 D3:0)
+(connect D2:1 D4:0)
+(connect D5:1 D4:1)
+(connect D2:2 D6:0)
+(connect D5:1 D6:1)
+(connect D8:1 D7:1)
+(connect D4:1 D8:1)
+(connect D6:1 D8:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 817 590)
+(anchorPt 231 125)
+(configuration
+(devCarrierFor 16
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(pinCenter 0 -100))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 200 92)
+(editing enabled))
+(pinCenter 30 370))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 97 45))
+(open
+(extent 128 124))
+(terminals on)
+(pinCenter -20 80))
+(devCarrierFor 76
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 263 64))
+(pinCenter 70 270))
+(devCarrierFor 84
+(active icon)
+(icon
+(extent 162 31))
+(pinCenter 200 110))
+(devCarrierFor 85
+(active open)
+(icon
+(extent 123 0))
+(open
+(extent 197 40))
+(pinCenter -50 10))
+(devCarrierFor 90
+(active icon)
+(icon
+(extent 170 31))
+(pinCenter 200 200))
+(devCarrierFor 92
+(active open)
+(icon
+(extent 112 0))
+(open
+(extent 229 339))
+(pinCenter 510 190))
+(devCarrierFor 94
+(active icon)
+(icon
+(extent 48 34))
+(open
+(extent 12 70))
+(terminals on)
+(pinCenter 340 190))
+(devCarrierFor 95
+(active open)
+(icon
+(extent 112 0)
+(iconImage "notepad.icn"))
+(open
+(extent 260 77)
+(editing disabled))
+(pinCenter 310 -100))
+(devCarrierFor 102
+(active icon)
+(icon
+(extent 94 15))
+(open
+(extent 117 31))
+(terminals on)
+(pinCenter -150 70))
+(connect D10:1 D2:1
+(points 4 -101 70 -90 70 -90 80 -71 80))
+(connect D2:3 D3:0
+(points 3 31 90 70 90 70 252))
+(connect D2:1 D4:0
+(points 3 31 70 200 70 200 92))
+(connect D5:1 D4:1
+(points 4 51 10 80 10 80 110 116 110))
+(connect D2:2 D6:0
+(points 5 31 80 90 80 90 150 200 150 200 182))
+(connect D5:1 D6:1
+(points 4 51 10 80 10 80 200 112 200))
+(connect D8:1 D7:1
+(points 2 366 190 393 190))
+(connect D4:1 D8:1
+(points 4 283 110 300 110 300 180 313 180))
+(connect D6:1 D8:2
+(points 2 287 200 313 200)))
+(stackingOrder 0 9 1 3 8 5 7 6 4 10 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

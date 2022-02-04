@@ -1,0 +1,461 @@
+(saveFormat "2.3")
+(date "Wed 04/Feb/2004 15:23:34 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "PassThruDevice"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "powerMeter"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "e1gunderson24en")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument4"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 11)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "NetworkAnalyzer1"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "NetworkAnalyzer"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nwa"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "KeysightPNA"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020905-0000-0000-C000-000000000046}")
+(desc "Microsoft Word 9.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\MSWORD9.OLB")
+(verMajor 8)
+(verMinor 1)
+(lcid 0)))
+(activexControls
+(activexControl 1
+(libid "{31EC338A-A3B2-11D4-98EF-00108334F514}")
+(desc "Keysight PNA Control")
+(filename "d:\\Program Files\\Agilent\\IntuiLink\\PNA\\PNAControlProj.ocx")
+(verMajor 4)
+(verMinor 0)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 59)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "newInstrument ( @ 716)")
+(transactions 2 "WRITE TEXT \"*IDN?\" EOL" "READ TEXT who_am_i STR"))
+(interface
+(output 1
+(name "who_am_i")
+(optional yes)))
+(implementation
+(iopath "newInstrument")))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 START25)
+(device 9 IODEVICE
+(properties
+(name "newInstrument ( @ 716)")
+(transactions 2 "WRITE TEXT \"*OPC?;SING;\" EOL" "READ TEXT x INT16"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "newInstrument")))
+(device 31 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 33 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 45 IODEVICE
+(properties
+(name "newInstrument ( @ 716)")
+(transactions 2 "WRITE TEXT \"ESB?\" EOL" "READ TEXT esnb_out INT32"))
+(interface
+(output 1
+(name "esnb_out")
+(optional yes)))
+(implementation
+(iopath "newInstrument")))
+(device 46 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 49 FORMULA
+(properties
+(expr 1 "(BIT(A, 3)!=1 ? \"CH2 PASS\" : \"CH2 FAIL\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 50 FORCOUNT
+(properties
+(name "Run 10x")
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 55 FORMULA
+(properties
+(expr 1 "(BIT(A, 4)!=1 ? \"CH1 PASS\" : \"CH1 FAIL\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 56 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 57 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 58 NOTE
+(properties
+(name "ABOUT:8753_Limit_test")
+(text2 13 "A method for reporting a limit line failure on the 8753/8720 family"
+"of vector network analyzers. The program invokes a single sweep"
+"via the OPC?;SING commands. Upon sweep completion the "
+"event-status register B is queried via the \"ESB?\" command. The "
+"result of this query is parsed and limit line pass or failure status"
+"for each channel is determined by the observing the related bit."
+"The structure is as follows: ESB bit 4 (decimal 16) Channel 1 "
+"Limit Fail; ESB Bit 3 (decimal 8) Channel 2 Limit failed. Note "
+"for a LIMIT FAIL to be detected and reported the CHANNEL "
+"(singular) of interest, or CHANNELS (plural), must be ACTIVE"
+"and the LIMIT TEST must be in the \"ON\" state. The LIMIT"
+"LINE can be EITHER ON or OFF. " "")))
+(configuration
+(connect D2:0 D0:0)
+(connect D0:1 D1:1)
+(connect D12:0 D3:0)
+(connect D6:1 D4:1)
+(connect D3:1 D5:1)
+(connect D3:0 D6:0)
+(connect D8:1 D7:1)
+(connect D6:1 D8:1)
+(connect D0:0 D9:0)
+(connect D6:1 D10:1)
+(connect D10:1 D11:1)
+(connect D9:1 D12:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 741 501)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -266 -49)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 235 57))
+(terminals on)
+(pinCenter 430 150))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 555 37))
+(pinCenter 920 150))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 35 25))
+(title off)
+(pinCenter 450 70))
+(devCarrierFor 9
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 67))
+(terminals on)
+(pinCenter 510 370))
+(devCarrierFor 31
+(active open)
+(icon)
+(open
+(extent 125 177)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 900 380))
+(devCarrierFor 33
+(active open)
+(icon)
+(open
+(extent 55 167)
+(noformatter))
+(pinCenter 730 370))
+(devCarrierFor 45
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 235 77))
+(terminals on)
+(pinCenter 490 480))
+(devCarrierFor 46
+(active open)
+(icon)
+(open
+(extent 115 187)
+(noformatter))
+(pinCenter 1060 380))
+(devCarrierFor 49
+(active open)
+(icon)
+(open
+(extent 255 37))
+(terminals on)
+(pinCenter 920 550))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 31))
+(pinCenter 450 230))
+(devCarrierFor 55
+(active open)
+(icon)
+(open
+(extent 255 37))
+(terminals on)
+(pinCenter 920 630))
+(devCarrierFor 56
+(active open)
+(icon)
+(open
+(extent 95 187)
+(noformatter))
+(pinCenter 1210 380))
+(devCarrierFor 57
+(active open)
+(icon)
+(open
+(extent 35 25))
+(title off)
+(pinCenter 510 280))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 145 51)
+(iconImage "notepad.icn"))
+(open
+(extent 585 247)
+(editing enabled))
+(bg "Gray")
+(titleBg "Light Teal")
+(pinCenter 780 220))
+(connect D2:0 D0:0
+(points 2 450 85 450 101))
+(connect D0:1 D1:1
+(points 2 620 150 640 150))
+(connect D12:0 D3:0
+(points 2 510 295 510 316))
+(connect D6:1 D4:1
+(points 4 680 480 780 480 780 380 835 380))
+(connect D3:1 D5:1
+(points 2 665 370 700 370))
+(connect D3:0 D6:0
+(points 2 510 406 510 421))
+(connect D8:1 D7:1
+(points 6 1100 550 1120 550 1120 500 990 500 990 380 1000 380))
+(connect D6:1 D8:1
+(points 4 680 480 700 480 700 550 760 550))
+(connect D0:0 D9:0
+(points 2 450 181 450 201))
+(connect D6:1 D10:1
+(points 4 680 480 700 480 700 630 760 630))
+(connect D10:1 D11:1
+(points 4 1100 630 1140 630 1140 380 1160 380))
+(connect D9:1 D12:0
+(points 3 486 230 510 230 510 265)))
+(stackingOrder 2 0 8 1 10 3 6 5 9 4 7 11 12 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

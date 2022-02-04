@@ -1,0 +1,422 @@
+(saveFormat "2.3")
+(date "Tue 22/Dec/1998 14:17:56 ")
+(veerev "5.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "Light Blue Gray")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Red" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "White" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "Med Dark Blue" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Blue" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 10)
+(Property "Object Title Text" "Arial" 14)
+(Property "Object Text" "Arial" 14)
+(Property "Object Description Text" "Courier New" 14)
+(Property "Terminal Text" "Arial" 12)
+(Property "Notepad Text" "Courier New" 14)
+(Property "Logging AlphaNumeric Text" "Courier New" 14)
+(Property "AlphaNumeric Scalar Text" "Arial" 18)
+(Property "AlphaNumeric Array Text" "Arial" 14)
+(Property "Bus Monitor Text" "Courier New" 14)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 67)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 7 SERIALPOLL
+(properties
+(name "Spoll: HP856XE ( @ 711 on d2476cc20)")
+(iopath "HP856XE")
+(busType 1)
+(event spoll)
+(sense set)
+(mask 0x10))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 14 NOTE
+(properties
+(name "\'Mask Bits for End of Sweep \' Object")
+(text2 3 "Mask RQS bit 4, decimal 16, COMMAND COMPLETE."
+"Will force an SRQ when the SWEEP/COMMAND is"
+"complete. Take a Single Sweep via \'TS\'.")))
+(device 22 NOTE
+(properties
+(name "Setup for CAL OUT observation")
+(text2 3 "Center frequency to 300MHz and a Span 1MHz. Note"
+"the CAL out signal is connected to RF IN port."
+"Sweep time to 1 second for observation.")))
+(device 26 FORMULA
+(properties
+(name "Linear Ramp")
+(expr 3 "ramp(601,A,B)" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 XYPLOT
+(properties
+(name "Amplitude Spectrum"))
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "dB")
+(lock constraints)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 30 START25)
+(device 31 NOTE
+(properties
+(name "Spoll Object Description")
+(text2 7 "Execute a Spoll on the 8563E at HPIB "
+"address 7. The SPOLL is configured such"
+"that the ACTION is ANY SET and the Mask "
+"value is #H10 (hex 10). The object will "
+"continually execute until bit 4 (decimal 16,"
+"hex 10) is set due to a command complete "
+"indication in the status byte of the 856xE.")))
+(device 50 IODEVICE
+(properties
+(name "HP856XE ( @ 711 on d2476cc20)")
+(transactions 3 "WRITE TEXT \"CF 300MZ;SP 1MZ;\" EOL"
+"WRITE TEXT \"ST 1;SNGLS;DONE?;\" EOL" "READ TEXT sense INT"))
+(interface
+(output 1
+(name "sense")
+(optional yes)))
+(implementation
+(iopath "HP856XE")))
+(device 53 IODEVICE
+(properties
+(name "HP856XE ( @ 711 on d2476cc20)")
+(transactions 1 "WRITE TEXT \"RQS 16;TS;\" EOL"))
+(implementation
+(iopath "HP856XE")))
+(device 55 IODEVICE
+(properties
+(name "HP856XE ( @ 711 on d2476cc20)")
+(transactions 2 "WRITE TEXT \"FA?;FB?;RL?;LG?;\" EOL"
+"READ TEXT start_freq, stop_freq, ref_level, lgScl REAL"))
+(interface
+(output 1
+(name "start_freq")
+(optional yes))
+(output 2
+(name "stop_freq")
+(optional yes))
+(output 3
+(name "ref_level")
+(optional yes))
+(output 4
+(name "lgScl")
+(optional yes)))
+(implementation
+(iopath "HP856XE")))
+(device 57 IODEVICE
+(properties
+(name "HP856XE ( @ 711 on d2476cc20)")
+(transactions 3 "WRITE TEXT \"TDF I;TRA?;\" EOL" "READ TEXT x STR MAXFW:2"
+"READ BINARY trace_data_out INT16 ARRAY:601"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "trace_data_out")
+(optional yes)))
+(implementation
+(iopath "HP856XE")))
+(device 61 FORMULA
+(properties
+(expr 4 "B+C*(A/60-10)" "" "" ""))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "C")
+(optional yes))
+(input 3
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 66 NOTE
+(properties
+(name "Description of the \'TDF I;\' Command!")
+(text2 4
+"Note that \'TDF I\' (BINARY format data transfer with HEADER information) defines a BINARY DATA transfer. The READs consit of 2 seperate "
+"read statements. The characters \'#I\' are read into x (type string and width of 2) and each two byte data point is read into \'trace_data_out\' "
+"(type BINARY INT 16). The size of array =  601 points. " "")))
+(configuration
+(connect D8:0 D0:0)
+(connect D9:1 D3:1)
+(connect D9:2 D3:2)
+(connect D3:1 D4:1)
+(connect D11:1 D4:2)
+(connect D5:0 D7:0)
+(connect D7:0 D8:0)
+(connect D0:0 D9:0)
+(connect D9:0 D10:0)
+(connect D9:3 D11:1)
+(connect D9:4 D11:2)
+(connect D10:2 D11:3)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 856 659)
+(wndState max)
+(active detail)
+(detail
+(extent 1084 887)
+(anchorPt 121 40)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon
+(extent 277 52)
+(iconImage "io.icn"))
+(open
+(extent 314 110))
+(terminals on)
+(pinCenter 190 310))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 249 0)
+(iconImage "notepad.icn"))
+(open
+(extent 399 65)
+(editing disabled))
+(title off)
+(bg "Light Gray")
+(font "Courier New" 12)
+(titleBg "Green")
+(pinCenter 620 180))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 220 0)
+(iconImage "notepad.icn"))
+(open
+(extent 394 67)
+(editing disabled))
+(title off)
+(bg "Light Gray")
+(font "Courier New" 12)
+(titleBg "Green")
+(pinCenter 620 60))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 89 0))
+(open
+(extent 152 47))
+(terminals on)
+(pinCenter 600 470))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 138 0)
+(iconImage "display.icn"))
+(open
+(extent 317 278)
+(displayMode 45)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -110 20 4 linear))
+(domain 299500000 300500000 4 linear)
+(trace 0 onScale 0
+(name "dB")
+(pen 2)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0))
+(bg "Lightest Gray")
+(titleBg "Cyan")
+(pinCenter 940 540))
+(devCarrierFor 30
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 200 -10))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 166 0)
+(iconImage "notepad.icn"))
+(open
+(extent 366 127)
+(editing disabled))
+(title off)
+(bg "Light Gray")
+(font "Courier New" 12)
+(titleBg "Green")
+(pinCenter 610 300))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 312 79))
+(terminals on)
+(pinCenter 190 80))
+(devCarrierFor 53
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 348 47))
+(terminals on)
+(pinCenter 200 190))
+(devCarrierFor 55
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 388 107))
+(terminals on)
+(pinCenter 180 490))
+(devCarrierFor 57
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 362 78))
+(terminals on)
+(pinCenter 165 640))
+(devCarrierFor 61
+(active open)
+(icon)
+(open
+(extent 170 64))
+(terminals on)
+(pinCenter 620 640))
+(devCarrierFor 66
+(active open)
+(icon
+(extent 308 0)
+(iconImage "notepad.icn"))
+(open
+(extent 1153 70)
+(editing enabled))
+(bg "Light Gray")
+(font "Nimrod" 14 bold)
+(titleBg "Light Blue")
+(titleFont "Arial" 16 bold)
+(pinCenter 530 750))
+(connect D8:0 D0:0
+(points 2 200 216 200 234))
+(connect D9:1 D3:1
+(points 2 446 460 491 460))
+(connect D9:2 D3:2
+(points 2 446 480 491 480))
+(connect D3:1 D4:1
+(points 2 728 470 779 470))
+(connect D11:1 D4:2
+(points 4 757 640 770 640 770 610 779 610))
+(connect D5:0 D7:0
+(points 2 200 3 200 20))
+(connect D7:0 D8:0
+(points 2 200 122 200 146))
+(connect D0:0 D9:0
+(points 2 200 367 200 416))
+(connect D9:0 D10:0
+(points 2 200 546 200 580))
+(connect D9:3 D11:1
+(points 6 446 500 470 500 470 510 490 510 490 620 502 620))
+(connect D9:4 D11:2
+(points 4 446 520 480 520 480 640 502 640))
+(connect D10:2 D11:3
+(points 2 448 660 502 660)))
+(stackingOrder 8 9 7 2 1 6 0 3 4 11 10 5 12))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

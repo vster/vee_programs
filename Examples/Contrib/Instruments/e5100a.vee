@@ -1,0 +1,608 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 10:22:02 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument4"
+(type GPIB)
+(gateway "156.140.157.38")
+(channel 7)
+(subchannel 3)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nwa"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "8719ES"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HP 8753E"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp8753c.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "8753"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HP 8720D"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 18)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "8714C"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 18)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(ppFile "HP871X")
+(ppAddr "GPIB0::18::INSTR")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "theSource"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 22)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument7"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag8510c"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag8753d"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 27)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag871x"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 8)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "e5100a"
+(type GPIB)
+(gateway "eng-dhcp-7")
+(channel 7)
+(subchannel 29)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 30)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 START25)
+(device 1 IODEVICE
+(properties
+(name "e5100a ( @ 729 on eng-dhcp-7)")
+(transactions 3 "WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"
+"WRITE TEXT \"MEAS AR;MULC ON;\" EOL"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "e5100a")))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 3 IODEVICE
+(properties
+(name "e5100a ( @ 729 on eng-dhcp-7)")
+(transactions 2 "WRITE TEXT \"OUTPERRO?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "e5100a")))
+(device 6 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 7 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 8 IFTHENELSE
+(properties
+(cases 1 "a==0"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Int16))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 10 BREAK)
+(device 11 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 12 IODEVICE
+(properties
+(name "e5100a ( @ 729 on eng-dhcp-7)")
+(transactions 3 "WRITE TEXT \"ANAMODE GAINP;\" EOL"
+"WRITE TEXT \"CHAN1; FMT LOGM;AUTO;\" EOL"
+"WRITE TEXT \"CHAN2;FMT PHAS;AUTO;\" EOL"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "e5100a")))
+(device 14 FORCOUNT
+(properties
+(count 2))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 16 FORMULA
+(properties
+(expr 1 "A+1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 IODEVICE
+(properties
+(name "e5100a ( @ 729 on eng-dhcp-7)")
+(transactions 6 "WRITE TEXT \"ANAOCH\", A, \";\" EOL"
+"WRITE TEXT \"ATRC \", A, \";\" EOL"
+"WRITE TEXT \"CHAN\", A, \"; MARK\", A, \";SEAM MAX;\" EOL"
+"WRITE TEXT \"MEASTAT ON;\" EOL" "WRITE TEXT \"OUTPMSTA?;\" EOL"
+"READ TEXT info STR"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "info")
+(optional yes)))
+(implementation
+(iopath "e5100a")))
+(device 22 SCROLLINGTEXTDISPLAY
+(properties
+(name "Results: Log Mag CH1; Phase CH2")
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 25 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 26 NOTE
+(properties
+(text2 3 "Capture of the STATISTICS results for CH1 as MEAS A/R, LOG MAG (dB)"
+"and CH2 MEAS A/R, PHASE in Degrees. The format for the STATISTICS:"
+" MEAN, STANDARD DEVIATION, PEAK-to-PEAK.")))
+(device 27 NOTE
+(properties
+(text2 2 "I was able to get the STATISTICS to work only after FORCING the "
+"Waveform Data Analysis CHANNEL via the ANAOCH[1,2,3,4] command")))
+(device 29 NOTE
+(properties
+(name "ABOUT:e5100a.vee")
+(text2 6 "Sample program for the E5100A low frequency network analyzer."
+"Provides an outline of using the E5100As built in waveform"
+"analysis to acquire the statistics for Channel 1 (as GAIN)"
+"and Channel 2 (as phase). The format for the STATISTICS is"
+"MEAN, STANDARD DEVIATION, PEAK-to-PEAK." "")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D4:1 D3:0)
+(connect D10:0 D4:0)
+(connect D3:1 D5:1)
+(connect D3:1 D6:1)
+(connect D8:1 D7:0)
+(connect D5:0 D8:0)
+(connect D6:1 D8:1)
+(connect D1:0 D9:0)
+(connect D9:0 D10:0)
+(connect D10:1 D11:1)
+(connect D11:1 D12:1)
+(connect D12:1 D13:1)
+(connect D11:1 D14:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 920 501)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -94 -90)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 330 110))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 265 87))
+(terminals on)
+(pinCenter 330 190))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 505 27))
+(pinCenter 900 190))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 440 730))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 330 630))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 185 37)
+(noformatter))
+(pinCenter 880 730))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 695 790))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 940 800))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 880 780))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 395 77))
+(terminals on)
+(pinCenter 330 300))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 330 530))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 470 530))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 415 127))
+(terminals on)
+(pinCenter 885 530))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 213 0))
+(open
+(extent 575 57)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 910 270))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 95 47)
+(noformatter))
+(pinCenter 450 460))
+(devCarrierFor 26
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 565 67)
+(editing enabled))
+(bg "Light Teal")
+(titleBg "Gray")
+(pinCenter 930 370))
+(devCarrierFor 27
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 535 57)
+(editing enabled))
+(bg "Light Teal")
+(titleBg "Gray")
+(pinCenter 920 650))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 138 52)
+(iconImage "notepad.icn"))
+(open
+(extent 515 107)
+(editing enabled))
+(bg "Gray")
+(titleBg "Med Light Teal")
+(titleFont "Arial" 14)
+(pinCenter 250 390))
+(connect D0:0 D1:0
+(points 2 330 123 330 126))
+(connect D1:1 D2:1
+(points 2 495 190 645 190))
+(connect D4:1 D3:0
+(points 3 366 630 440 630 440 672))
+(connect D10:0 D4:0
+(points 2 330 548 330 602))
+(connect D3:1 D5:1
+(points 2 587 730 785 730))
+(connect D3:1 D6:1
+(points 4 587 730 610 730 610 790 635 790))
+(connect D8:1 D7:0
+(points 3 897 780 940 780 940 790))
+(connect D5:0 D8:0
+(points 2 880 751 880 770))
+(connect D6:1 D8:1
+(points 2 764 780 862 780))
+(connect D1:0 D9:0
+(points 2 330 236 330 241))
+(connect D9:0 D10:0
+(points 2 330 341 330 494))
+(connect D10:1 D11:1
+(points 2 380 530 402 530))
+(connect D11:1 D12:1
+(points 2 558 530 645 530))
+(connect D12:1 D13:1
+(points 6 1135 530 1160 530 1160 430 600 430 600 270 620 270))
+(connect D11:1 D14:1
+(points 6 558 530 580 530 580 400 380 400 380 460 400 460)))
+(stackingOrder 4 10 0 11 15 12 16 5 3 14 1 9 2 6 8 7 13 17))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

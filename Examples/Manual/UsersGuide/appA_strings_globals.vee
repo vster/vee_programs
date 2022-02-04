@@ -1,0 +1,238 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:10:57 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 LITERALCONSTANT
+(properties
+(name "Enter a name:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  " Mary Jones"))
+(initValue Text
+(data  ""))))
+(device 2 FORMULA
+(properties
+(name "strTrim(str)")
+(expr 1 "strTrim(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "strLen(str)")
+(expr 1 "strLen(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "strPosChar(str1,space character)")
+(expr 1 "strPosChar(str1,\" \")"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(expr 1 "strFromThru(A,B+1, C-1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TOGLOBAL
+(properties
+(name "Set lastname")
+(globalName "lastname"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 7 FORMULA
+(properties
+(expr 1 " lastname"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 9 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D1:1 D3:1)
+(connect D1:1 D4:1)
+(connect D3:1 D4:2)
+(connect D2:1 D4:3)
+(connect D4:1 D5:1)
+(connect D5:0 D6:0)
+(connect D4:1 D7:1)
+(connect D6:1 D8:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 5 44)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 84 0))
+(open
+(extent 174 29))
+(pinCenter 130 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 134 53))
+(terminals on)
+(pinCenter 100 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 88 32))
+(terminals on)
+(pinCenter 210 180))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 201 25))
+(open
+(extent 157 45))
+(terminals on)
+(pinCenter 385 90))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 167 81))
+(terminals on)
+(pinCenter 580 220))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 80 0))
+(open
+(extent 117 57))
+(terminals on)
+(pinCenter 165 360))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 107 32))
+(terminals on)
+(pinCenter 370 360))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 214 50))
+(pinCenter 640 350))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 214 50))
+(pinCenter 640 450))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 630 -10))
+(connect D0:1 D1:1
+(points 6 219 40 240 40 240 80 40 80 40 110 64 110))
+(connect D1:1 D2:1
+(points 4 136 110 160 110 160 180 176 180))
+(connect D1:1 D3:1
+(points 4 136 110 170 110 170 90 264 90))
+(connect D1:1 D4:1
+(points 6 136 110 160 110 160 150 270 150 270 200 464 200))
+(connect D3:1 D4:2
+(points 6 516 90 540 90 540 140 440 140 440 220 464 220))
+(connect D2:1 D4:3
+(points 4 243 180 260 180 260 240 464 240))
+(connect D4:1 D5:1
+(points 6 716 220 740 220 740 280 40 280 40 360 64 360))
+(connect D5:0 D6:0
+(points 6 160 391 160 410 270 410 270 300 380 300 380 323))
+(connect D4:1 D7:1
+(points 6 716 220 740 220 740 280 510 280 510 350 530 350))
+(connect D6:1 D8:1
+(points 4 476 360 500 360 500 450 530 450)))
+(stackingOrder 0 1 3 2 4 5 6 7 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

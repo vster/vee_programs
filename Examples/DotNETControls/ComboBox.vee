@@ -1,0 +1,376 @@
+(saveFormat "7.0")
+(date "Thu 14/Apr/2005 16:20:18 ")
+(veerev "7.5.7614.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 19)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ComboBox_SelectedValueChanged")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ComboBox")
+(transactions 1 "selectedItem = comboBox.SelectedItem")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "System.Object SelectedItem")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ComboBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "comboBox"))
+(interface
+(output 1
+(name "selectedItem")
+(optional yes)))
+(implementation))
+(device 1 FORMULA
+(properties
+(expr 1 "label.Text = \"Selected item: \" + a; "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 712 391)
+(anchorPt -2 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 294 76))
+(terminals on)
+(pinCenter 240 350))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 224 86))
+(terminals on)
+(pinCenter 680 310))
+(connect D0:1 D1:1
+(points 4 479 350 500 350 500 310 535 310)))
+(stackingOrder 1 0)))))
+(device 0 DOTNETCONTROL
+(properties
+(name "ComboBox")
+(variableName ComboBox)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ComboBox"))
+(implementation
+(state 351 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F050000000A0A0B0000000902000000090300000010020000000500000006040000000854616249
+6E64657806050000000453697A650606000000084C6F636174696F6E060700000004466F6E740608
+000000044E616D6510030000000500000006090000000130060A000000073234342C203236060B00
+000004302C2030060C0000000B417269616C2C2031327074060D000000000B
+)))
+(device 1 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ComboBox")
+(transactions 2
+"ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple"
+"ComboBox.Items.AddRange(items)")
+(parmInfo 4 "1" "T 0" "1" "T 0")
+(memberInfos 2 "System.Windows.Forms.ComboBoxStyle DropDownStyle"
+"Void AddRange(System.Object[])")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ComboBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ComboBox"))
+(interface
+(input 1
+(name "items")
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 9 FORMULA
+(properties
+(name "Convert to an array of objects")
+(expr 1 "asclrtype(a, system.object)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORCOUNT
+(properties
+(count 1000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 12 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 13 DOTNETBUILDER
+(properties
+(name "System.Random")
+(transactions 1 "return = random.Next(1000)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "Int32 Next(Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Random, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "random"))
+(interface
+(input 1
+(name "random")
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 14 DOTNETBUILDER
+(properties
+(name "System.Random")
+(transactions 1 "random = CreateInstance(\"mscorlib\", \"System.Random\")")
+(parmInfo 4 "3" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Random, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "random"))
+(interface
+(output 1
+(name "random")
+(optional yes)))
+(implementation))
+(device 15 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 451 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F070000000A0A0B0000000902000000090300000010020000000700000006040000000954657874
+416C69676E060500000008546162496E64657806060000000453697A650607000000045465787406
+08000000084C6F636174696F6E060900000004466F6E74060A000000044E616D6510030000000700
+0000060B0000000C4D6964646C6543656E746572060C0000000130060D000000073437342C203534
+060E000000305479706520696E2061206E756D62657220616E642073656520696620697427732069
+6E2074686520436F6D626F426F78060F00000004302C203006100000000E417269616C2C2031342E
+323570740611000000000B
+)))
+(device 16 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary:\\b0\\par\r\nThis example demonstrates the use of two Windows Forms controls, ComboBox and Label.  ComboBox is a combination of an edit field and a list box.  There are different dropdown styles available. \\par\r\n\\par\r\nWe created an array of random non-negative integers less than 1000.  Start typing in a number in the edit field, you should see the ComboBox scrolls automatically to the next matching number.\\par\r\n\\par\r\nWe also update the Label text by handling the SelectedValueChanged event of ComboBox.  To create an event handler, use the \"Create Event Handler\" context menu of the control.\\par\r\n \\par\r\n\\b Concept Illustrated:\\par\r\n\\b0 Design time property change\\par\r\nRun time property change\\par\r\nEvent Handling\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where:\\b0\\par\r\nDevice -> Windows Forms Controls\\par\r\n\\par\r\n\\b Control Details:\\par\r\n\\b0 Assembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: ComboBox, Label\\par\r\n}\r\n"
+)))
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:1 D2:1)
+(connect D5:1 D3:1)
+(connect D6:1 D5:1)
+(connect D4:0 D5:2)
+(connect D4:1 D6:0)
+(connect D7:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 391)
+(wndState max)
+(active detail)
+(detail
+(extent 962 523)
+(anchorPt 5 -8)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 67 0))
+(open
+(extent 244 196))
+(pinCenter 190 210))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 20 70))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 314 86))
+(terminals on)
+(pinCenter 240 540))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 173 15))
+(open
+(extent 214 66))
+(terminals on)
+(pinCenter 460 420))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 50 390))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 310 420))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 101 25))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 190 410))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 101 25))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 190 360))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 474 54))
+(title off)
+(pinCenter 300 50))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 354 446)
+(editing disabled))
+(pinCenter 760 380))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 58)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 750 80))
+(connect D3:1 D2:1
+(points 6 549 420 570 420 570 460 10 460 10 540 30 540))
+(connect D5:1 D3:1
+(points 2 339 420 371 420))
+(connect D6:1 D5:1
+(points 2 243 410 281 410))
+(connect D4:0 D5:2
+(points 5 50 408 50 450 260 450 260 430 281 430))
+(connect D4:1 D6:0
+(points 3 100 390 190 390 190 395))
+(connect D7:1 D6:1
+(points 6 243 360 260 360 260 330 130 330 130 410 137 410)))
+(stackingOrder 3 2 5 7 1 4 6 10 0 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

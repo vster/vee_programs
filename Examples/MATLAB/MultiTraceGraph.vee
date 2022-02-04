@@ -1,0 +1,370 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:19:09 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 MATLABSCRIPT
+(properties
+(matlabexpr 4 "% Draw trace, specify RGB color and linewidth"
+"% Note: Matlab is CASE SENSITIVE:-( a != A )" ""
+"plot(A, \'color\', RGB,\'linewidth\',2);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "RGB")
+(optional yes))))
+(device 5 CONFIRM25
+(properties
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 6 MATLABSCRIPT
+(properties
+(matlabexpr 5 "grid on;"
+"legend(B,-1);                           % -1: Outside graph"
+"title(\'Multi trace graph\');" "xlabel(\'X\');" "ylabel(\'Y\');"))
+(interface
+(input 1
+(name "B")
+(optional yes))))
+(device 7 MATLABSCRIPT
+(properties
+(matlabexpr 1 "hold on   % Do not erase graph for each trace")))
+(device 10 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This Matlab example program plots an arbitrary \\par\r\nnumber of traces into one graph. It also controls \\par\r\ncolors for each trace.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 11 CONTEXT
+(properties
+(name "Generate trace data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "I")
+(optional yes))
+(output 1
+(type data)
+(name "Legends")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "RGB")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 5)
+(data  [ "Cosine" "Sine" "Tri" "Square" "+Ramp" ]))
+(initValue Text
+(data  ""))))
+(device 1 FORMULA
+(properties
+(name "Signal")
+(expr 4 "Func=a[b];" "amp=random(0,1);" "freq=random(10,100)" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Func")
+(optional yes))
+(output 2
+(name "Amp")
+(optional yes))
+(output 3
+(name "Freq")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "RGB color")
+(expr 4 "R=random(0.5,1);" "G=random(0,1);" "B=random(0,.4);" "[R,G,B]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "R")
+(optional yes))
+(output 3
+(name "G")
+(optional yes))
+(output 4
+(name "B")
+(optional yes))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(function +Ramp)
+(frequency 10.802001953125)
+(amplitude 0.004669189453125)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(input 1
+(name "Function")
+(tag "Function")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Func")
+(lock name constraints))))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)
+(connect I1:1 D2:1)
+(connect D1:1 D3:1)
+(connect D1:2 D3:2)
+(connect D1:3 D3:3)
+(connect D0:1 O1:1)
+(connect D3:1 O2:1)
+(connect D2:1 O3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 672 467)
+(anchorPt 43 143)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 26 15))
+(open
+(extent 185 97))
+(pinCenter 150 -60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 39 34))
+(open
+(extent 178 82))
+(terminals on)
+(pinCenter 370 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 61 45))
+(open
+(extent 182 102))
+(terminals on)
+(pinCenter 390 230))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 118 53)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 500 120))
+(connect D0:1 D1:1
+(points 4 245 -60 270 -60 270 110 348 110))
+(connect I1:1 D1:2
+(points 4 -43 90 -30 90 -30 130 348 130))
+(connect I1:1 D2:1
+(points 6 -43 90 -30 90 -30 130 330 130 330 230 357 230))
+(connect D1:1 D3:1
+(points 2 392 110 438 110))
+(connect D1:2 D3:2
+(points 2 392 120 438 120))
+(connect D1:3 D3:3
+(points 2 392 130 438 130))
+(connect D0:1 O1:1
+(points 2 245 -60 628 -60))
+(connect D3:1 O2:1
+(points 4 561 120 580 120 580 90 628 90))
+(connect D2:1 O3:1
+(points 4 423 210 440 210 440 240 628 240)))
+(stackingOrder 3 1 2 0))))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D4:0 D0:0)
+(connect D6:2 D1:1)
+(connect D6:3 D1:2)
+(connect D3:0 D2:0)
+(connect D0:0 D3:0)
+(connect D6:1 D3:1)
+(connect D0:1 D6:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 897 567)
+(anchorPt 177 -109)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 60 340))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 295 87))
+(terminals on)
+(pinCenter 515 360))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 59 29))
+(title off)
+(pinCenter 60 640))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 285 97))
+(terminals on)
+(pinCenter 60 490))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 275 37))
+(terminals on)
+(pinCenter 60 250))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 385 107)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 480 210))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 118 34))
+(terminals on)
+(pinCenter 220 340))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 70 160))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 490 440))
+(connect D4:0 D0:0
+(points 2 60 271 60 304))
+(connect D6:2 D1:1
+(points 2 281 340 325 340))
+(connect D6:3 D1:2
+(points 4 281 350 300 350 300 380 325 380))
+(connect D3:0 D2:0
+(points 2 60 541 60 623))
+(connect D0:0 D3:0
+(points 2 60 358 60 421))
+(connect D6:1 D3:1
+(points 8 281 330 300 330 300 300 140 300 140 380 -130 380 -130 490 -115 490))
+(connect D0:1 D6:1
+(points 2 110 340 158 340)))
+(stackingOrder 0 2 3 1 7 5 4 6 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

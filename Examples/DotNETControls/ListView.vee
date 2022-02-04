@@ -1,0 +1,547 @@
+(saveFormat "7.0")
+(date "Tue 12/Apr/2005 15:45:05 ")
+(veerev "7.5.7612.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F1 F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Drawing.dll"
+))
+(assemblyRef 2
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 39)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 0
+(properties
+(name "ListView_Click")
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect I2:1 D0:1)))
+(contextCarrier
+(wndOrigin 33 70)
+(wndState res)
+(active detail)
+(detail
+(extent 705 647)
+(anchorPt 0 -3)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 250 230))
+(connect I2:1 D0:1
+(points 4 0 486 10 486 10 230 187 230))))))
+(context 1
+(properties
+(name "ListView_DoubleClick")
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect I2:1 D0:1)))
+(contextCarrier
+(wndOrigin 122 122)
+(wndState res)
+(active detail)
+(detail
+(extent 705 647)
+(anchorPt 89 33)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 214 56))
+(pinCenter 220 380))
+(connect I2:1 D0:1
+(points 4 -89 450 -80 450 -80 380 110 380)))))))
+(device 2 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 5 DOTNETBUILDER
+(properties
+(name "Set BackColor, ImageList, Column Titles, Details View")
+(transactions 6
+"ListView.BackColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.DarkTurquoise)"
+"ListView.SmallImageList = value"
+"return = ListView.Columns.Add(\"Name\", 150, System.Windows.Forms.HorizontalAlignment.Left)"
+"return = ListView.Columns.Add(\"Size\", 100, System.Windows.Forms.HorizontalAlignment.Left)"
+"return = ListView.Columns.Add(\"Date Modified\", 150, System.Windows.Forms.HorizontalAlignment.Left)"
+"ListView.View = System.Windows.Forms.View.Details")
+(parmInfo 21 "1" "F" "1" "T 0" "4" "T 0" "T 0" "T 0" "T 0" "4" "F" "F" "F" "T 0"
+"4" "T 0" "T 0" "T 0" "T 0" "1" "F")
+(memberInfos 6 "System.Drawing.Color BackColor"
+"System.Windows.Forms.ImageList SmallImageList"
+"System.Windows.Forms.ColumnHeader Add(System.String, Int32, System.Windows.Forms.HorizontalAlignment)"
+"System.Windows.Forms.ColumnHeader Add(System.String, Int32, System.Windows.Forms.HorizontalAlignment)"
+"System.Windows.Forms.ColumnHeader Add(System.String, Int32, System.Windows.Forms.HorizontalAlignment)"
+"System.Windows.Forms.View View")
+(statics 6 "0" "0" "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListView, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ListView"))
+(interface
+(input 1
+(name "value")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 18 DOTNETCONTROL
+(properties
+(name "ListView")
+(variableName ListView)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ListView"))
+(implementation
+(state 398 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F070000000A0A0B000000090200000009030000001002000000070000000604000000084C6F6361
+74696F6E060500000008546162496E64657806060000000453697A65060700000004446F636B0608
+00000004466F6E7406090000000A436865636B426F786573060A000000044E616D65100300000007
+000000060B00000004302C2030060C0000000130060D000000083339342C20313336060E00000004
+46696C6C060F0000000B417269616C2C2031327074061000000004547275650611000000000B
+)))
+(device 20 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ImageList")
+(transactions 2
+"imageList = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ImageList\")"
+"imageList.Images.Add(value)")
+(parmInfo 6 "3" "T 0" "T 0" "T 0" "1" "T 0")
+(memberInfos 2 "Void .ctor()" "Void Add(System.Drawing.Image)")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ImageList, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "imageList"))
+(interface
+(input 1
+(name "value")
+(optional yes))
+(output 1
+(name "imageList")
+(optional yes)))
+(implementation))
+(device 21 DOTNETBUILDER
+(properties
+(name "Create a List View Item")
+(transactions 3
+"listViewItem = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ListViewItem\", Column1, 0)"
+"return = listViewItem.SubItems.Add(column2)"
+"return = listViewItem.SubItems.Add(column3)")
+(parmInfo 12 "5" "F" "F" "T 0" "F" "T 0" "2" "T 0" "T 0" "2" "T 0" "T 0")
+(memberInfos 3 "Void .ctor(System.String, Int32)"
+"ListViewSubItem Add(System.String)" "ListViewSubItem Add(System.String)")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListViewItem, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "listViewItem"))
+(interface
+(input 1
+(name "column1")
+(optional yes))
+(input 2
+(name "column2")
+(optional yes))
+(input 3
+(name "column3")
+(optional yes))
+(output 1
+(name "listViewItem")
+(optional yes))
+(output 2
+(name "return")
+(optional yes)))
+(implementation))
+(device 25 FORMULA
+(properties
+(name "Image File")
+(expr 1
+"System.Drawing.Image.FromFile(installdir() + \"\\\\Bitmaps\\\\veelogo4.bmp\")")
+)
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 LITERALCONSTANT
+(properties
+(name "Text Array"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 5)
+(data  [ "10k" "19k" "11k" "22k" "" ]))
+(initValue Text
+(data  ""))))
+(device 28 LITERALCONSTANT
+(properties
+(name "Text Array"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 5)
+(data  [ "7/8/2004" "1/1/2005" "1/10/2005" "3/4/2003" "" ]))
+(initValue Text
+(data  ""))))
+(device 31 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 32 FORMULA
+(properties
+(name "a[b]")
+(expr 1 "a[b]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 FORMULA
+(properties
+(name "a[b]")
+(expr 1 "a[b]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 LITERALCONSTANT
+(properties
+(name "Text Array"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 5)
+(data  [ "Test_001.vee" "Test_002.vee" "Test_003.vee" "Test_004.vee" "" ]))
+(initValue Text
+(data  ""))))
+(device 35 FORMULA
+(properties
+(name "a[b]")
+(expr 1 "a[b]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 36 DOTNETBUILDER
+(properties
+(name "Add to the List View")
+(transactions 1 "return = ListView.Items.Add(value)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1
+"System.Windows.Forms.ListViewItem Add(System.Windows.Forms.ListViewItem)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListView, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ListView"))
+(interface
+(input 1
+(name "value")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 37 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary:\\par\r\n\\b0 This example demonstrates how to use a Windows Forms Control, ListView.  This control can be as simple as you want or it can look like the right frame of your File Explorer.  \\par\r\n\\par\r\nWe used the \"Control Properties\" context menu to change the Font and CheckBoxes properties.   We used \"Generate .NET Operation Builder\" context menu, and then used the .NET Operation Builder to set its BackColor, ImageList, Titles of the columns, View details.  We also programmatically added a collection of List View Items to the List View.  \\par\r\n\\b\\par\r\nConcepts Illustrated:\\b0\\par\r\nDesign time property change\\par\r\nRun time property change\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where:\\b0\\par\r\nDevice -> Windows Forms Controls\\par\r\n\\par\r\n\\b Control Defaults:\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNameSpace: System.Windows.Forms\\par\r\nType: ListView\\par\r\n}\r\n"
+)))
+(device 38 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:1 D1:1)
+(connect D5:1 D3:1)
+(connect D8:1 D4:0)
+(connect D12:1 D4:1)
+(connect D9:1 D4:2)
+(connect D10:1 D4:3)
+(connect D6:1 D9:1)
+(connect D8:1 D9:2)
+(connect D7:1 D10:1)
+(connect D8:1 D10:2)
+(connect D11:1 D12:1)
+(connect D8:1 D12:2)
+(connect D4:1 D13:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 785 647)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 619)
+(anchorPt 360 32)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -310 40))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 325 15))
+(open
+(extent 464 146))
+(terminals on)
+(pinCenter -110 200))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 50 0))
+(open
+(extent 394 136))
+(title off)
+(pinCenter -70 60))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 211 15))
+(open
+(extent 394 66))
+(terminals on)
+(pinCenter -90 160))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 138 34))
+(open
+(extent 414 82))
+(terminals on)
+(pinCenter -80 450))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 63 15))
+(open
+(extent 254 56))
+(terminals on)
+(pinCenter -250 160))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter -300 420))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter -300 470))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -290 290))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter -200 430))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter -200 480))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter -300 370))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter -200 380))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 80 440))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 496)
+(editing disabled))
+(pinCenter 360 330))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 340 10))
+(connect D3:1 D1:1
+(points 6 18 160 80 160 80 230 -290 230 -290 200 -275 200))
+(connect D5:1 D3:1
+(points 2 -216 160 -198 160))
+(connect D8:1 D4:0
+(points 5 -254 290 -230 290 -230 350 -80 350 -80 430))
+(connect D12:1 D4:1
+(points 4 -186 380 -160 380 -160 440 -152 440))
+(connect D9:1 D4:2
+(points 4 -186 430 -170 430 -170 450 -152 450))
+(connect D10:1 D4:3
+(points 4 -186 480 -170 480 -170 460 -152 460))
+(connect D6:1 D9:1
+(points 2 -269 420 -215 420))
+(connect D8:1 D9:2
+(points 4 -254 290 -230 290 -230 440 -215 440))
+(connect D7:1 D10:1
+(points 2 -269 470 -215 470))
+(connect D8:1 D10:2
+(points 4 -254 290 -230 290 -230 490 -215 490))
+(connect D11:1 D12:1
+(points 2 -269 370 -215 370))
+(connect D8:1 D12:2
+(points 4 -254 290 -230 290 -230 390 -215 390))
+(connect D4:1 D13:1
+(points 2 -9 440 19 440)))
+(stackingOrder 9 10 8 13 5 6 7 11 12 4 3 0 2 15 1 14))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

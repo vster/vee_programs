@@ -1,0 +1,118 @@
+(saveFormat "7.0")
+(date "Thu 03/Feb/2022 16:22:41 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORRANGE
+(properties
+(variableScope cont)
+(from 0)
+(thru 9)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 1 SLIDINGWINDOW
+(properties
+(variableScope cont)
+(vecSize 10)
+(triggerSize 10))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 2 FORMULA
+(properties
+(name "median(x)")
+(variableScope cont)
+(expr 1 "median(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1374 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1602 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 340 290))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 139 55))
+(terminals on)
+(pinCenter 600 290))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 90 50))
+(terminals on)
+(pinCenter 890 290))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1150 290))
+(connect D0:1 D1:1
+(points 2 392 290 488 290))
+(connect D1:1 D2:1
+(points 2 712 290 812 290))
+(connect D2:1 D3:1
+(points 2 987 290 1087 290)))
+(stackingOrder 0 1 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

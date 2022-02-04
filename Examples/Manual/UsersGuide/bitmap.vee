@@ -1,0 +1,132 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:12:17 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 2)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "Bitmap")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserFunction1")
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 LABEL
+(properties
+(name " Bitmap Function ")
+(labelValue " Bitmap Function "))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 224 132)))
+(contextCarrier
+(wndOrigin 2 861)
+(wndRestoredOrigin 143 87)
+(wndRestoredExtent 481 351)
+(wndState min)
+(active panel)
+(panel
+(extent 481 351)
+(gridSize 2)
+(pictureMode scaled)
+(pictureImage "default.gif")
+(widget 0 detail
+(relativeOrigin 410 312)
+(font "Arial" 12 bold)
+(title off)
+(borderStyle convex)
+(extent 61 31))
+(widget 1 detail
+(relativeOrigin 2 4)
+(bg "Light Gray")
+(font "Arial" 20 bold)
+(title off)
+(borderStyle convex)
+(extent 177 34)
+(just c)))
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 160 100))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 104 0))
+(open
+(extent 107 27)
+(just l))
+(title off)
+(pinCenter 330 120)))
+(stackingOrder 0 1)))))
+(device 0 CALL
+(properties
+(name "Call Bitmap")
+(callFunc "Bitmap")
+(parmMode rev30)))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 792 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 360 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 190 180)))
+(stackingOrder 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

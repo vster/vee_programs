@@ -1,0 +1,3674 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:37:35 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hpe1562"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 906)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1562.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hpe1488a"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 903)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1488a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hpe1413"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 904)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1413.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 73)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 22 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)))
+(device 34 START25)
+(device 65 CONTEXT
+(properties
+(name "RESET_INSTRUMENTS")
+(trigMode deg)
+(nextID 4))
+(interface
+(input 1
+(name "Seq In")
+(optional yes))
+(output 1
+(type data)
+(name "Seq Out")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Reset"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 1 HPIDINCR
+(properties
+(name "hpe1413"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1413.cid")
+(driver "hpe1413")))
+(device 2 HPIDINCR
+(properties
+(name "hpe1562"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")))
+(device 3 HPIDINCR
+(properties
+(name "hpe1488a"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488a")))
+(configuration
+(connect I1:1 D1:0)
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D2:0 D3:0)
+(connect D0:1 D3:1)
+(connect D3:0 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 448 245)
+(anchorPt 19 172)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 117 36)
+(showFormat int))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open
+(extent 26 60))
+(terminals on)
+(pinCenter 120 -70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 270 -90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 280 0))
+(connect I1:1 D1:0
+(points 5 -19 -50 -70 -50 -70 -120 120 -120 120 -108))
+(connect D0:1 D1:1
+(points 4 42 0 60 0 60 -70 77 -70))
+(connect D1:0 D2:0
+(points 6 120 -32 120 -10 180 -10 180 -140 270 -140 270 -128))
+(connect D0:1 D2:1
+(points 4 42 0 190 0 190 -90 227 -90))
+(connect D2:0 D3:0
+(points 2 270 -52 280 -38))
+(connect D0:1 D3:1
+(points 2 42 0 221 0))
+(connect D3:0 O1:1
+(points 5 280 38 280 59 343 59 343 -50 428 -50)))
+(stackingOrder 0 2 3 1))))
+(device 66 CONTEXT
+(properties
+(name "TakeReadings")
+(trigMode deg)
+(nextID 10))
+(interface
+(input 1
+(name "Seq In")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Seq Out")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "hpe1413"))
+(interface
+(input 1
+(name "TRIG_COUNT")
+(tag "TRIG_COUNT")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1413.cid")
+(driver "hpe1413")
+(state
+(idComp
+(name "STRAIN_AVAILABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "MIN_DISPLAY")
+(typeStr "Real")
+(state "Valid")
+(value -1))
+(idComp
+(name "MAX_DISPLAY")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "NUMBER_POINTS")
+(typeStr "Real")
+(state "Valid")
+(value 2000))
+(idComp
+(name "DISPLAY_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 2000.5))
+(idComp
+(name "X_TIC")
+(typeStr "Int16")
+(state "Valid")
+(value 20))
+(idComp
+(name "MODULE")
+(typeStr "Enum")
+(state "Valid")
+(value "M5"))
+(idComp
+(name "SCP0")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "SCP1")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "SCP2")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "SCP3")
+(typeStr "Enum")
+(state "Valid")
+(value "EMPTY"))
+(idComp
+(name "SCP4")
+(typeStr "Enum")
+(state "Invalid")
+(value "EMPTY"))
+(idComp
+(name "SCP5")
+(typeStr "Enum")
+(state "Invalid")
+(value "OPT11"))
+(idComp
+(name "SCP6")
+(typeStr "Enum")
+(state "Invalid")
+(value "EMPTY"))
+(idComp
+(name "SCP7")
+(typeStr "Enum")
+(state "Invalid")
+(value "EMPTY"))
+(idComp
+(name "PRESENT_STRAIN")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 2)
+(numCols 64)
+(values ( 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2)( 0.3 0.3 0.3 0.3 0.3
+0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
+0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
+0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3)))
+(idComp
+(name "PRESENT_ATTRIBUTES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 7)
+(numCols 64)
+(values ( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)( 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1)( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)(
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0)( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)( 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)))
+(idComp
+(name "GFAC0")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC1")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC2")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC3")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC4")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC5")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC6")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "GFAC7")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "POIS0")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS1")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS2")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS3")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS4")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS5")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS6")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "POIS7")
+(typeStr "Real")
+(state "Valid")
+(value 0.3))
+(idComp
+(name "STAT0")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT1")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT2")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT3")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT4")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT5")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT6")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STAT7")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FREQ0")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ1")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ2")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ3")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ4")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ5")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ6")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FREQ7")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN0")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN1")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN2")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN3")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN4")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN5")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN6")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "GAIN7")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR0")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR1")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR2")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR3")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR4")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR5")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR6")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CURR7")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "CSTA0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CSTA7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHUN7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TEMPTYPE0")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE1")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE2")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE3")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE4")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE5")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE6")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "TEMPTYPE7")
+(typeStr "Enum")
+(state "Valid")
+(value "RTD85"))
+(idComp
+(name "STRTYPE0")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE1")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE2")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE3")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE4")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE5")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE6")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "STRTYPE7")
+(typeStr "Enum")
+(state "Valid")
+(value "QUAR"))
+(idComp
+(name "VRANGE0")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE1")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE2")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE3")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE4")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE5")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE6")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "VRANGE7")
+(typeStr "Enum")
+(state "Valid")
+(value "AUT"))
+(idComp
+(name "EXCITE_I0")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I1")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I2")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I3")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I4")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I5")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I6")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "EXCITE_I7")
+(typeStr "Enum")
+(state "Valid")
+(value "MIN"))
+(idComp
+(name "FUNC0")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC1")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC2")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC3")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC4")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC5")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC6")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "FUNC7")
+(typeStr "Enum")
+(state "Valid")
+(value "VOLT"))
+(idComp
+(name "ROUTE_DEF1")
+(typeStr "Text")
+(state "Valid")
+(value "141:142"))
+(idComp
+(name "ROUTE_DEF2")
+(typeStr "Text")
+(state "Invalid")
+(value "100:163"))
+(idComp
+(name "ROUTE_DEF3")
+(typeStr "Text")
+(state "Invalid")
+(value "100:163"))
+(idComp
+(name "ROUTE_DEF4")
+(typeStr "Text")
+(state "Invalid")
+(value "100:163"))
+(idComp
+(name "SAMP_TIM1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "SAMP_TIM2")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "SAMP_TIM3")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "SAMP_TIM4")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "ROUTE_SCAN")
+(typeStr "Enum")
+(state "Valid")
+(value "LIST1"))
+(idComp
+(name "TRIG_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 4096))
+(idComp
+(name "TRIG_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "TIM"))
+(idComp
+(name "ARM_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "TRIG_TIM")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "TTLT0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TTLT7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FILTER")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "FIFO_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "BLOCK"))
+(idComp
+(name "READ_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ALL"))
+(idComp
+(name "READ_BLOCK")
+(typeStr "Int16")
+(state "Valid")
+(value 64))
+(idComp
+(name "REF_TEMP")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "FORMAT_")
+(typeStr "Enum")
+(state "Valid")
+(value "PACK"))
+(idComp
+(name "VME_ADDRESS")
+(typeStr "Real")
+(state "Invalid")
+(value 2359296))
+(idComp
+(name "VME_SIZE")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "VME_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "OTD100")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD108")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD116")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD124")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD132")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD140")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "OTD148")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "OTD156")
+(typeStr "Enum")
+(state "Dontcare")
+(value "OFF"))
+(idComp
+(name "VXI_INT")
+(typeStr "Enum")
+(state "Valid")
+(value "L1"))
+(idComp
+(name "CVT_CHAN0")
+(typeStr "Int16")
+(state "Valid")
+(value 100))
+(idComp
+(name "CVT_CHAN1")
+(typeStr "Int16")
+(state "Valid")
+(value 108))
+(idComp
+(name "CVT_CHAN2")
+(typeStr "Int16")
+(state "Valid")
+(value 116))
+(idComp
+(name "CVT_CHAN3")
+(typeStr "Int16")
+(state "Valid")
+(value 124))
+(idComp
+(name "CVT_CHAN4")
+(typeStr "Int16")
+(state "Valid")
+(value 132))
+(idComp
+(name "CVT_CHAN5")
+(typeStr "Int16")
+(state "Valid")
+(value 140))
+(idComp
+(name "CVT_CHAN6")
+(typeStr "Int16")
+(state "Valid")
+(value 148))
+(idComp
+(name "CVT_CHAN7")
+(typeStr "Int16")
+(state "Valid")
+(value 156))
+(idComp
+(name "PRESENT_VOLTS")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 2)
+(numCols 64)
+(values ( 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9
+3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9
+3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9 3.9
+3.9 3.9 3.9 3.9 3.9 3.9 3.9)( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)))
+(idComp
+(name "EXCV0")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV1")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV2")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV3")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV4")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV5")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV6")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "EXCV7")
+(typeStr "Real")
+(state "Valid")
+(value 3.9))
+(idComp
+(name "UNST0")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNST7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "NO"))
+(idComp
+(name "REV5_AVAILABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "REV5FLASH")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TTLT_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "TRIG"))
+(idComp
+(name "TIMER_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ASYN"))
+(idComp
+(name "AVERAGE_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "AVERAGE_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "RENEW")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIM_STATE")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 3)
+(numCols 8)
+(values ( 0 0 0 0 0 0 0 0)( 0 0 0 0 0 0 0 0)( 0 0 0 0 0 0 0 0)))
+(idComp
+(name "LIM_0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIM_7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LLIM7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM0")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ULIM7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LOWER")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 64)
+(values ( -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037 -9.899999999999999E+037
+-9.899999999999999E+037 -9.899999999999999E+037)))
+(idComp
+(name "LOWD0")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD1")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD2")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD3")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD4")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD5")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD6")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "LOWD7")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "UPPER")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 64)
+(values ( 9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037 9.899999999999999E+037 9.899999999999999E+037
+9.899999999999999E+037)))
+(idComp
+(name "UPPD0")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD1")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD2")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD3")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD4")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD5")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD6")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "UPPD7")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "SAMP_TIML")
+(typeStr "Real")
+(state "Valid")
+(value 1E-005))
+(idComp
+(name "ROUTE_DEFL")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "FILENAME")
+(typeStr "Text")
+(state "Valid")
+(value "MyFile.DAT"))
+(idComp
+(name "FILE_SIZE")
+(typeStr "Real")
+(state "Valid")
+(value 64))
+(idComp
+(name "FINISHED3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ILOW100")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW101")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW102")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW103")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW108")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW109")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW110")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW111")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW116")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW117")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW118")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW119")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW132")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW133")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW134")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW135")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW140")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW141")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW142")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW143")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW148")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW149")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW150")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "ILOW151")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "OUT_VOLT100")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT101")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT102")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT103")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT108")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT109")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT110")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT111")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT116")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT117")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT118")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT119")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT132")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT133")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT134")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT135")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT140")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT141")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT142")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT143")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT148")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT149")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT150")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OUT_VOLT151")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "FINISHED4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ABOUT_STRING")
+(typeStr "Text")
+(state "Valid")
+(value "HP E1413"))
+(idComp
+(name "NUMBER_CHANNELS")
+(typeStr "Int16")
+(state "Valid")
+(value 64))
+(idComp
+(name "MAX_CVT_CHAN")
+(typeStr "Int16")
+(state "Valid")
+(value 163))
+(idComp
+(name "MAX_MODULE")
+(typeStr "Int16")
+(state "Valid")
+(value 7)))))
+(device 1 FORMULA
+(properties
+(expr 1 "2*A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 3 HPIDSTATE
+(properties
+(name "hpe1562"))
+(interface
+(input 1
+(name "VME_BLOCK")
+(tag "VME_BLOCK")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "VME_READINGS")
+(tag "VME_READINGS")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "CREATE_A_SESSION")
+(tag "CREATE_A_SESSION")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 4
+(name "CREATE_A_SEQUENCE")
+(tag "CREATE_A_SEQUENCE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 5
+(name "BEGIN_A_SEQUENCE")
+(tag "BEGIN_A_SEQUENCE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")
+(state
+(idComp
+(name "STATUS_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "STANDARD"))
+(idComp
+(name "SEQUENCE_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "ADD"))
+(idComp
+(name "TEST_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "BOARD"))
+(idComp
+(name "MEMORY_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "SCSI"))
+(idComp
+(name "SESSION_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "TRANS"))
+(idComp
+(name "SCSI_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "SIZE_"))
+(idComp
+(name "LBUS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "RESET"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_NODE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "BUS_ADDRESS")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DEVICE_UNIT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_OPEN_MODE")
+(typeStr "Int16")
+(state "Valid")
+(value 64))
+(idComp
+(name "SCSI_EBYPASS")
+(typeStr "Enum")
+(state "Invalid")
+(value "OFF"))
+(idComp
+(name "SCSI_ADDRESS")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_CAL_AUTO")
+(typeStr "Enum")
+(state "Invalid")
+(value "ON"))
+(idComp
+(name "SESSION_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRANSFER_UNIT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRANSFER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DEST_SESSION")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "COPY_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RW_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RW_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "MM_MEMORY_SPACE")
+(typeStr "Enum")
+(state "Valid")
+(value "SRAM"))
+(idComp
+(name "FIFO_WIDTH")
+(typeStr "Enum")
+(state "Valid")
+(value "W16"))
+(idComp
+(name "UNIT_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DEVICE1")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "BLOCK1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DEVICE2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "BLOCK2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQUENCE_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "OPER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NOP"))
+(idComp
+(name "OPER_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "A0"))
+(idComp
+(name "SEQ_OPERATION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_ADDRESS")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_MISC")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "THR"))
+(idComp
+(name "SEQ_BYTE_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 32768))
+(idComp
+(name "SEQ_SESSION")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "LBUS_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "LBUS_BLOCKSIZE")
+(typeStr "Real")
+(state "Valid")
+(value 16))
+(idComp
+(name "MAX_LBUS_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 262142))
+(idComp
+(name "LBUS_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LBUS_MEMORY_SPACE")
+(typeStr "Enum")
+(state "Valid")
+(value "SRAM"))
+(idComp
+(name "SCSI_ADDRESS_A")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "SCSI_ADDRESS_B")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "DISK_ADDRESS_A")
+(typeStr "Enum")
+(state "Valid")
+(value "A0"))
+(idComp
+(name "DISK_ADDRESS_B")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEQUENCE_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "VME_THR"))
+(idComp
+(name "LBUS_BLOCKS")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "BYTES_PER_BLOCK")
+(typeStr "Real")
+(state "Valid")
+(value 2048))
+(idComp
+(name "VME_INSTR")
+(typeStr "Text")
+(state "Valid")
+(value "E1413"))
+(idComp
+(name "VME_BLOCK")
+(typeStr "Real")
+(state "Valid")
+(value 8192))
+(idComp
+(name "E1413_LADDR")
+(typeStr "Int16")
+(state "Valid")
+(value 56))
+(idComp
+(name "VME_COUNT_LOC")
+(typeStr "Real")
+(state "Valid")
+(value 52778))
+(idComp
+(name "VME_FIFO_LOC")
+(typeStr "Real")
+(state "Valid")
+(value 52768))
+(idComp
+(name "VME_READINGS")
+(typeStr "Real")
+(state "Valid")
+(value 8192))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON")))))
+(device 4 HPIDINCR
+(properties
+(name "hpe1413"))
+(interface
+(input 1
+(name "INIT")
+(tag "INIT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1413.cid")
+(driver "hpe1413")))
+(device 5 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 6 HPIDINCR
+(properties
+(name "hpe1562"))
+(interface
+(output 1
+(name "OPER_COND")
+(tag "OPER_COND")
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")))
+(device 7 FORMULA
+(properties
+(name "Bit8")
+(expr 1 "bitand(256, A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 9 BREAK)
+(configuration
+(connect I1:1 D0:0)
+(connect I2:1 D0:1)
+(connect I2:1 D1:1)
+(connect D0:0 D3:0)
+(connect D1:1 D3:1)
+(connect D1:1 D3:2)
+(connect D2:1 D3:3)
+(connect D2:1 D3:4)
+(connect D2:1 D3:5)
+(connect D3:0 D4:0)
+(connect D2:1 D4:1)
+(connect D4:0 D5:0)
+(connect D5:1 D6:0)
+(connect D6:1 D7:1)
+(connect D7:1 D8:1)
+(connect D8:1 D9:0)
+(connect D5:0 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 942 305)
+(anchorPt 96 162)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 9 "E1413" "SCANLIST" "LIST1" "ARMSOUR" "CONFIG2" "CVT64" "DIAG5"
+"AVERAGE" "CHAN_LABEL5"))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 84 60))
+(terminals on)
+(pinCenter 140 -10))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 117 36)
+(showFormat int))
+(pinCenter 140 50))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "inst.icn"))
+(open
+(extent 214 254)
+(visiblePanels 5 "DSM" "SIMPLE" "STANDARD" "VME_THR" "E1413"))
+(terminals on)
+(pinCenter 270 -20))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open
+(extent 26 60))
+(terminals on)
+(pinCenter 270 70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 410 -80))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 550 -80))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 48 31))
+(open
+(extent 147 60))
+(terminals on)
+(pinCenter 630 -80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 72 70))
+(terminals on)
+(pinCenter 720 -80))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 80 31))
+(open)
+(terminals on)
+(pinCenter 790 -40))
+(connect I1:1 D0:0
+(points 3 -96 -90 0 -90 0 -38))
+(connect I2:1 D0:1
+(points 4 -96 70 -70 70 -70 0 -43 0))
+(connect I2:1 D1:1
+(points 6 -96 70 -70 70 -70 70 70 70 70 -10 97 -10))
+(connect D0:0 D3:0
+(points 6 0 38 0 60 60 60 60 -70 270 -70 270 -58))
+(connect D1:1 D3:1
+(points 4 182 -10 200 -10 200 -40 227 -40))
+(connect D1:1 D3:2
+(points 4 182 -10 200 -10 200 -30 227 -30))
+(connect D2:1 D3:3
+(points 6 182 50 200 50 200 0 210 0 210 -20 227 -20))
+(connect D2:1 D3:4
+(points 6 182 50 200 50 200 0 210 0 210 -10 227 -10))
+(connect D2:1 D3:5
+(points 4 182 50 200 50 200 0 227 0))
+(connect D3:0 D4:0
+(points 2 270 18 270 32))
+(connect D2:1 D4:1
+(points 4 182 50 200 50 200 70 227 70))
+(connect D4:0 D5:0
+(points 6 270 108 270 130 330 130 330 -130 410 -130 410 -118))
+(connect D5:1 D6:0
+(points 5 468 -80 490 -80 490 -130 550 -130 550 -118))
+(connect D6:1 D7:1
+(points 2 592 -80 603 -80))
+(connect D7:1 D8:1
+(points 2 656 -80 661 -80))
+(connect D8:1 D9:0
+(points 3 778 -90 790 -90 790 -58))
+(connect D5:0 O1:1
+(points 3 410 -42 410 -10 845 -10)))
+(stackingOrder 0 2 3 4 5 6 8 9 1 7))))
+(device 67 CONTEXT
+(properties
+(name "XferToE1488")
+(trigMode deg)
+(nextID 12))
+(interface
+(input 1
+(name "Seq In")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Seq Out")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "8*A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 HPIDSTATE
+(properties
+(name "hpe1562"))
+(interface
+(input 1
+(name "BYTES_PER_BLOCK")
+(tag "BYTES_PER_BLOCK")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "SEQ_BYTE_COUNT")
+(tag "SEQ_BYTE_COUNT")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "CREATE_A_SEQUENCE")
+(tag "CREATE_A_SEQUENCE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")
+(state
+(idComp
+(name "STATUS_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "STANDARD"))
+(idComp
+(name "SEQUENCE_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "ADD"))
+(idComp
+(name "TEST_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "BOARD"))
+(idComp
+(name "MEMORY_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "SCSI"))
+(idComp
+(name "SESSION_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "TRANS"))
+(idComp
+(name "SCSI_MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "SIZE_"))
+(idComp
+(name "LBUS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_NODE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "BUS_ADDRESS")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DEVICE_UNIT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_OPEN_MODE")
+(typeStr "Int16")
+(state "Valid")
+(value 64))
+(idComp
+(name "SCSI_EBYPASS")
+(typeStr "Enum")
+(state "Invalid")
+(value "OFF"))
+(idComp
+(name "SCSI_ADDRESS")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCSI_CAL_AUTO")
+(typeStr "Enum")
+(state "Invalid")
+(value "ON"))
+(idComp
+(name "SESSION_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRANSFER_UNIT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRANSFER_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DEST_SESSION")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "COPY_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RW_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "RW_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "MM_MEMORY_SPACE")
+(typeStr "Enum")
+(state "Valid")
+(value "SRAM"))
+(idComp
+(name "FIFO_WIDTH")
+(typeStr "Enum")
+(state "Valid")
+(value "W16"))
+(idComp
+(name "UNIT_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DEVICE1")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "BLOCK1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DEVICE2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "BLOCK2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQUENCE_NUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "OPER_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NOP"))
+(idComp
+(name "OPER_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "A0"))
+(idComp
+(name "SEQ_OPERATION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_ADDRESS")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_MISC")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEQ_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "THR"))
+(idComp
+(name "SEQ_BYTE_COUNT")
+(typeStr "Real")
+(state "Valid")
+(value 32768))
+(idComp
+(name "SEQ_SESSION")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "LBUS_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "LBUS_BLOCKSIZE")
+(typeStr "Real")
+(state "Valid")
+(value 16))
+(idComp
+(name "MAX_LBUS_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 262142))
+(idComp
+(name "LBUS_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LBUS_MEMORY_SPACE")
+(typeStr "Enum")
+(state "Valid")
+(value "SRAM"))
+(idComp
+(name "SCSI_ADDRESS_A")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "SCSI_ADDRESS_B")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "DISK_ADDRESS_A")
+(typeStr "Enum")
+(state "Valid")
+(value "A0"))
+(idComp
+(name "DISK_ADDRESS_B")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEQUENCE_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LBUS_GENERATE"))
+(idComp
+(name "LBUS_BLOCKS")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "BYTES_PER_BLOCK")
+(typeStr "Real")
+(state "Valid")
+(value 32768))
+(idComp
+(name "VME_INSTR")
+(typeStr "Text")
+(state "Valid")
+(value "E1413"))
+(idComp
+(name "VME_BLOCK")
+(typeStr "Real")
+(state "Valid")
+(value 2000))
+(idComp
+(name "E1413_LADDR")
+(typeStr "Int16")
+(state "Valid")
+(value 56))
+(idComp
+(name "VME_COUNT_LOC")
+(typeStr "Real")
+(state "Valid")
+(value 52778))
+(idComp
+(name "VME_FIFO_LOC")
+(typeStr "Real")
+(state "Valid")
+(value 52768))
+(idComp
+(name "VME_READINGS")
+(typeStr "Real")
+(state "Valid")
+(value 2000))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON")))))
+(device 2 HPIDSTATE
+(properties
+(name "hpe1488a"))
+(interface
+(input 1
+(name "TRACE_LENGTH")
+(tag "TRACE_LENGTH")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "LBUS_RESET")
+(tag "LBUS_RESET")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "INIT")
+(tag "INIT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 4
+(name "DATA_SIZE")
+(tag "DATA_SIZE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488a")
+(state
+(idComp
+(name "FORMAT_")
+(typeStr "Enum")
+(state "Valid")
+(value "INT16"))
+(idComp
+(name "LBUS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "TRACE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "FRED"))
+(idComp
+(name "MEM_TOTAL")
+(typeStr "Real")
+(state "Valid")
+(value 2097152))
+(idComp
+(name "MAX_DATA_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 16384))
+(idComp
+(name "TRACE_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 32768))
+(idComp
+(name "MAX_VALUE")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "MIN_VALUE")
+(typeStr "Int16")
+(state "Valid")
+(value -32768))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPC_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DESTINATION")
+(typeStr "Enum")
+(state "Valid")
+(value "XY_TRACE"))
+(idComp
+(name "FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "HPE1488A.DAT"))
+(idComp
+(name "DATA_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 16384)))))
+(device 3 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 4 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 5 HPIDINCR
+(properties
+(name "hpe1562"))
+(interface
+(input 1
+(name "BEGIN_A_SEQUENCE")
+(tag "BEGIN_A_SEQUENCE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")))
+(device 6 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 7 HPIDINCR
+(properties
+(name "hpe1562"))
+(interface
+(output 1
+(name "OPER_COND")
+(tag "OPER_COND")
+(optional yes)))
+(implementation
+(filename "hpe1562.cid")
+(driver "hpe1562")))
+(device 8 FORMULA
+(properties
+(name "Bit8")
+(expr 1 "bitand(256, A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 10 BREAK)
+(device 11 FORMULA
+(properties
+(expr 1 "4*A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I2:1 D0:1)
+(connect I1:1 D1:0)
+(connect D0:1 D1:1)
+(connect D0:1 D1:2)
+(connect D3:1 D1:3)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D3:1 D2:2)
+(connect D3:1 D2:3)
+(connect D11:1 D2:4)
+(connect D2:0 D5:0)
+(connect D4:1 D5:1)
+(connect D5:0 D6:0)
+(connect D6:1 D7:0)
+(connect D7:1 D8:1)
+(connect D8:1 D9:1)
+(connect D9:1 D10:0)
+(connect I2:1 D11:1)
+(connect D6:0 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 882 445)
+(anchorPt 86 192)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 84 60))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "inst.icn"))
+(open
+(extent 214 254)
+(visiblePanels 5 "DSM" "SIMPLE" "STANDARD" "LBUS_XFER" "E1413"))
+(terminals on)
+(pinCenter 180 -50))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 5 "DSM" "TRACE_" "INT16_VALUE" "INITIMM" "TRACES"))
+(terminals on)
+(pinCenter 180 50))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 117 36)
+(showFormat int))
+(pinCenter 40 50))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 117 36)
+(showFormat int))
+(pinCenter 330 40))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 460 30))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 460 130))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 80 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 630 -20))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 48 31))
+(open
+(extent 147 60))
+(terminals on)
+(pinCenter 710 -20))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 72 70))
+(terminals on)
+(pinCenter 800 -20))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 80 31))
+(open)
+(terminals on)
+(pinCenter 920 0))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 84 60))
+(terminals on)
+(pinCenter 60 200))
+(connect I2:1 D0:1
+(points 6 -86 140 -40 140 -40 40 -50 40 -50 0 -43 0))
+(connect I1:1 D1:0
+(points 5 -86 -80 -40 -80 -40 -100 180 -100 180 -88))
+(connect D0:1 D1:1
+(points 6 42 0 80 0 80 -50 110 -50 110 -70 137 -70))
+(connect D0:1 D1:2
+(points 4 42 0 80 0 80 -50 137 -50))
+(connect D3:1 D1:3
+(points 4 82 50 100 50 100 -30 137 -30))
+(connect D1:0 D2:0
+(points 2 180 -12 180 12))
+(connect D0:1 D2:1
+(points 4 42 0 80 0 80 30 121 30))
+(connect D3:1 D2:2
+(points 4 82 50 100 50 100 40 121 40))
+(connect D3:1 D2:3
+(points 2 82 50 121 50))
+(connect D11:1 D2:4
+(points 6 102 200 120 200 120 170 100 170 100 60 121 60))
+(connect D2:0 D5:0
+(points 6 180 88 180 110 260 110 260 -20 460 -20 460 -8))
+(connect D4:1 D5:1
+(points 4 372 40 390 40 390 30 417 30))
+(connect D5:0 D6:0
+(points 2 460 68 460 92))
+(connect D6:1 D7:0
+(points 5 518 130 540 130 540 -70 630 -70 630 -58))
+(connect D7:1 D8:1
+(points 2 672 -20 683 -20))
+(connect D8:1 D9:1
+(points 2 736 -20 741 -20))
+(connect D9:1 D10:0
+(points 3 858 -30 920 -30 920 -18))
+(connect I2:1 D11:1
+(points 4 -86 140 -30 140 -30 200 17 200))
+(connect D6:0 O1:1
+(points 5 460 168 460 190 550 190 550 30 795 30)))
+(stackingOrder 11 0 2 1 3 4 5 6 7 8 9 10))))
+(device 68 CONTEXT
+(properties
+(name "GetValues")
+(trigMode deg)
+(nextID 11))
+(interface
+(input 1
+(name "Seq In")
+(optional yes))
+(output 1
+(type data)
+(name "SubAry")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "SubAry")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 HPIDINCR
+(properties
+(name "hpe1488a"))
+(interface
+(output 1
+(name "TRACE_DATA_BYTES")
+(tag "TRACE_DATA_BYTES")
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488a")))
+(device 1 FORMULA
+(properties
+(name "swap2bytes")
+(expr 1
+"bitor(bitor(bitand(255, bitshift(a, -8)), bitshift(bitand(255, a), 8)), -512*(bitand(a, 128)))"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 TOFILE
+(properties
+(transactions 1 "WRITE BINBLOCK a INT16 EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 FROMFILE
+(properties
+(transactions 1 "READ BINBLOCK x INT32 ARRAY:*"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 FORMULA
+(properties
+(name "swap4bytes")
+(expr 1
+"bitor(bitor(bitshift(a, 24), bitand(255, bitshift(a, -24))), bitor(bitshift(bitand(a, 65280), 8), bitshift(bitand(a, 16711680), -8)))"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TOFILE
+(properties
+(transactions 1 "WRITE BINARY a INT32"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "MYFILE4"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 6 FROMFILE
+(properties
+(transactions 1 "READ BINARY x REAL32 ARRAY:*,2"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "MYFILE4"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 FROMARRAY
+(properties
+(expr 1 "Ary[*, 1]"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 8 FROMARRAY
+(properties
+(expr 1 "Ary[*, 0]"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 9 NOTE
+(properties
+(text2 5 "The byte order must be" "changed.  Swapping 2 bytes"
+"puts it in UX order, swap-" "ping another 4 bytes puts" "it in PC order.")))
+(device 10 NOTE
+(properties
+(text2 2 "Use a \"Get Values\" for each" "channel.")))
+(configuration
+(connect I1:1 D0:0)
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D4:1 D5:1)
+(connect D5:0 D6:0)
+(connect D6:1 D7:1)
+(connect D6:1 D8:1)
+(connect D8:1 O1:1)
+(connect D7:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 804 295)
+(anchorPt 97 97)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "io.icn"))
+(open)
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 666 60))
+(terminals on)
+(pinCenter 125 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 388 177))
+(terminals on)
+(pinCenter 240 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 388 153))
+(terminals on)
+(pinCenter 240 50))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 920 60))
+(terminals on)
+(pinCenter 365 50))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 80 31))
+(open
+(extent 388 177))
+(terminals on)
+(pinCenter 470 50))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 112 31))
+(open
+(extent 388 153))
+(terminals on)
+(pinCenter 470 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "unbuild.icn"))
+(open
+(extent 130 160))
+(terminals on)
+(pinCenter 620 140))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 112 71)
+(iconImage "unbuild.icn"))
+(open
+(extent 130 160))
+(terminals on)
+(pinCenter 620 40))
+(devCarrierFor 9
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 242 97)
+(editing enabled))
+(pinCenter 55 130))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 277 40)
+(editing enabled))
+(pinCenter 535 -30))
+(connect I1:1 D0:0
+(points 5 -97 50 -80 50 -80 -50 0 -50 0 -38))
+(connect D0:1 D1:1
+(points 2 58 0 66 0))
+(connect D1:1 D2:1
+(points 2 183 0 197 0))
+(connect D2:0 D3:0
+(points 2 240 18 240 32))
+(connect D3:1 D4:1
+(points 2 298 50 306 50))
+(connect D4:1 D5:1
+(points 2 423 50 427 50))
+(connect D5:0 D6:0
+(points 2 470 68 470 82))
+(connect D6:1 D7:1
+(points 4 528 100 530 100 530 140 561 140))
+(connect D6:1 D8:1
+(points 4 528 100 530 100 530 40 561 40))
+(connect D8:1 O1:1
+(points 4 678 20 690 20 690 -30 706 -30))
+(connect D7:1 O2:1
+(points 4 678 120 690 120 690 130 706 130)))
+(stackingOrder 0 2 3 5 6 7 8 1 4 9 10))))
+(device 70 CONSTANT
+(properties
+(name "Number_Readings"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  4096))
+(initValue Int32
+(data  0))))
+(device 72 NOTE
+(properties
+(text2 26 "In this example, readings are" "taken on the HP E1413 and"
+"transferred directly to the" "HP E1562 from the HP E1413"
+"FIFO via the VME backplane." "Then the readings are read"
+"from the HP E1562 and sent" "by Local Bus to the HP E1488A." ""
+"In this example, the voltage" "readings on channels 141 and"
+"142 are taken.  The functions" "can be changed by the EngrUnit"
+"panel of the hpe1413 in the" "TakeReadings section.  The"
+"channel list can be changed in" "the Scan List Panel.  If more"
+"than 2 channels are in the" "list, the formula for the"
+"number of VME_READINGS will" "need to be changed.  If more"
+"than 64K readings*(#channels)" "is desired, VME_BLOCK for the"
+"HP E1562 will need to be set" "to a constant size--perhaps"
+"32768 (half full FIFO).")))
+(configuration
+(connect D5:1 D0:1)
+(connect D5:2 D0:2)
+(connect D1:0 D2:1)
+(connect D2:1 D3:1)
+(connect D6:1 D3:2)
+(connect D3:1 D4:1)
+(connect D6:1 D4:2)
+(connect D4:1 D5:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 942 576)
+(anchorPt 752 428)
+(configuration
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 456 320)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -1 5 4 linear))
+(domain 0 4500 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(pinCenter 0 0))
+(devCarrierFor 34
+(active open)
+(icon)
+(open
+(extent 62 43))
+(title off)
+(pinCenter -410 -420))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 204 31))
+(terminals on)
+(pinCenter -290 -370))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 125 31))
+(terminals on)
+(pinCenter -100 -360))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 117 31))
+(terminals on)
+(pinCenter 60 -350))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 112 31))
+(terminals on)
+(pinCenter -330 -40))
+(devCarrierFor 70
+(active open)
+(icon
+(extent 159 31))
+(open
+(extent 200 36)
+(showFormat int))
+(pinCenter -300 -290))
+(devCarrierFor 72
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 294 474)
+(editing enabled))
+(pinCenter -600 -80))
+(connect D5:1 D0:1
+(points 4 -272 -50 -250 -50 -250 -80 -231 -80))
+(connect D5:2 D0:2
+(points 4 -272 -30 -250 -30 -250 80 -231 80))
+(connect D1:0 D2:1
+(points 3 -410 -396 -410 -370 -395 -370))
+(connect D2:1 D3:1
+(points 2 -186 -370 -165 -370))
+(connect D6:1 D3:2
+(points 4 -198 -290 -180 -290 -180 -350 -165 -350))
+(connect D3:1 D4:1
+(points 2 -35 -360 -1 -360))
+(connect D6:1 D4:2
+(points 6 -198 -290 -180 -290 -180 -320 -20 -320 -20 -340 -1 -340))
+(connect D4:1 D5:1
+(points 6 121 -350 140 -350 140 -250 -410 -250 -410 -40 -389 -40)))
+(stackingOrder 1 6 0 2 3 4 7 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

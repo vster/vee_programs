@@ -1,0 +1,920 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:49:26 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 32)
+(popupTitleText "Fluid Flow Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 2 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About this Example")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "Info About This Example")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 55
+"PURPOSE:     To show a simple Mechanical Engineering problem setup and solution.  "
+"             It also shows methods of data entry and display and the use of"
+"             arrays and Global variables for calculating formulas." ""
+"USER DATA REQUIRED: None.  Click on \"Run\" to run the program. You may change "
+"             Orifice Diameter using the First, Last, Next, and Prev buttons on"
+"             the \"Orfice\" constant to select the desired trace number, then"
+"             enter the Dia in inches.  Each Diameter trace allows an Orfice"
+"             Coefficient to be specified, although normally the same value is"
+"             used for all traces (see below for Coeff values).  The Maximum"
+"             Fluid Head (feet) can be changed by clicking on the old value,"
+"             then entering the new value." ""
+"EXPLANATION: The program uses a simple formula to calculate the water flow volume"
+"             (gpm) from an orifice in a tank wall, based on the height of water"
+"             (\"head\", in feet) above the orifice (with diameter in inches).  "
+"             The .82 orifice coefficient corresponds to a cylindrical hole in a"
+"             tank wall of thickness two or three times the orifice diameter.  "
+"             (Another coefficient example would be .61 for a beveled orifice, "
+"             or for a relatively large orifice in a thin wall.)" ""
+"             This example also demonstrates some basic VEE capabilities, "
+"             such as graphically displaying ranges of flow depending on various"
+"             head and orifice values.  The program was built using the panel "
+"             approach for simplified entry and viewing of the data.  More "
+"             specifics of the program can be seen by clicking on the \"Detail\" "
+"             button, located on the left side of the title bar. The detail view"
+"             shows the objects, some in an iconized state, and the data and "
+"             sequence interconnections.  To see the open view of an icon, "
+"             double-click on it with the left mouse button." ""
+"             The multiple generation of curves provides an example of the Trace"
+"             control input for the XY Plot device, which specifies the labels"
+"             for each trace.  The \"Generate Head Values\" object is implemented"
+"             with a \"Ramp Formula\" to generate evenly spaced values, which are"
+"             then sent to the X input of the Display and to a Global variable"
+"             \"H\", where they can be used in each Flow formula.  The output of"
+"             the Orfice constant is also fed to another global \"Orfice\", where"
+"             individual record fields can be used by the Flow formulas." ""
+"             One important feature in the program is the use of Sequence In and"
+"             Out terminals (top and bottom of objects) to determine the order"
+"             in which control can be passed to objects.  Because all Global"
+"             variables must be set before they can be used in a formula, the"
+"             Data generators (Head values and Orfice Record) must run before"
+"             the Flow formulas.  " ""
+"             Select \"Edit Description\" from the object menu on many objects to "
+"             gain more information about the function of the object.  From this"
+"             menu you may also directly access the \"Help\" information for the"
+"             object.  The Flow objects, in particular, explain the actual Flow"
+"             calculation in detail." ""
+"             Click on \"DONE\" to exit this information panel." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 240 74)))
+(contextCarrier
+(active detail)
+(panel
+(extent 709 498)
+(widget 1 detail
+(relativeOrigin 310 440)
+(title off)
+(borderStyle none)
+(extent 69 43))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 710 430)
+(editing disabled)))
+(detail
+(extent 649 457)
+(anchorPt 429 244)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 615 327)
+(editing enabled))
+(pinCenter -110 -50))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -160 150)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 261 79)
+(widget 1 detail
+(relativeOrigin 69 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 457 270)
+(anchorPt 239 49)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 847 496)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 52 57))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 52 72 52 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 52 -10 52 42)))
+(stackingOrder 0 1 2))))
+(device 5 FORMULA
+(properties
+(name "Generate Head Data Array")
+(description2 13 "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5"
+"This formula box will generate the \"Head\" data"
+"used in the water flow calculation and on the " "X-axis of the plot." ""
+"The formula box demonstrates a way to generate"
+"data that is equidistantly spaced.  That is, the"
+"ramp function with correct choices of start and"
+"stop values will generate an array of data. " ""
+"Math operations are many time faster when "
+"operating on arrays of data than on a single value" "at a time.  ")
+(expr 1 "ramp(MaxHead/10, 10, MaxHead)"))
+(interface
+(input 1
+(name "MaxHead")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 CONSTANT
+(properties
+(name "Max. Head, ft.")
+(description2 5 "This \"Data -> Constant -> Real\" object contains"
+"the value input for the maximum height (\"head\")"
+"of water in a tank to be considered, and defines"
+"the number of calculation points for flow." ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  200))
+(initValue Int32
+(data  0))))
+(device 14 NOTE
+(properties
+(name "To Operate")
+(description2 6 " example."
+"This is a \"Display -> Note Pad\" object, displayed"
+"on the panel in an open view, which is used to"
+"convey the basic information necessary to use"
+"this \"Water Flow thru and Orifice\" program." ".")
+(text2 3 "Click \"Run\" to see calculation" "results, or \"Info About\" for"
+"details.")))
+(device 15 XYPLOT
+(properties
+(name "Water Flow vs Head vs Orfice Dia.")
+(description2 2 " \"Info About\" for details."
+"This is a \"Display, X vs Y Plot\" object"))
+(interface
+(input 1
+(name "XData"))
+(input 2
+(name "1.2\" dia"))
+(input 3
+(name "1\" dia")
+(lock constraints)
+(optional yes))
+(input 4
+(name "0.8\" dia")
+(lock constraints)
+(optional yes))
+(input 5
+(name "0.6\" dia")
+(lock constraints)
+(optional yes))
+(input 6
+(name "0.4\" dia")
+(lock constraints)
+(optional yes))
+(input 7
+(name "0.2\" dia")
+(lock constraints)
+(optional yes))
+(input 8
+(type control)
+(name "Traces")
+(tag "TracesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(input 9
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(tracePin 5)
+(tracePin 6)
+(tracePin 7)
+(graphMode rectangular)))
+(device 16 MERGEREC
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Record))
+(lock constraints)
+(optional yes))
+(input 2
+(name "B")
+(requires
+(datatype Record))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Record")
+(tag "Record"))))
+(device 17 TORECORD
+(properties
+(outputType array))
+(interface
+(input 1
+(name "Name")
+(optional yes))
+(output 1
+(name "Record")
+(tag "Record"))))
+(device 18 FORMULA
+(properties
+(name "nearest 1/20")
+(expr 1 "round(a.dia*20)/20+\"\\\" dia\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 RECCONST
+(properties
+(name "Traces Control"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 6)
+(schema
+(numFields 1)
+(fieldName "traceNum"
+(type Int32)))
+(data 
+(record
+("traceNum" 1))
+(record
+("traceNum" 2))
+(record
+("traceNum" 3))
+(record
+("traceNum" 4))
+(record
+("traceNum" 5))
+(record
+("traceNum" 6))))))
+(device 21 RECCONST
+(properties
+(name "Orifice (Range)")
+(sizeFixed 1)
+(isSizeFixed 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 6)
+(schema
+(numFields 2)
+(fieldName "Dia"
+(type Real64))
+(fieldName "Coeff"
+(type Real64)))
+(data 
+(record
+("Dia" 1.2)
+("Coeff" 0.82))
+(record
+("Dia" 1)
+("Coeff" 0.82))
+(record
+("Dia" 0.8)
+("Coeff" 0.82))
+(record
+("Dia" 0.6)
+("Coeff" 0.82))
+(record
+("Dia" 0.4)
+("Coeff" 0.82))
+(record
+("Dia" 0.2)
+("Coeff" 0.82))))
+(schemaFixed yes)))
+(device 22 FORMULA
+(properties
+(name "Flow[0]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[0].Coeff*(Orfice[0].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 TOGLOBAL
+(properties
+(globalName "H"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 24 TOGLOBAL
+(properties
+(globalName "Orfice"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 26 FORMULA
+(properties
+(name "Flow[1]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[1].Coeff*(Orfice[1].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 FORMULA
+(properties
+(name "Flow[2]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[2].Coeff*(Orfice[2].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 28 FORMULA
+(properties
+(name "Flow[3]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[3].Coeff*(Orfice[3].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 FORMULA
+(properties
+(name "Flow[4]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[4].Coeff*(Orfice[4].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 FORMULA
+(properties
+(name "Flow[5]")
+(description2 17 "This \"Math -> Formula\" object contains the basic"
+"formula for the model: (19.64*C)*(D^2)*(H^.5)"
+"where C is the orifice coefficient;"
+"          D is the orifice diameter, inches;"
+"  and   H is the water height in the tank, feet." ""
+"The constant 19.64 is derived from combining the"
+"gravity constant and various conversion constants"
+"to yield gallons per minute flow values:" ""
+"   (((2*32.174)^.5)*(pi/576)*((12^3)/231)*60)" ""
+"Based on equation of flow: Q = C*Area*Velocity,"
+"which in terms of head and orifice diameter" "becomes, before simplification:"
+"" "(1728*60/231)*C*((PI/4)*(D/12)^2)*(2*32.174*H)^.5")
+(expr 1 "19.64*Orfice[5].Coeff*(Orfice[5].Dia^2)*(H^.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D2:1 D1:1)
+(connect D1:1 D4:1)
+(connect D10:1 D4:2)
+(connect D13:1 D4:3)
+(connect D14:1 D4:4)
+(connect D15:1 D4:5)
+(connect D16:1 D4:6)
+(connect D17:1 D4:7)
+(connect D5:1 D4:8)
+(connect D4:0 D4:9)
+(connect D8:1 D5:1)
+(connect D6:1 D5:2)
+(connect D7:1 D6:1)
+(connect D9:1 D7:1)
+(connect D1:0 D9:0)
+(connect D9:0 D10:0)
+(connect D1:1 D11:1)
+(connect D9:1 D12:1)
+(connect D10:0 D13:0)
+(connect D13:0 D14:0)
+(connect D14:0 D15:0)
+(connect D15:0 D16:0)
+(connect D16:0 D17:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 826 539)
+(widget 3 detail
+(relativeOrigin 10 10)
+(title on)
+(borderStyle flat)
+(extent 316 78)
+(editing disabled))
+(widget 0 panel
+(relativeOrigin 10 120)
+(title on)
+(borderStyle flat)
+(extent 316 68)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(widget 9 detail
+(relativeOrigin 10 220)
+(title on)
+(borderStyle flat)
+(extent 317 196)
+(formatters))
+(widget 4 detail
+(relativeOrigin 340 10)
+(title on)
+(borderStyle flat)
+(extent 476 408)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Gal/Min")
+(domainName "Water \"Head\" in Tank (feet)")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 350 3 linear))
+(domain 0 200 3 linear)
+(trace 0 onScale 0
+(name "1.2\" dia")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "1\" dia")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "0.8\" dia")
+(pen 2)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "0.6\" dia")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(trace 4 onScale 0
+(name "0.4\" dia")
+(pen 5)
+(lineType 1)
+(pointType 0))
+(trace 5 onScale 0
+(name "0.2\" dia")
+(pen 8)
+(lineType 1)
+(pointType 0)))
+(widget 2 detail
+(relativeOrigin 10 450)
+(title on)
+(borderStyle flat)
+(extent 316 28)))
+(detail
+(extent 994 804)
+(anchorPt 140 79)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 261 79)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 0 0))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 207 25))
+(open
+(extent 282 60))
+(terminals on)
+(pinCenter -20 190))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 136 25))
+(open
+(extent 210 33))
+(pinCenter -20 110))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 30))
+(open
+(extent 324 78)
+(editing enabled))
+(pinCenter 310 -10))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 263 45))
+(open
+(extent 408 468)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Gal/Min")
+(domainName "Water \"Head\" in Tank (feet)")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 350 3 linear))
+(domain 0 200 3 linear)
+(trace 0 onScale 0
+(name "1.2\" dia")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "1\" dia")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "0.8\" dia")
+(pen 2)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "0.6\" dia")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(trace 4 onScale 0
+(name "0.4\" dia")
+(pen 5)
+(lineType 1)
+(pointType 0))
+(trace 5 onScale 0
+(name "0.2\" dia")
+(pen 8)
+(lineType 1)
+(pointType 0)))
+(pinCenter 640 300))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 116 64)
+(iconImage "build.icn"))
+(open
+(extent 10 110))
+(terminals on)
+(pinCenter 350 490))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 112 64)
+(iconImage "build.icn"))
+(open
+(extent 82 110))
+(terminals on)
+(pinCenter 190 530))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 112 25))
+(open
+(extent 284 60))
+(terminals on)
+(pinCenter 0 530))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 136 25))
+(open
+(extent 182 139)
+(formatters))
+(pinCenter 200 459))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 116 0))
+(open
+(extent 236 210)
+(formatters))
+(pinCenter -20 359))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 150))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 140 65))
+(pinCenter 200 190))
+(devCarrierFor 24
+(active open)
+(icon)
+(open
+(extent 140 65))
+(pinCenter 200 360))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 200))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 250))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 300))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 350))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 80 34))
+(open
+(extent 393 33))
+(pinCenter 350 400))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 660 -10))
+(connect D2:1 D1:1
+(points 6 87 110 110 110 110 150 -140 150 -140 190 -126 190))
+(connect D1:1 D4:1
+(points 6 86 190 110 190 110 160 120 160 120 100 433 100))
+(connect D10:1 D4:2
+(points 2 392 150 433 150))
+(connect D13:1 D4:3
+(points 2 392 200 433 200))
+(connect D14:1 D4:4
+(points 2 392 250 433 250))
+(connect D15:1 D4:5
+(points 2 392 300 433 300))
+(connect D16:1 D4:6
+(points 2 392 350 433 350))
+(connect D17:1 D4:7
+(points 2 392 400 433 400))
+(connect D5:1 D4:8
+(points 4 410 490 420 490 420 450 433 450))
+(connect D4:0 D4:9
+(points 5 640 536 640 560 420 560 420 500 433 500))
+(connect D8:1 D5:1
+(points 4 270 459 280 459 280 470 289 470))
+(connect D6:1 D5:2
+(points 4 248 530 270 530 270 510 289 510))
+(connect D7:1 D6:1
+(points 2 58 530 131 530))
+(connect D9:1 D7:1
+(points 6 100 359 110 359 110 489 -80 489 -80 530 -59 530))
+(connect D1:0 D9:0
+(points 2 -20 205 -20 233))
+(connect D9:0 D10:0
+(points 8 -20 466 -20 499 120 499 120 429 290 429 290 109 350 109 350 130))
+(connect D1:1 D11:1
+(points 2 86 190 127 190))
+(connect D9:1 D12:1
+(points 4 100 359 113 359 113 360 127 360))
+(connect D10:0 D13:0
+(points 2 350 169 350 180))
+(connect D13:0 D14:0
+(points 2 350 219 350 230))
+(connect D14:0 D15:0
+(points 2 350 269 350 280))
+(connect D15:0 D16:0
+(points 2 350 319 350 330))
+(connect D16:0 D17:0
+(points 2 350 369 350 380)))
+(stackingOrder 14 13 15 16 17 12 1 11 2 10 3 4 6 5 7 8 9 0 18))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

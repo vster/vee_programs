@@ -1,0 +1,207 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 08:19:59 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 24)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 IODEVICE
+(properties
+(name "hp8753display ( @ 717)")
+(transactions 2 "WRITE TEXT \"AF;\" EOL" "WRITE TEXT \"PA0,0;\" EOL"))
+(implementation
+(iopath "hp8753display")))
+(device 3 IODEVICE
+(properties
+(name "hp8753display ( @ 717)")
+(transactions 4 "WRITE TEXT \"SI0.41,0.49;SP\", Pen, \";\" EOL"
+"WRITE TEXT \"PA470,\", VertPos, \";LB\"" "WRITE TEXT a"
+"WRITE TEXT \"\\003;\" EOL"))
+(interface
+(input 1
+(name "Pen")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "VertPos")
+(optional yes)))
+(implementation
+(iopath "hp8753display")))
+(device 10 START25)
+(device 15 NOTE
+(properties
+(name "ABOUT : 8753ESGraphics.vee")
+(text2 7
+"Example program for writing HPGL TEXT to the 8753/8720 family network analyzers display. "
+"Specifically,  in this example the word \"PASS\" with the pen number appended multiple times to "
+"various areas on the analyzer front panel display. Note the command \"SIh,w\" SIZES the text "
+"(the values provided, \"SI0.41,0.49\", represent the LARGEST text available).  The \"LB\" command is "
+"LABEL and the text after that will appear on the front panel at the location defined by the "
+"command \"PA470,\"VertPos,\";LB\". For more information refer to an HPGL manual."
+"")))
+(device 19 CONSTANT
+(properties
+(name "Int16"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  360))
+(initValue Int16
+(data  0))))
+(device 20 FORRANGE
+(properties
+(from 0)
+(thru 14)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 21 FORMULA
+(properties
+(expr 3 "A+B*220" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 FORMULA
+(properties
+(expr 3 "\"PASS \"+A+\" PASS \"+A +\" PASS \"+A+\" PASS \"+A+\" PASS \"+A" "" ""
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:0 D1:0)
+(connect D5:1 D1:1)
+(connect D7:1 D1:2)
+(connect D6:1 D1:3)
+(connect D2:0 D5:0)
+(connect D4:1 D6:1)
+(connect D5:1 D6:2)
+(connect D5:1 D7:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 856 661)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 290 -76)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 380 240))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 233 51)
+(iconImage "io.icn"))
+(open
+(extent 443 102))
+(terminals on)
+(pinCenter 395 380))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -130 100))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 181 0)
+(iconImage "notepad.icn"))
+(open
+(extent 725 127)
+(editing enabled))
+(font "Perpetua" 16 bold)
+(pinCenter 220 550))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter -130 400))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter -130 190))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 75 37))
+(terminals on)
+(pinCenter 0 410))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 175 61))
+(terminals on)
+(pinCenter 60 380))
+(connect D0:0 D1:0
+(points 2 380 279 380 308))
+(connect D5:1 D1:1
+(points 4 -78 190 -10 190 -10 350 111 350))
+(connect D7:1 D1:2
+(points 2 87 380 111 380))
+(connect D6:1 D1:3
+(points 2 27 410 111 410))
+(connect D2:0 D5:0
+(points 2 -130 113 -130 130))
+(connect D4:1 D6:1
+(points 2 -94 400 -28 400))
+(connect D5:1 D6:2
+(points 4 -78 190 -60 190 -60 420 -28 420))
+(connect D5:1 D7:1
+(points 4 -78 190 -60 190 -60 380 32 380)))
+(stackingOrder 5 2 0 1 7 6 4 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

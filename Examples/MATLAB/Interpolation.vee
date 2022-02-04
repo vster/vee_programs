@@ -1,0 +1,342 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:18:16 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 CONSTANT
+(properties
+(name "Coord"))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numDims 1)
+(size 5)
+(numCoordDims 2)
+(data  [ (-10, -2) (0, 1) (5, 4) (7, 7) (10, 11) ]))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 2 FROMCOORDINATE
+(interface
+(input 1
+(name "Coord Data")
+(requires
+(datatype Coord))
+(lock name constraints))
+(output 1
+(name "X Data")
+(lock name constraints))
+(output 2
+(name "Y Data")
+(lock name constraints)
+(optional yes))))
+(device 3 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Data")
+(lock constraints))
+(input 2
+(name "Interp")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 4 CONSTANT
+(properties
+(name "Xi"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 3)
+(data  [ 2.2 5.5 7.5 ]))
+(initValue Real
+(data  0))))
+(device 6 TOCOORDINATE
+(interface
+(input 1
+(name "X Data")
+(tag "X")
+(requires
+(datatype Real64))
+(lock constraints))
+(input 2
+(name "Y Data")
+(tag "Y")
+(requires
+(datatype Real64))
+(lock constraints))
+(output 1
+(name "Coord")
+(tag "Coord"))))
+(device 8 ENUMCONSTANT
+(properties
+(name "Method"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("nearest" 0)
+("linear" 1)
+("spline" 2)
+("cubic" 3))
+(data  "linear"))
+(initValue Text
+(data  "linear"))))
+(device 9 FORMULA
+(properties
+(name "asText(x)")
+(expr 1 "asText(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Interpolated"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 VEE 6.0 example program using Matlab\'s \\par\r\nInterp1 One-dimensional data interpolation \\par\r\n(table lookup) function.\\par\r\n\\par\r\nThe Interp1 function supports several \\par\r\ninterpolation methods.\\par\r\n}\r\n"
+)))
+(device 13 MATLABSCRIPT
+(properties
+(name "MATLAB Script: INTERP1")
+(matlabexpr 1 "yi = interp1(x,Y,xi, method);")
+(matlabHelpLink "help/techdoc/ref/interp1.html"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(input 3
+(name "xi")
+(optional yes))
+(input 4
+(name "method")
+(optional yes))
+(output 1
+(name "yi")
+(optional yes))))
+(device 14 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 15 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:1 D2:1)
+(connect D4:1 D2:2)
+(connect D3:1 D4:1)
+(connect D9:1 D4:2)
+(connect D5:1 D6:1)
+(connect D4:1 D7:1)
+(connect D1:1 D9:1)
+(connect D1:2 D9:2)
+(connect D3:1 D9:3)
+(connect D6:1 D9:4)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1048 661)
+(anchorPt -29 -52)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 125 87)
+(showFormat real))
+(pinCenter 100 340))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 89 51)
+(iconImage "unbuild.icn"))
+(open)
+(terminals on)
+(pinCenter 250 340))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 45)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -2 12 4 linear))
+(domain -10 10 4 linear)
+(trace 0 onScale 0
+(name "Data")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 1))
+(trace 1 onScale 0
+(name "Interp")
+(traceColor "Red")
+(lineType 13)
+(pointType 9))
+(markerColor "White"))
+(pinCenter 840 290))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 14 0))
+(open
+(extent 125 67)
+(showFormat real))
+(titleBg "Med Yellow")
+(pinCenter 100 460))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 71 51)
+(iconImage "build.icn"))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter 600 470))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 44 0))
+(open
+(extent 125 27)
+(format dropDown))
+(titleBg "Med Yellow")
+(pinCenter 100 540))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 80 32))
+(terminals on)
+(pinCenter 240 530))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 71 0))
+(open
+(extent 115 87))
+(pinCenter 740 510))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 325 123)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 200 140))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 165 107))
+(terminals on)
+(pinCenter 485 360))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 560 90))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 500 620))
+(connect D0:1 D1:1
+(points 2 165 340 203 340))
+(connect D0:1 D2:1
+(points 4 165 340 190 340 190 220 679 220))
+(connect D4:1 D2:2
+(points 4 638 470 660 470 660 360 679 360))
+(connect D3:1 D4:1
+(points 2 165 460 562 460))
+(connect D9:1 D4:2
+(points 6 600 360 620 360 620 430 540 430 540 480 562 480))
+(connect D5:1 D6:1
+(points 2 165 530 211 530))
+(connect D4:1 D7:1
+(points 4 638 470 660 470 660 510 680 510))
+(connect D1:1 D9:1
+(points 2 297 330 340 330))
+(connect D1:2 D9:2
+(points 2 297 350 340 350))
+(connect D3:1 D9:3
+(points 4 165 460 320 460 320 370 340 370))
+(connect D6:1 D9:4
+(points 4 269 530 330 530 330 390 340 390)))
+(stackingOrder 6 9 3 0 5 8 10 1 2 4 7 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

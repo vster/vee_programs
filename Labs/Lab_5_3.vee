@@ -1,0 +1,174 @@
+(saveFormat "7.0")
+(date "Fri 04/Feb/2022 11:35:47 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 COLLECTOR
+(properties
+(variableScope cont)
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 4 TOFILE
+(properties
+(variableScope cont)
+(transactions 3 "WRITE TEXT \"Test1\" EOL" "WRITE TEXT now() TIME:HMS:H12 EOL"
+"WRITE TEXT a REAL64 STD EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes)))
+(implementation
+(attr iopath file write "D:\\vst\\VEE Programs\\Labs\\myFile.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:0 D1:2)
+(connect D1:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1311 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 440 340))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 53 25))
+(open
+(extent 95 54))
+(terminals on)
+(pinCenter 680 360))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 244 206))
+(terminals on)
+(pinCenter 1050 360))
+(connect D0:1 D1:1
+(points 2 490 340 590 340))
+(connect D0:0 D1:2
+(points 3 440 358 440 380 590 380))
+(connect D1:1 D2:1
+(points 2 770 360 895 360)))
+(stackingOrder 1 0 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,2332 @@
+(saveFormat "2.3")
+(date "Thu 19/Feb/2004 16:28:13 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\hp\\i\\ms\\off97pro\\32.0\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 50)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 122)
+(context 114
+(properties
+(name "asExcelCol")
+(trigMode deg)
+(nextID 72)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Int16))
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 18 FORMULA
+(properties
+(expr 1 "intToChar(A+65)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 FORMULA
+(properties
+(name "sum(x)")
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 55 IFTHENELSE
+(properties
+(cases 1 "1<=A AND A<=256"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 56 ESCAPE
+(properties
+(errorCode 1)
+(message "Input to asExcelCol() must be between 1 and 256.")))
+(device 59 CONTEXT
+(properties
+(name "Fix 1st Char")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "If 1<totSize(A)")
+(cases 1 "1<totSize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "A[0] = A[0] - 1")
+(expr 1 "A[0] = A[0] - 1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "A")
+(optional yes))))
+(device 2 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 3 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 5 NOTE
+(properties
+(text2 4 "When using letters to replace numbers"
+"there are no 0\'s, or place holders."
+"AA is actually 10 in base 26. The first A is"
+"a 1, the second A is the place holder.")))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:0)
+(connect I1:1 D1:1)
+(connect D0:2 D2:0)
+(connect I1:1 D2:1)
+(connect D1:2 D3:1)
+(connect D2:1 D3:2)
+(connect D3:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 689 457)
+(anchorPt 22 111)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 91 51))
+(terminals on)
+(pinCenter 80 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 77 25))
+(open
+(extent 71 42))
+(terminals on)
+(pinCenter 210 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 150 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 290 170))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 355 87)
+(editing disabled))
+(pinCenter 210 -10))
+(connect I1:1 D0:1
+(points 4 -22 117 -10 117 -10 80 37 80))
+(connect D0:1 D1:0
+(points 3 123 70 210 70 210 135))
+(connect I1:1 D1:1
+(points 4 -22 117 0 117 0 150 169 150))
+(connect D0:2 D2:0
+(points 3 123 90 150 90 150 180))
+(connect I1:1 D2:1
+(points 6 -22 117 0 117 0 150 100 150 100 190 132 190))
+(connect D1:2 D3:1
+(points 2 251 160 274 160))
+(connect D2:1 D3:2
+(points 4 167 190 250 190 250 180 274 180))
+(connect D3:1 O1:1
+(points 4 305 170 330 170 330 117 666 117)))
+(stackingOrder 1 2 3 0 4))))
+(device 65 FORMULA
+(properties
+(expr 1 "A-1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 68 CONSTANT
+(properties
+(name "Base (UInt8)"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  26))
+(initValue UInt8
+(data  0))))
+(device 69 CALL
+(properties
+(name "Call DecToBase")
+(callFunc "DecToBase")
+(parmMode rev30))
+(interface
+(input 1
+(name "X")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "Base")
+(optional yes))
+(output 1
+(name "Array")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "String")
+(lock name constraints)
+(optional yes))))
+(device 70 NOTE
+(properties
+(text2 19 " This function converts a number to an Excel column letter."
+" Top end is limited to 256 which corresponds to the maximum"
+" number of columns Excel allows in a worksheet." " "
+" The function is actually 0 based however 1 is subtracted from"
+" the input to make the function 1 based and corresponed to Excel"
+" column numbering." "" " This function calls: DecToBase()" "" " 1 = A" " ."
+" ." " 26 = Z" " ." " ." " 256 = IV (Max Allowed in Excel)" ""
+" B. Drago /  11-07-2002")))
+(configuration
+(connect D4:1 D0:1)
+(connect D0:1 D1:1)
+(connect I1:1 D2:1)
+(connect D2:2 D3:0)
+(connect D7:1 D4:1)
+(connect D2:1 D5:0)
+(connect I1:1 D5:1)
+(connect D5:1 D7:1)
+(connect D6:1 D7:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 960 608)
+(anchorPt 413 -16)
+(configuration
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 185 37))
+(terminals on)
+(pinCenter 270 480))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 42 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 330 480))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 144 51))
+(terminals on)
+(pinCenter -200 460))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter -140 510))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 71 15))
+(terminals on)
+(pinCenter 190 480))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter -40 480))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 111 29)
+(showFormat int))
+(pinCenter -40 510))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 99 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 80 490))
+(devCarrierFor 70
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 475 307)
+(editing disabled))
+(pinCenter 160 250))
+(connect D4:1 D0:1
+(points 2 228 480 242 480))
+(connect D0:1 D1:1
+(points 2 297 480 306 480))
+(connect I1:1 D2:1
+(points 4 -413 319 -270 319 -270 460 -238 460))
+(connect D2:2 D3:0
+(points 3 -162 470 -140 470 -140 500))
+(connect D7:1 D4:1
+(points 2 132 480 152 480))
+(connect D2:1 D5:0
+(points 3 -162 450 -40 450 -40 470))
+(connect I1:1 D5:1
+(points 6 -413 319 -270 319 -270 430 -130 430 -130 480 -68 480))
+(connect D5:1 D7:1
+(points 2 -13 480 28 480))
+(connect D6:1 D7:2
+(points 4 0 510 10 510 10 500 28 500))
+(connect D1:1 O1:1
+(points 4 353 480 420 480 420 319 546 319)))
+(stackingOrder 3 1 8 6 4 0 5 2 7))))
+(context 17
+(properties
+(name "ExcelCloseWorkbook")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Application.Close( )")
+(expr 3 "ExcelAppName.ActiveWorkbook.Close" "" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 START25)
+(device 3 EXITCONTEXT)
+(device 4 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 5 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 6 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "ExcelCloseWorkbook"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:0 D0:0)
+(connect D3:0 D2:0)
+(connect D4:1 D3:0)
+(connect D4:1 D3:1)
+(connect D0:2 D4:0)
+(connect D5:1 D4:1)
+(connect D0:2 D4:2)
+(connect D3:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 704 360)
+(anchorPt -136 -136)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 117 0))
+(open
+(extent 283 61))
+(terminals on)
+(pinCenter 320 250))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 330 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 760 390))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 760 350))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 640 340))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 410 330))
+(connect D1:0 D0:0
+(points 2 330 173 330 199))
+(connect D3:0 D2:0
+(points 2 760 360 760 380))
+(connect D4:1 D3:0
+(points 5 706 340 730 340 730 320 760 320 760 340))
+(connect D4:1 D3:1
+(points 4 706 340 720 340 720 350 742 350))
+(connect D0:2 D4:0
+(points 5 514 270 530 270 530 290 640 290 640 320))
+(connect D5:1 D4:1
+(points 2 503 330 574 330))
+(connect D0:2 D4:2
+(points 4 514 270 530 270 530 350 574 350))
+(connect D3:1 O1:1
+(points 4 777 350 800 350 800 315 839 315)))
+(stackingOrder 0 1 5 4 3 2))))
+(context 18
+(properties
+(name "ExcelCreateApplication")
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Object to Application")
+(expr 2 "set AppName=CreateObject(\"Excel.Application\");"
+"set ExcelAppName=AppName.Application;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelCreateApplication\""))
+(initValue Text
+(data  ""))))
+(device 2 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 3 START25)
+(device 5 DECLVAR
+(properties
+(name "Declare AppName")
+(scope con)
+(globalName "AppName"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Application"))))
+(device 6 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 7 TOGLOBAL
+(properties
+(name "Set CallingFunctionName")
+(globalName "CallingFunctionName"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelCreateApplication\""))
+(initValue Text
+(data  ""))))
+(device 10 DECLVAR
+(properties
+(name "Declare ExcelAppName")
+(scope glob)
+(globalName "ExcelAppName"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Application"))))
+(configuration
+(connect D7:0 D0:0)
+(connect D0:2 D1:0)
+(connect D1:1 D2:1)
+(connect D0:2 D2:2)
+(connect D2:1 D5:0)
+(connect D2:1 D5:1)
+(connect D7:1 D6:1)
+(connect D3:0 D7:0)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 680 373)
+(anchorPt -180 52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 166 25))
+(open
+(extent 296 62))
+(terminals on)
+(pinCenter 280 100))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 460 200))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 680 180))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 280 -20))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 111 15))
+(open
+(extent 344 121))
+(pinCenter 480 -10))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 800 210))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 121 51))
+(terminals on)
+(pinCenter 500 50))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 280 50))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 143 15))
+(open
+(extent 344 121))
+(pinCenter 490 20))
+(connect D7:0 D0:0
+(points 2 280 67 280 85))
+(connect D0:2 D1:0
+(points 3 365 110 460 110 460 165))
+(connect D1:1 D2:1
+(points 4 553 200 580 200 580 170 614 170))
+(connect D0:2 D2:2
+(points 4 365 110 570 110 570 190 614 190))
+(connect D2:1 D5:0
+(points 3 746 180 800 180 800 200))
+(connect D2:1 D5:1
+(points 4 746 180 770 180 770 210 782 210))
+(connect D7:1 D6:1
+(points 2 373 50 420 50))
+(connect D3:0 D7:0
+(points 2 280 -7 280 15))
+(connect D5:1 O1:1
+(points 4 817 210 840 210 840 134 859 134)))
+(stackingOrder 7 1 2 6 3 8 4 0 5))))
+(context 20
+(properties
+(name "ExcelErrorFound")
+(trigMode deg)
+(nextID 19)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 7 START25)
+(device 8 FORMULA
+(properties
+(name "errorInfo()")
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 VECTORCONCATENATOR
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 11 FORMULA
+(properties
+(name "\"Excel Error Encountered from Function \"+A")
+(expr 1 "\"Excel Error Encountered from Function \"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "\"Error Number # \"+A")
+(expr 2 "\"Error Number # \"+A" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "\"Calling Function: \"+CallingFunctionName")
+(expr 1 "\"Calling Function: \"+CallingFunctionName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "A.Message")
+(expr 1 "A.Message"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "A.More")
+(expr 1 "A.More"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "A.Title")
+(expr 1 "A.Title"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D4:0 D1:0)
+(connect D5:1 D2:1)
+(connect D3:1 D2:2)
+(connect D4:1 D2:3)
+(connect D6:1 D2:4)
+(connect D7:1 D2:5)
+(connect D8:1 D2:6)
+(connect D5:0 D3:0)
+(connect I1:1 D3:1)
+(connect D3:0 D4:0)
+(connect I2:1 D4:1)
+(connect D0:0 D5:0)
+(connect D1:1 D6:1)
+(connect D1:1 D7:1)
+(connect D1:1 D8:1)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 586 424)
+(anchorPt -11 71)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 190 -30))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 85 32))
+(terminals on)
+(pinCenter 190 180))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 81 65))
+(open
+(extent 47 122))
+(terminals on)
+(pinCenter 500 140))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 258 15))
+(open
+(extent 214 47))
+(terminals on)
+(pinCenter 190 90))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 121 15))
+(open
+(extent 214 47))
+(terminals on)
+(pinCenter 190 120))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 253 15))
+(open
+(extent 214 47))
+(terminals on)
+(pinCenter 190 50))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 340 210))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 340 250))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 340 290))
+(connect D4:0 D1:0
+(points 2 190 130 190 170))
+(connect D5:1 D2:1
+(points 4 319 50 350 50 350 110 457 110))
+(connect D3:1 D2:2
+(points 4 321 90 340 90 340 120 457 120))
+(connect D4:1 D2:3
+(points 4 253 120 270 120 270 130 457 130))
+(connect D6:1 D2:4
+(points 4 376 210 410 210 410 140 457 140))
+(connect D7:1 D2:5
+(points 4 363 250 390 250 390 150 457 150))
+(connect D8:1 D2:6
+(points 4 361 290 400 290 400 160 457 160))
+(connect D5:0 D3:0
+(points 2 190 60 190 80))
+(connect I1:1 D3:1
+(points 4 11 30 30 30 30 90 58 90))
+(connect D3:0 D4:0
+(points 2 190 100 190 110))
+(connect I2:1 D4:1
+(points 4 11 250 20 250 20 120 127 120))
+(connect D0:0 D5:0
+(points 2 190 -17 190 40))
+(connect D1:1 D6:1
+(points 4 222 180 240 180 240 210 304 210))
+(connect D1:1 D7:1
+(points 4 222 180 240 180 240 250 317 250))
+(connect D1:1 D8:1
+(points 4 222 180 240 180 240 290 319 290))
+(connect D2:1 O1:1
+(points 4 543 140 560 140 560 140 596 140)))
+(stackingOrder 3 6 7 8 0 5 4 1 2))))
+(context 121
+(properties
+(name "ExcelGetNameActiveWorksheet")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Name")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 TEXTDISPLAY
+(properties
+(name "Active Worksheet Name"))
+(interface
+(input 1
+(name "Data"))))
+(device 1 FORMULA
+(properties
+(name "Get Name of Active Worksheet Name")
+(expr 1 "ExcelAppName.ActiveSheet.Name"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 2 START25)
+(device 4 NOTE
+(properties
+(name "Note Pad ; Worksheet Active")
+(text2 2 "Returns the name of the Active Worksheet" "")))
+(device 5 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 6 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "ExcelGetNameActiveWorksheet"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:0)
+(connect D5:1 D4:1)
+(connect D1:2 D4:2)
+(connect D1:1 O1:1)
+(connect D4:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 680 423)
+(anchorPt -30 71)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 143 0))
+(open
+(extent 179 22))
+(pinCenter 510 190))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 222 25))
+(open
+(extent 252 41))
+(terminals on)
+(pinCenter 210 210))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 220 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 168 0)
+(iconImage "notepad.icn"))
+(open
+(extent 342 46)
+(editing enabled))
+(pinCenter 230 80))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 570 250))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 250 280))
+(connect D1:1 D0:1
+(points 4 388 200 400 200 400 190 418 190))
+(connect D2:0 D1:0
+(points 2 220 153 220 169))
+(connect D5:1 D4:1
+(points 4 343 280 410 280 410 240 504 240))
+(connect D1:2 D4:2
+(points 4 388 220 420 220 420 260 504 260))
+(connect D1:1 O1:1
+(points 6 388 200 400 200 400 140 440 140 440 30 709 30))
+(connect D4:1 O2:1
+(points 4 636 250 682 250 682 250 709 250)))
+(stackingOrder 0 1 4 5 2 3))))
+(context 28
+(properties
+(name "ExcelMakeWorkbookActive")
+(trigMode deg)
+(nextID 23)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "WorkbookName")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 START25)
+(device 3 CALL
+(properties
+(name "Call ExcelGetNameActiveWorkbook")
+(callFunc "ExcelGetNameActiveWorkbook")
+(parmMode rev30))
+(interface
+(output 1
+(name "Name")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 11 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 12 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelMakeWorkbookActive\""))
+(initValue Text
+(data  ""))))
+(device 15 FORMULA
+(properties
+(name "Make Workbook Active")
+(expr 1 "ExcelAppName.Workbooks(WorkBookName).Activate"))
+(interface
+(input 1
+(name "WorkBookName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 16 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 17 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 18 EXITCONTEXT)
+(device 19 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D4:0 D1:0)
+(connect D3:1 D2:1)
+(connect D4:2 D2:2)
+(connect D0:0 D4:0)
+(connect I1:1 D4:1)
+(connect D6:1 D5:1)
+(connect D8:1 D5:2)
+(connect D2:1 D6:0)
+(connect D2:1 D6:1)
+(connect D2:0 D7:0)
+(connect D1:2 D8:0)
+(connect D1:2 D8:1)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 606 474)
+(anchorPt -120 -39)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 240 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 212 25))
+(open
+(extent 192 51))
+(terminals on)
+(pinCenter 250 310))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 520 260))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 380 160))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 133 25))
+(open
+(extent 325 42))
+(terminals on)
+(pinCenter 250 260))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 690 270))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 640 260))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 520 300))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 420 350))
+(connect D4:0 D1:0
+(points 2 250 275 250 295))
+(connect D3:1 D2:1
+(points 6 473 160 490 160 490 200 430 200 430 250 454 250))
+(connect D4:2 D2:2
+(points 2 319 270 454 270))
+(connect D0:0 D4:0
+(points 4 240 203 240 220 250 220 250 245))
+(connect I1:1 D4:1
+(points 4 120 275 130 275 130 260 181 260))
+(connect D6:1 D5:1
+(points 2 657 260 674 260))
+(connect D8:1 D5:2
+(points 6 437 350 680 350 680 300 660 300 660 280 674 280))
+(connect D2:1 D6:0
+(points 5 586 260 610 260 610 230 640 230 640 250))
+(connect D2:1 D6:1
+(points 2 586 260 622 260))
+(connect D2:0 D7:0
+(points 2 520 279 520 290))
+(connect D1:2 D8:0
+(points 3 358 320 420 320 420 340))
+(connect D1:2 D8:1
+(points 4 358 320 380 320 380 350 402 350))
+(connect D5:1 O1:1
+(points 4 705 270 720 270 720 275 725 275)))
+(stackingOrder 0 3 4 2 1 8 7 5 6))))
+(context 29
+(properties
+(name "ExcelMakeWorksheetActive")
+(trigMode deg)
+(nextID 25)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "WorksheetName")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Make Worksheet Active")
+(expr 1 "ExcelAppName.Worksheets(WorksheetName).Activate"))
+(interface
+(input 1
+(name "WorksheetName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 START25)
+(device 3 CALL
+(properties
+(name "Call ExcelGetNameActiveWorksheet")
+(callFunc "ExcelGetNameActiveWorksheet")
+(parmMode rev30))
+(interface
+(output 1
+(name "Name")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 18 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelMakeWorksheetActive\""))
+(initValue Text
+(data  ""))))
+(device 19 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 20 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 21 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 22 EXITCONTEXT)
+(device 23 EXITCONTEXT)
+(device 24 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D1:0 D0:0)
+(connect I1:1 D0:1)
+(connect D0:0 D2:0)
+(connect D3:1 D4:1)
+(connect D0:2 D4:2)
+(connect D4:1 D5:0)
+(connect D4:1 D5:1)
+(connect D5:1 D6:1)
+(connect D9:1 D6:2)
+(connect D5:0 D7:0)
+(connect D9:0 D8:0)
+(connect D2:2 D9:0)
+(connect D2:2 D9:1)
+(connect D6:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 533 411)
+(anchorPt -345 14)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 137 25))
+(open
+(extent 325 38))
+(terminals on)
+(pinCenter 480 190))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 480 130))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 216 25))
+(open
+(extent 192 51))
+(terminals on)
+(pinCenter 490 270))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 460 80))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 660 170))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 790 190))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 870 290))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 790 220))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 660 330))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 660 300))
+(connect D1:0 D0:0
+(points 2 480 143 480 175))
+(connect I1:1 D0:1
+(points 4 345 191 367 191 367 190 409 190))
+(connect D0:0 D2:0
+(points 4 480 205 480 230 490 230 490 255))
+(connect D3:1 D4:1
+(points 4 553 80 570 80 570 160 594 160))
+(connect D0:2 D4:2
+(points 4 551 200 570 200 570 180 594 180))
+(connect D4:1 D5:0
+(points 5 726 170 750 170 750 160 790 160 790 180))
+(connect D4:1 D5:1
+(points 4 726 170 750 170 750 190 772 190))
+(connect D5:1 D6:1
+(points 4 807 190 840 190 840 280 854 280))
+(connect D9:1 D6:2
+(points 2 677 300 854 300))
+(connect D5:0 D7:0
+(points 2 790 200 790 210))
+(connect D9:0 D8:0
+(points 2 660 310 660 320))
+(connect D2:2 D9:0
+(points 5 600 280 620 280 620 270 660 270 660 290))
+(connect D2:2 D9:1
+(points 4 600 280 620 280 620 300 642 300))
+(connect D6:1 O1:1
+(points 4 885 290 910 290 910 191 877 191)))
+(stackingOrder 6 9 1 2 0 4 3 5 7 8))))
+(context 34
+(properties
+(name "ExcelOpenWorkbook")
+(trigMode deg)
+(nextID 18)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Filename")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 START25)
+(device 4 FORMULA
+(properties
+(name "Open Worksheet and Minimize")
+(expr 4 "ExcelAppName.Workbooks.Open(FileName);"
+"ExcelAppName.DisplayAlerts =FALSE;" "ExcelAppName.Visible=TRUE;"
+"ExcelAppName.Windows(1).WindowState = xlMaximized"))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 6 EXITCONTEXT)
+(device 7 NOTE
+(properties
+(text2 4 "Display Alerts are turned off" "in Excel - no Macro Alerts"
+"are shown" "")))
+(device 13 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 14 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelOpenWorkbook\""))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D0:0 D1:0)
+(connect I1:1 D1:1)
+(connect D1:0 D2:0)
+(connect D5:1 D4:1)
+(connect D1:2 D4:2)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 562 350)
+(anchorPt -254 -131)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 380 210))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 183 25))
+(open
+(extent 327 79))
+(terminals on)
+(pinCenter 380 290))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 380 340))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 246 71)
+(editing enabled))
+(pinCenter 580 390))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 710 240))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 540 230))
+(connect D0:0 D1:0
+(points 2 380 223 380 275))
+(connect I1:1 D1:1
+(points 4 254 305 260 305 260 290 286 290))
+(connect D1:0 D2:0
+(points 2 380 305 380 330))
+(connect D5:1 D4:1
+(points 2 615 230 644 230))
+(connect D1:2 D4:2
+(points 4 474 300 620 300 620 250 644 250))
+(connect D4:1 O1:1
+(points 4 776 240 800 240 800 305 815 305)))
+(stackingOrder 0 5 1 2 4 3))))
+(context 35
+(properties
+(name "ExcelQuit")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Application.Quit( )")
+(expr 1 "ExcelAppName.Quit()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 START25)
+(configuration
+(connect D1:0 D0:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 432 348)
+(anchorPt -216 -40)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 201 40))
+(terminals on)
+(pinCenter 320 140))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 320 100))
+(connect D1:0 D0:0
+(points 2 320 113 320 130)))
+(stackingOrder 1 0))))
+(context 40
+(properties
+(name "ExcelSaveCopyAs")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Filename")
+(optional yes))
+(input 2
+(name "Workbook")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 EXITCONTEXT)
+(device 2 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 3 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "ExcelSaveCopyAs"))
+(initValue Text
+(data  ""))))
+(device 4 FORMULA
+(properties
+(name "Workbook.SaveCopyAs()")
+(expr 1 "ExcelAppName.Workbooks(WorkBookName).SaveCopyAs(Filename)"))
+(interface
+(input 1
+(name "WorkBookName")
+(optional yes))
+(input 2
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:0 D0:0)
+(connect D2:1 D1:1)
+(connect D3:2 D1:2)
+(connect I2:1 D3:1)
+(connect I1:1 D3:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 461 273)
+(anchorPt -262 -133)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 600 350))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 600 270))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 410 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 148 25))
+(open
+(extent 437 67))
+(terminals on)
+(pinCenter 390 270))
+(connect D1:0 D0:0
+(points 2 600 289 600 340))
+(connect D2:1 D1:1
+(points 4 503 220 520 220 520 260 534 260))
+(connect D3:2 D1:2
+(points 2 466 280 534 280))
+(connect I2:1 D3:1
+(points 4 262 339 270 339 270 260 313 260))
+(connect I1:1 D3:2
+(points 4 262 199 280 199 280 280 313 280))
+(connect D1:1 O1:1
+(points 4 666 270 690 270 690 269 722 269)))
+(stackingOrder 0 3 1 2))))
+(context 119
+(properties
+(name "ExcelSaveCopyAsAndIgnoreError")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Workbook")
+(optional yes))
+(input 2
+(name "Filename")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 4 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 5 FORMULA
+(properties
+(name "Workbook.SaveCopyAs()")
+(expr 1 "ExcelAppName.Workbooks(WorkBookName).SaveCopyAs(Filename)"))
+(interface
+(input 1
+(name "WorkBookName")
+(optional yes))
+(input 2
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:2 D0:0)
+(connect D1:2 D0:1)
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 754 268)
+(anchorPt 175 -270)
+(configuration
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 550 420))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 148 25))
+(open
+(extent 437 67))
+(terminals on)
+(pinCenter 220 380))
+(connect D1:2 D0:0
+(points 5 491 400 510 400 510 390 550 390 550 410))
+(connect D1:2 D0:1
+(points 4 491 400 510 400 510 420 532 420))
+(connect I1:1 D1:1
+(points 4 -175 333 -160 333 -160 360 -111 360))
+(connect I2:1 D1:2
+(points 4 -175 473 -160 473 -160 400 -111 400))
+(connect D0:1 O1:1
+(points 6 567 420 580 420 580 410 570 410 570 403 578 403)))
+(stackingOrder 0 1))))
+(context 118
+(properties
+(name "ExcelSetValuesToRange")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Range")
+(optional yes))
+(input 2
+(name "Value")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "ExcelAppName.Range(R)=Value")
+(expr 1 "ExcelAppName.Range(R)=Value"))
+(interface
+(input 1
+(name "R")
+(optional yes))
+(input 2
+(name "Value")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 NOTE
+(properties
+(text2 6 "Range (R) is a text String (R= string value)" "A1" "A1:A7" ""
+"Sets one Value to Range is only one cell" "")))
+(device 2 START25)
+(device 9 LITERALCONSTANT
+(properties
+(name "This Sub Routine Name"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"ExcelSetValuesToRange\""))
+(initValue Text
+(data  ""))))
+(device 10 CALL
+(properties
+(name "Call ExcelErrorFound")
+(callFunc "ExcelErrorFound")
+(parmMode rev30))
+(interface
+(input 1
+(name "FunctName")
+(optional yes))
+(input 2
+(name "ErrorCode")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D2:0 D0:0)
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D3:1 D4:1)
+(connect D0:1 D4:2)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 586 608)
+(anchorPt 4 148)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 196 25))
+(open
+(extent 203 42))
+(terminals on)
+(pinCenter 220 220))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 403 121)
+(editing enabled))
+(pinCenter 280 10))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 220 170))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 145 15))
+(open
+(extent 181 29))
+(pinCenter 240 120))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 127 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 470 210))
+(connect D2:0 D0:0
+(points 2 220 183 220 205))
+(connect I1:1 D0:1
+(points 4 -4 5 60 5 60 210 119 210))
+(connect I2:1 D0:2
+(points 4 -4 305 60 305 60 230 119 230))
+(connect D3:1 D4:1
+(points 4 333 120 350 120 350 200 404 200))
+(connect D0:1 D4:2
+(points 2 320 220 404 220))
+(connect D4:1 O1:1
+(points 4 536 210 560 210 560 155 581 155)))
+(stackingOrder 0 2 1 3 4))))
+(context 86
+(properties
+(name "OpenWorkbook")
+(trigMode deg)
+(nextID 52)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "FullWorbookFileNam")
+(optional yes))
+(output 1
+(type data)
+(name "Error")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 17 EXITCONTEXT)
+(device 23 FORMULA
+(properties
+(name "Open Workbook and Minimize")
+(expr 4 "ExcelAppName.Workbooks.Open(FileName);"
+"ExcelAppName.DisplayAlerts =FALSE;" "ExcelAppName.Visible=FALSE;"
+"ExcelAppName.Windows(1).WindowState = xlMinimized"))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 32 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 33 EXITCONTEXT)
+(device 36 CALL
+(properties
+(name "Call ExcelSetUpWorkSheet")
+(callFunc "ExcelSetUpWorkSheet")
+(parmMode rev30))
+(interface
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 38 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "C")
+(optional yes))
+(input 3
+(name "B")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 44 CALL
+(properties
+(name "Call ExcelMakeWorksheetActive")
+(callFunc "ExcelMakeWorksheetActive")
+(parmMode rev30))
+(interface
+(input 1
+(name "WorksheetName")
+(optional yes))
+(output 1
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 45 CALL
+(properties
+(name "Call ExtractSheetNameFromFileName")
+(callFunc "ExtractSheetNameFromFileName")
+(parmMode rev30))
+(interface
+(input 1
+(name "FPString")
+(optional yes))
+(output 1
+(name "FileName")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D4:0 D0:0)
+(connect I1:1 D1:1)
+(connect D5:1 D2:0)
+(connect D5:1 D2:1)
+(connect D2:0 D3:0)
+(connect D6:0 D4:0)
+(connect D1:2 D5:1)
+(connect D6:1 D5:2)
+(connect D4:1 D5:3)
+(connect D1:0 D6:0)
+(connect D7:1 D6:1)
+(connect I1:1 D7:1)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 642 506)
+(anchorPt 16 332)
+(configuration
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 350 20))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 179 25))
+(open
+(extent 327 79))
+(terminals on)
+(pinCenter 350 -120))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 550 0))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 520 50))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 162 23))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 -20))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 39 34))
+(open
+(extent 9 62))
+(terminals on)
+(pinCenter 530 -50))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 190 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 -80))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 231 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 -190))
+(connect D4:0 D0:0
+(points 2 350 -6 350 10))
+(connect I1:1 D1:1
+(points 4 -16 -80 220 -80 220 -120 258 -120))
+(connect D5:1 D2:0
+(points 5 552 -50 560 -50 560 -20 550 -20 550 -10))
+(connect D5:1 D2:1
+(points 6 552 -50 560 -50 560 -20 520 -20 520 0 532 0))
+(connect D2:0 D3:0
+(points 4 550 10 550 20 520 20 520 40))
+(connect D6:0 D4:0
+(points 2 350 -70 350 -34))
+(connect D1:2 D5:1
+(points 4 442 -110 480 -110 480 -60 508 -60))
+(connect D6:1 D5:2
+(points 4 447 -80 470 -80 470 -50 508 -50))
+(connect D4:1 D5:3
+(points 4 433 -20 450 -20 450 -40 508 -40))
+(connect D1:0 D6:0
+(points 2 350 -105 350 -90))
+(connect D7:1 D6:1
+(points 6 268 -190 290 -190 290 -160 230 -160 230 -80 252 -80))
+(connect I1:1 D7:1
+(points 4 -16 -80 10 -80 10 -190 32 -190))
+(connect D2:1 O1:1
+(points 4 567 0 590 0 590 -80 625 -80)))
+(stackingOrder 0 6 1 5 2 7 3 4)))))
+(configuration))
+(contextCarrier
+(wndOrigin 42 42)
+(wndState res)
+(active detail)
+(detail
+(extent 492 348)
+(anchorPt -111 -156)
+(configuration))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,483 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:02:30 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Writing Waveforms")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a COORD SCI:4 EOL"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "\n ")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat block))))
+(device 3 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a COORD SCI:4 EOL"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "\n")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a REAL64 SCI:4 EOL"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "\n ")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat block))))
+(device 5 TOSTRING
+(properties
+(transactions 1 "WRITE CONTAINER a"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "   ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 6 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 7 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 8 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 9 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 10 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 1000)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.001)
+(numPoints 8))
+(interface
+(output 1
+(lock name constraints))))
+(device 11 NOTE
+(properties
+(name "Case #2")
+(text2 8 "This case illustrates what " "happens if you try to get the "
+"results illustrated in case " "#1, but don\'t set the "
+"\"Multi-Field Format\" to " "\"Data Only\" on the "
+"\"Data Format\" tab on the " "Properties Dialog.")))
+(device 12 NOTE
+(properties
+(name "Case #3")
+(text2 4 "This case illustrates how X " "data is lost when the REAL "
+"format is specified.  Only Y " "data is written.")))
+(device 13 NOTE
+(properties
+(name "Case #4")
+(text2 6 "You can use this format if " "you want a human-readable "
+"file that saves all the " "information used in the "
+"internal representation of a " "waveform.")))
+(device 14 NOTE
+(properties
+(name "Case #1")
+(text2 17 "This case illustrates the " "data format most likely to "
+"be accepted by other " "applications such as " "spreadsheets and signal "
+"processing programs.  The " "COORD format forces VEE "
+"to create explicit X values " "based on the X increment "
+"specified in the internal " "representation of waveforms." ""
+"Note:  You MUST modify the " "default settings in the "
+"\"Data Format\" tab under the " "\"To String\" Properties Dialog"
+"to achieve this result.")))
+(device 15 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Info About")
+(text2 15
+"PURPOSE: To illustrate how to use transaction I/O to write VEE waveforms.  "
+"         This program combines some of the concepts of data type conversion and "
+"         transaction I/O. " ""
+"         The \"To String\" object is used for convenience in viewing results.  You may "
+"         substitute a \"To File\" object with the same transactions for any \"To String\"."
+"" "USER INPUT REQUIRED: Press Run or Start." ""
+"EXPLANATION: Refer to the individual Note Pads on the far right side of the program "
+"         for an explanation of each transaction. " ""
+"         Note that the results of any transaction I/O object depend on:"
+"         1.  The specifications in the transactions."
+"         2.  The settings specified under the \"Data Format\" tab in the Properties Dialog."
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 204 61)))
+(contextCarrier
+(active detail)
+(panel
+(extent 780 363)
+(widget 1 detail
+(relativeOrigin 1 1)
+(title off)
+(borderStyle none)
+(extent 780 310)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 330 320)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 688 543)
+(anchorPt 323 304)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 615 287)
+(editing disabled))
+(pinCenter 50 -40)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 96 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 483 246)
+(anchorPt 231 85)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 843 410)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 140 30))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 140 45 140 70 -210 70 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 140 -10 140 15)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D9:1 D1:1)
+(connect D9:1 D2:1)
+(connect D9:1 D3:1)
+(connect D9:1 D4:1)
+(connect D4:1 D5:1)
+(connect D3:1 D6:1)
+(connect D2:1 D7:1)
+(connect D1:1 D8:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 76 130)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 120 440))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 249 51))
+(terminals on)
+(pinCenter 110 130))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 249 51))
+(terminals on)
+(pinCenter 110 210))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 249 51))
+(terminals on)
+(pinCenter 110 290))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 249 51))
+(terminals on)
+(pinCenter 110 370))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 234 106)
+(noformatter))
+(pinCenter 440 370))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 234 106)
+(noformatter))
+(pinCenter 440 230))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 233 106)
+(noformatter))
+(pinCenter 440 90))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 234 106)
+(noformatter))
+(pinCenter 440 -50))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 172 64)
+(iconImage "virtual.icn"))
+(open
+(extent 239 198))
+(terminals on)
+(pinCenter 40 40))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 284 106)
+(editing disabled))
+(pinCenter 710 90))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 284 106)
+(editing disabled))
+(pinCenter 710 230))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 283 106)
+(editing disabled))
+(pinCenter 710 370))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 284 106)
+(editing disabled))
+(pinCenter 710 -50))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 120 -60))
+(connect D9:1 D1:1
+(points 6 128 40 150 40 150 -10 -70 -10 -70 130 -47 130))
+(connect D9:1 D2:1
+(points 6 128 40 150 40 150 0 -70 0 -70 210 -47 210))
+(connect D9:1 D3:1
+(points 6 128 40 150 40 150 0 -70 0 -70 290 -47 290))
+(connect D9:1 D4:1
+(points 6 128 40 150 40 150 0 -70 0 -70 370 -47 370))
+(connect D4:1 D5:1
+(points 2 287 370 320 370))
+(connect D3:1 D6:1
+(points 4 287 290 300 290 300 230 320 230))
+(connect D2:1 D7:1
+(points 6 287 210 300 210 300 110 290 110 290 90 321 90))
+(connect D1:1 D8:1
+(points 6 287 130 310 130 310 100 300 100 300 -50 320 -50)))
+(stackingOrder 9 14 1 2 3 4 5 6 7 8 10 11 12 0 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

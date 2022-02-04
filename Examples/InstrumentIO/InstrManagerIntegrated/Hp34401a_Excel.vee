@@ -1,0 +1,2422 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 16:02:12 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "DMM"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 22)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 2000)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 78)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 8 CONTEXT
+(properties
+(name "InstrPreset")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "InstrID")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This function resets the instrument, clears the event registers and error queue (CLS) and gets the instrument ID\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 1 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 4 "WRITE TEXT \"*RST\" STR EOL" "WRITE TEXT \"*CLS\" STR EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(configuration
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 843 312)
+(anchorPt 6 116)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 384 66)
+(editing enabled))
+(pinCenter 380 90))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 277 0)
+(iconImage "io.icn"))
+(open
+(extent 253 74))
+(terminals on)
+(pinCenter 400 200))
+(connect D1:1 O1:1
+(points 4 559 200 672 200 672 39 836 39)))
+(stackingOrder 1 0))))
+(device 9 CONTEXT
+(properties
+(name "SelfTest")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "SelfTestResult")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 2 "WRITE TEXT \"*TST?\" STR EOL" "READ TEXT x REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 1 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Self Test Passed"))
+(initValue Text
+(data  ""))))
+(device 3 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 2 "WRITE TEXT \"SYST:ERR?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 5 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This function performs the instrument self test and returns a string as a result.\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)
+(connect D1:2 D3:0)
+(connect D2:1 D4:1)
+(connect D3:1 D4:2)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 902 360)
+(anchorPt -249 166)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 277 51)
+(iconImage "io.icn"))
+(open
+(extent 304 74))
+(terminals on)
+(pinCenter 500 30))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 450 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 630 140))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 277 0)
+(iconImage "io.icn"))
+(open
+(extent 314 74))
+(terminals on)
+(pinCenter 510 230))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 820 150))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 384 66)
+(editing enabled))
+(pinCenter 520 350))
+(connect D0:1 D1:1
+(points 6 684 30 700 30 700 90 390 90 390 120 412 120))
+(connect D1:1 D2:0
+(points 3 488 110 630 110 630 130))
+(connect D1:2 D3:0
+(points 3 488 130 510 130 510 172))
+(connect D2:1 D4:1
+(points 2 645 140 804 140))
+(connect D3:1 D4:2
+(points 4 699 230 720 230 720 160 804 160))
+(connect D4:1 O1:1
+(points 4 835 150 885 150 885 13 1150 13)))
+(stackingOrder 4 0 3 5 1 2))))
+(device 20 CONTEXT
+(properties
+(name "GetInstrSetup")
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "InstrSetup")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 2 "WRITE TEXT \"FUNC?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 1 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 2 "WRITE TEXT \"TRIG:SOUR?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 2 FORMULA
+(properties
+(expr 1 "\"TRIGGER SOURCE: \"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(expr 1 "\"Instrument mode: \"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 6 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 7 FORMULA
+(properties
+(expr 1 "\"DC \"+B+\" Range: \"+A"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(expr 1 "\"AC \"+B+\" Range: \"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 4 "WRITE TEXT a+\":DC:RANG?\" EOL" "READ TEXT x REAL64"
+"WRITE TEXT a+\":AC:RANG?\" EOL" "READ TEXT y REAL64"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 10 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This gets the instrument function type\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 11 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This gets the instrument DC and AC range\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 12 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This gets the instrument trigger source type\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D7:0 D2:0)
+(connect D1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D3:1 D4:1)
+(connect D6:1 D4:2)
+(connect D7:1 D4:3)
+(connect D2:1 D4:4)
+(connect D4:1 D5:1)
+(connect D2:0 D5:2)
+(connect D3:0 D6:0)
+(connect D0:1 D6:1)
+(connect D8:1 D6:2)
+(connect D6:0 D7:0)
+(connect D8:2 D7:1)
+(connect D0:1 D7:2)
+(connect D0:1 D8:1)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1301 760)
+(anchorPt -106 -73)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 277 0)
+(iconImage "io.icn"))
+(open
+(extent 314 74))
+(terminals on)
+(pinCenter -110 310))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 277 0)
+(iconImage "io.icn"))
+(open
+(extent 314 74))
+(terminals on)
+(pinCenter 270 470))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 204 56))
+(terminals on)
+(pinCenter 510 470))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 510 160))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 26 45))
+(open
+(extent 12 82))
+(terminals on)
+(pinCenter 600 380))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 670 390))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 510 210))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 510 380))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 277 51)
+(iconImage "io.icn"))
+(open
+(extent 253 106))
+(terminals on)
+(pinCenter 260 310))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 314 46)
+(editing enabled))
+(pinCenter -130 210))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 294 46)
+(editing enabled))
+(pinCenter 260 170))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 324 46)
+(editing enabled))
+(pinCenter 270 560))
+(connect D7:0 D2:0
+(points 2 510 395 510 460))
+(connect D1:1 D2:1
+(points 2 459 470 482 470))
+(connect D0:1 D3:1
+(points 6 79 310 90 310 90 220 420 220 420 160 482 160))
+(connect D3:1 D4:1
+(points 4 537 160 570 160 570 360 584 360))
+(connect D6:1 D4:2
+(points 4 537 210 560 210 560 370 584 370))
+(connect D7:1 D4:3
+(points 2 537 380 584 380))
+(connect D2:1 D4:4
+(points 4 537 470 560 470 560 390 584 390))
+(connect D4:1 D5:1
+(points 2 615 380 641 380))
+(connect D2:0 D5:2
+(points 5 510 480 510 500 630 500 630 400 641 400))
+(connect D3:0 D6:0
+(points 2 510 170 510 195))
+(connect D0:1 D6:1
+(points 6 79 310 90 310 90 220 420 220 420 200 482 200))
+(connect D8:1 D6:2
+(points 4 419 280 440 280 440 220 482 220))
+(connect D6:0 D7:0
+(points 2 510 225 510 365))
+(connect D8:2 D7:1
+(points 4 419 340 440 340 440 370 482 370))
+(connect D0:1 D7:2
+(points 4 79 310 90 310 90 390 482 390))
+(connect D0:1 D8:1
+(points 2 79 310 101 310))
+(connect D5:1 O1:1
+(points 4 699 390 710 390 710 452 1406 452)))
+(stackingOrder 8 2 6 3 4 5 1 9 10 0 7 11))))
+(device 21 TEXTDISPLAY
+(properties
+(name "InstrInitialSetup"))
+(interface
+(input 1
+(name "Data"))))
+(device 22 TEXTDISPLAY
+(properties
+(name "SelfTestResult"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 TEXTDISPLAY
+(properties
+(name "InstrID"))
+(interface
+(input 1
+(name "Data"))))
+(device 28 IFTHENELSE
+(properties
+(cases 1 "A>1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 32 TEXTDISPLAY
+(properties
+(name "FinalRangeValue"))
+(interface
+(input 1
+(name "Data"))))
+(device 33 CONTEXT
+(properties
+(name "Set/GetRange")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "InstrMode")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Range")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "asText(x)")
+(expr 1 "asText(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "asText(x)")
+(expr 1 "asText(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 IODEVICE
+(properties
+(name "DMM ( @ 722)")
+(transactions 3 "WRITE TEXT A+\":\"+B STR EOL" "WRITE TEXT a+\":RANG?\" EOL"
+"READ TEXT x REAL64"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DMM")))
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This sets and gets instrument measurement range\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D1:1)
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 717 238)
+(anchorPt -72 195)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 99 50))
+(terminals on)
+(pinCenter 160 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 99 50))
+(terminals on)
+(pinCenter 160 160))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 222 51)
+(iconImage "io.icn"))
+(open
+(extent 314 76))
+(terminals on)
+(pinCenter 460 120))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 344 46)
+(editing enabled))
+(pinCenter 450 240))
+(connect I1:1 D0:1
+(points 4 72 -137 20 -137 20 70 131 70))
+(connect I2:1 D1:1
+(points 4 72 -17 20 -17 20 160 131 160))
+(connect D0:1 D2:1
+(points 4 189 70 210 70 210 100 270 100))
+(connect D1:1 D2:2
+(points 4 189 160 210 160 210 140 270 140))
+(connect D2:1 O1:1
+(points 4 649 120 683 120 683 -77 788 -77)))
+(stackingOrder 0 1 2 3))))
+(device 34 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Select instrument measurement mode\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 35 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Select instrument measurement range\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 36 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 37 NOTE
+(properties
+(name "Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fmodern\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The purpose of this sample is to show how to use VEE Pro to retrieve the data from a 34401A and display it in a VEE Pro data display object.\\par\r\n\\par\r\nThis program sets up the digital multimeter to make a selftest, then to get a subset of the initial instrument configuration. Then you can modify this configuration by changing the instrument measurement mode (see \"InstrModeList\" list object) and the range (see \"CurrentRangeList\" or \"VoltageRangeList\" list objects). You will then get the final range value of the selected mode.\\par\r\n\\par\r\nNote that the data is then sent to Excel using the \"Create New Workbook...\" UserObject of the Excel menu.\\par\r\n\\par\r\nPlease press the Run button in the VEE Pro menu from the Panel or the Detail view to start this sample. And to stop it, if it is not already done, just press the Stop button in the same VEE Pro menu.\\par\r\n\\cf0\\f1\\fs20\\par\r\nNote that you can double click on the \"Note Pad\" objects in the Detail view to see help in the various steps in the program.\\cf1\\f0\\fs24\\par\r\n}\r\n"
+)))
+(device 40 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 41 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Please wait while selftesting"))
+(initValue Text
+(data  ""))))
+(device 43 ENUMCONSTANT
+(properties
+(name "InstrMode"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("VOLT:DC" 0)
+("VOLT:AC" 1)
+("CURR:DC" 2)
+("CURR:AC" 3))
+(data  "CURR:AC"))
+(initValue Text
+(data  "VOLT:DC"))))
+(device 44 ENUMCONSTANT
+(properties
+(name "CurrentRangeList"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("RANG 0.01" 0)
+("RANG 0.1" 1)
+("RANG 1" 2)
+("RANG 3" 3)
+("RANG:AUTO ON" 4)
+("RANG:AUTO OFF" 5))
+(data  "RANG 3"))
+(initValue Text
+(data  "RANG 0.01"))))
+(device 45 ENUMCONSTANT
+(properties
+(name "VoltageRangeList"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("RANG 0.1" 0)
+("RANG 1" 1)
+("RANG 10" 2)
+("RANG 100" 3)
+("RANG 1000" 4)
+("RANG:AUTO ON" 5)
+("RANG:AUTO OFF" 6))
+(data  "RANG 100"))
+(initValue Text
+(data  "RANG 1"))))
+(device 46 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 49 NOTE
+(properties
+(name "UserObject input data information")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 \'Data\' Input:  Expects a one-dimensional array.  Data can be any type except the following:\\par\r\n Record (Use Excel menu Send Data -> Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\nExamples are in Help->Examples->ExcelLibrary\\par\r\n\\par\r\n\'Cells\' Input:  Expects a Text value with a starting cell, eg A2, or a range of cells, eg A2:A21, of where to put the data.  Only the starting cell is used.\\par\r\n\\par\r\nOpen the UserObject for more information.\\par\r\n}\r\n"
+"")))
+(device 50 CONTEXT
+(properties
+(name "Create New Workbook, Send Data, Save - Quick Start UserObject")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f2\\fswiss\\fcharset0 Arial;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 \'Data\' Input:  Expects a one-dimensional array.  Data can be any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\nExamples are in Help->Examples->Excel\\par\r\n\\par\r\n\'Cells\' Input:  Expects a Text value with a range of cells (A1:A10).  The range to which data is sent must match the size of the data.\\f1\\fs17\\par\r\n\\f2\\fs20\\par\r\n}\r\n"
+)
+(trigMode deg)
+(nextID 40)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes)))
+(deviceList
+(device 6 FILESELECT
+(properties
+(name "File Name Selection")
+(prompt "Enter File Name:")
+(initialDirectory "C:\\vee\\current\\Lib\\Excel")
+(initialFile "*.*")
+(dialogMode Writing))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 7 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 Create a new Excel Workbook, Send a 2D array or a 1-D column of data, and save the data to a filename.\\par\r\n\\cf2\\b0\\f1\\fs24 This Quick Start UserObject consists of seven objects from the Excel menu, and the Data->Dialog->FileNameSelection object.\\par\r\nThese objects from the Excel menu have been simply connected together, like a mini Sample program.  \\par\r\n\\par\r\nMost objects created from the Excel menu have a Notepad with a short description, and a context menu pick \"Excel Help\" with more detailed information on how to use that object.\\par\r\n\\par\r\nFeel free to modify this UserObject, and as you become more comfortable with the Excel Library, use the menu objects directly.  For example, the \'Settings\' is what tells Excel to be Visible; you may not always want this.\\par\r\nOr, you may want to remove the FileNameSelection object and pass in the fileName as a data input.\\par\r\n\\par\r\nNote this UserObject does contain a call to both \"Initialize\" and \"Quit\".  If you use more than one QuickStart object in your program, you probably want to move these calls outside the UserObject so Init and Quit are only called once.\\par\r\n}\r\n"
+)))
+(device 16 CALL
+(properties
+(name "Call xlLib.NewWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'NewWorkbook\'")
+(customHelpMenuHelpLink "Excel_Workbooks")
+(callFunc "xlLib.NewWorkbook")
+(parmMode rev30)))
+(device 18 CONTEXT
+(properties
+(name "SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Orientation for arrays:\\par\r\n\\par\r\nSelect Vertical for a 1D array to\\par\r\nappear in a single Worksheet column,\\par\r\nor horizontal for a single row.\\par\r\n\\par\r\nFor 2D arrays, the first dimension \\par\r\nis oriented the same as for a 1D array.\\par\r\n\\par\r\nFor 3D arrays, the orientation on each\\par\r\nsheet for the first 2 dimensions is the\\par\r\nsame as for 2D arrays.\\par\r\n\\par\r\nZlabel is used to label the 2D data table\\par\r\nthat appears on the worksheets for each\\par\r\nof the 3rd dimension elements. The labeled\\par\r\ncell is immediately above the data.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Three-D arrays:\\par\r\n \\par\r\nSelect CreateNewSheets to add a blank sheet\\par\r\nif needed for each element in the third\\par\r\ndimension. Each sheet contains a two-D array.\\par\r\n\\par\r\nCopyStartingSheet is similar, but more powerful.\\par\r\nThis setting will automatically copy the\\par\r\nstarting sheet when creating a new sheet, so\\par\r\nany formatting (including charts) on that sheet\\par\r\nwill appear on all sheets added.\\par\r\n\\par\r\nUseSingleSheet places all data on a single sheet \\par\r\nwith two-D arrays separated by blank rows. \\par\r\n\\par\r\nFor all settings, each time a two-D array is printed,\\par\r\nit is preceeded by a row containing the value of the\\par\r\ncurrent element in the third dimension. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 14 CALL
+(properties
+(name "Call xlLib.SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(callFunc "xlLib.SendDataSettings")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 RECCONST
+(properties
+(name "SendData Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 3)
+(fieldName "Orientation"
+(type Enum)
+(values
+("Vertical" 0)
+("Horizontal" 1)))
+(fieldName "ThreeDArrays"
+(type Enum)
+(values
+("CreateNewSheets" 0)
+("CopyStartingSheet" 1)
+("UseSingleSheet" 2)))
+(fieldName "Zlabel"
+(type Text)))
+(data 
+(record
+("Orientation" "Vertical")
+("ThreeDArrays" "CreateNewSheets")
+("Zlabel" "Z="))))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 966 890)
+(anchorPt -60 -321)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 297)
+(editing enabled))
+(pinCenter 670 580))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 395 347)
+(editing enabled))
+(pinCenter 700 960))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 720))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 113 15))
+(open
+(extent 263 147)
+(formatters))
+(pinCenter 280 560))
+(connect D3:1 D2:1
+(points 6 414 560 430 560 430 660 210 660 210 720 225 720)))
+(stackingOrder 1 3 0 2))))
+(device 22 CONTEXT
+(properties
+(name "SaveWorkBookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "FileName")
+(optional yes)))
+(deviceList
+(device 0 RECCONST
+(properties
+(name "Workbook Type")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 1)
+(fieldName "WorkbookType"
+(type Enum)
+(values
+("Normal" 0)
+("CSV" 1)
+("CSVMSDOS" 2)
+("CSVWindows" 3)
+("Text" 4)
+("TextPrinter" 5)
+("Excel9795" 6)
+("xlHTML" 7))))
+(data 
+(record
+("WorkbookType" "Normal"))))))
+(device 1 CALL
+(properties
+(name "Call xlLib.SaveWorkbookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(callFunc "xlLib.SaveWorkbookAs")
+(parmMode rev30))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(input 2
+(name "SaveAsFormat")
+(optional yes))))
+(device 2 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Caution: If you set xlLibSetting.DisplayAlerts\\par\r\nto False, and the file you are saving to\\par\r\nexists, you will overwrite it without\\par\r\nwarning. \\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D1:1)
+(connect D0:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 775 532)
+(anchorPt -10 1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 92 0))
+(open
+(extent 242 93)
+(formatters))
+(pinCenter 190 130))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 167 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 265 270))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 137)
+(editing enabled))
+(pinCenter 580 170))
+(connect I1:1 D1:1
+(points 4 10 264 77 264 77 260 74 260))
+(connect D0:1 D1:2
+(points 6 313 130 330 130 330 200 120 200 120 280 74 280)))
+(stackingOrder 2 0 1))))
+(device 30 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 2 0 1))))
+(device 32 CONTEXT
+(properties
+(name "DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cell")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 DATA\\par\r\nDataToCells can accept data of any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\n Object \\par\r\n \\par\r\nCELL\\par\r\nCell can be a single cell (A1), a range of cells (A1:F4)\\par\r\nor a named range which must be defined in the Excel \\par\r\nworkbook you are sending data to using Excel\'s\\par\r\nInsert/Names menu. Only the upper left cell matters, and the\\par\r\nrange to which data is sent depends only on the size of the\\par\r\ndata and the SendDataSettings.orientation setting. Use the Excel \\par\r\nmenu Send Data -> Send Data Settings to set the orientation.\\par\r\n\\par\r\nNOTES\\par\r\nData can be from scalar up to 3 dimensional arrays. See the Excel \\par\r\nmenu Send Data -> Send Data Settings for options on sending arrays.\\par\r\n\\par\r\nThe output from DataToCells is the resulting data range \\par\r\nwhich can be passed to the FormatText, FormatCells, and \\par\r\nAutoFitColumns objects.\\par\r\n\\par\r\nExamples are installed in \\\\ExcelLibrary under the Vee examples menu.\\par\r\n}\r\n"
+"")))
+(device 3 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 841 657)
+(anchorPt 167 6)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 476)
+(editing enabled))
+(pinCenter 240 430))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 185 120))
+(connect I1:1 D1:1
+(points 4 -167 152 -100 152 -100 110 54 110))
+(connect I2:1 D1:2
+(points 4 -167 492 -110 492 -110 130 54 130)))
+(stackingOrder 1 0))))
+(device 37 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "RaiseError")
+("DisplayAlerts" "True"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook client windows instead of Excel.  Note this only applies to the single currently-selected Workbook.  Setting this before an AddWorkbook() or OpenWorkbook() call does not affect the new workbook.  However, a SelectWorkbook() call applies the Settings to the selected workbook.\\par\r\n}\r\n"
+"")))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 54 64)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 -10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 246)
+(editing enabled))
+(pinCenter 570 160))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 614 336)
+(editing enabled))
+(pinCenter 290 480))
+(connect D1:1 D0:1
+(points 4 304 120 320 120 320 -10 330 -10)))
+(stackingOrder 1 0 3 2))))
+(device 39 CONTEXT
+(properties
+(name "Quit Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D6:0 D0:0)
+(connect D7:0 D2:0)
+(connect D2:0 D3:0)
+(connect D0:1 D4:1)
+(connect D3:0 D6:0)
+(connect I1:1 D6:1)
+(connect I2:1 D6:2)
+(connect D5:0 D7:0)
+(connect D0:0 D8:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 862 671)
+(anchorPt 9 80)
+(configuration
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 287 106))
+(terminals on)
+(pinCenter 150 300))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 476)
+(editing enabled))
+(pinCenter 600 270))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 150))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 150 190))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 300 290))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 150 60))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 94 25))
+(terminals on)
+(pinCenter 150 240))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter 150 100))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 150 350))
+(connect D6:0 D0:0
+(points 2 150 255 150 285))
+(connect D7:0 D2:0
+(points 2 150 109 150 140))
+(connect D2:0 D3:0
+(points 2 150 160 150 180))
+(connect D0:1 D4:1
+(points 2 213 290 235 290))
+(connect D3:0 D6:0
+(points 2 150 200 150 225))
+(connect I1:1 D6:1
+(points 4 -9 85 30 85 30 230 100 230))
+(connect I2:1 D6:2
+(points 4 -9 425 30 425 30 250 100 250))
+(connect D5:0 D7:0
+(points 2 150 70 150 90))
+(connect D0:0 D8:0
+(points 2 150 315 150 340)))
+(stackingOrder 2 3 4 1 0 5 7 6 8))))
+(device 56 CONTEXT
+(properties
+(name "Declare_Variables")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare g_34401A_InstrID")
+(scope glob)
+(globalName "g_34401A_InstrID"))
+(implementation
+(value Text
+(data  ""))))
+(device 1 DECLVAR
+(properties
+(name "Declare g_34401A_SelfTestResult")
+(scope glob)
+(globalName "g_34401A_SelfTestResult"))
+(implementation
+(value Text
+(data  ""))))
+(device 2 DECLVAR
+(properties
+(name "Declare g_34401A_InstrSetup")
+(scope glob)
+(globalName "g_34401A_InstrSetup"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(device 3 DECLVAR
+(properties
+(name "Declare g_34401A_RangeVal")
+(scope glob)
+(globalName "g_34401A_RangeVal"))
+(implementation
+(value Text
+(data  ""))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 351 273)
+(anchorPt 232 146)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 195 103))
+(pinCenter 150 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 209 15))
+(open
+(extent 245 103))
+(pinCenter 150 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 181 15))
+(open
+(extent 217 103))
+(pinCenter 150 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 215 103))
+(pinCenter 150 200)))
+(stackingOrder 0 1 2 3))))
+(device 57 TOGLOBAL
+(properties
+(name "Set g_34401A_InstrID")
+(globalName "g_34401A_InstrID"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 58 TOGLOBAL
+(properties
+(name "Set g_34401A_SelfTestResult")
+(globalName "g_34401A_SelfTestResult"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 59 TOGLOBAL
+(properties
+(name "Set g_34401A_InstrSetup")
+(globalName "g_34401A_InstrSetup"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 60 TOGLOBAL
+(properties
+(name "Set g_34401A_RangeVal")
+(globalName "g_34401A_RangeVal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 66 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A1"))
+(initValue Text
+(data  ""))))
+(device 76 CONTEXT
+(properties
+(name "Excel_Data")
+(trigMode deg)
+(nextID 12)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FROMGLOBAL
+(properties
+(name "Get g_34401A_InstrID")
+(globalName "g_34401A_InstrID"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Instrument ID"))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Instruemtn Self Test Result"))
+(initValue Text
+(data  ""))))
+(device 3 FROMGLOBAL
+(properties
+(name "Get g_34401A_SelfTestResult")
+(globalName "g_34401A_SelfTestResult"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Instrument Setup"))
+(initValue Text
+(data  ""))))
+(device 5 FROMGLOBAL
+(properties
+(name "Get g_34401A_InstrSetup")
+(globalName "g_34401A_InstrSetup"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Instrument Range Value"))
+(initValue Text
+(data  ""))))
+(device 7 FROMGLOBAL
+(properties
+(name "Get g_34401A_RangeVal")
+(globalName "g_34401A_RangeVal"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 8 VECTORCONCATENATOR
+(interface
+(input 1
+(name "E")
+(optional yes))
+(input 2
+(name "A"))
+(input 3
+(name "I")
+(optional yes))
+(input 4
+(name "F")
+(optional yes))
+(input 5
+(name "B")
+(optional yes))
+(input 6
+(name "J")
+(optional yes))
+(input 7
+(name "G")
+(optional yes))
+(input 8
+(name "C")
+(optional yes))
+(input 9
+(name "K")
+(optional yes))
+(input 10
+(name "H")
+(optional yes))
+(input 11
+(name "D")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  " "))
+(initValue Text
+(data  ""))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  " "))
+(initValue Text
+(data  ""))))
+(device 11 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  " "))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:0 D0:0)
+(connect D9:0 D2:0)
+(connect D2:0 D3:0)
+(connect D10:0 D4:0)
+(connect D4:0 D5:0)
+(connect D11:0 D6:0)
+(connect D6:0 D7:0)
+(connect D1:1 D8:1)
+(connect D0:1 D8:2)
+(connect D9:1 D8:3)
+(connect D2:1 D8:4)
+(connect D3:1 D8:5)
+(connect D10:1 D8:6)
+(connect D4:1 D8:7)
+(connect D5:1 D8:8)
+(connect D11:1 D8:9)
+(connect D6:1 D8:10)
+(connect D7:1 D8:11)
+(connect D0:0 D9:0)
+(connect D3:0 D10:0)
+(connect D5:0 D11:0)
+(connect D8:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 559 383)
+(anchorPt 99 200)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 99 51))
+(terminals on)
+(pinCenter 140 -50))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 -80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 50))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 182 14))
+(open
+(extent 148 51))
+(terminals on)
+(pinCenter 140 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 180))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 121 51))
+(terminals on)
+(pinCenter 140 210))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 310))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 152 15))
+(open
+(extent 118 51))
+(terminals on)
+(pinCenter 140 340))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 81 114))
+(open
+(extent 47 222))
+(terminals on)
+(pinCenter 610 130))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 20))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 150))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 140 280))
+(connect D1:0 D0:0
+(points 2 140 -70 140 -60))
+(connect D9:0 D2:0
+(points 2 140 30 140 40))
+(connect D2:0 D3:0
+(points 2 140 60 140 70))
+(connect D10:0 D4:0
+(points 2 140 160 140 170))
+(connect D4:0 D5:0
+(points 2 140 190 140 200))
+(connect D11:0 D6:0
+(points 2 140 290 140 300))
+(connect D6:0 D7:0
+(points 2 140 320 140 330))
+(connect D1:1 D8:1
+(points 4 155 -80 270 -80 270 80 567 80))
+(connect D0:1 D8:2
+(points 4 209 -50 250 -50 250 90 567 90))
+(connect D9:1 D8:3
+(points 4 155 20 280 20 280 100 567 100))
+(connect D2:1 D8:4
+(points 4 155 50 240 50 240 110 567 110))
+(connect D3:1 D8:5
+(points 4 233 80 260 80 260 120 567 120))
+(connect D10:1 D8:6
+(points 4 155 150 170 150 170 130 567 130))
+(connect D4:1 D8:7
+(points 4 155 180 180 180 180 140 567 140))
+(connect D5:1 D8:8
+(points 4 220 210 230 210 230 150 567 150))
+(connect D11:1 D8:9
+(points 4 155 280 260 280 260 160 567 160))
+(connect D6:1 D8:10
+(points 4 155 310 270 310 270 170 567 170))
+(connect D7:1 D8:11
+(points 4 218 340 240 340 240 180 567 180))
+(connect D0:0 D9:0
+(points 2 140 -40 140 10))
+(connect D3:0 D10:0
+(points 2 140 89 140 140))
+(connect D5:0 D11:0
+(points 2 140 220 140 270))
+(connect D8:1 O1:1
+(points 4 653 130 672 130 672 -9 459 -9)))
+(stackingOrder 1 0 2 3 10 4 5 11 7 8 9 6))))
+(device 77 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE Pro 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.0 as a minimum.\\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 710 on the GPIB bus. But you could also use LAN or USB if you do have those interfaces installed on your PC. For more information go in the VEE Pro Online Help => Contents and Index => Search tab => dial Instrument Manager.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D21:0 D0:0)
+(connect D14:0 D1:0)
+(connect D1:0 D2:0)
+(connect D2:1 D3:1)
+(connect D13:1 D4:1)
+(connect D0:1 D5:1)
+(connect D15:2 D6:1)
+(connect D8:1 D7:1)
+(connect D15:1 D8:1)
+(connect D18:1 D8:2)
+(connect D14:1 D13:1)
+(connect D1:1 D13:2)
+(connect D0:0 D14:0)
+(connect D2:0 D15:0)
+(connect D6:1 D16:0)
+(connect D6:2 D17:0)
+(connect D16:1 D18:1)
+(connect D17:1 D18:2)
+(connect D27:1 D20:1)
+(connect D26:1 D20:2)
+(connect D0:1 D22:1)
+(connect D1:1 D23:1)
+(connect D2:1 D24:1)
+(connect D8:1 D25:1)
+(connect D25:0 D27:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 3 4)
+(wndState res)
+(active panel)
+(panel
+(extent 779 612)
+(drawGrid "on")
+(widget 5 detail
+(relativeOrigin 240 160)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 294 36))
+(widget 4 detail
+(relativeOrigin 260 230)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 264 36))
+(widget 3 detail
+(relativeOrigin 300 300)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 194 98))
+(widget 7 detail
+(relativeOrigin 290 530)
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 214 46))
+(widget 12 detail
+(relativeOrigin 43 3)
+(PID 7)
+(title on)
+(tabIndex 7)
+(borderStyle flat)
+(extent 676 118)
+(editing enabled))
+(widget 16 detail
+(relativeOrigin 80 420)
+(PID 8)
+(title on)
+(tabIndex 8)
+(borderStyle flat)
+(extent 143 96)
+(format scrollList))
+(widget 17 detail
+(relativeOrigin 580 410)
+(PID 9)
+(title on)
+(tabIndex 9)
+(borderStyle flat)
+(extent 143 111)
+(format scrollList))
+(widget 15 detail
+(relativeOrigin 350 430)
+(PID 10)
+(title on)
+(tabIndex 10)
+(borderStyle flat)
+(extent 95 66)
+(format scrollList)))
+(detail
+(extent 821 754)
+(anchorPt -162 119)
+(configuration
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 66 15))
+(terminals on)
+(pinCenter 280 190))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 49 15))
+(terminals on)
+(pinCenter 280 270))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 82 15))
+(terminals on)
+(pinCenter 280 390))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 93 0))
+(open
+(extent 194 166))
+(pinCenter 890 400))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 89 0))
+(open
+(extent 264 36))
+(pinCenter 930 260))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 294 36))
+(pinCenter 940 190))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 340 550))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 104 0))
+(open
+(extent 214 46))
+(pinCenter 900 530))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 84 34))
+(terminals on)
+(pinCenter 710 530))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 46)
+(editing enabled))
+(pinCenter 400 450))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 46)
+(editing enabled))
+(pinCenter 490 660))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 740 60))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 106)
+(editing enabled))
+(pinCenter 340 60))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 370 260))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 280 230))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 59 25))
+(open
+(extent 95 66)
+(format scrollList))
+(pinCenter 280 450))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 107 25))
+(open
+(extent 143 96)
+(format scrollList))
+(pinCenter 480 540))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 107 25))
+(open
+(extent 143 111)
+(format scrollList))
+(pinCenter 490 610))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 600 540))
+(devCarrierFor 49
+(active open)
+(icon
+(extent 202 0)
+(iconImage "notepad.icn"))
+(open
+(extent 374 276)
+(editing enabled))
+(pinCenter 780 1010))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 389 34))
+(terminals on)
+(pinCenter 780 820))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 112 15))
+(terminals on)
+(pinCenter 280 150))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 132 15))
+(open
+(extent 98 51))
+(terminals on)
+(pinCenter 440 160))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 181 15))
+(open
+(extent 147 51))
+(terminals on)
+(pinCenter 440 310))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 154 15))
+(open
+(extent 147 51))
+(terminals on)
+(pinCenter 480 380))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 147 51))
+(terminals on)
+(pinCenter 870 610))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 440 880))
+(devCarrierFor 76
+(active icon)
+(icon
+(extent 68 15))
+(terminals on)
+(pinCenter 440 810))
+(devCarrierFor 77
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 500 60))
+(connect D21:0 D0:0
+(points 2 280 160 280 180))
+(connect D14:0 D1:0
+(points 2 280 240 280 260))
+(connect D1:0 D2:0
+(points 2 280 280 280 380))
+(connect D2:1 D3:1
+(points 6 323 390 340 390 340 350 580 350 580 400 790 400))
+(connect D13:1 D4:1
+(points 2 385 260 795 260))
+(connect D0:1 D5:1
+(points 2 315 190 790 190))
+(connect D15:2 D6:1
+(points 6 312 460 330 460 330 490 280 490 280 550 302 550))
+(connect D8:1 D7:1
+(points 2 754 530 790 530))
+(connect D15:1 D8:1
+(points 6 312 440 340 440 340 500 640 500 640 520 665 520))
+(connect D18:1 D8:2
+(points 2 615 540 665 540))
+(connect D14:1 D13:1
+(points 4 295 230 330 230 330 250 354 250))
+(connect D1:1 D13:2
+(points 2 307 270 354 270))
+(connect D0:0 D14:0
+(points 2 280 200 280 220))
+(connect D2:0 D15:0
+(points 2 280 400 280 435))
+(connect D6:1 D16:0
+(points 5 378 540 400 540 400 510 480 510 480 525))
+(connect D6:2 D17:0
+(points 5 378 560 400 560 400 580 490 580 490 595))
+(connect D16:1 D18:1
+(points 2 536 530 584 530))
+(connect D17:1 D18:2
+(points 4 546 600 560 600 560 550 584 550))
+(connect D27:1 D20:1
+(points 2 476 810 583 810))
+(connect D26:1 D20:2
+(points 4 455 880 480 880 480 830 583 830))
+(connect D0:1 D22:1
+(points 4 315 190 350 190 350 160 371 160))
+(connect D1:1 D23:1
+(points 4 307 270 330 270 330 310 347 310))
+(connect D2:1 D24:1
+(points 4 323 390 340 390 340 380 400 380))
+(connect D8:1 D25:1
+(points 4 754 530 770 530 770 610 792 610))
+(connect D25:0 D27:0
+(points 4 870 620 870 710 440 710 440 800)))
+(stackingOrder 3 6 7 11 14 10 9 0 1 2 15 16 17 8 4 5 13 19 22 25 23 18 24 21 26
+27 12 20 28))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

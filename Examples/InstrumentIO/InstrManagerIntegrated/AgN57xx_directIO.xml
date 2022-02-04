@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN57xx_directIO.vee">
+		<Description>Program outputs and measure output conditions</Description>
+		<LogicalInstrument name="PwrSupply">
+			<SupportedInstruments>
+				<Instrument idn="agn5741A"/>
+				<Instrument idn="agn5742A"/>
+				<Instrument idn="agn5743A"/>
+				<Instrument idn="agn5744A"/>
+				<Instrument idn="agn5745A"/>				
+				<Instrument idn="agn5746A"/>
+				<Instrument idn="agn5747A"/>
+				<Instrument idn="agn5748A"/>
+				<Instrument idn="agn5749A"/>
+				<Instrument idn="agn5750A"/>
+				<Instrument idn="agn5751A"/>
+				<Instrument idn="agn5752A"/>
+				<Instrument idn="agn5761A"/>
+				<Instrument idn="agn5762A"/>
+				<Instrument idn="agn5763A"/>
+				<Instrument idn="agn5764A"/>
+				<Instrument idn="agn5765A"/>
+				<Instrument idn="agn5766A"/>
+				<Instrument idn="agn5767A"/>
+				<Instrument idn="agn5768A"/>
+				<Instrument idn="agn5769A"/>
+				<Instrument idn="agn5770A"/>
+				<Instrument idn="agn5771A"/>
+				<Instrument idn="agn5772A"/>				
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,488 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:16:07 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 14)
+(popupTitleText "Unbuild Record Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 RECCONST
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 4)
+(schema
+(numFields 5)
+(fieldName "Name"
+(type Text))
+(fieldName "EmplNo"
+(type Int32))
+(fieldName "Address"
+(type Text))
+(fieldName "City"
+(type Text))
+(fieldName "Zip"
+(type Int32)))
+(data 
+(record
+("Name" "John Smith")
+("EmplNo" 555333)
+("Address" "401 E. First St.")
+("City" "Central City, USA")
+("Zip" 54321))
+(record
+("Name" "Don Jones")
+("EmplNo" 554433)
+("Address" "9000 SE County Rd. 12")
+("City" "Central City, USA")
+("Zip" 54321))
+(record
+("Name" "Susan Smith")
+("EmplNo" 332244)
+("Address" "121 Second St.")
+("City" "Central City, USA")
+("Zip" 54321))
+(record
+("Name" "Joe Baker")
+("EmplNo" 121212)
+("Address" "888 N. Apple St.")
+("City" "Middletown, USA")
+("Zip" 54322))))))
+(device 1 TEXTDISPLAY
+(properties
+(name "Name"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(name "EmplNo"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type List")
+(tag "Type List")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Name")
+(tag "A")
+(optional yes))
+(output 4
+(name "EmplNo")
+(tag "B")
+(optional yes))
+(output 5
+(name "Address")
+(optional yes))
+(output 6
+(name "City")
+(optional yes))
+(output 7
+(name "Zip")
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Name List"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(properties
+(name "Type List"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Address"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 TEXTDISPLAY
+(properties
+(name "City"))
+(interface
+(input 1
+(name "Data"))))
+(device 8 TEXTDISPLAY
+(properties
+(name "Zip"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 16 "PURPOSE: Illustrates using UnBuild Record to retrieve record fields."
+"" "USER INPUT REQUIRED: Press \"Run\"." "" "EXPLANATION:"
+"\tOne way to retrieve fields from a record is to use the GetField object.  "
+"    Another, often more efficient way to retrieve several or all fields from"
+"    a record is to use the UnBuild Record object.  The UnBuild Record object"
+"    not only allows you to add outputs for every field in the record, but "
+"    provides Name List and Type List outputs. These outputs list the name and"
+"    type of each field in the record." ""
+"\tIn this example the Record Constant is actually an 1D array of records.  "
+"    The UnBuild Record object outputs 1D arrays of the type of the field for"
+"    each field output, where the value of each element is the value of the"
+"    field in the corresponding record.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 5 4)))
+(contextCarrier
+(active detail)
+(panel
+(extent 790 425)
+(widget 0 detail
+(relativeOrigin 5 5)
+(title off)
+(borderStyle flat)
+(extent 778 358)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 361 373)
+(title off)
+(borderStyle flat)
+(extent 67 39)))
+(detail
+(extent 866 520)
+(anchorPt 433 270)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 15))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 70)))
+(stackingOrder 1 0))))
+(device 3 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D2:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 912 591)
+(anchorPt 256 245)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 15))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 790 425)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 190 70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 140 0))
+(connect D2:0 D0:1
+(points 5 140 15 140 40 -80 40 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 165 -10 190 -10 190 55))
+(connect D0:1 D2:1
+(points 2 59 0 114 0)))
+(stackingOrder 0 2 1))))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 7 "This example is provided " "as an illustration \"as is\","
+"and Keysight Technologies Company" "makes no warranty of any "
+"kind with regard to this" "example." "")))
+(configuration
+(connect D3:3 D1:1)
+(connect D3:4 D2:1)
+(connect D0:1 D3:1)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D3:5 D6:1)
+(connect D3:6 D7:1)
+(connect D3:7 D8:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 447)
+(anchorPt 160 211)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 302 292)
+(formatters))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 182 93))
+(pinCenter 540 20))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 171 103))
+(pinCenter 560 160))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 136 74)
+(iconImage "unbuild.icn"))
+(open
+(extent 9 214))
+(terminals on)
+(pinCenter 274 80))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 147 109))
+(pinCenter 280 -130))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 151 110))
+(pinCenter 490 -120))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 231 101))
+(pinCenter 590 310))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 253 92))
+(pinCenter 310 300))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 171 103))
+(pinCenter 60 300))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 10 440))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 251 153)
+(editing enabled))
+(pinCenter 370 450))
+(connect D3:3 D1:1
+(points 4 351 50 390 50 390 20 446 20))
+(connect D3:4 D2:1
+(points 4 351 80 400 80 400 160 472 160))
+(connect D0:1 D3:1
+(points 4 153 0 160 0 160 80 189 80))
+(connect D3:1 D4:1
+(points 6 351 -10 370 -10 370 -60 180 -60 180 -130 204 -130))
+(connect D3:2 D5:1
+(points 4 351 20 380 20 380 -120 412 -120))
+(connect D3:5 D6:1
+(points 6 351 110 390 110 390 170 460 170 460 310 472 310))
+(connect D3:6 D7:1
+(points 6 351 140 380 140 380 220 170 220 170 300 181 300))
+(connect D3:7 D8:1
+(points 6 351 170 370 170 370 210 -50 210 -50 300 -28 300)))
+(stackingOrder 0 9 4 3 8 7 6 5 1 2 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

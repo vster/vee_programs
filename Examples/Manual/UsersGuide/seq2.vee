@@ -1,0 +1,121 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:46 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SEQUENCER
+(properties
+(transactions 2 "test1 LOGEN TESTEX:random() \tRANGEEX: 0 LE .25 LE .5 \t"
+"test2 LOGEN TESTEX:random() \tLIMITEX: .25 LT .5 \t"))
+(interface
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logfields "name" "pass" "result")))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 FORMULA
+(properties
+(expr 1 "Log.Test1.Result"))
+(interface
+(input 1
+(name "Log")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:2 D1:1)
+(connect D0:2 D2:1)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 871 550)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 180 90))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 482 62))
+(pinCenter 280 230))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 50 0))
+(open
+(extent 227 74))
+(terminals on)
+(pinCenter 195 350))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 167 34))
+(pinCenter 500 350))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 200 450))
+(connect D0:2 D1:1
+(points 6 347 110 370 110 370 150 20 150 20 230 36 230))
+(connect D0:2 D2:1
+(points 6 347 110 370 110 370 150 20 150 20 350 39 350))
+(connect D2:1 D3:1
+(points 2 361 350 414 350)))
+(stackingOrder 0 1 2 3 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

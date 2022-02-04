@@ -1,0 +1,272 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:20:28 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Status Panel")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "logTest")
+(trigMode deg)
+(nextID 3))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(deviceList
+(device 0 SCROLLINGTEXTDISPLAY
+(properties
+(clearAtActivate 0)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 1 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name")
+(tag "A")
+(optional yes))
+(output 2
+(name "Result")
+(tag "B")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "a + b")
+(expr 1 "A+\"     \"+B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D2:1 D0:1)
+(connect I1:1 D1:1)
+(connect D1:1 D2:1)
+(connect D1:2 D2:2)))
+(contextCarrier
+(wndOrigin 2 647)
+(wndRestoredOrigin 62 65)
+(wndRestoredExtent 391 111)
+(wndState min)
+(active panel)
+(panel
+(extent 391 111)
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Med Yellow Green")
+(font "Arial" 20 bold)
+(title off)
+(borderStyle none)
+(extent 391 111)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(panelBg "Gray"))
+(detail
+(extent 612 309)
+(anchorPt 409 162)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 264 207)
+(noformatter))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 107 57)
+(iconImage "unbuild.icn"))
+(open
+(extent 28 90))
+(terminals on)
+(pinCenter -296 -30))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 36 25))
+(open
+(extent 98 50))
+(terminals on)
+(pinCenter -180 -40))
+(connect D2:1 D0:1
+(points 4 -160 -40 -150 -40 -150 0 -135 0))
+(connect I1:1 D1:1
+(points 4 -409 -8 -400 -8 -400 -30 -390 -30))
+(connect D1:1 D2:1
+(points 2 -230 -50 -201 -50))
+(connect D1:2 D2:2
+(points 4 -230 -10 -220 -10 -220 -30 -201 -30)))
+(stackingOrder 1 2 0)))))
+(device 1 SEQUENCER
+(properties
+(transactions 4 "Test1 LOGEN TESTEX:random() \tRANGEEX: 0 LE .5 LE 1 \t"
+"Test2 LOGEN TESTEX:random() \tRANGEEX: 0 LE .5 LE 1 \t"
+"Test3 LOGEN TESTEX:random() \tRANGEEX: 0 LE .5 LE 1 \t"
+"Test4 LOGEN TESTEX:random() \tRANGEEX: 0 LE .5 LE 1 \t"))
+(interface
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logproc "logTest(thisTest)")
+(logfields "name" "pass" "result")))
+(device 6 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 7 FORMULA
+(properties
+(name "showPanel()")
+(expr 1 "showPanel(\"logTest\", 146, 142)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "hidePanel()")
+(expr 1 "hidePanel(\"logTest\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 NOTE
+(properties
+(text2 3 "This status panel shows the results of Test1"
+"through Test4 as they were run.  Click Run to start,"
+"then OK when you\'re done viewing the results.")))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D2:1 D0:0)
+(connect D0:0 D1:0)
+(connect D1:1 D3:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 676 399)
+(widget 1 detail
+(relativeOrigin 310 350)
+(title off)
+(borderStyle none)
+(extent 51 24))
+(widget 4 detail
+(relativeOrigin 110 40)
+(title off)
+(borderStyle convex)
+(extent 449 66)
+(editing disabled))
+(panelBg "Dark Green"))
+(detail
+(extent 551 576)
+(anchorPt 261 342)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 245 97))
+(terminals on)
+(pinCenter -10 10))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 51 24))
+(title off)
+(pinCenter 0 90))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 319 43))
+(terminals on)
+(pinCenter -20 -110))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 186 33))
+(terminals on)
+(pinCenter 50 190))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 449 66)
+(editing enabled))
+(pinCenter 0 -210))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter 10 -310))
+(connect D2:1 D0:0
+(points 5 192 -110 210 -110 210 -70 0 -70 0 -59))
+(connect D0:0 D1:0
+(points 2 0 61 0 75))
+(connect D1:1 D3:0
+(points 3 28 90 60 90 60 153)))
+(stackingOrder 2 4 5 3 1 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

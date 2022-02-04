@@ -1,0 +1,320 @@
+(saveFormat "7.0")
+(date "Thu 02/May/2013 16:46:31 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "M.39")
+(input 0)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 34)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType DLL)
+(libName "winmm")
+(fileName "C:\\windows\\system32\\winmm.dll")
+(defnFileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\examples\\Contrib\\Win32API\\winmm.h"
+))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 4 FORMULA
+(properties
+(name "Generate DLL Path")
+(variableScope cont)
+(expr 1 "A+\"\\\\winmm.dll\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 15 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  131073))
+(initValue Int32
+(data  0))))
+(device 19 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 26 CALL
+(properties
+(name "Call winmm.PlaySoundA")
+(variableScope cont)
+(callFunc "winmm.PlaySoundA")
+(parmMode rev30))
+(interface
+(input 1
+(name "lpszName")
+(requires
+(datatype Text))
+(optional yes))
+(input 2
+(name "hModule")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "dwFlags")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpszName")
+(lock name constraints)
+(optional yes))))
+(device 27 FORMULA
+(properties
+(name "Filename")
+(variableScope cont)
+(expr 1 "getEnv(\"windir\")+\"\\\\media\\\\ding.wav\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 28 FORMULA
+(properties
+(name "Generate .H Path")
+(variableScope cont)
+(expr 1 "installDir()+\"\\\\examples\\\\Contrib\\\\Win32API\\\\winmm.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "Get System Dir")
+(variableScope cont)
+(expr 8 "os = whichOS();" "getEnv(\"windir\")+\"\\\\\"+"
+"(((os == \"Windows_NT\") || " "  (os == \"Windows_XP\") ||"
+"  (os == \"Windows_2000\") || " "  (os == \"Windows_Vista\") ||"
+"  (os == \"Windows_7\") || "
+"  (os == \"Windows_8\")) ? \"system32\" : \"system\")"))
+(interface
+(output 1
+(name "os")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Description:\\ulnone\\par\r\nThis program uses winmm.dll to play sound.\\par\r\n}\r\n"
+)))
+(device 33 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an illustration \"as is\", and \\par\r\nKeysight Technologies makes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D7:0 D0:0)
+(connect D1:1 D0:1)
+(connect D7:1 D0:2)
+(connect D8:2 D1:1)
+(connect D5:1 D4:1)
+(connect D0:0 D5:0)
+(connect D6:1 D5:1)
+(connect D2:1 D5:2)
+(connect D3:1 D5:3)
+(connect D1:0 D7:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 699 388)
+(wndState max)
+(active detail)
+(detail
+(extent 1064 839)
+(anchorPt 55 94)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 280 130))
+(pinCenter 640 160))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 115 0))
+(open
+(extent 131 50))
+(terminals on)
+(pinCenter 330 120))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 32 14))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 120 380))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 32 14))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 120 440))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 139 23))
+(pinCenter 730 360))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 148 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 480 380))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 57 0))
+(open
+(extent 186 50))
+(terminals on)
+(pinCenter 110 310))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 139 50))
+(terminals on)
+(pinCenter 330 210))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 90 25))
+(open
+(extent 284 196))
+(terminals on)
+(pinCenter 130 110))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 394 66)
+(editing disabled))
+(pinCenter 530 -10))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing disabled))
+(pinCenter 140 -40))
+(connect D7:0 D0:0
+(points 8 340 237 340 260 470 260 470 240 480 240 480 50 640 50 640 74))
+(connect D1:1 D0:1
+(points 4 448 120 470 120 470 130 497 130))
+(connect D7:1 D0:2
+(points 4 452 210 470 210 470 190 497 190))
+(connect D8:2 D1:1
+(points 2 177 120 232 120))
+(connect D5:1 D4:1
+(points 2 640 360 658 360))
+(connect D0:0 D5:0
+(points 4 640 227 640 250 480 250 480 328))
+(connect D6:1 D5:1
+(points 4 255 310 280 310 280 360 319 360))
+(connect D2:1 D5:2
+(points 2 156 380 319 380))
+(connect D3:1 D5:3
+(points 4 156 440 180 440 180 400 319 400))
+(connect D1:0 D7:0
+(points 2 340 147 340 164)))
+(stackingOrder 5 4 2 3 0 7 1 10 6 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

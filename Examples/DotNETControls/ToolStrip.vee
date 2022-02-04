@@ -1,0 +1,5520 @@
+(saveFormat "7.0")
+(date "Mon 18/Sep/2006 18:02:38 ")
+(veerev "8.0.9315.1 Beta2 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\drawing.dll"))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope cont)
+(trigMode deg)
+(nextID 32)
+(popupTitleText "VEE Word Pad")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 29)
+(context 23
+(properties
+(name "CreateImageList")
+(variableName CreateImageList)
+(variableScope cont)
+(trigMode deg)
+(nextID 25)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create ImageList Instance")
+(variableScope cont)
+(expr 1
+"imagelist = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ImageList\" );"
+))
+(interface
+(output 1
+(name "imagelist")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Bitmap Folder")
+(variableScope cont)
+(expr 1 "installDir()+\"/bitmaps/veeword/\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "new.bmp")
+(variableScope cont)
+(expr 1 "folder+\"new.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Init ImageList")
+(variableScope cont)
+(expr 1 "m_imagelist = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "open.bmp")
+(variableScope cont)
+(expr 1 "folder+\"open.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 2 "imageList.TransparentColor = System.Drawing.Color.Magenta;"
+"imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "imageList")
+(optional yes))
+(input 2
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 1 "m_imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 1 "m_imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 12 DECLVAR
+(properties
+(name "Declare m_imagelist")
+(scope glob)
+(globalName "m_imagelist"))
+(implementation
+(value Object
+(data  ".NET OFF System.Windows.Forms,System.Windows.Forms.ImageList"))))
+(device 14 FORMULA
+(properties
+(name "save.bmp")
+(variableScope cont)
+(expr 1 "folder+\"save.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "bold.bmp")
+(variableScope cont)
+(expr 1 "folder+\"bold.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 1 "m_imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "italic.bmp")
+(variableScope cont)
+(expr 1 "folder+\"italic.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 1 "m_imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name "underline.bmp")
+(variableScope cont)
+(expr 1 "folder+\"underline.bmp\""))
+(interface
+(input 1
+(name "folder")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORMULA
+(properties
+(name "Create Bitmap Instance")
+(variableScope cont)
+(expr 1
+"bitmap = CreateInstance(\"System.Drawing\", \"System.Drawing.Bitmap\", filename);"
+))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "bitmap")
+(optional yes))))
+(device 23 FORMULA
+(properties
+(name "Add Image")
+(variableScope cont)
+(expr 1 "m_imageList.Images.Add(image);"))
+(interface
+(input 1
+(name "image")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D6:1 D4:1)
+(connect D0:1 D5:1)
+(connect D1:1 D6:1)
+(connect D5:1 D7:1)
+(connect D3:1 D7:2)
+(connect D7:0 D8:0)
+(connect D4:1 D8:1)
+(connect D8:0 D9:0)
+(connect D10:1 D9:1)
+(connect D12:1 D10:1)
+(connect D1:1 D12:1)
+(connect D1:1 D13:1)
+(connect D13:1 D14:1)
+(connect D9:0 D15:0)
+(connect D14:1 D15:1)
+(connect D1:1 D16:1)
+(connect D16:1 D17:1)
+(connect D15:0 D18:0)
+(connect D17:1 D18:1)
+(connect D1:1 D19:1)
+(connect D19:1 D20:1)
+(connect D18:0 D21:0)
+(connect D20:1 D21:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 782 472)
+(anchorPt 77 49)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 545 50))
+(terminals on)
+(pinCenter 150 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 110 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 56 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 210 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 110))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 150))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 330 70))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 210 150))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 80))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 150))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 200))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 200))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 126 15))
+(open
+(extent 345 124))
+(pinCenter 140 40))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 210 200))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 210 240))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 240))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 240))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 58 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 210 280))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 280))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 280))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 200 320))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 479 50))
+(terminals on)
+(pinCenter 330 320))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 480 320))
+(connect D1:1 D2:1
+(points 2 154 110 179 110))
+(connect D2:1 D3:1
+(points 2 240 110 257 110))
+(connect D6:1 D4:1
+(points 2 243 150 257 150))
+(connect D0:1 D5:1
+(points 2 232 70 287 70))
+(connect D1:1 D6:1
+(points 4 154 110 160 110 160 150 177 150))
+(connect D5:1 D7:1
+(points 2 373 70 445 70))
+(connect D3:1 D7:2
+(points 4 403 110 420 110 420 90 445 90))
+(connect D7:0 D8:0
+(points 2 480 95 480 135))
+(connect D4:1 D8:1
+(points 2 403 150 445 150))
+(connect D8:0 D9:0
+(points 2 480 165 480 185))
+(connect D10:1 D9:1
+(points 2 403 200 445 200))
+(connect D12:1 D10:1
+(points 2 242 200 257 200))
+(connect D1:1 D12:1
+(points 4 154 110 160 110 160 200 178 200))
+(connect D1:1 D13:1
+(points 4 154 110 160 110 160 240 179 240))
+(connect D13:1 D14:1
+(points 2 241 240 257 240))
+(connect D9:0 D15:0
+(points 2 480 215 480 225))
+(connect D14:1 D15:1
+(points 2 403 240 445 240))
+(connect D1:1 D16:1
+(points 4 154 110 160 110 160 280 178 280))
+(connect D16:1 D17:1
+(points 2 241 280 257 280))
+(connect D15:0 D18:0
+(points 2 480 255 480 265))
+(connect D17:1 D18:1
+(points 2 403 280 445 280))
+(connect D1:1 D19:1
+(points 6 154 110 160 110 160 140 130 140 130 320 153 320))
+(connect D19:1 D20:1
+(points 2 246 320 257 320))
+(connect D18:0 D21:0
+(points 2 480 295 480 305))
+(connect D20:1 D21:1
+(points 2 403 320 445 320)))
+(stackingOrder 0 5 6 7 9 11 4 8 12 10 14 17 18 20 21 13 16 19 15 3 2 1))))
+(context 0
+(properties
+(name "CreateMenu")
+(variableName CreateMenu)
+(variableScope cont)
+(trigMode deg)
+(nextID 28)
+(popupTitleText "UserFunction")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 0 DOTNETCONTROL
+(properties
+(name "MenuStrip")
+(variableName MenuStrip)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.MenuStrip"))
+(implementation
+(state 322 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+00000004000000060800000005302C203234060900000004302C2030060A0000000130060B000000
+000B
+)))
+(device 1 LITERALCONSTANT
+(properties
+(name "File")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "File"))
+(initValue Text
+(data  ""))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Edit")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Edit"))
+(initValue Text
+(data  ""))))
+(device 5 LITERALCONSTANT
+(properties
+(name "View")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "View"))
+(initValue Text
+(data  ""))))
+(device 20 CONTEXT
+(properties
+(name "Create File Menu Items")
+(variableScope cont)
+(trigMode deg)
+(nextID 19)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Menu")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Menu")
+(variableScope cont)
+(expr 1 "MenuItem = MenuStrip.Items.Add(Menu);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(output 1
+(name "MenuItem")
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Open")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Open..."))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "New")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "New"))
+(initValue Text
+(data  ""))))
+(device 3 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1
+"SubMenuItem = Menu.DropDownItems.Add(SubMenuName,m_imagelist.Images.Item(0));")
+)
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1
+"SubMenuItem = Menu.DropDownItems.Add(SubMenuName,m_imagelist.Images.Item(1));")
+)
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1
+"SubMenuItem = Menu.DropDownItems.Add(SubMenuName,m_imagelist.Images.Item(2));")
+)
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Save ...")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Save ..."))
+(initValue Text
+(data  ""))))
+(device 7 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FileNewMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FileOpenMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FileSaveMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 DECLVAR
+(properties
+(name "Declare FileOpenMenu")
+(scope glob)
+(globalName "FileOpenMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 11 DECLVAR
+(properties
+(name "Declare FileNewMenu")
+(scope glob)
+(globalName "FileNewMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 12 DECLVAR
+(properties
+(name "Declare FileSaveMenu")
+(scope glob)
+(globalName "FileSaveMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 13 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 2 "SubMenuItem = " "Menu.DropDownItems.Add(sep);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "sep")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FileExitMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 17 LITERALCONSTANT
+(properties
+(name "Exit")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Exit"))
+(initValue Text
+(data  ""))))
+(device 18 DECLVAR
+(properties
+(name "Declare FileExitMenu")
+(scope glob)
+(globalName "FileExitMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D3:1)
+(connect D2:1 D3:2)
+(connect D3:0 D4:0)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D4:0 D5:0)
+(connect D0:1 D5:1)
+(connect D6:1 D5:2)
+(connect D3:1 D7:1)
+(connect D4:1 D8:1)
+(connect D5:1 D9:1)
+(connect D5:0 D13:0)
+(connect D0:1 D13:1)
+(connect D14:1 D13:2)
+(connect D16:1 D15:1)
+(connect D13:0 D16:0)
+(connect D0:1 D16:1)
+(connect D17:1 D16:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 878 609)
+(anchorPt 34 94)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 34 15))
+(open
+(extent 74 26))
+(pinCenter 210 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 29 15))
+(open
+(extent 74 26))
+(pinCenter 210 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 140))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 200))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 43 15))
+(open
+(extent 79 26))
+(pinCenter 210 210))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 140))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 200))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 138 15))
+(open
+(extent 345 124))
+(pinCenter 270 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 345 124))
+(pinCenter 100 30))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 135 15))
+(open
+(extent 345 124))
+(pinCenter 440 30))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 374 65))
+(terminals on)
+(pinCenter 320 270))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 110 280))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 340))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 400))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 79 26))
+(pinCenter 190 410))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 126 15))
+(open
+(extent 345 124))
+(pinCenter 590 30))
+(connect I1:1 D0:1
+(points 4 -34 210 10 210 10 130 29 130))
+(connect D0:1 D3:1
+(points 8 111 130 130 130 130 120 170 120 170 60 250 60 250 70 265 70))
+(connect D2:1 D3:2
+(points 2 227 90 265 90))
+(connect D3:0 D4:0
+(points 2 320 95 320 125))
+(connect D0:1 D4:1
+(points 6 111 130 130 130 130 120 250 120 250 130 265 130))
+(connect D1:1 D4:2
+(points 2 229 150 265 150))
+(connect D4:0 D5:0
+(points 2 320 155 320 185))
+(connect D0:1 D5:1
+(points 6 111 130 130 130 130 180 140 180 140 190 265 190))
+(connect D6:1 D5:2
+(points 2 234 210 265 210))
+(connect D3:1 D7:1
+(points 2 374 80 423 80))
+(connect D4:1 D8:1
+(points 2 374 140 423 140))
+(connect D5:1 D9:1
+(points 2 374 200 423 200))
+(connect D5:0 D13:0
+(points 2 320 215 320 255))
+(connect D0:1 D13:1
+(points 8 111 130 130 130 130 180 140 180 140 240 160 240 160 260 265 260))
+(connect D14:1 D13:2
+(points 2 190 280 265 280))
+(connect D16:1 D15:1
+(points 4 374 400 390 400 390 340 423 340))
+(connect D13:0 D16:0
+(points 2 320 285 320 385))
+(connect D0:1 D16:1
+(points 10 111 130 130 130 130 180 140 180 140 240 160 240 160 260 250 260 250
+390 265 390))
+(connect D17:1 D16:2
+(points 2 204 410 265 410)))
+(stackingOrder 2 8 0 9 11 12 10 18 15 16 17 13 14 6 1 7 3 5 4))))
+(device 21 CONTEXT
+(properties
+(name "Create Edit Menu Items")
+(variableScope cont)
+(trigMode deg)
+(nextID 27)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Menu")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Menu")
+(variableScope cont)
+(expr 1 "MenuItem = MenuStrip.Items.Add(Menu);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(output 1
+(name "MenuItem")
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Undo")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Undo"))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Redo")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Redo"))
+(initValue Text
+(data  ""))))
+(device 3 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "EditRedoMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "EditUndoMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 DECLVAR
+(properties
+(name "Declare EditUndoMenu")
+(scope glob)
+(globalName "EditUndoMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 11 DECLVAR
+(properties
+(name "Declare EditRedoMenu")
+(scope glob)
+(globalName "EditRedoMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 13 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 2 "SubMenuItem = " "Menu.DropDownItems.Add(sep);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "sep")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "EditCutMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 17 LITERALCONSTANT
+(properties
+(name "Cut")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Cut"))
+(initValue Text
+(data  ""))))
+(device 18 DECLVAR
+(properties
+(name "Declare EditCutMenu")
+(scope glob)
+(globalName "EditCutMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 19 DECLVAR
+(properties
+(name "Declare EditCopyMenu")
+(scope glob)
+(globalName "EditCopyMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 20 DECLVAR
+(properties
+(name "Declare EditPasteMenu")
+(scope glob)
+(globalName "EditPasteMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 21 LITERALCONSTANT
+(properties
+(name "Copy")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Copy"))
+(initValue Text
+(data  ""))))
+(device 22 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "EditCopyMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 24 LITERALCONSTANT
+(properties
+(name "Paste")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Paste"))
+(initValue Text
+(data  ""))))
+(device 25 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "EditPasteMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D3:1)
+(connect D2:1 D3:2)
+(connect D3:0 D4:0)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D5:1)
+(connect D4:1 D6:1)
+(connect D4:0 D9:0)
+(connect D0:1 D9:1)
+(connect D10:1 D9:2)
+(connect D12:1 D11:1)
+(connect D9:0 D12:0)
+(connect D0:1 D12:1)
+(connect D13:1 D12:2)
+(connect D19:1 D18:1)
+(connect D12:0 D19:0)
+(connect D0:1 D19:1)
+(connect D17:1 D19:2)
+(connect D22:1 D21:1)
+(connect D19:0 D22:0)
+(connect D0:1 D22:1)
+(connect D20:1 D22:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 758 532)
+(anchorPt -4 84)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 34 15))
+(open
+(extent 74 26))
+(pinCenter 210 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 34 15))
+(open
+(extent 74 26))
+(pinCenter 210 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 140))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 345 124))
+(pinCenter 260 -40))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 345 124))
+(pinCenter 100 -40))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 374 56))
+(terminals on)
+(pinCenter 320 200))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 110 210))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 260))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 260))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 74 26))
+(pinCenter 201 270))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 345 124))
+(pinCenter 100 20))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 137 15))
+(open
+(extent 345 124))
+(pinCenter 260 20))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 345 124))
+(pinCenter 430 20))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 32 15))
+(open
+(extent 74 26))
+(pinCenter 200 320))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 310))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 310))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 74 26))
+(pinCenter 210 380))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 370))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 370))
+(connect I1:1 D0:1
+(points 4 4 181 10 181 10 130 29 130))
+(connect D0:1 D3:1
+(points 8 111 130 130 130 130 120 170 120 170 60 240 60 240 70 265 70))
+(connect D2:1 D3:2
+(points 2 229 90 265 90))
+(connect D3:0 D4:0
+(points 2 320 95 320 125))
+(connect D0:1 D4:1
+(points 6 111 130 130 130 130 120 240 120 240 130 265 130))
+(connect D1:1 D4:2
+(points 2 229 150 265 150))
+(connect D3:1 D5:1
+(points 2 374 80 423 80))
+(connect D4:1 D6:1
+(points 2 374 140 423 140))
+(connect D4:0 D9:0
+(points 2 320 155 320 185))
+(connect D0:1 D9:1
+(points 8 111 130 130 130 130 120 170 120 170 180 210 180 210 190 265 190))
+(connect D10:1 D9:2
+(points 2 190 210 265 210))
+(connect D12:1 D11:1
+(points 2 374 260 423 260))
+(connect D9:0 D12:0
+(points 2 320 215 320 245))
+(connect D0:1 D12:1
+(points 10 111 130 130 130 130 120 170 120 170 180 210 180 210 190 240 190 240
+250 265 250))
+(connect D13:1 D12:2
+(points 2 215 270 265 270))
+(connect D19:1 D18:1
+(points 2 374 310 423 310))
+(connect D12:0 D19:0
+(points 2 320 275 320 295))
+(connect D0:1 D19:1
+(points 10 111 130 130 130 130 120 170 120 170 180 210 180 210 190 240 190 240
+300 265 300))
+(connect D17:1 D19:2
+(points 2 218 320 265 320))
+(connect D22:1 D21:1
+(points 2 374 370 423 370))
+(connect D19:0 D22:0
+(points 2 320 325 320 355))
+(connect D0:1 D22:1
+(points 10 111 130 130 130 130 120 170 120 170 180 210 180 210 190 240 190 240
+360 265 360))
+(connect D20:1 D22:2
+(points 2 230 380 265 380)))
+(stackingOrder 3 4 0 2 5 6 9 10 1 12 11 8 7 14 15 16 19 22 17 20 13 21 18))))
+(device 22 CONTEXT
+(properties
+(name "Create View Menu Items")
+(variableScope cont)
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Menu")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Menu")
+(variableScope cont)
+(expr 1 "MenuItem = MenuStrip.Items.Add(Menu);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(output 1
+(name "MenuItem")
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "StatusBar")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Status Bar"))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "ToolBars")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Toolbar"))
+(initValue Text
+(data  ""))))
+(device 3 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 3 "ViewToolbarMenu = a;" "ViewToolBarMenu.Checked = true;"
+"ViewToolBarMenu.Enabled = false;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 2 "ViewStatusBarMenu = a;" "ViewStatusBarMenu.Checked = true;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 DECLVAR
+(properties
+(name "Declare ViewStatusBarMenu")
+(scope glob)
+(globalName "ViewStatusBarMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 11 DECLVAR
+(properties
+(name "Declare ViewToolBarMenu")
+(scope glob)
+(globalName "ViewToolBarMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D3:1)
+(connect D2:1 D3:2)
+(connect D3:0 D4:0)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D5:1)
+(connect D4:1 D6:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 758 392)
+(anchorPt -6 63)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 59 15))
+(open
+(extent 74 26))
+(pinCenter 210 150))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 55 15))
+(open
+(extent 83 26))
+(pinCenter 210 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 174 126))
+(terminals on)
+(pinCenter 490 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 194 126))
+(terminals on)
+(pinCenter 490 140))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 171 15))
+(open
+(extent 345 124))
+(pinCenter 500 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 345 124))
+(pinCenter 310 30))
+(connect I1:1 D0:1
+(points 4 6 132 10 132 10 130 29 130))
+(connect D0:1 D3:1
+(points 8 111 130 130 130 130 120 170 120 170 60 240 60 240 70 265 70))
+(connect D2:1 D3:2
+(points 4 254 90 252 90 252 90 265 90))
+(connect D3:0 D4:0
+(points 2 320 95 320 125))
+(connect D0:1 D4:1
+(points 6 111 130 130 130 130 120 240 120 240 130 265 130))
+(connect D1:1 D4:2
+(points 4 249 150 253 150 253 150 265 150))
+(connect D3:1 D5:1
+(points 2 374 80 413 80))
+(connect D4:1 D6:1
+(points 2 374 140 413 140)))
+(stackingOrder 3 4 0 2 1 7 8 6 5))))
+(device 24 LITERALCONSTANT
+(properties
+(name "Help")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Help"))
+(initValue Text
+(data  ""))))
+(device 25 CONTEXT
+(properties
+(name "Create Help Menu Items")
+(variableScope cont)
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Menu")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Menu")
+(variableScope cont)
+(expr 1 "MenuItem = MenuStrip.Items.Add(Menu);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(output 1
+(name "MenuItem")
+(optional yes))))
+(device 2 LITERALCONSTANT
+(properties
+(name "About")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "About VEE WordPad"))
+(initValue Text
+(data  ""))))
+(device 3 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "HelpAboutMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 DECLVAR
+(properties
+(name "Declare HelpAboutMenu")
+(scope glob)
+(globalName "HelpAboutMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:1 D3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 758 392)
+(anchorPt -4 63)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 83 26))
+(pinCenter 180 130))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 300 120))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 470 120))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 146 15))
+(open
+(extent 345 124))
+(pinCenter 320 70))
+(connect I1:1 D0:1
+(points 4 4 132 10 132 10 130 29 130))
+(connect D0:1 D2:1
+(points 6 111 130 130 130 130 100 220 100 220 110 245 110))
+(connect D1:1 D2:2
+(points 2 200 130 245 130))
+(connect D2:1 D3:1
+(points 2 354 120 393 120)))
+(stackingOrder 0 2 3 1 4))))
+(device 26 CONTEXT
+(properties
+(name "Create Format Menu Items")
+(variableScope cont)
+(trigMode deg)
+(nextID 18)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Menu")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Menu")
+(variableScope cont)
+(expr 1 "MenuItem = MenuStrip.Items.Add(Menu);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(output 1
+(name "MenuItem")
+(optional yes))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Font ...")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Font..."))
+(initValue Text
+(data  ""))))
+(device 3 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FormatFontMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 DECLVAR
+(properties
+(name "Declare FormatFontMenu")
+(scope glob)
+(globalName "FormatFontMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(device 14 FORMULA
+(properties
+(name "Assign Menu Item Object")
+(variableScope cont)
+(expr 1 "FormatColorMenu = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "Create Sub Menu")
+(variableScope cont)
+(expr 1 "SubMenuItem = Menu.DropDownItems.Add(SubMenuName);"))
+(interface
+(input 1
+(name "Menu")
+(optional yes))
+(input 2
+(name "SubMenuName")
+(optional yes))
+(output 1
+(name "SubMenuItem")
+(optional yes))))
+(device 16 LITERALCONSTANT
+(properties
+(name "Color ...")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Color ..."))
+(initValue Text
+(data  ""))))
+(device 17 DECLVAR
+(properties
+(name "Declare FormatColorMenu")
+(scope glob)
+(globalName "FormatColorMenu"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripMenuItem"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:1 D3:1)
+(connect D6:1 D5:1)
+(connect D2:0 D6:0)
+(connect D0:1 D6:1)
+(connect D7:1 D6:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 576 192)
+(anchorPt -5 -66)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 83 26))
+(pinCenter 210 150))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 174 126))
+(terminals on)
+(pinCenter 480 140))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 152 15))
+(open
+(extent 345 124))
+(pinCenter 110 90))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 174 126))
+(terminals on)
+(pinCenter 480 220))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 245 56))
+(terminals on)
+(pinCenter 320 220))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 46 15))
+(open
+(extent 83 26))
+(pinCenter 210 230))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 345 124))
+(pinCenter 290 90))
+(connect I1:1 D0:1
+(points 4 5 161 20 161 20 130 29 130))
+(connect D0:1 D2:1
+(points 6 111 130 130 130 130 120 250 120 250 130 265 130))
+(connect D1:1 D2:2
+(points 2 232 150 265 150))
+(connect D2:1 D3:1
+(points 2 374 140 403 140))
+(connect D6:1 D5:1
+(points 2 374 220 403 220))
+(connect D2:0 D6:0
+(points 2 320 155 320 205))
+(connect D0:1 D6:1
+(points 6 111 130 140 130 140 180 250 180 250 210 265 210))
+(connect D7:1 D6:2
+(points 2 235 230 265 230)))
+(stackingOrder 0 2 3 6 4 8 5 1 7))))
+(device 27 LITERALCONSTANT
+(properties
+(name "Format")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Format"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:1 D4:1)
+(connect D4:0 D5:0)
+(connect D2:1 D5:1)
+(connect D5:0 D6:0)
+(connect D3:1 D6:1)
+(connect D9:0 D8:0)
+(connect D7:1 D8:1)
+(connect D6:0 D9:0)
+(connect D10:1 D9:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 792 25)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin -3 -2)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 796 24)))
+(detail
+(extent 317 346)
+(anchorPt -34 -167)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 60 15))
+(open
+(extent 200 24))
+(pinCenter 190 230))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 74 26))
+(pinCenter 100 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 74 26))
+(pinCenter 100 330))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 74 26))
+(pinCenter 100 380))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 139 15))
+(terminals on)
+(pinCenter 230 280))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 140 15))
+(terminals on)
+(pinCenter 230 330))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 146 15))
+(terminals on)
+(pinCenter 230 380))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 74 26))
+(pinCenter 100 470))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 146 15))
+(terminals on)
+(pinCenter 230 470))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 160 15))
+(terminals on)
+(pinCenter 230 420))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 43 15))
+(open
+(extent 74 26))
+(pinCenter 100 420))
+(connect D1:1 D4:1
+(points 2 114 280 158 280))
+(connect D4:0 D5:0
+(points 2 230 290 230 320))
+(connect D2:1 D5:1
+(points 2 115 330 157 330))
+(connect D5:0 D6:0
+(points 2 230 340 230 370))
+(connect D3:1 D6:1
+(points 2 117 380 154 380))
+(connect D9:0 D8:0
+(points 2 230 430 230 460))
+(connect D7:1 D8:1
+(points 2 117 470 154 470))
+(connect D6:0 D9:0
+(points 2 230 390 230 410))
+(connect D10:1 D9:1
+(points 2 124 420 147 420)))
+(stackingOrder 1 2 3 5 0 7 8 4 10 9 6))))
+(context 14
+(properties
+(name "CreateStatusBar")
+(variableName CreateStatusBar)
+(variableScope cont)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction1")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0)
+(popupTitleBackgroundColor "Control"))
+(deviceList
+(device 0 DOTNETCONTROL
+(properties
+(name "StatusStrip")
+(variableName StatusStrip)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.StatusStrip"))
+(implementation
+(state 324 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+00000004000000060800000005302C203232060900000006302C202D3232060A0000000130060B00
+0000000B
+)))
+(device 1 FORMULA
+(properties
+(variableScope cont)
+(expr 8
+"statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;"
+"g_statusBar = statusStrip;" "g_statusBar.Items.Add(\"Status of Operation\");"
+"g_statusBar.Items.Add(seperator);"
+"g_statusBar.Items.Add(\"Line 1, Col 1, CW\");" "g_statusBar.Items.Add(sep2);"
+"g_statusBar.Items.Add(\"Clock: \");" "g_statusBar.Items.Add(sep3);"))
+(interface
+(input 1
+(name "seperator")
+(optional yes))
+(input 2
+(name "sep2")
+(optional yes))
+(input 3
+(name "sep3")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(configuration
+(connect D2:1 D1:1)
+(connect D3:1 D1:2)
+(connect D4:1 D1:3)))
+(contextCarrier
+(active panel)
+(panel
+(extent 792 18)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 0 0)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 786 16)))
+(detail
+(extent 864 587)
+(anchorPt 42 23)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 200 22))
+(pinCenter 110 140))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 50 34))
+(open
+(extent 574 196))
+(terminals on)
+(pinCenter 290 310))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 90 260))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 90 300))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 90 340))
+(connect D2:1 D1:1
+(points 4 170 260 200 260 200 300 262 300))
+(connect D3:1 D1:2
+(points 4 170 300 190 300 190 310 262 310))
+(connect D4:1 D1:3
+(points 4 170 340 190 340 190 320 262 320)))
+(stackingOrder 2 3 4 0 1))))
+(context 15
+(properties
+(name "CreateToolBar")
+(variableName CreateToolBar)
+(variableScope cont)
+(trigMode deg)
+(nextID 46)
+(popupTitleText "UserFunction1")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 2 DOTNETCONTROL
+(properties
+(name "ToolStrip")
+(variableName ToolStrip)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ToolStrip"))
+(implementation
+(state 322 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+00000004000000060800000005302C203235060900000004302C2030060A0000000130060B000000
+000B
+)))
+(device 11 FORMULA
+(properties
+(name "Add Tool Button \"New\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(0));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 DECLVAR
+(properties
+(name "Declare FileNewToolbutton")
+(scope glob)
+(globalName "FileNewToolbutton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(device 24 FORMULA
+(properties
+(name "Add Tool Button \"Open\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(1));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 FORMULA
+(properties
+(name "Add Tool Button \"Save\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(2));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FileNewToolbutton = toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 DECLVAR
+(properties
+(name "Declare FileOpenToolbutton")
+(scope glob)
+(globalName "FileOpenToolbutton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(device 28 DECLVAR
+(properties
+(name "Declare FileSaveToolbutton")
+(scope glob)
+(globalName "FileSaveToolbutton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(device 29 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FileOpenToolbutton = toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FileSaveToolbutton = toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 33 FORMULA
+(properties
+(name "Add Tool Button Sep")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(a);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FormatBoldToolButton = toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 36 FORMULA
+(properties
+(name "Add Tool Button \"Bold\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(3));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 37 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FormatItalicToolButton= toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 38 FORMULA
+(properties
+(name "Add Tool Button \"Italic\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(4));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 39 FORMULA
+(properties
+(name "Init ToolButton")
+(variableScope cont)
+(expr 1 "FormatUnderlineToolButton = toolstripButton;"))
+(interface
+(input 1
+(name "toolstripButton")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 40 FORMULA
+(properties
+(name "Add Tool Button \"Underline\"")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(m_imageList.Images.Item(5));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 FORMULA
+(properties
+(name "Add Tool Button Sep")
+(variableScope cont)
+(expr 1 "ToolStrip.Items.Add(a);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 42 FORMULA
+(properties
+(name "CreateSeperator Instance")
+(variableScope cont)
+(expr 1
+"toolstripseparator = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ToolStripSeparator\" );"
+))
+(interface
+(output 1
+(name "toolstripseparator")
+(optional yes))))
+(device 43 DECLVAR
+(properties
+(name "Declare FormatUnderlineToolButton")
+(scope glob)
+(globalName "FormatUnderlineToolButton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(device 44 DECLVAR
+(properties
+(name "Declare FormatItalicToolButton")
+(scope glob)
+(globalName "FormatItalicToolButton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(device 45 DECLVAR
+(properties
+(name "Declare FormatBoldToolButton")
+(scope glob)
+(globalName "FormatBoldToolButton"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.ToolStripButton"))))
+(configuration
+(connect D1:0 D3:0)
+(connect D3:0 D4:0)
+(connect D1:1 D5:1)
+(connect D3:1 D8:1)
+(connect D4:1 D9:1)
+(connect D4:0 D11:0)
+(connect D10:1 D11:1)
+(connect D13:1 D12:1)
+(connect D11:0 D13:0)
+(connect D15:1 D14:1)
+(connect D13:0 D15:0)
+(connect D17:1 D16:1)
+(connect D15:0 D17:0)
+(connect D17:0 D18:0)
+(connect D19:1 D18:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 792 28)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin -2 0)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 836 24)))
+(detail
+(extent 752 502)
+(anchorPt -93 28)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 53 0))
+(open
+(extent 584 26))
+(pinCenter 420 20))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 134 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 150))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 163 15))
+(open
+(extent 359 124))
+(pinCenter 210 70))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 190))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 136 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 230))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 150))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 169 15))
+(open
+(extent 359 124))
+(pinCenter 400 70))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 359 124))
+(pinCenter 600 70))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 190))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 230))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 230 270))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 122 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 270))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 320))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 134 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 320))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 360))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 134 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 360))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 400))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 400))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 122 15))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 400 440))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 639 50))
+(terminals on)
+(pinCenter 230 440))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 217 15))
+(open
+(extent 359 124))
+(pinCenter 630 110))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 359 124))
+(pinCenter 400 110))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 359 124))
+(pinCenter 200 110))
+(connect D1:0 D3:0
+(points 2 400 160 400 180))
+(connect D3:0 D4:0
+(points 2 400 200 400 220))
+(connect D1:1 D5:1
+(points 2 469 150 565 150))
+(connect D3:1 D8:1
+(points 2 472 190 565 190))
+(connect D4:1 D9:1
+(points 2 470 230 565 230))
+(connect D4:0 D11:0
+(points 2 400 240 400 260))
+(connect D10:1 D11:1
+(points 2 310 270 336 270))
+(connect D13:1 D12:1
+(points 2 469 320 565 320))
+(connect D11:0 D13:0
+(points 2 400 280 400 310))
+(connect D15:1 D14:1
+(points 2 469 360 565 360))
+(connect D13:0 D15:0
+(points 2 400 330 400 350))
+(connect D17:1 D16:1
+(points 2 485 400 565 400))
+(connect D15:0 D17:0
+(points 2 400 370 400 390))
+(connect D17:0 D18:0
+(points 2 400 410 400 430))
+(connect D19:1 D18:1
+(points 2 310 440 336 440)))
+(stackingOrder 2 5 8 9 6 7 0 4 1 3 10 19 11 13 15 17 18 21 22 20 12 14 16))))
+(context 12
+(properties
+(name "EditCopyMenu_Click")
+(variableName EditCopyMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.Copy();"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 343 170)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 170 90))))))
+(context 11
+(properties
+(name "EditCutMenu_Click")
+(variableName EditCutMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.Cut();"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 712 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 320 150))))))
+(context 13
+(properties
+(name "EditPasteMenu_Click")
+(variableName EditPasteMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.Paste();"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 712 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 290 220))))))
+(context 4
+(properties
+(name "EditRedoMenu_Click")
+(variableName EditRedoMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.Redo();"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 657 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 300 220))))))
+(context 5
+(properties
+(name "EditUndoMenu_Click")
+(variableName EditUndoMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.Undo();"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 657 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 320 240))))))
+(context 9
+(properties
+(name "FileExitMenu_Click")
+(variableName FileExitMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 6)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 5 FORMULA
+(properties
+(name "g_exit = true")
+(variableScope cont)
+(expr 1 "g_exit = true"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 486 341)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 87 50))
+(terminals on)
+(pinCenter 250 180))))))
+(context 1
+(properties
+(name "FileNewMenu_Click")
+(variableName FileNewMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 5)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 2 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1 "g_richTextBox.Text = \"\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = \"New File\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 496 395)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 180 170))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 180 220))
+(connect D0:0 D1:0
+(points 2 180 180 180 205)))
+(stackingOrder 0 1))))
+(context 18
+(properties
+(name "FileNewToolbutton_Click")
+(variableName FileNewToolbutton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1 "g_richTextBox.Text = \"\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = \"New File\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 670 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 320 270))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 330 390))
+(connect D0:0 D1:0
+(points 2 330 305 330 375)))
+(stackingOrder 0 1))))
+(context 2
+(properties
+(name "FileOpenMenu_Click")
+(variableName FileOpenMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 10)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Create OpenFileDialog Instance")
+(variableScope cont)
+(expr 1
+"openfiledialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.OpenFileDialog\" );"
+))
+(interface
+(output 1
+(name "openfiledialog")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Show OpenFileDialog")
+(variableScope cont)
+(expr 4 "filedlg.Filter = \"*.*|*.*\";" "return = fileDlg.ShowDialog();"
+"return =return.ToString();" "file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "GetFileName")
+(variableScope cont)
+(expr 1 "fileDlg.FileName;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1
+"g_richTextBox.LoadFile(FilePath,System.Windows.Forms.RichTextBoxStreamType.PlainText);"
+))
+(interface
+(input 1
+(name "FilePath")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 IFTHENELSE
+(properties
+(name "Dialog Result")
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 FORMULA
+(properties
+(name "Adjust Font Size of Rich Text Box")
+(variableScope cont)
+(expr 3 "g_richTextBox.SelectAll();" "g_richTextBox.Font = font;"
+"g_richTextBox.Select(0,0);"))
+(interface
+(input 1
+(name "font")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Create Courier Font")
+(variableScope cont)
+(expr 1
+"font = CreateInstance(\"System.Drawing\", \"System.Drawing.Font\", \"Courier\", 12);"
+))
+(interface
+(output 1
+(name "font")
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = file+\" is loaded\";"))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D4:1 D2:0)
+(connect D1:2 D2:1)
+(connect D2:1 D3:1)
+(connect D1:1 D4:1)
+(connect D6:1 D5:1)
+(connect D3:0 D6:0)
+(connect D2:1 D7:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 821 587)
+(anchorPt -4 -24)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 603 50))
+(terminals on)
+(pinCenter 130 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 132 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 320 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 25))
+(open
+(extent 125 65))
+(terminals on)
+(pinCenter 180 250))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 350 250))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 470 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 204 146))
+(terminals on)
+(pinCenter 540 340))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 511 50))
+(terminals on)
+(pinCenter 350 340))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 350 390))
+(connect D0:1 D1:1
+(points 2 229 110 251 110))
+(connect D4:1 D2:0
+(points 5 513 90 530 90 530 160 180 160 180 235))
+(connect D1:2 D2:1
+(points 6 388 120 410 120 410 150 120 150 120 250 137 250))
+(connect D2:1 D3:1
+(points 2 222 250 268 250))
+(connect D1:1 D4:1
+(points 2 388 100 426 100))
+(connect D6:1 D5:1
+(points 2 411 340 441 340))
+(connect D3:0 D6:0
+(points 2 350 260 350 330))
+(connect D2:1 D7:1
+(points 4 222 250 240 250 240 390 290 390)))
+(stackingOrder 6 5 0 3 4 7 1 2))))
+(context 19
+(properties
+(name "FileOpenToolbutton_Click")
+(variableName FileOpenToolbutton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 9)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Create Courier Font")
+(variableScope cont)
+(expr 1
+"font = CreateInstance(\"System.Drawing\", \"System.Drawing.Font\", \"Courier\", 12);"
+))
+(interface
+(output 1
+(name "font")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Adjust Font Size of Rich Text Box")
+(variableScope cont)
+(expr 3 "g_richTextBox.SelectAll();" "g_richTextBox.Font = font;"
+"g_richTextBox.Select(0,0);"))
+(interface
+(input 1
+(name "font")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 IFTHENELSE
+(properties
+(name "Dialog Result")
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1
+"g_richTextBox.LoadFile(FilePath,System.Windows.Forms.RichTextBoxStreamType.PlainText);"
+))
+(interface
+(input 1
+(name "FilePath")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "GetFileName")
+(variableScope cont)
+(expr 1 "fileDlg.FileName"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "Show OpenFileDialog")
+(variableScope cont)
+(expr 4 "filedlg.Filter = \"*.*|*.*\";" "return = fileDlg.ShowDialog();"
+"return =return.ToString();" "file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Create OpenFileDialog Instance")
+(variableScope cont)
+(expr 1
+"openfiledialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.OpenFileDialog\" );"
+))
+(interface
+(output 1
+(name "openfiledialog")
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = file+\" is loaded\";"))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D3:0 D0:0)
+(connect D0:1 D1:1)
+(connect D5:1 D2:1)
+(connect D4:1 D3:1)
+(connect D2:1 D4:0)
+(connect D5:2 D4:1)
+(connect D6:1 D5:1)
+(connect D4:1 D7:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 637 587)
+(anchorPt 0 22)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 511 50))
+(terminals on)
+(pinCenter 340 310))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 204 146))
+(terminals on)
+(pinCenter 530 310))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 460 70))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 340 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 170 220))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 132 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 310 80))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 603 50))
+(terminals on)
+(pinCenter 120 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 350 370))
+(connect D3:0 D0:0
+(points 2 340 230 340 300))
+(connect D0:1 D1:1
+(points 2 401 310 431 310))
+(connect D5:1 D2:1
+(points 2 378 70 416 70))
+(connect D4:1 D3:1
+(points 2 212 220 258 220))
+(connect D2:1 D4:0
+(points 5 503 60 520 60 520 130 170 130 170 210))
+(connect D5:2 D4:1
+(points 6 378 90 400 90 400 120 110 120 110 220 127 220))
+(connect D6:1 D5:1
+(points 2 219 80 241 80))
+(connect D4:1 D7:1
+(points 4 212 220 230 220 230 370 290 370)))
+(stackingOrder 0 1 2 3 7 5 4 6))))
+(context 8
+(properties
+(name "FileSaveMenu_Click")
+(variableName FileSaveMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 9)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 2 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1
+"g_richTextBox.SaveFile(FilePath,System.Windows.Forms.RichTextBoxStreamType.PlainText);"
+))
+(interface
+(input 1
+(name "FilePath")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "get file name")
+(variableScope cont)
+(expr 1 "fileDlg.FileName"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(name "Show SaveFileDialog")
+(variableScope cont)
+(expr 4 "filedlg.Filter = \"*.*|*.*\";" "return = fileDlg.ShowDialog();"
+"return =return.ToString();" "file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "Create SaveFileDialog Instance")
+(variableScope cont)
+(expr 1
+"savefiledialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.SaveFileDialog\" );"
+))
+(interface
+(output 1
+(name "savefiledialog")
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = file+\" is saved\";"))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:1 D1:0)
+(connect D3:2 D1:1)
+(connect D3:1 D2:1)
+(connect D4:1 D3:1)
+(connect D1:1 D5:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 712 587)
+(anchorPt 26 27)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 360 250))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 190 250))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 480 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 128 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 340 110))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 190 15))
+(open
+(extent 603 50))
+(terminals on)
+(pinCenter 150 110))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 340 320))
+(connect D1:1 D0:1
+(points 2 231 250 278 250))
+(connect D2:1 D1:0
+(points 5 518 90 540 90 540 160 190 160 190 240))
+(connect D3:2 D1:1
+(points 6 406 120 420 120 420 150 130 150 130 250 148 250))
+(connect D3:1 D2:1
+(points 2 406 100 442 100))
+(connect D4:1 D3:1
+(points 2 247 110 273 110))
+(connect D1:1 D5:1
+(points 4 231 250 250 250 250 320 280 320)))
+(stackingOrder 2 4 0 1 3 5))))
+(context 20
+(properties
+(name "FileSaveToolbutton_Click")
+(variableName FileSaveToolbutton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create SaveFileDialog Instance")
+(variableScope cont)
+(expr 1
+"savefiledialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.SaveFileDialog\" );"
+))
+(interface
+(output 1
+(name "savefiledialog")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Show SaveFileDialog")
+(variableScope cont)
+(expr 4 "filedlg.Filter = \"*.*|*.*\";" "return = fileDlg.ShowDialog();"
+"return =return.ToString();" "file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "Get file name")
+(variableScope cont)
+(expr 1 "fileDlg.FileName"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Open File By Rich Text Box")
+(variableScope cont)
+(expr 1
+"g_richTextBox.SaveFile(FilePath,System.Windows.Forms.RichTextBoxStreamType.PlainText);"
+))
+(interface
+(input 1
+(name "FilePath")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(0);" "tmp.text = file+\" is saved\";"))
+(interface
+(input 1
+(name "file")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D1:2 D3:1)
+(connect D3:1 D4:1)
+(connect D3:1 D5:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 559 587)
+(anchorPt 1 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 190 15))
+(open
+(extent 603 50))
+(terminals on)
+(pinCenter 140 150))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 128 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 330 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 470 140))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 170 290))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 350 290))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 114 25))
+(open
+(extent 294 126))
+(terminals on)
+(pinCenter 330 360))
+(connect D0:1 D1:1
+(points 4 237 150 250 150 250 150 30 150))
+(connect D1:1 D2:1
+(points 4 629 120 414 120 414 140 432 140))
+(connect D2:1 D3:0
+(points 5 508 130 530 130 530 200 170 200 170 280))
+(connect D1:2 D3:1
+(points 6 629 180 410 180 410 190 110 190 110 290 127 290))
+(connect D3:1 D4:1
+(points 2 212 290 268 290))
+(connect D3:1 D5:1
+(points 4 212 290 250 290 250 360 150 360)))
+(stackingOrder 0 2 4 3 5 1))))
+(context 28
+(properties
+(name "FormatBoldToolButton_Click")
+(variableName FormatBoldToolButton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 6)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "selection font")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Create New Font Based On Old Font")
+(variableScope cont)
+(expr 1
+"font = CreateInstance(\"System.Drawing\", \"System.Drawing.Font\", basefont,style);"
+))
+(interface
+(input 1
+(name "basefont")
+(optional yes))
+(input 2
+(name "style")
+(optional yes))
+(output 1
+(name "font")
+(optional yes))))
+(device 3 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "system.Drawing.FontStyle.Bold"))
+(interface
+(input 1
+(name "font")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Set Bold")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D0:1 D2:1)
+(connect D1:1 D3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 470 201)
+(anchorPt -3 -85)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 60 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 218 25))
+(open
+(extent 504 96))
+(terminals on)
+(pinCenter 340 150))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 334 186))
+(terminals on)
+(pinCenter 170 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 260 230))
+(connect D0:1 D1:1
+(points 2 102 140 228 140))
+(connect D2:1 D1:2
+(points 2 197 160 228 160))
+(connect D0:1 D2:1
+(points 4 102 140 120 140 120 160 142 160))
+(connect D1:1 D3:1
+(points 6 451 150 470 150 470 190 210 190 210 230 232 230)))
+(stackingOrder 1 0 3 2))))
+(context 25
+(properties
+(name "FormatColorMenu_Click")
+(variableName FormatColorMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 5)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create ColorDialog")
+(variableScope cont)
+(expr 1
+"colordialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.ColorDialog\" );"
+))
+(interface
+(output 1
+(name "colordialog")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Change Selection Color")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionColor = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Get Color")
+(variableScope cont)
+(expr 1 "fileDlg.Color"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 IFTHENELSE
+(properties
+(name "Dialog Result")
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "Show FontDialog")
+(variableScope cont)
+(expr 3 "return = fileDlg.ShowDialog();" "return =return.ToString();"
+"file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(configuration
+(connect D2:1 D1:1)
+(connect D3:1 D2:0)
+(connect D4:2 D2:1)
+(connect D4:1 D3:1)
+(connect D0:1 D4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 481 213)
+(anchorPt -32 -86)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 566 50))
+(terminals on)
+(pinCenter 130 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 144 15))
+(open
+(extent 224 50))
+(terminals on)
+(pinCenter 330 260))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 264 86))
+(terminals on)
+(pinCenter 120 260))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 440 150))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 103 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 280 160))
+(connect D2:1 D1:1
+(points 2 151 260 255 260))
+(connect D3:1 D2:0
+(points 5 483 140 500 140 500 210 120 210 120 245))
+(connect D4:2 D2:1
+(points 6 334 170 350 170 350 200 70 200 70 260 89 260))
+(connect D4:1 D3:1
+(points 2 334 150 396 150))
+(connect D0:1 D4:1
+(points 2 190 160 226 160)))
+(stackingOrder 0 3 4 2 1))))
+(context 24
+(properties
+(name "FormatFontMenu_Click")
+(variableName FormatFontMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 5)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create Font Dialog")
+(variableScope cont)
+(expr 1
+"fontdialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.FontDialog\" );"
+))
+(interface
+(output 1
+(name "fontdialog")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Get Font")
+(variableScope cont)
+(expr 1 "fileDlg.Font"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(name "Dialog Result")
+(variableScope cont)
+(cases 1 "A==\"OK\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "Show FontDialog")
+(variableScope cont)
+(expr 3 "return = fileDlg.ShowDialog();" "return =return.ToString();"
+"file = fileDlg;"))
+(interface
+(input 1
+(name "fileDlg")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "file")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont = a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D2:1 D1:0)
+(connect D3:2 D1:1)
+(connect D3:1 D2:1)
+(connect D0:1 D3:1)
+(connect D1:1 D4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 450 192)
+(anchorPt -25 -86)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 553 50))
+(terminals on)
+(pinCenter 100 140))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 264 86))
+(terminals on)
+(pinCenter 90 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 72 76))
+(terminals on)
+(pinCenter 410 130))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 103 25))
+(open
+(extent 494 96))
+(terminals on)
+(pinCenter 250 140))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 224 46))
+(terminals on)
+(pinCenter 250 240))
+(connect D2:1 D1:0
+(points 5 453 120 470 120 470 190 90 190 90 225))
+(connect D3:2 D1:1
+(points 6 304 150 320 150 320 180 40 180 40 240 62 240))
+(connect D3:1 D2:1
+(points 2 304 130 366 130))
+(connect D0:1 D3:1
+(points 2 159 140 196 140))
+(connect D1:1 D4:1
+(points 2 117 240 222 240)))
+(stackingOrder 0 2 4 1 3))))
+(context 27
+(properties
+(name "FormatItalicToolButton_Click")
+(variableName FormatItalicToolButton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "selection font")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Create New Font Based On Old Font")
+(variableScope cont)
+(expr 1
+"font = CreateInstance(\"System.Drawing\", \"System.Drawing.Font\", basefont, style);"
+))
+(interface
+(input 1
+(name "basefont")
+(optional yes))
+(input 2
+(name "style")
+(optional yes))
+(output 1
+(name "font")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "System.Drawing.FontStyle.Italic"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Set Italic")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D1:1 D3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 654 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 110 150))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 218 25))
+(open
+(extent 504 96))
+(terminals on)
+(pinCenter 320 160))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 110 180))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 240))
+(connect D0:1 D1:1
+(points 2 152 150 208 150))
+(connect D2:1 D1:2
+(points 4 137 180 170 180 170 170 208 170))
+(connect D1:1 D3:1
+(points 6 431 160 450 160 450 200 240 200 240 240 262 240)))
+(stackingOrder 0 1 2 3))))
+(context 26
+(properties
+(name "FormatUnderlineToolButton_Click")
+(variableName FormatUnderlineToolButton_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Set Underline")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont = a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Create New Font Based On Old Font")
+(variableScope cont)
+(expr 1
+"font = CreateInstance(\"System.Drawing\", \"System.Drawing.Font\", basefont, style);"
+))
+(interface
+(input 1
+(name "basefont")
+(optional yes))
+(input 2
+(name "style")
+(optional yes))
+(output 1
+(name "font")
+(optional yes))))
+(device 2 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "System.Drawing.FontStyle.Underline"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "selection font")
+(variableScope cont)
+(expr 1 "g_richTextBox.SelectionFont"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)
+(connect D3:1 D1:1)
+(connect D2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 654 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 340 280))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 218 25))
+(open
+(extent 504 96))
+(terminals on)
+(pinCenter 350 200))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 140 220))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 140 190))
+(connect D1:1 D0:1
+(points 6 461 200 480 200 480 240 280 240 280 280 296 280))
+(connect D3:1 D1:1
+(points 2 182 190 238 190))
+(connect D2:1 D1:2
+(points 4 167 220 200 220 200 210 238 210)))
+(stackingOrder 1 3 2 0))))
+(context 10
+(properties
+(name "HelpAboutMenu_Click")
+(variableName HelpAboutMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "About VEE WordPad")
+(position 61 166)
+(message "User Message")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 1 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "\"VEE Word Pad \\nCopyright @ 2005-2018 Keysight Technologies\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 505 202)
+(anchorPt -99 -140)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 390 230))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 364 266))
+(terminals on)
+(pinCenter 140 230))
+(connect D1:1 D0:1
+(points 2 167 230 208 230)))
+(stackingOrder 0 1))))
+(context 22
+(properties
+(name "RichTextBox_SelectionChanged")
+(variableName RichTextBox_SelectionChanged)
+(variableScope cont)
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Change Status Bar")
+(variableScope cont)
+(expr 6 "tmp = g_statusBar.Items.Item(2);"
+"line = g_richTextBox.GetLineFromCharIndex(g_richTextBox.SelectionStart);"
+"text = \"Line \"+ line;"
+"col = g_richTextBox.SelectionStart - g_richTextBox.GetFirstCharIndexFromLine(line);"
+"text = text + \", Col \" + col;" "tmp.text = text;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))
+(output 3
+(name "text")
+(optional yes))
+(output 4
+(name "line")
+(optional yes))
+(output 5
+(name "col")
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 833 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 114 54))
+(open
+(extent 524 106))
+(terminals on)
+(pinCenter 350 240))))))
+(context 16
+(properties
+(name "ViewStatusBarMenu_Click")
+(variableName ViewStatusBarMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "g_statusBar.Visible =!g_statusBar.Visible;"
+"ViewStatusBarMenu.Checked = g_statusBar.Visible;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 670 587)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 50 15))
+(open
+(extent 354 156))
+(terminals on)
+(pinCenter 290 140))))))
+(context 17
+(properties
+(name "ViewToolBarMenu_Click")
+(variableName ViewToolBarMenu_Click)
+(variableScope cont)
+(trigMode deg)
+(nextID 0)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 670 587)
+(anchorPt 0 0)
+(configuration)))))
+(device 14 CALL
+(properties
+(name "Call CreateMenu")
+(variableScope cont)
+(callFunc "CreateMenu")
+(parmMode rev30)))
+(device 15 FORMULA
+(properties
+(name "Put To Main Panel")
+(variableScope cont)
+(expr 3 "showPanel(\"CreateMenu\",0,0,800,25);"
+"showPanel(\"CreateToolBar\",0,24,800,28);"
+"showPanel(\"CreateStatusBar\",0,552,800,30);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DOTNETCONTROL
+(properties
+(name "RichTextBox")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 Go to file:///c:/vee/Main/Src/BuiltComponents/Debug/Examples/DotNetControls/RichTextBox.vee for an example.\\par\r\n}\r\n"
+)
+(variableName RichTextBox)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.RichTextBox"))
+(implementation
+(state 321 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000044E616D65060600000008546162496E6465780607000000084C6F636174696F6E1003
+00000004000000060800000004302C2030060900000000060A0000000130060B00000004302C2030
+0B
+)))
+(device 17 DECLVAR
+(properties
+(name "Declare FilePath")
+(scope glob)
+(globalName "FilePath"))
+(implementation
+(value Text
+(data  ""))))
+(device 18 DECLVAR
+(properties
+(name "Declare g_richTextBox")
+(scope glob)
+(globalName "g_richTextBox"))
+(implementation
+(value Object
+(data  ".NET OFF System.Windows.Forms,System.Windows.Forms.RichTextBox"))))
+(device 19 FORMULA
+(properties
+(name "InitialVariable")
+(variableScope cont)
+(expr 5 "g_richTextBox = RichTextBox;" "// Init Rich Text Box Attribute"
+"g_richTextBox.WordWrap = false;" "//" "g_exit = false;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 DECLVAR
+(properties
+(name "Declare g_exit")
+(scope glob)
+(globalName "g_exit"))
+(implementation
+(value Boolean
+(data  false))))
+(device 21 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 22 IFTHENELSE
+(properties
+(name "Exit?")
+(variableScope cont)
+(cases 1 "g_exit"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 23 BREAK
+(properties
+(variableScope cont)))
+(device 24 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 25 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 26 CALL
+(properties
+(name "Call CreateStatusBar")
+(variableScope cont)
+(callFunc "CreateStatusBar")
+(parmMode rev30)))
+(device 27 DECLVAR
+(properties
+(name "Declare g_statusBar")
+(scope glob)
+(globalName "g_statusBar"))
+(implementation
+(value Object
+(data  ".NET OFF System.Windows.Forms,System.Windows.Forms.StatusStrip"))))
+(device 28 CALL
+(properties
+(name "Call CreateToolBar")
+(variableScope cont)
+(callFunc "CreateToolBar")
+(parmMode rev30)))
+(device 29 CALL
+(properties
+(name "Call CreateImageList")
+(variableScope cont)
+(callFunc "CreateImageList")
+(parmMode rev30)))
+(device 30 FORMULA
+(properties
+(name "Change Clock Value")
+(variableScope cont)
+(expr 2 "tmp = g_statusBar.Items.Item(4);" "tmp.text = a.ToString();"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "DateTime.Now;")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fcharset0 Times New Roman;}{\\f2\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f3\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\b\\f0\\fs24 System.DateTime.Now\\par\r\n\\pard\\sb100\\sa100\\cf0\\ulnone\\b0\\f1 Gets a DateTime that is the current local date and time on this computer.  \\f2 It is a .NET Framework call and can be found in the Function and Object Browser here: \\f3\\fs17\\par\r\n\\pard\\b\\f2\\fs24\\par\r\nAssembly\\b0 : Mscorlib\\par\r\n\\b Namespace\\b0 : System\\par\r\n\\b Type\\b0 : DateTime\\f3\\fs17\\par\r\n}\r\n"
+)
+(variableScope cont)
+(expr 2 "// See object description for more information" "System.DateTime.Now;")
+)
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D15:0 D0:0)
+(connect D12:0 D1:0)
+(connect D1:0 D7:0)
+(connect D7:1 D8:1)
+(connect D8:1 D9:0)
+(connect D17:0 D10:0)
+(connect D14:0 D12:0)
+(connect D0:0 D14:0)
+(connect D5:0 D15:0)
+(connect D17:1 D16:1)
+(connect D8:0 D17:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(panel
+(extent 792 573)
+(drawGrid "on")
+(widget 2 detail
+(relativeOrigin 0 50)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 786 496)))
+(detail
+(extent 518 541)
+(anchorPt -15 -39)
+(configuration
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 240))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 374 86))
+(terminals on)
+(pinCenter 150 370))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 124 66))
+(pinCenter 60 60))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 100 15))
+(open
+(extent 195 103))
+(pinCenter 170 60))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 134 15))
+(open
+(extent 345 124))
+(pinCenter 320 60))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 364 266))
+(terminals on)
+(pinCenter 150 160))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 195 103))
+(pinCenter 470 60))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 150 430))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 30 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 250 430))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 300 450))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 250 560))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 340 110))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 320))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 124 15))
+(open
+(extent 345 124))
+(pinCenter 90 100))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 280))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 200))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 123 25))
+(open
+(extent 244 116))
+(terminals on)
+(pinCenter 390 510))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 93 15))
+(open
+(extent 274 65))
+(terminals on)
+(pinCenter 250 510))
+(connect D15:0 D0:0
+(points 2 150 210 150 230))
+(connect D12:0 D1:0
+(points 2 150 330 150 360))
+(connect D1:0 D7:0
+(points 2 150 380 150 402))
+(connect D7:1 D8:1
+(points 2 186 430 232 430))
+(connect D8:1 D9:0
+(points 3 267 420 300 420 300 440))
+(connect D17:0 D10:0
+(points 2 250 520 250 550))
+(connect D14:0 D12:0
+(points 2 150 290 150 310))
+(connect D0:0 D14:0
+(points 2 150 250 150 270))
+(connect D5:0 D15:0
+(points 2 150 170 150 190))
+(connect D17:1 D16:1
+(points 2 299 510 326 510))
+(connect D8:0 D17:0
+(points 2 250 445 250 500)))
+(stackingOrder 7 11 6 3 13 5 4 8 14 15 12 17 10 9 16 1 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,308 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:13:59 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M M.8)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Using Global Variables in a UserObject")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 6 NOTE
+(properties
+(name "Information")
+(text2 5 "This example shows how to declare a global variable"
+"in the Main program, and a local variable in a"
+"UserObject; then, access both variables from"
+"within the UserObject. For further information,"
+"see the \"VEE Help\" topic, \"To Use a Variable\".")))
+(device 7 DECLVAR
+(properties
+(scope glob)
+(globalName "global1"))
+(implementation
+(value Real64
+(data  0))))
+(device 8 CONTEXT
+(properties
+(trigMode deg)
+(nextID 10))
+(deviceList
+(device 0 FROMGLOBAL
+(properties
+(globalName "global1"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 FORMULA
+(properties
+(expr 1 "global1*2"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 FORMULA
+(properties
+(expr 1 "(global1+sin(A))*local1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 6 CONSTANT
+(properties
+(name "Real"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  30))
+(initValue Real
+(data  0))))
+(device 7 DECLVAR
+(properties
+(scope con)
+(globalName "local1"))
+(implementation
+(value Int32
+(data  0))))
+(device 8 TOGLOBAL
+(properties
+(globalName "local1"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 9 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  10))
+(initValue Int32
+(data  0))))
+(configuration
+(connect D0:1 D1:1)
+(connect D8:0 D3:0)
+(connect D2:1 D3:1)
+(connect D3:0 D4:0)
+(connect D6:1 D4:1)
+(connect D4:1 D5:1)
+(connect D9:1 D8:1)))
+(contextCarrier
+(wndOrigin 320 188)
+(wndState res)
+(active detail)
+(detail
+(extent 581 383)
+(anchorPt 339 148)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 86 16))
+(open
+(extent 67 52))
+(terminals on)
+(pinCenter -5 -90))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 140 26))
+(pinCenter 160 -90))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 93 32))
+(terminals on)
+(pinCenter -240 100))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 146 28))
+(pinCenter -30 100))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 181 30))
+(terminals on)
+(pinCenter -90 190))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 147 27))
+(pinCenter 150 190))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 79 30)
+(showFormat real))
+(pinCenter -280 190))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 241 109))
+(pinCenter -210 -60))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 61 48))
+(terminals on)
+(pinCenter 155 0))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 96 30)
+(showFormat int))
+(pinCenter -10 0))
+(connect D0:1 D1:1
+(points 2 71 -90 87 -90))
+(connect D8:0 D3:0
+(points 4 150 26 150 50 -30 50 -30 65))
+(connect D2:1 D3:1
+(points 2 -141 100 -106 100))
+(connect D3:0 D4:0
+(points 4 -30 116 -30 130 -80 130 -80 154))
+(connect D6:1 D4:1
+(points 2 -238 190 -213 190))
+(connect D4:1 D5:1
+(points 2 53 190 74 190))
+(connect D9:1 D8:1
+(points 2 40 0 82 0)))
+(stackingOrder 2 3 6 7 0 1 4 5 9 8))))
+(device 9 CONSTANT
+(properties
+(name "Real"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1.223))
+(initValue Real
+(data  0))))
+(device 10 TOGLOBAL
+(properties
+(globalName "global1"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D4:0 D2:0)
+(connect D3:1 D4:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 976 598)
+(anchorPt 307 220)
+(configuration
+(devCarrierFor 6
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 498 125)
+(editing disabled))
+(title off)
+(pinCenter -40 -140))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 215 107))
+(pinCenter -170 20))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 90 21))
+(terminals on)
+(pinCenter -100 220))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 69 30)
+(showFormat real))
+(pinCenter -240 160))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 81 53))
+(terminals on)
+(pinCenter -95 160))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 410 -150))
+(connect D4:0 D2:0
+(points 2 -100 189 -100 207))
+(connect D3:1 D4:1
+(points 2 -203 160 -178 160)))
+(stackingOrder 1 4 3 0 2 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

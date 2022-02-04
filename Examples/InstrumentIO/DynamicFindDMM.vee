@@ -1,0 +1,1009 @@
+(saveFormat "7.0")
+(date "Tue 14/Nov/2006 13:58:38 ")
+(veerev "8.0.9513.1 Beta3 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "VXI_Device"
+(type VXI)
+(gateway "This host")
+(channel 16)
+(subchannel 112)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "HP33120A")
+(ppAddr "VXI0::112::INSTR")
+(eoiEnabled 0)
+(model ""
+(standard 488))
+(blockSize 1048576)
+(vxiAccess
+(A16
+(word D16))
+(extended
+(word D16))))
+(iodevice "GPIB_Device"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 22)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "HPE1429")
+(ppAddr "GPIB0::14::INSTR")
+(eoiEnabled 0)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{6D5A2A3C-5238-11D2-9496-080009EE2E50}")
+(desc "DynamicIO 1.0 Type Library")
+(filename "D:\\vee\\current\\src\\DynamicIO\\Debug\\DynamicIO.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope cont)
+(trigMode deg)
+(nextID 77)
+(popupTitleText "Instrument Finder")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "CreateObject(objectName)")
+(variableScope cont)
+(expr 1 "set DynamicIO = CreateObject(objectName)"))
+(interface
+(input 1
+(name "objectName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "DynamicIO.GetInstr"))
+(initValue Text
+(data  ""))))
+(device 2 DECLVAR
+(properties
+(name "Declare DynamicIO")
+(scope glob)
+(globalName "DynamicIO"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 5 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 11 FORMULA
+(properties
+(name "Disable configuration cache")
+(variableScope cont)
+(expr 1 "DynamicIO.EnableInstrConfigCache=false"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 TEXTDISPLAY
+(properties
+(name "Model Names")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Bus Address")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 17 TEXTDISPLAY
+(properties
+(name "Number of  all DMMs found.")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 19 FORMULA
+(properties
+(name "Find first DMM ")
+(variableScope cont)
+(expr 2 "DynamicIO.FindFirstDMM(ByRef ModelName, ByRef Addr);" ""))
+(interface
+(input 1
+(name "ModelName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "Addr")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "ModelName")
+(optional yes))
+(output 2
+(name "Addr")
+(optional yes))
+(output 3
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORMULA
+(properties
+(name "Set error value")
+(variableScope cont)
+(expr 1 "DynamicIO.ErrorAddrVal = A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A!=B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 24 LITERALCONSTANT
+(properties
+(name "Error string")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "No device found"))
+(initValue Text
+(data  ""))))
+(device 25 TEXTDISPLAY
+(properties
+(name "The first DMM")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 26 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 27 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "\"DMM  \"+A+ \" found at \" + B" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "Enable Configuration Cache")
+(variableScope cont)
+(expr 1 "DynamicIO.EnableInstrConfigCache=true"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 FORMULA
+(properties
+(name "Find all DMMs.")
+(variableScope cont)
+(expr 4 "ModelNames = asVariantEmpty(0);" "Addrs = asVariantEmpty(0);"
+"DynamicIO.FindAllDMMs(ByRef NumDMMs, ByRef ModelNames, ByRef Addrs);" ""))
+(interface
+(input 1
+(name "NumDMMs")
+(optional yes))
+(output 1
+(name "NumDMMs")
+(optional yes))
+(output 2
+(name "ModelNames")
+(optional yes))
+(output 3
+(name "Addrs")
+(optional yes))
+(output 4
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 36 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 37 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 39 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 42 LABEL
+(properties
+(name "Model names and bus addresses of DMMs in your system")
+(variableScope cont)
+(labelValue "Model names and bus addresses of DMMs in your system"))
+(implementation))
+(device 43 LABEL
+(properties
+(name "The first DMM in your system")
+(variableScope cont)
+(labelValue "The first DMM in your system"))
+(implementation))
+(device 44 LABEL
+(properties
+(name "Number of DMMs found")
+(variableScope cont)
+(labelValue "Number of DMMs found"))
+(implementation))
+(device 50 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 56 IODEVICE
+(properties
+(name "GPIB_Device")
+(variableScope cont)
+(transactions 2 "WRITE TEXT \"MEAS:VOLT:DC?\" EOL" "READ TEXT x REAL32"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "GPIB_Device")))
+(device 57 LABEL
+(properties
+(name "DC Voltage reading:")
+(variableScope cont)
+(labelValue "DC Voltage reading:"))
+(implementation))
+(device 59 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This program uses the DynamicIO automation server\\par\r\nto find DMMs. It can either find a first instance of\\par\r\na DMM or all instances. If one is found, its bus address is returned. The bus address is passed to the\\par\r\naddress control input of a Direct I/O object. \\par\r\nYou don\'t have to know the bus address of your\\par\r\nDMM before you run this program. However, the model\\par\r\nname of your DMM must be in the database file. A \\par\r\ndefault instrument model name database is provided,\\par\r\nit is \\cf1 X:\\\\Program Files\\\\Common Files\\\\Keysight\\\\VEE DynamicIO\\\\DynamicIODatabase.txt\\cf0 , where X is your installation drive.\\par\r\nYou can add your model names to it or create your own database file. This program is self-contained as far as instrument configuration is concerned. It has its own embedded IO configuration.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 61 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 64 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 65 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 67 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 70 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 71 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 72 FORMULA
+(properties
+(name "IO.GPIB_Device.address = value;")
+(variableScope cont)
+(expr 1 "IO.GPIB_Device.address = value;"))
+(interface
+(input 1
+(name "value")
+(optional yes))))
+(device 73 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 76 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(variableScope cont)
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D1:1 D0:1)
+(connect D0:0 D4:0)
+(connect D19:1 D5:1)
+(connect D20:1 D6:1)
+(connect D16:1 D7:1)
+(connect D9:0 D8:0)
+(connect D32:1 D8:1)
+(connect D33:1 D8:2)
+(connect D4:0 D9:0)
+(connect D11:1 D9:1)
+(connect D11:1 D10:1)
+(connect D8:2 D10:2)
+(connect D13:1 D12:1)
+(connect D14:1 D13:1)
+(connect D28:1 D13:2)
+(connect D10:1 D14:0)
+(connect D8:1 D14:1)
+(connect D8:2 D14:2)
+(connect D8:0 D15:0)
+(connect D15:0 D16:0)
+(connect D3:1 D16:1)
+(connect D16:1 D17:1)
+(connect D17:2 D18:0)
+(connect D30:1 D19:1)
+(connect D18:1 D19:2)
+(connect D31:1 D20:1)
+(connect D18:1 D20:2)
+(connect D25:1 D24:1)
+(connect D34:0 D25:0)
+(connect D10:2 D28:0)
+(connect D8:2 D28:1)
+(connect D10:1 D29:0)
+(connect D8:2 D29:1)
+(connect D17:1 D30:0)
+(connect D16:2 D30:1)
+(connect D30:0 D31:0)
+(connect D16:3 D31:1)
+(connect D29:0 D34:0)
+(connect D29:1 D34:1)))
+(contextCarrier
+(wndRestoredOrigin 2 4)
+(wndRestoredExtent 1168 762)
+(wndState max)
+(active detail)
+(panel
+(extent 573 522)
+(drawGrid "off")
+(widget 12 detail
+(relativeOrigin 130 60)
+(bg "Light Blue Gray")
+(fg "Blue")
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle concave)
+(extent 258 23)
+(scFont "Arial" 18))
+(widget 5 detail
+(relativeOrigin 80 340)
+(bg "Light Blue Gray")
+(fg "Blue")
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 7)
+(borderStyle concave)
+(extent 186 126)
+(scFont "Arial" 20)
+(arFont "Arial" 20))
+(widget 21 detail
+(relativeOrigin 60 280)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle convex)
+(extent 476 26)
+(just c))
+(widget 6 detail
+(relativeOrigin 300 340)
+(bg "Light Blue Gray")
+(fg "Blue")
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 8)
+(borderStyle concave)
+(extent 196 126)
+(scFont "Arial" 20)
+(arFont "Arial" 20))
+(widget 7 detail
+(relativeOrigin 120 220)
+(bg "Light Blue Gray")
+(fg "Blue")
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle concave)
+(extent 326 46)
+(scFont "Arial" 20))
+(widget 23 detail
+(relativeOrigin 170 180)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle convex)
+(extent 216 26)
+(just c))
+(widget 26 detail
+(relativeOrigin 90 110)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle convex)
+(extent 166 36)
+(just l))
+(widget 24 detail
+(relativeOrigin 290 110)
+(bg "Light Blue Gray")
+(fg "Blue")
+(PID 7)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle concave)
+(extent 166 36)
+(scFont "Arial" 18))
+(widget 22 detail
+(relativeOrigin 130 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle convex)
+(extent 257 27)
+(just c))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 869 715)
+(anchorPt -318 140)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 161 15))
+(open
+(extent 305 41))
+(terminals on)
+(pinCenter 360 -10))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 230 -10))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 344 121))
+(pinCenter 360 -50))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 31 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 270 290))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 168 15))
+(open
+(extent 332 31))
+(terminals on)
+(pinCenter 360 70))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 131 151))
+(pinCenter 770 340))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 141 148))
+(pinCenter 770 410))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 245 41))
+(pinCenter 740 290))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 85 34))
+(open
+(extent 281 70))
+(terminals on)
+(pinCenter 340 170))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 254 31))
+(terminals on)
+(pinCenter 360 120))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 55 50))
+(terminals on)
+(pinCenter 580 120))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 174 29))
+(pinCenter 250 120))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 258 23))
+(title off)
+(pinCenter 890 80))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 710 80))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 95 46))
+(terminals on)
+(pinCenter 580 40))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 170 15))
+(open
+(extent 332 31))
+(terminals on)
+(pinCenter 380 230))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 88 45))
+(open
+(extent 439 82))
+(terminals on)
+(pinCenter 370 290))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 570 290))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 114 20))
+(pinCenter 520 420))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 620 360))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 620 410))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 350 0))
+(open
+(extent 331 27)
+(just c))
+(title off)
+(pinCenter 1000 400))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 169 0))
+(open
+(extent 244 29)
+(just c))
+(title off)
+(pinCenter 660 -30))
+(devCarrierFor 44
+(active open)
+(icon
+(extent 141 0))
+(open
+(extent 191 28)
+(just l))
+(title off)
+(pinCenter 950 460))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 356 24))
+(pinCenter 1120 290))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 79 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 920 290))
+(devCarrierFor 57
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 123 27)
+(just l))
+(title off)
+(pinCenter 920 520))
+(devCarrierFor 59
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 409 274)
+(editing enabled))
+(pinCenter 1250 -30))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 580 170))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 580 210))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 520 330))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 520 380))
+(devCarrierFor 70
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 39 20))
+(pinCenter 240 160))
+(devCarrierFor 71
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 39 20))
+(pinCenter 240 190))
+(devCarrierFor 72
+(active icon)
+(icon
+(extent 199 15))
+(open
+(extent 212 50))
+(terminals on)
+(pinCenter 830 190))
+(devCarrierFor 73
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 660 -120))
+(devCarrierFor 76
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 660 -70))
+(connect D1:1 D0:1
+(points 2 245 -10 277 -10))
+(connect D0:0 D4:0
+(points 2 360 0 360 60))
+(connect D19:1 D5:1
+(points 4 635 360 660 360 660 340 725 340))
+(connect D20:1 D6:1
+(points 2 635 410 728 410))
+(connect D16:1 D7:1
+(points 6 416 270 470 270 470 250 630 250 630 290 654 290))
+(connect D9:0 D8:0
+(points 4 360 130 360 140 340 140 340 150))
+(connect D32:1 D8:1
+(points 2 255 160 295 160))
+(connect D33:1 D8:2
+(points 4 255 190 280 190 280 180 295 180))
+(connect D4:0 D9:0
+(points 2 360 80 360 110))
+(connect D11:1 D9:1
+(points 2 286 120 314 120))
+(connect D11:1 D10:1
+(points 6 286 120 300 120 300 100 430 100 430 110 542 110))
+(connect D8:2 D10:2
+(points 4 385 170 520 170 520 130 542 130))
+(connect D13:1 D12:1
+(points 2 725 80 758 80))
+(connect D14:1 D13:1
+(points 4 607 40 630 40 630 70 694 70))
+(connect D28:1 D13:2
+(points 4 597 170 660 170 660 90 694 90))
+(connect D10:1 D14:0
+(points 5 618 110 640 110 640 10 580 10 580 25))
+(connect D8:1 D14:1
+(points 4 385 160 470 160 470 30 552 30))
+(connect D8:2 D14:2
+(points 4 385 170 520 170 520 50 552 50))
+(connect D8:0 D15:0
+(points 4 340 189 340 200 380 200 380 220))
+(connect D15:0 D16:0
+(points 4 380 240 380 250 370 250 370 265))
+(connect D3:1 D16:1
+(points 2 288 290 323 290))
+(connect D16:1 D17:1
+(points 4 416 270 460 270 460 290 532 290))
+(connect D17:2 D18:0
+(points 9 608 300 630 300 630 330 580 330 580 390 550 390 550 400 520 400 520
+410))
+(connect D30:1 D19:1
+(points 4 537 330 560 330 560 350 604 350))
+(connect D18:1 D19:2
+(points 4 535 420 590 420 590 370 604 370))
+(connect D31:1 D20:1
+(points 4 537 380 560 380 560 400 604 400))
+(connect D18:1 D20:2
+(points 2 535 420 604 420))
+(connect D25:1 D24:1
+(points 2 962 290 1075 290))
+(connect D34:0 D25:0
+(points 4 830 200 830 220 920 220 920 262))
+(connect D10:2 D28:0
+(points 5 618 130 630 130 630 150 580 150 580 160))
+(connect D8:2 D28:1
+(points 2 385 170 562 170))
+(connect D10:1 D29:0
+(points 5 618 110 640 110 640 190 580 190 580 200))
+(connect D8:2 D29:1
+(points 4 385 170 530 170 530 210 562 210))
+(connect D17:1 D30:0
+(points 5 608 280 620 280 620 260 520 260 520 320))
+(connect D16:2 D30:1
+(points 4 416 280 450 280 450 330 502 330))
+(connect D30:0 D31:0
+(points 2 520 340 520 370))
+(connect D16:3 D31:1
+(points 4 416 290 440 290 440 380 502 380))
+(connect D29:0 D34:0
+(points 6 580 220 580 240 670 240 670 160 830 160 830 180))
+(connect D29:1 D34:1
+(points 4 597 210 650 210 650 190 728 190)))
+(stackingOrder 3 9 4 13 12 7 19 20 17 23 21 26 11 5 6 10 28 30 31 14 18 16 15 8
+32 33 35 0 1 2 29 27 22 36 34 24 25))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

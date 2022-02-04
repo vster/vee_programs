@@ -1,0 +1,716 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:48:47 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 13)
+(popupTitleText "Set Mappings Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 FROMSPECTRUM
+(interface
+(input 1
+(name "Spec Data")
+(tag "Spec Data")
+(requires
+(datatype Spectrum))
+(lock constraints))
+(output 1
+(name "Pcx Ary")
+(tag "Pcx Ary"))
+(output 2
+(name "Start")
+(tag "Start")
+(lock name constraints))
+(output 3
+(name "Stop")
+(tag "Stop")
+(lock name constraints)))
+(implementation
+(freqMode "Start/Stop Freq")))
+(device 1 FROMPCOMPLEX
+(interface
+(input 1
+(name "PComplex")
+(requires
+(datatype PComplex))
+(lock name constraints))
+(output 1
+(name "Mag")
+(lock name constraints))
+(output 2
+(name "Phase")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name "maxX(x)")
+(expr 1 "maxX(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "max(x)")
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "0")
+(mapTos "6450")))
+(device 5 YPLOT
+(properties
+(name "Magnitude Spectrum"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode freqmag)))
+(device 6 TEXTDISPLAY
+(properties
+(name "Max Freq Component, Hz"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 TEXTDISPLAY
+(properties
+(name "Max Magnitude"))
+(interface
+(input 1
+(name "Data"))))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 9 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 30
+"PURPOSE: Shows how to retrieve meaningful information from a spectrum data type "
+"         using the Unbuild Spectrum, UnBuild PComplex, and Set Mappings objects."
+"         All these objects are under the main menu choice, Data. " ""
+"USER INPUT REQUIRED: Press \"Run\" to start execution." ""
+"EXPLANATION: This example builds a complex, random waveform by generating"
+"         two cosine waves with random amplitudes and frequency, then adds"
+"         some random broad spectrum noise.  After the waveform has been "
+"         constructed, it is sent to the fft(x) object.  The input to the fft(x)"
+"         object is the VEE data type, Waveform. The output from the fft(x)"
+"         object is the VEE data type, Spectrum.  It is often necessary to "
+"         find the frequency of the main component of the waveform. This main "
+"         component can be seen on the Magnitude Spectrum display, and can be"
+"         found exactly by using the markers (under the display\'s object menu)."
+"             "
+"         To find that main component programmatically requires that the Spectrum"
+"         data type be disassembled, or unbuilt.  The UnBuild Spectrum object "
+"         receives the spectrum and unbuilds it to an array of PCpmplex (polar "
+"         complex) and also outputs the start and stop frequencies.  A PComplex"
+"         represents the magnitude and phase of each point on the spectrum.  The"
+"         array of PComplex must be unbuilt to get an array of magnitudes, i.e."
+"         an array of real numbers. At this point the array of magnitudes has "
+"         lost the original mapping of PComplex numbers to frequencies.  The Set"
+"         Mappings object is used to build that mapping.  The inputs to the Set"
+"         Mappings object are the array of reals, and the start and stop "
+"         frequencies output from the UnBuild Spectrum object. Now we have an "
+"         array of reals, i.e. magnitudes, mapped to a range of frequencies.  "
+"         The maxX(x) object takes any mapped function and returns the X value "
+"         of the maximum Y value, in this case the maximum frequency component."
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 236 60)))
+(contextCarrier
+(active detail)
+(panel
+(extent 711 514)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 712 458)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 310 464)
+(title off)
+(borderStyle none)
+(extent 76 41)))
+(detail
+(extent 776 595)
+(anchorPt 134 45)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 675 477)
+(editing disabled))
+(pinCenter 230 270))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(configuration
+(connect D2:0 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(widget 0 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 473 296)
+(anchorPt 132 91)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 855 513)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 180 60))
+(connect D2:0 D0:1
+(points 5 180 75 180 90 -80 90 -80 0 -60 0))
+(connect D0:1 D1:1
+(points 2 59 0 104 0))
+(connect D1:1 D2:0
+(points 3 155 -10 180 -10 180 45)))
+(stackingOrder 0 1 2))))
+(device 10 CONTEXT
+(properties
+(name "Create Random Waveform")
+(trigMode deg)
+(nextID 13))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 RANDOMNUMBER
+(properties
+(lowerLimit 500)
+(upperLimit 5000))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(function Cosine)
+(frequency 1332.763671875)
+(amplitude 3.347747802734375)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 99.71185302734375)
+(interval 0.02)
+(numPoints 256))
+(interface
+(input 1
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(lock name constraints))))
+(device 6 VFUNCTIONGENERATOR
+(properties
+(function Cosine)
+(frequency 1326.858520507813)
+(amplitude 3.06768798828125)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 99.71185302734375)
+(interval 0.02)
+(numPoints 256))
+(interface
+(input 1
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(lock name constraints))))
+(device 7 RANDOMNUMBER
+(properties
+(lowerLimit 2)
+(upperLimit 5))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 10 RANDOMNUMBER
+(properties
+(lowerLimit 2)
+(upperLimit 5))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 11 RANDOMNUMBER
+(properties
+(lowerLimit 500)
+(upperLimit 5000))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(expr 1 "a+b+randomize(ramp(256, 0, 0), -1, 1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D3:1 D1:2)
+(connect D5:1 D2:1)
+(connect D4:1 D2:2)
+(connect D1:1 D6:1)
+(connect D2:1 D6:2)
+(connect D6:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 586 255)
+(anchorPt 133 77)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 172 64)
+(iconImage "virtual.icn"))
+(open
+(extent 239 198))
+(terminals on)
+(pinCenter 200 20))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 172 64)
+(iconImage "virtual.icn"))
+(open
+(extent 239 198))
+(terminals on)
+(pinCenter 200 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 40))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 120))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 80))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 240 104))
+(terminals on)
+(pinCenter 370 50))
+(connect D0:1 D1:1
+(points 2 69 0 111 0))
+(connect D3:1 D1:2
+(points 2 69 40 111 40))
+(connect D5:1 D2:1
+(points 2 69 80 111 80))
+(connect D4:1 D2:2
+(points 2 69 120 111 120))
+(connect D1:1 D6:1
+(points 4 288 20 310 20 310 40 328 40))
+(connect D2:1 D6:2
+(points 4 288 100 310 100 310 60 328 60))
+(connect D6:1 O1:1
+(points 4 411 50 430 50 430 50 452 50)))
+(stackingOrder 2 1 6 0 3 5 4))))
+(device 11 EXITPROCESS
+(properties
+(code 0)))
+(device 12 FORMULA
+(properties
+(name "fft(x)")
+(expr 1 "fft(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D12:1 D0:1)
+(connect D0:1 D1:1)
+(connect D4:1 D2:1)
+(connect D4:1 D3:1)
+(connect D1:1 D4:1)
+(connect D0:2 D4:2)
+(connect D0:3 D4:3)
+(connect D12:1 D5:1)
+(connect D2:1 D6:1)
+(connect D3:1 D7:1)
+(connect D10:0 D11:0)
+(connect D10:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 810 601)
+(anchorPt 118 413)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 128 63)
+(iconImage "unbuild.icn"))
+(open
+(extent 173 100))
+(terminals on)
+(pinCenter -20 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 154 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 80 70))
+(terminals on)
+(pinCenter 70 -40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 280 40))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 280 110))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 116 62)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 150 60))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 347 296)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Mag")
+(domainName "Freq")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 600 4 linear))
+(domain 0 7000 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 500 -170))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 208 0))
+(open
+(extent 282 35))
+(pinCenter 490 40))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 282 35))
+(pinCenter 490 110))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 500 -380))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 70 -340))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 208 25))
+(terminals on)
+(pinCenter 20 -200))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 34))
+(pinCenter 20 -160))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 240 -170))
+(connect D12:1 D0:1
+(points 6 281 -170 300 -170 300 -130 -110 -130 -110 60 -87 60))
+(connect D0:1 D1:1
+(points 6 46 40 70 40 70 10 -30 10 -30 -40 -10 -40))
+(connect D4:1 D2:1
+(points 4 210 60 230 60 230 40 238 40))
+(connect D4:1 D3:1
+(points 4 210 60 230 60 230 110 238 110))
+(connect D1:1 D4:1
+(points 6 149 -60 170 -60 170 10 80 10 80 40 89 40))
+(connect D0:2 D4:2
+(points 2 46 60 89 60))
+(connect D0:3 D4:3
+(points 2 46 80 89 80))
+(connect D12:1 D5:1
+(points 2 281 -170 324 -170))
+(connect D2:1 D6:1
+(points 2 321 40 346 40))
+(connect D3:1 D7:1
+(points 2 321 110 346 110))
+(connect D10:0 D11:0
+(points 2 20 -185 20 -175))
+(connect D10:1 D12:1
+(points 4 126 -200 150 -200 150 -170 198 -170)))
+(stackingOrder 11 0 4 1 2 3 6 7 12 10 9 5 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

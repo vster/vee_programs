@@ -1,0 +1,586 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:48:50 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "rd126014"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "rd126014.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 22)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 HPIDINCR
+(properties
+(name "Set Up Read(NOT LIVE)"))
+(interface
+(input 1
+(name "RESET")
+(tag "RESET")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "CARD_SYNC")
+(tag "CARD_SYNC")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "NUM_OPS")
+(tag "NUM_OPS")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 4
+(name "SYNC_EXECUTE")
+(tag "SYNC_EXECUTE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "rd126014.cid")
+(driver "rd126014")))
+(device 1 CONSTANT
+(properties
+(name "Reset"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 2 CONSTANT
+(properties
+(name "Sync 2"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  2))
+(initValue Int32
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Operations"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  8))
+(initValue Int32
+(data  0))))
+(device 4 START25)
+(device 5 HPIDINCR
+(properties
+(name "rd126014(NOT LIVE)"))
+(interface
+(input 1
+(name "PORT_OPERATION")
+(tag "PORT_OPERATION")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "PORT_NUMBER")
+(tag "PORT_NUMBER")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "PORT_BUFFER")
+(tag "PORT_BUFFER")
+(requires
+(datatype Int16)
+(shape "Array 1D"))
+(lock constraints)
+(optional yes))
+(input 4
+(name "SYNC_EXECUTE")
+(tag "SYNC_EXECUTE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 5
+(name "ASYNC_WRITE")
+(tag "ASYNC_WRITE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 6
+(name "PORT1_STATE")
+(tag "PORT1_STATE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 7
+(name "SYNC_ARM")
+(tag "SYNC_ARM")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "rd126014.cid")
+(driver "rd126014")))
+(device 6 CONSTANT
+(properties
+(name "Write"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 7 CONSTANT
+(properties
+(name "Port 1"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 8 CONSTANT
+(properties
+(name "Data Buffer")
+(sizeFixed 1)
+(isSizeFixed 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(numDims 1)
+(size 8)
+(data  [ 255 0 255 0 255 0 255 0 ]))
+(initValue Int32
+(data  0))))
+(device 10 CONSTANT
+(properties
+(name "Execute"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 11 CONSTANT
+(properties
+(name "Initial"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 12 CONSTANT
+(properties
+(name "Enable/Arm"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 13 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 14 HPIDINCR
+(properties
+(name "rd126014(NOT LIVE)"))
+(interface
+(input 1
+(name "PORT_OPERATION")
+(tag "PORT_OPERATION")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "PORT_NUMBER")
+(tag "PORT_NUMBER")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "SYNC_ARM_STATE")
+(tag "SYNC_ARM_STATE")
+(optional yes)))
+(implementation
+(filename "rd126014.cid")
+(driver "rd126014")))
+(device 15 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 16 BREAK)
+(device 17 HPIDINCR
+(properties
+(name "rd126014(NOT LIVE)"))
+(interface
+(output 1
+(name "PORT_BUFFER")
+(tag "PORT_BUFFER")
+(optional yes)))
+(implementation
+(filename "rd126014.cid")
+(driver "rd126014")))
+(device 18 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 19 CONSTANT
+(properties
+(name "Port 0"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 20 CONSTANT
+(properties
+(name "Read"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 21 NOTE
+(properties
+(text2 4 "This program writes the data" "of \"Data Buffer\" to port 1"
+"of the Racal Dana 1260-14" "and reads it from port 0.")))
+(configuration
+(connect D4:0 D0:0)
+(connect D1:1 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D0:3)
+(connect D3:1 D0:4)
+(connect D0:0 D5:0)
+(connect D6:1 D5:1)
+(connect D7:1 D5:2)
+(connect D8:1 D5:3)
+(connect D9:1 D5:4)
+(connect D10:1 D5:5)
+(connect D11:1 D5:6)
+(connect D11:1 D5:7)
+(connect D5:0 D12:0)
+(connect D12:1 D13:0)
+(connect D19:1 D13:1)
+(connect D18:1 D13:2)
+(connect D13:1 D14:1)
+(connect D14:1 D15:0)
+(connect D12:0 D16:0)
+(connect D16:1 D17:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 852 641)
+(anchorPt 400 116)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "io.icn"))
+(open
+(extent 73 204))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -130 -50))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -150 -20))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 162 34)
+(showFormat int))
+(pinCenter -140 20))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 34 16))
+(open
+(extent 67 37))
+(title off)
+(pinCenter 0 -70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 110 74)
+(iconImage "io.icn"))
+(open
+(extent 96 354))
+(terminals on)
+(pinCenter 0 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -140 60))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -140 80))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 167 181)
+(showFormat int))
+(pinCenter -300 30))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -140 110))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -260 140))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 162 34)
+(showFormat int))
+(pinCenter -130 160))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 0 200))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "io.icn"))
+(open
+(extent 80 104))
+(terminals on)
+(pinCenter 80 290))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 64 72))
+(terminals on)
+(pinCenter 240 280))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 320 340))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "io.icn"))
+(open
+(extent 80 34))
+(terminals on)
+(pinCenter 140 60))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 189 211))
+(pinCenter 320 60))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -30 310))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 140 34)
+(showFormat int))
+(pinCenter -30 270))
+(devCarrierFor 21
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 249 97)
+(editing enabled))
+(pinCenter -240 270))
+(connect D4:0 D0:0
+(points 2 0 -49 0 -35))
+(connect D1:1 D0:1
+(points 4 -89 -50 -70 -50 -70 -20 -58 -20))
+(connect D2:1 D0:2
+(points 4 -109 -20 -100 -20 -100 -10 -58 -10))
+(connect D3:1 D0:3
+(points 4 -83 20 -70 20 -70 0 -58 0))
+(connect D3:1 D0:4
+(points 4 -83 20 -70 20 -70 10 -58 10))
+(connect D0:0 D5:0
+(points 2 0 34 0 60))
+(connect D6:1 D5:1
+(points 4 -99 60 -80 60 -80 70 -58 70))
+(connect D7:1 D5:2
+(points 2 -99 80 -58 80))
+(connect D8:1 D5:3
+(points 4 -214 30 -200 30 -200 90 -58 90))
+(connect D9:1 D5:4
+(points 4 -99 110 -90 110 -90 100 -58 100))
+(connect D10:1 D5:5
+(points 4 -219 140 -80 140 -80 110 -58 110))
+(connect D11:1 D5:6
+(points 6 -73 160 -60 160 -60 150 -70 150 -70 120 -58 120))
+(connect D11:1 D5:7
+(points 6 -73 160 -60 160 -60 150 -70 150 -70 130 -58 130))
+(connect D5:0 D12:0
+(points 2 0 139 0 165))
+(connect D12:1 D13:0
+(points 3 57 200 80 200 80 255))
+(connect D19:1 D13:1
+(points 2 -5 270 22 270))
+(connect D18:1 D13:2
+(points 2 11 310 22 310))
+(connect D13:1 D14:1
+(points 4 137 290 160 290 160 280 178 280))
+(connect D14:1 D15:0
+(points 3 301 270 320 270 320 325))
+(connect D12:0 D16:0
+(points 8 0 234 0 240 90 240 90 110 70 110 70 10 140 10 140 25))
+(connect D16:1 D17:1
+(points 2 197 60 223 60)))
+(stackingOrder 1 3 2 4 6 9 11 5 12 17 14 15 7 19 0 16 13 18 8 10 20))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,127 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:15:29 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Int32"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  2))
+(initValue Int32
+(data  0))))
+(device 1 CONSTANT
+(properties
+(name "Int32"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 2 FORMULA
+(properties
+(expr 1 "2 * A ^ 6 - B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 792 405)
+(anchorPt 1 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 120 100))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 120 190))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 125 67))
+(terminals on)
+(pinCenter 300 160))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 530 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 280 280))
+(connect D0:1 D2:1
+(points 4 156 100 180 100 180 140 205 140))
+(connect D1:1 D2:2
+(points 4 156 190 180 190 180 180 205 180))
+(connect D2:1 D3:1
+(points 2 415 160 467 160)))
+(stackingOrder 0 1 2 3 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

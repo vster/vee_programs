@@ -1,0 +1,472 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 11:48:13 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 52)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Create a text file in the directory and write to it")
+(expr 7 "FilePath = System.IO.Path.Combine(DirectoryPath, \"Play.txt\"); "
+"Set StreamWriter = System.IO.File.CreateText(FilePath);" ""
+"// .NET has formatted writes"
+"StreamWriter.Write(\"{1} users, have a good {0} {1} day\", a); " ""
+"StreamWriter.Close(); "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "FilePath")
+(optional yes))))
+(device 5 DECLVAR
+(properties
+(name "Declare StreamWriter")
+(scope glob)
+(globalName "StreamWriter"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 8 FORMULA
+(properties
+(name "Form a directory  under PersonalFolder")
+(expr 1
+"DirectoryPath = System.IO.Path.Combine( PersonalFolder, subdirectory); "))
+(interface
+(input 1
+(name "PersonalFolder")
+(optional yes))
+(input 2
+(name "subDirectory")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "Does the directory exist?")
+(expr 1 "dirExists=System.IO.Directory.Exists(DirectoryPath);"))
+(interface
+(output 1
+(name "dirExists")
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "Create the directory")
+(expr 1 "System.IO.Directory.CreateDirectory(DirectoryPath); "))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 FORMULA
+(properties
+(name "Get my Personal Folder")
+(expr 1
+"System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 DECLVAR
+(properties
+(name "Declare DirectoryPath")
+(scope glob)
+(globalName "DirectoryPath"))
+(implementation
+(value Text
+(data  ""))))
+(device 23 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 28 NOTE
+(properties
+(name "README")
+(text2 18
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Times New Roman;}{\\f2\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\f0\\fs17\\par\r\n\\f1\\fs24 FileOperations\\par\r\n\\cf0\\ulnone\\b0\\f2\\par\r\nDemonstrates VEE 7.0\'s use of .NET Framework\'s File and Directory classes.  First, it gets the special Personal Folder directory which is usually under \"document settings\\\\username\"; it then creates a deep directory hierarchy under the personal folder if it doesn\'t already exist; it creates a text file there and writes a formatted line to the file; it opens the file for read.  This also demonstrates how to get all the logical drives on your machine.  \\f0\\fs17\\par\r\n\\par\r\n\\par\r\n\\b\\f2\\fs24 Assemblies\\b0 : Mscorlib\\par\r\n\\b Namespaces\\b0 : System.IO\\par\r\n\\b Classes\\b0 : System.IO.Directory, System.IO.File, System.IO.Path, System.IO.StreamWriter\\f0\\fs17\\par\r\n}\r\n"
+"and Directory classes." ""
+"First, it gets the special Personal Folder directory which is usually"
+"under \"document settings\\username\"; it then creates \"My playpen/a/b/c/d\" "
+"directories under the personal folder if it doesn\'t already exist; it"
+"creates a text file there and writes a line to the file; it "
+"opens the file for read.  This also shows how to get all the logical "
+"drives on your machine." "" "Referenced assemblies: mscorlib.dll"
+"Referenced types: System.Environment, System.Environment.SpecialFolder,"
+"System.IO.Path, System.IO.Directory, System.IO.File, System.IO.StreamWriter" ""
+"" "" "" "")))
+(device 35 TEXTDISPLAY
+(properties
+(name "PersonalFolder Path"))
+(interface
+(input 1
+(name "Data"))))
+(device 36 MESSAGEBOX
+(properties
+(position 201 200)
+(message "")
+(symbol Question))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")))
+(device 37 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "My Playpen/a/b/c/d"))
+(initValue Text
+(data  ""))))
+(device 38 FORMULA
+(properties
+(expr 1 "\"Directory \" + a +\" does not exist.  \\n       Create it?\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 39 EXITPROCESS
+(properties
+(code 0)))
+(device 40 FROMFILE
+(properties
+(transactions 1 "READ TEXT x STR"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read
+"C:\\Documents and Settings\\qigao\\My Documents\\My Playpen/a/b/c/d\\Play.txt"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 41 IFTHENELSE
+(properties
+(cases 1 "a==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 42 FORMULA
+(properties
+(name "System.IO.Directory.GetLogicalDrives( );")
+(expr 1 "System.IO.Directory.GetLogicalDrives( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 43 TEXTDISPLAY
+(properties
+(name "Logical Drives"))
+(interface
+(input 1
+(name "Data"))))
+(device 50 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 2)
+(data  [ "Keysight" "VEE" ]))
+(initValue Text
+(data  ""))))
+(device 51 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:0 D0:0)
+(connect D18:1 D0:1)
+(connect D5:1 D2:1)
+(connect D11:1 D2:2)
+(connect D2:0 D3:0)
+(connect D10:1 D4:0)
+(connect D14:1 D7:1)
+(connect D5:1 D9:1)
+(connect D15:1 D10:0)
+(connect D12:1 D10:1)
+(connect D2:1 D12:1)
+(connect D10:2 D13:0)
+(connect D0:0 D14:0)
+(connect D0:1 D14:1)
+(connect D3:1 D15:1)
+(connect D14:0 D16:0)
+(connect D16:1 D17:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 572 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 141 243)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 268 0))
+(open
+(extent 365 127))
+(terminals on)
+(pinCenter 295 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 129 15))
+(open
+(extent 195 103))
+(pinCenter -53 -103))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 235 0))
+(open
+(extent 425 57))
+(terminals on)
+(pinCenter 335 10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 355 51))
+(terminals on)
+(pinCenter 295 100))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 116 15))
+(open
+(extent 305 51))
+(pinCenter 830 230))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 141 15))
+(open
+(extent 475 51))
+(terminals on)
+(pinCenter 300 -90))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 195 103))
+(pinCenter -50 -140))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 295 67))
+(pinCenter 670 390))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 68 55)
+(iconImage "notepad.icn"))
+(open
+(extent 495 327)
+(editing disabled))
+(pinCenter 80 -200))
+(devCarrierFor 35
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 316 42))
+(pinCenter 790 -90))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 215 116))
+(terminals on)
+(pinCenter 720 50))
+(devCarrierFor 37
+(active open)
+(icon)
+(open
+(extent 125 27))
+(pinCenter -70 30))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 215 97))
+(terminals on)
+(pinCenter 640 10))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 770 140))
+(devCarrierFor 40
+(active open)
+(icon)
+(open
+(extent 231 108))
+(terminals on)
+(pinCenter 330 390))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 600 110))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 239 0))
+(open
+(extent 255 51))
+(terminals on)
+(pinCenter 300 520))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 185 107))
+(pinCenter 650 520))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 24 14))
+(open
+(extent 135 57))
+(pinCenter -10 220))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 380 -210))
+(connect D3:0 D0:0
+(points 2 310 128 310 136))
+(connect D18:1 D0:1
+(points 2 60 220 80 220))
+(connect D5:1 D2:1
+(points 8 590 -90 610 -90 610 -160 20 -160 20 -80 10 -80 10 -10 20 -10))
+(connect D11:1 D2:2
+(points 2 -5 30 20 30))
+(connect D2:0 D3:0
+(points 2 310 41 310 54))
+(connect D10:1 D4:0
+(points 3 763 40 830 40 830 184))
+(connect D14:1 D7:1
+(points 2 478 390 520 390))
+(connect D5:1 D9:1
+(points 2 590 -90 629 -90))
+(connect D15:1 D10:0
+(points 5 638 100 790 100 790 20 720 20 720 35))
+(connect D12:1 D10:1
+(points 6 667 10 680 10 680 30 670 30 670 50 677 50))
+(connect D2:1 D12:1
+(points 2 600 10 612 10))
+(connect D10:2 D13:0
+(points 3 763 60 770 60 770 112))
+(connect D0:0 D14:0
+(points 2 310 286 310 315))
+(connect D0:1 D14:1
+(points 8 540 220 560 220 560 310 500 310 500 570 120 570 120 390 142 390))
+(connect D3:1 D15:1
+(points 4 535 100 550 100 550 110 562 110))
+(connect D14:0 D16:0
+(points 2 310 446 310 474))
+(connect D16:1 D17:1
+(points 2 480 520 555 520)))
+(stackingOrder 2 5 7 10 12 14 15 16 6 1 19 8 3 0 18 11 9 13 4 17))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

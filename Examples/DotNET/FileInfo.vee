@@ -1,0 +1,335 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 11:47:11 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINNT\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces "System,System.IO,"))
+(properties
+(trigMode deg)
+(nextID 26)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "IsFileReadOnly")
+(trigMode deg)
+(nextID 1)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(type data)
+(name "isReadOnly")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Is File ReadOnly?")
+(expr 6
+"// You may use F&O Browser to get the numerical value of the enum, in this case, "
+"// FileAttributes.ReadOnly has the value of 1"
+"//bitAnd(Convert.ToInt16(fileInfo.Attributes), 1);" ""
+"// or you may do this programmatically"
+"bitAnd(Convert.ToInt16(fileInfo.Attributes), Convert.ToInt16(FileAttributes.ReadOnly));"
+))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 537 433)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 495 147))
+(terminals on)
+(pinCenter 367 277))
+(connect I1:1 D0:1
+(points 4 0 216 10 216 10 277 67 277))
+(connect D0:1 O1:1
+(points 4 667 277 680 277 680 216 536 216)))))))
+(device 3 FILESELECT
+(properties
+(name "File Name Selection")
+(prompt "Enter File Name:")
+(initialDirectory "C:\\")
+(initialFile "*.*")
+(dialogMode Reading))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 15 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 16 FORMULA
+(properties
+(name
+"Set fileInfo = CreateInstance(\"mscorlib\", \"System.IO.FileInfo\", fileName);"
+)
+(expr 1
+"Set fileInfo = CreateInstance(\"mscorlib\", \"System.IO.FileInfo\", fileName);"
+))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(output 1
+(name "fileInfo")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\b\\f0\\fs24 FileInfo\\par\r\n\\cf0\\ulnone\\b0\\f1\\par\r\nDemonstrates how easy it is to obtain attributes of a file, e.g., the creation time, the last access time, the file length and whether it is read-only.  Note that System or System.IO namespaces are imported to save some typing. \\par\r\nThis IsFileReadOnly user function also shows how you would do bit operations on .NET Enums and how you can convert a .NET type to another .NET type using the System.Convert class.\\par\r\n\\cf1\\b\\f0\\par\r\n\\cf0\\f1 Assemblies\\b0 : Mscorlib\\par\r\n\\b Namespaces\\b0 : System, System.IO\\par\r\n\\b Classes\\b0 : System.Convert, System.FileInfo, System.FileAttributes\\cf1\\b\\f0\\par\r\n}\r\n"
+)))
+(device 18 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 19 CALL
+(properties
+(name "Call IsFileReadOnly")
+(callFunc "IsFileReadOnly")
+(parmMode rev30))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "isReadOnly")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "fileInfo.CreationTime;")
+(expr 1 "fileInfo.CreationTime.ToString(); "))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 22 FORMULA
+(properties
+(name "fileInfo.LastAccessTime;")
+(expr 1 "fileInfo.LastAccessTime.ToString(); "))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 24 FORMULA
+(properties
+(name "fileInfo.Length;")
+(expr 1 "fileInfo.Length; "))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D5:1 D1:1)
+(connect D0:1 D2:1)
+(connect D2:1 D5:1)
+(connect D2:1 D6:1)
+(connect D6:1 D7:1)
+(connect D2:1 D8:1)
+(connect D8:1 D9:1)
+(connect D2:1 D10:1)
+(connect D10:1 D11:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 525 369)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 211 290)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 125 35))
+(open
+(extent 436 106))
+(terminals on)
+(pinCenter -140 70))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 194 36))
+(pinCenter 430 460))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 429 0))
+(open
+(extent 440 51))
+(terminals on)
+(pinCenter 240 60))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 434 266)
+(editing disabled))
+(pinCenter 20 -130))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 420 -20))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 119 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 95 460))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 128 0))
+(open
+(extent 205 57))
+(terminals on)
+(pinCenter 110 190))
+(devCarrierFor 21
+(active open)
+(icon)
+(open
+(extent 195 37))
+(pinCenter 430 190))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 215 57))
+(terminals on)
+(pinCenter 110 280))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 195 37))
+(pinCenter 430 280))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 214 56))
+(terminals on)
+(pinCenter 110 370))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 195 37))
+(pinCenter 430 370))
+(connect D5:1 D1:1
+(points 2 265 460 330 460))
+(connect D0:1 D2:1
+(points 2 -75 60 -53 60))
+(connect D2:1 D5:1
+(points 6 512 50 530 50 530 110 -70 110 -70 460 -46 460))
+(connect D2:1 D6:1
+(points 6 512 50 530 50 530 110 -70 110 -70 190 -45 190))
+(connect D6:1 D7:1
+(points 2 265 190 330 190))
+(connect D2:1 D8:1
+(points 6 512 50 530 50 530 110 -70 110 -70 280 -50 280))
+(connect D8:1 D9:1
+(points 2 270 280 330 280))
+(connect D2:1 D10:1
+(points 6 512 50 530 50 530 110 -70 110 -70 370 -50 370))
+(connect D10:1 D11:1
+(points 2 269 370 330 370)))
+(stackingOrder 6 8 10 5 7 2 3 4 0 11 9 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

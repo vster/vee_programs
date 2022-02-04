@@ -1,0 +1,926 @@
+(saveFormat "7.0")
+(date "Fri 05/Feb/2010 16:48:42 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(assemblyRef 2
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\drawing.dll"))
+(selectedNamespaces "System.Windows.Forms,"))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "DatatypeTest")
+(variableName DatatypeTest)
+(variableScope glob)
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare byte")
+(scope con)
+(globalName "byte"))
+(implementation
+(value UInt8
+(data  0))))
+(device 1 DECLVAR
+(properties
+(name "Declare real64")
+(scope con)
+(globalName "real64"))
+(implementation
+(value Real64
+(data  0))))
+(device 2 DECLVAR
+(properties
+(name "Declare int16")
+(scope con)
+(globalName "int16"))
+(implementation
+(value Int16
+(data  0))))
+(device 3 DECLVAR
+(properties
+(name "Declare int32")
+(scope con)
+(globalName "int32"))
+(implementation
+(value Int32
+(data  0))))
+(device 4 DECLVAR
+(properties
+(name "Declare real32")
+(scope con)
+(globalName "real32"))
+(implementation
+(value Real32
+(data  0))))
+(device 5 DECLVAR
+(properties
+(name "Declare text")
+(scope con)
+(globalName "text"))
+(implementation
+(value Text
+(data  ""))))
+(device 6 FORMULA
+(properties
+(variableScope cont)
+(expr 12 "real64 = 23232.0;" "byte = 244;" "int16 = 65533/2;"
+"int32 = 34343455;" "real32 = 98893884990.003;"
+"text = \"hello the world!\\nHi\";" "pcomplex = (8831,@1333);"
+"complex=(384,3883);" "waveform=A;" "coord1=C;" "spectrum=B;" "textarray=D;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FROMGLOBAL
+(properties
+(name "Get real64")
+(variableScope cont)
+(globalName "real64"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 8 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 9 DECLVAR
+(properties
+(name "Declare pcomplex")
+(scope con)
+(globalName "pcomplex"))
+(implementation
+(value PComplex
+(data  (0, @0)))))
+(device 10 DECLVAR
+(properties
+(name "Declare complex")
+(scope con)
+(globalName "complex"))
+(implementation
+(value Complex
+(data  (0, 0)))))
+(device 11 DECLVAR
+(properties
+(name "Declare waveform")
+(scope con)
+(globalName "waveform"))
+(implementation
+(value Waveform
+(numDims 1)
+(size 1)
+(dim 1
+(extent 0 1))
+(data  [ 0 ]))))
+(device 12 TOWAVEFORM
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.02)))
+(device 13 CONSTANT
+(properties
+(name "Real64 Array")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 10.45 1.23 -9.85 2.4E+018 ]))
+(initValue Real
+(data  0))))
+(device 14 DECLVAR
+(properties
+(name "Declare coord1")
+(scope con)
+(globalName "coord1"))
+(implementation
+(value Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 15 DECLVAR
+(properties
+(name "Declare spectrum")
+(scope con)
+(globalName "spectrum"))
+(implementation
+(value Spectrum
+(numDims 1)
+(size 1)
+(data  [ (0, @0) ]))))
+(device 16 TOSPECTRUM
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype PComplex))
+(lock name constraints))
+(output 1
+(name "Spectrum")
+(tag "Spectrum")
+(lock name constraints)))
+(implementation
+(freqMode "Start/Stop Freq")
+(start 0)
+(stop 1000)
+(xMapping Linear)))
+(device 17 CONSTANT
+(properties
+(name "Coord")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numCoordDims 2)
+(data  (0, 0)))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 19 DECLVAR
+(properties
+(name "Declare textarray")
+(scope con)
+(globalName "textarray"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(device 22 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 23 FROMGLOBAL
+(properties
+(name "Get waveform")
+(variableScope cont)
+(globalName "waveform"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 24 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 25 FROMGLOBAL
+(properties
+(name "Get textarray")
+(variableScope cont)
+(globalName "textarray"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 26 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "waveform=A;" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 CONSTANT
+(properties
+(name "Real64 Array")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 144554.45 1454.23 -9456.85 24000000000000 ]))
+(initValue Real
+(data  0))))
+(device 28 TOWAVEFORM
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.02)))
+(device 29 DOTNETCONTROL
+(properties
+(name "TextBox")
+(variableName TextBox)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.TextBox"))
+(implementation
+(state 350 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F050000000A0A0B0000000902000000090300000010020000000500000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D650608
+000000094D756C74696C696E651003000000050000000609000000083236342C20313936060A0000
+0004302C2030060B0000000130060C00000000060D00000004547275650B
+)))
+(device 21 DECLVAR
+(properties
+(name "Declare comObject")
+(scope con)
+(globalName "comObject"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 37 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 30 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.TextBox")
+(variableScope cont)
+(transactions 1
+"TextBox = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.TextBox\")"
+)
+(parmInfo 4 "3" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "TextBox"))
+(interface
+(output 1
+(name "TextBox")
+(optional yes)))
+(implementation))
+(device 42 ALLOCATEARRAY
+(properties
+(name "Alloc Text")
+(variableScope cont))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "10")
+(type "Text")
+(initEnum "Init Value")
+(initialValue
+(data  "Vee watch window"))))
+(configuration
+(connect D12:1 D6:1)
+(connect D16:1 D6:2)
+(connect D17:1 D6:3)
+(connect D30:1 D6:4)
+(connect D6:0 D7:0)
+(connect D7:1 D8:1)
+(connect D29:0 D12:0)
+(connect D13:1 D12:1)
+(connect D13:1 D16:1)
+(connect D20:1 D19:1)
+(connect D23:0 D20:0)
+(connect D22:1 D21:1)
+(connect D20:0 D22:0)
+(connect D7:0 D23:0)
+(connect D25:1 D23:1)
+(connect D28:1 D23:2)
+(connect D24:1 D25:1)))
+(contextCarrier
+(wndOrigin 34 39)
+(wndState res)
+(active detail)
+(detail
+(extent 668 765)
+(anchorPt 105 227)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 195 103))
+(pinCenter 150 -190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 194 106))
+(pinCenter 60 -190))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 195 103))
+(pinCenter 240 -190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 195 103))
+(pinCenter 330 -190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 195 103))
+(pinCenter 430 -190))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 195 103))
+(pinCenter 50 -160))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 50 54))
+(open
+(extent 184 226))
+(terminals on)
+(pinCenter 340 210))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 340 280))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 124 94))
+(open
+(extent 124 36))
+(pinCenter 620 120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 195 103))
+(pinCenter 160 -160))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 195 103))
+(pinCenter 290 -160))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 195 103))
+(pinCenter 420 -160))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 94 51)
+(iconImage "build.icn"))
+(open
+(extent 128 31))
+(terminals on)
+(pinCenter 220 80))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 117 74)
+(showFormat real))
+(pinCenter 60 120))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 232 127))
+(pinCenter 60 -120))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 107 15))
+(open
+(extent 195 103))
+(pinCenter 180 -120))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 51)
+(iconImage "build.icn"))
+(open
+(extent 151 85))
+(terminals on)
+(pinCenter 220 150))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 38 15))
+(open
+(extent 74 29)
+(showFormat real))
+(pinCenter 200 200))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 100 15))
+(open
+(extent 195 103))
+(pinCenter 320 -120))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 85 15))
+(open
+(extent 204 146))
+(pinCenter 650 270))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 340 390))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 284 216))
+(pinCenter 710 510))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 340 440))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 50 45))
+(open
+(extent 184 226))
+(terminals on)
+(pinCenter 340 330))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 117 74)
+(showFormat real))
+(pinCenter 120 290))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 94 51)
+(iconImage "build.icn"))
+(open
+(extent 128 31))
+(terminals on)
+(pinCenter 230 290))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 46 15))
+(open
+(extent 264 196))
+(pinCenter 650 -70))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 311 104))
+(pinCenter 230 -80))
+(devCarrierFor 37
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 190 370))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 196 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 260 0))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 56 15))
+(open
+(extent 221 113))
+(terminals on)
+(pinCenter 110 230))
+(connect D12:1 D6:1
+(points 4 269 80 300 80 300 190 312 190))
+(connect D16:1 D6:2
+(points 4 268 150 290 150 290 200 312 200))
+(connect D17:1 D6:3
+(points 4 221 200 240 200 240 210 312 210))
+(connect D30:1 D6:4
+(points 4 140 230 240 230 240 220 312 220))
+(connect D6:0 D7:0
+(points 2 340 239 340 270))
+(connect D7:1 D8:1
+(points 4 373 280 390 280 390 120 555 120))
+(connect D29:0 D12:0
+(points 4 260 10 260 30 220 30 220 52))
+(connect D13:1 D12:1
+(points 4 101 120 130 120 130 80 170 80))
+(connect D13:1 D16:1
+(points 4 101 120 120 120 120 150 171 150))
+(connect D20:1 D19:1
+(points 4 383 390 400 390 400 270 545 270))
+(connect D23:0 D20:0
+(points 2 340 355 340 380))
+(connect D22:1 D21:1
+(points 4 379 440 400 440 400 510 665 510))
+(connect D20:0 D22:0
+(points 2 340 400 340 430))
+(connect D7:0 D23:0
+(points 2 340 290 340 305))
+(connect D25:1 D23:1
+(points 4 279 290 290 290 290 320 312 320))
+(connect D28:1 D23:2
+(points 4 226 370 250 370 250 340 312 340))
+(connect D24:1 D25:1
+(points 2 161 290 180 290)))
+(stackingOrder 0 2 3 4 9 10 11 14 13 17 15 5 16 7 12 24 25 28 20 1 8 19 29 18 22
+23 27 26 21 30 6)))))
+(device 2 CALL
+(properties
+(name "Call DatatypeTest")
+(variableScope cont)
+(callFunc "DatatypeTest")
+(parmMode rev30)))
+(device 7 TOGLOBAL
+(properties
+(name "Set variantGlobal")
+(variableScope cont)
+(globalName "variantGlobal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 8 CONSTANT
+(properties
+(name "UInt8")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  56))
+(initValue UInt8
+(data  0))))
+(device 9 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "asVariantBool(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 ENUMCONSTANT
+(properties
+(name "Radio Buttons")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 12 TOGLOBAL
+(properties
+(name "Set enumGlobal")
+(variableScope cont)
+(globalName "enumGlobal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 13 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 This example demonstrates basic functions of  Watch Window, such as automatically adding Declared Variables and viewing values. This VEE file contains variables of all supported data types in VEE.\\par\r\n\\par\r\n1. Click \"View\"=>\"Watch Window\"=>\"Globals\" in Main Menu, Watch Window pops up. Now you can see two declared global variables Under the \"Globals\" tab. \\par\r\n\\par\r\n2. Go to Userfunction \"DatatypeTest\", then switch to \"Locals\" (you may need to click \"View\"=>\"Watch Window\"=>\"Locals\") tab.  Declared \"local to context\" variables appear under the \"Locals\" tab.\\par\r\n\\par\r\n3. Press \"run\" button on Toolbar, values of variables in Watch Window will be updated. When the program is stopped or paused, values of variables can be edited in the Watch Window. \\par\r\n\\par\r\n\\pard\\nowidctlpar\\qj 4. Variables under \"Globals\" tab and \"Locals\" tab automatically appear. To verify this, delete the two \"Declare Variable\" objects and then press undo button on Toolbar; at the same time notice the changes in watch window.\\kerning2\\par\r\n\\pard\\kerning0\\par\r\n}\r\n"
+)))
+(device 5 DECLVAR
+(properties
+(name "Declare variantGlobal")
+(scope glob)
+(globalName "variantGlobal"))
+(implementation
+(value Variant
+(data  0))))
+(device 6 DECLVAR
+(properties
+(name "Declare enumGlobal")
+(scope glob)
+(globalName "enumGlobal"))
+(implementation
+(value Enum
+(values
+("JUNK" 0))
+(data  "JUNK"))))
+(device 14 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(configuration
+(connect D3:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:1 D3:1)
+(connect D1:0 D4:0)
+(connect D4:1 D5:1)))
+(contextCarrier
+(wndRestoredOrigin -78 5)
+(wndRestoredExtent 1045 617)
+(wndState max)
+(active detail)
+(detail
+(extent 1000 869)
+(anchorPt 123 51)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 600 180))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 102 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 1035 270))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter 600 270))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 780 270))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 121 79)
+(format buttons))
+(pinCenter 1030 380))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 1205 360))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 394 406)
+(editing disabled))
+(pinCenter 200 270))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 195 103))
+(pinCenter 820 40))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 125 0))
+(open
+(extent 195 103))
+(pinCenter 580 40))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 304 76)
+(editing disabled))
+(pinCenter 180 -10))
+(connect D3:1 D1:1
+(points 2 905 270 956 270))
+(connect D0:0 D2:0
+(points 2 600 208 600 235))
+(connect D2:1 D3:1
+(points 2 637 270 675 270))
+(connect D1:0 D4:0
+(points 2 1030 298 1030 320))
+(connect D4:1 D5:1
+(points 2 1093 360 1126 360)))
+(stackingOrder 8 7 0 2 3 1 5 4 6 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

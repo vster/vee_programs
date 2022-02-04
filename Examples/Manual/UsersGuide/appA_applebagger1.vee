@@ -1,0 +1,153 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:21:13 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 "random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 ACCUMULATOR
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "A>10"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 BREAK)
+(device 5 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 6 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:0)
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D3:1 D4:0)
+(connect D3:2 D5:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 110 90))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 111 35))
+(terminals on)
+(pinCenter 290 100))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 110 31))
+(pinCenter 510 100))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 185 230))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 330 210))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 84 31))
+(pinCenter 340 290))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 260 380))
+(connect D0:1 D1:0
+(points 5 146 90 170 90 170 40 300 40 300 62))
+(connect D1:1 D2:1
+(points 2 398 100 452 100))
+(connect D2:1 D3:1
+(points 6 567 100 590 100 590 140 110 140 110 230 125 230))
+(connect D3:1 D4:0
+(points 5 254 220 270 220 270 180 330 180 330 200))
+(connect D3:2 D5:1
+(points 4 254 240 270 240 270 290 295 290)))
+(stackingOrder 0 3 4 5 1 2 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

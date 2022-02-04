@@ -1,0 +1,223 @@
+(saveFormat "7.0")
+(date "Tue 03/May/2005 18:54:44 ")
+(veerev "7.5.7703.0 Beta - 2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Drawing.dll"
+))
+(assemblyRef 2
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 DOTNETCONTROL
+(properties
+(name "ProgressBar")
+(variableName ProgressBar)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ProgressBar"))
+(implementation
+(state 324 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000854616249
+6E6465780605000000044E616D650606000000084C6F636174696F6E06070000000453697A651003
+0000000400000006080000000130060900000000060A00000004302C2030060B000000073333342C
+2032360B
+)))
+(device 6 DELAY
+(properties
+(delay 0.05))
+(interface
+(output 1
+(name "Done"))))
+(device 8 FORRANGE
+(properties
+(from 0)
+(thru 100)
+(step 1))
+(interface
+(input 1
+(name "From")
+(tag "From")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Step")
+(tag "Step")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 9 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ProgressBar")
+(transactions 4 "min = ProgressBar.Minimum" "max = ProgressBar.Maximum"
+"ProgressBar.Step = 1" "step = ProgressBar.Step")
+(parmInfo 7 "0" "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 4 "Int32 Minimum" "Int32 Maximum" "Int32 Step" "Int32 Step")
+(statics 4 "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ProgressBar"))
+(interface
+(output 1
+(name "min")
+(optional yes))
+(output 2
+(name "max")
+(optional yes))
+(output 3
+(name "step")
+(optional yes)))
+(implementation))
+(device 11 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ProgressBar")
+(transactions 1 "ProgressBar.PerformStep()")
+(parmInfo 1 "0")
+(memberInfos 1 "Void PerformStep()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ProgressBar"))
+(implementation))
+(device 14 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of a Windows Forms controls, ProgressBar. \\par\r\n\\par\r\nTo obtain a .NET Operation Builder to work on the ProgressBar, use the \"Generate .NET Operation Builder\" context menu from the ProgressBar control.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Run time property change\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: ProgressBar\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 15 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D4:0 D1:0)
+(connect D3:1 D2:1)
+(connect D3:2 D2:2)
+(connect D3:3 D2:3)
+(connect D2:1 D4:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 580 391)
+(wndState max)
+(active detail)
+(detail
+(extent 748 510)
+(anchorPt -33 -75)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 334 26))
+(pinCenter 260 120))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 74 31))
+(pinCenter 240 510))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 510 240))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 255 240))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 240 400))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 384 416)
+(editing disabled))
+(pinCenter 790 410))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 760 130))
+(connect D4:0 D1:0
+(points 2 240 439 240 474))
+(connect D3:1 D2:1
+(points 4 439 210 450 210 450 230 473 230))
+(connect D3:2 D2:2
+(points 2 439 240 473 240))
+(connect D3:3 D2:3
+(points 4 439 270 450 270 450 250 473 250))
+(connect D2:1 D4:0
+(points 5 546 240 570 240 570 320 240 320 240 342)))
+(stackingOrder 3 0 2 4 1 6 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

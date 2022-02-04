@@ -1,0 +1,1008 @@
+(saveFormat "7.0")
+(date "Fri 06/Jul/2018 18:22:18 ")
+(veerev "9.33.1806.2902 Windows 10 Edition")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 CONTEXT
+(properties
+(name "Create New Workbook, Create xyChart with 2 sets of y-axis data")
+(variableScope cont)
+(trigMode deg)
+(nextID 55)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Data2")
+(optional yes)))
+(deviceList
+(device 16 CALL
+(properties
+(name "Call xlLib.NewWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'NewWorkbook\'")
+(customHelpMenuHelpLink "Excel_Workbooks")
+(variableScope cont)
+(callFunc "xlLib.NewWorkbook")
+(parmMode rev30)))
+(device 18 CONTEXT
+(properties
+(name "SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(variableScope cont)
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Orientation for arrays:\\par\r\n\\par\r\nSelect Vertical for a 1D array to\\par\r\nappear in a single Worksheet column,\\par\r\nor horizontal for a single row.\\par\r\n\\par\r\nFor 2D arrays, the first dimension \\par\r\nis oriented the same as for a 1D array.\\par\r\n\\par\r\nFor 3D arrays, the orientation on each\\par\r\nsheet for the first 2 dimensions is the\\par\r\nsame as for 2D arrays.\\par\r\n\\par\r\nZlabel is used to label the 2D data table\\par\r\nthat appears on the worksheets for each\\par\r\nof the 3rd dimension elements. The labeled\\par\r\ncell is immediately above the data.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Three-D arrays:\\par\r\n \\par\r\nSelect CreateNewSheets to add a blank sheet\\par\r\nif needed for each element in the third\\par\r\ndimension. Each sheet contains a two-D array.\\par\r\n\\par\r\nCopyStartingSheet is similar, but more powerful.\\par\r\nThis setting will automatically copy the\\par\r\nstarting sheet when creating a new sheet, so\\par\r\nany formatting (including charts) on that sheet\\par\r\nwill appear on all sheets added.\\par\r\n\\par\r\nUseSingleSheet places all data on a single sheet \\par\r\nwith two-D arrays separated by blank rows. \\par\r\n\\par\r\nFor all settings, each time a two-D array is printed,\\par\r\nit is preceeded by a row containing the value of the\\par\r\ncurrent element in the third dimension. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 14 CALL
+(properties
+(name "Call xlLib.SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(variableScope cont)
+(callFunc "xlLib.SendDataSettings")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 RECCONST
+(properties
+(name "SendData Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 3)
+(fieldName "Orientation"
+(type Enum)
+(values
+("Vertical" 0)
+("Horizontal" 1)))
+(fieldName "ThreeDArrays"
+(type Enum)
+(values
+("CreateNewSheets" 0)
+("CopyStartingSheet" 1)
+("UseSingleSheet" 2)))
+(fieldName "Zlabel"
+(type Text)))
+(data 
+(record
+("Orientation" "Vertical")
+("ThreeDArrays" "CreateNewSheets")
+("Zlabel" "Z="))))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 966 890)
+(anchorPt -60 -321)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 297)
+(editing enabled))
+(pinCenter 670 580))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 395 347)
+(editing enabled))
+(pinCenter 700 960))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 720))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 113 15))
+(open
+(extent 263 147)
+(formatters))
+(pinCenter 280 560))
+(connect D3:1 D2:1
+(points 6 414 560 430 560 430 660 210 660 210 720 225 720)))
+(stackingOrder 1 3 0 2))))
+(device 30 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe")
+)
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 2 0 1))))
+(device 37 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "RaiseError")
+("DisplayAlerts" "True"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook client windows instead of Excel.  Note this only applies to the single currently-selected Workbook.  Setting this before an AddWorkbook() or OpenWorkbook() call does not affect the new workbook.  However, a SelectWorkbook() call applies the Settings to the selected workbook.\\par\r\n}\r\n"
+)))
+(device 15 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 61 2)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 -10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 246)
+(editing enabled))
+(pinCenter 570 160))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 614 336)
+(editing enabled))
+(pinCenter 290 480))
+(connect D1:1 D0:1
+(points 4 304 120 320 120 320 -10 330 -10)))
+(stackingOrder 1 0 3 2))))
+(device 44 CONTEXT
+(properties
+(name "Quit Excel Library")
+(breakpoint 1)
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(device 54 CONTEXT
+(properties
+(name "CreateXYChartSecondaryYaxis")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateXYChartSecondaryYaxis\'")
+(customHelpMenuHelpLink "To_Create_an_XY_Chart_Sec_Yaxis")
+(variableScope cont)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(requires
+(shape "Array 2D"))
+(optional yes))
+(input 2
+(name "DataSecondary")
+(optional yes)))
+(deviceList
+(device 1 RECCONST
+(properties
+(name "XY Chart Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateXYChartSecondaryYaxis\'")
+(customHelpMenuHelpLink "To_Create_an_XY_Chart_Sec_Yaxis")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 21)
+(fieldName "Title"
+(type Text))
+(fieldName "TitleFont"
+(type Text))
+(fieldName "TitleFontSize"
+(type Enum)
+(values
+("AutoSize" 0)
+("8" 1)
+("9" 2)
+("10" 3)
+("11" 4)
+("12" 5)
+("14" 6)
+("16" 7)
+("18" 8)
+("20" 9)
+("22" 10)
+("24" 11)
+("28" 12)
+("36" 13)
+("48" 14)
+("72" 15)))
+(fieldName "Type"
+(type Enum)
+(values
+("XYScatter" 0)
+("XYScatterLines" 1)
+("XYScatterLinesNoMarkers" 2)
+("XYScatterSmooth" 3)
+("XYScatterSmoothNoMarkers" 4)))
+(fieldName "XGridLines"
+(type Enum)
+(values
+("Major" 0)
+("Minor" 1)
+("MajorAndMinor" 2)
+("None" 3)))
+(fieldName "YGridLines"
+(type Enum)
+(values
+("Major" 0)
+("Minor" 1)
+("MajorAndMinor" 2)
+("None" 3)))
+(fieldName "Names"
+(type Text)
+(numDims 1)
+(size 3))
+(fieldName "NamesSecondary"
+(type Text)
+(numDims 1)
+(size 3))
+(fieldName "Scale"
+(type Enum)
+(values
+("Linear" 0)
+("Logarithmic" 1)))
+(fieldName "FillEffects"
+(type Enum)
+(values
+("None" 0)
+("2 Color" 1)))
+(fieldName "XaxisLabel"
+(type Text))
+(fieldName "YaxisLabel"
+(type Text))
+(fieldName "YaxisLabel2"
+(type Text))
+(fieldName "ChartSheet"
+(type Text))
+(fieldName "DataCell"
+(type Text))
+(fieldName "DataSheet"
+(type Text))
+(fieldName "PlotBy"
+(type Enum)
+(values
+("Columns" 0)
+("Rows" 1)))
+(fieldName "Width"
+(type Real64))
+(fieldName "Height"
+(type Real64))
+(fieldName "MoveRight"
+(type Real64))
+(fieldName "MoveDown"
+(type Real64)))
+(data 
+(record
+("Title" "XY Chart")
+("TitleFont" "Arial")
+("TitleFontSize" "20")
+("Type" "XYScatterLines")
+("XGridLines" "Major")
+("YGridLines" "Minor")
+("Names" [ "Data1" "Data2" "Data3" ])
+("NamesSecondary" [ "Secondary Data1" "Secondary Data2" "Secondary Data3" ])
+("Scale" "Linear")
+("FillEffects" "2 Color")
+("XaxisLabel" "X Axis Label")
+("YaxisLabel" "Y Axis Label")
+("YaxisLabel2" "Seconday Y Label")
+("ChartSheet" "Sheet1")
+("DataCell" "A1")
+("DataSheet" "Sheet1")
+("PlotBy" "Columns")
+("Width" 1.45)
+("Height" 1.6)
+("MoveRight" -95)
+("MoveDown" -120))))))
+(device 4 CALL
+(properties
+(name "Call xlLib.CreateXYChart2")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateXYChartSecondaryYaxis\'")
+(customHelpMenuHelpLink "To_Create_an_XY_Chart_Sec_Yaxis")
+(variableScope cont)
+(callFunc "xlLib.CreateXYChart2")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Settings")
+(optional yes))
+(input 3
+(name "Data2")
+(optional yes))))
+(device 5 CALL
+(properties
+(name "Call xlLib.EnumerateSheets")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'EnumerateSheets\'")
+(customHelpMenuHelpLink "Enumerations")
+(variableScope cont)
+(callFunc "xlLib.EnumerateSheets")
+(parmMode rev30))
+(interface
+(output 1
+(name "SheetNames")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Size")
+(lock name constraints)
+(optional yes))))
+(device 6 TEXTDISPLAY
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'EnumerateSheets\'")
+(customHelpMenuHelpLink "Enumerations")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 7 CONTEXT
+(properties
+(name "Localize ChartSettings -> \"Sheet1\" string")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "SheetNames")
+(optional yes))
+(input 2
+(name "ChartSettings")
+(optional yes))
+(output 1
+(type data)
+(name "ChartSettings")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Localizing ChartSettings.DataSheet and .ChartSheet")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The Formula above modifies the ChartSettings Record to change the values for its fields \"DataSheet\" and \"ChartSheet\", from the string \"Sheet1\" to the appropriate localized value.\\par\r\n\\par\r\nMicrosoft Excel has different default names for the Worksheets in the Workbook, depending on Country Code - which version of Office is installed.  For example:\\par\r\n\\par\r\n\\f1 English  Sheet1\\par\r\nGerman   Tabelle1\\par\r\nDutch    Chad1\\par\r\n\\f0\\par\r\nThe ChartSettings Record has fields for the DataSheet and ChartSheet - determining which Worksheet has the data for the chart, and upon which Worksheet to put the chart.  In this case we will just use the first Worksheet of the selected Workbook.\\par\r\n\\par\r\nWe need to specify the name of the Worksheet, but we do not know what name to use -- \"Sheet1\" or \"Tabelle1\" or ??.  Excel will not tell us its default sheet name.  So we assume the Worksheets already exist (i.e. a Workbook exists) and ask Excel for the names of the Worksheets (EnumerateSheets).  \\par\r\n\\par\r\nEnumerateSheets returns us the list of names (SheetNames), for example \"Sheet1\"...\"Sheet3\" or \"Tabelle1\"...\"Tabelle3\", depending on the version of Office installed.  Now we can use the first name (i.e. SheetNames[0]) to replace the English-only \"Sheet1\" value in the ChartSettings Record fields enumeration.\\par\r\n}\r\n"
+)))
+(device 1 FORMULA
+(properties
+(name "Formula Localiizing ChartSettings.DataSheet and ChartSettings.ChartSheet"
+)
+(variableScope cont)
+(expr 3 "// Modify ChartSettings Record and pass it back out"
+"ChartSettingsRec.DataSheet = SheetNames[0];"
+"ChartSettingsRec.ChartSheet = SheetNames[0];"))
+(interface
+(input 1
+(name "SheetNames")
+(optional yes))
+(input 2
+(name "ChartSettingsRec")
+(optional yes))
+(output 1
+(name "ChartSettingsRec")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 763 716)
+(anchorPt 98 -76)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 314 0)
+(iconImage "notepad.icn"))
+(open
+(extent 604 456)
+(editing enabled))
+(pinCenter 300 510))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 454 0))
+(open
+(extent 364 80))
+(terminals on)
+(pinCenter 300 190))
+(connect I1:1 D1:1
+(points 4 -98 253 -90 253 -90 170 -5 170))
+(connect I2:1 D1:2
+(points 4 -98 613 -80 613 -80 210 -5 210))
+(connect D1:1 O1:1
+(points 4 604 190 620 190 620 433 664 433)))
+(stackingOrder 1 0))))
+(device 9 NOTE
+(properties
+(name "Example")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateXYChartSecondaryYaxis\'")
+(customHelpMenuHelpLink "To_Create_an_XY_Chart_Sec_Yaxis")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\b\\f0\\fs18 If you are using \\cf2 non-English Office\\cf1 , see this object\'s context menu -> Excel Help -> Notes to learn how to use the three objects in the lower left corner to localize the \"Sheet1\" string.\\par\r\n\\cf0\\b0\\par\r\nTITLE FONT\\par\r\nType the exact font name including spaces and all words. \\par\r\nThe font must be installed on your target systems.\\par\r\n\\par\r\nTITLE FONT SIZE\\par\r\nSelect a size or AutoSize for Excel to size the font.\\par\r\n\\par\r\nTYPE:\\par\r\nMarkers means Excel will add symbols for each data point. \\par\r\nSmooth means it will smooth the lines between data points. \\par\r\n\\par\r\nX & Y GRIDLINES\\par\r\nMajor means only a few lines if any. Minor adds many lines.\\par\r\nX means vertical lines, Y means horizontal lines.\\par\r\n\\par\r\nNAMES Primary & Secondary\\par\r\nNames is the name for each array from the Data input that is plotted at primary Y axis. NamesSecondary is the name for each array from the DataSecondary input that is plotted at secondary Y axis.\\par\r\n\\par\r\nSCALE\\par\r\nLogarithmic applies only to the Y-axis, and there is no\\par\r\nsetting avaible for logarithmic X axis. If you select \\par\r\nLogarithmic, be sure there is no zero or negative values\\par\r\nin your data.\\par\r\n\\par\r\nFILL EFFECTS\\par\r\nThe Chart background is fill-colored using two colors.\\par\r\n\\par\r\nY AXIS LABEL & Y AXIS LABEL 2\\par\r\nYou can plot the graph on a secondary Y axis. Enter the label of secondary Y axis in the YaxisLabel2 field.\\par\r\n\\par\r\nDATA & DATASECONDARY INPUT TERMINAL\\par\r\nData input terminal must be a 2 dimentional array where the first column/row (depends PlotBy Columns or Rows) is the X-axis values. Y-axis values start from second column/row. DataSecondary input terminal values starting from first column/row are plotted to secondary Y-axis.  \\par\r\n\\par\r\nCHART SHEET\\par\r\nName of worksheet in the current workbook to place chart.\\par\r\n\\par\r\nDATA SHEET & DATA CELL\\par\r\nLocation to place data which chart is based on.\\par\r\n\\par\r\nPLOT BY\\par\r\nCOLUMNS: X-values appear in the first column of the Data input terminal, Y-values are in the second column for Series1, third column for Series2, etc.\\par\r\nROWS: X-values appear in the first row of the Data input terminal, Y-Values are in the second row for Series1, third row for Series2, etc.\\par\r\n\\par\r\nWIDTH & HEIGHT\\par\r\nScales the chart size relative to the default.\\par\r\n\\par\r\nMOVE RIGHT & MOVE DOWN\\par\r\nExcel places the chart in a fixed location so you cannot \\par\r\nspecify a cell, but instead you can specify a distance to \\par\r\nmove the chart on the sheet in pixels from the default \\par\r\nlocation.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D1:1)
+(connect D0:1 D1:2)
+(connect I2:1 D1:3)
+(connect D2:1 D3:1)
+(connect D2:1 D4:1)
+(connect D0:1 D4:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1030 800)
+(anchorPt -20 -37)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 104 15))
+(open
+(extent 344 654)
+(formatters))
+(pinCenter 260 500))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 155 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 295 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 175 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 870))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 174 56))
+(pinCenter 570 860))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 243 25))
+(terminals on)
+(pinCenter 830 860))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 435 717)
+(editing enabled))
+(pinCenter 960 430))
+(connect I1:1 D1:1
+(points 4 20 236 30 236 30 80 144 80))
+(connect D0:1 D1:2
+(points 6 434 500 450 500 450 140 120 140 120 100 144 100))
+(connect I2:1 D1:3
+(points 6 20 636 30 636 30 680 10 680 10 120 144 120))
+(connect D2:1 D3:1
+(points 2 410 860 480 860))
+(connect D2:1 D4:1
+(points 6 410 860 460 860 460 790 680 790 680 850 706 850))
+(connect D0:1 D4:2
+(points 4 434 500 690 500 690 870 706 870)))
+(stackingOrder 1 0 3 2 4 5))))
+(configuration
+(connect D3:0 D0:0)
+(connect D0:0 D1:0)
+(connect D2:0 D3:0)
+(connect D5:0 D4:0)
+(connect D1:0 D5:0)
+(connect I1:1 D5:1)
+(connect I2:1 D5:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 852 671)
+(anchorPt 95 92)
+(configuration
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 70))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 150 110))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 150 -20))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter 150 20))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 150 250))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 194 25))
+(terminals on)
+(pinCenter 150 180))
+(connect D3:0 D0:0
+(points 2 150 29 150 60))
+(connect D0:0 D1:0
+(points 2 150 80 150 100))
+(connect D2:0 D3:0
+(points 2 150 -10 150 10))
+(connect D5:0 D4:0
+(points 2 150 195 150 240))
+(connect D1:0 D5:0
+(points 2 150 120 150 165))
+(connect I1:1 D5:1
+(points 4 -95 73 -80 73 -80 170 50 170))
+(connect I2:1 D5:2
+(points 4 -95 413 -80 413 -80 190 50 190)))
+(stackingOrder 0 2 3 1 4 5))))
+(device 7 FORMULA
+(properties
+(name "Data for the XY Chart")
+(variableScope cont)
+(expr 7 "[ " "  [1,37]," "  [2,31]," "  [3,19]," "  [4,42]," "  [5,14]" "]"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "Data2 for the XY Chart")
+(variableScope cont)
+(expr 1 "[133,133,218,417,505]"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Purpose:\\ulnone\\par\r\nTo show how to create Excel XY Chart with Secondary Y-axis.\\par\r\n\\par\r\n\\ul Implementation:\\ulnone\\par\r\nFirst data input is the input for X-axis (1, 2, 3, 4, 5) and primary Y-axis (37, 31, 19, 42, 14).\\par\r\n\\par\r\nSecond data input is the input for secondary Y-axis (133, 133, 218, 417, 505).\\par\r\n\\par\r\nDetail XY Chart implementation can be found in CreateXYChartSecondaryYaxis UserObject.\\par\r\n\\par\r\n\\par\r\n \\par\r\n}\r\n"
+)))
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1031\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and \\par\r\nKeysight Technologies makes \\par\r\nno warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:1 D0:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1030 815)
+(wndState max)
+(active detail)
+(detail
+(extent 1517 869)
+(anchorPt 579 124)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 379 34))
+(terminals on)
+(pinCenter 550 250))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 204 146))
+(terminals on)
+(pinCenter 80 160))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 132 0))
+(open
+(extent 204 116))
+(terminals on)
+(pinCenter 80 330))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 314 296)
+(editing disabled))
+(pinCenter -260 240))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter -250 -40))
+(connect D1:1 D0:1
+(points 4 234 160 250 160 250 240 358 240))
+(connect D2:1 D0:2
+(points 4 234 330 250 330 250 260 358 260)))
+(stackingOrder 1 2 0 3 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

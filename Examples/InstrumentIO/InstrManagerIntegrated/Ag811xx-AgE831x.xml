@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag811xx-AgE831x.vee">
+		<Description>Configure pulse, pattern, or burst mode</Description>
+		<LogicalInstrument name="pulseGenerator">
+			<SupportedInstruments>
+				<Instrument idn="ag81101a"/>
+				<Instrument idn="ag81104a"/>
+				<Instrument idn="ag81110a"/>
+				<Instrument idn="age8311a"/>
+				<Instrument idn="age8312a"/>
+				<Instrument idn="hp81101a"/>
+				<Instrument idn="hp81104a"/>
+				<Instrument idn="hp81110a"/>
+				<Instrument idn="hpe8311a"/>
+				<Instrument idn="hpe8312a"/>
+				<Instrument idn="hphp81101a"/>
+				<Instrument idn="hphp81104a"/>
+				<Instrument idn="hphp81110a"/>
+				<Instrument idn="hphpe8311a"/>
+				<Instrument idn="hphpe8312a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

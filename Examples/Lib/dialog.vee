@@ -1,0 +1,595 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:08:43 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Dialog Box")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 TEXTDISPLAY
+(properties
+(name "Name Entered"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 44 "PURPOSE: Illustrates use of the File-->Merge"
+"      \"dialog\" library object for requesting"
+"      user input at a specific point in your"
+"      program. This program is a starting"
+"      point for more complicated dialog boxes;"
+"      \033for simple dialog boxes, use the Dialog"
+"      Box objects built into VEE." ""
+"USER INPUT REQUIRED: Press Run to activate"
+"      the pop-up Dialog box.  You can then"
+"      either enter your name in the entry"
+"      field and press OK, or you can press"
+"      Cancel to exit the dialog box with no" "      name." ""
+"EXPLANATION: The library \"dialog\" object is"
+"      constructed from nested User Objects"
+"      using the \"Show Panel on Exec\" option"
+"      enabled from their object menus.  When"
+"      a UserObject with this option is run,"
+"      it will pop up the panel and wait for"
+"      one of the buttons to be hit before" "      removing the panel." ""
+"      The \"dialog\" in the library can be"
+"      merged into your programs, but you must"
+"      customize the prompt and default"
+"      response fields inside the dialog"
+"      object.  This is done by clicking"
+"      the Left button on the \"Detail\" button"
+"      of the \"Dialog Box\" user object.  You"
+"      will see the two RecConstant fields "
+"      \"prompt\" and \"default response\"."
+"      Enter appropriate values here and you"
+"      can then use the dialog box." ""
+"      Operation of the \"dialog\" is as"
+"      follows.  After the object is run, if"
+"      the user clicks OK without entering"
+"      a name, the default response will be"
+"      returned; if the user presses Cancel,"
+"      a nil container is sent from the" "      dialog box." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 306 58)))
+(contextCarrier
+(active detail)
+(panel
+(extent 497 544)
+(widget 0 detail
+(relativeOrigin 210 500)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 490 490)
+(editing disabled)))
+(detail
+(extent 260 280)
+(anchorPt 106 115)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter -1 -73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 256 68)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 72 12)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 451 215)
+(anchorPt 248 49)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 497 397)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 50 40))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 55 50 80 -210 80 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 25)))
+(stackingOrder 0 1 2))))
+(device 4 NOTE
+(properties
+(name "To Operate")
+(text2 4 "Click \"Run\" to use" "the dialog box, or" "\"Info About\" for"
+"additional details.")))
+(device 6 CONTEXT
+(properties
+(name "Dialog Box")
+(description2 8 "This is an object which will pop-up a dialog box for"
+"interaction with a user. The input required is the"
+"prompt and, if needed, a default reply. The con-"
+"struction is that of a user object inside a User"
+"Object. The internal user object is the actual"
+"dialog box that will pop-up. This is an unsecured"
+"program; feel free to make any necessary mod-" "ifications.")
+(trigMode deg)
+(nextID 7))
+(interface
+(output 1
+(type data)
+(name "ReplyOut")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 2 CONTEXT
+(properties
+(name "Request Response")
+(description2 3 "This is a dialog box. It\'s construction shows a"
+"generic method of constructing objects that will" "interact with users.")
+(trigMode deg)
+(nextID 6)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Prompt")
+(optional yes))
+(input 2
+(name "DefaultReply")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 1 CONFIRM25
+(properties
+(name "  OK  "))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 CONFIRM25
+(properties
+(name "Cancel")
+(enterButton 0)
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 3 LITERALCONSTANT
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "(default response)"))
+(initValue Text
+(data  ""))))
+(device 4 EXITCONTEXT)
+(device 5 EXITCONTEXT)
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D3:0)
+(connect I2:1 D3:1)
+(connect D3:0 D4:0)
+(connect D2:1 D5:0)
+(connect D3:1 O1:1))
+(ShowOnExecPanel
+(relativeOrigin 217 85)))
+(contextCarrier
+(active panel)
+(panel
+(extent 309 162)
+(widget 0 detail
+(relativeOrigin 12 12)
+(title off)
+(borderStyle flat)
+(extent 286 38))
+(widget 3 detail
+(relativeOrigin 13 65)
+(title off)
+(borderStyle flat)
+(extent 284 31))
+(widget 2 detail
+(relativeOrigin 160 120)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 70 120)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 499 340)
+(anchorPt 310 79)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 286 38))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 40 24))
+(open
+(extent 76 37))
+(title off)
+(pinCenter -220 50))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 52 24))
+(open
+(extent 76 37))
+(title off)
+(pinCenter -220 160))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 284 31))
+(pinCenter 0 110))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 145 25))
+(open)
+(terminals on)
+(pinCenter 0 160))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 145 25))
+(open)
+(terminals on)
+(pinCenter -150 210))
+(connect I1:1 D0:1
+(points 4 -310 0 -280 0 -280 0 -146 0))
+(connect D1:1 D3:0
+(points 3 -180 50 0 50 0 74))
+(connect I2:1 D3:1
+(points 4 -310 180 -290 180 -290 110 -145 110))
+(connect D3:0 D4:0
+(points 2 0 128 0 145))
+(connect D2:1 D5:0
+(points 3 -180 160 -150 160 -150 195))
+(connect D3:1 O1:1
+(points 4 144 110 160 110 160 90 188 90)))
+(stackingOrder 0 1 3 4 2 5))))
+(device 5 RECCONST
+(properties
+(sizeFixed 1)
+(isSizeFixed 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "Prompt"
+(type Text))
+(fieldName "Default_Response"
+(type Text)))
+(data 
+(record
+("Prompt" "Enter Your Name, Please")
+("Default_Response" "(default response)"))))
+(schemaFixed yes)))
+(device 6 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type List")
+(tag "Type List")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Prompt")
+(tag "A")
+(optional yes))
+(output 4
+(name "Default_Response")
+(tag "B")
+(optional yes))))
+(configuration
+(connect D2:3 D0:1)
+(connect D2:4 D0:2)
+(connect D1:1 D2:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 396 127)
+(widget 1 detail
+(relativeOrigin 3 3)
+(title off)
+(borderStyle flat)
+(extent 387 118)
+(formatters)))
+(detail
+(extent 701 278)
+(anchorPt 507 138)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 309 162)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 0 0))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 117 16))
+(open
+(extent 357 118)
+(formatters))
+(pinCenter -430 -10))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 126 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 0 130))
+(terminals on)
+(pinCenter -260 -10))
+(connect D2:3 D0:1
+(points 4 -195 -10 -180 -10 -180 -40 -157 -40))
+(connect D2:4 D0:2
+(points 4 -195 0 -180 0 -180 40 -157 40))
+(connect D1:1 D2:1
+(points 2 -369 -10 -326 -10))
+(connect D0:1 O1:1
+(points 4 157 0 175 0 175 0 193 0)))
+(stackingOrder 0 2 1))))
+(configuration
+(connect D4:1 D1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 505 321)
+(widget 3 detail
+(relativeOrigin 260 10)
+(title on)
+(borderStyle flat)
+(extent 226 98)
+(editing disabled))
+(widget 2 panel
+(relativeOrigin 10 10)
+(title on)
+(borderStyle flat)
+(extent 236 98)
+(widget 1 detail
+(relativeOrigin 70 20)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(widget 1 detail
+(relativeOrigin 10 160)
+(title on)
+(borderStyle flat)
+(extent 476 38))
+(widget 0 icon
+(relativeOrigin 70 250)
+(title off)
+(borderStyle flat)
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off)))
+(detail
+(extent 726 467)
+(anchorPt 300 415)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 382 84)
+(editing disabled))
+(pinCenter -40 -20))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 246 34))
+(pinCenter 260 -170))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 257 73)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -80 -330))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 112 71)
+(iconImage "notepad.icn"))
+(open
+(extent 205 97)
+(editing disabled))
+(pinCenter 250 -320))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 396 127)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -80 -170))
+(connect D4:1 D1:1
+(points 2 120 -170 134 -170)))
+(stackingOrder 4 1 2 3 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

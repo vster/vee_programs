@@ -1,0 +1,223 @@
+(saveFormat "7.0")
+(date "Tue 12/Apr/2005 11:03:07 ")
+(veerev "7.5.7612.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 DOTNETCONTROL
+(properties
+(name "PictureBox")
+(variableName PictureBox)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.PictureBox"))
+(implementation
+(state 348 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F050000000A0A0B0000000902000000090300000010020000000500000006040000000754616253
+746F70060500000008546162496E6465780606000000044E616D650607000000084C6F636174696F
+6E06080000000453697A6510030000000500000006090000000546616C7365060A0000000130060B
+00000000060C00000004302C2030060D000000073133342C2032360B
+)))
+(device 10 DOTNETBUILDER
+(properties
+(name "Set and stretch the image and Set Border Style")
+(transactions 3 "PictureBox.Image = image"
+"PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage"
+"PictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D")
+(parmInfo 6 "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "System.Drawing.Image Image"
+"System.Windows.Forms.PictureBoxSizeMode SizeMode"
+"System.Windows.Forms.BorderStyle BorderStyle")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.PictureBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "PictureBox"))
+(interface
+(input 1
+(name "image")
+(optional yes)))
+(implementation))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\b0\\par\r\nThis example demonstrates the use of a Windows Forms control, PictureBox.\\par\r\n\\par\r\nYou can set the image at design time (via Control Properties context menu) or runtime. In this case, the image is set at runtime via a .NET Op Builder.\\par\r\n\\par\r\nThe picture is stretched at runtime to fit the control\'s size and the control is given a 3D border for appearance.\\par\r\n\\par\r\n\\b Concepts Illustrated:\\b0\\par\r\nRuntime property change\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where:\\b0\\par\r\nDevice -> Windows Forms Controls\\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: PictureBox\\par\r\n}\r\n"
+)))
+(device 14 FORMULA
+(properties
+(name "Image Path")
+(expr 1 "installdir() + \"\\\\bitmaps\\\\veelogo4.bmp\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 CONFIRM25
+(properties
+(name "DONE")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 17 DOTNETBUILDER
+(properties
+(name "System.Drawing.Image")
+(transactions 1 "return = System.Drawing.Image.FromFile(filename)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "System.Drawing.Image FromFile(System.String)")
+(statics 1 "1")
+(assemblyQualifiedName
+"System.Drawing.Image, System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(objectName "image"))
+(interface
+(input 1
+(name "filename")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(configuration
+(connect D6:1 D1:1)
+(connect D4:1 D6:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 601 365)
+(wndState max)
+(active detail)
+(panel
+(extent 1003 588)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 20 10)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 636 536))
+(widget 5 detail
+(relativeOrigin 680 190)
+(PID 3)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 80 60)))
+(detail
+(extent 797 619)
+(anchorPt -303 5)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon
+(extent 63 15))
+(open
+(extent 134 26))
+(pinCenter 480 50))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 279 0))
+(open
+(extent 384 86))
+(terminals on)
+(pinCenter 440 340))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 870 50))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 394 436)
+(editing disabled))
+(pinCenter 890 340))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 69 25))
+(open
+(extent 234 36))
+(terminals on)
+(pinCenter 150 200))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 330 40))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 264 76))
+(terminals on)
+(pinCenter 425 200))
+(connect D6:1 D1:1
+(points 6 609 200 630 200 630 260 180 260 180 340 195 340))
+(connect D4:1 D6:1
+(points 2 187 200 230 200)))
+(stackingOrder 5 0 6 4 1 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

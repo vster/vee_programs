@@ -1,0 +1,227 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 11:44:44 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 21)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 2 "WRITE TEXT \"IDN?;\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 3 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 3 "WRITE TEXT \"PLTPRTHPIB;PLTTYPHPGL;\" EOL"
+"WRITE TEXT \"OUTPPLOT 250,596,10250,7796\" STR EOL" "READ TEXT hpglDataOut STR"
+))
+(interface
+(output 1
+(name "hpglDataOut")
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 4 START25)
+(device 6 TOFILE
+(properties
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "vnaPlot.PLT"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 8 NOTE
+(properties
+(name "Direct I/0 Object 1 Description")
+(text2 5 "Quick Sanity Test to confirm" "Unit is on the HPIB Buss and"
+"can respond to both a WRITE" "and resultant QUERY COMMAND." "")))
+(device 9 NOTE
+(properties
+(name "Direct I/0 Object 2 Description")
+(text2 14 "Command the analyzer plotter port "
+"to HPIB and type HPIB. Then command" "the unit to PLOT via OUTPPLOT "
+"command. Numbers which follow the" "OUTPPLOT command are required for "
+"scaling." "" "Follow this command/query with a"
+"read statement, with a variable " "defined as \"hpglDataOut\"" ""
+"Output this data to a FILE with" "a filename of \"vnaPlot.PLT\"" "")))
+(device 16 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 17 FORMULA
+(properties
+(expr 3 "strFromThru(A,strPosStr(A,\";\")+1,strLen(A))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 NOTE
+(properties
+(name "Direct I/0 Object 2 Description")
+(text2 4
+"At one time this acquisition worked with out modification to the output string. What has"
+"changed is that there exists some characters in the output file which corrupt the HPGL"
+"output. This FORMULA finds the first occurence of a \";\" (semicolon) and trims from that"
+"occurence + 1 character to the end of the string! This is the HPGL Text")))
+(device 20 NOTE
+(properties
+(name "ABOUT:8753_hpgl_Acq.vee")
+(text2 8 "A Keysight Vee programming sample for "
+"acquiring and dumping the HPGL graphics "
+"from the 8753 and 8720 family network "
+"analyzers. The file is saved to a drive "
+"on the controlling PC. Once acquired " "the user can utilize various HPGL"
+"filters for importing the image into "
+"many  popular desktop publishing tools.")))
+(configuration
+(connect D3:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D8:1 D4:1)
+(connect D2:1 D8:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 854 661)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 282 -53)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 435 67))
+(terminals on)
+(pinCenter 300 130))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 445 57))
+(pinCenter 600 240))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 365 77))
+(terminals on)
+(pinCenter 270 350))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 45 25))
+(title off)
+(pinCenter 300 40))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 235 94))
+(terminals on)
+(pinCenter 730 460))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 178 0)
+(iconImage "notepad.icn"))
+(open
+(extent 255 97)
+(editing enabled))
+(pinCenter -90 140))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 178 0)
+(iconImage "notepad.icn"))
+(open
+(extent 265 257)
+(editing enabled))
+(pinCenter -90 360))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 174 167)
+(noformatter))
+(pinCenter 1170 120))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 275 37))
+(terminals on)
+(pinCenter 290 460))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 178 0)
+(iconImage "notepad.icn"))
+(open
+(extent 745 97)
+(editing enabled))
+(pinCenter 300 590))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 355 167)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Med Light Teal")
+(pinCenter 170 230))
+(connect D3:0 D0:0
+(points 2 300 55 300 76))
+(connect D0:1 D1:1
+(points 6 550 130 570 130 570 180 360 180 360 240 375 240))
+(connect D0:0 D2:0
+(points 2 300 166 300 291))
+(connect D8:1 D4:1
+(points 2 480 460 580 460))
+(connect D2:1 D8:1
+(points 6 545 350 560 350 560 500 100 500 100 460 120 460)))
+(stackingOrder 7 5 6 3 0 1 2 4 8 9 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

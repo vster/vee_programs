@@ -1,0 +1,130 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:35 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 DO
+(interface
+(output 1
+(name "Do"))))
+(device 5 FORMULA
+(properties
+(name "sqrt(x)")
+(expr 1 "sqrt(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "ramp(1024,0,1023)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D1:1)
+(connect D0:1 D2:1)
+(connect D3:0 D2:2)
+(connect D0:0 D3:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt -3 93)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 230 20))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 38 0))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 400 80))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 570 100))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 159 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 220 190))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 250 -40))
+(connect D3:1 D1:1
+(points 6 360 190 370 190 370 130 310 130 310 80 332 80))
+(connect D0:1 D2:1
+(points 4 244 20 510 20 510 90 531 90))
+(connect D3:0 D2:2
+(points 5 230 223 230 240 520 240 520 110 531 110))
+(connect D0:0 D3:0
+(points 2 230 30 230 138)))
+(stackingOrder 2 1 3 0 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,341 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:24 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 F2 F3 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 3)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 4)
+(context 0
+(properties
+(name "die1")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 1 PICTURE
+(properties
+(pictureImage "die1.gif")))
+(device 2 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration
+(connect D0:0 D1:0))
+(ShowOnExecPanel
+(relativeOrigin 351 175)))
+(contextCarrier
+(wndOrigin 2 861)
+(wndRestoredOrigin 404 97)
+(wndRestoredExtent 319 337)
+(wndState min)
+(active panel)
+(panel
+(extent 319 337)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle flat)
+(extent 281 261)
+(pictureMode scaled))
+(widget 1 detail
+(relativeOrigin 130 300)
+(title off)
+(borderStyle none)
+(extent 47 22)))
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 281 261)
+(pictureMode scaled))
+(title off)
+(pinCenter 340 240))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 340 450))
+(connect D0:0 D1:0
+(points 2 340 373 340 436)))
+(stackingOrder 1 0))))
+(context 2
+(properties
+(name "die2")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 1 PICTURE
+(properties
+(pictureImage "die2.gif")))
+(device 2 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration
+(connect D0:0 D1:0))
+(ShowOnExecPanel
+(relativeOrigin 271 79)))
+(contextCarrier
+(wndOrigin 322 861)
+(wndRestoredOrigin 425 134)
+(wndRestoredExtent 335 336)
+(wndState min)
+(active panel)
+(panel
+(extent 335 336)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle flat)
+(extent 281 261)
+(pictureMode scaled))
+(widget 1 detail
+(relativeOrigin 130 300)
+(title off)
+(borderStyle none)
+(extent 47 22)))
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 281 261)
+(pictureMode scaled))
+(title off)
+(pinCenter 340 240))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 340 450))
+(connect D0:0 D1:0
+(points 2 340 373 340 436)))
+(stackingOrder 1 0))))
+(context 3
+(properties
+(name "die3")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 1 PICTURE
+(properties
+(pictureImage "die3.gif")))
+(device 2 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration
+(connect D0:0 D1:0))
+(ShowOnExecPanel
+(relativeOrigin 266 90)))
+(contextCarrier
+(wndOrigin 162 861)
+(wndRestoredOrigin 451 179)
+(wndRestoredExtent 319 337)
+(wndState min)
+(active panel)
+(panel
+(extent 319 337)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle flat)
+(extent 281 261)
+(pictureMode scaled))
+(widget 1 detail
+(relativeOrigin 130 300)
+(title off)
+(borderStyle none)
+(extent 47 22)))
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 281 261)
+(pictureMode scaled))
+(title off)
+(pinCenter 340 240))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 340 450))
+(connect D0:0 D1:0
+(points 2 340 373 340 436)))
+(stackingOrder 1 0))))
+(context 1
+(properties
+(name "UserFunction1")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 PICTURE
+(properties
+(pictureImage "die1.gif")))
+(device 1 PICTURE
+(properties
+(pictureImage "die2.gif")))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 166 132)
+(pictureMode scaled))
+(title off)
+(pinCenter 140 130))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 166 132)
+(pictureMode scaled))
+(title off)
+(pinCenter 400 140)))
+(stackingOrder 0 1)))))
+(device 0 ENUMCONSTANT
+(properties
+(name "Make a Selection:")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("die1" 0)
+("die2" 1)
+("die3" 2))
+(data  "die3"))
+(initValue Text
+(data  "die1"))))
+(device 1 CALL
+(properties
+(name "Call Function")
+(callFunc "die3")
+(parmMode rev30))
+(interface
+(input 1
+(type control)
+(name "Function Name")
+(tag "Function Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))))
+(device 2 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D0:1 D1:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 18 21)
+(wndState res)
+(active panel)
+(panel
+(extent 606 388)
+(widget 0 detail
+(relativeOrigin 20 90)
+(title on)
+(borderStyle flat)
+(extent 217 89)
+(format buttons)))
+(detail
+(extent 488 508)
+(anchorPt -528 7)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 105 0))
+(open
+(extent 141 79)
+(format buttons))
+(pinCenter 660 110))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 975 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 740 240))
+(connect D0:0 D1:0
+(points 6 660 152 660 170 760 170 760 40 940 40 940 64))
+(connect D0:1 D1:1
+(points 4 733 90 750 90 750 110 784 110)))
+(stackingOrder 0 1 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

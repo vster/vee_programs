@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag681x.vee">
+		<Description>Makes an Inrush Current measurement.</Description>
+		<LogicalInstrument name="ACSource">
+			<SupportedInstruments>
+				<Instrument idn="hp6811b"/>
+				<Instrument idn="hp6812b"/>
+				<Instrument idn="hp6813b"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

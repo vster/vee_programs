@@ -1,0 +1,627 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:57:01 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Conformal Mapping Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Radius"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  1.5))
+(initValue Real
+(data  0))))
+(device 1 TOPCOMPLEX
+(interface
+(input 1
+(name "Mag")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Phase")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "PComplex")
+(lock name constraints))))
+(device 2 ALLOCATEARRAY
+(properties
+(name "angle(0..359)"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "360")
+(type "Real64")
+(initEnum "Lin Ramp")
+(initialValue
+(data  1.5))
+(from 0)
+(thru 359)))
+(device 3 NOTE
+(properties
+(text2 8 "Conformal Mapping in the Complex Plane" "           w = 1/2*(z+1/z)"
+"" "             TO OPERATE:" "Use the Sliders below to adjust the"
+"center point of the circle data along"
+"the Real and Imaginary axis and examine" "the resulting curves on the display."
+)))
+(device 4 YPLOT
+(properties
+(name "Complex Plane"))
+(interface
+(input 1
+(name "C. map")
+(lock constraints))
+(input 2
+(name "circle")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode complex)))
+(device 5 FORMULA
+(properties
+(name "1/2*(z+1/z)")
+(expr 1 "1/2*(z+1/z)"))
+(interface
+(input 1
+(name "z")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 TOCOMPLEX
+(interface
+(input 1
+(name "Real")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Imag")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "Complex")
+(lock name constraints))))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 9 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 37
+"PURPOSE:     To illustrate generating, adding, processing, and displaying"
+"             Complex and Polar Complex numbers" "         "
+"USER INPUT REQUIRED:  Adjust the center of the circle on the Real and Imag axis "
+"             via the Sliders." "         "
+"EXPLANATION: This program does a conformal mapping in the complex plane,"
+"             with the complex mapping equation of w=1/2*(z+1/z)  [which is a"
+"             very popular equation for such things].  The input data that"
+"             makes this interesting is a circle of some radius offset from the"
+"             origin by some amount.  We don\'t want to have to figure out the"
+"             equation of a circle and, to keep it fast, we don\'t want to use a"
+"             loop." ""
+"             First, a circle is created by feeding a \"Build PComplex\" object "
+"             a fixed radius and a set of angles from 0 to 360 degrees.  " ""
+"             Next, the set of angles is generated with an \"Allocate"
+"             Real Array\" object using ramp initialization.  That object is a"
+"             good loop \"substitute\" when using parallel math to apply an"
+"             operation to an entire array simultaneously." ""
+"             Next, the circle is offset.  Rather than using a series of "
+"             cosines and x^2\'s, all that is needed is to create"
+"             a RECTANGULAR \"Complex\" constant, and add it to the PComplex"
+"             array just built.  VEE takes care of all the conversions"
+"             automatically." ""
+"             The final step is easy... just run the array (it doesn\'t matter if"
+"             it\'s Complex or PComplex) through a formula box with the above"
+"             equation, which will be evaluated using complex math.  The \"Complex"
+"             Plane\" display shows the resulting output." ""
+"             It\'s interesting to play with the Radius and Center input"
+"             parameters to see how they change things.  Note that they are"
+"             quite sensitive." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 234 61)))
+(contextCarrier
+(active detail)
+(panel
+(extent 739 534)
+(widget 1 detail
+(relativeOrigin 320 490)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 740 480)
+(editing disabled)))
+(detail
+(extent 776 631)
+(anchorPt 447 293)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 645 477)
+(editing enabled))
+(pinCenter -40 10))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 336 74)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 490 315)
+(anchorPt 249 100)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 70 63))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 70 78 70 103 -210 103 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 70 -10 70 48)))
+(stackingOrder 0 1 2))))
+(device 10 SLIDER
+(properties
+(name "Center Real")
+(autoTrigger 1)
+(range -2 2)
+(detents 0.001))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0))
+(initValue Real
+(data  0))))
+(device 13 SLIDER
+(properties
+(name "Center Imag")
+(autoTrigger 1)
+(range -2 2)
+(detents 0.001))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0))
+(initValue Real
+(data  0))))
+(configuration
+(connect D7:0 D0:0)
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D0:0 D2:0)
+(connect D5:1 D4:1)
+(connect D6:1 D4:2)
+(connect D6:1 D5:1)
+(connect D7:1 D6:1)
+(connect D1:1 D6:2)
+(connect D10:1 D7:1)
+(connect D11:1 D7:2)))
+(contextCarrier
+(wndOrigin 2 3)
+(wndState res)
+(active panel)
+(panel
+(extent 816 547)
+(gridSize 4)
+(widget 8 icon
+(relativeOrigin 421 11)
+(title off)
+(borderStyle none)
+(extent 342 52)
+(iconImage "disclaim.gif")
+(label off))
+(widget 3 detail
+(relativeOrigin 8 116)
+(title on)
+(borderStyle flat)
+(extent 360 190)
+(editing disabled))
+(widget 4 detail
+(relativeOrigin 384 116)
+(title on)
+(borderStyle flat)
+(extent 420 398)
+(displayMode 7)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Imag")
+(domainName "Real")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -2.5 2.5 4 linear))
+(domain -2.5 2.5 4 linear)
+(trace 0 onScale 0
+(name "C. map")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "circle")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(markerInterpolate 1))
+(widget 9 panel
+(relativeOrigin 8 8)
+(title on)
+(borderStyle flat)
+(extent 360 78)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 112 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(widget 10 detail
+(relativeOrigin 8 336)
+(title on)
+(borderStyle flat)
+(extent 172 178)
+(layout vertical)
+(fastmode off))
+(widget 11 detail
+(relativeOrigin 196 336)
+(title on)
+(borderStyle flat)
+(extent 172 178)
+(layout vertical)
+(fastmode off)))
+(detail
+(extent 816 618)
+(anchorPt 130 503)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 126 28))
+(pinCenter -20 20))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "build.icn"))
+(open
+(extent 69 104))
+(terminals on)
+(pinCenter 140 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 221 120))
+(terminals on)
+(pinCenter -20 60))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 376 62)
+(editing enabled))
+(pinCenter 260 -480))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 304 286)
+(displayMode 7)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Imag")
+(domainName "Real")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -2.5 2.5 4 linear))
+(domain -2.5 2.5 4 linear)
+(trace 0 onScale 0
+(name "C. map")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "circle")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(markerInterpolate 1))
+(pinCenter 520 -40))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 73 64)
+(iconImage "formula.icn"))
+(open
+(extent 97 54))
+(terminals on)
+(pinCenter 300 -110))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 210 -110))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 127 64)
+(iconImage "build.icn"))
+(open
+(extent 70 110))
+(terminals on)
+(pinCenter -20 -120))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing enabled))
+(pinCenter 500 -360))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 336 74)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 500 -440))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 91 25))
+(open
+(extent 181 138)
+(layout vertical)
+(fastmode off))
+(pinCenter -10 -330))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 95 25))
+(open
+(extent 161 138)
+(layout vertical)
+(fastmode off))
+(pinCenter 220 -330))
+(connect D7:0 D0:0
+(points 2 -20 -86 -20 -15))
+(connect D0:1 D1:1
+(points 2 45 20 69 20))
+(connect D2:1 D1:2
+(points 2 46 60 69 60))
+(connect D0:0 D2:0
+(points 2 -20 36 -20 45))
+(connect D5:1 D4:1
+(points 2 339 -110 365 -110))
+(connect D6:1 D4:2
+(points 4 235 -110 250 -110 250 30 365 30))
+(connect D6:1 D5:1
+(points 2 235 -110 261 -110))
+(connect D7:1 D6:1
+(points 2 46 -120 184 -120))
+(connect D1:1 D6:2
+(points 6 210 40 230 40 230 -10 160 -10 160 -100 184 -100))
+(connect D10:1 D7:1
+(points 6 83 -330 100 -330 100 -240 -110 -240 -110 -140 -86 -140))
+(connect D11:1 D7:2
+(points 6 303 -330 320 -330 320 -220 -120 -220 -120 -100 -86 -100)))
+(stackingOrder 2 3 9 4 5 6 7 0 1 10 11 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

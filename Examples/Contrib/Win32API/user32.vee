@@ -1,0 +1,1031 @@
+(saveFormat "7.0")
+(date "Thu 02/May/2013 16:38:12 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 97)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 41 MESSAGEBOX
+(properties
+(variableScope cont)
+(autoTimeout 1)
+(timeout 3)
+(position 367 207)
+(message "Let this dialog box time out.")
+(symbol Question))
+(interface
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")))
+(device 50 CONTEXT
+(properties
+(name "FlashWindow UserObject")
+(variableScope cont)
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "InputTerm")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "TRUE")
+(variableScope cont)
+(expr 1 "TRUE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name "FALSE")
+(variableScope cont)
+(expr 1 "FALSE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 5 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 6 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 10 CONFIRM25
+(properties
+(name "OK Already")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "FALSE")
+(variableScope cont)
+(expr 1 "FALSE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D1:0)
+(connect D1:1 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D3:2)
+(connect D5:0 D4:0)
+(connect I1:1 D4:1)
+(connect D2:1 D4:2)
+(connect D3:0 D5:0)
+(connect D4:0 D6:0)
+(connect D9:0 D7:0)
+(connect D8:1 D9:0)
+(connect I1:1 D9:1)
+(connect D10:1 D9:2)))
+(contextCarrier
+(active detail)
+(panel
+(extent 94 39)
+(drawGrid "off")
+(widget 8 detail
+(relativeOrigin 0 0)
+(bg "Med Green")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 92 39))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 680 521)
+(anchorPt 72 -52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 64 35))
+(terminals on)
+(pinCenter 150 190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 120 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 150 320))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 180))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 310))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 370))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 230 520))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 76 25))
+(title off)
+(pinCenter 150 390))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 220 470))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 30 480))
+(connect I1:1 D1:0
+(points 5 -72 312 -60 312 -60 60 120 60 120 82))
+(connect D1:1 D3:0
+(points 3 156 110 360 110 360 134))
+(connect I1:1 D3:1
+(points 6 -72 312 -60 312 -60 220 190 220 190 170 209 170))
+(connect D0:1 D3:2
+(points 2 171 190 209 190))
+(connect D5:0 D4:0
+(points 2 360 250 360 264))
+(connect I1:1 D4:1
+(points 6 -72 312 -60 312 -60 290 190 290 190 300 209 300))
+(connect D2:1 D4:2
+(points 2 173 320 209 320))
+(connect D3:0 D5:0
+(points 2 360 208 360 230))
+(connect D4:0 D6:0
+(points 2 360 338 360 360))
+(connect D9:0 D7:0
+(points 2 230 498 230 510))
+(connect D8:1 D9:0
+(points 3 190 390 230 390 230 424))
+(connect I1:1 D9:1
+(points 6 -72 312 -60 312 -60 290 60 290 60 460 79 460))
+(connect D10:1 D9:2
+(points 2 53 480 79 480)))
+(stackingOrder 9 7 0 3 4 5 6 2 10 8 1))))
+(device 51 MESSAGEBOX
+(properties
+(variableScope cont)
+(message "Thanks!")
+(symbol Blank))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 52 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 53 MESSAGEBOX
+(properties
+(variableScope cont)
+(timeout 5)
+(position 452 353)
+(message "OK, now I have your attention.")
+(symbol Blank))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 57 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Running instructions:\\ulnone\\fs20\\par\r\nRun this program and immediately minimize the VEE Window.  After about 8 seconds the VEE icon on the task bar should start to flash.\\par\r\n\\par\r\nRestore the VEE Window and press the \"OK Already\" button to stop the flashing and proceed.\\par\r\n\\par\r\n\\ul\\fs20 Additional Notes:\\ulnone\\fs20\\par\r\nThis sample has been updated with VEE Class Name changes. Please refer to \"Class names for VEE window are changed in Keysight VEE 8.5\" in Keysight VEE 8.5 Readme file for class name details.\\par\r\n}\r\n"
+)))
+(device 58 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType DLL)
+(libName "user32")
+(fileName "C:\\windows\\system32\\user32.dll")
+(defnFileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\examples\\Contrib\\Win32API\\user32.h"
+))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 60 FORMULA
+(properties
+(name "Generate .H Path")
+(variableScope cont)
+(expr 1 "installDir()+\"\\\\examples\\\\Contrib\\\\Win32API\\\\user32.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 67 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 68 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "Couldn\'t retrieve window handle")))
+(device 81 CALL
+(properties
+(name "Call user32.FindWindowA")
+(variableScope cont)
+(callFunc "user32.FindWindowA")
+(parmMode rev30))
+(interface
+(input 1
+(name "lpClassName")
+(requires
+(datatype Text))
+(optional yes))
+(input 2
+(name "lpWindowName")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassName")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "lpWindowName")
+(lock name constraints)
+(optional yes))))
+(device 82 DELAY
+(properties
+(variableScope cont)
+(delay 3))
+(interface
+(output 1
+(name "Done"))))
+(device 83 ENUMCONSTANT
+(properties
+(name "Radio Buttons")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Keysight VEE Pro" 0)
+("VEE OneLab" 1))
+(data  "Keysight VEE Pro"))
+(initValue Text
+(data  "Keysight VEE Pro"))))
+(device 87 CONTEXT
+(properties
+(name "GetNames")
+(variableScope cont)
+(trigMode deg)
+(nextID 20)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "VeeVersion")
+(optional yes))
+(output 1
+(type data)
+(name "ClassName")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "ProgName")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "WindowsForms10.Window.8.app.0.33c0d9d"))
+(initValue Text
+(data  ""))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "KeysightVEE"))
+(initValue Text
+(data  ""))))
+(device 2 FORMULA
+(properties
+(name "whichVersion()")
+(variableScope cont)
+(expr 1 "whichVersion()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "strFromLen(str,from,len)")
+(variableScope cont)
+(expr 1 "strFromLen(str,0,3)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A>8.0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 9 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 10 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "a + \" - \" + baseName(programName())"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 12 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "B = baseName(programName());"
+"strFromLen(B, 0, (strLen(B)-4))  + \" (Running) - \" + a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "B")
+(optional yes))))
+(device 18 LABEL
+(properties
+(name "VEE Pro 8.5 and above")
+(variableScope cont)
+(labelValue "VEE Pro 8.5 and above"))
+(implementation))
+(device 19 LABEL
+(properties
+(name "VEE Pro 8.0 and below")
+(variableScope cont)
+(labelValue "VEE Pro 8.0 and below"))
+(implementation))
+(configuration
+(connect D4:1 D0:0)
+(connect D4:2 D1:0)
+(connect D2:1 D3:1)
+(connect D3:1 D4:1)
+(connect D0:1 D5:1)
+(connect D1:1 D5:2)
+(connect D1:0 D6:0)
+(connect I1:1 D6:1)
+(connect D8:1 D7:1)
+(connect D6:1 D7:2)
+(connect D0:0 D8:0)
+(connect I1:1 D8:1)
+(connect D5:1 O1:1)
+(connect D7:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 859 559)
+(anchorPt -343 223)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 294 26))
+(pinCenter 780 30))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 590 220))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 89 0))
+(open
+(extent 116 50))
+(terminals on)
+(pinCenter 500 -120))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 146 0))
+(open
+(extent 168 70))
+(terminals on)
+(pinCenter 770 -120))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 64 51))
+(terminals on)
+(pinCenter 485 10))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 1040 210))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 262 50))
+(pinCenter 590 300))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 1040 290))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 324 76))
+(pinCenter 780 120))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 137 0))
+(open
+(extent 137 27)
+(just l))
+(title off)
+(pinCenter 700 -40))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 137 0))
+(open
+(extent 137 27)
+(just l))
+(title off)
+(pinCenter 490 160))
+(connect D4:1 D0:0
+(points 5 559 0 580 0 580 -10 780 -10 780 -4))
+(connect D4:2 D1:0
+(points 3 559 20 590 20 590 185))
+(connect D2:1 D3:1
+(points 2 610 -120 653 -120))
+(connect D3:1 D4:1
+(points 6 906 -120 930 -120 930 -200 390 -200 390 10 420 10))
+(connect D0:1 D5:1
+(points 4 929 30 960 30 960 200 1024 200))
+(connect D1:1 D5:2
+(points 2 679 220 1024 220))
+(connect D1:0 D6:0
+(points 2 590 237 590 254))
+(connect I1:1 D6:1
+(points 4 343 56 350 56 350 300 456 300))
+(connect D8:1 D7:1
+(points 4 944 100 950 100 950 280 1024 280))
+(connect D6:1 D7:2
+(points 2 723 300 1024 300))
+(connect D0:0 D8:0
+(points 2 780 45 780 61))
+(connect I1:1 D8:1
+(points 4 343 56 360 56 360 120 615 120))
+(connect D5:1 O1:1
+(points 4 1055 210 1080 210 1080 -84 1201 -84))
+(connect D7:1 O2:1
+(points 4 1055 290 1080 290 1080 196 1201 196)))
+(stackingOrder 3 4 2 8 1 6 7 5 0 10 9))))
+(device 92 FORMULA
+(properties
+(name "Generate DLL Path")
+(variableScope cont)
+(expr 1 "A+ \"\\\\user32.dll\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 94 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an illustration \"as is\", and \\par\r\nKeysight Technologies makes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(device 95 FORMULA
+(properties
+(name "Get System Dir")
+(variableScope cont)
+(expr 8 "os = whichOS();" "getEnv(\"windir\")+\"\\\\\"+"
+"(((os == \"Windows_NT\") || " "  (os == \"Windows_XP\") ||"
+"  (os == \"Windows_2000\") || " "  (os == \"Windows_Vista\") ||"
+"  (os == \"Windows_7\") || "
+"  (os == \"Windows_8\")) ? \"system32\" : \"system\")"))
+(interface
+(output 1
+(name "os")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D11:0 D0:0)
+(connect D8:0 D1:0)
+(connect D10:1 D1:1)
+(connect D3:1 D2:0)
+(connect D0:1 D3:1)
+(connect D0:2 D3:2)
+(connect D1:0 D4:0)
+(connect D7:0 D6:0)
+(connect D14:1 D6:1)
+(connect D7:1 D6:2)
+(connect D14:0 D7:0)
+(connect D10:1 D8:1)
+(connect D8:1 D9:0)
+(connect D0:0 D10:0)
+(connect D13:1 D10:1)
+(connect D13:2 D10:2)
+(connect D6:0 D11:0)
+(connect D12:1 D13:1)
+(connect D16:2 D14:1)))
+(contextCarrier
+(wndRestoredOrigin 122 122)
+(wndRestoredExtent 793 614)
+(wndState max)
+(active detail)
+(detail
+(extent 1064 839)
+(anchorPt -29 241)
+(configuration
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 81 34))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 600 210))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 154 15))
+(open
+(extent 101 39)
+(carbonCopy))
+(terminals on)
+(pinCenter 620 470))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 770 240))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 690 210))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 81 34))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 600 530))
+(devCarrierFor 57
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 624 176)
+(editing disabled))
+(pinCenter 710 -120))
+(devCarrierFor 58
+(active open)
+(icon)
+(open
+(extent 280 130))
+(pinCenter 600 80))
+(devCarrierFor 60
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 223 50))
+(pinCenter 300 130))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 880 290))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 950 360))
+(devCarrierFor 81
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 600 310))
+(devCarrierFor 82
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 600 170))
+(devCarrierFor 83
+(active open)
+(icon)
+(open
+(extent 121 55)
+(format buttons))
+(pinCenter 180 310))
+(devCarrierFor 87
+(active icon)
+(icon
+(extent 66 25))
+(terminals on)
+(pinCenter 310 300))
+(devCarrierFor 92
+(active open)
+(icon
+(extent 115 0))
+(open
+(extent 151 50))
+(pinCenter 300 30))
+(devCarrierFor 94
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing disabled))
+(pinCenter 210 -160))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 90 25))
+(open
+(extent 284 196))
+(terminals on)
+(pinCenter 130 20))
+(connect D11:0 D0:0
+(points 2 600 180 600 190))
+(connect D8:0 D1:0
+(points 4 880 305 880 360 600 360 600 430))
+(connect D10:1 D1:1
+(points 6 800 290 820 290 820 370 480 370 480 470 497 470))
+(connect D3:1 D2:0
+(points 3 705 210 770 210 770 230))
+(connect D0:1 D3:1
+(points 2 643 200 674 200))
+(connect D0:2 D3:2
+(points 4 643 210 650 210 650 220 674 220))
+(connect D1:0 D4:0
+(points 2 600 492 600 510))
+(connect D7:0 D6:0
+(points 6 300 157 300 180 440 180 440 -20 600 -20 600 -6))
+(connect D14:1 D6:1
+(points 4 378 30 430 30 430 50 457 50))
+(connect D7:1 D6:2
+(points 4 414 130 430 130 430 110 457 110))
+(connect D14:0 D7:0
+(points 2 300 57 300 84))
+(connect D10:1 D8:1
+(points 2 800 290 842 290))
+(connect D8:1 D9:0
+(points 3 918 280 950 280 950 350))
+(connect D0:0 D10:0
+(points 2 600 229 600 258))
+(connect D13:1 D10:1
+(points 2 345 290 399 290))
+(connect D13:2 D10:2
+(points 4 345 310 370 310 370 330 399 330))
+(connect D6:0 D11:0
+(points 2 600 147 600 160))
+(connect D12:1 D13:1
+(points 4 243 290 250 290 250 300 274 300))
+(connect D16:2 D14:1
+(points 2 177 30 222 30)))
+(stackingOrder 6 1 4 2 11 9 0 10 8 7 14 12 3 16 13 15 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

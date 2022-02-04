@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag5313xa2.vee">
+		<Description>Measure frequency on chan1 and do data logging</Description>
+		<LogicalInstrument name="Counter">
+			<SupportedInstruments>
+				<Instrument idn="Ag53131A"/>
+				<Instrument idn="Ag53132A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

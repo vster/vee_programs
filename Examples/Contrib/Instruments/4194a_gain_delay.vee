@@ -1,0 +1,362 @@
+(saveFormat "2.3")
+(date "Wed 04/Feb/2004 11:13:28 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 3)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "e1gunderson24en")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "VNA"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "d2476cc26")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag4195aViaLan"
+(type GPIB)
+(gateway "eng-dhcp-7")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 17)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 IODEVICE
+(properties
+(name "ag4195aViaLan ( @ 704 on eng-dhcp-7)")
+(transactions 1 "WRITE TEXT \"FNC2\" EOL"))
+(implementation
+(iopath "ag4195aViaLan")))
+(device 2 IODEVICE
+(properties
+(name "ag4195aViaLan ( @ 704 on eng-dhcp-7)")
+(transactions 1 "WRITE TEXT \"GPP3\" EOL"))
+(implementation
+(iopath "ag4195aViaLan")))
+(device 3 START25)
+(device 4 IODEVICE
+(properties
+(name "ag4195aViaLan ( @ 704 on eng-dhcp-7)")
+(transactions 4 "WRITE TEXT \"A?\" EOL" "READ TEXT x REAL32 ARRAY:401"
+"WRITE TEXT \"B?\" EOL" "READ TEXT y REAL32 ARRAY:401"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes)))
+(implementation
+(iopath "ag4195aViaLan")))
+(device 7 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale X")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 10 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 11 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 12 NOTE
+(properties
+(text2 3 "Send the 4194A command string" "\"FNC2\" - Setting to Gain/Phase"
+"Measurement Mode")))
+(device 13 NOTE
+(properties
+(text2 3 "Send the 4194A command string" "\"GPP3\" - measure gain in (dB) and "
+"Group Delay")))
+(device 14 NOTE
+(properties
+(text2 6 "Request the A and B display " "register readings, 401 points "
+"each as REAL,32 arrays, size 401" "" "" "")))
+(device 15 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale X")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 16 NOTE
+(properties
+(name "ABOUT:4194A_gain_delay_data.vee")
+(text2 4 "Acquires GAIN and GROUP delay data "
+"from the Keysight 4194A impedance analyzer."
+"Traces are by default 401 points. " "")))
+(configuration
+(connect D2:0 D0:0)
+(connect D0:0 D1:0)
+(connect D1:0 D3:0)
+(connect D3:1 D4:1)
+(connect D4:0 D4:2)
+(connect D3:1 D5:1)
+(connect D3:2 D6:1)
+(connect D3:2 D10:1)
+(connect D10:0 D10:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 920 451)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -84 -20)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 57))
+(terminals on)
+(pinCenter 250 110))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 284 51)
+(iconImage "io.icn"))
+(open
+(extent 255 47))
+(terminals on)
+(pinCenter 250 320))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 250 40))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 284 51)
+(iconImage "io.icn"))
+(open
+(extent 255 97))
+(terminals on)
+(pinCenter 250 420))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 255 257)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -30 30 4 linear))
+(domain 0 400 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 920 190))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 165 87)
+(noformatter))
+(pinCenter 570 390))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 155 97)
+(noformatter))
+(pinCenter 570 560))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 295 77)
+(editing enabled))
+(pinCenter 570 120))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 295 77)
+(editing enabled))
+(pinCenter 470 230))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 295 77)
+(editing enabled))
+(pinCenter 240 540))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 275 227)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -2E-006 2E-006 4 linear))
+(domain 0 400 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 850 520))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 217 51)
+(iconImage "notepad.icn"))
+(open
+(extent 375 87)
+(editing enabled))
+(bg "Med Light Teal")
+(titleBg "Med Light Gray")
+(pinCenter 330 620))
+(connect D2:0 D0:0
+(points 2 250 53 250 61))
+(connect D0:0 D1:0
+(points 2 250 141 250 276))
+(connect D1:0 D3:0
+(points 2 250 346 250 351))
+(connect D3:1 D4:1
+(points 6 410 390 430 390 430 310 740 310 740 120 790 120))
+(connect D4:0 D4:2
+(points 5 920 321 920 340 770 340 770 260 790 260))
+(connect D3:1 D5:1
+(points 2 410 390 485 390))
+(connect D3:2 D6:1
+(points 4 410 450 430 450 430 560 490 560))
+(connect D3:2 D10:1
+(points 4 410 450 430 450 430 460 710 460))
+(connect D10:0 D10:2
+(points 5 850 636 850 650 690 650 690 580 710 580)))
+(stackingOrder 7 8 6 4 2 0 1 3 9 5 10 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE50xxx-ENA2.vee">
+		<Description>Setup and calibrate 2-Port S-Parameters using an ECal module</Description>
+		<LogicalInstrument name="VNA">
+			<SupportedInstruments>
+				<Instrument idn="agE5061A"/>
+				<Instrument idn="agE5062A"/>
+				<Instrument idn="agE5070A"/>
+				<Instrument idn="agE5070B"/>
+				<Instrument idn="agE5071A"/>
+				<Instrument idn="agE5071B"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

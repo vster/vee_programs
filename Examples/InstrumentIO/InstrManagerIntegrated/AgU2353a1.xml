@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgU2353a1.vee">
+		<Description>Set and retrieve data from DAQ with SCPI commands</Description>
+		<LogicalInstrument name="DAQ">
+			<SupportedInstruments>
+				<Instrument idn="agu2353a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

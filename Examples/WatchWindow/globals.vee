@@ -1,0 +1,316 @@
+(saveFormat "7.0")
+(date "Fri 05/Feb/2010 17:19:44 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F1 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 35)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 1
+(properties
+(name "declareVars")
+(variableName declareVars)
+(variableScope glob)
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserFunction2")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare global_real")
+(scope glob)
+(globalName "global_real"))
+(implementation
+(value Real64
+(data  0))))
+(device 4 DECLVAR
+(properties
+(name "Declare localtoLib_real")
+(scope lib)
+(globalName "localtoLib_real"))
+(implementation
+(value Real64
+(data  0))))
+(device 5 TOGLOBAL
+(properties
+(name "Set localtoLib_real")
+(variableScope cont)
+(globalName "localtoLib_real"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 6 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(data  65.90000152587891))
+(initValue Real32
+(data  0))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 722 632)
+(anchorPt -3 1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 195 103))
+(pinCenter 130 110))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 195 103))
+(pinCenter 450 110))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 112 0))
+(open
+(extent 78 51))
+(terminals on)
+(pinCenter 435 410))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 190 410))
+(connect D3:1 D2:1
+(points 2 232 410 353 410)))
+(stackingOrder 0 1 2 3)))))
+(device 15 IMPORT
+(properties
+(name "Import Library")
+(breakpoint 1)
+(variableScope cont)
+(libType userFunction)
+(fileName "\\Examples\\WatchWindow\\libtoimport.vee"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 25 CALL
+(properties
+(name "Call declareVars")
+(variableScope cont)
+(callFunc "declareVars")
+(parmMode rev30)))
+(device 27 TOGLOBAL
+(properties
+(name "Set undeclaredGlobal")
+(breakpoint 1)
+(variableScope cont)
+(globalName "undeclaredGlobal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 28 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "vee"))
+(initValue Text
+(data  ""))))
+(device 29 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Under \"Globals\" tab, there can be 4 categories of variables: declared globals, declared \"local to library variables\", undeclared globals, and variables in imported libraries. This example demonstrates the differences between them.\\par\r\n\\par\r\n1. Click \"View\" =>\"Watch Window\" => \"Globals\" in Main Menu to open the Watch Window. You can see two root nodes named \"Declared Globals\" and \"Local to Library Declared variables\".\\par\r\n\\par\r\n2.Press \"run\" button, this program will stop at the first  break point(\"ImportLibrary\"), then step over to the next break point. Pay attention to the changes in Watch Window. \\par\r\n\\par\r\n3. After step over the first break point, variables in imported library \"mylib\" will appear under \"Globals\" tab.\\par\r\n\\par\r\n4. Step over to the second break point(\"Set undeclaredGlobal\"), an undeclared global variable appear under the Globals tab.\\par\r\n\\par\r\n5.Step over to the third break point(\"Delete Library\"),  variables in imported library \"mylib\" disappear under the Globals tab.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 30 CALL
+(properties
+(name "Call myLib.UserFunction1")
+(variableScope cont)
+(callFunc "myLib.UserFunction1")
+(parmMode rev30)))
+(device 31 DELETE
+(properties
+(breakpoint 1)
+(variableScope cont)
+(libName "myLib"))
+(implementation))
+(device 32 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 33 FORMULA
+(properties
+(name "FIleName")
+(variableScope cont)
+(expr 2 "installDir() + \"\\\\Examples\\\\WatchWindow\\\\libtoimport.vee\"" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:0 D0:0)
+(connect D8:1 D0:1)
+(connect D0:0 D2:0)
+(connect D3:1 D2:1)
+(connect D2:0 D5:0)
+(connect D5:0 D6:0)
+(connect D6:0 D7:0)))
+(contextCarrier
+(wndRestoredOrigin 300 94)
+(wndRestoredExtent 857 632)
+(wndState max)
+(active detail)
+(detail
+(extent 1000 869)
+(anchorPt 270 259)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 224 82))
+(pinCenter 410 -80))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 410 -190))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 130 0))
+(open
+(extent 154 66))
+(terminals on)
+(pinCenter 415 30))
+(devCarrierFor 28
+(active open)
+(icon)
+(open
+(extent 84 26))
+(pinCenter 220 30))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 386)
+(editing disabled))
+(pinCenter -50 60))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 410 130))
+(devCarrierFor 31
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 410 210))
+(devCarrierFor 32
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 410 290))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 384 146))
+(terminals on)
+(pinCenter 240 -80))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 414 76)
+(editing enabled))
+(pinCenter -70 -200))
+(connect D1:0 D0:0
+(points 2 410 -162 410 -142))
+(connect D8:1 D0:1
+(points 2 272 -80 295 -80))
+(connect D0:0 D2:0
+(points 2 410 -37 410 -24))
+(connect D3:1 D2:1
+(points 2 264 30 295 30))
+(connect D2:0 D5:0
+(points 2 410 65 410 84))
+(connect D5:0 D6:0
+(points 2 410 158 410 174))
+(connect D6:0 D7:0
+(points 2 410 228 410 254)))
+(stackingOrder 9 4 0 1 8 2 3 5 6 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

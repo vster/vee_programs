@@ -1,0 +1,484 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:14:25 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dmm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 22)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp34401a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Storing Data for a Spreadsheet")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "dmm ( @ (NOT LIVE))"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "hp34401a.cid")
+(driver "dmm")
+(state
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "BEEPSTATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISPLAY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "DCV"))
+(idComp
+(name "MATH")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DBM_REF")
+(typeStr "Enum")
+(state "Valid")
+(value "R600"))
+(idComp
+(name "LIM_LOWER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIM_UPPER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "BAND_DET")
+(typeStr "Enum")
+(state "Valid")
+(value "MED"))
+(idComp
+(name "INP_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "AZERO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "MAX_TRIG")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "TRIG_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "MAX_SAMP")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "SAMP_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRIG")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "ENTRY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "FETCH_IMM"))
+(idComp
+(name "FREQ_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "VOLT_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "FRES_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "CURR_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "DCV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FREQ_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "RES_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "FREQ_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "DCI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "ACV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "ACI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "RES_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1000))
+(idComp
+(name "DELAY_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DELAY")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM")))))
+(device 1 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 DELAY
+(properties
+(delay 3))
+(interface
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 3 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 4 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "Cnt")
+(optional yes))
+(input 2
+(name "Tm")
+(optional yes))
+(input 3
+(name "Vlts")
+(optional yes))
+(output 1
+(name "Record")
+(tag "Record"))))
+(device 5 FORMULA
+(properties
+(name "now( )")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a TIME:HMS:H24 EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 9 TOFILE
+(properties
+(transactions 1 "WRITE TEXT a.Cnt, \" \", a.Tm, \" \", a.Vlts EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 11 NOTE
+(properties
+(name "Information")
+(text2 5 "This example shows how to store data in a format"
+"that the Microsoft Excel spreadsheet program can"
+"read.  For further information, see the" "\"VEE Help\" topic,"
+"\"To Store Data for a Spreadsheet Program\".")))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D2:1 D0:0)
+(connect D1:1 D2:0)
+(connect D2:1 D3:1)
+(connect D3:1 D4:1)
+(connect D6:1 D4:2)
+(connect D0:1 D4:3)
+(connect D2:1 D5:0)
+(connect D5:1 D6:1)
+(connect D4:1 D7:1)))
+(contextCarrier
+(wndOrigin 6 5)
+(wndState res)
+(active detail)
+(detail
+(extent 992 600)
+(anchorPt 278 485)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 130 51)
+(iconImage "inst.icn"))
+(open
+(extent 427 220)
+(visiblePanels 8 "SET_UP" "DCV_ITEMS" "MAIN_SET" "IMPEDANCE" "AUTO_ZERO"
+"MULTIMETER" "MIDI_SGL" "MIDS_SIMU"))
+(terminals on)
+(pinCenter -20 -20))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 110 33))
+(pinCenter -210 -320))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 79 35))
+(pinCenter -140 -250))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 105 37))
+(pinCenter 0 -320))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 113 91))
+(terminals on)
+(pinCenter 210 -240))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 69 32))
+(terminals on)
+(pinCenter -40 -240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 70 25))
+(open
+(extent 254 78))
+(terminals on)
+(pinCenter 50 -240))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 334 113))
+(terminals on)
+(pinCenter 550 -240))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 475 118)
+(editing disabled))
+(title off)
+(pinCenter 370 -420))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -80 -440))
+(connect D2:1 D0:0
+(points 5 -98 -250 -80 -250 -80 -200 0 -200 0 -151))
+(connect D1:1 D2:0
+(points 3 -153 -320 -140 -320 -140 -288))
+(connect D2:1 D3:1
+(points 4 -98 -250 -80 -250 -80 -320 -55 -320))
+(connect D3:1 D4:1
+(points 4 55 -320 80 -320 80 -270 111 -270))
+(connect D6:1 D4:2
+(points 2 87 -240 111 -240))
+(connect D0:1 D4:3
+(points 4 266 -20 90 -20 90 -210 111 -210))
+(connect D2:1 D5:0
+(points 5 -98 -250 -80 -250 -80 -270 -40 -270 -40 -255))
+(connect D5:1 D6:1
+(points 2 -14 -240 12 -240))
+(connect D4:1 D7:1
+(points 2 329 -240 350 -240)))
+(stackingOrder 2 1 6 5 7 4 8 9 3 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

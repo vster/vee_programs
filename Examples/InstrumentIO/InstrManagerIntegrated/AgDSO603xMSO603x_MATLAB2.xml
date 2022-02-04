@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgDSO603xMSO603x_MATLAB2.vee">
+		<Description>Acquires 2 analog waveforms, computes abs() and exp() with VEE's MATLAB functionality, and plots results</Description>
+		<LogicalInstrument name="Scope">
+			<SupportedInstruments>
+				<Instrument idn="agdso6032A"/>
+				<Instrument idn="agdso6034A"/>
+				<Instrument idn="agmso6032A"/>
+				<Instrument idn="agmso6034A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

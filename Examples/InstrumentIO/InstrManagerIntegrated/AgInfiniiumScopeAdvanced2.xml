@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgInfiniiumScopeAdvanced2.vee">
+		<Description>Display Butterworth filter</Description>
+		<LogicalInstrument name="scope">
+			<SupportedInstruments>
+				<Instrument idn="ag54830B"/>
+				<Instrument idn="ag54830D"/>
+				<Instrument idn="ag54831B"/>
+				<Instrument idn="ag54831D"/>
+				<Instrument idn="ag54832B"/>
+				<Instrument idn="ag54832D"/>
+				<Instrument idn="ag54833B"/>
+				<Instrument idn="ag54833D"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

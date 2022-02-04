@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScpiDefinition xmlns="http://www.agilent.com/schemas/SCPIDL/2008"
+                friendlyName="Agilent 34401A Multimeter"
+                documentVersion="1.0"
+                schemaVersion="1.1">
+  
+  <Source>
+    <StandAloneDocument providerName="Keysight Technologies" creationDate="2008-06-10"/>
+  </Source>
+  
+  <SupportedInstruments>
+    <SupportedInstrument Manufacturer="Hewlett-Packard" Model="34401A" FirmwareLevel="1.0"/>
+    <SupportedInstrument Manufacturer="Agilent Technologies" Model="34401A" FirmwareLevel="2.0"/>
+  </SupportedInstruments>
+
+  <GlobalDefinitions>
+    
+    <Enum name="Boolean" langTypeName="OnOff" >
+      <Member mnemonic="ON"  langMemberName="On"  value="1"/>
+      <Member mnemonic="OFF" langMemberName="Off" value="0"/>
+    </Enum>
+
+    <ParameterType name="Boolean">
+      <DecimalNumeric/>
+      <Character>
+        <EnumRef name="Boolean"/>
+      </Character>
+    </ParameterType>
+
+    <ResponseType name="Boolean">
+      <NR1Numeric>
+        <EnumRef name="Boolean"/>
+      </NR1Numeric>
+    </ResponseType>
+
+    <Enum name="TriggerSource" langTypeName="TriggerSource"  description="Identifies the trigger source of the channels.">
+      <Member mnemonic="INTernal" langMemberName="Internal" value="0"/>
+      <Member mnemonic="EXTernal" langMemberName="External" value="1"/>
+    </Enum>
+
+    <ParamRespType name="TriggerSource">
+      <Character>
+        <EnumRef name="TriggerSource"/>
+      </Character>
+    </ParamRespType>
+
+    <BlockElements name="WaveformBinblockElements">
+      <Element format="BinaryLittleEndian" type="SByte" condition="When :WAVEFORM:FORMAT set to BYTE. -1 represents data hole, valid data range 0-127."/>
+      <Element format="BinaryLittleEndian" type="Byte"  condition="When :WAVEFORM:FORMAT set to COMPRESSED. 255 represents data hole, 255 value mapped to 254."/>
+      <Element format="BinaryLittleEndian" type="Int16" condition="When :WAVEFORM:FORMAT set to WORD. -1 represents data hole, valid data range 0-32640."/>
+      <Element format="Ascii"              type="Int16" condition="When :WAVEFORM:FORMAT set to ASCII. -1 represents data hole, valid data range 0-32640.">
+        <EnumRef name="MinMax"/>
+      </Element>
+    </BlockElements>
+
+    <ParameterType name="WaveformBlock">
+      <ArbitraryBlock>
+        <BlockElementsRef name="WaveformBinblockElements"/>
+      </ArbitraryBlock>
+    </ParameterType>
+
+    <ResponseType name="WaveformBlock">
+      <DefiniteLengthArbitraryBlock>
+        <BlockElementsRef name="WaveformBinblockElements"/>
+      </DefiniteLengthArbitraryBlock>
+    </ResponseType>
+
+    <Enum name="MinMax" langTypeName="MinMax">
+      <Member mnemonic="MINimum" langMemberName="Minimum"/>
+      <Member mnemonic="MAXimum" langMemberName="Maximum"/>
+    </Enum>
+    
+    <Enum name="MinMaxDef" langTypeName="MinMaxDef">
+      <Member mnemonic="DEFault" langMemberName="Default" description="Sets the value to its default" value="1"/>
+      <Member mnemonic="MINimum" langMemberName="Minimum"/>
+      <Member mnemonic="MAXimum" langMemberName="Maximum"/>
+    </Enum>
+    
+    <Enum name="MinMaxDefInf" langTypeName="MinMaxDefInf">
+      <Member mnemonic="DEFault"   langMemberName="Default"/>
+      <Member mnemonic="MINimum"   langMemberName="Minimum"/>
+      <Member mnemonic="MAXimum"   langMemberName="Maximum"/>
+      <Member mnemonic="INFinity"  langMemberName="Infinity"/>
+      <Member mnemonic="NINFinity" langMemberName="NegativeInfinity"/>
+      <Member mnemonic="NAN"       langMemberName="NotANumber"/>
+    </Enum>
+    
+    <Enum name="MinMaxDefInfStep" langTypeName="MinMaxDefInfStep">
+      <Member mnemonic="DEFault"   langMemberName="Default"/>
+      <Member mnemonic="MINimum"   langMemberName="Minimum"/>
+      <Member mnemonic="MAXimum"   langMemberName="Maximum"/>
+      <Member mnemonic="INFinity"  langMemberName="Infinity"/>
+      <Member mnemonic="NINFinity" langMemberName="NegativeInfinity"/>
+      <Member mnemonic="NAN"       langMemberName="NotANumber"/>
+      <Member mnemonic="UP"        langMemberName="Up"/>
+      <Member mnemonic="DOWN"      langMemberName="Down"/>
+    </Enum>
+    
+    <Enum name="DisplayPersistence" langTypeName="DisplayPersistence">
+      <Member mnemonic="INFinite" aliases="MAX" langMemberName="Infinite"/>
+      <Member mnemonic="SINGle"   aliases="MIN" langMemberName="Single" description="Sets the persistence value to minimum."/>
+    </Enum>
+    
+    <Enum name="WaveformFormat" langTypeName="TriggerSource"  description="Identifies the trigger source of the channels.">
+      <Member mnemonic="ASCII"      langMemberName="Ascii"/>
+      <Member mnemonic="BYTE"       langMemberName="Byte"/>
+      <Member mnemonic="WORD"       langMemberName="Word"/>
+      <Member mnemonic="COMPressed" langMemberName="Compressed"/>
+    </Enum>
+
+    <ParameterType name="JoesBoolean">
+      <NonDecimalNumeric/>
+      <!-- Do we need to declare valid return values for DN e.g. 0 and 1? -->
+      <DecimalNumeric/>
+      <Character>
+        <EnumRef name="Boolean"/>
+      </Character>
+    </ParameterType>
+
+    <ParameterType name="Voltage">
+      <DecimalNumeric>
+        <Suffix>
+          <StandardSuffix unit="V" allowMultiplier="true"/>
+        </Suffix>
+      </DecimalNumeric>
+      <Character>
+        <EnumRef name="MinMaxDef"/>
+      </Character>
+    </ParameterType>
+
+    <ParameterType name="Frequency">
+      <DecimalNumeric>
+        <Suffix>
+          <StandardSuffix unit="HZ" allowMultiplier="true"/>
+        </Suffix>
+      </DecimalNumeric>
+      <Character>
+        <EnumRef name="MinMaxDef"/>
+      </Character> 
+    </ParameterType>
+
+    <ParameterType name="FrequencyMHZ">
+      <DecimalNumeric>
+        <Suffix>
+          <StandardSuffix unit="MHZ" allowMultiplier="false"/>
+        </Suffix>
+      </DecimalNumeric>
+      <Character>
+        <EnumRef name="MinMaxDef"/>
+      </Character>
+    </ParameterType>
+
+    <ParamRespType name="ChannelList">
+      <Expression>
+        <ChannelList/>
+      </Expression>
+    </ParamRespType>
+
+  </GlobalDefinitions>
+  
+  <CommonCommands>
+    <CommonCommand mnemonic="ESE" commandForm="CommandAndQuery">
+      <Synopsis>Enables bits in the Standard Event enable register.</Synopsis>
+      <Remarks>The selected bits are then reported to the Status Byte.</Remarks>
+      <Examples>
+        <Example targetCommandForm="CommandOnly" targetLanguage="VB">
+          blah blah blah
+        </Example>
+      </Examples>
+      <CommandSyntaxes>
+        <CommandSyntax condition="When the first parameter is 1 this syntax is valid.">
+          <Parameters>
+            <Parameter name="value" semanticType="Integer" description="...">
+              <DecimalNumeric/>
+            </Parameter>
+          </Parameters>
+        </CommandSyntax>
+      </CommandSyntaxes>
+      <QuerySyntaxes>
+        <QuerySyntax>
+          <Responses>
+            <Response name="value" semanticType="Integer">
+              <NR1Numeric/>
+            </Response>
+          </Responses>
+        </QuerySyntax>
+      </QuerySyntaxes>
+    </CommonCommand>
+  </CommonCommands>
+
+  <SubsystemCommands>
+    <!-- NRF case -->
+    <RootNode mnemonic="CHANnel" suffix="1 2" appName="XYZ Application">
+      <Node mnemonic="VOLTs">
+        <SubsystemCommand commandForm="CommandAndQuery" category="HighLevel">
+          <Synopsis></Synopsis>
+          <Remarks></Remarks>
+          <HelpLink url="http://www.agilent.com/find/34401A"/>
+          <Examples>
+            <Example targetCommandForm="CommandOnly">
+              directIO.WriteLine(":CHAN1:VOLTS DEF");
+            </Example>
+            <Example targetCommandForm="QueryOnly">
+              directIO.WriteLine(":CHAN1:VOLTS? MAX");
+            </Example>
+          </Examples>
+          <CommandSyntaxes>
+            <CommandSyntax condition="When parameter 1 is MIX this syntax is valid.">
+              <Parameters>
+                <Parameter name="voltage" semanticType="Real">
+                  <ParameterTypeRef name="Voltage"/>
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>
+          <QuerySyntaxes>
+            <QuerySyntax condition="When this parameter isn't specified, the query returns the current voltage.">
+              <Parameters>
+                <Parameter name="specialValue" semanticType="Real" optional="true" description="Query for the special values MIN or MAX.">
+                  <Character>
+                    <EnumRef name="MinMax"/>
+                  </Character>
+                </Parameter>
+              </Parameters>
+              <Responses>
+                <Response name="voltage" semanticType="Real">
+                  <NR3Numeric/>
+                </Response>
+              </Responses>
+            </QuerySyntax>
+          </QuerySyntaxes>
+        </SubsystemCommand>        
+      </Node>
+    </RootNode>
+
+    <!-- SCPI Enum scenario - how does a programming environment map this to a property? -->
+    <RootNode mnemonic="TRIGger" suffix="A B C D">
+      <Node mnemonic="SOURce">
+        <SubsystemCommand commandForm="CommandAndQuery">
+          <Synopsis></Synopsis>
+          <Remarks></Remarks>
+          <HelpLink url="http://www.agilent.com/find/34401A"/>
+          <Examples></Examples>
+          <CommandSyntaxes>
+            <CommandSyntax>
+              <Parameters>
+                <Parameter name="source" semanticType="Enum">
+                  <ParamRespTypeRef name="TriggerSource"/>
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>
+          <QuerySyntaxes>
+            <QuerySyntax>
+              <Responses>
+                <Response name="source" semanticType="Enum">
+                  <ParamRespTypeRef name="TriggerSource"/>
+                </Response>
+              </Responses>
+            </QuerySyntax>
+          </QuerySyntaxes>
+        </SubsystemCommand>
+      </Node>
+
+      <!-- Hidden commands scenario -->
+      <Node mnemonic="CALibration" hidden="true">
+        <Node mnemonic="CHANnel" suffix="1:4 *">
+          <Node mnemonic="TIMEbase">
+            <SubsystemCommand commandForm="CommandAndQuery" category="LowLevel">
+              <CommandSyntaxes>
+                <CommandSyntax>
+                  <Parameters>
+                    <Parameter name="value" semanticType="Boolean">
+                      <ParameterTypeRef name="Boolean"/>
+                    </Parameter>
+                  </Parameters>
+                </CommandSyntax>
+              </CommandSyntaxes>
+              <QuerySyntaxes>
+                <QuerySyntax>
+                  <Responses>
+                    <Response name="value" semanticType="Boolean">
+                      <ResponseTypeRef name="Boolean"/>
+                    </Response>
+                  </Responses>
+                </QuerySyntax>
+              </QuerySyntaxes>
+            </SubsystemCommand>
+          </Node>
+        </Node>
+      </Node>
+
+      <!-- SCPI Boolean scenario -->
+      <Node mnemonic="ENABled">
+        <SubsystemCommand commandForm="CommandAndQuery">
+          <CommandSyntaxes>
+            <CommandSyntax>
+              <Parameters>
+                <Parameter name="value" semanticType="Boolean">
+                  <ParameterTypeRef name="Boolean"/>
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>
+          <QuerySyntaxes>
+            <QuerySyntax>
+              <Responses>
+                <Response name="value" semanticType="Boolean">
+                  <ResponseTypeRef name="Boolean"/>
+                </Response>
+              </Responses>
+            </QuerySyntax>
+          </QuerySyntaxes>
+        </SubsystemCommand>
+      </Node>
+      
+      <!-- DecimalNumeric with units scenario -->
+      <Node mnemonic="FOO">
+        <SubsystemCommand commandForm="CommandAndQuery">
+          <CommandSyntaxes>
+            <CommandSyntax>
+              <Parameters>
+                <Parameter name="value" semanticType="Real">
+                  <ParameterTypeRef name="Frequency"/>
+                  <!--<DecimalNumericProgramData>
+                    <SuffixProgramData>
+                      <StandardSuffix unit="HZ" allowMultiplier="true"/>
+                    </SuffixProgramData>
+                  </DecimalNumericProgramData>-->
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>                   
+        </SubsystemCommand>
+      </Node>
+    </RootNode>
+
+    <!-- Non-standard HP-OL case -->
+    <RootNode mnemonic="SYSTem">
+      <Node mnemonic="ERRor">
+        <Node mnemonic="NEXT" default="true">
+          <SubsystemCommand commandForm="QueryOnly" category="HighLevel">
+            <Synopsis></Synopsis>
+            <Remarks></Remarks>
+            <QuerySyntaxes>
+              <QuerySyntax>
+                <Responses>
+                  <Response name="errorCode" semanticType="Integer" description="Error code">
+                    <NR1Numeric/>
+                  </Response>
+                </Responses>
+              </QuerySyntax>
+              <QuerySyntax condition="When user has put instrument in mode to return an error message also.">
+                <Responses>
+                  <Response name="errorCode" semanticType="Integer" description="Error code">
+                    <NR1Numeric/>
+                  </Response>
+                  <Response name="errorMessage" semanticType="String" description="Error message">
+                    <ArbitraryAscii/>
+                  </Response>
+                </Responses>
+              </QuerySyntax>
+            </QuerySyntaxes>
+          </SubsystemCommand>
+        </Node>
+      </Node>
+    </RootNode>
+
+    <!-- Query takes channel list and returns real number scenario -->
+    <RootNode mnemonic="MEASure">
+      <Node mnemonic="VOLTs">
+        <Node mnemonic="DC">
+          <SubsystemCommand commandForm="QueryOnly" category="HighLevel">
+            <Synopsis></Synopsis>
+            <Remarks></Remarks>
+            <Examples>
+              <Example targetCommandForm="QueryOnly" targetLanguage="C#">
+                directIO.WriteLine(":MEASURE:VOLTS:DC?");
+                double volts = directIO.ReadAsDouble();
+              </Example>
+            </Examples>
+            <QuerySyntaxes>
+              <QuerySyntax>
+                <Parameters>
+                  <Parameter name="channelList" semanticType="String" optional="true">
+                    <Expression>
+                      <ChannelList/>
+                    </Expression>
+                  </Parameter>
+                </Parameters>
+                <Responses>
+                  <Response name="voltage" semanticType="Real" repeat="*" description="Current voltage reading">
+                    <NR3Numeric/>
+                  </Response>
+                </Responses>
+              </QuerySyntax>
+            </QuerySyntaxes>
+          </SubsystemCommand>
+        </Node>
+      </Node>
+    </RootNode>
+    
+    <!-- Block response scenario -->
+    <RootNode mnemonic="WAVEform">
+      <Node mnemonic="DATA">
+        <SubsystemCommand commandForm="CommandAndQuery" category="HighLevel">
+          <Synopsis>Gets and sets a waveform for the source specified by the :WAVEFORM:SOURCE command.</Synopsis>
+          <Remarks>
+            The :WAVEFORM:DATA command causes the instrument to accept a waveform data record over the programmatic interface
+            and store it in th eprevious specified waveform memory. The waveform memory is specified with a :WAVEFORM:SOURCE
+            command.  Only waveform memories can have a waveform sent to them.
+            NOTE: The format of the data being sent must match the format previously specified by the waveform preamble for the 
+            destination memory.  The DATA query tells the instrument to output the waveform record stored in the waveform
+            memory or channel buffer, previously specified with a :WAVEFORM:SOURCE command.
+          </Remarks>
+          <CommandSyntaxes>
+            <CommandSyntax>
+              <Parameters>
+                <Parameter name="data" semanticType="Array" description="Binblock of data.">
+                  <ParameterTypeRef name="WaveformBlock"/>
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>
+          <QuerySyntaxes>
+            <QuerySyntax>
+              <Responses>
+                <Response name="data" semanticType="Array" description="Binblock of data.">
+                  <ResponseTypeRef name="WaveformBlock"/>
+                </Response>
+              </Responses>
+            </QuerySyntax>
+          </QuerySyntaxes>
+        </SubsystemCommand>
+      </Node>
+      <Node mnemonic="FORMat">
+        <SubsystemCommand commandForm="CommandAndQuery">
+          <!-- Map to enum property based on same semanticType / name and possibly parm/resp name? -->
+          <CommandSyntaxes>
+            <CommandSyntax>
+              <Parameters>
+                <Parameter name="value" semanticType="Enum">
+                  <Character>
+                    <EnumRef name="WaveformFormat"/>
+                  </Character>
+                </Parameter>
+              </Parameters>
+            </CommandSyntax>
+          </CommandSyntaxes>
+          <QuerySyntaxes>
+            <QuerySyntax>
+              <Responses>
+                <Response name="value" semanticType="Enum">
+                  <Character>
+                    <EnumRef name="WaveformFormat"/>
+                  </Character>
+                </Response>
+              </Responses>
+            </QuerySyntax>
+          </QuerySyntaxes>
+        </SubsystemCommand>
+      </Node>
+    </RootNode>
+  </SubsystemCommands>
+  
+</ScpiDefinition>

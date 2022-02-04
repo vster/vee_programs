@@ -1,0 +1,382 @@
+(saveFormat "7.0")
+(date "Thu 12/Jun/2008 10:45:54 ")
+(veerev "9.0.11410.1 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.42 M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 53)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 42 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Overview of If Not Equal Example")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:  \\cf1 This example illustrates the use of If Not Equal object. If Not Equal is an object that branches output if the data input values are not equal.\\lang1033\\par\r\n\\cf0\\lang2057\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Toggle on the Execution Flow and Data Flow (under Debug menu). \\par\r\nPress Run.\\par\r\n\\par\r\nEXPLANATION: This example pops up the dialog box based on the values of \\cf1 If Not Equal \\cf0 object inputs.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 30 37)))
+(contextCarrier
+(active detail)
+(panel
+(extent 739 560)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 300 520)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 740 510)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 415 261)
+(anchorPt 399 339)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -290 100))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 196 16))
+(open
+(extent 394 216)
+(editing disabled))
+(pinCenter -170 -190)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 176 70)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 24 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 550 263)
+(anchorPt 240 54)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 812 455)
+(carbonCopy))
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 44 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  5))
+(initValue Int32
+(data  0))))
+(device 47 MESSAGEBOX
+(properties
+(name "A is equal B")
+(variableScope cont)
+(message "A is equal B.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 49 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  -5))
+(initValue Int32
+(data  0))))
+(device 50 MESSAGEBOX
+(properties
+(name "A is not equal B")
+(variableScope cont)
+(message "A is not equal B.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 52 IFTHENELSE
+(properties
+(name "If A != B")
+(variableScope cont)
+(cases 1 "A!=B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D6:2 D3:0)
+(connect D6:1 D5:0)
+(connect D2:1 D6:1)
+(connect D4:1 D6:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 812 637)
+(wndState max)
+(active detail)
+(detail
+(extent 765 552)
+(anchorPt -59 80)
+(configuration
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 520 -40))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 164 66)
+(carbonCopy))
+(pinCenter 150 -20))
+(devCarrierFor 44
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 130 130))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 400 250))
+(devCarrierFor 49
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 130 250))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 500 190))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 54 25))
+(open)
+(terminals on)
+(pinCenter 290 170))
+(connect D6:2 D3:0
+(points 3 319 180 400 180 400 235))
+(connect D6:1 D5:0
+(points 3 319 160 500 160 500 175))
+(connect D2:1 D6:1
+(points 4 166 130 190 130 190 160 260 160))
+(connect D4:1 D6:2
+(points 4 166 250 190 250 190 180 260 180)))
+(stackingOrder 0 1 2 4 6 5 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

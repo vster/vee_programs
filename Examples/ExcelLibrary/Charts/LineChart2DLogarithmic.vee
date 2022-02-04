@@ -1,0 +1,1278 @@
+(saveFormat "7.0")
+(date "Fri 06/Jul/2018 18:20:08 ")
+(veerev "9.33.1806.2902 Windows 10 Edition")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\PROGRAM FILES\\MICROSOFT OFFICE\\OFFICE\\excel8.olb")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 115)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 15 ALLOCATEARRAY
+(properties
+(name "Alloc Real64")
+(variableScope cont))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 2)
+(dimSizes "100" "8")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 16 TOGLOBAL
+(properties
+(name "Set array2D")
+(variableScope cont)
+(globalName "array2D"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 35 NOTE
+(properties
+(name "Example")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example shows the use of the Excel Library\'s CreateLineChart object with multiple data series (Real64 array 8 x 100).  The LineChartSettings.Names TextArray1D\\par\r\nwas increased to hold 8 names, and 8 Function Generators were used to initialize the array.\\par\r\n\\par\r\nClick Run, Excel will appear and create a 8-series line chart. After you resume from pause, Excel will close.\\par\r\n\\par\r\nTry opening the CreateLineChart object and changing the settings to your liking.  This example has modified the line connections to use the Localized \"Sheet1\" name.\\par\r\n\\par\r\nIf you change \'Numeric Markers\' to \'On\', or select \'Line with Markers\' you will need to set a much wider chart \'Width\' to keep it legible.\\par\r\n\\par\r\nNOTES\\par\r\nThe Function Generator output arrays are added to the 2D array using \"[*,n]\" in formula objects.\\par\r\n\\par\r\nFor a Logarithimic chart, be sure there are no zero or negative values in the data.\\par\r\n\\par\r\nFor real X-axis values, use Create XY Chart.\\par\r\n}\r\n"
+)))
+(device 87 CONTEXT
+(properties
+(name "Initialize2Darray")
+(variableScope cont)
+(trigMode deg)
+(nextID 20)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 VFUNCTIONGENERATOR
+(properties
+(name "Triangle Wave 200")
+(variableScope cont)
+(function Tri)
+(frequency 200)
+(amplitude 1)
+(dcOffset 4)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 1 VFUNCTIONGENERATOR
+(properties
+(name "Sine Wave")
+(variableScope cont)
+(function Sine)
+(frequency 600)
+(amplitude 1)
+(dcOffset 2)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 2 VFUNCTIONGENERATOR
+(properties
+(name "Tri  Wave 50")
+(variableScope cont)
+(function Tri)
+(frequency 50)
+(amplitude 1)
+(dcOffset 6)
+(degRad Deg)
+(phaseShift 180)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(name "Ramp")
+(variableScope cont)
+(function +Ramp)
+(frequency 200)
+(amplitude 1)
+(dcOffset 8)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 4 VFUNCTIONGENERATOR
+(properties
+(name "-Ramp")
+(variableScope cont)
+(function -Ramp)
+(frequency 100)
+(amplitude 1)
+(dcOffset 10)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,0]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,1]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,2]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,4]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,3]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,5]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 VFUNCTIONGENERATOR
+(properties
+(name "DcOnly")
+(variableScope cont)
+(function DcOnly)
+(frequency 200)
+(amplitude 1)
+(dcOffset 1)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,6]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 VFUNCTIONGENERATOR
+(properties
+(name "DcOnly-")
+(variableScope cont)
+(function DcOnly)
+(frequency 200)
+(amplitude 1)
+(dcOffset 1)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 14 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Array2D[*,7]=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 VFUNCTIONGENERATOR
+(properties
+(name "Square")
+(variableScope cont)
+(function Square)
+(frequency 200)
+(amplitude 1)
+(dcOffset 1)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 100))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 19 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "abs(Array2D)+.5" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:0 D0:0)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:0 D4:0)
+(connect D1:1 D5:1)
+(connect D0:1 D6:1)
+(connect D2:1 D7:1)
+(connect D4:1 D8:1)
+(connect D3:1 D9:1)
+(connect D11:1 D10:1)
+(connect D4:0 D11:0)
+(connect D13:1 D12:1)
+(connect D11:0 D13:0)
+(connect D15:1 D14:1)
+(connect D13:0 D15:0)
+(connect D15:0 D16:0)
+(connect D16:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 551 810)
+(anchorPt -56 -59)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 112 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 120 190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 120 100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 73 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 130 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 130 370))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 130 440))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 340 110))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 350 200))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 350 290))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 350 450))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 360 380))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 360 540))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 130 530))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 360 630))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 140 620))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 370 720))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 140 720))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 155 65))
+(terminals on)
+(pinCenter 220 840))
+(connect D1:0 D0:0
+(points 2 120 128 120 162))
+(connect D0:0 D2:0
+(points 4 120 218 120 230 130 230 130 252))
+(connect D2:0 D3:0
+(points 2 130 308 130 342))
+(connect D3:0 D4:0
+(points 2 130 398 130 412))
+(connect D1:1 D5:1
+(points 4 156 100 180 100 180 110 250 110))
+(connect D0:1 D6:1
+(points 4 178 190 200 190 200 200 260 200))
+(connect D2:1 D7:1
+(points 4 169 280 190 280 190 290 260 290))
+(connect D4:1 D8:1
+(points 4 166 440 190 440 190 450 260 450))
+(connect D3:1 D9:1
+(points 4 166 370 190 370 190 380 270 380))
+(connect D11:1 D10:1
+(points 4 166 530 190 530 190 540 270 540))
+(connect D4:0 D11:0
+(points 2 130 468 130 502))
+(connect D13:1 D12:1
+(points 4 176 620 200 620 200 630 270 630))
+(connect D11:0 D13:0
+(points 4 130 558 130 570 140 570 140 592))
+(connect D15:1 D14:1
+(points 2 176 720 280 720))
+(connect D13:0 D15:0
+(points 2 140 648 140 692))
+(connect D15:0 D16:0
+(points 4 140 748 140 770 230 770 230 787))
+(connect D16:1 O1:1
+(points 4 350 840 500 840 500 463 606 463)))
+(stackingOrder 5 6 7 8 9 10 12 14 2 0 1 3 4 11 13 15 16))))
+(device 91 CONTEXT
+(properties
+(name "CreateLineChart Localized")
+(variableScope cont)
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes)))
+(deviceList
+(device 5 RECCONST
+(properties
+(name "Line Chart Settings")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 17)
+(fieldName "Title"
+(type Text))
+(fieldName "TitleFont"
+(type Text))
+(fieldName "TitleFontSize"
+(type Enum)
+(values
+("AutoSize" 0)
+("8" 1)
+("9" 2)
+("10" 3)
+("11" 4)
+("12" 5)
+("14" 6)
+("16" 7)
+("18" 8)
+("20" 9)
+("22" 10)
+("22" 11)
+("24" 12)
+("28" 13)
+("36" 14)
+("48" 15)
+("72" 16)))
+(fieldName "Type"
+(type Enum)
+(values
+("Line" 0)
+("Line with Markers" 1)
+("3D Line" 2)
+("Logarithmic" 3)))
+(fieldName "NumericMarkers"
+(type Enum)
+(values
+("On" 0)
+("Off" 1)))
+(fieldName "FillEffects"
+(type Enum)
+(values
+("None" 0)
+("2 Color" 1)))
+(fieldName "Names"
+(type Text)
+(numDims 1)
+(size 10))
+(fieldName "XaxisLabel"
+(type Text))
+(fieldName "YaxisLabel"
+(type Text))
+(fieldName "ChartSheet"
+(type Text))
+(fieldName "DataCell"
+(type Text))
+(fieldName "DataSheet"
+(type Text))
+(fieldName "PlotBy"
+(type Enum)
+(values
+("Columns" 0)
+("Rows" 1)))
+(fieldName "Width"
+(type Real64))
+(fieldName "Height"
+(type Real64))
+(fieldName "MoveRight"
+(type Real64))
+(fieldName "MoveDown"
+(type Real64)))
+(data 
+(record
+("Title" "My Chart Title")
+("TitleFont" "Arial")
+("TitleFontSize" "20")
+("Type" "Line with Markers")
+("NumericMarkers" "Off")
+("FillEffects" "None")
+("Names" [ "Sine Wave" "Triangle Wave 200" "Triangle50" "Ramp" "-Ramp" "DC Only"
+"DCOnly-" "Square" "None" "Nine" ])
+("XaxisLabel" "")
+("YaxisLabel" "Volts")
+("ChartSheet" "Sheet1")
+("DataCell" "A1")
+("DataSheet" "Sheet1")
+("PlotBy" "Columns")
+("Width" 3.5)
+("Height" 1.5)
+("MoveRight" 0)
+("MoveDown" 0))))))
+(device 8 CALL
+(properties
+(name "Call xlLib.CreateLineChart")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateLineChart\'")
+(customHelpMenuHelpLink "Create_Line_Chart")
+(variableScope cont)
+(callFunc "xlLib.CreateLineChart")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Settings")
+(optional yes))))
+(device 9 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CreateLineChart\'")
+(customHelpMenuHelpLink "Create_Line_Chart")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\b\\f0\\fs18 If you are using \\cf2 non-English Office\\cf1 , see this object\'s context menu -> Excel Help -> Notes to learn how to use the three objects in the lower left corner to localize the \"Sheet1\" string.\\cf0\\b0\\par\r\n\\par\r\nTITLE FONT\\par\r\nEnter the exact name of the font on your system.\\par\r\n\\par\r\nTITLE FONT SIZE\\par\r\nSelect a size or AutoSize which allows Excel to select the size automatically. \\par\r\n\\par\r\nTYPE\\par\r\nMarkers means Excel places symbols next to the data points. For Logarithmic be sure there is no zero or negative data, or error 553 will occur.\\par\r\n\\par\r\nNAMES\\par\r\nFill in the TextArray with the name of each array you send to Excel in the data pin of the xlLib.CreateLineChart object.  Increase the size of the Names TextArray if necessary (or an error occurs in CreateLineChart.) \\par\r\n\\par\r\nX AXIS LABEL\\par\r\nLeave blank for Waveform and Spectrum and Excel will create a composite X-axis label with time span / frequency information accordingly. Otherwise enter your X Axis units and label.\\par\r\n\\par\r\nCHART SHEET & DATA SHEET\\par\r\nEnter the name of an existing sheet upon which you want the chart/data to appear. \\par\r\n\\par\r\nPLOT BY\\par\r\nSpecifies whether the chart lines are composed of data in the sheet\'s columns or the sheet\'s row. Note that you can adjust this also with the SendDataSetting.orientation setting.\\par\r\n\\par\r\nWIDTH & HEIGHT\\par\r\nScales the chart size relative to the default.\\par\r\n\\par\r\nMOVE RIGHT & MOVE DOWN\\par\r\nExcel places the chart in a fixed location so you cannot specify a cell, but instead you can specify a distance to move the chart on the sheet in pixels from the default location.\\par\r\n}\r\n"
+)))
+(device 10 CALL
+(properties
+(name "Call xlLib.EnumerateSheets")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'EnumerateSheets\'")
+(customHelpMenuHelpLink "Enumerations")
+(variableScope cont)
+(callFunc "xlLib.EnumerateSheets")
+(parmMode rev30))
+(interface
+(output 1
+(name "SheetNames")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Size")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'EnumerateSheets\'")
+(customHelpMenuHelpLink "Enumerations")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 CONTEXT
+(properties
+(name "Localize ChartSettings -> \"Sheet1\" string")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "SheetNames")
+(optional yes))
+(input 2
+(name "ChartSettings")
+(optional yes))
+(output 1
+(type data)
+(name "ChartSettings")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Localizing ChartSettings.DataSheet and .ChartSheet")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The Formula above modifies the ChartSettings Record to change the values for its fields \"DataSheet\" and \"ChartSheet\", from the string \"Sheet1\" to the appropriate localized value.\\par\r\n\\par\r\nMicrosoft Excel has different default names for the Worksheets in the Workbook, depending on Country Code - which version of Office is installed.  For example:\\par\r\n\\par\r\n\\f1 English  Sheet1\\par\r\nGerman   Tabelle1\\par\r\nDutch    Chad1\\par\r\n\\f0\\par\r\nThe ChartSettings Record has fields for the DataSheet and ChartSheet - determining which Worksheet has the data for the chart, and upon which Worksheet to put the chart.  In this case we will just use the first Worksheet of the selected Workbook.\\par\r\n\\par\r\nWe need to specify the name of the Worksheet, but we do not know what name to use -- \"Sheet1\" or \"Tabelle1\" or ??.  Excel will not tell us its default sheet name.  So we assume the Worksheets already exist (i.e. a Workbook exists) and ask Excel for the names of the Worksheets (EnumerateSheets).  \\par\r\n\\par\r\nEnumerateSheets returns us the list of names (SheetNames), for example \"Sheet1\"...\"Sheet3\" or \"Tabelle1\"...\"Tabelle3\", depending on the version of Office installed.  Now we can use the first name (i.e. SheetNames[0]) to replace the English-only \"Sheet1\" value in the ChartSettings Record fields enumeration.\\par\r\n}\r\n"
+)))
+(device 1 FORMULA
+(properties
+(name "Formula Localiizing ChartSettings.DataSheet and ChartSettings.ChartSheet"
+)
+(variableScope cont)
+(expr 3 "// Modify ChartSettings Record and pass it back out"
+"ChartSettingsRec.DataSheet = SheetNames[0];"
+"ChartSettingsRec.ChartSheet = SheetNames[0];"))
+(interface
+(input 1
+(name "SheetNames")
+(optional yes))
+(input 2
+(name "ChartSettingsRec")
+(optional yes))
+(output 1
+(name "ChartSettingsRec")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 763 716)
+(anchorPt 98 -76)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 314 0)
+(iconImage "notepad.icn"))
+(open
+(extent 604 456)
+(editing enabled))
+(pinCenter 300 510))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 454 0))
+(open
+(extent 364 80))
+(terminals on)
+(pinCenter 300 190))
+(connect I1:1 D1:1
+(points 4 -98 253 -90 253 -90 170 -5 170))
+(connect I2:1 D1:2
+(points 4 -98 613 -80 613 -80 210 -5 210))
+(connect D1:1 O1:1
+(points 4 604 190 620 190 620 433 664 433)))
+(stackingOrder 1 0))))
+(configuration
+(connect I1:1 D1:1)
+(connect D5:1 D1:2)
+(connect D3:1 D4:1)
+(connect D3:1 D5:1)
+(connect D0:1 D5:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 977 858)
+(anchorPt -100 -19)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon
+(extent 115 15))
+(open
+(extent 273 525)
+(formatters))
+(pinCenter 310 410))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 161 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 705 100))
+(devCarrierFor 9
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 666)
+(editing enabled))
+(pinCenter 740 500))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 175 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 250 770))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 174 56))
+(pinCenter 460 800))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 243 25))
+(terminals on)
+(pinCenter 490 720))
+(connect I1:1 D1:1
+(points 4 100 447 110 447 110 90 554 90))
+(connect D5:1 D1:2
+(points 8 614 720 620 720 620 710 520 710 520 700 500 700 500 110 554 110))
+(connect D3:1 D4:1
+(points 4 340 760 350 760 350 800 370 800))
+(connect D3:1 D5:1
+(points 4 340 760 350 760 350 710 366 710))
+(connect D0:1 D5:2
+(points 6 449 410 470 410 470 700 340 700 340 730 366 730)))
+(stackingOrder 0 1 2 3 4 5))))
+(device 99 CALL
+(properties
+(name "Call xlLib.NewWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'NewWorkbook\'")
+(customHelpMenuHelpLink "Excel_Workbooks")
+(variableScope cont)
+(callFunc "xlLib.NewWorkbook")
+(parmMode rev30)))
+(device 106 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe")
+)
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 0 1 2))))
+(device 109 CALL
+(properties
+(name "Call xlLib.CloseWorkbook")
+(breakpoint 1)
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'CloseWorkbook\'")
+(customHelpMenuHelpLink "To_Close_Workbooks")
+(variableScope cont)
+(callFunc "xlLib.CloseWorkbook")
+(parmMode rev30)))
+(device 111 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "RaiseError")
+("DisplayAlerts" "True"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus\\par\r\n  the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons\\par\r\n  at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook\\par\r\n  client windows instead of Excel.\\par\r\n}\r\n"
+)))
+(device 15 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 25 26)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 110))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 494 196)
+(editing enabled))
+(pinCenter 640 120))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 584 336)
+(editing enabled))
+(pinCenter 290 450))
+(connect D1:1 D0:1
+(points 4 304 120 310 120 310 110 330 110)))
+(stackingOrder 1 2 0 3))))
+(device 112 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 114 CONTEXT
+(properties
+(name "Quit Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D8:0 D1:0)
+(connect D0:1 D1:1)
+(connect D1:0 D3:0)
+(connect D3:1 D4:1)
+(connect D6:0 D5:0)
+(connect D3:0 D7:0)
+(connect D5:0 D8:0)
+(connect D7:0 D10:0)))
+(contextCarrier
+(wndRestoredOrigin 22 22)
+(wndRestoredExtent 794 652)
+(wndState max)
+(active detail)
+(detail
+(extent 1517 869)
+(anchorPt -139 287)
+(configuration
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 190 137))
+(terminals on)
+(pinCenter 190 -50))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 310 -50))
+(devCarrierFor 35
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 424 406)
+(editing enabled))
+(pinCenter 800 -50))
+(devCarrierFor 87
+(active icon)
+(icon
+(extent 95 15))
+(terminals on)
+(pinCenter 310 0))
+(devCarrierFor 91
+(active icon)
+(icon
+(extent 160 15))
+(terminals on)
+(pinCenter 480 0))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 310 -140))
+(devCarrierFor 106
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 310 -190))
+(devCarrierFor 109
+(active icon)
+(icon
+(extent 165 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 310 60))
+(devCarrierFor 111
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter 310 -100))
+(devCarrierFor 112
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 330 190))
+(devCarrierFor 114
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 310 100))
+(connect D8:0 D1:0
+(points 2 310 -91 310 -60))
+(connect D0:1 D1:1
+(points 2 230 -50 272 -50))
+(connect D1:0 D3:0
+(points 2 310 -40 310 -10))
+(connect D3:1 D4:1
+(points 2 360 0 397 0))
+(connect D6:0 D5:0
+(points 2 310 -180 310 -150))
+(connect D3:0 D7:0
+(points 2 310 10 310 50))
+(connect D5:0 D8:0
+(points 2 310 -130 310 -110))
+(connect D7:0 D10:0
+(points 2 310 70 310 90)))
+(stackingOrder 0 5 1 3 6 7 8 9 2 4 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

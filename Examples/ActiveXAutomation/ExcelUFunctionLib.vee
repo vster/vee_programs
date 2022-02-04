@@ -1,0 +1,442 @@
+(saveFormat "7.0")
+(date "Mon 13/May/2013 15:28:15 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M F0)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "D:\\APPS\\MICROSOFT\\OFFICE97\\OFFICE\\excel8.olb")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 36)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ExcelHandler")
+(variableName ExcelHandler)
+(variableScope glob)
+(trigMode deg)
+(nextID 18)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare ExcelApp")
+(scope glob)
+(globalName "ExcelApp"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Application"))))
+(device 1 DECLVAR
+(properties
+(name "Declare sheet")
+(scope glob)
+(globalName "sheet"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Worksheet"))))
+(device 2 FORMULA
+(properties
+(name "Set up Excel Worksheet")
+(variableScope cont)
+(expr 6
+"set sheet = CreateObject(\"Excel.Application\").Workbooks.Add.worksheets(1);"
+"set ExcelApp = sheet.Application;" "ExcelApp.Visible = TRUE;"
+"ExcelApp.DisplayAlerts =FALSE;"
+"ExcelApp.Windows(1).Caption = \"Test System Results\";"
+"ExcelApp.Windows(1).WindowState = xlMaximized;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(name "Results Average")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 FORMULA
+(properties
+(name "Fill in Cells")
+(variableScope cont)
+(expr 1 "sheet.Cells(A+1, 1) = random(1, 100)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Fill in Title")
+(variableScope cont)
+(expr 1 "sheet.Cells(1, 1) = \"Voltage AC/RMS\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORRANGE
+(properties
+(name "For 1 to 20 step 1")
+(variableScope cont)
+(from 1)
+(thru 20)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(variableScope cont)
+(expr 3 "set range = sheet.Range(\"A2:A21\");"
+"range.NumberFormat = \"##,#00.00\";"
+"ExcelApp.WorksheetFunction.Average(range);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "range")
+(optional yes))))
+(device 8 LITERALCONSTANT
+(properties
+(name "Initial Filename")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "veeToExcel.xls"))
+(initValue Text
+(data  ""))))
+(device 9 FILESELECT
+(properties
+(name "File Name Selection")
+(variableScope cont)
+(prompt "Enter File Name:")
+(initialDirectory "d:\\tmp")
+(initialFile "veeToExcel.xls")
+(dialogMode Writing))
+(interface
+(input 1
+(name "Initial File")
+(tag "Initial File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 10 FORMULA
+(properties
+(name "Save Worksheet")
+(variableScope cont)
+(expr 1 "sheet.SaveAs(filename)"))
+(interface
+(input 1
+(name "filename")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 12 BEEP
+(properties
+(variableScope cont)
+(frequency 1000)
+(duration 0.1)
+(volume 80))
+(implementation))
+(device 13 MESSAGEBOX
+(properties
+(variableScope cont)
+(autoTimeout 1)
+(popupTitle "VEE Example")
+(message "Shutdown Excel ?")
+(symbol Question))
+(interface
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")))
+(device 14 FORMULA
+(properties
+(name "Close Excel App")
+(variableScope cont)
+(expr 1 "ExcelApp.Quit()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D7:1 D3:1)
+(connect D6:1 D4:1)
+(connect D2:0 D5:0)
+(connect D5:0 D6:0)
+(connect D6:0 D7:0)
+(connect D7:0 D8:0)
+(connect D8:1 D9:1)
+(connect D9:1 D10:1)
+(connect D10:0 D11:1)
+(connect D9:2 D11:2)
+(connect D11:1 D12:0)
+(connect D12:0 D13:0)
+(connect D13:1 D14:0)))
+(contextCarrier
+(wndOrigin 248 67)
+(wndState res)
+(active detail)
+(detail
+(extent 781 789)
+(anchorPt 36 -51)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 105 16))
+(open
+(extent 388 126))
+(pinCenter 610 210))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 96 16))
+(open
+(extent 388 126))
+(pinCenter 610 180))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 141 15))
+(open
+(extent 464 146))
+(pinCenter 220 190))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 150 41)
+(scFont "Lucida Sans" 18 italic))
+(bg "Black")
+(fg "Warning Red")
+(pinCenter 550 490))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 263 50))
+(pinCenter 550 410))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 329 50))
+(pinCenter 220 340))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 124 48)
+(pictureMode scaled)
+(iconImage "loop.icn"))
+(open
+(extent 160 82))
+(pinCenter 220 410))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 329 80))
+(pinCenter 220 510))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 103 16))
+(open
+(extent 139 30))
+(pinCenter 100 630))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 137 25))
+(open
+(extent 308 110))
+(terminals on)
+(pinCenter 240 630))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 199 50))
+(pinCenter 450 620))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 480 680))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 33 15))
+(open
+(extent 162 79))
+(pinCenter 530 700))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 81 34))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 530 750))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 112 25))
+(open
+(extent 180 50))
+(pinCenter 620 830))
+(connect D7:1 D3:1
+(points 2 387 490 472 490))
+(connect D6:1 D4:1
+(points 2 284 410 416 410))
+(connect D2:0 D5:0
+(points 2 220 265 220 294))
+(connect D5:0 D6:0
+(points 2 220 367 220 383))
+(connect D6:0 D7:0
+(points 2 220 436 220 449))
+(connect D7:0 D8:0
+(points 4 220 552 220 570 100 570 100 619))
+(connect D8:1 D9:1
+(points 2 154 630 169 630))
+(connect D9:1 D10:1
+(points 2 311 620 348 620))
+(connect D10:0 D11:1
+(points 3 450 647 450 670 464 670))
+(connect D9:2 D11:2
+(points 4 311 640 330 640 330 690 464 690))
+(connect D11:1 D12:0
+(points 3 495 680 530 680 530 690))
+(connect D12:0 D13:0
+(points 2 530 710 530 730))
+(connect D13:1 D14:0
+(points 3 573 740 620 740 620 784)))
+(stackingOrder 5 7 8 9 11 12 13 14 3 1 10 2 6 4 0)))))
+(device 28 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\fbidis\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Arial;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\ltrpar\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\fbidis\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Arial;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\ltrpar\\lang1033\\ul\\f0\\fs20 Requirements\\ulnone : Excel\\par\r\n\\par\r\nThis file contains the ExcelHandler User Function needed by the example \"ExcelUFunction.vee\".\\par\r\n\\f1\\fs18\\par\r\n}\r\n"
+)))
+(configuration))
+(contextCarrier
+(wndOrigin 4 -1)
+(wndState res)
+(active detail)
+(detail
+(extent 499 314)
+(anchorPt 15 141)
+(configuration
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 240 90))
+(devCarrierFor 34
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 464 111)
+(editing disabled))
+(pinCenter 240 -40)))
+(stackingOrder 1 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

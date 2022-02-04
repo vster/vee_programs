@@ -1,0 +1,7201 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:47:53 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "VNA"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 154)
+(popupTitleText "PNA 2-Port ECal Calibration & Data Processing")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 9 CONTEXT
+(properties
+(name "(5c) Get_All_param")
+(trigMode deg)
+(nextID 54)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 12 FORMULA
+(properties
+(name "Turn array into complex")
+(expr 1 "a[*,0]+j(a[*,1])"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 22 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 6 "WRITE TEXT \"calc\"+chan+\":data? sdata\" EOL"
+"READ TEXT hdr CHAR:1" "READ TEXT digits INT16 MAXFW:1"
+"READ TEXT bytes INT32 MAXFW:digits" "READ BINARY sdata REAL32 ARRAY:bytes/8, 2"
+"READ BINARY ending BYTE"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "hdr")
+(optional yes))
+(output 2
+(name "digits")
+(optional yes))
+(output 3
+(name "bytes")
+(optional yes))
+(output 4
+(name "sdata")
+(optional yes))
+(output 5
+(name "ending")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 23 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"calc\"+chan+\":par:sel \"+tracename+\";\" EOL"))
+(interface
+(input 1
+(name "tracename")
+(optional yes))
+(input 2
+(name "chan")
+(requires
+(datatype Text))
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 39 FROMSTRING
+(properties
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\",\" ARRAY:*,2"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 40 FORMULA
+(properties
+(name "tracename(i)")
+(expr 2 "A[i,0]" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "I")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 42 FORMULA
+(properties
+(name "size/2")
+(expr 1 "totsize(a)/2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 43 IFTHENELSE
+(properties
+(name "No catalog")
+(cases 1 "a==\"NO CATALOG\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 45 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"calc\"+chan+\":par:cat?\" EOL" "READ TEXT x STR"))
+(interface
+(input 1
+(name "chan")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 46 EXITPROCESS
+(properties
+(code 0)))
+(device 47 MESSAGEBOX
+(properties
+(name "Nothing to read")
+(message "Nothing to read")
+(symbol Information))
+(interface
+(output 1
+(name "Stop")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 3)
+(buttons "<Custom...>")
+(buttonLabel1 "Stop")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "Stop")))
+(device 48 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First do a catalog of all the traces.  If there aren\'t any traces, then stop\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We sort the the catalog, making a 2-D array of trace names and parameters.  We use the Read by Token, selecting to exclude \",\" to sort through the comma separated list. \\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 50 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The array size divided by 2 is the number of traces.\\par\r\nWe loop through and select them by trace name.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 51 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Above is the best way to read data.  We query the data, read the header (\"A\"), next is a 1 character text number representing the number of digits in the following number.  We read the following number, which is the number of bytes to transfer.  Then we use binary reads to read the bytes into a 2-D array, representing real and imaginary values\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 52 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This little trick turns the 2-d array into a 1-D array of complex numbers.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 53 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 And we collect all these arrays of data arrays into a multi-dimension array of parameter data.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:4 D0:1)
+(connect D0:1 D1:1)
+(connect D6:0 D1:2)
+(connect D3:0 D2:0)
+(connect I1:1 D2:1)
+(connect D5:1 D3:1)
+(connect I1:1 D3:2)
+(connect D8:2 D4:0)
+(connect D9:1 D4:1)
+(connect D4:1 D5:1)
+(connect D6:1 D5:2)
+(connect D7:1 D6:1)
+(connect D4:1 D7:1)
+(connect D9:1 D8:1)
+(connect I1:1 D9:1)
+(connect D11:0 D10:0)
+(connect D8:1 D11:0)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1790 1126)
+(anchorPt -386 -408)
+(configuration
+(devCarrierFor 12
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 144 56))
+(terminals on)
+(pinCenter 1300 970))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 1280 1150))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 365 137))
+(terminals on)
+(pinCenter 925 970))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 375 57))
+(terminals on)
+(pinCenter 965 820))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 530 590))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 77 25))
+(open
+(extent 95 65))
+(terminals on)
+(pinCenter 620 780))
+(devCarrierFor 41
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 720 710))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 620 710))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 135 51))
+(terminals on)
+(pinCenter 750 370))
+(devCarrierFor 45
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 245 67))
+(terminals on)
+(pinCenter 505 360))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 880 470))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 880 380))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 490 240))
+(devCarrierFor 49
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 950 590))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1020 720))
+(devCarrierFor 51
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 196)
+(editing enabled))
+(pinCenter 940 1180))
+(devCarrierFor 52
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1540 870))
+(devCarrierFor 53
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1560 1250))
+(connect D2:4 D0:1
+(points 4 1160 990 1180 990 1180 970 1195 970))
+(connect D0:1 D1:1
+(points 6 1424 970 1440 970 1440 1060 1170 1060 1170 1130 1189 1130))
+(connect D6:0 D1:2
+(points 7 720 728 720 740 690 740 690 810 680 810 680 1170 1189 1170))
+(connect D3:0 D2:0
+(points 4 940 851 940 860 930 860 930 881))
+(connect I1:1 D2:1
+(points 4 386 970 480 970 480 970 700 970))
+(connect D5:1 D3:1
+(points 4 661 780 680 780 680 800 695 800))
+(connect I1:1 D3:2
+(points 4 386 970 480 970 480 840 695 840))
+(connect D8:2 D4:0
+(points 5 784 380 800 380 800 430 520 430 520 532))
+(connect D9:1 D4:1
+(points 6 660 360 680 360 680 420 340 420 340 590 363 590))
+(connect D4:1 D5:1
+(points 8 677 590 700 590 700 650 580 650 580 710 570 710 570 770 579 770))
+(connect D6:1 D5:2
+(points 6 770 710 790 710 790 750 560 750 560 790 579 790))
+(connect D7:1 D6:1
+(points 2 640 710 670 710))
+(connect D4:1 D7:1
+(points 6 677 590 700 590 700 650 580 650 580 710 599 710))
+(connect D9:1 D8:1
+(points 4 660 360 680 360 680 370 715 370))
+(connect I1:1 D9:1
+(points 4 386 970 310 970 310 360 340 360))
+(connect D11:0 D10:0
+(points 2 880 390 880 434))
+(connect D8:1 D11:0
+(points 5 784 360 800 360 800 350 880 350 880 370))
+(connect D1:1 O1:1
+(points 4 1370 1150 1506 1150 1506 970 2175 970)))
+(stackingOrder 3 6 9 4 11 10 1 2 12 13 14 15 16 0 17 8 7 5))))
+(device 38 CONTEXT
+(properties
+(name "(5a) GetFreqList")
+(trigMode deg)
+(nextID 39)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "Type")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Freq")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"sens\"+chan+\":swe:type?;\" EOL" "READ TEXT x STR"
+))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 IFTHENELSE
+(properties
+(cases 3 "a==\"SEGM\"" "a==\"LIN\"" "a==\"LOG\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":swe:poin?;\" EOL"
+"READ TEXT points INT16" "WRITE TEXT \"sens\"+chan+\":freq:star?;\" EOL"
+"READ TEXT star REAL64" "WRITE TEXT \"sens\"+chan+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 4 TEXTDISPLAY
+(properties
+(name "Sweep type"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(ramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":swe:poin?;\" EOL"
+"READ TEXT points INT16" "WRITE TEXT \"sens\"+chan+\":freq:star?;\" EOL"
+"READ TEXT star REAL64" "WRITE TEXT \"sens\"+chan+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 7 MESSAGEBOX
+(properties
+(name "Not Lin, log or seg")
+(message "Sweep Type Must be LIN, LOG, or SEGMENT.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 8 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(logramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 EXITPROCESS
+(properties
+(code 0)))
+(device 13 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "B")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 28 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 32 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(ramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":swe:poin?;\" EOL"
+"READ TEXT points INT16"
+"WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":freq:star?;\" EOL"
+"READ TEXT star REAL64"
+"WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(input 2
+(name "segm")
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 27 FORMULA
+(properties
+(name "a+1")
+(expr 1 "a+1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"sens\"+chan+\":segm:coun?;\" EOL"
+"READ TEXT x INT16"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 25 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 34 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First, find out the sweep type\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 35 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s a segment sweep, loop through each segment and get the start, stop and points, then collect them all into one array.  Theres a maximum of 8000 segments, so we can read this into an integer.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 36 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s a log or lin sweep, get the start, stop and points.  For a lin sweep create a ramp array, if it\'s a log sweep, creat a log ramp array of frequencies. Be sure to use 64 bit reals to read frequencies.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 37 NOTE
+(properties
+(name "Why do we need to do this?")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Sorry, there\'s no way in SCPI to get the frequency list directly, so we need to create it from stimulus values\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 38 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s not a lin, log or seg sweep, just stop\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:2 D2:0)
+(connect I1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D2:1 D4:1)
+(connect D2:2 D4:2)
+(connect D2:3 D4:3)
+(connect D1:3 D5:0)
+(connect I1:1 D5:1)
+(connect D1:4 D6:0)
+(connect D5:1 D7:1)
+(connect D5:2 D7:2)
+(connect D5:3 D7:3)
+(connect D6:1 D8:0)
+(connect D10:1 D9:1)
+(connect D4:1 D9:2)
+(connect D7:1 D9:3)
+(connect D11:1 D10:1)
+(connect D15:0 D10:2)
+(connect D12:1 D11:1)
+(connect D12:2 D11:2)
+(connect D12:3 D11:3)
+(connect I1:1 D12:1)
+(connect D13:1 D12:2)
+(connect D15:1 D13:1)
+(connect D1:1 D14:0)
+(connect I1:1 D14:1)
+(connect D14:1 D15:0)
+(connect D14:1 D15:1)
+(connect D0:1 O1:1)
+(connect D9:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 648 907)
+(anchorPt 22 99)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 215 100))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 82))
+(terminals on)
+(pinCenter 160 240))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 135 720))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 69 0))
+(open
+(extent 121 22))
+(pinCenter 550 70))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 560 730))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 145 890))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 520 280))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 580 880))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 680 340))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 26 34))
+(open
+(extent 12 70))
+(terminals on)
+(pinCenter 775 730))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 1160 510))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 960 520))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 530 520))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 71 50))
+(terminals on)
+(pinCenter 250 530))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 364 56))
+(terminals on)
+(pinCenter 165 380))
+(devCarrierFor 25
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 550 380))
+(devCarrierFor 34
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 264 56)
+(editing enabled))
+(pinCenter -220 100))
+(devCarrierFor 35
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 156)
+(editing enabled))
+(pinCenter -250 330))
+(devCarrierFor 36
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 186)
+(editing enabled))
+(pinCenter -300 710))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 165 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 100 -50))
+(devCarrierFor 38
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 194 76)
+(editing enabled))
+(pinCenter 660 210))
+(connect I1:1 D0:1
+(points 6 -22 354 -60 354 -60 430 -70 430 -70 100 -5 100))
+(connect D0:1 D1:1
+(points 6 424 100 440 100 440 160 50 160 50 240 68 240))
+(connect D1:2 D2:0
+(points 5 272 230 410 230 410 440 140 440 140 646))
+(connect I1:1 D2:1
+(points 4 -22 354 -190 354 -190 720 -100 720))
+(connect D0:1 D3:1
+(points 4 424 100 450 100 450 70 487 70))
+(connect D2:1 D4:1
+(points 4 380 690 390 690 390 710 399 710))
+(connect D2:2 D4:2
+(points 4 380 720 390 720 390 730 399 730))
+(connect D2:3 D4:3
+(points 2 380 750 399 750))
+(connect D1:3 D5:0
+(points 11 272 250 400 250 400 430 270 430 270 500 -120 500 -120 710 -110 710
+-110 800 150 800 150 816))
+(connect I1:1 D5:1
+(points 6 -22 354 -190 354 -190 720 -120 720 -120 890 -90 890))
+(connect D1:4 D6:0
+(points 5 272 270 290 270 290 240 520 240 520 270))
+(connect D5:1 D7:1
+(points 2 390 860 419 860))
+(connect D5:2 D7:2
+(points 4 390 890 400 890 400 880 419 880))
+(connect D5:3 D7:3
+(points 4 390 920 400 920 400 900 419 900))
+(connect D6:1 D8:0
+(points 3 577 280 680 280 680 304))
+(connect D10:1 D9:1
+(points 6 1189 510 1210 510 1210 600 720 600 720 710 736 710))
+(connect D4:1 D9:2
+(points 2 700 730 736 730))
+(connect D7:1 D9:3
+(points 6 720 880 740 880 740 800 720 800 720 750 736 750))
+(connect D11:1 D10:1
+(points 4 1100 520 1110 520 1110 500 1131 500))
+(connect D15:0 D10:2
+(points 5 550 398 550 420 1120 420 1120 520 1131 520))
+(connect D12:1 D11:1
+(points 4 775 490 790 490 790 500 799 500))
+(connect D12:2 D11:2
+(points 2 775 520 799 520))
+(connect D12:3 D11:3
+(points 4 775 550 790 550 790 540 799 540))
+(connect I1:1 D12:1
+(points 4 -22 354 42 354 42 490 285 490))
+(connect D13:1 D12:2
+(points 4 265 530 280 530 280 550 285 550))
+(connect D15:1 D13:1
+(points 10 600 380 620 380 620 320 480 320 480 420 260 420 260 430 220 430 220
+530 235 530))
+(connect D1:1 D14:0
+(points 5 272 210 300 210 300 300 160 300 160 331))
+(connect I1:1 D14:1
+(points 6 -22 354 -60 354 -60 430 -70 430 -70 380 -60 380))
+(connect D14:1 D15:0
+(points 5 379 380 470 380 470 310 550 310 550 344))
+(connect D14:1 D15:1
+(points 2 379 380 500 380))
+(connect D0:1 O1:1
+(points 4 424 100 700 100 700 124 625 124))
+(connect D9:1 O2:1
+(points 2 823 730 625 584)))
+(stackingOrder 5 2 7 4 9 0 1 15 14 13 12 11 19 3 6 10 16 18 17 20 8))))
+(device 63 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 3 "WRITE TEXT \"*CLS\" EOL" "WRITE TEXT \"*idn?\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 64 TEXTDISPLAY
+(properties
+(name "Intsrument ID"))
+(interface
+(input 1
+(name "Data"))))
+(device 78 CONTEXT
+(properties
+(name "(1) SetUpNewTraces")
+(trigMode deg)
+(nextID 128)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(optional yes))
+(input 2
+(name "Params")
+(optional yes)))
+(deviceList
+(device 9 FORMULA
+(properties
+(name "A+i+1")
+(expr 1 "a+(i+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "i")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "S2P"))
+(initValue Text
+(data  ""))))
+(device 16 FORMULA
+(properties
+(name "4 traces to a window")
+(expr 2 "A = A +1;" "ceil(A/4);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "4 traces to a window")
+(expr 1 "ceil(A/4) "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 21 FORMULA
+(properties
+(name "size")
+(expr 3 "totsize(a)" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 23 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"disp:wind\"+(window+1)+\":state on\" EOL"))
+(interface
+(input 1
+(name "window")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 42 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 5
+"WRITE TEXT \"calc\"+chan+\":par:def \"+(tracename)+\",\"+param[i]+\";\" EOL"
+"WRITE TEXT \"disp:wind\"+window+\":trace\"+((i MOD 4)+1)+\":feed \"+tracename EOL"
+"WRITE TEXT \"calc\"+chan+\":par:sel \"+tracename+\";\" EOL"
+"WRITE TEXT \"calc\"+chan+\":par:cat?\" EOL" "READ TEXT x STR"))
+(interface
+(input 1
+(name "tracename")
+(optional yes))
+(input 2
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "i")
+(optional yes))
+(input 4
+(name "param")
+(optional yes))
+(input 5
+(name "window")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 44 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 78 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 4 "EXECUTE CLEAR" "WRITE TEXT \"Syst:FPR\" EOL"
+"WRITE TEXT \"Form:data real,32\" EOL" "WRITE TEXT \"sens:swe:mode hold;\" EOL")
+)
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 84 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First, send the command \"SYST:FPR\", which does a preset and deletes the default trace, but then you lose any settings like calibration, power, etc.  We set the the data form to 32 bit real (the VNA doesn\'t have more resolution than that).  This can be done anytime before you read data.  Then we hold the analyzer sweep, so we don\'t have to compete with data taking.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 126 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Create a trace for each parameter, using the \"Calc:par:def\" command.  After creating at trace, you need to \"Feed\" it to a window so it will be displayed.  We then catalog the traces.  We do this each time, as a way to make sure the one trace is finished being created before we start another one.  The catalog command won\'t return a value until the trace is finished being created.  You may also use \"*OPC\" and read the status byte.  In the \"Disp:wind:trace:FEED\" command, we use (i MOD 4)+1 above to change window numbers when there more than 4 traces in a window.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 127 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 You can have 4 traces per window, so divide the number of parameters by 4 (take the next biggest integer), and creat that many windows\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)
+(connect D4:1 D0:2)
+(connect D4:1 D2:1)
+(connect D5:1 D3:1)
+(connect D6:0 D4:0)
+(connect D5:1 D4:1)
+(connect I2:1 D5:1)
+(connect D10:0 D6:0)
+(connect D3:1 D6:1)
+(connect D6:1 D7:1)
+(connect D4:1 D8:0)
+(connect D0:1 D8:1)
+(connect I1:1 D8:2)
+(connect D4:1 D8:3)
+(connect I2:1 D8:4)
+(connect D2:1 D8:5)
+(connect D8:1 D9:1)
+(connect I1:1 D10:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1372 818)
+(anchorPt -432 31)
+(configuration
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 35 25))
+(open
+(extent 75 42))
+(terminals on)
+(pinCenter 360 470))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 85 27))
+(pinCenter 230 460))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 123 15))
+(open
+(extent 79 65))
+(terminals on)
+(pinCenter 340 700))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 123 15))
+(open
+(extent 79 50))
+(terminals on)
+(pinCenter 180 280))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 360 390))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 75 37))
+(terminals on)
+(pinCenter 270 390))
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 360 300))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 315 67))
+(terminals on)
+(pinCenter 685 300))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 465 107))
+(terminals on)
+(pinCenter 785 510))
+(devCarrierFor 44
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1130 520))
+(devCarrierFor 78
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 335 117))
+(terminals on)
+(pinCenter 360 150))
+(devCarrierFor 84
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 226)
+(editing enabled))
+(pinCenter 830 130))
+(devCarrierFor 126
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 574 206)
+(editing enabled))
+(pinCenter 960 720))
+(devCarrierFor 127
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1080 310))
+(connect D1:1 D0:1
+(points 2 275 460 340 460))
+(connect D4:1 D0:2
+(points 6 410 390 420 390 420 440 320 440 320 480 340 480))
+(connect D4:1 D2:1
+(points 6 410 390 420 390 420 510 250 510 250 700 268 700))
+(connect D5:1 D3:1
+(points 6 285 390 300 390 300 360 90 360 90 280 108 280))
+(connect D6:0 D4:0
+(points 2 360 318 360 354))
+(connect D5:1 D4:1
+(points 2 285 390 310 390))
+(connect I2:1 D5:1
+(points 6 432 587 40 587 40 770 150 770 150 390 254 390))
+(connect D10:0 D6:0
+(points 2 360 211 360 264))
+(connect D3:1 D6:1
+(points 4 272 280 290 280 290 300 310 300))
+(connect D6:1 D7:1
+(points 2 410 300 465 300))
+(connect D4:1 D8:0
+(points 3 410 390 760 390 760 436))
+(connect D0:1 D8:1
+(points 2 380 470 470 470))
+(connect I1:1 D8:2
+(points 4 432 167 60 167 60 490 470 490))
+(connect D4:1 D8:3
+(points 4 410 390 420 390 420 510 470 510))
+(connect I2:1 D8:4
+(points 6 432 587 40 587 40 770 150 770 150 530 470 530))
+(connect D2:1 D8:5
+(points 4 432 700 450 700 450 550 470 550))
+(connect D8:1 D9:1
+(points 4 1050 510 1060 510 1060 520 1067 520))
+(connect I1:1 D10:1
+(points 4 432 167 50 167 50 150 160 150)))
+(stackingOrder 10 3 4 5 11 6 7 13 0 1 2 9 12 8))))
+(device 79 TEXTDISPLAY
+(properties
+(name "SweepType"))
+(interface
+(input 1
+(name "Data"))))
+(device 84 CONTEXT
+(properties
+(name "(2) SetUp Channel")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Fstart")
+(optional yes))
+(input 2
+(name "Fstop")
+(optional yes))
+(input 3
+(name "Points")
+(optional yes))
+(input 4
+(name "IFBW")
+(optional yes))
+(input 5
+(name "Chan")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 4 "WRITE TEXT \"sens\"+chan+\":freq:star \"+Fstart EOL"
+"WRITE TEXT \"sens\"+chan+\":freq:stop \"+Fstop EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:poin \"+Points EOL"
+"WRITE TEXT \"sens\"+chan+\":band \"+IFBw EOL"))
+(interface
+(input 1
+(name "Points")
+(optional yes))
+(input 2
+(name "IFBw")
+(optional yes))
+(input 3
+(name "Chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Setting up the channel is easy.  Just send that start, stop frequencies, the number of points, and the IF bandwidth.  You could also set the power, choose a calibration Calset, and do many other setup functions here.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 2 IFTHENELSE
+(properties
+(cases 1 "A<minFreq"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "A>maxFreq"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 MESSAGEBOX
+(properties
+(autoTimeout 1)
+(timeout 5)
+(position 106 200)
+(message
+"Selected start frequency is less than the minimum allowed for the combination of ECal and this analyzer.  Value set to minimum."
+)
+(symbol Exclamation))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 7 MESSAGEBOX
+(properties
+(autoTimeout 1)
+(timeout 5)
+(position 165 200)
+(message
+"Selected stop frequency is greater than the maximum allowed for the combination of ECal and this analyzer.  Value set to maximum"
+)
+(symbol Exclamation))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 9 DECLVAR
+(properties
+(name "Declare Fstart")
+(scope con)
+(globalName "Fstart"))
+(implementation
+(value Real64
+(data  0))))
+(device 10 DECLVAR
+(properties
+(name "Declare Fstop")
+(scope con)
+(globalName "Fstop"))
+(implementation
+(value Real64
+(data  0))))
+(device 11 TOGLOBAL
+(properties
+(name "Set Fstart")
+(globalName "Fstart"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 TOGLOBAL
+(properties
+(name "Set Fstop")
+(globalName "Fstop"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 13 FORMULA
+(properties
+(name "Fstart = minFreq")
+(expr 1 "Fstart = minFreq"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "Fstop = maxFreq")
+(expr 1 "Fstop = maxFreq"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Here we are just checking to see if the selected start and stop frequencies are within the range of minimum and maximum frequency that we calculated earlier.  Any value that is out of the range will be clipped to the limit.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D3:0 D0:0)
+(connect I3:1 D0:1)
+(connect I4:1 D0:2)
+(connect I5:1 D0:3)
+(connect I1:1 D2:1)
+(connect D2:0 D3:0)
+(connect I2:1 D3:1)
+(connect D2:1 D4:0)
+(connect D3:1 D5:0)
+(connect D2:2 D8:0)
+(connect I1:1 D8:1)
+(connect D3:2 D9:0)
+(connect I2:1 D9:1)
+(connect D4:0 D10:0)
+(connect D5:0 D11:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 390 383)
+(anchorPt 83 79)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 88 0)
+(iconImage "io.icn"))
+(open
+(extent 344 136))
+(terminals on)
+(pinCenter 250 670))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 136)
+(editing enabled))
+(pinCenter 290 80))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 235 350))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 235 450))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 520 370))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 520 470))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 195 103))
+(pinCenter 470 230))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 195 103))
+(pinCenter 470 250))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 63 51))
+(terminals on)
+(pinCenter 380 390))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 63 51))
+(terminals on)
+(pinCenter 380 520))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 101 50))
+(terminals on)
+(pinCenter 520 410))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 101 50))
+(terminals on)
+(pinCenter 520 520))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 136)
+(editing enabled))
+(pinCenter 820 430))
+(connect D3:0 D0:0
+(points 2 240 478 240 581))
+(connect I3:1 D0:1
+(points 4 -83 112 -100 112 -100 630 25 630))
+(connect I4:1 D0:2
+(points 4 -83 182 -100 182 -100 670 25 670))
+(connect I5:1 D0:3
+(points 4 -83 252 -100 252 -100 710 25 710))
+(connect I1:1 D2:1
+(points 4 -83 -28 -40 -28 -40 350 143 350))
+(connect D2:0 D3:0
+(points 2 240 378 240 404))
+(connect I2:1 D3:1
+(points 4 -83 42 -50 42 -50 450 143 450))
+(connect D2:1 D4:0
+(points 3 337 340 520 340 520 355))
+(connect D3:1 D5:0
+(points 3 337 440 520 440 520 455))
+(connect D2:2 D8:0
+(points 3 337 360 380 360 380 380))
+(connect I1:1 D8:1
+(points 6 -83 -28 -40 -28 -40 350 120 350 120 390 349 390))
+(connect D3:2 D9:0
+(points 3 337 460 380 460 380 510))
+(connect I2:1 D9:1
+(points 6 -83 42 -50 42 -50 450 120 450 120 520 349 520))
+(connect D4:0 D10:0
+(points 2 520 385 520 400))
+(connect D5:0 D11:0
+(points 2 520 485 520 510)))
+(stackingOrder 2 3 1 6 7 0 8 9 4 5 10 11 12))))
+(device 92 CONTEXT
+(properties
+(name "(6) Analysis")
+(trigMode deg)
+(nextID 65)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 4 "First=a[0,*];" "Second=a[1,*];" "Third=a[2,*];" "Fourth=a[3,*]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "First")
+(optional yes))
+(output 2
+(name "Second")
+(optional yes))
+(output 3
+(name "Third")
+(optional yes))
+(output 4
+(name "Fourth")
+(optional yes))
+(output 5
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "S11")
+(lock constraints))
+(input 3
+(name "S21")
+(lock constraints)
+(optional yes))
+(input 4
+(name "S12")
+(lock constraints)
+(optional yes))
+(input 5
+(name "S22")
+(lock constraints)
+(optional yes))
+(input 6
+(type control)
+(name "Scales")
+(tag "ScalesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(input 7
+(type control)
+(name "Traces")
+(tag "TracesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(tracePin 5)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 8 ENUMCONSTANT
+(properties
+(name "ChooseFormat"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("dB" 0)
+("Phase" 1)
+("Lin Mag" 2))
+(data  "dB"))
+(initValue Text
+(data  "dB"))))
+(device 10 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "Scale"
+(type Text))
+(fieldName "Name"
+(type Text)))
+(data 
+(record
+("Scale" "Y")
+("Name" "yscale"))))))
+(device 11 FORMULA
+(properties
+(name "rec.field = b")
+(expr 1 "rec.Name = b"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "b")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 12 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt 49 42)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 80))
+(terminals on)
+(pinCenter 280 270))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 270 320))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 270 380))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 385 330))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 240 280 240 280 260))
+(connect I1:1 D0:1
+(points 6 -49 68 10 68 10 120 240 120 240 270 259 270))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 300 270 300 270 310))
+(connect I1:1 D1:1
+(points 6 -49 68 10 68 10 120 240 120 240 320 247 320))
+(connect I2:1 D2:1
+(points 4 -49 288 10 288 10 340 57 340))
+(connect D2:3 D3:0
+(points 3 202 350 270 350 270 370))
+(connect I1:1 D3:1
+(points 8 -49 68 10 68 10 120 240 120 240 340 230 340 230 380 245 380))
+(connect D0:1 D4:1
+(points 4 301 270 320 270 320 310 346 310))
+(connect D1:1 D4:2
+(points 4 292 320 310 320 310 330 346 330))
+(connect D3:1 D4:3
+(points 4 294 380 310 380 310 350 346 350))
+(connect D4:1 O1:1
+(points 4 433 330 450 330 450 178 628 178)))
+(stackingOrder 2 4 0 1 3))))
+(device 13 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 14 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 15 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 16 FROMGLOBAL
+(properties
+(name "Get Freq")
+(globalName "Freq"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 25 FROMGLOBAL
+(properties
+(name "Get Params")
+(globalName "Params"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 26 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "TraceNum"
+(type Int32))
+(fieldName "Name"
+(type Text)))
+(data 
+(record
+("TraceNum" 1)
+("Name" "TraceName"))))))
+(device 27 FORMULA
+(properties
+(name "rec.field = b")
+(expr 2 "rec.Name = b[i];" "rec.TraceNum=i+1"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "i")
+(optional yes))
+(input 3
+(name "b")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 28 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 40 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 39 EXITPROCESS
+(properties
+(code 0)))
+(device 38 EXITPROCESS
+(properties
+(code 0)))
+(device 44 MESSAGEBOX
+(properties
+(message "Need At Least 4 Parameters measured")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 43 MESSAGEBOX
+(properties
+(message "No Data Found")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 42 IFTHENELSE
+(properties
+(cases 1 "A<=2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 41 FROMFUNCTION
+(interface
+(input 1
+(name "Function")
+(tag "Function"))
+(output 1
+(name "Array")
+(tag "Array")
+(lock name constraints))
+(output 2
+(name "Dim 1 Map")
+(tag "Dim 1 Map")
+(lock name constraints))
+(output 3
+(name "Dim 1 From")
+(tag "Dim 1 From")
+(lock name constraints))
+(output 4
+(name "Dim 1 To")
+(tag "Dim 1 To")
+(lock name constraints))
+(output 5
+(name "Dim 2 Map")
+(tag "Dim 2 Map"))
+(output 6
+(name "Dim 2 From")
+(tag "Dim 2 From"))
+(output 7
+(name "Dim 2 To")
+(tag "Dim 2 To")))
+(implementation
+(numDims 2)))
+(device 46 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 \"SetFormat\" is a user object repeated 4 times that formats the data based on the choosen format index\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 47 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 These controls are a cool way of setting up a custom graph or XY chart.  A record with the attributes Scale and Name let you set the y scale to \"dB\" or \"phase\";  A record with the attributes TraceNum and Name let you rename the traces (we set them to the parameter names).\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 48 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We placed this xy plot on the panel view\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We placed this list box on the panel view\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 53 ENUMCONSTANT
+(properties
+(name "Data Selector"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Delta" 0)
+("Corrected" 1)
+("Raw" 2))
+(data  "Delta"))
+(initValue Text
+(data  "Delta"))))
+(device 54 IFTHENELSE
+(properties
+(name "Which Data?")
+(cases 3 "A==\"Delta\"" "A==\"Corrected\"" "A==\"Raw\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 56 FROMGLOBAL
+(properties
+(name "Get CorrData")
+(globalName "CorrData"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 57 FROMGLOBAL
+(properties
+(name "Get RawData")
+(globalName "RawData"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 58 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 59 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 60 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fscript\\fprq2\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This is a user object that has a panel view.  The panel view of a user object can in turn be placed in the panel view of the parent object.  In this case the panel view of this object is placed in the main panel.  This approach helps with organization and grouping of related panel objects and creates a cleaner detail view for the parent object.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 61 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We placed this list box on the panel view\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 63 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Here we first select the data source, difference, corrected, or raw.  Then if need be we compute the difference between the corrected and uncorrected data and do some checks to make sure it\'s valid for our display.  Here we use the subtractive difference for S11, S22, and the dB difference (which is ratio) for S21, S12).  We do this because S11 and S22 are reflection parameters and for ideal devices reflections should be zero and therefore a subtraction is appropriate.  S12 and S21 on the other hand are transmission paramters and ideal devices have a transmission value of 1 and therefore a ratio is a more appropriate operation.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 64 FORMULA
+(properties
+(name "CorrData - RawData")
+(expr 5 "A=CorrData; // init result container"
+"A[0,*]=CorrData[0,*]- RawData[0,*]; //S11"
+"A[1,*]=CorrData[0,*]/ RawData[1,*]; //S12"
+"A[2,*]=CorrData[0,*]/ RawData[2,*]; //S21"
+"A[3,*]=CorrData[0,*]- RawData[3,*]; //S22"))
+(interface
+(output 1
+(name "A")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D9:0 D0:0)
+(connect D14:1 D0:1)
+(connect D9:1 D1:1)
+(connect D5:1 D1:2)
+(connect D6:1 D1:3)
+(connect D7:1 D1:4)
+(connect D8:1 D1:5)
+(connect D4:1 D1:6)
+(connect D12:1 D1:7)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D2:1 D4:2)
+(connect D0:1 D5:1)
+(connect D2:2 D5:2)
+(connect D0:2 D6:1)
+(connect D2:2 D6:2)
+(connect D0:3 D7:1)
+(connect D2:2 D7:2)
+(connect D0:4 D8:1)
+(connect D2:2 D8:2)
+(connect D13:1 D11:0)
+(connect D11:1 D12:1)
+(connect D13:1 D12:2)
+(connect D10:1 D12:3)
+(connect D14:1 D13:0)
+(connect D19:2 D14:0)
+(connect D29:1 D14:1)
+(connect D18:1 D15:0)
+(connect D17:1 D16:0)
+(connect D19:1 D17:0)
+(connect D30:1 D18:0)
+(connect D20:4 D19:1)
+(connect D29:1 D20:1)
+(connect D25:1 D26:1)
+(connect D26:2 D27:0)
+(connect D26:3 D28:0)
+(connect D34:1 D29:1)
+(connect D27:1 D29:2)
+(connect D28:1 D29:3)
+(connect D34:2 D30:1)
+(connect D27:2 D30:2)
+(connect D28:2 D30:3)
+(connect D26:1 D34:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 835 358)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 0 50)
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 756 350)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "dB")
+(domainName "Freq")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -30 10 4 linear))
+(domain 5000000000 6000000000 4 linear)
+(trace 0 onScale 0
+(name "S11")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "S21")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "S12")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "S22")
+(traceColor "Green")
+(lineType 12)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 1)
+(markerInterpolate 1))
+(widget 2 detail
+(relativeOrigin 0 0)
+(PID 1)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 130 25)
+(format dropDown))
+(widget 25 detail
+(relativeOrigin 140 0)
+(PID 2)
+(title on)
+(tabIndex 2)
+(borderStyle flat)
+(extent 146 25)
+(format dropDown)))
+(detail
+(extent 1247 482)
+(anchorPt 862 331)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 155 102))
+(terminals on)
+(pinCenter 115 210))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 655 297)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "dB")
+(domainName "Freq")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -30 10 4 linear))
+(domain 5000000000 6000000000 4 linear)
+(trace 0 onScale 0
+(name "S11")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "S21")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "S12")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "S22")
+(traceColor "Green")
+(lineType 12)
+(pointType 0)))
+(pinCenter 970 230))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 91 0))
+(open
+(extent 130 25)
+(format dropDown))
+(pinCenter 120 330))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 171 120)
+(formatters))
+(pinCenter 120 450))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 113 50))
+(terminals on)
+(pinCenter 350 450))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 190))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 240))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 280))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 125 100))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 72 0))
+(open
+(extent 76 51))
+(terminals on)
+(pinCenter 345 550))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 171 120)
+(formatters))
+(pinCenter 120 660))
+(devCarrierFor 27
+(active open)
+(icon)
+(open
+(extent 113 65))
+(terminals on)
+(pinCenter 360 670))
+(devCarrierFor 28
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -30 540))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter -110 210))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -280 240))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -170 400))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter -260 380))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter -350 180))
+(devCarrierFor 42
+(active open)
+(icon)
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter -385 320))
+(devCarrierFor 41
+(active open)
+(icon
+(extent 83 74)
+(iconImage "unbuild.icn"))
+(open
+(extent 74 142))
+(terminals on)
+(pinCenter -600 320))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 240 -10))
+(devCarrierFor 47
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 206)
+(editing enabled))
+(pinCenter 700 590))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 790 10))
+(devCarrierFor 49
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 244 66)
+(editing enabled))
+(pinCenter 370 350))
+(devCarrierFor 53
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 117 25)
+(format dropDown))
+(pinCenter -830 -50))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 77 45))
+(open
+(extent 119 82))
+(terminals on)
+(pinCenter -720 -60))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 82 51))
+(terminals on)
+(pinCenter -610 30))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 80 25))
+(open
+(extent 83 51))
+(terminals on)
+(pinCenter -670 90))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter -400 40))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter -400 110))
+(devCarrierFor 60
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 196)
+(editing enabled))
+(pinCenter -470 570))
+(devCarrierFor 61
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 244 66)
+(editing enabled))
+(pinCenter -800 30))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 206)
+(editing enabled))
+(pinCenter -490 -210))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 122 34))
+(open
+(extent 374 95))
+(terminals on)
+(pinCenter -510 -20))
+(connect D9:0 D0:0
+(points 2 130 128 130 138))
+(connect D14:1 D0:1
+(points 2 -93 210 5 210))
+(connect D9:1 D1:1
+(points 4 204 100 220 100 220 110 640 110))
+(connect D5:1 D1:2
+(points 2 369 150 640 150))
+(connect D6:1 D1:3
+(points 2 369 190 640 190))
+(connect D7:1 D1:4
+(points 4 369 240 390 240 390 230 640 230))
+(connect D8:1 D1:5
+(points 4 369 280 390 280 390 270 640 270))
+(connect D4:1 D1:6
+(points 4 439 450 510 450 510 310 640 310))
+(connect D12:1 D1:7
+(points 6 449 670 460 670 460 460 520 460 520 350 640 350))
+(connect D2:0 D3:0
+(points 2 120 345 120 369))
+(connect D3:1 D4:1
+(points 4 208 450 240 450 240 440 261 440))
+(connect D2:1 D4:2
+(points 4 187 320 230 320 230 460 261 460))
+(connect D0:1 D5:1
+(points 4 255 170 280 170 280 140 290 140))
+(connect D2:2 D5:2
+(points 6 187 340 210 340 210 280 270 280 270 160 290 160))
+(connect D0:2 D6:1
+(points 4 255 190 280 190 280 180 290 180))
+(connect D2:2 D6:2
+(points 6 187 340 210 340 210 280 270 280 270 200 290 200))
+(connect D0:3 D7:1
+(points 4 255 210 280 210 280 230 290 230))
+(connect D2:2 D7:2
+(points 6 187 340 210 340 210 280 270 280 270 250 290 250))
+(connect D0:4 D8:1
+(points 6 255 230 270 230 270 240 280 240 280 270 290 270))
+(connect D2:2 D8:2
+(points 6 187 340 210 340 210 280 270 280 270 290 290 290))
+(connect D13:1 D11:0
+(points 3 20 540 120 540 120 579))
+(connect D11:1 D12:1
+(points 4 208 660 230 660 230 650 271 650))
+(connect D13:1 D12:2
+(points 4 20 540 240 540 240 670 271 670))
+(connect D10:1 D12:3
+(points 6 425 550 470 550 470 730 250 730 250 690 271 690))
+(connect D14:1 D13:0
+(points 3 -93 210 -30 210 -30 504))
+(connect D19:2 D14:0
+(points 5 -314 330 -220 330 -220 180 -110 180 -110 200))
+(connect D29:1 D14:1
+(points 6 -385 40 -360 40 -360 150 -210 150 -210 210 -128 210))
+(connect D18:1 D15:0
+(points 3 -307 180 -280 180 -280 212))
+(connect D17:1 D16:0
+(points 5 -217 380 -210 380 -210 350 -170 350 -170 372))
+(connect D19:1 D17:0
+(points 3 -314 310 -260 310 -260 370))
+(connect D30:1 D18:0
+(points 3 -385 110 -350 110 -350 170))
+(connect D20:4 D19:1
+(points 2 -481 320 -447 320))
+(connect D29:1 D20:1
+(points 6 -385 40 -360 40 -360 150 -720 150 -720 320 -700 320))
+(connect D25:1 D26:1
+(points 2 -769 -60 -761 -60))
+(connect D26:2 D27:0
+(points 3 -679 -70 -610 -70 -610 15))
+(connect D26:3 D28:0
+(points 5 -679 -60 -660 -60 -660 -10 -670 -10 -670 75))
+(connect D34:1 D29:1
+(points 4 -447 -30 -430 -30 -430 30 -416 30))
+(connect D27:1 D29:2
+(points 4 -571 20 -550 20 -550 40 -416 40))
+(connect D28:1 D29:3
+(points 4 -628 80 -550 80 -550 50 -416 50))
+(connect D34:2 D30:1
+(points 4 -447 -10 -440 -10 -440 100 -416 100))
+(connect D27:2 D30:2
+(points 4 -571 40 -560 40 -560 110 -416 110))
+(connect D28:2 D30:3
+(points 4 -628 100 -610 100 -610 120 -416 120))
+(connect D26:1 D34:0
+(points 3 -679 -80 -510 -80 -510 -40)))
+(stackingOrder 6 7 8 2 3 10 12 1 19 17 16 14 22 23 24 4 5 9 21 0 11 13 27 29 30
+26 28 15 18 20 25 31 32 34 33))))
+(device 95 TOGLOBAL
+(properties
+(name "Set CorrData")
+(globalName "CorrData"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 96 TOGLOBAL
+(properties
+(name "Set Freq")
+(globalName "Freq"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 99 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 100 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE Pro 7.5 and above to run this example.\\par\r\n - Need to have a PNA (all model numbers and firmware versions above \\par\r\n   A.03.01 are suported)\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A) or SICL/LAN connection to the instrument.\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.0 \\par\r\n   as a minimum.\\par\r\n- Change the VNA \"Direct I/O\" under the I/O manager to point to your PNA\\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 716 on the GPIB bus.\\par\r\n}\r\n"
+)))
+(device 101 NOTE
+(properties
+(name "Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs17 The goal in this application is to setup 4 s-parameter measurements  (S11, S12, S21, S22) in a channel selected by the user, Calibrate the channel using a 2-port guided ECal procedure, and display either the corrected, the raw, or the difference between the corrected and raw S-parameters. Each of the program blocks were written using the best practices in controlling and reading data on a PNA.  Read the notes inside of each block to get details on why each command is sent. \\par\r\n\\par\r\nThe \\ldblquote Driving Data\\rdblquote  block can be used to select the channel, start and stop frequencies of the sweep, the IF Bandwidth of the channel, and the number of points used in the channel.  \\par\r\n\\par\r\nAfter all the setup information is entered, the user can initiate a measurement by pressing the \\ldblquote Begin Measurement\\rdblquote  button.  The application will setup the PNA channel as prescribed, and calibrate and measure the parameters that are specified.  The data is transferred between the PNA and the application in Real/Imaginary format, but it is displayed in the trace window in the format selected by the user in the \\ldblquote Choose Format\\rdblquote  drop-down selection list.  The formatting of the data takes place in the analysis block of the example code.  The user can also select which data to display by choosing one of the options in the \"Data Selector\" drop-down list in the analysis block.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 124 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 125 CONFIRM25
+(properties
+(name "New Measurement")
+(enterButton 1)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 126 CONFIRM25
+(properties
+(name "Finished")
+(enterButton 0)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 127 BREAK)
+(device 128 NEXT)
+(device 129 CONTEXT
+(properties
+(name "Driving Data")
+(trigMode deg)
+(nextID 20)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "StartFreq")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "StopFreq")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Points")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "IFBw")
+(lock constraints)
+(optional yes))
+(output 5
+(type data)
+(name "ChanNo")
+(lock constraints)
+(optional yes))
+(output 6
+(type data)
+(name "ParameterList")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 LITERALCONSTANT
+(properties
+(name "Parameters to Measure")
+(sizeFixed 1))
+(interface
+(input 1
+(type control)
+(name "Disable Editing")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 4)
+(data  [ "S11" "S21" "S12" "S22" ]))
+(initValue Text
+(data  ""))))
+(device 2 CONSTANT
+(properties
+(name "Start Freq (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  5000000000))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Stop Freq (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  6000000000))
+(initValue Real
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "IF BW (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  35000))
+(initValue Real
+(data  0))))
+(device 6 TOGLOBAL
+(properties
+(name "Set Params")
+(globalName "Params"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 7 ENUMCONSTANT
+(properties
+(name "Channel"))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Channel 1" 0)
+("Channel 2" 1)
+("Channel 3" 2)
+("Channel 4" 3)
+("Channel 5" 4)
+("Channel 6" 5)
+("Channel 7" 6)
+("Channel 8" 7)
+("Channel 9" 8)
+("Channel 10" 9)
+("Channel 11" 10)
+("Channel 12" 11)
+("Channel 13" 12)
+("Channel 14" 13)
+("Channel 15" 14)
+("Channel 16" 15)
+("Channel 17" 16)
+("Channel 18" 17)
+("Channel 19" 18)
+("Channel 20" 19)
+("Channel 21" 20)
+("Channel 22" 21)
+("Channel 23" 22)
+("Channel 24" 23)
+("Channel 25" 24)
+("Channel 26" 25)
+("Channel 27" 26)
+("Channel 28" 27)
+("Channel 29" 28)
+("Channel 30" 29)
+("Channel 31" 30)
+("Channel 32" 31))
+(data  "Channel 1"))
+(initValue Text
+(data  "Channel 1"))))
+(device 8 FORMULA
+(properties
+(name "convert ordinal to chan. no.")
+(expr 1 "A + 1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 CONSTANT
+(properties
+(name "PNA Max Channel"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  32))
+(initValue Int32
+(data  0))))
+(device 10 FORMULA
+(properties
+(name "build channel list")
+(expr 1 "\"Channel \" + asText(ramp(A,1,A))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 CONSTANT
+(properties
+(name "Points"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  51))
+(initValue Int32
+(data  0))))
+(device 13 LABEL
+(properties
+(name "Measurement Setup Information")
+(labelValue "Measurement Setup Information"))
+(implementation))
+(device 17 DO
+(interface
+(output 1
+(name "Do"))))
+(device 18 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 For this example the list of the measured parameters is fixed to the four 2-port S-Parameters and therefore we disable editing of the list box.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 19 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fscript\\fprq2\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This is a user object that has a panel view.  The panel view of a user object can in turn be placed in the panel view of the parent object.  In this case the panel view of this object is placed in the main panel.  This approach helps with organization and grouping of related panel objects and creates a cleaner detail view for the parent object.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D11:0 D0:0)
+(connect D11:1 D0:1)
+(connect D0:1 D4:1)
+(connect D8:0 D5:0)
+(connect D8:1 D5:1)
+(connect D5:2 D6:1)
+(connect D7:1 D8:1)
+(connect D1:1 O1:1)
+(connect D2:1 O2:1)
+(connect D9:1 O3:1)
+(connect D3:1 O4:1)
+(connect D6:1 O5:1)
+(connect D0:1 O6:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 429 192)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 0 70)
+(PID 0)
+(title on)
+(tabIndex 0)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 2 detail
+(relativeOrigin 130 70)
+(PID 1)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 9 detail
+(relativeOrigin 0 130)
+(PID 2)
+(title on)
+(tabIndex 2)
+(borderStyle flat)
+(extent 121 29)
+(showFormat int))
+(widget 3 detail
+(relativeOrigin 130 130)
+(PID 3)
+(title on)
+(tabIndex 3)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 5 detail
+(relativeOrigin 0 10)
+(PID 4)
+(title on)
+(tabIndex 4)
+(borderStyle flat)
+(extent 121 29)
+(format dropDown))
+(widget 0 detail
+(relativeOrigin 270 70)
+(PID 5)
+(title on)
+(tabIndex 5)
+(borderStyle flat)
+(extent 146 89))
+(widget 10 detail
+(relativeOrigin 140 10)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle none)
+(extent 280 30)
+(just c)))
+(detail
+(extent 628 887)
+(anchorPt 162 72)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 141 15))
+(open
+(extent 237 74))
+(terminals on)
+(pinCenter 150 360))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 90))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 160))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 280))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 71 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 425 550))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 51 25))
+(open
+(extent 130 25)
+(format dropDown))
+(pinCenter 450 380))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 160 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 480 450))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 107 0))
+(open
+(extent 143 29)
+(showFormat int))
+(pinCenter 160 610))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 254 186))
+(terminals on)
+(pinCenter 160 650))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 39 0))
+(open
+(extent 104 26)
+(showFormat int))
+(pinCenter 430 220))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 193 0))
+(open
+(extent 254 34)
+(just c))
+(title off)
+(bg "Control")
+(pinCenter 180 60))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter -130 360))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 136)
+(editing enabled))
+(pinCenter 110 200))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 196)
+(editing enabled))
+(pinCenter 90 830))
+(connect D11:0 D0:0
+(points 6 -130 370 -130 390 -100 390 -100 280 120 280 120 302))
+(connect D11:1 D0:1
+(points 2 -116 360 -71 360))
+(connect D0:1 D4:1
+(points 4 311 360 330 360 330 550 346 550))
+(connect D8:0 D5:0
+(points 8 160 660 160 680 250 680 250 480 340 480 340 330 450 330 450 347))
+(connect D8:1 D5:1
+(points 6 213 650 260 650 260 490 350 490 350 380 382 380))
+(connect D5:2 D6:1
+(points 6 517 390 540 390 540 420 380 420 380 450 397 450))
+(connect D7:1 D8:1
+(points 6 234 610 240 610 240 560 70 560 70 650 106 650))
+(connect D1:1 O1:1
+(points 4 493 90 510 90 510 21 465 21))
+(connect D2:1 O2:1
+(points 4 493 160 510 160 510 161 465 161))
+(connect D9:1 O3:1
+(points 4 484 220 540 220 540 301 465 301))
+(connect D3:1 O4:1
+(points 4 493 280 580 280 580 441 465 441))
+(connect D6:1 O5:1
+(points 4 562 450 570 450 570 581 465 581))
+(connect D0:1 O6:1
+(points 4 311 360 330 360 330 721 465 721)))
+(stackingOrder 2 4 7 8 9 3 5 6 10 1 0 11 12 13))))
+(device 130 NOTE
+(properties
+(name "Notes on VNA measurements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 First: Don\'t Panic!\\par\r\n\\cf2\\b0\\f1\\fs26 Making measurements and calibrating with a VNA is easy and fun!\\par\r\nThere are 5 basic steps:\\par\r\n1) Setting up which parameters to measure\\par\r\n2) Setting up the sweep parameters (freq, points)\\par\r\n3) Performing the calibration\\par\r\n4) Taking a sweep to get updated calibrated data\\par\r\n5) Reading the data\\par\r\n6) Formating and displaying the results.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 131 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Set up the parameters to measure\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 132 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Set up channel with freq, points, etc\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 134 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Do a 2-Port ECal\\par\r\n\\cf2\\fs18\\par\r\n}\r\n"
+)))
+(device 136 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Now we get the Frequency list, and read out all the corrected data, and place them into a global 4D array\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 137 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Finally, we compute the difference between each of the 4 corrected and uncorrected S-Parameters and display the results\\par\r\n}\r\n"
+)))
+(device 138 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The first time through, one sweep happens.\\par\r\nTo sweep again, hit \"New Measurement\".\\par\r\nTo stop, hit \"Finished\"\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 139 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This keeps it running so you can change things\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 140 CONTEXT
+(properties
+(name "Get ECal Info")
+(trigMode deg)
+(nextID 36)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"SENS9:CORR:COLL:CKIT:INF? ECAL1, CHAR0\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 21 FROMSTRING
+(properties
+(name "Build 2D Array from Ecal Info")
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\",\\n:\" ARRAY:*,2"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 25 EXITPROCESS
+(properties
+(code 0)))
+(device 26 MESSAGEBOX
+(properties
+(timeout 5)
+(position 201 201)
+(message "Unable to find any connected ECal modules.  The program will stop.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 27 DECLVAR
+(properties
+(name "Declare g_ECalInfo_rec")
+(scope glob)
+(globalName "g_ECalInfo_rec"))
+(implementation
+(value Record
+(schema
+(numFields 9)
+(fieldName "ModuleNumber"
+(type Text))
+(fieldName "SerialNumber"
+(type Text))
+(fieldName "ConnectorType"
+(type Text))
+(fieldName "MinFreq"
+(type Real64))
+(fieldName "MaxFreq"
+(type Real64))
+(fieldName "NumberOfPoints"
+(type Int32))
+(fieldName "Calibrated"
+(type Text))
+(fieldName "PortAConnector"
+(type Text))
+(fieldName "PortBConnector"
+(type Text)))
+(data 
+(record
+("ModuleNumber" "0")
+("SerialNumber" "")
+("ConnectorType" "")
+("MinFreq" 0)
+("MaxFreq" 0)
+("NumberOfPoints" 0)
+("Calibrated" "")
+("PortAConnector" "0")
+("PortBConnector" ""))))))
+(device 28 RECCONST
+(properties
+(name "Default ECal Info Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 9)
+(fieldName "ModuleNumber"
+(type Text))
+(fieldName "SerialNumber"
+(type Text))
+(fieldName "ConnectorType"
+(type Text))
+(fieldName "MinFreq"
+(type Real64))
+(fieldName "MaxFreq"
+(type Real64))
+(fieldName "NumberOfPoints"
+(type Int32))
+(fieldName "Calibrated"
+(type Text))
+(fieldName "PortAConnector"
+(type Text))
+(fieldName "PortBConnector"
+(type Text)))
+(data 
+(record
+("ModuleNumber" "NULL")
+("SerialNumber" "NULL")
+("ConnectorType" "NULL")
+("MinFreq" 0)
+("MaxFreq" 0)
+("NumberOfPoints" 0)
+("Calibrated" "NULL")
+("PortAConnector" "NULL")
+("PortBConnector" "NULL"))))))
+(device 31 TOGLOBAL
+(properties
+(name "Set g_ECalInfo_rec")
+(globalName "g_ECalInfo_rec"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 32 FORMULA
+(properties
+(name "Set g_ECalInfo_rec with data from PNA")
+(expr 19 "listSize = totSize(a[*,0]);  //number of rows in the table"
+"idx = 0; //index in to the ECal table"
+"g_ECalInfo_rec.ModuleNumber = A[idx, 1];" "idx = idx + 1;"
+"g_ECalInfo_rec.SerialNumber = A[idx, 1];" "idx = idx + 1;"
+"g_ECalInfo_rec.ConnectorType = A[idx, 1];" "idx = idx + 1;"
+"g_ECalInfo_rec.PortAConnector = A[idx, 1];" "idx = idx + 1;"
+"g_ECalInfo_rec.PortBConnector = A[idx, 1];"
+"idx = idx + (listSize > 9 ? 3 : 1); //2-port Ecal or 4-port Ecal?"
+"g_ECalInfo_rec.MinFreq = asReal64(A[idx, 1]);" "idx = idx + 1;"
+"g_ECalInfo_rec.MaxFreq = asReal64(A[idx, 1]);" "idx = idx + 1;"
+"g_ECalInfo_rec.NumberOfPoints = asInt32(A[idx, 1]);" "idx = idx + 1;"
+"g_ECalInfo_rec.Calibrated = A[idx, 1];"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "listSize")
+(optional yes))
+(output 2
+(name "idx")
+(optional yes))
+(output 3
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fscript\\fprq2\\fcharset0 Comic Sans MS;}{\\f1\\fnil\\fcharset0 Comic Sans MS;}{\\f2\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In this object we obtain information about the first ECal module connected to the Analyzer (some Keysight Network Analyzers, like the PNA, support multiple ECal modules connected at the same time).  ECal modules come in 2-port and 4-port versions and depending on which is connected, the information returned is different for the two.  In this object we create a record that only holds the common information for both types of ECal (we skip the individual port connector values for ports C&D).  This record is later used to set the frequency for the channel that we are calibrating.  If no ECal module is found to be connected, a message is displayed and the program stops.\\par\r\n\\cf2\\f1\\fs20 NOTE:  ECal info is obtained using a SENSe command which is typically associated with a specific channel.  In this case however, the channel number is irrelevant since all channels will report the same information for any ECals attached.\\f2\\fs17\\par\r\n\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The ECal info is returned as a single long, comma and colon seperated string, which we turn in a 2 dimenssional array, where the frst column is the field Name and the second column holds the values.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D5:0 D0:0)
+(connect D0:1 D1:1)
+(connect D3:0 D2:0)
+(connect D0:2 D3:0)
+(connect D5:1 D6:1)
+(connect D1:1 D7:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -138 297)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 156 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 390 290))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 170 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 710 280))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 500 460))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 92 34))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 500 390))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 144 15))
+(open
+(extent 344 309))
+(pinCenter 540 160))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 208 309)
+(formatters))
+(pinCenter 390 200))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 540 200))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 234 34))
+(open
+(extent 344 396))
+(terminals on)
+(pinCenter 940 280))
+(devCarrierFor 33
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 464 386)
+(editing enabled))
+(pinCenter 550 -70))
+(devCarrierFor 34
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 264 186)
+(editing enabled))
+(pinCenter 830 420))
+(connect D5:0 D0:0
+(points 2 390 210 390 262))
+(connect D0:1 D1:1
+(points 2 470 280 622 280))
+(connect D3:0 D2:0
+(points 2 500 409 500 432))
+(connect D0:2 D3:0
+(points 3 470 300 500 300 500 370))
+(connect D5:1 D6:1
+(points 2 466 200 479 200))
+(connect D1:1 D7:1
+(points 2 797 280 820 280)))
+(stackingOrder 2 6 1 9 8 4 5 7 3 0))))
+(device 141 CONTEXT
+(properties
+(name "Calable Frequency Range")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare minFreq")
+(scope glob)
+(globalName "minFreq"))
+(implementation
+(value Real64
+(data  0))))
+(device 1 DECLVAR
+(properties
+(name "Declare maxFreq")
+(scope glob)
+(globalName "maxFreq"))
+(implementation
+(value Real64
+(data  0))))
+(device 2 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 4 "WRITE TEXT \"SENS:FREQ:START? MIN\" EOL" "READ TEXT min REAL64"
+"WRITE TEXT \"SENS:FREQ:STOP? MAX\" EOL" "READ TEXT max REAL64"))
+(interface
+(output 1
+(name "min")
+(optional yes))
+(output 2
+(name "max")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 3 START25)
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Get the min and max possible frequencies for the analyzer.\\par\r\n\\cf2\\fs20 NOTE: min and max frequencies are the same for all channals and therefore SENSe command can be used without a specific channel number.\\cf1\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 5 FORMULA
+(properties
+(name "Set the cal frequency limits")
+(expr 11 "// The minimum possible cal frequency is the larger "
+"// value between the analyzer\'s lower frequency limit"
+"// and the ECal module\'s lower frequency limit." ""
+"minFreq = max([NA_min, g_ECalInfo_rec.minFreq]);" ""
+"// The maximum possible cal frequency is the smaller "
+"// value between the analyzer\'s upper frequency limit"
+"// and the ECal module\'s upper frequency limit." ""
+"maxFreq = min([NA_max, g_ECalInfo_rec.maxFreq]);"))
+(interface
+(input 1
+(name "NA_min")
+(optional yes))
+(input 2
+(name "NA_max")
+(optional yes))))
+(configuration
+(connect D3:0 D2:0)
+(connect D2:0 D5:0)
+(connect D2:1 D5:1)
+(connect D2:2 D5:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 84 -14)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 195 103))
+(pinCenter 510 170))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 103 15))
+(open
+(extent 195 103))
+(pinCenter 510 200))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 285 320))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 290 230))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 126)
+(editing enabled))
+(pinCenter 90 150))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 160 0))
+(open
+(extent 324 256))
+(terminals on)
+(pinCenter 305 580))
+(connect D3:0 D2:0
+(points 2 290 243 290 262))
+(connect D2:0 D5:0
+(points 2 290 359 290 431))
+(connect D2:1 D5:1
+(points 6 442 300 470 300 470 390 70 390 70 510 80 510))
+(connect D2:2 D5:2
+(points 6 442 340 460 340 460 380 60 380 60 650 80 650)))
+(stackingOrder 0 1 3 2 5 4))))
+(device 142 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Get Ecal information and use it to set the cal frequency limits\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 144 CONTEXT
+(properties
+(name "(3) Do 2-Port Guided ECal")
+(trigMode deg)
+(nextID 58)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(deviceList
+(device 2 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2
+"WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:CONN:PORT1 \"+\"\\\'\"+portA+\"\\\'\" EOL"
+"WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:CONN:PORT2 \"+\"\\\'\"+portB+\"\\\'\" EOL"
+))
+(interface
+(input 1
+(name "portA")
+(optional yes))
+(input 2
+(name "portB")
+(optional yes))
+(input 3
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 3 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 1\\b0 -  Set the port connectors to the connector types for ports A and B of the ECal module.  This way the ECal module becomes one of the valid cal kits for this cal.\\par\r\n}\r\n"
+)))
+(device 4 FORMULA
+(properties
+(name "g_ECalInfo_rec.PortAConnector")
+(expr 1 "strTrim(g_ECalInfo_rec.PortAConnector)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "g_ECalInfo_rec.PortBConnector")
+(expr 1 "strTrim(g_ECalInfo_rec.PortBConnector)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2
+"WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:CKIT:PORT1 \"+\"\\\'\"+calKit+\"\\\'\" EOL"
+"WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:CKIT:PORT2 \"+\"\\\'\"+calKit+\"\\\'\" EOL"
+))
+(interface
+(input 1
+(name "calKit")
+(optional yes))
+(input 2
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 9 FORMULA
+(properties
+(name "g_ECalInfo_rec.ModuleNumber + \" ECal\"")
+(expr 1 "strTrim(g_ECalInfo_rec.ModuleNumber + \" ECal\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 2-\\b0   Set the calKit value for ports 1 and 2.  When using an ECal, the calKit name for that ECal is the ECal\'s module number plus the string \" ECal\" added to the end.  Note that we use the same calkit name for both port 1 and port 2.\\par\r\n}\r\n"
+)))
+(device 11 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:METH DEFAULT\" EOL")
+)
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 12 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 3-  \\b0 When performing a cal on more than 1 port, you have to set the THRU method.  There are several possibilities for the THRU method depending on the type and the sex of the connectors on your ECal module.  For this example we will just use DEFAULT, which works for all combinations of connector types and connector sexes.\\par\r\n}\r\n"
+)))
+(device 15 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:INIT\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 16 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 4- \\b0  Initiate the guided cal.  A cal can be initiated such that it creates a new calset (a container stored on the PNA that holds the error terms and other cal related information) or it can be pointed to an existing calset by providing the calset ID.  In this example we will opt to create a new calset (the default behavior).\\par\r\n}\r\n"
+)))
+(device 17 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:STEPS?\" EOL"
+"READ TEXT numSteps INT32"))
+(interface
+(input 1
+(name "chan")
+(optional yes))
+(output 1
+(name "numSteps")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 18 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 5- \\b0  Obtain the number of steps needed to complete the cal.  We will use this number to setup a loop that performs the calibration steps, but first we have to check to see if it returned a valid number.  If every thing is working fine, then the return value should be > 0.  If it isn\'t then there is a problem\\par\r\n}\r\n"
+)))
+(device 19 IFTHENELSE
+(properties
+(cases 1 "A<1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 20 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 21 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"SYST:ERROR?\" EOL" "READ TEXT error STR"))
+(interface
+(output 1
+(name "error")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 22 FORMULA
+(properties
+(name "Message")
+(expr 1
+"\"There was a problem with setting up the 2-port ECal.  The following error information was in the SCPI error buffer:  \" + A"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 ESCAPE
+(properties
+(errorCode 1)
+(message
+"There was a problem with setting up the 2-port ECal.  The following error information was in the SCPI error buffer:  +192,\"Guided cal initialization failed.\""
+))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(device 24 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:DESC? \"+step EOL"
+"READ TEXT desc STR"))
+(interface
+(input 1
+(name "step")
+(optional yes))
+(input 2
+(name "chan")
+(optional yes))
+(output 1
+(name "desc")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 25 FORMULA
+(properties
+(name "Step Number")
+(expr 2 "A + 1;" "// for count starts at 0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 6- \\b0  Get the description (connection prompt) for the step\\par\r\n}\r\n"
+)))
+(device 27 MESSAGEBOX
+(properties
+(name "Calibration Connection Instructions")
+(popupTitle "Calibration Connection Instructions")
+(message "User Message")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 28 ESCAPE
+(properties
+(errorCode 1)
+(message "Calibration canceled by the user")))
+(device 29 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 3 "WRITE TEXT \"*CLS; *ESE 1\" EOL"
+"WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:ACQ STAN\"+step EOL"
+"WRITE TEXT \"*OPC\" EOL"))
+(interface
+(input 1
+(name "step")
+(optional yes))
+(input 2
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 30 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 7- \\b0  Setup the status register for serial polling, acquire the standard (perform cal step), and do an *OPC to initiate the polling process.\\fs24\\par\r\n}\r\n"
+)))
+(device 31 FORMULA
+(properties
+(name "Message")
+(expr 1
+"\"There was a problem with performing the 2-port ECal.  The following error information was in the SCPI error buffer:  \" + A"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 ESCAPE
+(properties
+(errorCode 1)
+(message "User Generated Error"))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(device 33 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"SYST:ERROR?\" EOL" "READ TEXT error STR"))
+(interface
+(output 1
+(name "error")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 34 FORMULA
+(properties
+(name "asInt32(x)")
+(expr 1 "asInt32(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 IFTHENELSE
+(properties
+(name "Check for error")
+(cases 1 "A!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 36 NEXT)
+(device 38 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"SENS\"+chan+\":CORR:COLL:GUID:SAVE\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 40 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 10- \\b0  Finalize and save the cal\\fs24\\par\r\n}\r\n"
+)))
+(device 45 NOTE
+(properties
+(name "Whodunit")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Joel Dunsmore  \\par\r\nand Dara Sariaslani \\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 55 CONTEXT
+(properties
+(name "Serial Poll to wait for ECal completion")
+(trigMode deg)
+(nextID 22)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 BREAK)
+(device 2 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 3 EXITPROCESS
+(properties
+(code 0)))
+(device 4 SERIALPOLL
+(properties
+(name "Spoll: VNA ( @ 716)")
+(iopath "VNA")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0x20))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 5 FORMULA
+(properties
+(name "bit(x,n)")
+(expr 1 "bit(x, 5)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DELAY
+(properties
+(delay 0.06))
+(interface
+(input 1
+(name "Delay")
+(tag "Delay")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Done"))))
+(device 7 MESSAGEBOX
+(properties
+(autoTimeout 1)
+(timeout 3)
+(position 201 206)
+(message "Waiting for VNA, Press \"Stop\" to Stop")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Stop")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 0)
+(buttons "<Custom...>")
+(buttonLabel1 "OK")
+(buttonLabel2 "Stop")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 8 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 9 BREAK)
+(device 10 NEXT)
+(device 11 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 12 EXITCONTEXT)
+(device 13 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This IF/Then tests for the OPC bit on the status byte.  IF it returns true, we can break out and exit.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 15 FORCOUNT
+(properties
+(count 50))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 16 FORMULA
+(properties
+(name "A/B")
+(expr 1 "A/B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 18 CONSTANT
+(properties
+(name "Poll Time"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.06))
+(initValue Real
+(data  0))))
+(device 19 CONSTANT
+(properties
+(name "Total Wait"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  3))
+(initValue Int32
+(data  0))))
+(device 20 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We divide the total wait time by the polling time, to get the number of polls that we should make.  We don\'t poll really fast because each time the ENA response to the poll, it slows it down a little bit\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 21 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 For each loop, we use the \"For Count\" to poll the status byte. After the total wait time, we pop the message block to give a choice of stopping\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D5:1 D0:1)
+(connect D0:1 D1:0)
+(connect D4:1 D2:1)
+(connect D7:2 D3:0)
+(connect D6:1 D4:0)
+(connect D2:0 D5:0)
+(connect D4:1 D5:1)
+(connect D15:1 D6:0)
+(connect D18:1 D6:1)
+(connect D13:2 D7:0)
+(connect D7:1 D8:1)
+(connect D7:3 D8:2)
+(connect D13:1 D9:0)
+(connect D8:1 D10:0)
+(connect D15:1 D11:1)
+(connect D17:0 D12:0)
+(connect D15:0 D13:0)
+(connect D5:1 D13:1)
+(connect D17:1 D15:0)
+(connect D16:1 D15:1)
+(connect D19:1 D16:1)
+(connect D18:1 D16:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -87 -10)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 61 53))
+(terminals on)
+(pinCenter 1655 430))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 1680 490))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 192 172)
+(formatter
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 1560 900))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 900 800))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 117 52)
+(iconImage "io.icn"))
+(open
+(extent 249 106))
+(terminals on)
+(pinCenter 1160 850))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 81 50))
+(terminals on)
+(pinCenter 1470 430))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 76 32))
+(pinCenter 910 400))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 92 34))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 780 730))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 980 730))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 900 550))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 31 16))
+(open)
+(terminals on)
+(pinCenter 1040 730))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 85 15))
+(open
+(extent 131 28))
+(pinCenter 930 320))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 680 200))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 65 53))
+(terminals on)
+(pinCenter 770 510))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 480 590))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 770 400))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 72 50))
+(terminals on)
+(pinCenter 650 400))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 680 140))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 99 30)
+(showFormat real))
+(pinCenter 540 450))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 106 30)
+(showFormat int))
+(pinCenter 540 380))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 126)
+(editing enabled))
+(pinCenter 260 440))
+(devCarrierFor 21
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 370 260))
+(connect D5:1 D0:1
+(points 2 1563 430 1592 430))
+(connect D0:1 D1:0
+(points 5 1728 420 1750 420 1750 470 1680 470 1680 479))
+(connect D4:1 D2:1
+(points 4 1337 850 1370 850 1370 900 1461 900))
+(connect D7:2 D3:0
+(points 3 828 730 900 730 900 764))
+(connect D6:1 D4:0
+(points 7 950 400 970 400 970 630 1120 630 1120 760 1170 760 1170 776))
+(connect D2:0 D5:0
+(points 8 1560 988 1560 1010 1680 1010 1680 530 1580 530 1580 360 1480 360 1480
+384))
+(connect D4:1 D5:1
+(points 4 1337 850 1360 850 1360 430 1397 430))
+(connect D15:1 D6:0
+(points 7 825 400 840 400 840 390 850 390 850 340 910 340 910 363))
+(connect D18:1 D6:1
+(points 6 592 450 610 450 610 440 850 440 850 400 869 400))
+(connect D13:2 D7:0
+(points 5 813 520 830 520 830 550 780 550 780 710))
+(connect D7:1 D8:1
+(points 2 828 720 963 720))
+(connect D7:3 D8:2
+(points 2 828 740 963 740))
+(connect D13:1 D9:0
+(points 3 813 500 900 500 900 539))
+(connect D8:1 D10:0
+(points 5 997 730 1010 730 1010 700 1040 700 1040 719))
+(connect D15:1 D11:1
+(points 8 825 400 840 400 840 390 850 390 850 340 840 340 840 320 862 320))
+(connect D17:0 D12:0
+(points 2 680 168 680 189))
+(connect D15:0 D13:0
+(points 2 770 418 770 495))
+(connect D5:1 D13:1
+(points 6 1563 430 1570 430 1570 480 710 480 710 510 726 510))
+(connect D17:1 D15:0
+(points 3 719 140 770 140 770 363))
+(connect D16:1 D15:1
+(points 2 664 400 714 400))
+(connect D19:1 D16:1
+(points 4 595 380 620 380 620 390 635 390))
+(connect D18:1 D16:2
+(points 6 592 450 610 450 610 440 620 440 620 410 635 410)))
+(stackingOrder 0 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 18 19 20 17 12 21))))
+(device 56 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 8- \\b0  Perform a serial poll to wait for the ECal operation to finish.\\fs24\\par\r\n}\r\n"
+)))
+(device 57 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs18 Step 9- \\b0  Check to see if there were any errors after the cal is done.\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:1 D0:1)
+(connect D3:1 D0:2)
+(connect I1:1 D0:3)
+(connect D0:0 D4:0)
+(connect D5:1 D4:1)
+(connect I1:1 D4:2)
+(connect D4:0 D7:0)
+(connect I1:1 D7:1)
+(connect D7:0 D9:0)
+(connect I1:1 D9:1)
+(connect D9:0 D11:0)
+(connect I1:1 D11:1)
+(connect D11:0 D13:0)
+(connect D11:1 D13:1)
+(connect D13:2 D14:0)
+(connect D11:1 D14:1)
+(connect D13:1 D15:0)
+(connect D15:1 D16:1)
+(connect D16:1 D17:1)
+(connect D19:0 D18:0)
+(connect D19:1 D18:1)
+(connect I1:1 D18:2)
+(connect D14:1 D19:1)
+(connect D18:1 D21:1)
+(connect D21:2 D22:0)
+(connect D18:0 D23:0)
+(connect D19:1 D23:1)
+(connect I1:1 D23:2)
+(connect D29:1 D25:0)
+(connect D27:1 D25:1)
+(connect D25:1 D26:1)
+(connect D34:0 D27:0)
+(connect D27:1 D28:1)
+(connect D28:1 D29:1)
+(connect D29:2 D30:0)
+(connect D14:0 D31:0)
+(connect I1:1 D31:1)
+(connect D23:0 D34:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 1 -202)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 82))
+(terminals on)
+(pinCenter 325 300))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 76)
+(editing enabled))
+(pinCenter 660 300))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 191 15))
+(open
+(extent 147 50))
+(terminals on)
+(pinCenter 20 270))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 192 15))
+(open
+(extent 148 50))
+(terminals on)
+(pinCenter 20 300))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 330 430))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 246 15))
+(open
+(extent 202 50))
+(terminals on)
+(pinCenter 0 410))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 116)
+(editing enabled))
+(pinCenter 660 440))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 244 76))
+(terminals on)
+(pinCenter 325 590))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 136)
+(editing enabled))
+(pinCenter 660 620))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 244 76))
+(terminals on)
+(pinCenter 325 770))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 136)
+(editing enabled))
+(pinCenter 660 800))
+(devCarrierFor 17
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 305 960))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 126)
+(editing enabled))
+(pinCenter 660 990))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 315 1100))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 440 1230))
+(devCarrierFor 21
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 795 1170))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 56 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 990 1170))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 1070 1170))
+(devCarrierFor 24
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 640 1360))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 145 65))
+(terminals on)
+(pinCenter 640 1230))
+(devCarrierFor 26
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 56)
+(editing enabled))
+(pinCenter 990 1360))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 212 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 940 1460))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 1110 1500))
+(devCarrierFor 29
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 645 1570))
+(devCarrierFor 30
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 76)
+(editing enabled))
+(pinCenter 970 1570))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 56 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 1110 1890))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 1210 1890))
+(devCarrierFor 33
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 635 1810))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 104 50))
+(terminals on)
+(pinCenter 830 1810))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 89 25))
+(open
+(extent 55 51))
+(terminals on)
+(pinCenter 920 1810))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 990 1860))
+(devCarrierFor 38
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 214 76))
+(terminals on)
+(pinCenter 445 2070))
+(devCarrierFor 40
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 234 56)
+(editing enabled))
+(pinCenter 720 2070))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 254 86)
+(editing enabled))
+(pinCenter 390 100))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 234 44))
+(terminals on)
+(pinCenter 640 1680))
+(devCarrierFor 56
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 76)
+(editing enabled))
+(pinCenter 970 1690))
+(devCarrierFor 57
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 76)
+(editing enabled))
+(pinCenter 1310 1830))
+(connect D2:1 D0:1
+(points 4 118 270 140 270 140 280 168 280))
+(connect D3:1 D0:2
+(points 2 118 300 168 300))
+(connect I1:1 D0:3
+(points 6 -1 351 -100 351 -100 450 140 450 140 320 168 320))
+(connect D0:0 D4:0
+(points 2 320 343 320 372))
+(connect D5:1 D4:1
+(points 2 125 410 163 410))
+(connect I1:1 D4:2
+(points 4 -1 351 -100 351 -100 450 163 450))
+(connect D4:0 D7:0
+(points 2 320 469 320 531))
+(connect I1:1 D7:1
+(points 4 -1 351 -100 351 -100 590 160 590))
+(connect D7:0 D9:0
+(points 2 320 630 320 711))
+(connect I1:1 D9:1
+(points 4 -1 351 -100 351 -100 770 160 770))
+(connect D9:0 D11:0
+(points 2 320 810 320 901))
+(connect I1:1 D11:1
+(points 4 -1 351 -100 351 -100 960 155 960))
+(connect D11:0 D13:0
+(points 2 320 1000 320 1054))
+(connect D11:1 D13:1
+(points 6 484 960 490 960 490 1020 240 1020 240 1100 257 1100))
+(connect D13:2 D14:0
+(points 3 382 1110 440 1110 440 1202))
+(connect D11:1 D14:1
+(points 8 484 960 490 960 490 1020 400 1020 400 1150 380 1150 380 1230 403 1230))
+(connect D13:1 D15:0
+(points 3 382 1090 800 1090 800 1111))
+(connect D15:1 D16:1
+(points 2 944 1170 959 1170))
+(connect D16:1 D17:1
+(points 2 1020 1170 1033 1170))
+(connect D19:0 D18:0
+(points 2 640 1240 640 1301))
+(connect D19:1 D18:1
+(points 6 682 1230 700 1230 700 1280 470 1280 470 1340 490 1340))
+(connect I1:1 D18:2
+(points 4 -1 351 470 351 470 1380 490 1380))
+(connect D14:1 D19:1
+(points 2 476 1230 597 1230))
+(connect D18:1 D21:1
+(points 4 789 1360 800 1360 800 1460 831 1460))
+(connect D21:2 D22:0
+(points 3 1048 1470 1110 1470 1110 1490))
+(connect D18:0 D23:0
+(points 2 640 1400 640 1511))
+(connect D19:1 D23:1
+(points 8 682 1230 700 1230 700 1280 470 1280 470 1340 460 1340 460 1550 495
+1550))
+(connect I1:1 D23:2
+(points 4 -1 351 470 351 470 1590 495 1590))
+(connect D29:1 D25:0
+(points 3 967 1800 1110 1800 1110 1880))
+(connect D27:1 D25:1
+(points 6 784 1810 790 1810 790 1830 800 1830 800 1890 1079 1890))
+(connect D25:1 D26:1
+(points 2 1140 1890 1173 1890))
+(connect D34:0 D27:0
+(points 2 640 1704 640 1751))
+(connect D27:1 D28:1
+(points 2 784 1810 798 1810))
+(connect D28:1 D29:1
+(points 2 862 1810 873 1810))
+(connect D29:2 D30:0
+(points 3 967 1820 990 1820 990 1850))
+(connect D14:0 D31:0
+(points 8 440 1258 440 1280 450 1280 450 1560 460 1560 460 1640 440 1640 440
+2011))
+(connect I1:1 D31:1
+(points 4 -1 351 270 351 270 2070 295 2070))
+(connect D23:0 D34:0
+(points 2 640 1610 640 1655)))
+(stackingOrder 28 29 25 30 2 3 27 0 4 5 6 7 1 8 9 10 12 13 19 15 16 17 18 22 20
+26 14 31 32 21 24 35 36 34 23 11 33))))
+(device 146 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"SENS\"+chan+\":CORR OFF\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 147 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Now we turn correction off for the channel, so that we can get the raw data\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 148 CONTEXT
+(properties
+(name "(5b) Get_All_param")
+(trigMode deg)
+(nextID 54)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 12 FORMULA
+(properties
+(name "Turn array into complex")
+(expr 1 "a[*,0]+j(a[*,1])"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 22 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 6 "WRITE TEXT \"calc\"+chan+\":data? sdata\" EOL"
+"READ TEXT hdr CHAR:1" "READ TEXT digits INT16 MAXFW:1"
+"READ TEXT bytes INT32 MAXFW:digits" "READ BINARY sdata REAL32 ARRAY:bytes/8, 2"
+"READ BINARY ending BYTE"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "hdr")
+(optional yes))
+(output 2
+(name "digits")
+(optional yes))
+(output 3
+(name "bytes")
+(optional yes))
+(output 4
+(name "sdata")
+(optional yes))
+(output 5
+(name "ending")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 23 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"calc\"+chan+\":par:sel \"+tracename+\";\" EOL"))
+(interface
+(input 1
+(name "tracename")
+(optional yes))
+(input 2
+(name "chan")
+(requires
+(datatype Text))
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 39 FROMSTRING
+(properties
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\",\" ARRAY:*,2"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 40 FORMULA
+(properties
+(name "tracename(i)")
+(expr 2 "A[i,0]" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "I")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 42 FORMULA
+(properties
+(name "size/2")
+(expr 1 "totsize(a)/2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 43 IFTHENELSE
+(properties
+(name "No catalog")
+(cases 1 "a==\"NO CATALOG\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 45 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"calc\"+chan+\":par:cat?\" EOL" "READ TEXT x STR"))
+(interface
+(input 1
+(name "chan")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 46 EXITPROCESS
+(properties
+(code 0)))
+(device 47 MESSAGEBOX
+(properties
+(name "Nothing to read")
+(message "Nothing to read")
+(symbol Information))
+(interface
+(output 1
+(name "Stop")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 3)
+(buttons "<Custom...>")
+(buttonLabel1 "Stop")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "Stop")))
+(device 48 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First do a catalog of all the traces.  If there aren\'t any traces, then stop\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We sort the the catalog, making a 2-D array of trace names and parameters.  We use the Read by Token, selecting to exclude \",\" to sort through the comma separated list. \\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 50 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The array size divided by 2 is the number of traces.\\par\r\nWe loop through and select them by trace name.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 51 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Above is the best way to read data.  We query the data, read the header (\"A\"), next is a 1 character text number representing the number of digits in the following number.  We read the following number, which is the number of bytes to transfer.  Then we use binary reads to read the bytes into a 2-D array, representing real and imaginary values\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 52 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This little trick turns the 2-d array into a 1-D array of complex numbers.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 53 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 And we collect all these arrays of data arrays into a multi-dimension array of parameter data.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:4 D0:1)
+(connect D0:1 D1:1)
+(connect D6:0 D1:2)
+(connect D3:0 D2:0)
+(connect I1:1 D2:1)
+(connect D5:1 D3:1)
+(connect I1:1 D3:2)
+(connect D8:2 D4:0)
+(connect D9:1 D4:1)
+(connect D4:1 D5:1)
+(connect D6:1 D5:2)
+(connect D7:1 D6:1)
+(connect D4:1 D7:1)
+(connect D9:1 D8:1)
+(connect I1:1 D9:1)
+(connect D11:0 D10:0)
+(connect D8:1 D11:0)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1790 1126)
+(anchorPt -386 -408)
+(configuration
+(devCarrierFor 12
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 144 56))
+(terminals on)
+(pinCenter 1300 970))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 1280 1150))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 365 137))
+(terminals on)
+(pinCenter 925 970))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 375 57))
+(terminals on)
+(pinCenter 965 820))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 530 590))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 77 25))
+(open
+(extent 95 65))
+(terminals on)
+(pinCenter 620 780))
+(devCarrierFor 41
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 720 710))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 620 710))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 135 51))
+(terminals on)
+(pinCenter 750 370))
+(devCarrierFor 45
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 245 67))
+(terminals on)
+(pinCenter 505 360))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 880 470))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 880 380))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 490 240))
+(devCarrierFor 49
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 950 590))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1020 720))
+(devCarrierFor 51
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 196)
+(editing enabled))
+(pinCenter 940 1180))
+(devCarrierFor 52
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1540 870))
+(devCarrierFor 53
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1560 1250))
+(connect D2:4 D0:1
+(points 4 1160 990 1180 990 1180 970 1195 970))
+(connect D0:1 D1:1
+(points 6 1424 970 1440 970 1440 1060 1170 1060 1170 1130 1189 1130))
+(connect D6:0 D1:2
+(points 7 720 728 720 740 690 740 690 810 680 810 680 1170 1189 1170))
+(connect D3:0 D2:0
+(points 4 940 851 940 860 930 860 930 881))
+(connect I1:1 D2:1
+(points 4 386 970 480 970 480 970 700 970))
+(connect D5:1 D3:1
+(points 4 661 780 680 780 680 800 695 800))
+(connect I1:1 D3:2
+(points 4 386 970 480 970 480 840 695 840))
+(connect D8:2 D4:0
+(points 5 784 380 800 380 800 430 520 430 520 532))
+(connect D9:1 D4:1
+(points 6 660 360 680 360 680 420 340 420 340 590 363 590))
+(connect D4:1 D5:1
+(points 8 677 590 700 590 700 650 580 650 580 710 570 710 570 770 579 770))
+(connect D6:1 D5:2
+(points 6 770 710 790 710 790 750 560 750 560 790 579 790))
+(connect D7:1 D6:1
+(points 2 640 710 670 710))
+(connect D4:1 D7:1
+(points 6 677 590 700 590 700 650 580 650 580 710 599 710))
+(connect D9:1 D8:1
+(points 4 660 360 680 360 680 370 715 370))
+(connect I1:1 D9:1
+(points 4 386 970 310 970 310 360 340 360))
+(connect D11:0 D10:0
+(points 2 880 390 880 434))
+(connect D8:1 D11:0
+(points 5 784 360 800 360 800 350 880 350 880 370))
+(connect D1:1 O1:1
+(points 4 1370 1150 1506 1150 1506 970 2175 970)))
+(stackingOrder 3 6 9 4 11 10 1 2 12 13 14 15 16 0 17 8 7 5))))
+(device 149 TOGLOBAL
+(properties
+(name "Set RawData")
+(globalName "RawData"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 150 CONTEXT
+(properties
+(name "(4) PNA_sing_and_wait_opc")
+(trigMode deg)
+(nextID 67)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(optional yes)))
+(deviceList
+(device 5 EXITCONTEXT)
+(device 7 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 5 "WRITE TEXT \"*cls;*ese 1\" EOL"
+"WRITE TEXT \"TRIG:SOUR IMM\" EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:gro:coun 1;\" EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:mode gro;\" EOL" "WRITE TEXT \"*opc\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 50 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 48 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"*stb?\" EOL" "READ TEXT x BYTE"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 47 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 41 NEXT)
+(device 39 BREAK)
+(device 55 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 53 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 44 CONSTANT
+(properties
+(name "Poll Time"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.06))
+(initValue Real
+(data  0))))
+(device 54 FORMULA
+(properties
+(name "A/B")
+(expr 1 "A/B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 38 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 45 MESSAGEBOX
+(properties
+(autoTimeout 1)
+(timeout 3)
+(position 201 201)
+(message "Waiting for VNA, Press \"Stop\" to Stop")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Stop")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 0)
+(buttons "<Custom...>")
+(buttonLabel1 "OK")
+(buttonLabel2 "Stop")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 43 CONSTANT
+(properties
+(name "Total Wait"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  3))
+(initValue Int32
+(data  0))))
+(device 37 DELAY
+(properties
+(delay 0.06))
+(interface
+(input 1
+(name "Delay")
+(tag "Delay")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Done"))))
+(device 36 FORCOUNT
+(properties
+(count 50))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 35 BREAK)
+(device 34 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 46 FORMULA
+(properties
+(name "bit(x,n)")
+(expr 1 "bit(x, 5)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 56 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This takes one sweep.  VNA sweep times can range from a few milliseconds to tens of seconds.  To avoid a Direct I/O time-out, we will use polling of the status byte to see when the sweep is finished.  After a time specified in the \"Total Wait\" box, a message pops up to say we\'re waiting.  It will disappear by itself, or you can OK it.  If you hit Stop, the program will terminate (without creating an I/O timeout error.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 52 SERIALPOLL
+(properties
+(name "Spoll: VNA ( @ 716)")
+(iopath "VNA")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0x20))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 58 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 For each loop, we use the \"For Count\" to poll the status byte. After the total wait time, we pop the message block to give a choice of stopping\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 59 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We divide the total wait time by the polling time, to get the number of polls that we should make.  We don\'t poll really fast because each time the PNA response to the poll, it slows it down a little bit\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 60 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 You can read the status byte directly, which we do here.  Then we look for the bit corresponding to the OPC finished.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 61 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Or you can Spoll the status byte, but Spoll on the PNA doesn\'t work using \"SCPI-over-LAN\" in firmware versions earlier than 5.0, so we just show it for reference.  Note: it works fine using a GP-IB card or USB-to-GPIB adapter. #H20 is a mask (32 in decimal) that corresponds to a 1 in the OPC bit position.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 62 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Here we clear the status byte, then enable the status register to receive the OPC (operation complete).  We take a single sweep (Set the groups sweep to one, and take a group;  in the PNA there is no \"single sweep\" SCPI command).  Then send the OPC command and start waiting.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 63 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This IF/Then tests for the OPC bit on the status byte.  IF it returns true, we can break out and exit.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 64 NOTE
+(properties
+(name "Whodunit")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq1\\fcharset128 MS Mincho;}{\\f2\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Joel Dunsmore  \\par\r\nand Dara Sariaslani \\cf0\\f1\\par\r\n\\cf1\\b\\f2\\fs28\\par\r\n}\r\n"
+)))
+(device 66 EXITPROCESS
+(properties
+(code 0)))
+(configuration
+(connect D8:0 D0:0)
+(connect I1:1 D1:1)
+(connect D3:1 D2:1)
+(connect D14:1 D3:0)
+(connect D15:1 D4:1)
+(connect D11:1 D5:0)
+(connect D7:1 D6:0)
+(connect D15:0 D7:0)
+(connect D18:1 D7:1)
+(connect D1:0 D8:0)
+(connect D13:1 D10:1)
+(connect D9:1 D10:2)
+(connect D12:1 D11:1)
+(connect D12:3 D11:2)
+(connect D7:2 D12:0)
+(connect D15:1 D14:0)
+(connect D9:1 D14:1)
+(connect D8:1 D15:0)
+(connect D10:1 D15:1)
+(connect D17:1 D16:0)
+(connect D18:1 D17:1)
+(connect D20:0 D18:0)
+(connect D3:1 D18:1)
+(connect D2:0 D20:0)
+(connect D21:1 D20:1)
+(connect D14:1 D21:0)
+(connect D12:2 D29:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -14 263)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 270 950))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 157 52)
+(iconImage "io.icn"))
+(open
+(extent 374 146))
+(terminals on)
+(pinCenter 265 100))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 192 172)
+(formatter
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 1070 710))
+(devCarrierFor 48
+(active open)
+(icon
+(extent 157 0)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 690 480))
+(devCarrierFor 47
+(active open)
+(icon
+(extent 85 15))
+(open
+(extent 131 28))
+(pinCenter 440 370))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 31 16))
+(open)
+(terminals on)
+(pinCenter 550 780))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 410 600))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 65 53))
+(terminals on)
+(pinCenter 280 560))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 260 280))
+(devCarrierFor 44
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 99 30)
+(showFormat real))
+(pinCenter 50 500))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 72 50))
+(terminals on)
+(pinCenter 160 450))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 490 780))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 92 34))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 290 780))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 106 30)
+(showFormat int))
+(pinCenter 50 430))
+(devCarrierFor 37
+(active open)
+(icon)
+(open
+(extent 76 32))
+(pinCenter 420 450))
+(devCarrierFor 36
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 280 450))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 1190 540))
+(devCarrierFor 34
+(active open)
+(icon)
+(open
+(extent 61 53))
+(terminals on)
+(pinCenter 1165 480))
+(devCarrierFor 46
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 81 50))
+(terminals on)
+(pinCenter 980 480))
+(devCarrierFor 56
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 714 196)
+(editing enabled))
+(pinCenter 400 -110))
+(devCarrierFor 49
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 192 172)
+(formatter
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 1070 950))
+(devCarrierFor 52
+(active open)
+(icon
+(extent 125 52)
+(iconImage "io.icn"))
+(open
+(extent 249 106))
+(terminals on)
+(pinCenter 660 900))
+(devCarrierFor 58
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -20 270))
+(devCarrierFor 59
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 126)
+(editing enabled))
+(pinCenter -230 490))
+(devCarrierFor 60
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 750 350))
+(devCarrierFor 61
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 186)
+(editing enabled))
+(pinCenter 720 1090))
+(devCarrierFor 62
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 384 156)
+(editing enabled))
+(pinCenter 710 120))
+(devCarrierFor 63
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -10 640))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 284 76)
+(editing enabled))
+(pinCenter 510 -290))
+(devCarrierFor 66
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 410 850))
+(connect D8:0 D0:0
+(points 10 260 308 260 330 200 330 200 500 210 500 210 570 220 570 220 820 270
+820 270 939))
+(connect I1:1 D1:1
+(points 6 14 -114 -240 -114 -240 40 0 40 0 100 35 100))
+(connect D3:1 D2:1
+(points 6 837 480 860 480 860 550 840 550 840 710 971 710))
+(connect D14:1 D3:0
+(points 5 460 450 520 450 520 400 690 400 690 422))
+(connect D15:1 D4:1
+(points 8 335 450 350 450 350 440 360 440 360 390 350 390 350 370 372 370))
+(connect D11:1 D5:0
+(points 5 507 780 520 780 520 750 550 750 550 769))
+(connect D7:1 D6:0
+(points 5 323 550 350 550 350 570 410 570 410 589))
+(connect D15:0 D7:0
+(points 2 280 468 280 545))
+(connect D18:1 D7:1
+(points 8 1073 480 1060 480 1060 560 380 560 380 530 220 530 220 560 236 560))
+(connect D1:0 D8:0
+(points 2 260 175 260 251))
+(connect D13:1 D10:1
+(points 4 105 430 130 430 130 440 145 440))
+(connect D9:1 D10:2
+(points 6 102 500 120 500 120 490 130 490 130 460 145 460))
+(connect D12:1 D11:1
+(points 2 338 770 473 770))
+(connect D12:3 D11:2
+(points 2 338 790 473 790))
+(connect D7:2 D12:0
+(points 5 323 570 340 570 340 600 290 600 290 760))
+(connect D15:1 D14:0
+(points 7 335 450 350 450 350 440 360 440 360 390 420 390 420 413))
+(connect D9:1 D14:1
+(points 6 102 500 120 500 120 490 360 490 360 450 379 450))
+(connect D8:1 D15:0
+(points 5 299 280 320 280 320 330 280 330 280 413))
+(connect D10:1 D15:1
+(points 2 174 450 224 450))
+(connect D17:1 D16:0
+(points 5 1238 470 1260 470 1260 520 1190 520 1190 529))
+(connect D18:1 D17:1
+(points 2 1073 480 1102 480))
+(connect D20:0 D18:0
+(points 8 1070 1038 1070 1060 1190 1060 1190 580 1090 580 1090 410 990 410 990
+434))
+(connect D3:1 D18:1
+(points 2 837 480 907 480))
+(connect D2:0 D20:0
+(points 2 1070 798 1070 843))
+(connect D21:1 D20:1
+(points 4 837 900 860 900 860 950 971 950))
+(connect D14:1 D21:0
+(points 5 460 450 520 450 520 540 670 540 670 826))
+(connect D12:2 D29:0
+(points 3 338 780 410 780 410 814)))
+(stackingOrder 1 17 16 15 14 13 9 18 2 19 20 3 4 23 10 8 26 7 6 22 11 5 27 0 25
+29 12 21 24 28))))
+(device 151 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 1 "WRITE TEXT \"SENS\"+chan+\":CORR ON\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 152 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Now we turn correction on for the channel, so that we can get the corrected data\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 153 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Take a sweep to update the data\\par\r\n\\cf2\\fs18\\par\r\n}\r\n"
+)))
+(configuration
+(connect D36:0 D0:0)
+(connect D18:5 D0:1)
+(connect D35:0 D1:0)
+(connect D18:5 D1:1)
+(connect D2:1 D3:1)
+(connect D18:5 D4:1)
+(connect D18:6 D4:2)
+(connect D1:1 D5:1)
+(connect D4:0 D6:0)
+(connect D18:1 D6:1)
+(connect D18:2 D6:2)
+(connect D18:3 D6:3)
+(connect D18:4 D6:4)
+(connect D18:5 D6:5)
+(connect D0:0 D7:0)
+(connect D0:1 D8:1)
+(connect D1:2 D9:1)
+(connect D2:0 D13:0)
+(connect D7:0 D14:0)
+(connect D7:0 D15:0)
+(connect D15:1 D16:0)
+(connect D14:1 D17:0)
+(connect D28:0 D18:0)
+(connect D13:1 D27:0)
+(connect D27:0 D28:0)
+(connect D6:0 D30:0)
+(connect D18:5 D30:1)
+(connect D1:0 D31:0)
+(connect D18:5 D31:1)
+(connect D31:0 D33:0)
+(connect D18:5 D33:1)
+(connect D33:1 D34:1)
+(connect D30:0 D35:0)
+(connect D18:5 D35:1)
+(connect D33:0 D36:0)
+(connect D18:5 D36:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 10 14)
+(wndState res)
+(active panel)
+(panel
+(extent 797 706)
+(gridSize 5)
+(drawGrid "on")
+(widget 3 detail
+(relativeOrigin 370 10)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 415 28))
+(widget 7 panel
+(relativeOrigin 10 290)
+(bg "Light Blue Gray")
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 776 406)
+(carbonCopy))
+(widget 10 icon
+(relativeOrigin 10 10)
+(PID 11)
+(title off)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(widget 14 detail
+(relativeOrigin 515 305)
+(PID 13)
+(title off)
+(tabIndex 13)
+(borderStyle none)
+(extent 125 30))
+(widget 15 detail
+(relativeOrigin 645 305)
+(PID 14)
+(title off)
+(tabIndex 14)
+(borderStyle none)
+(extent 125 30))
+(widget 18 panel
+(relativeOrigin 10 70)
+(bg "Light Blue Gray")
+(PID 15)
+(title off)
+(tabIndex 15)
+(borderStyle flat)
+(extent 436 211)
+(carbonCopy))
+(widget 12 detail
+(relativeOrigin 455 70)
+(PID 16)
+(title off)
+(tabIndex 16)
+(borderStyle flat)
+(extent 331 211)
+(editing enabled)))
+(detail
+(extent 1440 994)
+(anchorPt 685 429)
+(configuration
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 116 45))
+(terminals on)
+(pinCenter 240 700))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 97 25))
+(terminals on)
+(pinCenter 240 330))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 295 67))
+(terminals on)
+(pinCenter -300 -220))
+(devCarrierFor 64
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 415 37))
+(pinCenter 160 -220))
+(devCarrierFor 78
+(active icon)
+(icon
+(extent 126 25))
+(terminals on)
+(pinCenter 240 -10))
+(devCarrierFor 79
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 121 22))
+(pinCenter 380 320))
+(devCarrierFor 84
+(active icon)
+(icon
+(extent 112 65))
+(terminals on)
+(pinCenter 240 70))
+(devCarrierFor 92
+(active open)
+(icon
+(extent 70 25))
+(open
+(extent 754 416)
+(carbonCopy))
+(terminals on)
+(pinCenter 430 1010))
+(devCarrierFor 95
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 505 700))
+(devCarrierFor 96
+(active open)
+(icon
+(extent 50 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 515 370))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter -20 -320))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter -260 -320))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 644 316)
+(editing enabled))
+(titleFont "Arial" 12 bold)
+(pinCenter -450 -320))
+(devCarrierFor 124
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -300 -150))
+(devCarrierFor 125
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 114 24))
+(title off)
+(pinCenter 330 1260))
+(devCarrierFor 126
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 114 24))
+(title off)
+(pinCenter 600 1260))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 760 1310))
+(devCarrierFor 128
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 440 1310))
+(devCarrierFor 129
+(active open)
+(icon
+(extent 73 105))
+(open
+(extent 494 206)
+(carbonCopy))
+(pinCenter -230 120))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 180 51)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 260 -320))
+(devCarrierFor 131
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 294 46)
+(editing enabled))
+(pinCenter 480 0))
+(devCarrierFor 132
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 294 46)
+(editing enabled))
+(pinCenter 480 80))
+(devCarrierFor 134
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 274 46)
+(editing enabled))
+(pinCenter 470 180))
+(devCarrierFor 136
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 106)
+(editing enabled))
+(pinCenter -60 330))
+(devCarrierFor 137
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 106)
+(editing enabled))
+(pinCenter 1030 850))
+(devCarrierFor 138
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 106)
+(editing enabled))
+(pinCenter 500 1410))
+(devCarrierFor 139
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 214 66)
+(editing enabled))
+(pinCenter -70 -130))
+(devCarrierFor 140
+(active icon)
+(icon
+(extent 79 15))
+(terminals on)
+(pinCenter -230 -90))
+(devCarrierFor 141
+(active icon)
+(icon
+(extent 157 15))
+(terminals on)
+(pinCenter -230 -40))
+(devCarrierFor 142
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 214 86)
+(editing enabled))
+(pinCenter -430 -50))
+(devCarrierFor 144
+(active icon)
+(icon
+(extent 164 34))
+(terminals on)
+(pinCenter 240 180))
+(devCarrierFor 146
+(active icon)
+(icon
+(extent 156 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 240 430))
+(devCarrierFor 147
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 76)
+(editing enabled))
+(pinCenter -100 450))
+(devCarrierFor 148
+(active icon)
+(icon
+(extent 117 45))
+(terminals on)
+(pinCenter 240 510))
+(devCarrierFor 149
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 525 510))
+(devCarrierFor 150
+(active icon)
+(icon
+(extent 172 16))
+(terminals on)
+(pinCenter 240 240))
+(devCarrierFor 151
+(active open)
+(icon
+(extent 156 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 245 620))
+(devCarrierFor 152
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 76)
+(editing enabled))
+(pinCenter -110 620))
+(devCarrierFor 153
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 274 46)
+(editing enabled))
+(pinCenter 470 250))
+(connect D36:0 D0:0
+(points 2 240 659 240 675))
+(connect D18:5 D0:1
+(points 12 19 160 50 160 50 270 150 270 150 440 80 440 80 480 90 480 90 520 70
+520 70 700 179 700))
+(connect D35:0 D1:0
+(points 2 240 250 240 315))
+(connect D18:5 D1:1
+(points 6 19 160 50 160 50 270 150 270 150 330 189 330))
+(connect D2:1 D3:1
+(points 2 -120 -220 -50 -220))
+(connect D18:5 D4:1
+(points 4 19 160 40 160 40 -20 174 -20))
+(connect D18:6 D4:2
+(points 6 19 190 40 190 40 170 70 170 70 0 174 0))
+(connect D1:1 D5:1
+(points 2 291 320 317 320))
+(connect D4:0 D6:0
+(points 2 240 5 240 35))
+(connect D18:1 D6:1
+(points 4 19 40 50 40 50 50 181 50))
+(connect D18:2 D6:2
+(points 4 19 70 30 70 30 60 181 60))
+(connect D18:3 D6:3
+(points 4 19 100 30 100 30 70 181 70))
+(connect D18:4 D6:4
+(points 4 19 130 50 130 50 80 181 80))
+(connect D18:5 D6:5
+(points 6 19 160 40 160 40 140 60 140 60 90 181 90))
+(connect D0:0 D7:0
+(points 4 240 725 240 750 430 750 430 781))
+(connect D0:1 D8:1
+(points 2 300 700 426 700))
+(connect D1:2 D9:1
+(points 4 291 340 310 340 310 370 436 370))
+(connect D2:0 D13:0
+(points 2 -300 -184 -300 -178))
+(connect D7:0 D14:0
+(points 4 430 1220 430 1240 330 1240 330 1245))
+(connect D7:0 D15:0
+(points 4 430 1220 430 1240 600 1240 600 1245))
+(connect D15:1 D16:0
+(points 3 659 1260 760 1260 760 1300))
+(connect D14:1 D17:0
+(points 3 389 1260 440 1260 440 1300))
+(connect D28:0 D18:0
+(points 2 -230 -30 -230 -4))
+(connect D13:1 D27:0
+(points 3 -264 -150 -230 -150 -230 -100))
+(connect D27:0 D28:0
+(points 2 -230 -80 -230 -50))
+(connect D6:0 D30:0
+(points 2 240 105 240 160))
+(connect D18:5 D30:1
+(points 4 19 160 50 160 50 180 155 180))
+(connect D1:0 D31:0
+(points 2 240 345 240 402))
+(connect D18:5 D31:1
+(points 6 19 160 50 160 50 270 150 270 150 430 159 430))
+(connect D31:0 D33:0
+(points 2 240 458 240 485))
+(connect D18:5 D33:1
+(points 12 19 160 50 160 50 270 150 270 150 440 80 440 80 480 90 480 90 520 150
+520 150 510 179 510))
+(connect D33:1 D34:1
+(points 2 301 510 446 510))
+(connect D30:0 D35:0
+(points 2 240 199 240 229))
+(connect D18:5 D35:1
+(points 4 19 160 50 160 50 240 151 240))
+(connect D33:0 D36:0
+(points 2 240 535 240 562))
+(connect D18:5 D36:1
+(points 12 19 160 50 160 50 270 150 270 150 440 80 440 80 480 90 480 90 520 70
+520 70 620 88 620)))
+(stackingOrder 16 15 14 17 10 24 25 21 20 2 3 28 29 13 18 4 6 12 26 23 32 36 34
+8 37 35 31 33 0 7 22 1 5 9 38 19 30 27 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

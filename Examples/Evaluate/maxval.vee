@@ -1,0 +1,212 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:20:02 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Maximum Value")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "max(x)")
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 3 TEXTDISPLAY
+(properties
+(name "Maximum Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 4 VNOISEGENERATOR
+(properties
+(amplitude 1)
+(numPoints 256)
+(interval 0.02))
+(interface
+(output 1
+(name "noise WF")
+(tag "noiseWF")
+(lock name constraints))))
+(device 5 NOTE
+(properties
+(name "Maximum Value Program")
+(text2 2 "This program finds the maximum" "element in an array of 256 points."))
+)
+(device 7 START25)
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D3:1 D1:1)
+(connect D0:1 D2:1)
+(connect D5:0 D3:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 692 415)
+(gridSize 2)
+(widget 1 detail
+(relativeOrigin 390 29)
+(title on)
+(borderStyle convex)
+(extent 268 252)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(widget 2 detail
+(relativeOrigin 390 321)
+(title on)
+(titleFont "helvetica" 26 bold)
+(borderStyle convex)
+(extent 268 27)
+(scFont "helvetica" 24 bold))
+(widget 5 detail
+(relativeOrigin 106 148)
+(font "helvetica" 26 bold)
+(title off)
+(borderStyle convex)
+(extent 136 106))
+(widget 4 detail
+(relativeOrigin 22 29)
+(title on)
+(borderStyle convex)
+(extent 332 52)
+(editing enabled)))
+(detail
+(extent 691 510)
+(anchorPt 285 418)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 80 33))
+(terminals on)
+(pinCenter -10 0))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 268 252)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 240 -180))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 156 25))
+(pinCenter 240 0))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 160 85))
+(terminals on)
+(pinCenter -140 -120))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 189 0)
+(iconImage "notepad.icn"))
+(open
+(extent 333 51)
+(editing enabled))
+(pinCenter -90 -280))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 56 24))
+(title off)
+(pinCenter -120 -210))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter -90 -380))
+(connect D3:1 D0:1
+(points 6 12 -120 30 -120 30 -60 -100 -60 -100 0 -83 0))
+(connect D3:1 D1:1
+(points 4 12 -120 40 -120 40 -180 103 -180))
+(connect D0:1 D2:1
+(points 2 82 0 159 0))
+(connect D5:0 D3:0
+(points 2 -120 -196 -120 -183)))
+(stackingOrder 1 3 5 2 0 4 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

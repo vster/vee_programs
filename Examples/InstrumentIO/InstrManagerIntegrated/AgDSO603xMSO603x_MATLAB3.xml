@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgDSO603xMSO603x_MATLAB3.vee">
+		<Description>Acquires an analog waveform, applies a Butterworth filter VEE's MATLAB functionality, and plots both</Description>
+		<LogicalInstrument name="Scope">
+			<SupportedInstruments>
+				<Instrument idn="agdso6032A"/>
+				<Instrument idn="agdso6034A"/>
+				<Instrument idn="agmso6032A"/>
+				<Instrument idn="agmso6034A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

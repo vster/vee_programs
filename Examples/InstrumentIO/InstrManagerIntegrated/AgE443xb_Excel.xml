@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE443xb_Excel.vee">
+		<Description>GPIB7 only. Frequency sweep with SRQ on completion, save to Excel</Description>
+		<LogicalInstrument name="SigGen">
+			<SupportedInstruments>
+				<Instrument idn="HP ESG-D4000B"/>
+				<Instrument idn="HP ESG-D3000B"/>
+				<Instrument idn="HP ESG-D2000B"/>
+				<Instrument idn="HP ESG-D1000B"/>
+				<Instrument idn="AG E4431B"/>
+				<Instrument idn="AG E4432B"/>
+				<Instrument idn="AG E4433B"/>
+				<Instrument idn="AG E4434B"/>
+				<Instrument idn="AG E4435B"/>
+				<Instrument idn="AG E4436B"/>
+				<Instrument idn="AG E4437B"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

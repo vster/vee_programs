@@ -1,0 +1,544 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 22:15:45 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 19)
+(popupTitleText "Re-Dimensioning Array Example")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 2 FROMARRAY
+(properties
+(name "UnBuild Array")
+(variableScope cont)
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 3 FORMULA
+(properties
+(name "a[2,*]")
+(variableScope cont)
+(expr 1 "a[2, *]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "original")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "a[1,*]")
+(variableScope cont)
+(expr 1 "a[1, *]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "a[0,*]")
+(variableScope cont)
+(expr 1 "a[0, *]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FROMFILE
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x REAL64 ARRAY:3, 4"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/scratch"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 8 TOFILE
+(properties
+(variableScope cont)
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/scratch"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 9 FORMULA
+(properties
+(name "create vector")
+(variableScope cont)
+(expr 1 "ramp(12, 1, 12)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Dim 1, index 0")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 TEXTDISPLAY
+(properties
+(name "Dim 1, index 1")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Dim 1, index 2")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 14 TEXTDISPLAY
+(properties
+(name "NumDim")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Dim Sizes")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 16 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Notepad")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\f0\\fs20 Purpose:\\ulnone\\par\r\nTo show how to change the dimensions of an array.\\par\r\n\\par\r\n\\ul User Input Required:\\ulnone\\par\r\nPress Start or RUN.\\par\r\n\\par\r\n\\ul Explanation:\\ulnone\\par\r\nOccasionally you need to change the shape of an array. Using iterators  and \"Build Array\" objects is one way. The use of iterators in VEE, is inefficient for this problem; If the data can be kept as an array, the conversion is much quicker.\\par\r\n\\par\r\nOne way to keep the data together in an array, is to write it to a file and then read it back.  Using the field in a READ transaction automatically builds an array of a specified shape and size.\\par\r\n\\par\r\n\\ul Implementation:\\ulnone\\par\r\nThis example starts with a vector of twelve elements and converts it to a 3x4, 2D array.  The To File object writes all the elements sequentially to the scratch file. The  From File object reads those numbers into a 3x4 array.\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 136 77)))
+(contextCarrier
+(active panel)
+(panel
+(extent 515 407)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 510 340)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 210 340)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 669 557)
+(anchorPt 138 157)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 270))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 58 16))
+(open
+(extent 644 266)
+(editing disabled))
+(pinCenter 210 70)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 278 61)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 80 8)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 455 222)
+(anchorPt 246 62)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 809 394)
+(carbonCopy))
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 18 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Press RUN. Additional help is in the InfoAbout object.\\par\r\nIf there is VEE Run Time Error with message \"File \'\\\\tmp\\\\scratch\' was not found\", please create a folder named \'tmp\' at your program root drive, e.g. \"C:\\\\tmp\". \\par\r\n}\r\n"
+)))
+(configuration
+(connect D6:1 D1:1)
+(connect D1:1 D2:1)
+(connect D8:1 D3:1)
+(connect D1:1 D4:1)
+(connect D1:1 D5:1)
+(connect D7:0 D6:0)
+(connect D8:1 D7:1)
+(connect D5:1 D9:1)
+(connect D4:1 D10:1)
+(connect D2:1 D11:1)
+(connect D1:3 D12:1)
+(connect D1:4 D13:1)))
+(contextCarrier
+(wndOrigin 26 22)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 478 95)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 344 66)
+(editing disabled))
+(pinCenter -300 -60))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 79 154))
+(terminals on)
+(pinCenter -40 490))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 88 54))
+(terminals on)
+(pinCenter 50 370))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 168 151))
+(pinCenter -110 200))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 88 54))
+(terminals on)
+(pinCenter 50 250))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 88 54))
+(terminals on)
+(pinCenter 50 130))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 278 69))
+(terminals on)
+(pinCenter -300 490))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 216 94))
+(terminals on)
+(pinCenter -300 360))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 121 52))
+(terminals on)
+(pinCenter -350 200))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 178 83))
+(pinCenter 210 130))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 179 81))
+(pinCenter 210 250))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 179 82))
+(pinCenter 210 370))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 142 37))
+(pinCenter 210 470))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 139 49))
+(pinCenter 210 550))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 278 61)
+(carbonCopy))
+(pinCenter -320 30))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 96)
+(editing disabled))
+(pinCenter 90 -20))
+(connect D6:1 D1:1
+(points 2 -129 490 -106 490))
+(connect D1:1 D2:1
+(points 6 26 470 50 470 50 440 -10 440 -10 370 8 370))
+(connect D8:1 D3:1
+(points 2 -237 200 -197 200))
+(connect D1:1 D4:1
+(points 8 26 470 50 470 50 440 -10 440 -10 340 0 340 0 250 8 250))
+(connect D1:1 D5:1
+(points 8 26 470 50 470 50 440 -10 440 -10 340 0 340 0 130 8 130))
+(connect D7:0 D6:0
+(points 2 -300 409 -300 435))
+(connect D8:1 D7:1
+(points 6 -237 200 -220 200 -220 250 -460 250 -460 360 -441 360))
+(connect D5:1 D9:1
+(points 2 91 130 118 130))
+(connect D4:1 D10:1
+(points 2 91 250 118 250))
+(connect D2:1 D11:1
+(points 2 91 370 118 370))
+(connect D1:3 D12:1
+(points 4 26 490 60 490 60 470 136 470))
+(connect D1:4 D13:1
+(points 4 26 500 50 500 50 550 138 550)))
+(stackingOrder 9 10 11 6 1 8 7 3 5 4 2 12 13 14 15 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

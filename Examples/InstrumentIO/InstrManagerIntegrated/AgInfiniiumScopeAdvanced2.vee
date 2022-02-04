@@ -1,0 +1,1777 @@
+(saveFormat "7.0")
+(date "Wed 29/Mar/2006 10:30:59 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.123 M.83 M.127 M.122 M)
+(sysconfig
+(iodevice "scope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 7)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "ag54832d")
+(ppAddr "GPIB0::7::INSTR")
+(eoiEnabled 1)
+(model "ag54832d"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 132)
+(popupTitleText "Butterworth Filter")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 19 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 41 NOTE
+(properties
+(name "SignalProcessing")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:     This example illustrates how to \\par\r\n             use the Butterworth Filter Signal\\par\r\n             Processing capabilities of MATLAB\\par\r\n             to extend what you can do in VEE.\\par\r\n\\par\r\n\\par\r\nEXPLANATION: In this example, waveform data is \\par\r\n             entered into VEE from the Infiniium \\par\r\n             oscilloscope via Direct IO and \\par\r\n             converted into a read data array. In \\par\r\n             this example, the data is sampled at \\par\r\n             100Msa/s and the Butterworth filter \\par\r\n             is a 9th order, lowpass filter with \\par\r\n             with a 1 MHz cutoff frequency, which \\par\r\n             corresponds to a: \\par\r\n             1MHz/(.5*100Msa/s)=.02 normalized Wn.\\par\r\n\\par\r\n             The signal is passed through a \\par\r\n!\r\n              Butterworth filter and both the\\par\r\n             original and the filtered waveforms\\par\r\n             are plotted and displayed. \\par\r\n\\par\r\n             A second thread is programmed to        \\par\r\n             display the current status of the \\par\r\n             program\'s execution. \\par\r\n\\par\r\n             A third thread is program to provide \\par\r\n             interrupt capabilty to terminate the \\par\r\n             program from the fron panel.\\par\r\n \\par\r\n             For more Information about the VEE\\par\r\n             Pro software used to create this \\par\r\n             sample program, please visit\\par\r\n             \"www.keysight.com/find/vee\".          \\par\r\n\\par\r\n}\r\n"
+)))
+(device 83 CONTEXT
+(properties
+(name "PlotWaveforms")
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(interface
+(input 1
+(name "filtered")
+(optional yes))
+(input 2
+(name "unfiltered")
+(optional yes)))
+(deviceList
+(device 1 LITERALCONSTANT
+(properties
+(name "Title"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Butterworth Filtered Signal "))
+(initValue Text
+(data  ""))))
+(device 2 YPLOT
+(properties
+(name "Butterworth Filtered Signal "))
+(interface
+(input 1
+(name "Filtered")
+(lock constraints))
+(input 2
+(type control)
+(name "Title")
+(tag "Title")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 4 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 6 EXITCONTEXT)
+(device 7 YPLOT
+(properties
+(name "Original Signal "))
+(interface
+(input 1
+(name "unfiltered")
+(lock constraints))
+(input 2
+(type control)
+(name "Title")
+(tag "Title")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 8 LITERALCONSTANT
+(properties
+(name "Title"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Original Signal "))
+(initValue Text
+(data  ""))))
+(device 10 CONFIRM25
+(properties
+(name "Exit Plot")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Plot Waveforms"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D7:0 D1:0)
+(connect I1:1 D1:1)
+(connect D0:1 D1:2)
+(connect D6:1 D3:0)
+(connect D1:0 D4:0)
+(connect I2:1 D4:1)
+(connect D5:1 D4:2)
+(connect D2:1 D6:0)
+(connect D8:1 D7:1))
+(ShowOnExecPanel
+(relativeOrigin 2 16)))
+(contextCarrier
+(wndOrigin 2 630)
+(wndRestoredOrigin 3 22)
+(wndRestoredExtent 378 281)
+(wndState min)
+(active detail)
+(panel
+(extent 626 334)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 627 167)
+(displayMode 15)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Butterworth Filter")
+(domainName "time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -50 350 4 linear))
+(domain 0 0.0012 4 linear)
+(trace 0 onScale 0
+(name "Filtered")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "Dark Gray"))
+(widget 4 detail
+(relativeOrigin 0 163)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 627 167)
+(displayMode 15)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Original Signal")
+(domainName "time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -50 350 4 linear))
+(domain 0 0.0012 4 linear)
+(trace 0 onScale 0
+(name "unfiltered")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "Dark Gray"))
+(widget 6 detail
+(relativeOrigin 480 290)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 101 39))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 920 623)
+(anchorPt 295 -79)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 27 15))
+(open
+(extent 174 29))
+(pinCenter -120 300))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 161 51)
+(iconImage "display.icn"))
+(open
+(extent 347 217)
+(displayMode 15)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Butterworth Filter")
+(domainName "time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -50 350 4 linear))
+(domain 0 0.0012 4 linear)
+(trace 0 onScale 0
+(name "Filtered")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "Dark Gray"))
+(title off)
+(pinCenter 50 320))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 240 370))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 250 620))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 92 51)
+(iconImage "display.icn"))
+(open
+(extent 332 217)
+(displayMode 15)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Original Signal")
+(domainName "time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -100 350 4 linear))
+(domain 0 0.0012 4 linear)
+(trace 0 onScale 0
+(name "unfiltered")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "Dark Gray"))
+(title off)
+(pinCenter 0 470))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 27 15))
+(open
+(extent 174 29))
+(pinCenter -120 490))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 64 54))
+(title off)
+(pinCenter 270 500))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 60 90))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 24 14))
+(open
+(extent 174 29))
+(pinCenter -60 90))
+(connect D7:0 D1:0
+(points 4 60 100 60 120 50 120 50 292))
+(connect I1:1 D1:1
+(points 6 -295 230 150 230 150 270 -50 270 -50 310 -33 310))
+(connect D0:1 D1:2
+(points 4 -104 300 -80 300 -80 330 -33 330))
+(connect D6:1 D3:0
+(points 5 304 500 320 500 320 550 250 550 250 610))
+(connect D1:0 D4:0
+(points 4 50 348 50 370 0 370 0 442))
+(connect I2:1 D4:1
+(points 6 -295 550 120 550 120 420 -70 420 -70 460 -49 460))
+(connect D5:1 D4:2
+(points 4 -104 490 -80 490 -80 480 -49 480))
+(connect D2:1 D6:0
+(points 5 276 370 300 370 300 420 270 420 270 470))
+(connect D8:1 D7:1
+(points 2 -46 90 -18 90)))
+(stackingOrder 4 1 2 6 3 5 0 8 7))))
+(device 87 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 88 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 89 FROMGLOBAL
+(properties
+(name "Get g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 90 TEXTDISPLAY
+(properties
+(name "Measurement Status"))
+(interface
+(input 1
+(name "Data"))))
+(device 91 CONFIRM25
+(properties
+(name "Stop Measurement")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 92 EXITPROCESS
+(properties
+(code 0)))
+(device 95 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 96 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Connect Channel 1"))
+(initValue Text
+(data  ""))))
+(device 97 DELAY
+(properties
+(delay 0.1))
+(interface
+(output 1
+(name "Done"))))
+(device 99 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 100 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Plots Done"))
+(initValue Text
+(data  ""))))
+(device 101 DELAY
+(properties
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 102 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 103 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Program Done"))
+(initValue Text
+(data  ""))))
+(device 104 LABEL
+(properties
+(name "Using the MATLAB Lowpass Butterworth Filter Function in VEE")
+(labelValue "Using the MATLAB Lowpass Butterworth Filter Function in VEE"))
+(implementation))
+(device 106 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 107 CONFIRM25
+(properties
+(name "Start Measurerment")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 108 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 109 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Press Start Measurement to Begin"))
+(initValue Text
+(data  ""))))
+(device 110 EXITPROCESS
+(properties
+(code 0)))
+(device 111 NOTE
+(properties
+(name " ")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This Vee Example utilizes embedded MATLAB functions to filter analog channel one through a Low Pass Butterworth filter. Embedded VEE plotting objects are used to display the result of the filter calculation. The MATLAB script is displayed in the adjacent panels.\\par\r\n}\r\n"
+)))
+(device 116 TEXTDISPLAY
+(properties
+(name "Sample Rate"))
+(interface
+(input 1
+(name "Data"))))
+(device 120 DO
+(interface
+(output 1
+(name "Do"))))
+(device 121 DELAY
+(properties
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 122 CONTEXT
+(properties
+(name "Initialization")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Connect Channel 1"))
+(initValue Text
+(data  ""))))
+(device 1 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 2 MESSAGEBOX
+(properties
+(position 97 86)
+(message
+"Please Connect a Signal to Channel 1. Press \"OK\" to Filter the Signal.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 3 IODEVICE
+(properties
+(name "scope (ag54832d @ 707)")
+(transactions 9 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \":SYST:HEAD OFF\" EOL" "WRITE TEXT \":TIM:REF CENT;RANG 2E-3\" EOL"
+"WRITE TEXT \":CHAN1:SCALE 500E-3\" EOL"
+"WRITE TEXT \":TRIG:EDGE:SOUR CHAN1;SLOP POS\" EOL"
+"WRITE TEXT \":TRIG:LEV CHAN1,.516\" EOL"
+"WRITE TEXT \":ACQ:MODE RTIM;AVER OFF;POIN 200366\" EOL" "WAIT INTERVAL:1"))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 4 EXITPROCESS
+(properties
+(code 0)))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Initializing the oscilloscope."))
+(initValue Text
+(data  ""))))
+(device 6 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 7 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 Here the oscilloscope is initialized for the \\par\r\nmeasurement. It is configured to measure\\par\r\n100MSa/s by setiing the number of points \\par\r\nto 200366 in the direct io object.\\cf2\\b0\\f1\\fs24\\par\r\n}\r\n"
+)))
+(device 8 DECLVAR
+(properties
+(name "Declare g_filter_demo_status")
+(scope glob)
+(globalName "g_filter_demo_status"))
+(implementation
+(value Text
+(data  ""))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)
+(connect D6:0 D3:0)
+(connect D2:2 D4:0)
+(connect D2:1 D5:0)
+(connect D5:1 D6:1)))
+(contextCarrier
+(wndOrigin 162 630)
+(wndRestoredOrigin 60 333)
+(wndRestoredExtent 584 321)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt 21 236)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 120 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 240 70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 210 130))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 154 51)
+(iconImage "io.icn"))
+(open
+(extent 424 186))
+(terminals on)
+(pinCenter 480 230))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 250 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 360 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 500 100))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 220 -70))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 179 0))
+(open
+(extent 215 103))
+(pinCenter 660 -70))
+(connect D0:1 D1:1
+(points 2 135 70 162 70))
+(connect D1:0 D2:0
+(points 4 240 80 240 100 210 100 210 115))
+(connect D6:0 D3:0
+(points 4 500 110 500 130 480 130 480 202))
+(connect D2:2 D4:0
+(points 5 253 140 260 140 260 160 250 160 250 182))
+(connect D2:1 D5:0
+(points 5 253 120 270 120 270 70 360 70 360 90))
+(connect D5:1 D6:1
+(points 2 375 100 422 100)))
+(stackingOrder 0 2 5 7 3 4 8 1 6))))
+(device 123 CONTEXT
+(properties
+(name "measurement")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "x")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "yor")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "yinc")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "xinc")
+(lock constraints)
+(optional yes))
+(output 5
+(type data)
+(name "sampleRate")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Measuring Channel 1"))
+(initValue Text
+(data  ""))))
+(device 1 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 2 IODEVICE
+(properties
+(name "import_channel_1_waveform_data")
+(transactions 13 "WRITE TEXT \":DIGITIZE\" EOL"
+"WRITE TEXT \":WAVEFORM:FORMAT BYTE\" EOL"
+"WRITE TEXT \":WAVEFORM:SOURCE CHAN1\" EOL" "WRITE TEXT \":WAVEFORM:DATA?\" EOL"
+"READ BINBLOCK x INT16 ARRAY:*" "WRITE TEXT \":WAVEFORM:YOR?\" EOL"
+"READ TEXT yor STR" "WRITE TEXT \":WAVEFORM:YINC?\" EOL" "READ TEXT yinc STR"
+"WRITE TEXT \":WAVEFORM:XINC?\" EOL" "READ TEXT xinc REAL64"
+"/NOP/ WRITE TEXT \":ACQ:SRAT?\" EOL" "/NOP/ READ TEXT sampleRate REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "yor")
+(optional yes))
+(output 3
+(name "yinc")
+(optional yes))
+(output 4
+(name "xinc")
+(optional yes))
+(output 5
+(name "sampleRate")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "scope")))
+(device 3 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Direct IO is used to move the raw data from the \\par\r\nscope to the VEE program. then the waveform data \\par\r\nis converted or \"scaled\". The raw data and the\\par\r\nconversion units are read from the scope and\\par\r\nused to calculate real-world units. Reference \\par\r\nthe Waveform Commands chapter of the Infiniium\\par\r\nOscilloscope Programmer\'s Reference manual.\\par\r\n\\par\r\nThe oscilloscope is instructed to measure the waveform by the \"Digitize\" command. The raw waveform data is entered into VEE along with the scale parameters needed to convert the data into real values. \\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:1 O1:1)
+(connect D2:2 O2:1)
+(connect D2:3 O3:1)
+(connect D2:4 O4:1)
+(connect D2:5 O5:1)))
+(contextCarrier
+(wndOrigin 322 630)
+(wndRestoredOrigin -21 339)
+(wndRestoredExtent 362 232)
+(wndState min)
+(active detail)
+(detail
+(extent 900 623)
+(anchorPt -167 -152)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 720 340))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 830 340))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 210 54)
+(iconImage "io.icn"))
+(open
+(extent 275 207))
+(terminals on)
+(pinCenter 690 610))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 256)
+(editing enabled))
+(pinCenter 430 310))
+(connect D0:1 D1:1
+(points 2 735 340 752 340))
+(connect D0:0 D2:0
+(points 2 720 350 720 486))
+(connect D2:1 O1:1
+(points 4 920 530 940 530 940 223 1066 223))
+(connect D2:2 O2:1
+(points 4 920 570 950 570 950 343 1066 343))
+(connect D2:3 O3:1
+(points 4 920 610 960 610 960 463 1066 463))
+(connect D2:4 O4:1
+(points 4 920 650 970 650 970 583 1066 583))
+(connect D2:5 O5:1
+(points 4 920 690 940 690 940 703 1066 703)))
+(stackingOrder 2 3 0 1))))
+(device 127 CONTEXT
+(properties
+(name "VEE and MATLAB Analysis")
+(trigMode deg)
+(nextID 15)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "waveform")
+(requires
+(datatype Real64))
+(optional yes))
+(input 2
+(name "yorg")
+(optional yes))
+(input 3
+(name "yinc")
+(optional yes))
+(input 4
+(name "xincrement")
+(optional yes))
+(output 1
+(type data)
+(name "filteredWaveform")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "originalWaveform")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 MATLABSCRIPT
+(properties
+(matlabexpr 1 "X=str2num(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "X")
+(optional yes))))
+(device 1 MATLABSCRIPT
+(properties
+(matlabexpr 1 "X=str2num(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "X")
+(optional yes))))
+(device 2 MATLABSCRIPT
+(properties
+(name "MATLAB Script: BUTTER")
+(matlabexpr 1 "[b,a] = butter(9, .02,\'low\');")
+(matlabHelpLink "help/toolbox/signal/butter.html"))
+(interface
+(output 1
+(name "b")
+(optional yes))
+(output 2
+(name "a")
+(optional yes))))
+(device 3 MATLABSCRIPT
+(properties
+(name "MATLAB Script: FILTER")
+(matlabexpr 1 "[y,zf]=filter(b,a,X);")
+(matlabHelpLink "help/techdoc/ref/filter.html"))
+(interface
+(input 1
+(name "b")
+(optional yes))
+(input 2
+(name "a")
+(optional yes))
+(input 3
+(name "X")
+(requires
+(datatype Real64))
+(optional yes))
+(output 1
+(name "y")
+(optional yes))
+(output 2
+(name "zf")
+(optional yes))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Calculate Filter "))
+(initValue Text
+(data  ""))))
+(device 5 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 6 DELAY
+(properties
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 7 MATLABSCRIPT
+(properties
+(name "MATLAB Script: Scaling the Waveform")
+(matlabexpr 1 "X=yor+(waveform*yinc)"))
+(interface
+(input 1
+(name "waveform")
+(requires
+(datatype Real64))
+(optional yes))
+(input 2
+(name "yor")
+(optional yes))
+(input 3
+(name "yinc")
+(optional yes))
+(output 1
+(name "X")
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "Calculate Time Span")
+(expr 1 "(numberOfPoints-1)*xincrement"))
+(interface
+(input 1
+(name "numberOfPoints")
+(optional yes))
+(input 2
+(name "xincrement")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Build Filtered Waveform"))
+(initValue Text
+(data  ""))))
+(device 11 TOGLOBAL
+(properties
+(name "Set g_filter_demo_status")
+(globalName "g_filter_demo_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 TOWAVEFORM
+(properties
+(name "BuildFilteredWaveform"))
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.00100182)))
+(device 13 TOWAVEFORM
+(properties
+(name "BuildOriginalWaveform"))
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.00100182)))
+(device 14 NOTE
+(properties
+(name "Filter Design Information")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The MATLAB \'butter\' function designs Butterworth filters that are\\par\r\ncharacterized by a magnitude response that is maximally flat in \\par\r\nthe passband and monotonic overall. [b,a] = butter(n,Wn) designs\\par\r\nan order n lowpass digital Butterworth filter with normalized\\par\r\ncutoff frequency Wn. It returns the filter coefficients in length\\par\r\nn+1 row vectors b and a, with coefficients in descending powers\\par\r\nof z. \\par\r\n\\par\r\nIn this example, the data is sampled at 100Msa/s and the Butterworth filter is a 9th order, lowpass filter with with a 1 MHz cutoff frequency, which corresponds to a 1MHz/(.5*100Msa/s)=.02 normalized Wn.\\par\r\n\\par\r\n\'Filter\' is a MATLAB function that applys filter data to signals.\\par\r\n[y,zf]=filter(b,a,X) filters a vector of real or complex input\\par\r\ndata \'a\' through a fixed-p!\r\n oint filter \'b\', producing filtered\\par\r\noutput data \'y\'. The initial conditions for the state vector are\\par\r\nin \'X\' while the final values for the state vector are in \'zf\'.  \\par\r\n}\r\n"
+)))
+(configuration
+(connect I3:1 D0:1)
+(connect I2:1 D1:1)
+(connect D6:1 D3:0)
+(connect D2:1 D3:1)
+(connect D2:2 D3:2)
+(connect D7:1 D3:3)
+(connect D7:0 D4:0)
+(connect D4:1 D5:1)
+(connect D5:0 D6:0)
+(connect I1:1 D7:1)
+(connect D1:1 D7:2)
+(connect D0:1 D7:3)
+(connect I1:1 D8:1)
+(connect D8:1 D9:1)
+(connect I4:1 D9:2)
+(connect D3:0 D10:0)
+(connect D10:1 D11:1)
+(connect D11:0 D12:0)
+(connect D3:1 D12:1)
+(connect D9:1 D12:2)
+(connect D12:0 D13:0)
+(connect D7:1 D13:1)
+(connect D9:1 D13:2)
+(connect D12:1 O1:1)
+(connect D13:1 O2:1)))
+(contextCarrier
+(wndOrigin 482 630)
+(wndRestoredOrigin -289 395)
+(wndRestoredExtent 1022 1135)
+(wndState min)
+(active detail)
+(detail
+(extent 820 623)
+(anchorPt -26 -200)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 115 57))
+(terminals on)
+(pinCenter 120 590))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 115 57))
+(terminals on)
+(pinCenter 120 510))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 146 25))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 200 430))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 138 34))
+(open
+(extent 121 70))
+(terminals on)
+(pinCenter 470 450))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 710 470))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 760 550))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 730 620))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 224 34))
+(open
+(extent 170 62))
+(terminals on)
+(pinCenter 360 560))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 80 31))
+(terminals on)
+(pinCenter 50 640))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 126 25))
+(open
+(extent 215 50))
+(terminals on)
+(pinCenter 240 650))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 430 660))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 590 680))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 136 51)
+(iconImage "build.icn"))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 240 760))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 138 51)
+(iconImage "build.icn"))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 500 770))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 148 0)
+(iconImage "notepad.icn"))
+(open
+(extent 524 306)
+(editing enabled))
+(pinCenter 320 220))
+(connect I3:1 D0:1
+(points 4 26 581 7 581 7 590 74 590))
+(connect I2:1 D1:1
+(points 6 26 431 -50 431 -50 430 40 430 40 510 74 510))
+(connect D6:1 D3:0
+(points 5 750 620 790 620 790 410 470 410 470 430))
+(connect D2:1 D3:1
+(points 4 275 420 310 420 310 440 398 440))
+(connect D2:2 D3:2
+(points 4 275 440 300 440 300 450 398 450))
+(connect D7:1 D3:3
+(points 6 474 560 490 560 490 520 380 520 380 460 398 460))
+(connect D7:0 D4:0
+(points 6 360 579 360 600 540 600 540 450 710 450 710 460))
+(connect D4:1 D5:1
+(points 6 725 470 750 470 750 500 660 500 660 550 682 550))
+(connect D5:0 D6:0
+(points 4 760 560 760 580 730 580 730 610))
+(connect I1:1 D7:1
+(points 6 26 281 10 281 10 440 30 440 30 550 245 550))
+(connect D1:1 D7:2
+(points 4 165 510 190 510 190 560 245 560))
+(connect D0:1 D7:3
+(points 4 165 590 190 590 190 570 245 570))
+(connect I1:1 D8:1
+(points 6 26 281 10 281 10 440 0 440 0 640 21 640))
+(connect D8:1 D9:1
+(points 2 79 640 174 640))
+(connect I4:1 D9:2
+(points 4 26 731 100 731 100 660 174 660))
+(connect D3:0 D10:0
+(points 6 470 469 470 490 500 490 500 610 430 610 430 650))
+(connect D10:1 D11:1
+(points 4 445 660 470 660 470 680 512 680))
+(connect D11:0 D12:0
+(points 6 590 690 590 710 270 710 270 720 240 720 240 732))
+(connect D3:1 D12:1
+(points 6 541 440 560 440 560 620 140 620 140 750 169 750))
+(connect D9:1 D12:2
+(points 8 305 650 330 650 330 690 260 690 260 710 150 710 150 770 169 770))
+(connect D12:0 D13:0
+(points 6 240 788 240 810 330 810 330 720 500 720 500 742))
+(connect D7:1 D13:1
+(points 6 474 560 490 560 490 690 420 690 420 760 428 760))
+(connect D9:1 D13:2
+(points 6 305 650 330 650 330 690 340 690 340 780 428 780))
+(connect D12:1 O1:1
+(points 4 310 760 790 760 790 351 845 351))
+(connect D13:1 O2:1
+(points 4 571 770 800 770 800 671 845 671)))
+(stackingOrder 4 6 14 7 8 9 10 12 13 1 0 2 3 5 11))))
+(device 128 NOTE
+(properties
+(name "MATLAB Script for Low Pass Filter")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 [b,a] = butter(9, .02,\'low\');\\par\r\n[y,zf]=filter(b,a,X);\\par\r\n}\r\n"
+)))
+(device 131 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version !4.1\\par\r\n   as a minimum.\\par\r\n -Apply a digital signal to the oscilloscope on all 16 channels. \\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 707 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D29:1 D2:1)
+(connect D29:2 D2:2)
+(connect D9:0 D3:0)
+(connect D3:1 D5:0)
+(connect D5:1 D6:1)
+(connect D4:1 D7:0)
+(connect D14:1 D8:0)
+(connect D10:1 D9:1)
+(connect D6:0 D11:0)
+(connect D13:1 D12:1)
+(connect D25:1 D13:0)
+(connect D15:0 D14:0)
+(connect D16:1 D15:1)
+(connect D7:1 D16:0)
+(connect D21:0 D18:0)
+(connect D18:1 D19:0)
+(connect D21:1 D20:1)
+(connect D26:1 D22:0)
+(connect D28:5 D24:1)
+(connect D2:0 D25:0)
+(connect D25:0 D26:0)
+(connect D19:1 D27:0)
+(connect D27:0 D28:0)
+(connect D28:1 D29:1)
+(connect D28:2 D29:2)
+(connect D28:3 D29:3)
+(connect D28:4 D29:4))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin -4 -1)
+(wndState res)
+(active panel)
+(panel
+(extent 631 367)
+(drawGrid "off")
+(widget 17 detail
+(relativeOrigin 23 -7)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 530 65)
+(just c))
+(widget 19 detail
+(relativeOrigin 0 260)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 161 85))
+(widget 7 detail
+(relativeOrigin 470 260)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 161 81))
+(widget 6 detail
+(relativeOrigin 170 260)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 287 59))
+(widget 23 detail
+(relativeOrigin -7 63)
+(bg "Light Blue Gray")
+(PID 4)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 356 118)
+(editing enabled))
+(widget 30 detail
+(relativeOrigin 370 60)
+(PID 7)
+(title on)
+(tabIndex 7)
+(borderStyle flat)
+(extent 246 118)
+(editing enabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 759 386)
+(anchorPt 398 692)
+(configuration
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 10 -510))
+(devCarrierFor 41
+(active open)
+(icon
+(extent 107 25))
+(open
+(extent 394 546)
+(editing enabled))
+(titleBg "Teal")
+(pinCenter -410 -240))
+(devCarrierFor 83
+(active icon)
+(icon
+(extent 154 44))
+(open
+(extent 626 334)
+(carbonCopy))
+(terminals on)
+(pinCenter 360 100))
+(devCarrierFor 87
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 790 -20))
+(devCarrierFor 88
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 1060 -80))
+(devCarrierFor 89
+(active icon)
+(icon
+(extent 152 15))
+(open
+(extent 118 51))
+(terminals on)
+(pinCenter 790 50))
+(devCarrierFor 90
+(active open)
+(icon
+(extent 125 0))
+(open
+(extent 265 67))
+(pinCenter 810 160))
+(devCarrierFor 91
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 115 45))
+(title off)
+(pinCenter 1220 -30))
+(devCarrierFor 92
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 1470 140))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 790 -80))
+(devCarrierFor 96
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 640 -80))
+(devCarrierFor 97
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 810 260))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 550 210))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 420 210))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 1470 60))
+(devCarrierFor 102
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 1470 10))
+(devCarrierFor 103
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 1330 10))
+(devCarrierFor 104
+(active open)
+(icon
+(extent 372 0))
+(open
+(extent 515 33)
+(just c))
+(title off)
+(font "Arial" 18)
+(pinCenter 90 -420))
+(devCarrierFor 106
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -120 -220))
+(devCarrierFor 107
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 145 65))
+(title off)
+(pinCenter 70 -220))
+(devCarrierFor 108
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 117 51))
+(terminals on)
+(pinCenter 30 -320))
+(devCarrierFor 109
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -120 -320))
+(devCarrierFor 110
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 380 340))
+(devCarrierFor 111
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 630 -360))
+(devCarrierFor 116
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 121 22))
+(pinCenter 180 240))
+(devCarrierFor 120
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 360 190))
+(devCarrierFor 121
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 260))
+(devCarrierFor 122
+(active icon)
+(icon
+(extent 144 44))
+(terminals on)
+(pinCenter -100 -20))
+(devCarrierFor 123
+(active icon)
+(icon
+(extent 144 64))
+(terminals on)
+(pinCenter -100 100))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 158 45))
+(terminals on)
+(pinCenter 140 100))
+(devCarrierFor 128
+(active open)
+(icon
+(extent 202 0)
+(iconImage "notepad.icn"))
+(open
+(extent 344 116)
+(editing enabled))
+(pinCenter 610 -200))
+(devCarrierFor 131
+(active icon)
+(icon
+(extent 144 64)
+(iconImage "notepad.icn"))
+(open
+(extent 554 226)
+(editing enabled))
+(pinCenter 320 -510))
+(connect D29:1 D2:1
+(points 2 221 90 280 90))
+(connect D29:2 D2:2
+(points 2 221 110 280 110))
+(connect D9:0 D3:0
+(points 2 790 -70 790 -48))
+(connect D3:1 D5:0
+(points 5 826 -20 850 -20 850 20 790 20 790 40))
+(connect D5:1 D6:1
+(points 6 868 50 890 50 890 80 660 80 660 160 675 160))
+(connect D4:1 D7:0
+(points 3 1096 -80 1220 -80 1220 -55))
+(connect D14:1 D8:0
+(points 5 1490 60 1510 60 1510 90 1470 90 1470 112))
+(connect D10:1 D9:1
+(points 2 655 -80 712 -80))
+(connect D6:0 D11:0
+(points 2 810 196 810 250))
+(connect D13:1 D12:1
+(points 2 435 210 472 210))
+(connect D25:1 D13:0
+(points 5 374 190 380 190 380 180 420 180 420 200))
+(connect D15:0 D14:0
+(points 2 1470 20 1470 50))
+(connect D16:1 D15:1
+(points 2 1345 10 1392 10))
+(connect D7:1 D16:0
+(points 3 1280 -30 1330 -30 1330 0))
+(connect D21:0 D18:0
+(points 2 -120 -310 -120 -248))
+(connect D18:1 D19:0
+(points 5 -84 -220 -60 -220 -60 -270 70 -270 70 -255))
+(connect D21:1 D20:1
+(points 2 -105 -320 -48 -320))
+(connect D26:1 D22:0
+(points 5 380 260 400 260 400 290 380 290 380 312))
+(connect D28:5 D24:1
+(points 4 -26 120 -10 120 -10 240 117 240))
+(connect D2:0 D25:0
+(points 2 360 124 360 180))
+(connect D25:0 D26:0
+(points 2 360 200 360 250))
+(connect D19:1 D27:0
+(points 5 145 -220 170 -220 170 -160 -100 -160 -100 -45))
+(connect D27:0 D28:0
+(points 2 -100 4 -100 65))
+(connect D28:1 D29:1
+(points 2 -26 80 58 80))
+(connect D28:2 D29:2
+(points 2 -26 90 58 90))
+(connect D28:3 D29:3
+(points 2 -26 100 58 100))
+(connect D28:4 D29:4
+(points 2 -26 110 58 110)))
+(stackingOrder 17 18 19 24 21 20 27 29 2 25 26 13 22 12 28 10 9 3 5 6 11 4 7 16
+15 14 8 0 1 23 30 31))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

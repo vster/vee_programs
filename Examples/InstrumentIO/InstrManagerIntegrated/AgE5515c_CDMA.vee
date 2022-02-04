@@ -1,0 +1,1684 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:33:15 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.49 M)
+(sysconfig
+(iodevice "E5515C"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model "8960 Series 10"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 85)
+(popupTitleText "E5515C with CDMA Application Example")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 32 NOTE
+(properties
+(name "Programming Sample Description")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fmodern\\fprq1\\fcharset0 Courier;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs16 This VEE Pro 7.5 sample program configures the E5515C running a CDMA Test or Lab Application to make TX Power measurements on a CDMA mobile phone.\\par\r\n\\par\r\nWhen started, the program checks if a CDMA application is activated. Then the application asks the user to initiate a mobile originated call, setup the TX Power measurement, measure the TX Power and release the call.\\par\r\n\\par\r\nThe user has the option to perform one single measurement or multiple measurements. The average, minimum and maximum TX Power are displayed on the panel in the case of multiple measurements.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(device 33 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - VEE Pro 7.5 and above is required to run this example.\\par\r\n - Setup must include one IO interface:\\par\r\n    GPIB Card (ex: Keysight 82350B), or\\par\r\n    LAN/GPIB Gateway (ex: Keysight E5810A), or\\par\r\n    USB/GPIB (ex: Keysight 82357A).\\par\r\n   and IO software: Keysight IO libraries version Suite 14.0 or above.\\par\r\n- E5515C with option 002 and E1968A Test Application\\par\r\n- A GSM mobile phone with a Test SIM connected to the RF IN/OUT port\\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 714 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 36 TEXTDISPLAY
+(properties
+(name "Instrument ID"))
+(interface
+(input 1
+(name "Data"))))
+(device 43 CONTEXT
+(properties
+(name "Preset Instrument")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "InstrID")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object performs a full preset of the instrument, clears the status register and gets gets the instrument ID\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 2 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 4 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(configuration
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 518 333)
+(anchorPt 32 17)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 314 86)
+(editing enabled))
+(pinCenter 240 70))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 196 0)
+(iconImage "io.icn"))
+(open
+(extent 235 74))
+(terminals on)
+(pinCenter 240 230))
+(connect D1:1 O1:1
+(points 4 390 230 410 230 410 149 485 149)))
+(stackingOrder 0 1))))
+(device 49 CONTEXT
+(properties
+(name "Setup TX Power Measurement")
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "MultiMeasurementCount")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 3 "WRITE TEXT \"SET:CPOW:CONT OFF\" STR EOL"
+"WRITE TEXT \"SET:CPOW:COUN \"+A STR EOL"
+"WRITE TEXT \"SET:CPOW:COUN:STAT \"+B STR EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 2 FORMULA
+(properties
+(name "asText(x)")
+(expr 1 "asText(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "A>1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 LITERALCONSTANT
+(properties
+(name "ON"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "ON"))
+(initValue Text
+(data  ""))))
+(device 5 LITERALCONSTANT
+(properties
+(name "OFF"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "OFF"))
+(initValue Text
+(data  ""))))
+(device 6 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 9 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object takes the measurement couint and setup the Channel Power measurement. If the measurement count equal to one, then the multi-measurement parameter is turned off on the instrument\\par\r\n\\par\r\nYou may add transactions to the DirectIO object to change other Channel Power measurement parameters such as \'Measurement Timeout\"\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)
+(connect D5:1 D0:2)
+(connect I1:1 D1:1)
+(connect I1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D2:2 D4:0)
+(connect D3:1 D5:1)
+(connect D4:1 D5:2)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 590 537)
+(anchorPt 24 40)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 196 0)
+(iconImage "io.icn"))
+(open
+(extent 274 76))
+(terminals on)
+(pinCenter 370 430))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 99 50))
+(terminals on)
+(pinCenter 50 230))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 50 280))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 174 29))
+(pinCenter 141 270))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 27 15))
+(open
+(extent 174 29))
+(pinCenter 140 320))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 200 290))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 176)
+(editing enabled))
+(pinCenter 250 90))
+(connect D1:1 D0:1
+(points 4 79 230 100 230 100 410 200 410))
+(connect D5:1 D0:2
+(points 6 215 290 240 290 240 330 180 330 180 450 200 450))
+(connect I1:1 D1:1
+(points 4 -24 228 -1 228 -1 230 21 230))
+(connect I1:1 D2:1
+(points 4 -24 228 -10 228 -10 280 12 280))
+(connect D2:1 D3:0
+(points 5 88 270 110 270 110 240 141 240 141 260))
+(connect D2:2 D4:0
+(points 3 88 290 140 290 140 310))
+(connect D3:1 D5:1
+(points 4 155 270 170 270 170 280 184 280))
+(connect D4:1 D5:2
+(points 4 156 320 170 320 170 300 184 300)))
+(stackingOrder 2 1 6 0 5 3 4))))
+(device 50 CONTEXT
+(properties
+(name "Setup Call")
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Message")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data 
+"Please select the number of measurements using the rotary knob. Check that  your mobile is registered, then make a mobile originated call and press the MEASURE button."
+))
+(initValue Text
+(data  ""))))
+(device 4 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 2 "WRITE TEXT \"CALL:CONN:TIM \"+A STR EOL"
+"WRITE TEXT \"CALL:CONN:ARM\" STR EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 5 CONSTANT
+(properties
+(name "Timeout"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  15))
+(initValue Int16
+(data  0))))
+(device 6 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object provides the user with instruction to set up the number of measurements and perform a mobile originated call.\\par\r\nThen the instrument is set up to wait for an incomming call until a fixed timeout.\\par\r\n\\par\r\nYou may want to change the value of the timeout to suit your needs or replace the constant with a \"Continuous Data\" object.\\par\r\n}\r\n"
+)))
+(device 7 DELAY
+(properties
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(configuration
+(connect D4:1 D0:0)
+(connect D0:0 D1:0)
+(connect D2:1 D1:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 651 559)
+(anchorPt 111 -51)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 250 330))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 250 440))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 49 15))
+(open
+(extent 127 26)
+(showFormat int))
+(pinCenter -20 440))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 250 170))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter -50 280))
+(connect D4:1 D0:0
+(points 3 -12 280 250 280 250 295))
+(connect D0:0 D1:0
+(points 2 250 347 250 382))
+(connect D2:1 D1:1
+(points 2 46 440 103 440))
+(connect D0:1 O1:1
+(points 4 339 330 360 330 360 330 539 330)))
+(stackingOrder 3 4 0 1 2))))
+(device 51 CONTEXT
+(properties
+(name "Make TX PowerMeasurement")
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "MultiMeasurementCount")
+(optional yes))
+(output 1
+(type data)
+(name "TX Power")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Minimum Power")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Maximum Power")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "Average Power")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 2 "WRITE TEXT \"READ:CPOW?\" STR EOL" "READ TEXT x REAL64 ARRAY:2"
+))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 6 FROMARRAY
+(properties
+(expr 1 "Ary[1]"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary"))
+(output 1
+(name "SubAry")
+(tag "Result"))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 7 IFTHENELSE
+(properties
+(cases 1 "A>1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 4 "WRITE TEXT \"FETC:CPOW:MIN?\" STR EOL" "READ TEXT x REAL64"
+"WRITE TEXT \"FETC:CPOW:MAX?\" STR EOL" "READ TEXT y REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 9 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 10 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object triggers a TX Power measurement on the instrument. The average power is retrieved by default.\\par\r\n\\par\r\nIf the multi-measurement count is above one, then minimum power and maximum power are also retrieved.\\par\r\n\\par\r\nNote that the Integity Indicator value is retrieved but not used. You may want to check its value to make sure that nothing bad was detected during the measurement (Over range, timeout, etc.)\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect I1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D2:1 D4:0)
+(connect D1:1 D4:1)
+(connect D1:1 O1:1)
+(connect D3:1 O2:1)
+(connect D3:2 O3:1)
+(connect D4:1 O4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 519 547)
+(anchorPt -19 120)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 196 0)
+(iconImage "io.icn"))
+(open
+(extent 235 74))
+(terminals on)
+(pinCenter 190 100))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 68 54)
+(iconImage "unbuild.icn"))
+(open
+(extent 93 110))
+(terminals on)
+(pinCenter 410 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 190 180))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 196 0)
+(iconImage "io.icn"))
+(open
+(extent 244 136))
+(terminals on)
+(pinCenter 190 340))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 450 270))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 454 196)
+(editing enabled))
+(pinCenter 250 -80))
+(connect D0:1 D1:1
+(points 2 340 100 373 100))
+(connect D0:0 D2:0
+(points 2 190 139 190 165))
+(connect I1:1 D2:1
+(points 4 19 153 20 153 20 180 152 180))
+(connect D2:1 D3:0
+(points 5 228 170 250 170 250 220 190 220 190 251))
+(connect D2:1 D4:0
+(points 5 228 170 250 170 250 220 450 220 450 260))
+(connect D1:1 D4:1
+(points 6 446 80 470 80 470 150 410 150 410 270 432 270))
+(connect D1:1 O1:1
+(points 4 446 80 480 80 480 -47 537 -47))
+(connect D3:1 O2:1
+(points 4 344 300 490 300 490 83 537 83))
+(connect D3:2 O3:1
+(points 4 344 380 500 380 500 213 537 213))
+(connect D4:1 O4:1
+(points 4 467 270 498 270 498 343 537 343)))
+(stackingOrder 0 1 4 2 3 5))))
+(device 52 CONTEXT
+(properties
+(name "End Call")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Message")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 1 "WRITE TEXT \"CALL:END\" STR EOL"))
+(implementation
+(iopath "E5515C")))
+(device 1 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Done."))
+(initValue Text
+(data  ""))))
+(device 2 DELAY
+(properties
+(delay 5))
+(interface
+(output 1
+(name "Done"))))
+(device 3 DELAY
+(properties
+(delay 10))
+(interface
+(output 1
+(name "Done"))))
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object will end the call after a small delay to allow comparison of results displayed on the VEE panel with results on the instrument.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D3:1 D0:0)
+(connect D0:0 D1:0)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 499 456)
+(anchorPt -30 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 220 270))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 220 390))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 460 -620))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 110 170))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 76)
+(editing enabled))
+(pinCenter 250 70))
+(connect D3:1 D0:0
+(points 3 148 170 220 170 220 212))
+(connect D0:0 D1:0
+(points 2 220 309 220 355))
+(connect D1:1 O1:1
+(points 4 309 390 330 390 330 227 528 227)))
+(stackingOrder 2 1 0 4 3))))
+(device 53 CONTEXT
+(properties
+(name "Check Software Options")
+(trigMode deg)
+(nextID 28)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Message")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "strPosStr(str1,str2)")
+(expr 1 "strPosStr(str1,str2)"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(input 2
+(name "str2")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "CDMA"))
+(initValue Text
+(data  ""))))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "A!=-1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A CDMA application has been detected. Let\'s continue..."))
+(initValue Text
+(data  ""))))
+(device 11 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object queries the instrument for the current activated application name. It checks if the application supports CDMA technology. A message is provided to the user for him to see if the program can continue or not. If the application is not compatible with CDMA, then the program is stopped.\\par\r\nIf the application supports several formats and CDMA is not the active one, the object tries to activate it.\\par\r\n}\r\n"
+)))
+(device 12 EXITPROCESS
+(properties
+(code 1)))
+(device 0 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 4 "WRITE TEXT \"SYST:APPL:CURR:NAME?\" STR EOL" "READ TEXT x STR"
+"WRITE TEXT \"SYST:APPL:FORM?\" STR EOL" "READ TEXT y STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 24 FORMULA
+(properties
+(name "strPosStr(str1,str2)")
+(expr 1 "strPosStr(str1,str2)"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(input 2
+(name "str2")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 1
+"WRITE TEXT \"SYST:APPL:FORM \\\'IS-2000/IS-95/AMPS\\\'\" STR EOL"))
+(implementation
+(iopath "E5515C")))
+(device 26 IFTHENELSE
+(properties
+(cases 1 "A==-1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 27 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "IS-2000"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D6:1 D0:1)
+(connect D1:1 D0:2)
+(connect D0:1 D2:1)
+(connect D2:1 D3:0)
+(connect D2:2 D5:0)
+(connect D6:2 D7:1)
+(connect D10:1 D7:2)
+(connect D9:1 D8:0)
+(connect D7:1 D9:1)
+(connect D3:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 650 573)
+(anchorPt -9 -29)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 154 50))
+(terminals on)
+(pinCenter 350 220))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 120 230))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 470 220))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 120 310))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 394 126)
+(editing enabled))
+(pinCenter 230 520))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 600 250))
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 234 106))
+(terminals on)
+(pinCenter 180 120))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 114 25))
+(open
+(extent 154 50))
+(terminals on)
+(pinCenter 350 300))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 196 51)
+(iconImage "io.icn"))
+(open
+(extent 234 56))
+(terminals on)
+(pinCenter 440 390))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 62 51))
+(terminals on)
+(pinCenter 470 300))
+(devCarrierFor 27
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 120 390))
+(connect D6:1 D0:1
+(points 6 329 90 350 90 350 190 280 190 280 210 290 210))
+(connect D1:1 D0:2
+(points 2 209 230 290 230))
+(connect D0:1 D2:1
+(points 2 409 220 432 220))
+(connect D2:1 D3:0
+(points 5 508 210 530 210 530 270 120 270 120 275))
+(connect D2:2 D5:0
+(points 5 508 230 540 230 540 200 600 200 600 222))
+(connect D6:2 D7:1
+(points 6 329 150 340 150 340 200 270 200 270 290 290 290))
+(connect D10:1 D7:2
+(points 4 209 390 240 390 240 310 290 310))
+(connect D9:1 D8:0
+(points 5 508 290 530 290 530 330 440 330 440 341))
+(connect D7:1 D9:1
+(points 2 409 300 432 300))
+(connect D3:1 O1:1
+(points 6 209 310 230 310 230 260 540 260 540 315 658 315)))
+(stackingOrder 0 2 5 7 9 4 3 6 1 10 8))))
+(device 54 CONTEXT
+(properties
+(name "Setup Parameters")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object could be used to override the defaut setup of the instrument. You may add here  DirectIO transactions to change the Cell Power, the Cell Band or other RF parameters. This is also the place to configure losses for the cable.\\par\r\n\\par\r\nThe DirectIO object below provides an example to change the Cell Band, System ID, Radio Configuration and Service Option. This makes this example suitable for any CMDAOne or CDMA2000 phone to accept an incoming voice call. You may be required to change the System ID to a suitable value for your phone.\\par\r\n}\r\n"
+)))
+(device 2 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 4 "WRITE TEXT \"CALL:BAND  \"+A STR EOL"
+"WRITE TEXT \"CALL:SID \"+B STR EOL" "WRITE TEXT \"CALL:RCON \"+C STR EOL"
+"WRITE TEXT \"CALL:SOPT \"+D STR EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 3 LITERALCONSTANT
+(properties
+(name "Cell Band"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "USCellular"))
+(initValue Text
+(data  ""))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Radio Configuration"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "F1R1"))
+(initValue Text
+(data  ""))))
+(device 7 LITERALCONSTANT
+(properties
+(name "Service Option"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SO1"))
+(initValue Text
+(data  ""))))
+(device 8 LITERALCONSTANT
+(properties
+(name "System ID"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "1"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D2:1 D1:1)
+(connect D5:1 D1:2)
+(connect D3:1 D1:3)
+(connect D4:1 D1:4)))
+(contextCarrier
+(active detail)
+(detail
+(extent 652 562)
+(anchorPt -21 2)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 444 216)
+(editing enabled))
+(pinCenter 330 140))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 264 86))
+(terminals on)
+(pinCenter 470 410))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 59 0))
+(open
+(extent 174 29))
+(pinCenter 140 320))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 174 29))
+(pinCenter 140 440))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 86 0))
+(open
+(extent 174 29))
+(pinCenter 140 500))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 61 0))
+(open
+(extent 174 29))
+(pinCenter 140 380))
+(connect D2:1 D1:1
+(points 4 229 320 260 320 260 380 305 380))
+(connect D5:1 D1:2
+(points 4 229 380 250 380 250 400 305 400))
+(connect D3:1 D1:3
+(points 6 229 440 240 440 240 430 250 430 250 420 305 420))
+(connect D4:1 D1:4
+(points 4 229 500 250 500 250 440 305 440)))
+(stackingOrder 2 5 3 4 0 1))))
+(device 55 KNOB
+(properties
+(name "Number of Measurements")
+(range 1 100)
+(detents 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 56 TEXTDISPLAY
+(properties
+(name "TX Power (dBm)"))
+(interface
+(input 1
+(name "Data"))))
+(device 69 TEXTDISPLAY
+(properties
+(name "Maximum Power (dBm)"))
+(interface
+(input 1
+(name "Data"))))
+(device 68 TEXTDISPLAY
+(properties
+(name "Average Power (dBm)"))
+(interface
+(input 1
+(name "Data"))))
+(device 67 TEXTDISPLAY
+(properties
+(name "Minimum Power (dBm)"))
+(interface
+(input 1
+(name "Data"))))
+(device 71 LABEL
+(properties
+(name "Multi-Measurement Statistics")
+(labelValue "Multi-Measurement Statistics"))
+(implementation))
+(device 74 CONFIRM25
+(properties
+(name "MEASURE")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 75 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 78 SCROLLINGTEXTDISPLAY
+(properties
+(name "Status Information / Instructions")
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 79 CONTEXT
+(properties
+(name "Wait for Call")
+(trigMode deg)
+(nextID 27)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Message")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 6 IODEVICE
+(properties
+(name "E5515C (8960 Series 10 @ 714)")
+(transactions 2 "WRITE TEXT \"CALL:CONN:STAT?\" STR EOL" "READ TEXT x REAL64"))
+(interface
+(input 1
+(type control)
+(name "Timeout")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "E5515C")))
+(device 8 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 19 CONSTANT
+(properties
+(name "Bus timeout"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  35))
+(initValue Int16
+(data  0))))
+(device 23 EXITPROCESS
+(properties
+(code 2)))
+(device 25 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Call is connected. Measuring..."))
+(initValue Text
+(data  ""))))
+(device 26 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This object queries the instrument to see if a call is connected. If a call is not connected, the program is aborted.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:2 D3:0)
+(connect D1:1 D4:0)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 651 559)
+(anchorPt 148 0)
+(configuration
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 215 130))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 80 230))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 108 29)
+(showFormat int))
+(pinCenter -40 130))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 140 370))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 300 280))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 56)
+(editing enabled))
+(pinCenter 160 490))
+(connect D2:1 D0:1
+(points 2 -2 130 38 130))
+(connect D0:1 D1:1
+(points 6 362 130 380 130 380 190 20 190 20 230 40 230))
+(connect D1:2 D3:0
+(points 3 119 240 140 240 140 342))
+(connect D1:1 D4:0
+(points 3 119 220 300 220 300 245))
+(connect D4:1 O1:1
+(points 4 389 280 460 280 460 279 502 279)))
+(stackingOrder 0 3 5 4 2 1))))
+(configuration
+(connect D4:1 D3:1)
+(connect D11:0 D5:0)
+(connect D11:1 D5:1)
+(connect D10:0 D6:0)
+(connect D20:0 D7:0)
+(connect D11:1 D7:1)
+(connect D7:0 D8:0)
+(connect D4:0 D9:0)
+(connect D9:0 D10:0)
+(connect D17:1 D11:0)
+(connect D7:1 D12:1)
+(connect D7:3 D13:1)
+(connect D7:4 D14:1)
+(connect D7:2 D15:1)
+(connect D6:0 D17:0)
+(connect D9:1 D18:1)
+(connect D6:1 D18:2)
+(connect D20:1 D18:3)
+(connect D8:1 D18:4)
+(connect D18:1 D19:1)
+(connect D5:0 D20:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 4 1)
+(wndState res)
+(active panel)
+(panel
+(extent 811 623)
+(drawGrid "on")
+(widget 3 detail
+(relativeOrigin 10 190)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 776 36))
+(widget 0 detail
+(relativeOrigin 10 10)
+(PID 5)
+(title on)
+(tabIndex 5)
+(borderStyle flat)
+(extent 776 146)
+(editing enabled))
+(widget 11 detail
+(relativeOrigin 10 380)
+(PID 6)
+(title on)
+(tabIndex 6)
+(borderStyle flat)
+(extent 196 137)
+(layout horizontal)
+(fastmode off))
+(widget 12 detail
+(relativeOrigin 230 380)
+(PID 7)
+(title on)
+(tabStop off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 186 138)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 2)
+(integerBase decimal)))
+(widget 15 detail
+(relativeOrigin 430 420)
+(PID 8)
+(title on)
+(tabStop off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 174 38))
+(widget 14 detail
+(relativeOrigin 430 480)
+(PID 9)
+(title on)
+(tabStop off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 174 38))
+(widget 13 detail
+(relativeOrigin 610 420)
+(PID 11)
+(title on)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 174 38))
+(widget 16 detail
+(relativeOrigin 430 380)
+(PID 12)
+(title off)
+(tabStop off)
+(tabIndex 12)
+(borderStyle flat)
+(extent 356 36)
+(just c))
+(widget 2 icon
+(relativeOrigin 430 550)
+(PID 13)
+(title off)
+(tabStop off)
+(tabIndex 13)
+(borderStyle flat)
+(extent 356 48)
+(iconImage "disclaim.gif")
+(label off))
+(widget 17 detail
+(relativeOrigin 10 550)
+(PID 15)
+(title off)
+(tabIndex 15)
+(borderStyle none)
+(extent 200 30))
+(widget 19 detail
+(relativeOrigin 10 260)
+(font "Arial" 14)
+(PID 16)
+(title on)
+(tabStop off)
+(tabIndex 16)
+(borderStyle flat)
+(extent 776 78)
+(noformatter)))
+(detail
+(extent 836 623)
+(anchorPt -140 293)
+(configuration
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 206 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 106)
+(editing enabled))
+(pinCenter 140 -120))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 554 236)
+(editing enabled))
+(pinCenter 360 -120))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 344 54)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 670 -120))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 364 46))
+(pinCenter 650 -30))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 114 34))
+(terminals on)
+(pinCenter 310 -50))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 182 34))
+(terminals on)
+(pinCenter 310 250))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 94 34))
+(terminals on)
+(pinCenter 310 130))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 176 54))
+(terminals on)
+(pinCenter 310 370))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 74 24))
+(terminals on)
+(pinCenter 310 430))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 164 34))
+(terminals on)
+(pinCenter 310 10))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 134 34))
+(terminals on)
+(pinCenter 310 70))
+(devCarrierFor 55
+(active open)
+(icon
+(extent 158 15))
+(open
+(extent 134 117)
+(layout horizontal)
+(fastmode off))
+(pinCenter 110 130))
+(devCarrierFor 56
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 174 26))
+(pinCenter 550 180))
+(devCarrierFor 69
+(active open)
+(icon
+(extent 140 0))
+(open
+(extent 174 26))
+(pinCenter 750 310))
+(devCarrierFor 68
+(active open)
+(icon
+(extent 130 0))
+(open
+(extent 174 26))
+(pinCenter 550 380))
+(devCarrierFor 67
+(active open)
+(icon
+(extent 138 0))
+(open
+(extent 174 26))
+(pinCenter 550 310))
+(devCarrierFor 71
+(active open)
+(icon
+(extent 173 0))
+(open
+(extent 374 34)
+(just c))
+(title off)
+(pinCenter 650 230))
+(devCarrierFor 74
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 84 24))
+(title off)
+(pinCenter 310 180))
+(devCarrierFor 75
+(active icon)
+(icon
+(extent 26 45))
+(open
+(extent 12 70))
+(terminals on)
+(pinCenter 430 80))
+(devCarrierFor 78
+(active open)
+(icon
+(extent 190 0))
+(open
+(extent 364 66)
+(noformatter))
+(pinCenter 650 80))
+(devCarrierFor 79
+(active icon)
+(icon
+(extent 104 34))
+(terminals on)
+(pinCenter 310 310))
+(connect D4:1 D3:1
+(points 4 369 -50 390 -50 390 -30 465 -30))
+(connect D11:0 D5:0
+(points 4 110 191 110 210 310 210 310 230))
+(connect D11:1 D5:1
+(points 4 179 130 200 130 200 250 216 250))
+(connect D10:0 D6:0
+(points 2 310 89 310 110))
+(connect D20:0 D7:0
+(points 2 310 329 310 340))
+(connect D11:1 D7:1
+(points 4 179 130 200 130 200 370 219 370))
+(connect D7:0 D8:0
+(points 2 310 399 310 415))
+(connect D4:0 D9:0
+(points 2 310 -31 310 -10))
+(connect D9:0 D10:0
+(points 2 310 29 310 50))
+(connect D17:1 D11:0
+(points 9 354 180 370 180 370 210 320 210 320 200 210 200 210 30 110 30 110 51))
+(connect D7:1 D12:1
+(points 6 400 350 410 350 410 330 420 330 420 180 460 180))
+(connect D7:3 D13:1
+(points 6 400 370 420 370 420 340 650 340 650 310 660 310))
+(connect D7:4 D14:1
+(points 2 400 380 460 380))
+(connect D7:2 D15:1
+(points 4 400 360 430 360 430 310 460 310))
+(connect D6:0 D17:0
+(points 2 310 149 310 165))
+(connect D9:1 D18:1
+(points 4 394 10 400 10 400 60 414 60))
+(connect D6:1 D18:2
+(points 4 359 130 390 130 390 70 414 70))
+(connect D20:1 D18:3
+(points 6 364 310 410 310 410 210 400 210 400 80 414 80))
+(connect D8:1 D18:4
+(points 6 349 430 440 430 440 200 380 200 380 90 414 90))
+(connect D18:1 D19:1
+(points 2 445 80 465 80))
+(connect D5:0 D20:0
+(points 2 310 269 310 290)))
+(stackingOrder 13 15 16 19 3 17 2 12 11 18 4 9 20 14 8 10 6 5 7 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,283 @@
+(saveFormat "7.0")
+(date "Thu 19/Jul/2007 21:01:04 ")
+(veerev "8.01.10010.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 32)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare book")
+(scope glob)
+(globalName "book"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Workbook"))))
+(device 1 DECLVAR
+(properties
+(name "Declare sheet")
+(scope glob)
+(globalName "sheet"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Worksheet"))))
+(device 2 DECLVAR
+(properties
+(name "Declare app")
+(scope glob)
+(globalName "app"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Application"))))
+(device 4 DECLVAR
+(properties
+(name "Declare ChartRange")
+(scope glob)
+(globalName "ChartRange"))
+(implementation
+(value Object
+(data  "COM OFF Excel.Range"))))
+(device 19 FORMULA
+(properties
+(name "Fire up Excel")
+(variableScope cont)
+(expr 5
+"Set book = createObject(\"Excel.Sheet\");       // Launch Excel and get a new Workbook"
+"Set app = book.Application;                             // Get an object reference to the application object"
+"app.Visible = TRUE;                                          // Make Excel visible"
+"Set sheet = book.ActiveSheet;                         // Get the active worksheet in this workbook"
+"Set ChartRange=sheet.Range(\"A20:B50\");  // Get a range object for area where we put the data"
+))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "Create Chart")
+(variableScope cont)
+(expr 4 "app.Charts.Add;" "book.ActiveChart.ChartType=xlLineMarkers;"
+"book.ActiveChart.SetSourceData(ChartRange, xlColumns);"
+"book.ActiveChart.SeriesCollection(1).Delete();")))
+(device 21 FORMULA
+(properties
+(name "Stuff Cells")
+(variableScope cont)
+(expr 2 "ChartRange.Cells(A+1, 1) = A/10;"
+"ChartRange.Cells(A+1, 2) = 1 - exp(-A/10);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 FORMULA
+(properties
+(name "Num Rows")
+(variableScope cont)
+(expr 2 "// Subtract 1 for 0 based indexing" "ChartRange.Rows.Count-1; "))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 FORRANGE
+(properties
+(variableScope cont)
+(from 0)
+(thru 30)
+(step 1))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 28 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 30 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs17 Requirements: Excel\\par\r\n\\par\r\nThis example uses Excel and ActiveX Automation \\par\r\nto insert data into a spreadsheet.  It then instructs\\par\r\nExcel to create a new Chart and formats the Chart\\par\r\nappropriately.\\par\r\n\\par\r\nThe easiest way to figure out the correct Automation\\par\r\ncalls that need to be made is to use the Macro \\par\r\nRecorder in the Microsoft Office applications.  \\par\r\nFollow the directions below:  \\par\r\n\\par\r\n1. Select the \"Tools -> Macro -> Record New Macro\" \\par\r\n   menu pick.\\par\r\n2. Perform the actions you want to automate.\\par\r\n3. Select the \"Tools -> Macro -> Stop Recording\"\\par\r\n   menu pick to stop recording.\\par\r\n4. To view the code that was created by the Macro,\\par\r\n   select \"Tools -> Macro -> Macros ...\".  Then\\par\r\n   select the macro you just recorded and press the\\par\r\n   \"Edit\" button.\\par\r\n5. You can copy and paste the code from the Visual\\par\r\n   Basic for Applications (V.B.A.) window into VEE.\\par\r\n\\par\r\n   NOTE: In VEE, you can only paste text using \\par\r\n   the < Ctrl-V > key combination.\\par\r\n\\par\r\n6. The V.B.A. code may need to be modified slightly\\par\r\n   to work in VEE.\\par\r\n}\r\n"
+)))
+(device 31 FORMULA
+(properties
+(name "Set Chart Values")
+(variableScope cont)
+(expr 8
+"// book.ActiveChart.SeriesCollection(1).XValues = \"=Sheet1!R20C1:R50C1\";"
+"// Above only works for English Office -- localize this "
+"sheet.Name = \"Sheet1\";   // if German was \'Tabelle1\'"
+"book.ActiveChart.Location(2, \"Sheet1\");"
+"R = app.International(xlUpperCaseRowLetter);"
+"C = app.International(xlUpperCaseColumnLetter);"
+"book.ActiveChart.SeriesCollection(1).XValues = \"=Sheet1!\" + R + \"20\" + C + \"1:\""
+"  + R + \"50\" + C + \"1\";"))
+(interface
+(output 1
+(name "R")
+(optional yes))
+(output 2
+(name "C")
+(optional yes))))
+(configuration
+(connect D8:0 D5:0)
+(connect D8:1 D6:1)
+(connect D4:0 D7:0)
+(connect D7:1 D8:1)
+(connect D5:0 D11:0)))
+(contextCarrier
+(wndRestoredOrigin 2 0)
+(wndRestoredExtent 838 499)
+(wndState max)
+(active detail)
+(detail
+(extent 786 608)
+(anchorPt 266 -247)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 388 126))
+(pinCenter 790 390))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 388 126))
+(pinCenter 790 330))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 73 16))
+(open
+(extent 388 126))
+(pinCenter 790 360))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 124 16))
+(open
+(extent 388 126))
+(pinCenter 790 420))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 544 96))
+(pinCenter 410 390))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 434 117))
+(pinCenter 410 680))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 61 0))
+(open
+(extent 251 65))
+(pinCenter 610 540))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 68 15))
+(open
+(extent 199 65))
+(pinCenter 240 540))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 410 530))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 310 280))
+(devCarrierFor 30
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 374 486)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter -70 520))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 478 126))
+(terminals on)
+(pinCenter 410 860))
+(connect D8:0 D5:0
+(points 2 410 572 410 601))
+(connect D8:1 D6:1
+(points 4 462 530 470 530 470 540 482 540))
+(connect D4:0 D7:0
+(points 4 410 440 410 460 240 460 240 487))
+(connect D7:1 D8:1
+(points 4 342 540 350 540 350 530 358 530))
+(connect D5:0 D11:0
+(points 2 410 741 410 776)))
+(stackingOrder 1 2 3 0 4 7 8 5 6 9 10 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

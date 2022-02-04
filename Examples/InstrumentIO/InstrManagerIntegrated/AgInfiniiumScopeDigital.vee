@@ -1,0 +1,1187 @@
+(saveFormat "7.0")
+(date "Wed 29/Mar/2006 10:31:59 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.130 M.129 M.129.3 M.130.0 M.78 M)
+(sysconfig
+(iodevice "Scope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 7)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "ag54832d")
+(ppAddr "GPIB0::7::INSTR")
+(eoiEnabled 1)
+(model "ag54832d"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 131)
+(popupTitleText "Digital Analysis")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 26 REPEATUNTILBREAK
+(properties
+(name "Begin Program"))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 27 CONFIRM25
+(properties
+(name "Start Measurement")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 50 LABEL
+(properties
+(name "Displaying Digital Data From the Infiniium Oscilloscope")
+(labelValue "Displaying Digital Data From the Infiniium Oscilloscope"))
+(implementation))
+(device 57 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(device 58 NOTE
+(properties
+(name "Overview of Digital Display Example")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18  This example shows how to display digital data from the Infiniium MSO Oscilloscope. \\par\r\n\\par\r\n Direct IO WRITE transactions are used to send measurement commands to the oscilloscope and READ\\par\r\n transactions are used to enter the measured digital readings into VEE. The readings are 1) displayed   \\par\r\n in an VEE XY Chart object display, 2) stored in a data file and 3) the data file is read, the values \\par\r\n displayed and the data file is deleted.\\par\r\n                      \\par\r\n\\par\r\n For more Information about the VEE Pro software used to create this sample program, please visit\\par\r\n \"www.keysight.com/find/vee\". \\par\r\n}\r\n"
+)))
+(device 78 CONTEXT
+(properties
+(name "SetupGlobals")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 2 DECLVAR
+(properties
+(name "Declare g_digitalScope_digitalReadings")
+(scope glob)
+(globalName "g_digitalScope_digitalReadings"))
+(implementation
+(value Real64
+(numDims 1)
+(size 1)
+(data  [ 0 ]))))
+(device 6 DECLVAR
+(properties
+(name "Declare g_digitalScope_unsignedDecimal")
+(scope glob)
+(globalName "g_digitalScope_unsignedDecimal"))
+(implementation
+(value Real64
+(numDims 1)
+(size 1)
+(data  [ 0 ]))))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Declare two global variables to store the digital readings measured by the oscilloscope and the corresponding converted unsigned decimal values.\\par\r\n}\r\n"
+)))
+(configuration))
+(contextCarrier
+(wndOrigin 2 630)
+(wndRestoredOrigin 22 22)
+(wndRestoredExtent 350 300)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt 90 36)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 244 15))
+(open
+(extent 280 103))
+(pinCenter 200 250))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 256 15))
+(open
+(extent 292 103))
+(pinCenter 200 310))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 210 130)))
+(stackingOrder 0 1 2))))
+(device 106 YPLOT
+(properties
+(name "Chart Display"))
+(interface
+(input 1
+(name "Data")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 108 LITERALCONSTANT
+(properties
+(name "Enter Filename"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "C:\\myTestData"))
+(initValue Text
+(data  "C:\\myTestData"))))
+(device 113 TEXTDISPLAY
+(properties
+(name "Data read from file"))
+(interface
+(input 1
+(name "Data"))))
+(device 114 EXITPROCESS
+(properties
+(code 0)))
+(device 116 TEXTDISPLAY
+(properties
+(name "Instrument ID / Error message"))
+(interface
+(input 1
+(name "Data"))))
+(device 126 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.50 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version 14.1\\par\r\n   as a minimum.\\par\r\n -Apply a digital signal to the oscilloscope on all 16 channels. \\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 707 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 129 CONTEXT
+(properties
+(name "measurement")
+(trigMode deg)
+(nextID 12)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In the oscilloscope Direct IO object, the oscilloscope is sent the commands \"*RST\", \"*CLS\" and \"*IDN?\".  The identity of the instrument  is returned and dispalyed. If an error occurs, the error is read by the Direct IO object and sent to the display. Finally, the oscilloscope is directed to autoscale. The \"*OPC?\" command is used to synchronizes the oscilloscope and the VEE Pro program, i.e., the program will not continue executing until it receives the operation complete indication from the oscilloscope. The \"*OPC?\" query places an ASCII character \"1\" in the oscilloscope\'s output buffer when all pending operations have finished.\\par\r\n\\par\r\nThe DigitalMeasurement User Object performs the 16 channel digital measurement on the oscilloscope. The readings are placed in the global vari!\r\n able \"g_digitalScope_digitalReadings.\\par\r\n\\par\r\nThe digital readings are then transformed from signed decimal values into unsigned decimal values in the \"VEE Analysis\" User Object. The unsigned decimal values are stored in the global variable \"g_digitalScope_unsignedDecimal\" variable for later use; such as display or transferring to a file. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 2 IODEVICE
+(properties
+(name "Scope (ag54832d @ 707)")
+(transactions 6 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR" "WRITE TEXT \":SYST:ERR?\" EOL"
+"READ TEXT y REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "y")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "Scope")))
+(device 3 CONTEXT
+(properties
+(name "DigitalMeasurement")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Object Overview")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This user object makes a digital measurement on all 16 digital channels on the oscilloscope via Direct IO. The data is stored in a global variable called  g_digitalScope_digitalReadings.\\par\r\n\\par\r\nThe scope is triggered to make the measurement with the \"DIGITIZE\" command. The data is formatted in \"word format\" by the scope. The scope is then instructed to transfer the data to the comuter by the \"WAVEFORM:DATA?\"  command and is read into VEE Pro as an integer 16 binary block. \\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 1 LITERALCONSTANT
+(properties
+(name "Source = PODALL"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "PODALL"))
+(initValue Text
+(data  ""))))
+(device 2 TOGLOBAL
+(properties
+(name "Set g_digitalScope_digitalReadings")
+(globalName "g_digitalScope_digitalReadings"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 3 IODEVICE
+(properties
+(name "Import Data from Scope (D0 is MSB)")
+(description2 1 "Set up the data unload")
+(transactions 5 "WRITE TEXT \":DIGITIZE \", A EOL"
+"WRITE TEXT \":WAVEFORM:FORMAT WORD\" EOL"
+"WRITE TEXT \":WAVEFORM:SOURCE \", A EOL" "WRITE TEXT \":WAVEFORM:DATA?\" EOL"
+"READ BINBLOCK DigitalData INT16 ARRAY:*"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "DigitalData")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "Scope")))
+(configuration
+(connect D3:1 D2:1)
+(connect D1:1 D3:1)))
+(contextCarrier
+(wndOrigin 322 630)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 350 300)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 95 0)
+(iconImage "notepad.icn"))
+(open
+(extent 484 186)
+(editing enabled))
+(pinCenter 440 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 174 29))
+(pinCenter 100 370))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 216 15))
+(open
+(extent 182 51))
+(terminals on)
+(pinCenter 790 370))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 217 51)
+(iconImage "io.icn"))
+(open
+(extent 315 127))
+(terminals on)
+(pinCenter 395 370))
+(connect D3:1 D2:1
+(points 2 635 370 679 370))
+(connect D1:1 D3:1
+(points 2 156 370 205 370)))
+(stackingOrder 3 2 1 0))))
+(device 4 IFTHENELSE
+(properties
+(name "If A == 1")
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 6 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT \"Error number \", A, \" has occurred.\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 EXITPROCESS
+(properties
+(code 0)))
+(device 8 IODEVICE
+(properties
+(name "Scope (ag54832d @ 707)")
+(transactions 3 "WRITE TEXT \":AUTOSCALE\" EOL" "WRITE TEXT \"*OPC?\" EOL"
+"READ TEXT x REAL64"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "Scope")))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A problem has occurred autoscaling the oscilloscope."))
+(initValue Text
+(data  ""))))
+(device 10 IFTHENELSE
+(properties
+(name "If A == 0")
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 11 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D3:1 D2:0)
+(connect D7:1 D3:1)
+(connect D1:1 D4:1)
+(connect D5:1 D4:2)
+(connect D8:1 D4:3)
+(connect D10:1 D5:1)
+(connect D5:0 D6:0)
+(connect D9:1 D7:0)
+(connect D3:2 D8:0)
+(connect D1:2 D9:1)
+(connect D9:2 D10:0)
+(connect D1:2 D10:1)
+(connect D4:1 O1:1)))
+(contextCarrier
+(wndOrigin 482 630)
+(wndRestoredOrigin -439 220)
+(wndRestoredExtent 1341 702)
+(wndState min)
+(active detail)
+(detail
+(extent 950 623)
+(anchorPt 3 -46)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 486)
+(editing enabled))
+(pinCenter 250 340))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 155 51)
+(iconImage "io.icn"))
+(open
+(extent 244 146))
+(terminals on)
+(pinCenter 640 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 224 104))
+(terminals on)
+(pinCenter 680 500))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 47 25))
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter 945 380))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 1295 180))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 1180 230))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 1180 310))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 155 51)
+(iconImage "io.icn"))
+(open
+(extent 244 146))
+(terminals on)
+(pinCenter 650 320))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 344 36))
+(pinCenter 1250 470))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 47 25))
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter 925 210))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 1050 290))
+(connect D3:1 D2:0
+(points 5 1018 370 1040 370 1040 430 680 430 680 445))
+(connect D7:1 D3:1
+(points 4 730 320 750 320 750 380 882 380))
+(connect D1:1 D4:1
+(points 6 720 150 740 150 740 140 1020 140 1020 160 1256 160))
+(connect D5:1 D4:2
+(points 4 1209 230 1230 230 1230 180 1256 180))
+(connect D8:1 D4:3
+(points 8 1424 470 1440 470 1440 410 1350 410 1350 380 1240 380 1240 200 1256
+200))
+(connect D10:1 D5:1
+(points 4 1067 290 1090 290 1090 230 1151 230))
+(connect D5:0 D6:0
+(points 2 1180 240 1180 282))
+(connect D9:1 D7:0
+(points 5 998 200 1020 200 1020 260 650 260 650 292))
+(connect D3:2 D8:0
+(points 3 1018 390 1250 390 1250 431))
+(connect D1:2 D9:1
+(points 4 720 170 820 170 820 210 862 210))
+(connect D9:2 D10:0
+(points 3 998 220 1050 220 1050 280))
+(connect D1:2 D10:1
+(points 4 720 170 820 170 820 290 1032 290))
+(connect D4:1 O1:1
+(points 4 1343 180 1360 180 1360 357 946 357)))
+(stackingOrder 5 6 10 9 3 8 4 0 1 7 2))))
+(device 130 CONTEXT
+(properties
+(name "analysis")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "digital_Fromfile")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "VEE Analysis")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Signed To Unsigned")
+(expr 1 "((a <0)? 65536+a : a)"))
+(interface
+(input 1
+(name "a")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(expr 1 "A[B-1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORRANGE
+(properties
+(from 1)
+(thru 32001)
+(step 1))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FROMGLOBAL
+(properties
+(name "Get g_digitalScope_digitalReadings")
+(globalName "g_digitalScope_digitalReadings"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 5 TOGLOBAL
+(properties
+(name "Set g_digitalScope_unsignedDecimal")
+(globalName "g_digitalScope_unsignedDecimal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 6 NOTE
+(properties
+(name "Object Overview")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This routine converts the signed \\par\r\nint16 decimal data into Real64 \\par\r\nunsigned decimal format.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 7 FORMULA
+(properties
+(name "convert to real64")
+(expr 1 "A"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Real64))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(configuration
+(connect D1:1 D0:1)
+(connect D4:1 D1:1)
+(connect D2:1 D1:2)
+(connect D3:1 D2:1)
+(connect D4:1 D3:1)
+(connect D8:1 D5:1)
+(connect D0:1 D7:1)
+(connect D7:1 D8:1)
+(connect D2:0 D8:2)))
+(contextCarrier
+(wndOrigin 162 630)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 576 366)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt 136 96)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 124 15))
+(open
+(extent 145 77))
+(terminals on)
+(pinCenter 350 210))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 71 42))
+(terminals on)
+(pinCenter 210 210))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 70 220))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 80 31))
+(terminals on)
+(pinCenter -50 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 217 15))
+(open
+(extent 183 47))
+(terminals on)
+(pinCenter 20 140))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 228 15))
+(open
+(extent 194 57))
+(terminals on)
+(pinCenter 520 320))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 95 0)
+(iconImage "notepad.icn"))
+(open
+(extent 255 97)
+(editing enabled))
+(pinCenter 70 20))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 190 310))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 330 320))
+(connect D1:1 D0:1
+(points 2 237 210 285 210))
+(connect D4:1 D1:1
+(points 4 131 140 150 140 150 200 182 200))
+(connect D2:1 D1:2
+(points 2 106 220 182 220))
+(connect D3:1 D2:1
+(points 2 -21 220 33 220))
+(connect D4:1 D3:1
+(points 6 131 140 150 140 150 170 -100 170 -100 220 -79 220))
+(connect D8:1 D5:1
+(points 2 359 320 403 320))
+(connect D0:1 D7:1
+(points 6 414 210 430 210 430 270 120 270 120 310 138 310))
+(connect D7:1 D8:1
+(points 2 242 310 301 310))
+(connect D2:0 D8:2
+(points 5 70 248 70 340 260 340 260 330 301 330)))
+(stackingOrder 6 4 3 2 1 7 8 5 0))))
+(device 1 FROMGLOBAL
+(properties
+(name "Get g_digitalScope_unsignedDecimal")
+(globalName "g_digitalScope_unsignedDecimal"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 2 TOFILE
+(properties
+(name "Write Data To File")
+(transactions 2 "EXECUTE REWIND" "WRITE TEXT digital_Tofile EOL"))
+(interface
+(input 1
+(name "digital_Tofile")
+(optional yes))
+(input 2
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "c:\\myTestData"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 FROMFILE
+(properties
+(name "Read Data From File")
+(transactions 3 "EXECUTE REWIND" "READ TEXT digital_Fromfile REAL64 ARRAY:*"
+"EXECUTE DELETE"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "digital_Fromfile")
+(optional yes)))
+(implementation
+(attr iopath file read "c:\\myTestData"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The unsigned data is transferred to a data file using the VEE To File object. If the file does not exist, then it is created with the filename that was entered into the \"Enter Filename\" object on the main panel. \\par\r\n\\par\r\nThen the data file is read using the VEE From File object and is displayed. The data is then displayed.\\par\r\n\\par\r\nFinally, the data file is deleted. \\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect I1:1 D2:2)
+(connect D2:0 D3:0)
+(connect I1:1 D3:1)
+(connect D1:1 O1:1)
+(connect D3:1 O2:1)))
+(contextCarrier
+(wndOrigin 642 630)
+(wndRestoredOrigin -181 491)
+(wndRestoredExtent 816 818)
+(wndState min)
+(active detail)
+(detail
+(extent 850 623)
+(anchorPt 33 252)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 224 84))
+(terminals on)
+(pinCenter 310 20))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 224 24))
+(open
+(extent 195 57))
+(terminals on)
+(pinCenter 310 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 174 25))
+(open
+(extent 231 127))
+(terminals on)
+(pinCenter 590 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 174 24))
+(open
+(extent 231 108))
+(terminals on)
+(pinCenter 590 230))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 654 146)
+(editing enabled))
+(pinCenter 320 -140))
+(connect D0:0 D1:0
+(points 2 310 64 310 135))
+(connect D1:1 D2:1
+(points 2 424 150 500 150))
+(connect I1:1 D2:2
+(points 6 -33 59 -20 59 -20 180 440 180 440 170 500 170))
+(connect D2:0 D3:0
+(points 2 590 175 590 215))
+(connect I1:1 D3:1
+(points 6 -33 59 -20 59 -20 180 440 180 440 230 500 230))
+(connect D1:1 O1:1
+(points 6 424 150 440 150 440 130 670 130 670 -101 816 -101))
+(connect D3:1 O2:1
+(points 4 679 230 700 230 700 219 816 219)))
+(stackingOrder 4 0 1 2 3))))
+(configuration
+(connect D5:0 D0:0)
+(connect D0:1 D1:0)
+(connect D13:1 D6:1)
+(connect D13:2 D8:1)
+(connect D13:0 D9:0)
+(connect D12:1 D10:1)
+(connect D1:1 D12:0)
+(connect D12:0 D13:0)
+(connect D7:1 D13:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 4 0)
+(wndState res)
+(active panel)
+(panel
+(extent 616 436)
+(drawGrid "off")
+(widget 2 detail
+(relativeOrigin 0 -10)
+(bg "Light Blue Gray")
+(fg "Black")
+(font "Times New Roman" 18)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 660 40)
+(just c))
+(widget 1 detail
+(relativeOrigin 0 310)
+(bg "Light Blue")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 2)
+(borderStyle convex)
+(extent 147 46))
+(widget 6 detail
+(relativeOrigin 0 120)
+(PID 3)
+(title on)
+(tabIndex 3)
+(borderStyle flat)
+(extent 436 168)
+(displayMode 62)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "Sample")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range 0 70000 4 linear))
+(domain 0 35000 4 linear)
+(trace 0 onScale 0
+(name "Data")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0)))
+(widget 8 detail
+(relativeOrigin 450 90)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 156 248))
+(widget 7 detail
+(relativeOrigin 450 30)
+(PID 6)
+(title on)
+(tabIndex 5)
+(borderStyle flat)
+(extent 176 38))
+(widget 10 detail
+(relativeOrigin 170 310)
+(PID 7)
+(title on)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 266 28))
+(widget 4 detail
+(relativeOrigin 0 30)
+(PID 8)
+(title on)
+(tabIndex 7)
+(borderStyle flat)
+(extent 436 68)
+(editing enabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 577 328)
+(anchorPt 548 925)
+(configuration
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 91 51)
+(iconImage "loop.icn"))
+(open
+(extent 17 30))
+(terminals on)
+(pinCenter -190 -490))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 115 45))
+(title off)
+(pinCenter -30 -440))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 332 0))
+(open
+(extent 345 45)
+(just l))
+(title off)
+(pinCenter 100 -580))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 291 99)
+(editing disabled))
+(pinCenter 220 -760))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 244 54))
+(open
+(extent 464 246)
+(editing enabled))
+(pinCenter -280 -760))
+(devCarrierFor 78
+(active icon)
+(icon
+(extent 104 74))
+(terminals on)
+(pinCenter -190 -580))
+(devCarrierFor 106
+(active open)
+(icon
+(extent 81 51)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 62)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "Sample")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range 0 70000 4 linear))
+(domain 0 35000 4 linear)
+(trace 0 onScale 0
+(name "Data")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0)))
+(terminals on)
+(pinCenter 385 -100))
+(devCarrierFor 108
+(active open)
+(icon
+(extent 92 0))
+(open
+(extent 174 29))
+(pinCenter -250 -180))
+(devCarrierFor 113
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 155 236))
+(pinCenter 90 120))
+(devCarrierFor 114
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -10 -90))
+(devCarrierFor 116
+(active open)
+(icon
+(extent 182 0))
+(open
+(extent 314 36))
+(pinCenter 360 -330))
+(devCarrierFor 126
+(active icon)
+(icon
+(extent 144 64)
+(iconImage "notepad.icn"))
+(open
+(extent 554 226)
+(editing enabled))
+(pinCenter -60 -760))
+(devCarrierFor 129
+(active icon)
+(icon
+(extent 164 74))
+(terminals on)
+(pinCenter -10 -320))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 164 74))
+(terminals on)
+(pinCenter -10 -200))
+(connect D5:0 D0:0
+(points 2 -190 -541 -190 -518))
+(connect D0:1 D1:0
+(points 3 -142 -490 -30 -490 -30 -465))
+(connect D13:1 D6:1
+(points 4 74 -220 100 -220 100 -100 184 -100))
+(connect D13:2 D8:1
+(points 6 74 -180 90 -180 90 -40 -10 -40 -10 120 10 120))
+(connect D13:0 D9:0
+(points 2 -10 -161 -10 -118))
+(connect D12:1 D10:1
+(points 4 74 -320 90 -320 90 -330 200 -330))
+(connect D1:1 D12:0
+(points 5 30 -440 50 -440 50 -390 -10 -390 -10 -360))
+(connect D12:0 D13:0
+(points 2 -10 -281 -10 -240))
+(connect D7:1 D13:1
+(points 4 -161 -180 -140 -180 -140 -200 -95 -200)))
+(stackingOrder 1 3 5 0 2 6 7 9 8 10 12 13 4 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

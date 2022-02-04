@@ -1,0 +1,156 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:14:12 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 2 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 3 VNOISEGENERATOR
+(properties
+(amplitude 0.401)
+(numPoints 256)
+(interval 0.02))
+(interface
+(output 1
+(name "noise WF"))))
+(device 5 FORMULA
+(properties
+(name "A + B")
+(expr 1 "A + B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D1:1 D3:1)
+(connect D2:1 D3:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 902 551)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 30 60)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 580 300))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 220 260))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 160 370))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 32 25))
+(open
+(extent 71 42))
+(terminals on)
+(pinCenter 360 300))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 210 130))
+(connect D3:1 D0:1
+(points 2 378 300 419 300))
+(connect D1:1 D3:1
+(points 4 280 260 300 260 300 290 341 290))
+(connect D2:1 D3:2
+(points 4 299 370 320 370 320 310 341 310)))
+(stackingOrder 1 3 2 0 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

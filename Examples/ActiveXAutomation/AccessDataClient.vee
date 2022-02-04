@@ -1,0 +1,1258 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 12:27:36 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00025E01-0000-0000-C000-000000000046}")
+(desc "Microsoft DAO 3.6 Object Library")
+(filename "C:\\PROGRAM FILES\\COMMON FILES\\MICROSOFT SHARED\\DAO\\DAO360.DLL")
+(verMajor 4)
+(verMinor 0)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 196)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 11)
+(context 9
+(properties
+(name "addRecord")
+(trigMode deg)
+(nextID 24)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "resultsRec")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Add new reecord to mdb, making it the current record")
+(expr 1 "resultsRS.AddNew()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "totSize(A)")
+(expr 1 "totSize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORCOUNT
+(properties
+(count 6))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 9 FORMULA
+(properties
+(name "Close editing session on new record, storing it on disk")
+(expr 1 "resultsRS.Update()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 CALL
+(properties
+(name "Call errorReport")
+(callFunc "errorReport")
+(parmMode rev30)))
+(device 13 NOTE
+(properties
+(text2 16 "This UserFunction requires the dao 3.5"
+"RecordSet \'resultsRS\' global object "
+"which refers to an Access97 table with "
+"fields with the same names as every field"
+"in the VEE rec resultsRec which is passed in."
+"The AddNew() method opens a record for editing "
+"and makes it the current record." "Then the fieldnames are extracted, and used"
+"like an index into the RecordSet to set" "the new record\'s values to the "
+"equivalent values in the passed in record."
+"It copies fields from the VEE record passed"
+"in, to a new record in the testResult" "recordSet. The Access97 table must be "
+"defined before the testResults RecordSet" "can be assigned to it.")))
+(device 22 FORMULA
+(properties
+(name "get a field\'s value")
+(expr 1 "A.passfail"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name "Create formula to retrieve field\'s value")
+(expr 1 "\"A.\"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "set database field value to record field value")
+(expr 2 "resultsRS(field) = value" ""))
+(interface
+(input 1
+(name "field")
+(optional yes))
+(input 2
+(name "value")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "get a VEE record field name")
+(expr 1 "A[B]"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect D1:1 D2:1)
+(connect D0:0 D3:0)
+(connect D2:1 D3:1)
+(connect D3:0 D4:0)
+(connect D9:2 D5:0)
+(connect D8:0 D7:0)
+(connect I1:1 D7:1)
+(connect D8:1 D7:2)
+(connect D10:1 D8:1)
+(connect D10:1 D9:1)
+(connect D7:1 D9:2)
+(connect D3:1 D10:1)
+(connect D1:1 D10:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1230 500)
+(anchorPt -353 -65)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 316 0))
+(open
+(extent 272 36))
+(terminals on)
+(pinCenter 710 110))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 95 51)
+(iconImage "unbuild.icn"))
+(open
+(extent 19 53))
+(terminals on)
+(pinCenter 459 210))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 75 16))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 620 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 720 210))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 327 0))
+(open
+(extent 288 36))
+(terminals on)
+(pinCenter 590 510))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 96 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 1150 410))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 354 258)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 990 600))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 103 25))
+(open
+(extent 71 62))
+(terminals on)
+(pinCenter 700 370))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 225 15))
+(open
+(extent 181 31))
+(terminals on)
+(pinCenter 700 310))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 262 0))
+(open
+(extent 220 48))
+(terminals on)
+(pinCenter 1045 320))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 123 42))
+(terminals on)
+(pinCenter 930 210))
+(connect I1:1 D1:1
+(points 4 353 314 340 314 340 210 358 210))
+(connect D1:1 D2:1
+(points 2 541 210 580 210))
+(connect D0:0 D3:0
+(points 2 720 130 720 182))
+(connect D2:1 D3:1
+(points 2 660 210 683 210))
+(connect D3:0 D4:0
+(points 6 720 238 720 260 570 260 570 340 600 340 600 471))
+(connect D9:2 D5:0
+(points 5 1207 330 1230 330 1230 370 1150 370 1150 400))
+(connect D8:0 D7:0
+(points 2 700 320 700 355))
+(connect I1:1 D7:1
+(points 4 353 314 370 314 370 360 646 360))
+(connect D8:1 D7:2
+(points 6 815 310 840 310 840 410 630 410 630 380 646 380))
+(connect D10:1 D8:1
+(points 8 1016 210 1040 210 1040 250 870 250 870 270 580 270 580 310 585 310))
+(connect D10:1 D9:1
+(points 6 1016 210 1040 210 1040 250 870 250 870 310 892 310))
+(connect D7:1 D9:2
+(points 4 754 370 850 370 850 330 892 330))
+(connect D3:1 D10:1
+(points 4 756 210 780 210 780 200 844 200))
+(connect D1:1 D10:2
+(points 6 541 210 560 210 560 160 790 160 790 220 844 220)))
+(stackingOrder 3 0 10 8 7 4 2 9 6 1 5))))
+(context 3
+(properties
+(name "errorReport")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "errorInfo()")
+(expr 4 "errInfo = errorInfo();" "msg = errInfo.message;" "more = errInfo.more;"
+""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "errInfo")
+(optional yes))
+(output 3
+(name "msg")
+(optional yes))
+(output 4
+(name "more")
+(optional yes))))
+(device 1 MESSAGEBOX
+(properties
+(popupTitle "error Report")
+(position 198 200)
+(message "User Message")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 4 MESSAGEBOX
+(properties
+(popupTitle "error Report")
+(position 275 570)
+(message "User Message")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(configuration
+(connect D0:3 D1:1)
+(connect D1:0 D2:0)
+(connect D0:4 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 677 462)
+(anchorPt 3 -28)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 59 0))
+(open
+(extent 179 88))
+(terminals on)
+(pinCenter 140 150))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 490 160))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 490 350))
+(connect D0:3 D1:1
+(points 2 282 160 308 160))
+(connect D1:0 D2:0
+(points 2 470 225 470 266))
+(connect D0:4 D2:1
+(points 4 282 180 290 180 290 350 308 350)))
+(stackingOrder 2 1 0))))
+(context 10
+(properties
+(name "getRecords")
+(trigMode deg)
+(nextID 20)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "recDef")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "get database field value ")
+(expr 2 "resultsRS(field)" ""))
+(interface
+(input 1
+(name "field")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "get a VEE record field name")
+(expr 1 "A[B]"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORCOUNT
+(properties
+(count 6))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 6 FORMULA
+(properties
+(name "totSize(A)")
+(expr 1 "totSize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TOGLOBAL
+(properties
+(name "Set tempRec")
+(globalName "tempRec"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 10 FORMULA
+(properties
+(name "build Formula to set VEE record Field")
+(expr 1 "\"tempRec.\"+A+\"=A\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(expr 1 "tempRec.passfail=A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 FROMGLOBAL
+(properties
+(name "Get tempRec")
+(globalName "tempRec"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 13 FORMULA
+(properties
+(name "Position recordSet at first record")
+(expr 1 "resultsRS.MoveFirst()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 IFTHENELSE
+(properties
+(name "If Access97 RecodSet not at End Of File")
+(cases 1 " NOT resultsRS.EOF"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 15 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 16 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 17 EXITCONTEXT)
+(device 18 FORMULA
+(properties
+(name "Position Access97 recordSet at  next  record")
+(expr 1 "resultsRS.MoveNext()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 NOTE
+(properties
+(text2 11 "getRecords requires an Access97 RecordSet named resultsRS"
+"to be defined before this UF is called. " ""
+"The input A must be a scalar record with fields of the same "
+"name that exist in \'resultsRS\'. The Access97 record pointer is  "
+"positioned at  the top record, (MoveFirst) then each field"
+"is extracted by \'resultsRS(A)\' and stored in the tempRec."
+"For each extracted record, tempRec is added to the \'collector\'"
+"to build an array of records mirroring the Access97 table."
+"When the Access97 (DAO3.5) table is at End Of File (EOF),"
+"the collector is fired and outputs its Vee Record array.")))
+(configuration
+(connect I1:1 D0:1)
+(connect D6:0 D1:0)
+(connect D2:1 D1:1)
+(connect D3:1 D2:1)
+(connect D0:1 D2:2)
+(connect D10:1 D3:0)
+(connect D4:1 D3:1)
+(connect D0:1 D4:1)
+(connect I1:1 D5:1)
+(connect D2:1 D6:1)
+(connect D1:0 D7:0)
+(connect D1:1 D7:1)
+(connect D6:1 D7:2)
+(connect D3:0 D8:0)
+(connect D5:0 D9:0)
+(connect D11:1 D10:0)
+(connect D9:0 D11:0)
+(connect D8:1 D12:1)
+(connect D10:2 D12:2)
+(connect D12:0 D13:0)
+(connect D8:0 D14:0)
+(connect D12:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1096 762)
+(anchorPt -124 -24)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 95 51)
+(iconImage "unbuild.icn"))
+(open
+(extent 17 90))
+(terminals on)
+(pinCenter 310 480))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 146 25))
+(open
+(extent 140 48))
+(terminals on)
+(pinCenter 925 490))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 123 42))
+(terminals on)
+(pinCenter 690 490))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 540 480))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 75 16))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 440 480))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 184 16))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 290 140))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 223 15))
+(open
+(extent 218 38))
+(terminals on)
+(pinCenter 840 380))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 218 42))
+(terminals on)
+(pinCenter 1040 390))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 550 580))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 192 0))
+(open
+(extent 252 32))
+(pinCenter 290 210))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 237 0))
+(open
+(extent 203 51))
+(terminals on)
+(pinCenter 345 380))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 290 280))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 670 610))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 670 670))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 264 0))
+(open
+(extent 220 31))
+(terminals on)
+(pinCenter 440 670))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 476 195)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 730 150))
+(connect I1:1 D0:1
+(points 4 124 404 130 404 130 480 260 480))
+(connect D6:0 D1:0
+(points 4 840 390 840 410 930 410 930 445))
+(connect D2:1 D1:1
+(points 2 776 490 812 490))
+(connect D3:1 D2:1
+(points 2 576 480 604 480))
+(connect D0:1 D2:2
+(points 6 360 480 380 480 380 430 590 430 590 500 604 500))
+(connect D10:1 D3:0
+(points 3 489 370 540 370 540 452))
+(connect D4:1 D3:1
+(points 2 480 480 503 480))
+(connect D0:1 D4:1
+(points 2 360 480 400 480))
+(connect I1:1 D5:1
+(points 4 124 404 140 404 140 140 195 140))
+(connect D2:1 D6:1
+(points 6 776 490 790 490 790 460 710 460 710 380 726 380))
+(connect D1:0 D7:0
+(points 6 930 516 930 540 1090 540 1090 360 1040 360 1040 375))
+(connect D1:1 D7:1
+(points 6 1047 480 1070 480 1070 430 990 430 990 380 1012 380))
+(connect D6:1 D7:2
+(points 4 954 380 970 380 970 400 1012 400))
+(connect D3:0 D8:0
+(points 4 540 508 540 530 550 530 550 570))
+(connect D5:0 D9:0
+(points 2 290 150 290 173))
+(connect D11:1 D10:0
+(points 3 326 280 350 280 350 334))
+(connect D9:0 D11:0
+(points 2 290 228 290 252))
+(connect D8:1 D12:1
+(points 4 592 580 610 580 610 600 641 600))
+(connect D10:2 D12:2
+(points 8 489 390 510 390 510 420 490 420 490 610 620 610 620 620 641 620))
+(connect D12:0 D13:0
+(points 2 670 625 670 660))
+(connect D8:0 D14:0
+(points 4 550 590 550 600 450 600 450 634))
+(connect D12:1 O1:1
+(points 4 699 610 1100 610 1100 404 1219 404)))
+(stackingOrder 3 4 0 2 6 12 13 8 14 1 7 15 10 11 9 5)))))
+(device 132 TOGLOBAL
+(properties
+(name "Set mdbFileSpec")
+(globalName "mdbFileSpec"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 133 FORMULA
+(properties
+(name "mdb FileSpec")
+(expr 1
+"installDir()+\"\\\\examples\\\\ActiveXAutomation\\\\Data\\\\testData.mdb\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 140 DECLVAR
+(properties
+(name "Declare mdb")
+(scope glob)
+(globalName "mdb"))
+(implementation
+(value Object
+(data  "COM OFF DAO.Database"))))
+(device 145 DECLVAR
+(properties
+(name "Declare resultsRS")
+(scope glob)
+(globalName "resultsRS"))
+(implementation
+(value Object
+(data  "COM OFF DAO.Recordset"))))
+(device 153 RECCONST
+(properties
+(name "Record array"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 3)
+(schema
+(numFields 6)
+(fieldName "Model"
+(type Text))
+(fieldName "SN"
+(type Int32))
+(fieldName "test1Results"
+(type Real64))
+(fieldName "test2Results"
+(type Real64))
+(fieldName "test3Results"
+(type Real64))
+(fieldName "passfail"
+(type Text)))
+(data 
+(record
+("Model" "XKL-100A")
+("SN" 1)
+("test1Results" 0.1)
+("test2Results" 1300)
+("test3Results" 5.02)
+("passfail" "No"))
+(record
+("Model" "XKL-100A")
+("SN" 2)
+("test1Results" 0.2)
+("test2Results" 1255)
+("test3Results" 2.4)
+("passfail" "No"))
+(record
+("Model" "XKL-100B")
+("SN" 1)
+("test1Results" 0.22)
+("test2Results" 1268)
+("test3Results" 6.002)
+("passfail" "No"))))))
+(device 168 FORMULA
+(properties
+(name "Set Database and RecordSet Objects")
+(expr 2 "Set mdb = createObject(\"DAO.DBEngine.36\").OpenDatabase(mdbFileSpec);"
+"Set resultsRS=mdb.OpenRecordSet(\"testResults\");"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 169 NOTE
+(properties
+(name "Notes on OpenDatabase() method")
+(text2 7 "1st parameter is filespec"
+"2nd param is sharing (optional) default is shared"
+"3rd param is read/write / read-only, default is read/write" ""
+"Select  OpenDatabase method under class DBEngine under "
+"type ActiveX in the Object Browser under Devices menu," "and press F1 for help"
+)))
+(device 170 FORMULA
+(properties
+(name "Execute SQL stmt  to remove all records from existing testResults Table")
+(expr 1 "mdb.Execute(\"DELETE * FROM testResults;\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 171 FORMULA
+(properties
+(name "Run stored Query that sets PassFail to True for all records")
+(expr 2 "mdb.Execute(\"Update PassFail True\");"
+"getRecords(veeTestRecArray[0])"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 172 FORMULA
+(properties
+(name
+"Run stored Query to update PassFail to False acc. to specifications table")
+(expr 2 "mdb.Execute(\"Update PassFail if Failed\");"
+"getRecords(veeTestRecArray[0])"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 173 FORMULA
+(properties
+(name "Close RecordSet and Database to allow other users exclusive acccess")
+(expr 2 "resultsRS.Close();" "mdb.Close()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 182 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 183 TOGLOBAL
+(properties
+(name "Set veeTestRecArray")
+(globalName "veeTestRecArray"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 184 FORMULA
+(properties
+(name "Store records in Access97 table")
+(expr 3 "addRecord(veeTestRecArray[0]);" "addRecord(veeTestRecArray[1]);"
+"addRecord(veeTestRecArray[2]);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 187 FORMULA
+(properties
+(name "getRecords(A)")
+(expr 1 "getRecords(veeTestRecArray[0])"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 188 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 190 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 193 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 195 NOTE
+(properties
+(text2 20
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs17 Requirements: DAO 3.6, Access\\par\r\n              File: Data\\\\testData.mdb\\par\r\n\\par\r\nThis program uses the DAO database\\par\r\nengine provided with Access to store \\par\r\ntest data in the VEE record array\\par\r\ninto the database file testData.mdb and\\par\r\nthen reads it back out.\\par\r\n\\par\r\nNotice the XKL-100B fails when we run\\par\r\nthe stored Query on the data. You can\\par\r\nopen the testData.mdb file and edit the\\par\r\ntable \"Specifications\" (increase spec3max \\par\r\nfrom 5 to 7)and re-run this program to \\par\r\nmake it pass.\\par\r\n\\par\r\nOr, look at the alphNumeric displays \\par\r\nat each stage and examine the last field \\par\r\nin each record PassFail which is either \\par\r\nyes or no.\\par\r\n}\r\n"
+"              File: Data\\testData.mdb" "" "This program uses the DAO database"
+"engine provided with Access97 to store " "test data in the VEE record array"
+"into the database file testData.mdb and" "then reads it back out." ""
+"Notice the XKL-100B fails when we run" "the stored Query on the data. You can"
+"open the testData.mdb file and edit the"
+"table \"Specifications\" (increase spec3max "
+"from 5 to 7)and re-run this program to " "make it pass." ""
+"Or, look at the alphNumeric displays "
+"at each stage and examine the last field "
+"in each record PassFail which is either " "yes or no.")))
+(configuration
+(connect D1:1 D0:1)
+(connect D7:0 D4:0)
+(connect D1:0 D5:0)
+(connect D5:0 D7:0)
+(connect D14:0 D8:0)
+(connect D8:0 D9:0)
+(connect D9:0 D10:0)
+(connect D14:1 D11:1)
+(connect D4:1 D12:1)
+(connect D4:0 D13:0)
+(connect D13:0 D14:0)
+(connect D9:1 D15:1)
+(connect D8:1 D16:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 879 688)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 857 283)
+(configuration
+(devCarrierFor 132
+(active icon)
+(icon
+(extent 121 14))
+(open
+(extent 181 44))
+(terminals on)
+(pinCenter -120 -190))
+(devCarrierFor 133
+(active icon)
+(icon
+(extent 111 14))
+(open
+(extent 368 50))
+(terminals on)
+(pinCenter -270 -190))
+(devCarrierFor 140
+(active icon)
+(icon
+(extent 78 21))
+(open
+(extent 388 126))
+(pinCenter -460 60))
+(devCarrierFor 145
+(active icon)
+(icon
+(extent 111 21))
+(open
+(extent 388 126))
+(pinCenter -450 20))
+(devCarrierFor 153
+(active icon)
+(icon
+(extent 91 16))
+(open
+(extent 225 278)
+(formatters))
+(pinCenter -270 50))
+(devCarrierFor 168
+(active open)
+(icon
+(extent 225 0))
+(open
+(extent 464 65))
+(pinCenter -270 -110))
+(devCarrierFor 169
+(active icon)
+(icon
+(extent 315 50)
+(iconImage "notepad.icn"))
+(open
+(extent 493 145)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter -690 150))
+(devCarrierFor 170
+(active open)
+(icon
+(extent 495 0))
+(open
+(extent 464 50))
+(pinCenter -270 -20))
+(devCarrierFor 171
+(active open)
+(icon
+(extent 348 0))
+(open
+(extent 445 65))
+(pinCenter -380 390))
+(devCarrierFor 172
+(active open)
+(icon
+(extent 435 0))
+(open
+(extent 444 65))
+(pinCenter -380 500))
+(devCarrierFor 173
+(active open)
+(icon
+(extent 426 0))
+(open
+(extent 447 65))
+(pinCenter -380 610))
+(devCarrierFor 182
+(active open)
+(icon)
+(open
+(extent 273 126))
+(pinCenter 10 220))
+(devCarrierFor 183
+(active icon)
+(icon
+(extent 152 20))
+(open
+(extent 119 49))
+(terminals on)
+(pinCenter -90 50))
+(devCarrierFor 184
+(active open)
+(icon
+(extent 191 0))
+(open
+(extent 214 80))
+(pinCenter -380 160))
+(devCarrierFor 187
+(active open)
+(icon
+(extent 86 0))
+(open
+(extent 444 50))
+(pinCenter -380 280))
+(devCarrierFor 188
+(active open)
+(icon)
+(open
+(extent 275 129))
+(pinCenter 10 540))
+(devCarrierFor 190
+(active open)
+(icon)
+(open
+(extent 273 127))
+(pinCenter 10 380))
+(devCarrierFor 193
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter -320 -250))
+(devCarrierFor 195
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 317 347)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter -690 -80))
+(connect D1:1 D0:1
+(points 2 -212 -190 -183 -190))
+(connect D7:0 D4:0
+(points 2 -270 7 -270 39))
+(connect D1:0 D5:0
+(points 2 -270 -181 -270 -163))
+(connect D5:0 D7:0
+(points 2 -270 -75 -270 -66))
+(connect D14:0 D8:0
+(points 2 -380 307 -380 337))
+(connect D8:0 D9:0
+(points 2 -380 425 -380 447))
+(connect D9:0 D10:0
+(points 2 -380 535 -380 557))
+(connect D14:1 D11:1
+(points 4 -156 280 -150 280 -150 220 -129 220))
+(connect D4:1 D12:1
+(points 2 -222 50 -169 50))
+(connect D4:0 D13:0
+(points 4 -270 60 -270 80 -380 80 -380 99))
+(connect D13:0 D14:0
+(points 2 -380 202 -380 234))
+(connect D9:1 D15:1
+(points 4 -156 500 -150 500 -150 540 -130 540))
+(connect D8:1 D16:1
+(points 4 -155 390 -140 390 -140 380 -129 380)))
+(stackingOrder 5 7 2 3 8 9 10 6 13 14 11 18 17 16 15 12 4 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

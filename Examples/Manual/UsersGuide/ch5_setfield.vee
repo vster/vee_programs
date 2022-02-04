@@ -1,0 +1,223 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:05 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Test1"))
+(initValue Text
+(data  ""))))
+(device 1 FORMULA
+(properties
+(name "now()")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 2.2 3.3 4.4 5.5 ]))
+(initValue Real
+(data  0))))
+(device 3 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "testname")
+(optional yes))
+(input 2
+(name "time")
+(optional yes))
+(input 3
+(name "data")
+(optional yes))
+(output 1
+(name "Record"))))
+(device 10 FORMULA
+(properties
+(name "rec.field = b")
+(expr 1 "rec.data[*]=b"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "b")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 11 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 1 2 3 4 ]))
+(initValue Real
+(data  0))))
+(device 12 FORMULA
+(properties
+(name "rec.field")
+(expr 1 "rec.data"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 14 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D3:1)
+(connect D1:1 D3:2)
+(connect D2:1 D3:3)
+(connect D3:1 D4:1)
+(connect D5:1 D4:2)
+(connect D4:1 D6:1)
+(connect D6:1 D7:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 636 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt -412 -95)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 174 29))
+(pinCenter 490 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 490 200))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 117 74)
+(showFormat real))
+(pinCenter 490 240))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 51)
+(iconImage "build.icn"))
+(open
+(extent 97 62))
+(terminals on)
+(pinCenter 610 200))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 125 37))
+(terminals on)
+(pinCenter 790 210))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 112 84)
+(showFormat real))
+(pinCenter 600 330))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 74 31))
+(terminals on)
+(pinCenter 800 310))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 121 117))
+(pinCenter 990 310))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 600 420))
+(connect D0:1 D3:1
+(points 4 533 160 550 160 550 190 568 190))
+(connect D1:1 D3:2
+(points 2 510 200 568 200))
+(connect D2:1 D3:3
+(points 4 514 240 530 240 530 210 568 210))
+(connect D3:1 D4:1
+(points 2 651 200 695 200))
+(connect D5:1 D4:2
+(points 4 658 330 680 330 680 220 695 220))
+(connect D4:1 D6:1
+(points 6 885 210 910 210 910 250 710 250 710 310 730 310))
+(connect D6:1 D7:1
+(points 2 889 310 927 310)))
+(stackingOrder 1 0 2 3 4 5 6 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

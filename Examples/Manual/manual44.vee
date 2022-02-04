@@ -1,0 +1,672 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:16:33 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Sequencer Logging 1")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 0
+(properties
+(name "myRand1")
+(trigMode deg)
+(nextID 2))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 RANDOMNUMBER
+(properties
+(lowerLimit 0)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 470 180)
+(anchorPt 191 77)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 157 58))
+(terminals on)
+(pinCenter -20 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 200 33))
+(connect D0:1 D1:1
+(points 4 131 0 160 0 160 23 174 23))
+(connect I1:1 D1:2
+(points 6 -191 10 -180 10 -180 53 160 53 160 43 174 43))
+(connect D1:1 O1:1
+(points 4 225 33 240 33 240 10 278 10)))
+(stackingOrder 0 1))))
+(context 1
+(properties
+(name "myRand2")
+(trigMode deg)
+(nextID 2))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 RANDOMNUMBER
+(properties
+(lowerLimit 0)
+(upperLimit 100))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 468 180)
+(anchorPt 185 80)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 157 58))
+(terminals on)
+(pinCenter -20 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 215 10))
+(connect D0:1 D1:1
+(points 2 131 0 189 0))
+(connect I1:1 D1:2
+(points 6 -185 7 -175 7 -175 50 165 50 165 20 189 20))
+(connect D1:1 O1:1
+(points 4 240 10 255 10 255 7 282 7)))
+(stackingOrder 1 0)))))
+(device 0 SEQUENCER
+(properties
+(transactions 2 "test1 LOGEN TESTEX:myRand1(1) \tRANGEEX: 1 LE 1.25 LE 1.5 \t"
+"test2 LOGEN TESTEX:myRand2(1) \tRANGEEX: 1 LE 26 LE 51 \t"))
+(interface
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logfields "name" "pass" "result")))
+(device 1 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 2 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "mean(x)")
+(expr 1 "mean(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Mean Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "sdev(x)")
+(expr 1 "sdev(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Std Dev"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 FORMULA
+(properties
+(expr 1 "log[*].test1.result"))
+(interface
+(input 1
+(name "log")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TEXTDISPLAY
+(properties
+(name "Min Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 9 FORMULA
+(properties
+(name "min(x)")
+(expr 1 "min(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Max Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 FORMULA
+(properties
+(name "max(x)")
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 17 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." "")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 29
+"PURPOSE: Shows how to collect output from the Sequencer Log output terminal,"
+"    and then analyze the test results." ""
+"USER INPUT REQUIRED: Press \"Run\"." "" "EXPLANATION:"
+"\tThe Sequencer object can be used to control the order of calling of a"
+"    series of tests.  The Sequencer object executes a series of sequence"
+"    transactions.  Each of these transactions evaluates an VEE expression,"
+"    which may contain calls to User Functions, Compiled Functions, Remote"
+"    Functions, or other VEE functions.  After evaluating the VEE expression,"
+"    the transaction compares the value returned by that expression against"
+"    a test specification.  Depending on whether the test passes or fails,"
+"    the transaction then evaluates different expressions and selects the next "
+"\ttransaction to be executed." ""
+"\tThis example contains two User Functions, myRand1, which adds a random"
+"    number from 0 to 1 to the value of its input, and myRand2, which adds"
+"    a random number from 0 to 100 to its input.  The first Sequencer"
+"    transaction calls myRand1 with the value of 1.  It tests the result"
+"    to see if it is in the range 1 <= .. <= 1.5. If the result is in the"
+"    range, the test passes.  The transaction has logging enabled, so the"
+"    results of the test will be output to the Log output terminal.  It "
+"\tthen continues to the next transaction.  The second transaction calls"
+"    myRand2 with the value of 1, and tests the result to see if it is in"
+"    the range of 1 through 51.  Again it logs and continues.  The Sequencer"
+"    is called 10 times.  The Log output is collected in an array by a"
+"    Collector object.  Then some math functions are applied to the results"
+"    of the first test.  ")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 4 32)))
+(contextCarrier
+(active detail)
+(panel
+(extent 829 519)
+(widget 0 detail
+(relativeOrigin 4 3)
+(title off)
+(borderStyle flat)
+(extent 816 465)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 378 473)
+(title off)
+(borderStyle flat)
+(extent 66 39)))
+(detail
+(extent 866 520)
+(anchorPt 433 270)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 70)))
+(stackingOrder 1 0))))
+(device 3 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 5 "If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 912 591)
+(anchorPt 256 245)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 829 519)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 190 60))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 140 0))
+(connect D1:0 D0:1
+(points 5 190 75 190 90 -80 90 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 165 -10 190 -10 190 45))
+(connect D0:1 D2:1
+(points 2 59 0 114 0)))
+(stackingOrder 0 2 1))))
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D2:1 D0:0)
+(connect D0:2 D1:1)
+(connect D2:0 D1:2)
+(connect D7:1 D3:1)
+(connect D3:1 D4:1)
+(connect D7:1 D5:1)
+(connect D5:1 D6:1)
+(connect D1:1 D7:1)
+(connect D9:1 D8:1)
+(connect D7:1 D9:1)
+(connect D11:1 D10:1)
+(connect D7:1 D11:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 940 534)
+(anchorPt 268 228)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 308 105))
+(terminals on)
+(pinCenter -10 -10))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter -110 90))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open
+(extent 160 34))
+(pinCenter -160 -130))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 220 340))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 184 37))
+(pinCenter 370 340))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 220 420))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 180 37))
+(pinCenter 370 420))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 178 60))
+(terminals on)
+(pinCenter 0 180))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 184 37))
+(pinCenter 370 180))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 220 180))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 184 37))
+(pinCenter 370 260))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 220 260))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 460 -100))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 450 10))
+(connect D2:1 D0:0
+(points 3 -78 -130 0 -130 0 -83))
+(connect D0:2 D1:1
+(points 6 196 20 220 20 220 70 -180 70 -180 80 -168 80))
+(connect D2:0 D1:2
+(points 5 -160 -111 -160 -90 -220 -90 -220 100 -168 100))
+(connect D7:1 D3:1
+(points 4 141 180 160 180 160 340 178 340))
+(connect D3:1 D4:1
+(points 2 261 340 275 340))
+(connect D7:1 D5:1
+(points 4 141 180 160 180 160 420 178 420))
+(connect D5:1 D6:1
+(points 2 261 420 277 420))
+(connect D1:1 D7:1
+(points 6 -53 90 -40 90 -40 120 -140 120 -140 180 -122 180))
+(connect D9:1 D8:1
+(points 2 261 180 275 180))
+(connect D7:1 D9:1
+(points 2 141 180 178 180))
+(connect D11:1 D10:1
+(points 2 261 260 275 260))
+(connect D7:1 D11:1
+(points 4 141 180 160 180 160 260 178 260)))
+(stackingOrder 2 9 11 3 4 6 5 8 10 12 1 7 0 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

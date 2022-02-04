@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE36xx.vee">
+		<Description>Set up a voltage sweep, record currents, save to Excel file</Description>
+		<LogicalInstrument name="e36xx">
+			<SupportedInstruments>
+				<Instrument idn="age3631a"/>
+				<Instrument idn="age3632a"/>
+				<Instrument idn="age3633a"/>
+				<Instrument idn="age3634a"/>
+				<Instrument idn="age3640a"/>
+				<Instrument idn="age3641a"/>
+				<Instrument idn="age3642a"/>
+				<Instrument idn="age3643a"/>
+				<Instrument idn="age3644a"/>
+				<Instrument idn="age3645a"/>
+				<Instrument idn="age3646a"/>
+				<Instrument idn="age3647a"/>
+				<Instrument idn="age3648a"/>
+				<Instrument idn="age3649a"/>
+				<Instrument idn="hpe3631a"/>
+				<Instrument idn="hpe3632a"/>
+				<Instrument idn="hpe3633a"/>
+				<Instrument idn="hpe3634a"/>
+				<Instrument idn="hpe3640a"/>
+				<Instrument idn="hpe3641a"/>
+				<Instrument idn="hpe3642a"/>
+				<Instrument idn="hpe3643a"/>
+				<Instrument idn="hpe3644a"/>
+				<Instrument idn="hpe3645a"/>
+				<Instrument idn="hpe3646a"/>
+				<Instrument idn="hpe3647a"/>
+				<Instrument idn="hpe3648a"/>
+				<Instrument idn="hpe3649a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

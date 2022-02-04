@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE82xx.vee">
+		<Description>Set up the frequency, amplitude, and FM</Description>
+		<LogicalInstrument name="E82xx">
+			<SupportedInstruments>
+				<Instrument idn="agE8241A"/>
+				<Instrument idn="agE8244A"/>
+				<Instrument idn="agE8251A"/>
+				<Instrument idn="agE8254A"/>
+				<Instrument idn="ag E8241A"/>
+				<Instrument idn="ag E8244A"/>
+				<Instrument idn="ag E8251A"/>
+				<Instrument idn="ag E8254A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>
+
+

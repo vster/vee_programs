@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN4901b.vee">
+		<Description>Auto align and perform BER reading</Description>
+		<LogicalInstrument name="AGN4901B">
+			<SupportedInstruments>
+				<Instrument idn="AGN4901B"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

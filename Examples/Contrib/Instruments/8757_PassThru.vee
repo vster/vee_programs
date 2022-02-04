@@ -1,0 +1,244 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 08:55:25 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "passThru"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 10)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 27)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "newInstrument ( @ 716 on comptest1e2050a)")
+(transactions 3 "WRITE TEXT \"OI\" EOL" "READ TEXT id STR"
+"/NOP/ WRITE TEXT \"OS\" EOL"))
+(interface
+(output 1
+(name "id")
+(optional yes)))
+(implementation
+(iopath "newInstrument")))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 IODEVICE
+(properties
+(name "newInstrument ( @ 716 on comptest1e2050a)")
+(transactions 1 "WRITE TEXT \"PT19\" EOL"))
+(implementation
+(iopath "newInstrument")))
+(device 6 IODEVICE
+(properties
+(name "passThru ( @ 717 on comptest1e2050a)")
+(transactions 7 "WRITE TEXT \"OI\"" "READ TEXT who_am_i STR"
+"WRITE TEXT \"FA3GZ FB4GZ\" EOL" "WRITE TEXT \"OPFA\"" "READ TEXT star_freq STR"
+"WRITE TEXT \"OPFB\"" "READ TEXT stop_freq STR"))
+(interface
+(output 1
+(name "who_am_i")
+(optional yes))
+(output 2
+(name "star_freq")
+(optional yes))
+(output 3
+(name "stop_freq")
+(optional yes)))
+(implementation
+(iopath "passThru")))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 9 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(text2 4 "Things of Interest to GPIB @ 716!"
+"A SemiColon in the 716 \"OI\" statement " "consistently locked the system." "")
+))
+(device 16 NOTE
+(properties
+(text2 5
+"Things of Interest to GPIB @ 717 (PassThru)! I HAD TO FORCE EOL to OFF for ALL QUERYS to the 83752 in 8350 emulation mode,  i.e. contrast the"
+"write line for setting frequency : WRITE TEXT\"FA3GZ FB4GZ\" EOL as compared to the start/stop QUERIES : WRITE TEXT \"OPFA\" or WRITE TEXT \"OPFB\""
+"THESE DO NOT have EOL assesed. On the PT device if EOL was asserted on a query then system LOCKUP resulted."
+"consistently locked the system." "")))
+(device 25 START25)
+(device 26 NOTE
+(properties
+(name "ABOUT : 8757_PassThru.vee")
+(text2 7 "Keysight Vee example for the 8757 Scalar Network Analyzer and "
+"compatible signal source. The program outlines a method for"
+"using the PassThru mode to access and communicate with the "
+"signal source connected to the analyzers \"8757 System Interconnect\""
+"GPIB buss. This is a dedicated GPIB for controlling the source"
+"directly from the 8757 scalar analyzer. " "")))
+(configuration
+(connect D9:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D3:3 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 920 501)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -79 -80)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 253 74))
+(terminals on)
+(pinCenter 260 180))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 235 37))
+(pinCenter 590 160))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 57))
+(terminals on)
+(pinCenter 260 280))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 235 157))
+(terminals on)
+(pinCenter 240 420))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 395 37))
+(pinCenter 670 370))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 395 37))
+(pinCenter 670 440))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 395 37))
+(pinCenter 670 520))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 275 96)
+(editing enabled))
+(font "Comic Sans MS" 14)
+(titleFont "Comic Sans MS" 12)
+(pinCenter 610 260))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 1085 76)
+(editing enabled))
+(font "Comic Sans MS" 14)
+(titleFont "Comic Sans MS" 12)
+(pinCenter 630 620))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 260 100))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 176 51)
+(iconImage "notepad.icn"))
+(open
+(extent 565 167)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Light Teal")
+(pinCenter 830 140))
+(connect D9:0 D0:0
+(points 2 260 113 260 122))
+(connect D0:1 D1:1
+(points 4 419 180 440 180 440 160 470 160))
+(connect D0:0 D2:0
+(points 2 260 219 260 231))
+(connect D2:0 D3:0
+(points 2 260 311 260 321))
+(connect D3:1 D4:1
+(points 2 430 370 470 370))
+(connect D3:2 D5:1
+(points 4 430 420 450 420 450 440 470 440))
+(connect D3:3 D6:1
+(points 4 430 470 450 470 450 520 470 520)))
+(stackingOrder 3 1 7 4 5 6 2 0 8 9 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

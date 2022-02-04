@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag661xc-Ag663xb.vee">
+		<Description>Programs output, measure output condition, and calculate output power</Description>
+		<LogicalInstrument name="PowerSupply">
+			<SupportedInstruments>
+				<Instrument idn="hp6611B"/>
+				<Instrument idn="hp6612B"/>
+				<Instrument idn="hp6613B"/>
+				<Instrument idn="hp6614B"/>
+				<Instrument idn="ag6611B"/>
+				<Instrument idn="ag6612B"/>
+				<Instrument idn="ag6613B"/>
+				<Instrument idn="ag6614B"/>
+				<Instrument idn="ag6611C"/>
+				<Instrument idn="ag6612C"/>
+				<Instrument idn="ag6613C"/>
+				<Instrument idn="ag6614C"/>
+				<Instrument idn="hp6631B"/>
+				<Instrument idn="hp6632B"/>
+				<Instrument idn="hp6633B"/>
+				<Instrument idn="hp6634B"/>
+				<Instrument idn="ag6631B"/>
+				<Instrument idn="ag6632B"/>
+				<Instrument idn="ag6633B"/>
+				<Instrument idn="ag6634B"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

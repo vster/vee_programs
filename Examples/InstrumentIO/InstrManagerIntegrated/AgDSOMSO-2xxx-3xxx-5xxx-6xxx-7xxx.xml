@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgDSOMSO-2xxx-3xxx-5xxx-6xxx-7xxx.vee">
+		<Description>Retrieve analog data from an Keysight DSO or MSO oscilloscope and display it in VEE data display objects.</Description>
+		<LogicalInstrument name="Oscilloscope">
+			<SupportedInstruments>
+				<Instrument idn="agdso6032A"/>
+				<Instrument idn="agdso6034A"/>
+				<Instrument idn="agmso6032A"/>
+				<Instrument idn="agmso6034A"/>
+				<Instrument idn="agmso6102A"/>
+
+				<Instrument idn="agdso5012A"/>
+				<Instrument idn="agdso5014A"/>
+				<Instrument idn="agdso5032A"/>
+				<Instrument idn="agdso5034A"/>
+				<Instrument idn="agdso5052A"/>
+				<Instrument idn="agdso5054A"/>
+
+				<Instrument idn="agdso7012A"/>
+				<Instrument idn="agdso7014A"/>
+				<Instrument idn="agmso7012A"/>
+				<Instrument idn="agmso7014A"/>
+				<Instrument idn="agdso7032A"/>
+				<Instrument idn="agdso7034A"/>
+				<Instrument idn="agmso7032A"/>
+				<Instrument idn="agmso7034A"/>
+				<Instrument idn="agdso7052A"/>
+				<Instrument idn="agdso7054A"/>
+				<Instrument idn="agmso7052A"/>
+				<Instrument idn="agmso7054A"/>
+				<Instrument idn="agdso7104A"/>
+				<Instrument idn="agmso7104A"/>
+
+				<Instrument idn="agdso-x 2002A"/>
+				<Instrument idn="agmso-x 2002A"/>
+				<Instrument idn="agdso-x 2004A"/>
+				<Instrument idn="agmso-x 2004A"/>
+				<Instrument idn="agdso-x 2012A"/>
+				<Instrument idn="agmso-x 2012A"/>
+				<Instrument idn="agdso-x 2014A"/>
+				<Instrument idn="agmso-x 2014A"/>
+				<Instrument idn="agdso-x 2022A"/>
+				<Instrument idn="agmso-x 2022A"/>
+				<Instrument idn="agdso-x 2024A"/>
+				<Instrument idn="agmso-x 2024A"/>
+
+				<Instrument idn="agdso-x 3024A"/>
+				<Instrument idn="agdso-x 3012A"/>
+				<Instrument idn="agmso-x 3012A"/>
+				<Instrument idn="agdso-x 3014A"/>
+				<Instrument idn="agmso-x 3014A"/>
+				<Instrument idn="agmso-x 3024A"/>
+				<Instrument idn="agdso-x 3032A"/>
+				<Instrument idn="agmso-x 3032A"/>
+				<Instrument idn="agdso-x 3034A"/>
+				<Instrument idn="agmso-x 3034A"/>
+				<Instrument idn="agdso-x 3052A"/>
+				<Instrument idn="agmso-x 3052A"/>	
+				<Instrument idn="agdso-x 3054A"/>
+			        <Instrument idn="agmso-x 3054A"/>		
+
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

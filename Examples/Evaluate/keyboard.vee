@@ -1,0 +1,345 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:19:46 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.6 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 22)
+(popupTitleText "KEYBOARD.VEE")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 ENUMCONSTANT
+(properties
+(name "List")
+(waitForEvent 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 2"))
+(initValue Text
+(data  "Item 1"))))
+(device 1 TEXTDISPLAY
+(properties
+(name "List Choice"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TOGGLE25
+(properties
+(name "H. Paddle")
+(waitForEvent 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Toggle Choice"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 CONFIRM25
+(properties
+(name "F1: Show Picture ")
+(isAssigned2FKey F1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 6 CONTEXT
+(properties
+(name "ShowPic")
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 311 209)))
+(contextCarrier
+(wndOrigin 2 647)
+(wndRestoredOrigin 55 342)
+(wndRestoredExtent 246 236)
+(wndState min)
+(active panel)
+(panel
+(extent 246 236)
+(pictureMode scaled)
+(pictureImage "default.gif")
+(widget 0 detail
+(relativeOrigin 10 140)
+(title off)
+(borderStyle none)
+(extent 56 24)))
+(detail
+(extent 350 300)
+(anchorPt 175 270)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 56 24))
+(title off)
+(pinCenter 0 0))))))
+(device 8 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 11 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 12 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 15 NOTE
+(properties
+(text2 4 "Control this program from the keyboard. Press CTRL+G"
+"to run the program. Press Tab to move between controls."
+"Press the space bar to make selections.  Use arrow keys"
+"to move up or down in a menu. ")))
+(device 19 EXITPROCESS
+(properties
+(code 0)))
+(device 20 CONFIRM25
+(properties
+(name "STOP")
+(enterButton 0)
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 21 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D6:1 D0:0)
+(connect D0:1 D1:1)
+(connect D7:1 D2:0)
+(connect D2:1 D3:1)
+(connect D8:1 D4:0)
+(connect D4:1 D5:0)
+(connect D11:1 D10:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 603 468)
+(gridSize 2)
+(widget 2 detail
+(relativeOrigin 40 194)
+(title off)
+(borderStyle convex)
+(extent 126 46)
+(scaled on)
+(showTitle off)
+(format hpaddle))
+(widget 0 detail
+(relativeOrigin 42 108)
+(title on)
+(borderStyle convex)
+(extent 126 56)
+(format scrollList))
+(widget 9 detail
+(relativeOrigin 42 8)
+(title off)
+(borderStyle flat)
+(extent 466 82)
+(editing disabled))
+(widget 3 detail
+(relativeOrigin 300 186)
+(title on)
+(titleFont "helvetica" 20 bold)
+(borderStyle convex)
+(extent 208 34)
+(scFont "helvetica" 20 bold))
+(widget 1 detail
+(relativeOrigin 300 110)
+(title on)
+(titleFont "helvetica" 20 bold)
+(borderStyle convex)
+(extent 208 34)
+(scFont "helvetica" 20 bold))
+(widget 11 detail
+(relativeOrigin 94 398)
+(font "Arial" 18 bold)
+(title off)
+(borderStyle none)
+(extent 68 28))
+(widget 4 detail
+(relativeOrigin 40 296)
+(font "helvetica" 22 bold)
+(title off)
+(borderStyle convex)
+(extent 186 90)))
+(detail
+(extent 635 523)
+(anchorPt 209 136)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 91 57)
+(format scrollList))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 145 25))
+(pinCenter 160 0))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 72 45)
+(scaled on)
+(showTitle on)
+(format hpaddle))
+(title off)
+(pinCenter -10 70))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 148 25))
+(pinCenter 160 80))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 134 0))
+(open
+(extent 148 55))
+(title off)
+(pinCenter -50 200))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 199 226)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 180 260))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 84 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -140 -40))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 84 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -140 50))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 84 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -140 130))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 50)
+(iconImage "notepad.icn"))
+(open
+(extent 228 59)
+(editing enabled))
+(pinCenter -70 290))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 72 32))
+(pinCenter 350 300))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 41 0))
+(open
+(extent 56 23))
+(title off)
+(pinCenter 350 220))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter 220 -90))
+(connect D6:1 D0:0
+(points 5 -96 -40 -80 -40 -80 -70 0 -70 0 -49))
+(connect D0:1 D1:1
+(points 4 48 -20 70 -20 70 0 85 0))
+(connect D7:1 D2:0
+(points 5 -96 50 -80 50 -80 40 -10 40 -10 45))
+(connect D2:1 D3:1
+(points 4 28 70 50 70 50 80 83 80))
+(connect D8:1 D4:0
+(points 3 -96 130 -50 130 -50 170))
+(connect D4:1 D5:0
+(points 7 26 200 40 200 40 160 30 160 30 120 180 120 180 126))
+(connect D11:1 D10:0
+(points 5 380 220 390 220 390 240 350 240 350 263)))
+(stackingOrder 6 0 1 7 3 8 4 2 10 9 11 5 12))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

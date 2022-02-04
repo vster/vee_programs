@@ -1,0 +1,156 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:11:26 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 17)
+(popupTitleText "Branching with If/Then/Else")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 1 ".5<=A AND A<.6"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 7 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Try again."))
+(initValue Text
+(data  ""))))
+(device 11 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 NOTE
+(properties
+(name "Information")
+(text2 5 "This example shows how to use the If/Then/Else "
+"object to branch within a VEE program.  "
+"For further information, see the \"VEE Help\" topic,"
+"\"To Branch within a VEE Program\"." "")))
+(device 15 FORMULA
+(properties
+(name "Random Number")
+(expr 1 "random(0, 1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D5:1 D0:1)
+(connect D0:1 D1:0)
+(connect D5:1 D1:1)
+(connect D0:2 D3:0)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndOrigin 2 -3)
+(wndState res)
+(active detail)
+(detail
+(extent 918 447)
+(anchorPt 445 280)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 135 69))
+(terminals on)
+(pinCenter -5 0))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 144 28))
+(pinCenter 270 -20))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 192 28))
+(pinCenter 0 90))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 146 25))
+(pinCenter 270 90))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 508 105)
+(editing disabled))
+(title off)
+(pinCenter -170 -210))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 145 21))
+(open
+(extent 147 42))
+(terminals on)
+(pinCenter -260 0))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 280 -230))
+(connect D5:1 D0:1
+(points 2 -185 0 -105 0))
+(connect D0:1 D1:0
+(points 5 105 -20 130 -20 130 -70 270 -70 270 -55))
+(connect D5:1 D1:1
+(points 6 -185 0 -160 0 -160 -80 140 -80 140 -20 195 -20))
+(connect D0:2 D3:0
+(points 3 105 20 270 20 270 57))
+(connect D2:1 D3:1
+(points 2 98 90 194 90)))
+(stackingOrder 0 5 1 2 3 4 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

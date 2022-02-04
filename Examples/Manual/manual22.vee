@@ -1,0 +1,179 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:14:33 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dmm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp34401a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Using a Component Driver")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 FORCOUNT
+(properties
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 DELAY
+(properties
+(delay 3))
+(interface
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 4 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 6 HPIDINCR
+(properties
+(name "dmm ( @ (NOT LIVE))"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "hp34401a.cid")
+(driver "dmm")))
+(device 8 NOTE
+(properties
+(name "Information")
+(text2 5 "This example shows how to use a component driver"
+"object to take readings from a digital multimeter."
+"For further information, see the \"VEE Help\""
+"topic \"To Use an Component Driver Object\"." "")))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D1:1 D2:0)
+(connect D4:1 D3:1)
+(connect D1:0 D3:2)
+(connect D2:1 D4:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 447)
+(anchorPt 752 302)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 158 126))
+(pinCenter 0 0))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 119 33))
+(pinCenter -680 -140))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 89 32))
+(pinCenter -570 -70))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 61 25))
+(open
+(extent 124 77))
+(terminals on)
+(pinCenter -235 20))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 130 57)
+(iconImage "io.icn"))
+(open
+(extent 198 30))
+(terminals on)
+(pinCenter -530 0))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 486 110)
+(editing disabled))
+(title off)
+(pinCenter -130 -220))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -550 -240))
+(connect D3:1 D0:1
+(points 4 -131 20 -100 20 -100 0 -82 0))
+(connect D1:1 D2:0
+(points 3 -618 -140 -570 -140 -570 -107))
+(connect D4:1 D3:1
+(points 2 -359 0 -340 0))
+(connect D1:0 D3:2
+(points 3 -680 -121 -680 40 -340 40))
+(connect D2:1 D4:0
+(points 3 -523 -70 -510 -70 -510 -36)))
+(stackingOrder 2 1 3 0 5 6 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,128 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:14:55 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Using Display Markers")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 4 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 100)
+(amplitude 0.5)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 5 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 7 NOTE
+(properties
+(name "Information")
+(text2 5 "This program displays a sine wave with two"
+"markers set in the XY Trace object. For"
+"further information, see the \"VEE Help\""
+"topic \"To Set Markers in the Display\"." "")))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 522)
+(anchorPt 210 317)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 204 182))
+(terminals on)
+(pinCenter -5 0))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 296 325)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 0))
+(pinCenter 340 20))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 428 118)
+(editing disabled))
+(title off)
+(pinCenter 40 -240))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 450 -240))
+(connect D0:1 D1:1
+(points 4 139 0 160 0 160 20 189 20)))
+(stackingOrder 0 1 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

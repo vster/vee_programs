@@ -1,0 +1,534 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:32:38 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hp4338a"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp4338a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "TRIG EXT State Driver sample")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 START25)
+(device 8 HPIDINCR
+(properties
+(name "hp4338a ( @ (NOT LIVE))"))
+(interface
+(output 1
+(name "PRIMARY_DATA")
+(tag "PRIMARY_DATA")
+(optional yes))
+(output 2
+(name "STAT_OP_EVR")
+(tag "STAT_OP_EVR")
+(optional yes)))
+(implementation
+(filename "hp4338a.cid")
+(driver "hp4338a")))
+(device 9 WAITSRQ
+(properties
+(name "SRQ: GPIB7"))
+(interface
+(output 1
+(name "event")
+(lock name constraints)))
+(implementation
+(gateway "This host")
+(channel 7)
+(busType 1)
+(sense "wait")
+(event "srq")
+(timeout 5)))
+(device 10 SERIALPOLL
+(properties
+(name "Spoll: hp4338a ( @ (NOT LIVE))")
+(iopath "hp4338a")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 13 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 14 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 15 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 16 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 18 HPIDSTATE
+(properties
+(name "hp4338a ( @ (NOT LIVE))"))
+(interface
+(input 1
+(name "TRIGGER_SOURCE")
+(tag "TRIGGER_SOURCE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "STAT_OP_EVR")
+(tag "STAT_OP_EVR")
+(optional yes)))
+(implementation
+(filename "hp4338a.cid")
+(driver "hp4338a")
+(state
+(idComp
+(name "UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "OHM"))
+(idComp
+(name "UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "   "))
+(idComp
+(name "MEAS_TIME")
+(typeStr "Enum")
+(state "Valid")
+(value "MEDIUM"))
+(idComp
+(name "RANGE")
+(typeStr "Enum")
+(state "Dontcare")
+(value "O100"))
+(idComp
+(name "ARANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "AVERAGE_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "AVERAGE_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "AUTO_MEASURE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "AUTO_LEVEL")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "TEST_LEVEL")
+(typeStr "Enum")
+(state "Dontcare")
+(value "U1A"))
+(idComp
+(name "PRI_DEV_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEC_DEV_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PRI_DEV_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DEV"))
+(idComp
+(name "SEC_DEV_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DEV"))
+(idComp
+(name "PRI_DEV_REF")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_DEV_REF")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CORR_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SHORT_CORR")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "COMPTR_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PRI_CLR_LMT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_CLR_LMT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRI_LMT_RES")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SEC_LMT_RES")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "PRI_LOLMT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "PRI_LOW_LMT")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "SEC_LOLMT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SEC_LOW_LMT")
+(typeStr "Real")
+(state "Valid")
+(value -9.899999999999999E+037))
+(idComp
+(name "PRI_UPLMT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "PRI_UPP_LMT")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "SEC_UPLMT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SEC_UPP_LMT")
+(typeStr "Real")
+(state "Valid")
+(value 9.899999999999999E+037))
+(idComp
+(name "DATA_FORMAT")
+(typeStr "Enum")
+(state "Valid")
+(value "ASC"))
+(idComp
+(name "BUF1_CNTL")
+(typeStr "Enum")
+(state "Valid")
+(value "NEV"))
+(idComp
+(name "BUF1_SRC")
+(typeStr "Enum")
+(state "Valid")
+(value "NULL"))
+(idComp
+(name "BUF1_SIZE")
+(typeStr "Real")
+(state "Valid")
+(value 200))
+(idComp
+(name "BUF1_READ")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "BUF2_CNTL")
+(typeStr "Enum")
+(state "Valid")
+(value "NEV"))
+(idComp
+(name "BUF2_SRC")
+(typeStr "Enum")
+(state "Valid")
+(value "NULL"))
+(idComp
+(name "BUF2_SIZE")
+(typeStr "Real")
+(state "Valid")
+(value 200))
+(idComp
+(name "BUF2_READ")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "LIST_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIST_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIGGER_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "EXT"))
+(idComp
+(name "SOURCE_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIGGER_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "INIT_CONTINUOUS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "BEEPER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "FAIL"))
+(idComp
+(name "LINE_FREQUENCY")
+(typeStr "Real")
+(state "Valid")
+(value 60))
+(idComp
+(name "KBD_LOCK")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISPLAY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SLF_TST_RESULT")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "OPT_STRING")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "OPT_QUERY")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "R"))
+(idComp
+(name "UPDATE_RDGS")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "YES")))))
+(device 19 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  2))
+(initValue Int32
+(data  0))))
+(configuration
+(connect D3:0 D1:0)
+(connect D5:1 D2:0)
+(connect D2:1 D3:0)
+(connect D8:1 D4:1)
+(connect D8:0 D5:0)
+(connect D1:1 D6:1)
+(connect D1:2 D7:1)
+(connect D0:0 D8:0)
+(connect D9:1 D8:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1000 649)
+(anchorPt 360 29)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 58 22))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 193 53)
+(iconImage "io.icn"))
+(open
+(extent 171 42))
+(terminals on)
+(pinCenter 140 580))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 89 53)
+(iconImage "io.icn"))
+(open
+(extent 141 82))
+(terminals on)
+(pinCenter 110 390))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 243 53)
+(iconImage "io.icn"))
+(open
+(extent 334 114))
+(terminals on)
+(pinCenter 180 480))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 145 29))
+(pinCenter 330 160))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 116 33))
+(pinCenter 0 330))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 212 172)
+(formatter
+(realFormat standard)
+(realSigDigits 15)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 490 440))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 145 29))
+(pinCenter 520 590))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 193 0)
+(iconImage "inst.icn"))
+(open
+(extent 214 213)
+(visiblePanels 2 "TRIGGER" "HP4338"))
+(terminals on)
+(pinCenter 20 160))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 91 31)
+(showFormat int))
+(pinCenter -300 160))
+(connect D3:0 D1:0
+(points 2 180 509 180 538))
+(connect D5:1 D2:0
+(points 3 60 330 110 330 110 361))
+(connect D2:1 D3:0
+(points 3 157 390 180 390 180 451))
+(connect D8:1 D4:1
+(points 2 229 160 255 160))
+(connect D8:0 D5:0
+(points 2 0 269 0 293))
+(connect D1:1 D6:1
+(points 4 338 570 360 570 360 440 381 440))
+(connect D1:2 D7:1
+(points 2 338 590 445 590))
+(connect D0:0 D8:0
+(points 2 0 13 0 33))
+(connect D9:1 D8:1
+(points 2 -252 160 -230 160)))
+(stackingOrder 5 7 6 1 3 2 0 9 4 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

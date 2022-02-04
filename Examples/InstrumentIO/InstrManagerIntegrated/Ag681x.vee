@@ -1,0 +1,489 @@
+(saveFormat "7.0")
+(date "Mon 09/May/2005 14:46:07 ")
+(veerev "7.03.7416.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "ACSource"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 5)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model "hp6812b"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 30)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 CONTEXT
+(properties
+(name "Init Instrument")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "error_response")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "ID")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "options")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "ACSource (hp6812b @ 705)")
+(transactions 8 "WRITE TEXT \"*CLS\" EOL" "WRITE TEXT \"*RST\" EOL"
+"WRITE TEXT \"SYST:ERR?\" EOL" "READ TEXT error_response STR"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT ID STR" "WRITE TEXT \"*OPT?\" EOL"
+"READ TEXT options STR"))
+(interface
+(output 1
+(name "error_response")
+(optional yes))
+(output 2
+(name "ID")
+(optional yes))
+(output 3
+(name "options")
+(optional yes)))
+(implementation
+(iopath "ACSource")))
+(device 3 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The following performs a *CLS (Clear Status), *RST (Reset), and checks for any errors \\ul after\\ulnone  the Reset.  *CLS should always be sent \\ul before\\ulnone  the *RST command.  Otherwise, the *CLS will clear any errors that might have occured during / after a *RST. \\par\r\n\\par\r\nNext, the *IDN? query is sent to return the instrument\'s ID string.  Lastly, since this instrument can have options installed, the *OPT? query is sent to determine what options are installed in the instrument.\\par\r\n\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)
+(connect D0:3 O3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 550 488)
+(anchorPt -9 3)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 169 0)
+(iconImage "io.icn"))
+(open
+(extent 234 156))
+(terminals on)
+(pinCenter 270 350))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 434 186)
+(editing enabled))
+(pinCenter 270 130))
+(connect D0:1 O1:1
+(points 4 499 300 510 300 510 80 558 80))
+(connect D0:2 O2:1
+(points 4 499 350 520 350 520 240 558 240))
+(connect D0:3 O3:1
+(points 4 499 400 548 400 548 400 558 400)))
+(stackingOrder 1 0))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Check for errors"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(properties
+(name "Instrument ID string"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 17 TEXTDISPLAY
+(properties
+(name "Option(s) installed"))
+(interface
+(input 1
+(name "Data"))))
+(device 19 TEXTDISPLAY
+(properties
+(name "Peak Inrush Current (Amps)"))
+(interface
+(input 1
+(name "Data"))))
+(device 20 CONTEXT
+(properties
+(name "Configure Instrument")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 NOTE
+(properties
+(name "Command comments")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 - Set the immediate voltage to 0 V RMS\\par\r\n- Set the RMS voltage to operate in the Step transient mode\\par\r\n- Change the voltage to 120 V RMS on trigger\\par\r\n- Set the peak current to maximum\\par\r\n- Enable the AC source output\\par\r\n- Set the trigger to occur referenced to the output phase\\par\r\n- Set the trigger to occur at an output phase of 40 degrees\\par\r\n- Set the GPIB as the transient trigger source\\par\r\n- Set the measurement trigger source to the internal trigger\\par\r\n- Enable the internal trigger source\\par\r\n- Caputure 409 samples of the pre-trigger data\\par\r\n}\r\n"
+)))
+(device 2 IODEVICE
+(properties
+(name "ACSource (hp6812b @ 705)")
+(transactions 11 "WRITE TEXT \"VOLT 0\" EOL" "WRITE TEXT \"VOLT:MODE STEP\" EOL"
+"WRITE TEXT \"VOLT:TRIGGERED 120\" EOL" "WRITE TEXT \"CURR:PEAK MAX\" EOL"
+"WRITE TEXT \"OUTPUT ON\" EOL" "WRITE TEXT \"TRIG:SYNC:SOUR PHASE\" EOL"
+"WRITE TEXT \"TRIG:SYNC:PHASE 40\" EOL" "WRITE TEXT \"TRIG:SEQ1:SOUR BUS\" EOL"
+"WRITE TEXT \"TRIG:SEQ3:SOUR TTLT\" EOL" "WRITE TEXT \"OUTPUT:TTLT ON\" EOL"
+"WRITE TEXT \"SENS:SWEEP:OFFSET:POINTS -409\" EOL"))
+(implementation
+(iopath "ACSource")))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 536 534)
+(anchorPt -2 10)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 133 0)
+(iconImage "notepad.icn"))
+(open
+(extent 434 246)
+(editing enabled))
+(pinCenter 270 150))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 169 51)
+(iconImage "io.icn"))
+(open
+(extent 334 196))
+(terminals on)
+(pinCenter 280 410)))
+(stackingOrder 1 0))))
+(device 21 NOTE
+(properties
+(name "Program Info")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example program is a VEE Pro 7.5 implementation of \"Application 4 - Performing Inrush Current Measurements.\"  Detailed information can be found in the following document:\\par\r\n\\par\r\n\"Keysight 6800 Series AC Power Source/Analyzer - Product Note\"  part number 5963-7044E.\\par\r\n\\par\r\nSee  http://www.keysight.com/find/6812B   for more information.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 22 LABEL
+(properties
+(name "Performing Inrush Current Measurements with the Keysight 681xB")
+(labelValue "Performing Inrush Current Measurements with the Keysight 681xB"))
+(implementation))
+(device 24 CONTEXT
+(properties
+(name "Make Measurement")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "ipeak")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "ACSource (hp6812b @ 705)")
+(transactions 6 "WRITE TEXT \"INIT:SEQ1\" EOL" "WRITE TEXT \"INIT:SEQ3\" EOL"
+"WRITE TEXT \"*TRG\" EOL" "WRITE TEXT \"FETCH:CURR:AMPL:MAX?\" EOL"
+"READ TEXT ipeak REAL64" "WRITE TEXT \"OUTPUT OFF\" EOL"))
+(interface
+(output 1
+(name "ipeak")
+(optional yes)))
+(implementation
+(iopath "ACSource")))
+(device 1 NOTE
+(properties
+(name "Command comments")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 - Initiate the transient trigger\\par\r\n- Initiate the measurement trigger\\par\r\n- Send the bus trigger\\par\r\n- Make a peak current measurement from acquired data\\par\r\n- Read the peak current measurement\\par\r\n- Turn off the AC source output\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 572 388)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 169 51)
+(iconImage "io.icn"))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 260 290))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 133 0)
+(iconImage "notepad.icn"))
+(open
+(extent 434 146)
+(editing enabled))
+(pinCenter 260 110))
+(connect D0:1 O1:1
+(points 4 464 290 500 290 500 193 571 193)))
+(stackingOrder 1 0))))
+(device 26 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 27 MESSAGEBOX
+(properties
+(popupTitle "Another Measurement?")
+(position 154 244)
+(message "Make another measurement?")
+(symbol Question))
+(interface
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")))
+(device 29 BREAK)
+(configuration
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)
+(connect D0:3 D4:1)
+(connect D9:1 D5:1)
+(connect D10:1 D6:0)
+(connect D6:0 D9:0)
+(connect D0:0 D10:0)
+(connect D9:0 D11:0)
+(connect D11:2 D12:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 11 8)
+(wndState res)
+(active panel)
+(panel
+(extent 557 437)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 170 60)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 216 28))
+(widget 2 detail
+(relativeOrigin 130 110)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 296 28))
+(widget 4 detail
+(relativeOrigin 170 160)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 216 28))
+(widget 5 detail
+(relativeOrigin 170 370)
+(PID 3)
+(title on)
+(titleFont "Arial" 12 bold)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 216 28))
+(widget 8 detail
+(relativeOrigin 30 10)
+(bg "Med Dark Blue")
+(fg "White")
+(font "Arial" 14 bold)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle none)
+(extent 465 28)
+(just c)))
+(detail
+(extent 976 580)
+(anchorPt -332 57)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 85 34))
+(terminals on)
+(pinCenter 430 210))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 194 26))
+(pinCenter 690 150))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 284 26))
+(pinCenter 690 210))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 294 54)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 422 76)
+(editing disabled))
+(pinCenter 530 60))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 194 26))
+(pinCenter 690 270))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 168 0))
+(open
+(extent 204 22))
+(pinCenter 750 390))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 550 350))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 78 51)
+(iconImage "notepad.icn"))
+(open
+(extent 524 196)
+(editing enabled))
+(pinCenter 770 60))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 386 15))
+(open
+(extent 465 28)
+(just c))
+(title off)
+(bg "Med Dark Blue")
+(fg "White")
+(font "Arial" 14 bold)
+(titleFont "Arial" 12)
+(pinCenter 610 0))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 118 15))
+(terminals on)
+(pinCenter 550 390))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 430 290))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 660 480))
+(connect D0:1 D1:1
+(points 4 475 200 500 200 500 150 590 150))
+(connect D0:2 D2:1
+(points 2 475 210 545 210))
+(connect D0:3 D4:1
+(points 4 475 220 520 220 520 270 590 270))
+(connect D9:1 D5:1
+(points 2 611 390 645 390))
+(connect D10:1 D6:0
+(points 3 466 290 550 290 550 340))
+(connect D6:0 D9:0
+(points 2 550 360 550 380))
+(connect D0:0 D10:0
+(points 2 430 229 430 262))
+(connect D9:0 D11:0
+(points 2 550 400 550 425))
+(connect D11:2 D12:0
+(points 3 593 450 660 450 660 470)))
+(stackingOrder 2 3 5 8 1 4 10 7 12 11 0 6 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

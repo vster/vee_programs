@@ -1,0 +1,2181 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:31:58 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hp4195a"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp4195a.cid")
+(eoiEnabled 0)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 CONTEXT
+(properties
+(name "NETWORK")
+(trigMode deg)
+(nextID 8))
+(interface
+(input 1
+(name "MEAS_SWEEP_TRIGGER")
+(optional yes))
+(input 2
+(name "INPUT_Z")
+(optional yes))
+(input 3
+(name "VIDEO_FILTER")
+(optional yes)))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "hp4195a(NOT LIVE)"))
+(interface
+(input 1
+(name "MEAS_SWEEP_TRIGGER")
+(tag "MEAS_SWEEP_TRIGGER")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "INPUT_Z")
+(tag "INPUT_Z")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(name "VIDEO_FILTER")
+(tag "VIDEO_FILTER")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "DISP_A")
+(tag "DISP_A")
+(optional yes))
+(output 2
+(name "DISP_B")
+(tag "DISP_B")
+(optional yes))
+(output 3
+(name "DISP_MRKR_AVAL")
+(tag "DISP_MRKR_AVAL")
+(optional yes))
+(output 4
+(name "DISP_MRKR_BVAL")
+(tag "DISP_MRKR_BVAL")
+(optional yes))
+(output 5
+(name "DISP_X")
+(tag "DISP_X")
+(optional yes)))
+(implementation
+(filename "hp4195a.cid")
+(driver "hp4195a")
+(state
+(idComp
+(name "GRATIC_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRID"))
+(idComp
+(name "SWEEP_NOP")
+(typeStr "Int16")
+(state "Valid")
+(value 401))
+(idComp
+(name "LCURS_A_B")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "DISP_MRKR_O_SET")
+(typeStr "Enum")
+(state "Valid")
+(value "MKMX"))
+(idComp
+(name "DISP_MRKR_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "O_MRKR"))
+(idComp
+(name "DISP_NET_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_SPECT_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_IMPED_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_S11_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_S21_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_S12_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "DISP_S22_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "X_AB"))
+(idComp
+(name "NET_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT1"))
+(idComp
+(name "SPECT_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "R1"))
+(idComp
+(name "IMPED_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT1"))
+(idComp
+(name "S11_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT1"))
+(idComp
+(name "S21_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT2"))
+(idComp
+(name "S12_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT4"))
+(idComp
+(name "S22_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "PORT5"))
+(idComp
+(name "NET_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "SPECT_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "IMPED_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "S11_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "S21_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "S12_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "S22_IF_RANGE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "C_NET_NORM")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S21_NORM")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S12_NORM")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_NET_ISO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S21_ISO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S12_ISO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_NET_OPN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_IMPED_OPN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S11_OPN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S22_OPN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_NET_LOAD")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_IMPED_LOAD")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S11_LOAD")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S22_LOAD")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_NET_SHORT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_IMPED_SHORT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S11_SHORT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "C_S22_SHORT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "IMPED_ZERO")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "IMPED_S")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "CAL_CORRECT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "IMPED_ZERO_S_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "IMPED_ZERO_OHM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NET_NORM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S21_NORM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S12_NORM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NET_ISO_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S21_ISO_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S12_ISO_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NET_OPN_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "IMPED_OPN_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S11_OPN_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S22_OPN_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NET_LOAD_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "IMPED_LOAD_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S11_LOAD_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S22_LOAD_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NET_SHORT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "IMPED_SHORT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S11_SHORT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "S22_SHORT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SPECT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEAS_FUNCTION_CLASS")
+(typeStr "Enum")
+(state "Valid")
+(value "NETWORK"))
+(idComp
+(name "SWEEP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "CONT"))
+(idComp
+(name "MEAS_NET")
+(typeStr "Enum")
+(state "Valid")
+(value "T_R_DB_TH"))
+(idComp
+(name "MEAS_S21")
+(typeStr "Enum")
+(state "Valid")
+(value "T_R_DB_TH"))
+(idComp
+(name "MEAS_S12")
+(typeStr "Enum")
+(state "Valid")
+(value "T_R_DB_TH"))
+(idComp
+(name "MEAS_SPECT")
+(typeStr "Enum")
+(state "Valid")
+(value "DBM"))
+(idComp
+(name "MEAS_IMPED")
+(typeStr "Enum")
+(state "Valid")
+(value "Z_TH"))
+(idComp
+(name "MEAS_S11")
+(typeStr "Enum")
+(state "Valid")
+(value "RLOSS_TH"))
+(idComp
+(name "MEAS_S22")
+(typeStr "Enum")
+(state "Valid")
+(value "RLOSS_TH"))
+(idComp
+(name "AUTO_SPAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "RESOLUTION_BW_NET")
+(typeStr "Enum")
+(state "Valid")
+(value "EIGHT"))
+(idComp
+(name "RESOLUTION_BW_SPECT")
+(typeStr "Enum")
+(state "Valid")
+(value "ELEVEN"))
+(idComp
+(name "RESOLUTION_BW_IMPED")
+(typeStr "Enum")
+(state "Valid")
+(value "SEVEN"))
+(idComp
+(name "RESOLUTION_BW_SPARA")
+(typeStr "Enum")
+(state "Valid")
+(value "EIGHT"))
+(idComp
+(name "VIDEO_FILTER")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "TRIGGER_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "INTERNAL"))
+(idComp
+(name "NET_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SPECT_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "IMPED_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S11_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S21_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S12_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S22_DISP_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "NET_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "IMPED_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S11_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S21_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S12_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "S22_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SPECT_DISP_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "GRATIC_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STORE_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PHASE_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "DEGREE"))
+(idComp
+(name "PHASE_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "NORMAL"))
+(idComp
+(name "SET_SOURCE_SPECT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SP_NOISE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SOURCE_S1_AMP")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE_S2_AMP")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "ATTEN_REF_R1")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "ATTEN_REF_R2")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "ATTEN_TEST_T1")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "ATTEN_TEST_T2")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "SET_SCALE_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "dB"))
+(idComp
+(name "SCALE_A_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "dB"))
+(idComp
+(name "SCALE_B_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "deg"))
+(idComp
+(name "SCALE_A_B")
+(typeStr "Enum")
+(state "Valid")
+(value "SCALEB"))
+(idComp
+(name "SCALE_A_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "SCALE_B_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "REF_A_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "REF_A_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "BOT_A_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "BOT_A_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "DIV_A_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "DIV_A_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "REF_B_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "REF_B_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "BOT_B_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "BOT_B_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "DIV_B_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -9.998E+037))
+(idComp
+(name "DIV_B_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 9.999E+037))
+(idComp
+(name "SCALE_C_REF")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SCALE_D_REF")
+(typeStr "Real")
+(state "Valid")
+(value 180))
+(idComp
+(name "SCALE_A_REF")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "SCALE_B_REF")
+(typeStr "Real")
+(state "Valid")
+(value 250))
+(idComp
+(name "SCALE_C_BOT")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SCALE_D_BOT")
+(typeStr "Real")
+(state "Valid")
+(value -180))
+(idComp
+(name "SCALE_A_BOT")
+(typeStr "Real")
+(state "Valid")
+(value -160))
+(idComp
+(name "SCALE_B_BOT")
+(typeStr "Real")
+(state "Valid")
+(value -250))
+(idComp
+(name "SCALE_A_DIV")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "SCALE_B_DIV")
+(typeStr "Real")
+(state "Valid")
+(value 50))
+(idComp
+(name "DISP_XAB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISP_X_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISP_XAB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISP_AB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_AB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_LXAB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_LXAB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_SW_LXAB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_SW_LXAB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_SW_LAB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_SW_LAB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "POLAR_SW_LOG_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_LAB_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_LAB_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "NW_NYQ_TRACE_STATE_1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMITH_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMITH_SW_LOG_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VIEW_C_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VIEW_D_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "POLAR_REF")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "SMITH_REF")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "POLAR_DIV")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SMITH_DIV")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "GRATICULE_X_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "GRATICULE_X_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "GRATICULE_Y_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "GRATICULE_Y_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "POLAR_X_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -1))
+(idComp
+(name "POLAR_X_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "POLAR_Y_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -1))
+(idComp
+(name "POLAR_Y_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "CONNECT_DOTS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "POLAR_SCALE_FACTOR")
+(typeStr "Real")
+(state "Valid")
+(value 1.025))
+(idComp
+(name "POLAR_ASPECT_RATIO")
+(typeStr "Real")
+(state "Valid")
+(value 1.3112))
+(idComp
+(name "POLAR_REF_VALUE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "NYQ_INDEX")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TEMP")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PORT_CORRECTION")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INPUT_R1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "INPUT_T1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "INPUT_R2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "INPUT_T2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PORT1_R1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PORT2_R2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SWEEP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SWEEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 500000000))
+(idComp
+(name "SWEEP_RES")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SPAN_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 499999999.999))
+(idComp
+(name "SWEEP_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "Hz"))
+(idComp
+(name "SWEEP_SET_UNITS")
+(typeStr "Text")
+(state "Valid")
+(value "Hz"))
+(idComp
+(name "SWEEP_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "SWEEP_PARA")
+(typeStr "Enum")
+(state "Valid")
+(value "FREQ"))
+(idComp
+(name "SWEEP_START")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SWEEP_STOP")
+(typeStr "Real")
+(state "Valid")
+(value 199999999.999))
+(idComp
+(name "SWEEP_CENTER")
+(typeStr "Real")
+(state "Valid")
+(value 100000000))
+(idComp
+(name "SWEEP_SPAN")
+(typeStr "Real")
+(state "Valid")
+(value 199999999.998))
+(idComp
+(name "SWEEP_DIRECT")
+(typeStr "Enum")
+(state "Valid")
+(value "UP"))
+(idComp
+(name "SPOT_FREQ")
+(typeStr "Real")
+(state "Valid")
+(value 10000000))
+(idComp
+(name "NOP1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "NOP2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "NOP3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "NOP4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "NOP1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 401))
+(idComp
+(name "NOP2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 401))
+(idComp
+(name "NOP3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 401))
+(idComp
+(name "NOP4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 401))
+(idComp
+(name "TABLE1_NOP")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "TABLE2_NOP")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "TABLE3_NOP")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "TABLE4_NOP")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "TOTAL_NOP")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "STEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 199999999.998))
+(idComp
+(name "SWEEP_STEP")
+(typeStr "Real")
+(state "Valid")
+(value 500000))
+(idComp
+(name "SWEEP_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1.41535997391))
+(idComp
+(name "SWEEP_DELAY_APERT")
+(typeStr "Real")
+(state "Valid")
+(value 0.5))
+(idComp
+(name "PART_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PART_ANALYSIS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PART_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_STATUS")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PROG_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SWEEP_TABLE_NO")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "SWEEP_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "DISP_SWEEP_PARA")
+(typeStr "Text")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "TAB1_DATA_TYPE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_DATA_TYPE")
+(typeStr "Int16")
+(state "Valid")
+(value -1))
+(idComp
+(name "TAB3_DATA_TYPE")
+(typeStr "Int16")
+(state "Valid")
+(value -1))
+(idComp
+(name "TAB4_DATA_TYPE")
+(typeStr "Int16")
+(state "Valid")
+(value -1))
+(idComp
+(name "SWEEP_SELECT_TABLE1")
+(typeStr "Enum")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "SWEEP_SELECT_TABLE2")
+(typeStr "Enum")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "SWEEP_SELECT_TABLE3")
+(typeStr "Enum")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "SWEEP_SELECT_TABLE4")
+(typeStr "Enum")
+(state "Valid")
+(value "SW_FREQ"))
+(idComp
+(name "TABLE_DATA_A1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_A2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_A3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_A4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_A5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_B1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_B2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_B3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_B4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE_DATA_B5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TABLE1_RBW")
+(typeStr "Real")
+(state "Valid")
+(value 100000))
+(idComp
+(name "TABLE2_RBW")
+(typeStr "Real")
+(state "Valid")
+(value 100000))
+(idComp
+(name "TABLE3_RBW")
+(typeStr "Real")
+(state "Valid")
+(value 100000))
+(idComp
+(name "TABLE4_RBW")
+(typeStr "Real")
+(state "Valid")
+(value 100000))
+(idComp
+(name "J")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB1_FREQ_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB1_DC_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB1_OV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB1_DBM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB1_DBUV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_FREQ_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_DC_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_OV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_DBM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB2_DBUV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB3_FREQ_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB3_DC_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB3_OV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB3_DBM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB3_DBUV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB4_FREQ_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB4_DC_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB4_OV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB4_DBM_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TAB4_DBUV_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DATA")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "EQC_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "EQC_R")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "EQC_L")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "EQC_CA")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "EQC_CB")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "INPUT_Z")
+(typeStr "Enum")
+(state "Valid")
+(value "SEVEN"))
+(idComp
+(name "CAL_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "OPEN_NET_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_NET_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_NET_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_NET_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_IMPED_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_IMPED_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_IMPED_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPEN_IMPED_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_NET_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_NET_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_NET_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_NET_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_IMPED_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_IMPED_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_IMPED_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHORT_IMPED_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_NET_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_NET_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_NET_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_NET_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_IMPED_FIVE_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_IMPED_FIVE_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_IMPED_SEVEN_VAL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LOAD_IMPED_SEVEN_VAL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAL_NET_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "CAL_IMPED_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "CAL_S11_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "CAL_S21_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "CAL_S12_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "CAL_S22_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "NORMAL_MEAS1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NORMAL_MEAS2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NORMAL_MEAS3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NORMAL_MEAS4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NORMAL_MEAS5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NET_NORMAL_MEAS1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S21_NORMAL_MEAS1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S12_NORMAL_MEAS1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NET_ISO_MEAS2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S21_ISO_MEAS2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S12_ISO_MEAS2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NET_OPN_MEAS3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "IMPED_OPN_MEAS3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S11_OPN_MEAS3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S22_OPN_MEAS3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NET_LOAD_MEAS4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "IMPED_LOAD_MEAS4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S11_LOAD_MEAS4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S22_LOAD_MEAS4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "NET_SHORT_MEAS5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "IMPED_SHORT_MEAS5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S11_SHORT_MEAS5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "S22_SHORT_MEAS5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "COMPEN_MEAS1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "COMPEN_MEAS2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "COMPEN_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "DISP_XMIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "DISP_XMAX")
+(typeStr "Real")
+(state "Valid")
+(value 199999999.999))
+(idComp
+(name "NOP")
+(typeStr "Int16")
+(state "Valid")
+(value 401))
+(idComp
+(name "DISP_MRKR_O_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISP_MRKR_S_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_MRKR_L_A_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_MRKR_L_B_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_MRKR_M_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "MKR_LCURS_A_B")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "MKR_LCR")
+(typeStr "Enum")
+(state "Valid")
+(value "A"))
+(idComp
+(name "WIDTH_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "ACTIVE_MRKR")
+(typeStr "Enum")
+(state "Valid")
+(value "SMRKR"))
+(idComp
+(name "ACTIVE_O_L")
+(typeStr "Enum")
+(state "Valid")
+(value "LCUA"))
+(idComp
+(name "DELTA_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DISP_MRKR_ACTIVE_SHOW")
+(typeStr "Text")
+(state "Valid")
+(value "o MKR"))
+(idComp
+(name "DISP_MRKR_O_A")
+(typeStr "Real")
+(state "Valid")
+(value -82.81999999999999))
+(idComp
+(name "DISP_MRKR_O_B")
+(typeStr "Real")
+(state "Valid")
+(value -124.357))
+(idComp
+(name "DISP_MRKR_S_A")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DISP_MRKR_S_B")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DISP_MRKR_OVAL")
+(typeStr "Real")
+(state "Valid")
+(value 199999999.999))
+(idComp
+(name "DISP_MRKR_SVAL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "DISP_MRKR_LVAL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "DISP_MRKR_DELTA_VAL")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DISP_MRKR_DEL_CUR_VAL")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DISP_MRKR_MANUAL")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "LIST_FILER_OPERATION")
+(typeStr "Enum")
+(state "Valid")
+(value "STORE_DATA"))
+(idComp
+(name "RE_SAVE_OPERATION")
+(typeStr "Enum")
+(state "Invalid")
+(value "DATA"))
+(idComp
+(name "LIST_FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAVE_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "RESAVE_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STAT_SRQ_MASK")
+(typeStr "Int16")
+(state "Valid")
+(value 191))
+(idComp
+(name "STAT_BYTE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0)))))
+(device 1 TEXTDISPLAY
+(properties
+(name "GAIN"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(name "PHASE"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints))
+(input 3
+(name "YData2")
+(lock constraints)
+(optional yes))
+(input 4
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(graphMode rectangular)))
+(device 6 DELAY
+(properties
+(delay 5))
+(interface
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 7 NOTE
+(properties
+(text2 7 "Setup to Study the Transmission frequency"
+"resopnse of a Bandpass filter." "" "* Center frequency :100 MHz"
+"* Input/Output Impedance : 50 Ohm or " "                           75 Ohm.  "
+"* Video_Filter : On/Off")))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect I3:1 D0:3)
+(connect D0:3 D1:1)
+(connect D0:4 D2:1)
+(connect D0:5 D3:1)
+(connect D0:1 D3:2)
+(connect D0:2 D3:3)
+(connect D0:0 D3:4)
+(connect D0:0 D4:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 603 430)
+(widget 2 detail
+(relativeOrigin 394 31)
+(title on)
+(borderStyle flat)
+(extent 180 39))
+(widget 3 detail
+(relativeOrigin 144 114)
+(title on)
+(borderStyle flat)
+(extent 317 281)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -200 200 4 linear))
+(domain 0 200000000 4 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "YData2")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(widget 1 detail
+(relativeOrigin 189 34)
+(title on)
+(borderStyle flat)
+(extent 180 39)))
+(detail
+(extent 372 358)
+(anchorPt 218 248)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "inst.icn"))
+(open
+(extent 428 215)
+(visiblePanels 10 "HP4195A" "MAIN" "SCALE_B" "DISP_GRAPH_X_AB" "FUNCTION_NET"
+"NET_MAIN" "TABLE1" "SWEEP_TABLE1" "PMAIN" "RESET"))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 180 39))
+(pinCenter 362 -116))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 180 39))
+(pinCenter 582 -116))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 281)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -200 200 4 linear))
+(domain 0 200000000 4 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "YData2")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(terminals on)
+(pinCenter 592 154))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 120 32))
+(pinCenter 212 244))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "notepad.icn"))
+(open
+(extent 384 307)
+(editing enabled))
+(pinCenter 247 -251))
+(connect I1:1 D0:1
+(points 4 -218 -190 -196 -190 -196 -20 -42 -20))
+(connect I2:1 D0:2
+(points 4 -218 -70 -206 -70 -206 0 -42 0))
+(connect I3:1 D0:3
+(points 4 -218 50 -206 50 -206 20 -42 20))
+(connect D0:3 D1:1
+(points 8 41 0 390 0 390 -30 400 -30 400 -190 260 -190 260 -116 269 -116))
+(connect D0:4 D2:1
+(points 6 41 10 410 10 410 -70 460 -70 460 -116 489 -116))
+(connect D0:5 D3:1
+(points 8 41 20 390 20 390 70 380 70 380 50 310 50 310 44 361 44))
+(connect D0:1 D3:2
+(points 6 41 -20 390 -20 390 -50 300 -50 300 114 361 114))
+(connect D0:2 D3:3
+(points 8 41 -10 420 -10 420 90 330 90 330 120 310 120 310 184 361 184))
+(connect D0:0 D3:4
+(points 7 0 34 0 120 210 120 210 220 260 220 260 254 361 254))
+(connect D0:0 D4:0
+(points 4 0 34 0 120 212 120 212 229)))
+(stackingOrder 1 2 3 4 5 0))))
+(device 2 START25)
+(device 14 TOGGLE25
+(properties
+(name "INPUT_Z"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 15 TOGGLE25
+(properties
+(name "VIDEO_FILTER"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D0:3)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 880 418)
+(anchorPt 440 238)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 34))
+(open
+(extent 603 430)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 0 0))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 67 37))
+(title off)
+(pinCenter -130 -60))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 120 27)
+(scaled on)
+(format check box))
+(title off)
+(pinCenter -240 -20))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 165 27)
+(scaled on)
+(format check box))
+(title off)
+(pinCenter -250 20))
+(connect D1:0 D0:1
+(points 3 -130 -39 -130 -10 -42 -10))
+(connect D2:1 D0:2
+(points 4 -178 -20 -160 -20 -160 0 -42 0))
+(connect D3:1 D0:3
+(points 4 -165 20 -150 20 -150 10 -42 10)))
+(stackingOrder 1 2 3 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,566 @@
+(saveFormat "7.0")
+(date "Thu 02/May/2013 16:45:01 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "M.39")
+(input 0)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 55)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an illustration \"as is\", and \\par\r\nKeysight Technologies makes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(device 12 CONSTANT
+(properties
+(name "0")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 32 FORMULA
+(properties
+(name "Get Windows Current Version Key")
+(variableScope cont)
+(expr 9 "os = whichOS();" "\"SOFTWARE\\\\Microsoft\\\\\"+"
+"(((os == \"Windows_NT\") || " "  (os == \"Windows_XP\") ||"
+"  (os == \"Windows_2000\") || " "  (os == \"Windows_Vista\") ||"
+"  (os == \"Windows_7\") || "
+"  (os == \"Windows_8\")) ? \"Windows NT\" : \"Windows\") +"
+"\"\\\\CurrentVersion\""))
+(interface
+(output 1
+(name "os")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "RegisteredOwner"))
+(initValue Text
+(data  ""))))
+(device 37 CONSTANT
+(properties
+(name "Buf Size")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  60))
+(initValue Int32
+(data  0))))
+(device 38 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 39 FORMULA
+(properties
+(name "HKEY_LOCAL_MACHINE")
+(variableScope cont)
+(expr 1 "-2147483646 //#H80000002 // HKEY_LOCAL_MACHINE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 40 CALL
+(properties
+(name "Call advapi32.RegCloseKey")
+(variableScope cont)
+(callFunc "advapi32.RegCloseKey")
+(parmMode rev30))
+(interface
+(input 1
+(name "hKey")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 42 FORMULA
+(properties
+(name "Alloc Text Buffer")
+(variableScope cont)
+(expr 1 "(A-1) * \" \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 44 CALL
+(properties
+(name "Call advapi32.RegOpenKeyExA")
+(variableScope cont)
+(callFunc "advapi32.RegOpenKeyExA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hKey")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "lpSubKey")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "ulOptions")
+(requires
+(datatype Int32))
+(optional yes))
+(input 4
+(name "samDesired")
+(requires
+(datatype Int32))
+(optional yes))
+(input 5
+(name "phkResult")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpSubKey")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "phkResult")
+(lock name constraints)
+(optional yes))))
+(device 45 FORMULA
+(properties
+(name "KEY_READ")
+(variableScope cont)
+(expr 1 "#H00020019 // KEY_READ"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 46 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType DLL)
+(libName "advapi32")
+(fileName "C:\\windows\\system32\\advapi32.dll")
+(defnFileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\examples\\Contrib\\Win32API\\advapi32.h"
+))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 47 FORMULA
+(properties
+(name "Generate DLL Path")
+(variableScope cont)
+(expr 1 "A+\"\\\\advapi32.dll\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 48 FORMULA
+(properties
+(name "Generate .H Path")
+(variableScope cont)
+(expr 1 "installDir()+\"\\\\examples\\\\Contrib\\\\Win32API\\\\advapi32.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 51 CALL
+(properties
+(name "Call advapi32.RegQueryValueExA")
+(variableScope cont)
+(callFunc "advapi32.RegQueryValueExA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hKey")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "lpValueName")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "mustBeZero")
+(requires
+(datatype Int32))
+(optional yes))
+(input 4
+(name "lpType")
+(requires
+(datatype Int32))
+(optional yes))
+(input 5
+(name "lpData")
+(requires
+(datatype Text))
+(optional yes))
+(input 6
+(name "lpcbData")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpValueName")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "lpType")
+(lock name constraints)
+(optional yes))
+(output 4
+(name "lpData")
+(lock name constraints)
+(optional yes))
+(output 5
+(name "lpcbData")
+(lock name constraints)
+(optional yes))))
+(device 52 FORMULA
+(properties
+(name "REG_SZ")
+(variableScope cont)
+(expr 1 "1 // REG_SZ"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 53 FORMULA
+(properties
+(name "Get System Dir")
+(variableScope cont)
+(expr 8 "os = whichOS();" "getEnv(\"windir\")+\"\\\\\"+"
+"(((os == \"Windows_NT\") || " "  (os == \"Windows_XP\") ||"
+"  (os == \"Windows_2000\") || " "  (os == \"Windows_Vista\") ||"
+"  (os == \"Windows_7\") || "
+"  (os == \"Windows_8\")) ? \"system32\" : \"system\")"))
+(interface
+(output 1
+(name "os")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 54 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Description:\\ulnone\\par\r\nThis program uses advapi32.dll to navigate to registry node HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows NT\\\\CurrentVersion, and read the value of RegisteredOwner.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D14:4 D5:1)
+(connect D14:0 D7:0)
+(connect D9:3 D7:1)
+(connect D4:1 D8:1)
+(connect D11:0 D9:0)
+(connect D6:1 D9:1)
+(connect D2:2 D9:2)
+(connect D1:1 D9:3)
+(connect D10:1 D9:4)
+(connect D1:1 D9:5)
+(connect D13:0 D11:0)
+(connect D12:1 D11:1)
+(connect D13:1 D11:2)
+(connect D16:2 D12:1)
+(connect D12:0 D13:0)
+(connect D9:0 D14:0)
+(connect D9:3 D14:1)
+(connect D3:1 D14:2)
+(connect D1:1 D14:3)
+(connect D15:1 D14:4)
+(connect D8:1 D14:5)
+(connect D4:1 D14:6)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 699 388)
+(wndState max)
+(active detail)
+(detail
+(extent 1064 839)
+(anchorPt -27 121)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing disabled))
+(pinCenter 220 -70))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 280 320))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 205 25))
+(open
+(extent 364 196))
+(terminals on)
+(pinCenter 280 290))
+(devCarrierFor 35
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 280 510))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 84 29)
+(showFormat int))
+(pinCenter 150 600))
+(devCarrierFor 38
+(active open)
+(icon)
+(open
+(extent 275 37))
+(pinCenter 950 590))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 205 15))
+(open
+(extent 275 50))
+(terminals on)
+(pinCenter 280 260))
+(devCarrierFor 40
+(active open)
+(icon
+(extent 169 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 595 730))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 94 15))
+(open
+(extent 71 50))
+(terminals on)
+(pinCenter 280 600))
+(devCarrierFor 44
+(active open)
+(icon
+(extent 188 0))
+(open
+(extent 195 147))
+(terminals on)
+(pinCenter 610 320))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 175 37))
+(terminals on)
+(pinCenter 280 350))
+(devCarrierFor 46
+(active open)
+(icon)
+(open
+(extent 280 130))
+(pinCenter 600 130))
+(devCarrierFor 47
+(active open)
+(icon
+(extent 115 0))
+(open
+(extent 131 50))
+(terminals on)
+(pinCenter 290 100))
+(devCarrierFor 48
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 139 50))
+(terminals on)
+(pinCenter 290 180))
+(devCarrierFor 51
+(active open)
+(icon
+(extent 202 0))
+(open
+(extent 175 177))
+(terminals on)
+(pinCenter 610 560))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 52 15))
+(open
+(extent 115 50))
+(terminals on)
+(pinCenter 360 570))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 90 25))
+(open
+(extent 284 196))
+(terminals on)
+(pinCenter 90 90))
+(devCarrierFor 54
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 432 96)
+(editing disabled))
+(pinCenter 640 -40))
+(connect D14:4 D5:1
+(points 2 790 590 810 590))
+(connect D14:0 D7:0
+(points 2 610 651 610 684))
+(connect D9:3 D7:1
+(points 6 780 370 800 370 800 430 410 430 410 730 464 730))
+(connect D4:1 D8:1
+(points 2 176 600 230 600))
+(connect D11:0 D9:0
+(points 2 600 197 600 226))
+(connect D6:1 D9:1
+(points 2 385 260 420 260))
+(connect D2:2 D9:2
+(points 4 385 300 400 300 400 290 420 290))
+(connect D1:1 D9:3
+(points 2 320 320 420 320))
+(connect D10:1 D9:4
+(points 2 320 350 420 350))
+(connect D1:1 D9:5
+(points 4 320 320 400 320 400 380 420 380))
+(connect D13:0 D11:0
+(points 8 300 207 300 230 420 230 420 210 440 210 440 20 600 20 600 44))
+(connect D12:1 D11:1
+(points 2 408 100 457 100))
+(connect D13:1 D11:2
+(points 4 412 180 430 180 430 160 457 160))
+(connect D16:2 D12:1
+(points 2 137 100 192 100))
+(connect D12:0 D13:0
+(points 2 300 127 300 134))
+(connect D9:0 D14:0
+(points 4 600 396 600 420 610 420 610 451))
+(connect D9:3 D14:1
+(points 6 780 370 800 370 800 430 410 430 410 480 430 480))
+(connect D3:1 D14:2
+(points 2 369 510 430 510))
+(connect D1:1 D14:3
+(points 4 320 320 400 320 400 540 430 540))
+(connect D15:1 D14:4
+(points 2 388 570 430 570))
+(connect D8:1 D14:5
+(points 2 329 600 430 600))
+(connect D4:1 D14:6
+(points 4 176 600 200 600 200 630 430 630)))
+(stackingOrder 11 10 1 7 4 3 5 8 15 14 6 2 12 13 16 17 0 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

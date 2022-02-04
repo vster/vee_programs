@@ -1,0 +1,346 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:08:46 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SLIDER
+(properties
+(name "Noise")
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0.529))
+(initValue Real
+(data  0))))
+(device 1 CONSTANT
+(properties
+(name "Mask"))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numDims 1)
+(size 5)
+(numCoordDims 2)
+(data  [ (0, 0.5) (0.0022, 1.2) (0.0072, 1.2) (0.0102, 0.5) (0.02, 0.5) ]))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 2 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 50)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 3 VNOISEGENERATOR
+(properties
+(amplitude 0.529)
+(numPoints 256)
+(interval 0.02))
+(interface
+(input 1
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "noise WF"))))
+(device 5 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Trace3")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(graphMode time)
+(autoAutoX)
+(autoAutoY)))
+(device 6 COMPARATOR
+(properties
+(relation <=))
+(interface
+(input 1
+(name "Ref Value")
+(tag "RefValue"))
+(input 2
+(name "Test Value")
+(tag "TestValue"))
+(output 1
+(name "Passed")
+(tag "Passed")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Failed")
+(tag "Failed")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Failures")
+(tag "Failures")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "A + B")
+(expr 1 "A + B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(expr 2 " A / 256 * 100" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 TEXTDISPLAY
+(properties
+(name "% of Failures"))
+(interface
+(input 1
+(name "Data"))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D3:1)
+(connect D6:1 D4:1)
+(connect D1:1 D4:2)
+(connect D5:3 D4:3)
+(connect D1:1 D5:1)
+(connect D6:1 D5:2)
+(connect D2:1 D6:1)
+(connect D3:1 D6:2)
+(connect D5:3 D7:1)
+(connect D7:1 D8:1)
+(connect D8:1 D9:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 5 -5)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 118 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 130 170))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 33 15))
+(open
+(extent 161 191)
+(showFormat real))
+(pinCenter 150 320))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 310 120))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 100 51)
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 310 200))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -2 1.5 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Trace3")
+(pen 6)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 760 250))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 72 34))
+(open
+(extent 192 70))
+(terminals on)
+(pinCenter 320 330))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 32 25))
+(open
+(extent 71 42))
+(terminals on)
+(pinCenter 440 160))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 80 32))
+(terminals on)
+(pinCenter 160 420))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 105 53))
+(terminals on)
+(pinCenter 330 450))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 235 46))
+(pinCenter 620 450))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 570 50))
+(connect D0:1 D3:1
+(points 4 191 170 210 170 210 200 257 200))
+(connect D6:1 D4:1
+(points 2 458 160 599 160))
+(connect D1:1 D4:2
+(points 6 169 320 270 320 270 290 490 290 490 250 599 250))
+(connect D5:3 D4:3
+(points 2 358 340 599 340))
+(connect D1:1 D5:1
+(points 2 169 320 281 320))
+(connect D6:1 D5:2
+(points 6 458 160 480 160 480 250 260 250 260 340 281 340))
+(connect D2:1 D6:1
+(points 4 370 120 390 120 390 150 421 150))
+(connect D3:1 D6:2
+(points 4 362 200 380 200 380 170 421 170))
+(connect D5:3 D7:1
+(points 6 358 340 380 340 380 370 110 370 110 420 131 420))
+(connect D7:1 D8:1
+(points 4 189 420 210 420 210 450 245 450))
+(connect D8:1 D9:1
+(points 2 435 450 500 450)))
+(stackingOrder 0 3 2 6 4 5 7 8 9 1 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

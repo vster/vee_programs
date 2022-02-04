@@ -1,0 +1,509 @@
+(saveFormat "7.0")
+(date "Thu 12/Jun/2008 10:45:25 ")
+(veerev "9.0.11410.1 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 60)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 42 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Overview of If Almost Equal Example")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:  \\cf1 This example illustrates the use of If Almost Equal object. If Almost Equal is an object that branches output if the data input values are almost equal.\\lang1033\\par\r\n\\cf0\\lang2057\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Toggle on the Execution Flow and Data Flow (under Debug menu). \\par\r\nPress Run.\\par\r\n\\par\r\nEXPLANATION: This example pops up the dialog box based on the values of \\cf1 If Almost Equal \\cf0 object inputs.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 30 37)))
+(contextCarrier
+(active detail)
+(panel
+(extent 739 560)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 300 520)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 740 510)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 415 261)
+(anchorPt 399 339)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -290 100))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 217 16))
+(open
+(extent 534 226)
+(editing disabled))
+(pinCenter -90 -190)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 176 70)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 24 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 550 263)
+(anchorPt 240 54)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 812 455)
+(carbonCopy))
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 47 MESSAGEBOX
+(properties
+(name "A is not almost equal B")
+(variableScope cont)
+(message "A is not almost equal B.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 50 MESSAGEBOX
+(properties
+(name "A is almost equal B")
+(variableScope cont)
+(message "A is almost equal B.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 52 IFTHENELSE
+(properties
+(name "If A ~= B")
+(variableScope cont)
+(cases 1 "A~=B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 53 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(data  5))
+(initValue Real32
+(data  0))))
+(device 54 FORMULA
+(properties
+(name "A+A* 10E-8")
+(variableScope cont)
+(expr 1 "A+A* 10E-8"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 55 MESSAGEBOX
+(properties
+(name "C is not almost equal D")
+(variableScope cont)
+(message "C is not almost equal D.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 56 MESSAGEBOX
+(properties
+(name "C is almost equal D")
+(variableScope cont)
+(message "C is almost equal D.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 57 IFTHENELSE
+(properties
+(name "If C ~= D")
+(variableScope cont)
+(cases 1 "C~=D"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(input 2
+(name "D")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 58 FORMULA
+(properties
+(name "C+C* 10E-7")
+(variableScope cont)
+(expr 1 "C+C* 10E-7"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D4:2 D2:0)
+(connect D4:1 D3:0)
+(connect D5:1 D4:1)
+(connect D6:1 D4:2)
+(connect D5:1 D6:1)
+(connect D9:2 D7:0)
+(connect D9:1 D8:0)
+(connect D4:0 D9:0)
+(connect D5:1 D9:1)
+(connect D10:1 D9:2)
+(connect D5:1 D10:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 812 637)
+(wndState max)
+(active detail)
+(detail
+(extent 765 552)
+(anchorPt -58 80)
+(configuration
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 520 -40))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 164 66)
+(carbonCopy))
+(pinCenter 150 -20))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 138 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 520 230))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 116 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 640 170))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter 410 140))
+(devCarrierFor 53
+(active open)
+(icon)
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 130 130))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 68 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 270 160))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 141 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 540 380))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 119 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 660 320))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 51 25))
+(open
+(extent 62 51))
+(terminals on)
+(pinCenter 410 290))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 280 310))
+(connect D4:2 D2:0
+(points 3 436 150 520 150 520 215))
+(connect D4:1 D3:0
+(points 3 436 130 640 130 640 155))
+(connect D5:1 D4:1
+(points 2 172 130 383 130))
+(connect D6:1 D4:2
+(points 4 306 160 330 160 330 150 383 150))
+(connect D5:1 D6:1
+(points 4 172 130 190 130 190 160 233 160))
+(connect D9:2 D7:0
+(points 3 438 300 540 300 540 365))
+(connect D9:1 D8:0
+(points 3 438 280 660 280 660 305))
+(connect D4:0 D9:0
+(points 2 410 155 410 275))
+(connect D5:1 D9:1
+(points 6 172 130 190 130 190 160 210 160 210 280 382 280))
+(connect D10:1 D9:2
+(points 4 318 310 340 310 340 300 382 300))
+(connect D5:1 D10:1
+(points 6 172 130 190 130 190 160 210 160 210 310 241 310)))
+(stackingOrder 0 1 4 3 6 2 5 10 9 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

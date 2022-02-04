@@ -1,0 +1,128 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 12:05:17 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "System.Environment.OSVersion;")
+(expr 2 "ver = system.Environment.OSVersion.version.ToString();"
+"plat = system.Environment.OSVersion.platform.ToString();"))
+(interface
+(output 1
+(name "ver")
+(optional yes))
+(output 2
+(name "plat")
+(optional yes))))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 NOTE
+(properties
+(name "README")
+(text2 24
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\fs24 WhichOS\\ulnone\\b0\\par\r\n\\par\r\nThis demonstrates something that\'s tedious to do before, and now extremely easy with VEE 7.0 and .NET.\\par\r\n\\par\r\nTo see how we created this example, go to Device->.NET Assembly References, under .NET tab, mscorlib should be selected; open Function & Object Browser, select .NET objects under Type, select mscorlib under Assemblies, select System.Environment under Classes, then select OSVersion\\par\r\nunder Members.  Notice that OSVersion is a static property of the System.Environment class, and the returned value has the type of System.OperatingSystem.  Go select System.OperatingSystem under Class, it shows that Version and Platform are two of the members of the System.OperatingSystem class.  \\par\r\n\\par\r\n\\cf0\\fs27\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+"and now extremely easy with VEE 7.0 and .NET." ""
+"To see how we created this example, go to Device->.NET"
+"Assembly References, under .NET tab, mscorlib should be"
+"selected; open Function & Object Browser, select .NET "
+"objects under Type, select mscorlib under Assemblies, select "
+"System.Environment under Classes, then select OSVersion"
+"under Members.  Notice that OSVersion is a static property"
+"of the System.Environment class, and the returned value"
+"has the type of System.OperatingSystem.  Go select "
+"System.OperatingSystem under Class, it shows that Version"
+"and Platform are two of the members of the " "System.OperatingSystem class.  "
+"" "" "" "" "" "" "" "" "" "")))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 789 431)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 31 58)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 195 0))
+(open
+(extent 345 67))
+(terminals on)
+(pinCenter 185 140))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 225 37))
+(pinCenter 590 120))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 225 37))
+(pinCenter 590 200))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 454 256)
+(editing disabled))
+(pinCenter 180 -10))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 530 -20))
+(connect D0:1 D1:1
+(points 2 400 120 475 120))
+(connect D0:2 D2:1
+(points 4 400 160 420 160 420 200 475 200)))
+(stackingOrder 1 2 3 4 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

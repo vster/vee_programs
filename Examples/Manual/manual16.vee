@@ -1,0 +1,622 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:13:45 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dvm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp3478a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 9)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 23)
+(popupTitleText "Using Wait For SRQ")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 2 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 8 NOTE
+(properties
+(name " ")
+(text2 3 "The \"Until Break\" " "loop waits for and" "services the SRQs.")))
+(device 9 NOTE
+(properties
+(name "")
+(text2 3 "\"scope\" and \"dvm\" (below)" "set up the instruments "
+"and enable SRQs.")))
+(device 10 NOTE
+(properties
+(name "Info About")
+(text2 55 "Overview:" "  This program shows how to service interrupts "
+"  using the \"Wait For SRQ\" object.  " "" "Details:"
+"  This program uses the HP 54504A oscilloscope"
+"  and the HP 3478A voltmeter to generate "
+"  interrupts.  You MUST have these "
+"  instruments connected to your computer to "
+"  actually run this program. However, the "
+"  techniques illustrated here apply to any" "  instruments." ""
+"  Note that you must properly configure your "
+"  instruments before running this program using"
+"  \"I/O --> Instrument Manager\" menu selection." ""
+"This is how to operate the program:" ""
+"  1. Click on \"Run\" in the VEE title bar. " " "
+"  2. Press the \"SRQ\" front panel button on the"
+"     HP 3478A or any key on the front panel of " "     the HP 54504A." ""
+"This is how the program works:" ""
+"  The Direct I/O objects labeled \"scope\" and"
+"  \"dvm\" reset the instruments and configure "
+"  them to generate service requests (SRQs). " "  "
+"  The HP 3478A will generate an SRQ when you "
+"  press its SRQ front panel button; the "
+"  HP 54504A will generate an SRQ when you "
+"  press any of its front panel buttons.  " "  "
+"  The Until Break loop  waits for an SRQ and"
+"  reports the identity of the requesting " "  device when an SRQ is detected. "
+"" "  Note that different steps are required to"
+"  re-enable interrupts for different " "  instruments:" " "
+"  * The HP 3478A requires only a serial poll"
+"    to clear the RQS bit of the status byte and"
+"    thus re-enable interrupts.  This is typical"
+"    of older, simpler instruments. " ""
+"  * The HP 54504A requires the additional step "
+"    of clearing the event register that records"
+"    front panel key press events.  This"
+"    behavior is typical of more modern, complex "
+"    instruments.  READ YOUR INSTRUMENT " "    PROGRAMMING MANUAL CAREFULLY.")))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 12 IFTHENELSE
+(properties
+(cases 1 "bit(a, 6)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 13 CONTEXT
+(properties
+(name "HP 54504 did it")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SRQ from HP 54504A"))
+(initValue Text
+(data  ""))))
+(device 1 CONFIRM25
+(properties
+(name "Press To Continue..."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D2:0 D1:0)
+(connect D0:1 D2:1))
+(ShowOnExecPanel
+(relativeOrigin 328 195)))
+(contextCarrier
+(active detail)
+(panel
+(extent 342 234)
+(widget 2 detail
+(relativeOrigin 18 41)
+(title off)
+(borderStyle flat)
+(extent 305 42))
+(widget 1 detail
+(relativeOrigin 71 108)
+(title off)
+(borderStyle flat)
+(extent 202 37)))
+(detail
+(extent 322 214)
+(anchorPt 41 77)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 201 28))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 147 15))
+(open
+(extent 202 37))
+(title off)
+(pinCenter 140 80))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 190 35))
+(pinCenter 140 0))
+(connect D2:0 D1:0
+(points 2 140 20 140 59))
+(connect D0:1 D2:1
+(points 2 25 0 42 0)))
+(stackingOrder 0 1 2))))
+(device 14 CONTEXT
+(properties
+(name "Unknown did it")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "Press To Continue..."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SRQ from unknown device"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:0 D0:0)
+(connect D2:1 D1:1))
+(ShowOnExecPanel))
+(contextCarrier
+(active detail)
+(panel
+(extent 342 234)
+(widget 1 detail
+(relativeOrigin 18 41)
+(title off)
+(borderStyle flat)
+(extent 305 42))
+(widget 0 detail
+(relativeOrigin 71 108)
+(title off)
+(borderStyle flat)
+(extent 202 37)))
+(detail
+(extent 322 214)
+(anchorPt 181 157)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 147 15))
+(open
+(extent 202 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 190 35))
+(pinCenter 0 -80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 201 28))
+(pinCenter -140 -80))
+(connect D1:0 D0:0
+(points 2 0 -60 0 -21))
+(connect D2:1 D1:1
+(points 2 -115 -80 -98 -80)))
+(stackingOrder 0 1 2))))
+(device 15 IODEVICE
+(properties
+(name "Clear ESR")
+(transactions 1 "WRITE TEXT \"*ESR?\" EOL"))
+(implementation
+(iopath "scope")))
+(device 16 CONTEXT
+(properties
+(name "HP 3478 did it")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "Press To Continue..."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SRQ from HP 3478A"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:0 D0:0)
+(connect D2:1 D1:1))
+(ShowOnExecPanel
+(relativeOrigin 328 195)))
+(contextCarrier
+(active detail)
+(panel
+(extent 342 234)
+(widget 1 detail
+(relativeOrigin 18 41)
+(title off)
+(borderStyle flat)
+(extent 305 42))
+(widget 0 detail
+(relativeOrigin 71 108)
+(title off)
+(borderStyle flat)
+(extent 202 37)))
+(detail
+(extent 322 214)
+(anchorPt 241 157)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 147 15))
+(open
+(extent 202 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 190 35))
+(pinCenter 0 -80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 201 28))
+(pinCenter -140 -80))
+(connect D1:0 D0:0
+(points 2 0 -60 0 -21))
+(connect D2:1 D1:1
+(points 2 -115 -80 -98 -80)))
+(stackingOrder 0 1 2))))
+(device 17 IFTHENELSE
+(properties
+(cases 1 "bit(a, 6)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 18 SERIALPOLL
+(properties
+(name "Spoll: scope ( @ 709)")
+(iopath "scope")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 19 SERIALPOLL
+(properties
+(name "Spoll: dvm ( @ 714)")
+(iopath "dvm")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 20 WAITSRQ
+(properties
+(name "SRQ: GPIB7"))
+(interface
+(output 1
+(name "SRQ")
+(lock name constraints)))
+(implementation
+(gateway "This host")
+(channel 7)
+(busType 1)
+(sense "wait")
+(event "srq")
+(timeout 5)))
+(device 21 IODEVICE
+(properties
+(name "dvm ( @ 714)")
+(transactions 2 "EXECUTE CLEAR" "WRITE TEXT \"M20\" EOL"))
+(implementation
+(iopath "dvm")))
+(device 22 IODEVICE
+(properties
+(name "scope ( @ 709)")
+(transactions 3 "WRITE TEXT \"*RST\" EOL"
+"WRITE TEXT \"*CLS;*ESE 64;*SRE 32\" EOL" "EXECUTE LOCAL"))
+(implementation
+(iopath "scope")))
+(configuration
+(connect D14:0 D0:0)
+(connect D11:1 D5:1)
+(connect D8:0 D6:0)
+(connect D5:2 D7:0)
+(connect D5:1 D8:0)
+(connect D10:1 D9:0)
+(connect D12:1 D10:1)
+(connect D10:2 D11:0)
+(connect D13:1 D12:0)
+(connect D0:1 D13:0)
+(connect D15:0 D14:0)))
+(contextCarrier
+(wndRestoredOrigin 405 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 290 575)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 70 -350))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 8 25))
+(open
+(extent 210 70)
+(editing disabled))
+(title off)
+(pinCenter 100 -460))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 4 0))
+(open
+(extent 256 70)
+(editing disabled))
+(title off)
+(pinCenter -150 -460))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 70 16))
+(open
+(extent 474 317)
+(editing disabled))
+(pinCenter 460 -380))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -40 -540))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 109 32))
+(open
+(extent 149 70))
+(terminals on)
+(pinCenter 390 -40))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 145 25))
+(open
+(extent 342 234)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 600 20))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 136 25))
+(open
+(extent 342 234)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 420 20))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 182 70)
+(iconImage "io.icn"))
+(open
+(extent 308 105))
+(terminals on)
+(pinCenter 600 -40))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 136 25))
+(open
+(extent 342 234)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 530 -130))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 116 33))
+(open
+(extent 149 70))
+(terminals on)
+(pinCenter 370 -150))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 271 64)
+(iconImage "io.icn"))
+(open
+(extent 305 120))
+(terminals on)
+(pinCenter 160 -40))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 244 64)
+(iconImage "io.icn"))
+(open
+(extent 305 120))
+(terminals on)
+(pinCenter 160 -150))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "io.icn"))
+(open
+(extent 195 91))
+(terminals on)
+(pinCenter 80 -240))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 251 65)
+(iconImage "io.icn"))
+(open
+(extent 308 105))
+(terminals on)
+(pinCenter -150 -270))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 256 66)
+(iconImage "io.icn"))
+(open
+(extent 308 105))
+(terminals on)
+(pinCenter -150 -360))
+(connect D14:0 D0:0
+(points 6 -150 -235 -150 -210 0 -210 0 -400 70 -400 70 -385))
+(connect D11:1 D5:1
+(points 2 298 -40 333 -40))
+(connect D8:0 D6:0
+(points 2 600 -3 600 5))
+(connect D5:2 D7:0
+(points 5 447 -30 460 -30 460 -10 420 -10 420 5))
+(connect D5:1 D8:0
+(points 5 447 -50 470 -50 470 -90 600 -90 600 -78))
+(connect D10:1 D9:0
+(points 3 430 -160 530 -160 530 -145))
+(connect D12:1 D10:1
+(points 2 284 -150 309 -150))
+(connect D10:2 D11:0
+(points 5 430 -140 440 -140 440 -100 160 -100 160 -75))
+(connect D13:1 D12:0
+(points 3 137 -240 160 -240 160 -185))
+(connect D0:1 D13:0
+(points 5 127 -350 150 -350 150 -300 80 -300 80 -275))
+(connect D15:0 D14:0
+(points 2 -150 -325 -150 -305)))
+(stackingOrder 12 10 9 14 0 13 2 11 5 8 6 7 1 3 15 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

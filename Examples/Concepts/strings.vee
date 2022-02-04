@@ -1,0 +1,800 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:01:46 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 30)
+(popupTitleText "String Functions Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "To Operate:")
+(text2 2 "Enter some String data and other parameters," "then press RUN.")))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 TEXTDISPLAY
+(properties
+(name "Extracted String"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 FORMULA
+(properties
+(name "strFromThru(str,from,thru)")
+(expr 1 "strFromThru(str, from, thru)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(input 2
+(name "from")
+(optional yes))
+(input 3
+(name "thru")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Index of char"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "strPosChar(str,char)")
+(expr 1 "strPosChar(str, char)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(input 2
+(name "char")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Number of Chars"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 FORMULA
+(properties
+(name "strLen(str)")
+(expr 1 "strLen(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TEXTDISPLAY
+(properties
+(name "Extracted String"))
+(interface
+(input 1
+(name "Data"))))
+(device 9 FORMULA
+(properties
+(name "strFromLen(str,from,len)")
+(expr 1 "strFromLen(str, from, len)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(input 2
+(name "from")
+(optional yes))
+(input 3
+(name "len")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 LITERALCONSTANT
+(properties
+(name "SubStr"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "frag"))
+(initValue Text
+(data  ""))))
+(device 11 FORMULA
+(properties
+(name "strPosstr(str1,str2)")
+(expr 1 "strPosStr(str1, str2)"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(input 2
+(name "str2")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 TEXTDISPLAY
+(properties
+(name "Index of char"))
+(interface
+(input 1
+(name "Data"))))
+(device 13 LITERALCONSTANT
+(properties
+(name "Char(s)"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "e"))
+(initValue Text
+(data  ""))))
+(device 14 CONSTANT
+(properties
+(name "Num Char"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  6))
+(initValue Int32
+(data  0))))
+(device 15 CONSTANT
+(properties
+(name "Start Pos."))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  2))
+(initValue Int32
+(data  0))))
+(device 16 FORMULA
+(properties
+(name "strRev(str)")
+(expr 1 "strRev(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 TEXTDISPLAY
+(properties
+(name "Reversed String"))
+(interface
+(input 1
+(name "Data"))))
+(device 18 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 9 "PURPOSE:     Demonstrate use of the Math --> String functions." ""
+"USER INPUT REQUIRED:  Adjust \"String\" and other parameters, if desired, then"
+"          press RUN." ""
+"EXPLANATION: Each of the Math String functions are presented with an input string"
+"          and other optional parameters as needed.  The resulting strings or"
+"          character indexes are displayed." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 233 65)))
+(contextCarrier
+(active panel)
+(panel
+(extent 740 250)
+(widget 1 detail
+(relativeOrigin 310 210)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 740 200)
+(editing disabled)))
+(detail
+(extent 295 251)
+(anchorPt 131 62)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 197 65)
+(widget 1 detail
+(relativeOrigin 40 10)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 467 260)
+(anchorPt 229 61)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 843 340)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 80 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 80 75 80 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 80 -10 80 45)))
+(stackingOrder 0 1 2))))
+(device 19 FORMULA
+(properties
+(name "strUp(str)")
+(expr 1 "strUp(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 TEXTDISPLAY
+(properties
+(name "Extracted String"))
+(interface
+(input 1
+(name "Data"))))
+(device 21 FORMULA
+(properties
+(name "strDown(str)")
+(expr 1 "strDown(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 TEXTDISPLAY
+(properties
+(name "Extracted String"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 FORMULA
+(properties
+(name "Quote the String")
+(expr 1 "\"\\\"\"+a+\"\\\"\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 FORMULA
+(properties
+(name "Quote the String")
+(expr 1 "\"\\\"\"+a+\"\\\"\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 FORMULA
+(properties
+(name "strTrim(str)")
+(expr 1 "strTrim(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 LITERALCONSTANT
+(properties
+(name "String with whitespace"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "     supercalifragalistic   "))
+(initValue Text
+(data  ""))))
+(device 27 TEXTDISPLAY
+(properties
+(name "Untrimed String"))
+(interface
+(input 1
+(name "Data"))))
+(device 28 TEXTDISPLAY
+(properties
+(name "Trimed String"))
+(interface
+(input 1
+(name "Data"))))
+(device 29 LITERALCONSTANT
+(properties
+(name "String"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "supercalifragalistic"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D3:1 D2:1)
+(connect D29:1 D3:1)
+(connect D15:1 D3:2)
+(connect D14:1 D3:3)
+(connect D5:1 D4:1)
+(connect D29:1 D5:1)
+(connect D13:1 D5:2)
+(connect D7:1 D6:1)
+(connect D29:1 D7:1)
+(connect D9:1 D8:1)
+(connect D29:1 D9:1)
+(connect D15:1 D9:2)
+(connect D14:1 D9:3)
+(connect D29:1 D11:1)
+(connect D10:1 D11:2)
+(connect D11:1 D12:1)
+(connect D29:1 D16:1)
+(connect D16:1 D17:1)
+(connect D29:1 D19:1)
+(connect D21:1 D20:1)
+(connect D29:1 D21:1)
+(connect D19:1 D22:1)
+(connect D26:1 D23:1)
+(connect D25:1 D24:1)
+(connect D26:1 D25:1)
+(connect D23:1 D27:1)
+(connect D24:1 D28:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 812 615)
+(wndState max)
+(active detail)
+(detail
+(extent 865 650)
+(anchorPt 403 23)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 0)
+(iconImage "notepad.icn"))
+(open
+(extent 389 53)
+(editing enabled))
+(pinCenter -200 30))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 396 84)
+(editing enabled))
+(pinCenter 190 10))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 224 31))
+(pinCenter 270 230))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 224 34))
+(open)
+(terminals on)
+(pinCenter 0 230))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 224 31))
+(pinCenter 270 290))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 190 25))
+(open)
+(terminals on)
+(pinCenter 0 290))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 224 31))
+(pinCenter 270 110))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 0 110))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 224 31))
+(pinCenter 270 170))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 223 34))
+(open)
+(terminals on)
+(pinCenter 0 170))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 201 28))
+(pinCenter -290 350))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 190 25))
+(open)
+(terminals on)
+(pinCenter 0 350))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 224 31))
+(pinCenter 270 350))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 201 28))
+(pinCenter -290 290))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 198 33)
+(showFormat int))
+(pinCenter -290 230))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 199 30)
+(showFormat int))
+(pinCenter -290 170))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 0 410))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 224 31))
+(pinCenter 270 410))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 201 65)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -290 510))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 0 470))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 224 31))
+(pinCenter 270 530))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 118 25))
+(open)
+(terminals on)
+(pinCenter 0 530))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 224 31))
+(pinCenter 270 470))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 154 64)
+(iconImage "formula.icn"))
+(open
+(extent 224 31))
+(pinCenter 0 590))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 154 64)
+(iconImage "formula.icn"))
+(open
+(extent 224 31))
+(pinCenter 0 650))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 118 25))
+(open)
+(terminals on)
+(pinCenter -230 650))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 208 0))
+(open
+(extent 200 31))
+(pinCenter -290 410))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 224 31))
+(pinCenter 270 590))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 224 31))
+(pinCenter 270 650))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 201 28))
+(pinCenter -290 110))
+(connect D3:1 D2:1
+(points 2 114 230 155 230))
+(connect D29:1 D3:1
+(points 4 -187 110 -170 110 -170 220 -115 220))
+(connect D15:1 D3:2
+(points 4 -188 170 -150 170 -150 230 -115 230))
+(connect D14:1 D3:3
+(points 4 -189 230 -180 230 -180 240 -115 240))
+(connect D5:1 D4:1
+(points 2 97 290 155 290))
+(connect D29:1 D5:1
+(points 4 -187 110 -170 110 -170 280 -98 280))
+(connect D13:1 D5:2
+(points 4 -187 290 -160 290 -160 300 -98 300))
+(connect D7:1 D6:1
+(points 2 57 110 155 110))
+(connect D29:1 D7:1
+(points 2 -187 110 -58 110))
+(connect D9:1 D8:1
+(points 2 114 170 155 170))
+(connect D29:1 D9:1
+(points 4 -187 110 -170 110 -170 160 -114 160))
+(connect D15:1 D9:2
+(points 2 -188 170 -114 170))
+(connect D14:1 D9:3
+(points 6 -189 230 -180 230 -180 210 -160 210 -160 180 -114 180))
+(connect D29:1 D11:1
+(points 4 -187 110 -170 110 -170 340 -98 340))
+(connect D10:1 D11:2
+(points 4 -187 350 -170 350 -170 360 -98 360))
+(connect D11:1 D12:1
+(points 2 97 350 155 350))
+(connect D29:1 D16:1
+(points 6 -187 110 -170 110 -170 340 -120 340 -120 410 -58 410))
+(connect D16:1 D17:1
+(points 2 57 410 155 410))
+(connect D29:1 D19:1
+(points 8 -187 110 -170 110 -170 340 -120 340 -120 410 -90 410 -90 470 -58 470))
+(connect D21:1 D20:1
+(points 2 61 530 155 530))
+(connect D29:1 D21:1
+(points 8 -187 110 -170 110 -170 340 -120 340 -120 410 -90 410 -90 530 -62 530))
+(connect D19:1 D22:1
+(points 2 57 470 155 470))
+(connect D26:1 D23:1
+(points 4 -188 410 -170 410 -170 590 -115 590))
+(connect D25:1 D24:1
+(points 2 -169 650 -115 650))
+(connect D26:1 D25:1
+(points 6 -188 410 -170 410 -170 590 -300 590 -300 650 -292 650))
+(connect D23:1 D27:1
+(points 2 114 590 155 590))
+(connect D24:1 D28:1
+(points 2 114 650 155 650)))
+(stackingOrder 29 7 6 8 2 4 12 17 22 20 27 28 5 11 16 19 21 24 23 25 0 9 3 15 14
+13 10 26 18 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

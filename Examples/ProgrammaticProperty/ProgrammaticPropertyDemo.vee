@@ -1,0 +1,3194 @@
+(saveFormat "7.0")
+(date "Wed 20/Sep/2006 15:55:45 ")
+(veerev "8.0.9320.0 Beta2 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "FunctionGenerator"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 10)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp437b.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(ppFile "AGniDmm")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.dll"))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope cont)
+(trigMode deg)
+(nextID 57)
+(popupTitleText "Programmatic Property Demo")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 8 CONTEXT
+(properties
+(name "backcolorPanel")
+(variableName backcolorPanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 24)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 LABEL
+(properties
+(name "Changing back color of VEE Objects")
+(variableName label1)
+(variableScope cont)
+(labelValue "Changing back color of VEE Objects"))
+(implementation))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text Array")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 10)
+(data  [ "blue" "red" "orange" "yellow" "green" "white" "black" "med green"
+"med red" "med light blue" ]))
+(initValue Text
+(data  ""))))
+(device 10 DECLVAR
+(properties
+(name "Declare colors")
+(scope con)
+(globalName "colors"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(device 11 TOGLOBAL
+(properties
+(name "Set colors")
+(variableScope cont)
+(globalName "colors"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 FORMULA
+(properties
+(name "change the VEE object\'s backcolor")
+(variableScope cont)
+(expr 4 "xyTrace.backcolor=colors[(a*19)Mod 10];"
+"alphaNumeric.backcolor=colors[(a*119)Mod 10];"
+"NoiseGenerator.backcolor=colors[(a+13)Mod 10];"
+"tank.backcolor=colors[(a+29)Mod 10];"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 17 YPLOT
+(properties
+(name "XY Trace")
+(variableName xyTrace)
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 18 VNOISEGENERATOR
+(properties
+(variableName NoiseGenerator)
+(variableScope cont)
+(amplitude 1)
+(numPoints 256)
+(interval 0.02))
+(interface
+(output 1
+(name "noise WF"))))
+(device 19 TEXTDISPLAY
+(properties
+(variableName alphaNumeric)
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 20 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Change AlphaNumberic backcolor"))
+(initValue Text
+(data  ""))))
+(device 23 TANK
+(properties
+(variableName tank)
+(variableScope cont)
+(split 33)
+(split2 66)
+(range 0 10))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(configuration
+(connect D4:0 D0:0)
+(connect D2:1 D4:1)
+(connect D0:1 D5:1)
+(connect D5:0 D6:0)
+(connect D8:1 D7:1)
+(connect D10:1 D9:1)
+(connect D0:1 D11:1))
+(ShowOnExecPanel
+(relativeOrigin 94 0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 572 457)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 10 20)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle convex)
+(extent 506 36)
+(just c))
+(widget 7 detail
+(relativeOrigin 240 110)
+(PID 8)
+(title off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(widget 9 detail
+(relativeOrigin 240 400)
+(PID 9)
+(title off)
+(tabStop off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 316 56))
+(widget 8 detail
+(relativeOrigin 10 110)
+(PID 10)
+(title off)
+(tabIndex 10)
+(borderStyle flat)
+(extent 216 79))
+(widget 11 detail
+(relativeOrigin 10 200)
+(PID 11)
+(title off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 216 253)
+(layout vertical)
+(fastmode off))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 898 445)
+(anchorPt 15 106)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 216 0))
+(open
+(extent 209 27)
+(just l))
+(title off)
+(pinCenter 670 -20))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter 50 40))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 195 103))
+(pinCenter 60 0))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 66 51))
+(terminals on)
+(pinCenter 140 40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 206 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 370 200))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 370 270))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 440 0))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 100 51)
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 320 0))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 121 22))
+(pinCenter 450 80))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 290 80))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 212 253)
+(layout vertical)
+(fastmode off))
+(pinCenter 650 140))
+(connect D4:0 D0:0
+(points 2 140 50 140 104))
+(connect D2:1 D4:1
+(points 2 81 40 107 40))
+(connect D0:1 D5:1
+(points 4 190 140 230 140 230 200 264 200))
+(connect D5:0 D6:0
+(points 2 370 210 370 234))
+(connect D8:1 D7:1
+(points 2 372 0 403 0))
+(connect D10:1 D9:1
+(points 2 305 80 405 80))
+(connect D0:1 D11:1
+(points 2 190 140 541 140)))
+(stackingOrder 0 4 2 3 7 11 9 8 6 5 10 1))))
+(device 11 CONTEXT
+(properties
+(name "forecolorPanel")
+(variableName forecolorPanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 22)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 LABEL
+(properties
+(name "Changing fore color of VEE objects")
+(variableName label1)
+(variableScope cont)
+(labelValue "Changing fore color of VEE objects"))
+(implementation))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text Array")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 10)
+(data  [ "blue" "red" "orange" "yellow" "green" "white" "black" "med green"
+"med red" "med light blue" ]))
+(initValue Text
+(data  ""))))
+(device 10 DECLVAR
+(properties
+(name "Declare colors")
+(scope con)
+(globalName "colors"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(device 11 TOGLOBAL
+(properties
+(name "Set colors")
+(variableScope cont)
+(globalName "colors"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 FORMULA
+(properties
+(name "change the VEE Object\'s foreColor")
+(variableScope cont)
+(expr 4 "xyTrace.forecolor=colors[(a*19)Mod 10];"
+"alphaNumeric.forecolor=colors[(a*119)Mod 10];"
+"NoiseGenerator.forecolor=colors[(a+13)Mod 10];"
+"tank.forecolor=colors[(a+29)Mod 10];"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 17 TANK
+(properties
+(variableName tank)
+(variableScope cont)
+(split 33)
+(split2 66)
+(range 0 10))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 18 TEXTDISPLAY
+(properties
+(variableName alphaNumeric)
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 19 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Change AlphaNumberic forecolor"))
+(initValue Text
+(data  ""))))
+(device 20 YPLOT
+(properties
+(name "XY Trace")
+(variableName xyTrace)
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 21 VNOISEGENERATOR
+(properties
+(variableName NoiseGenerator)
+(variableScope cont)
+(amplitude 1)
+(numPoints 256)
+(interval 0.02))
+(interface
+(output 1
+(name "noise WF"))))
+(configuration
+(connect D4:0 D0:0)
+(connect D2:1 D4:1)
+(connect D0:1 D5:1)
+(connect D5:0 D6:0)
+(connect D0:1 D7:1)
+(connect D9:1 D8:1)
+(connect D11:1 D10:1))
+(ShowOnExecPanel
+(relativeOrigin 69 22)))
+(contextCarrier
+(active detail)
+(panel
+(extent 616 464)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 0 10)
+(bg "Orange")
+(fg "White")
+(font "Arial" 18)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle convex)
+(extent 606 46)
+(just c))
+(widget 10 detail
+(relativeOrigin 240 110)
+(PID 8)
+(title off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 367 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(widget 7 detail
+(relativeOrigin 10 200)
+(PID 9)
+(title off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 216 253)
+(layout vertical)
+(fastmode off))
+(widget 11 detail
+(relativeOrigin 10 110)
+(PID 10)
+(title off)
+(tabIndex 10)
+(borderStyle flat)
+(extent 216 79))
+(widget 8 detail
+(relativeOrigin 240 400)
+(PID 11)
+(title off)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 366 56))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 797 622)
+(anchorPt 52 177)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 209 0))
+(open
+(extent 202 27)
+(just l))
+(title off)
+(pinCenter 290 50))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter 50 40))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 195 103))
+(pinCenter 60 0))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 66 51))
+(terminals on)
+(pinCenter 140 40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 206 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 350 200))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 350 270))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 31 15))
+(open
+(extent 212 253)
+(layout vertical)
+(fastmode off))
+(pinCenter 510 140))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 224 56))
+(pinCenter 300 0))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 200 0))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 200 -80))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 100 51)
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 70 -80))
+(connect D4:0 D0:0
+(points 2 140 50 140 112))
+(connect D2:1 D4:1
+(points 2 81 40 107 40))
+(connect D0:1 D5:1
+(points 4 176 140 210 140 210 200 244 200))
+(connect D5:0 D6:0
+(points 4 350 210 350 235 350 235 350 234))
+(connect D0:1 D7:1
+(points 2 176 140 492 140))
+(connect D9:1 D8:1
+(points 2 215 0 255 0))
+(connect D11:1 D10:1
+(points 2 122 -80 163 -80)))
+(stackingOrder 4 2 0 7 3 9 5 11 10 8 6 1))))
+(device 14 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 18 CONTEXT
+(properties
+(name "togglePanel")
+(variableName togglePanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(name "change toggle control value")
+(variableScope cont)
+(expr 8 "button.value = a MOD 2;" "check.value = (a+19) MOD 2;"
+"vPaddle.value = (a+13) MOD 2;" "hPaddle.value = (a+15) MOD 2;"
+"vRocker.value = (a+17) MOD 2;" "hRocker.value = (a+11) MOD 2;"
+"vslide.value = (a+16) MOD 2;" "hslide.value = (a+19) MOD 2;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 17 TOGGLE25
+(properties
+(name "Button")
+(variableName button)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 18 TOGGLE25
+(properties
+(name "Check Box")
+(variableName check)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 19 TOGGLE25
+(properties
+(name "V. Paddle")
+(variableName vPaddle)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 20 TOGGLE25
+(properties
+(name "H. Paddle")
+(variableName HPaddle)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 21 TOGGLE25
+(properties
+(name "V. Rocker")
+(variableName vRocker)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 22 TOGGLE25
+(properties
+(name "H. Rocker")
+(variableName hRocker)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 23 TOGGLE25
+(properties
+(name "V. Slide")
+(variableName vSlide)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 24 TOGGLE25
+(properties
+(name "H. Slide")
+(variableName hSlide)
+(variableScope cont))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 25 LABEL
+(properties
+(name "Changing value of toggle controls")
+(variableScope cont)
+(labelValue "Changing value of toggle controls"))
+(implementation))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0))
+(ShowOnExecPanel
+(relativeOrigin 133 7)))
+(contextCarrier
+(active panel)
+(panel
+(extent 506 340)
+(drawGrid "off")
+(widget 3 detail
+(relativeOrigin 20 100)
+(font "Arial" 18)
+(PID 8)
+(title off)
+(tabIndex 8)
+(borderStyle none)
+(extent 70 30)
+(scaled off)
+(format button))
+(widget 4 detail
+(relativeOrigin 160 100)
+(font "Arial" 18)
+(PID 9)
+(title off)
+(tabIndex 9)
+(borderStyle none)
+(extent 140 30)
+(scaled off)
+(format check box))
+(widget 5 detail
+(relativeOrigin 310 160)
+(font "Arial" 18)
+(PID 10)
+(title off)
+(tabIndex 10)
+(borderStyle none)
+(extent 90 70)
+(scaled off)
+(showTitle on)
+(format vpaddle))
+(widget 6 detail
+(relativeOrigin 310 240)
+(font "Arial" 18)
+(PID 11)
+(title off)
+(tabIndex 11)
+(borderStyle none)
+(extent 90 50)
+(scaled off)
+(showTitle on)
+(format hpaddle))
+(widget 7 detail
+(relativeOrigin 160 160)
+(font "Arial" 18)
+(PID 12)
+(title off)
+(tabIndex 12)
+(borderStyle none)
+(extent 90 70)
+(scaled off)
+(showTitle on)
+(format vrocker))
+(widget 8 detail
+(relativeOrigin 160 240)
+(font "Arial" 18)
+(PID 13)
+(title off)
+(tabIndex 13)
+(borderStyle none)
+(extent 90 50)
+(scaled off)
+(showTitle on)
+(format hrocker))
+(widget 9 detail
+(relativeOrigin 20 160)
+(font "Arial" 18)
+(PID 14)
+(title off)
+(tabIndex 14)
+(borderStyle none)
+(extent 80 70)
+(scaled off)
+(showTitle on)
+(format vslide))
+(widget 10 detail
+(relativeOrigin 20 240)
+(font "Arial" 18)
+(PID 15)
+(title off)
+(tabIndex 15)
+(borderStyle none)
+(extent 80 50)
+(scaled off)
+(showTitle on)
+(format hslide))
+(widget 11 detail
+(relativeOrigin 20 40)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 16)
+(title off)
+(tabStop off)
+(tabIndex 16)
+(borderStyle convex)
+(extent 376 43)
+(just c))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 797 445)
+(anchorPt 101 41)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 190 190))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 165 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 360 190))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 330))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 47 22)
+(scaled off)
+(format button))
+(title off)
+(pinCenter 330 100))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 82 19)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 440 80))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 58 66)
+(scaled off)
+(showTitle on)
+(format vpaddle))
+(title off)
+(pinCenter 430 140))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 60 43)
+(scaled off)
+(showTitle on)
+(format hpaddle))
+(title off)
+(pinCenter 440 220))
+(devCarrierFor 21
+(active open)
+(icon)
+(open
+(extent 58 63)
+(scaled off)
+(showTitle on)
+(format vrocker))
+(title off)
+(pinCenter 450 290))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 60 37)
+(scaled off)
+(showTitle on)
+(format hrocker))
+(title off)
+(pinCenter 540 280))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 47 63)
+(scaled off)
+(showTitle on)
+(format vslide))
+(title off)
+(pinCenter 100 250))
+(devCarrierFor 24
+(active open)
+(icon)
+(open
+(extent 49 37)
+(scaled off)
+(showTitle on)
+(format hslide))
+(title off)
+(pinCenter 190 320))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 201 0))
+(open
+(extent 195 27)
+(just l))
+(title off)
+(pinCenter 190 30))
+(connect D0:1 D1:1
+(points 2 226 190 275 190))
+(connect D1:0 D2:0
+(points 2 360 200 360 320)))
+(stackingOrder 3 4 5 6 7 8 9 10 0 2 1 11))))
+(device 21 CONTEXT
+(properties
+(name "sizePanel")
+(variableName sizePanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 25)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(name "change the size of VEE object")
+(variableScope cont)
+(expr 2 "funcGen.size = (200+(a mod 5)*10,200+(a mod 5)*10);"
+"xyTrace.size = (200+(a mod 5)*10,200+(a mod 5)*10);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 17 LABEL
+(properties
+(name "Changing the size of VEE Objects")
+(variableScope cont)
+(labelValue "Changing the size of VEE Objects"))
+(implementation))
+(device 23 YPLOT
+(properties
+(name "XY Trace")
+(variableName xyTrace)
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 24 VFUNCTIONGENERATOR
+(properties
+(variableName funcGen)
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)
+(connect D5:1 D4:1))
+(ShowOnExecPanel
+(relativeOrigin 52 11)))
+(contextCarrier
+(active detail)
+(panel
+(extent 661 481)
+(drawGrid "off")
+(widget 3 detail
+(relativeOrigin 100 10)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 8)
+(borderStyle convex)
+(extent 404 31)
+(just c))
+(widget 5 detail
+(relativeOrigin 10 100)
+(PID 10)
+(title off)
+(tabIndex 10)
+(borderStyle flat)
+(extent 196 175))
+(widget 4 detail
+(relativeOrigin 320 100)
+(PID 11)
+(title off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 327 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 797 445)
+(anchorPt 61 120)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 140))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 177 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 340 140))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 340 230))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 201 0))
+(open
+(extent 286 27)
+(just l))
+(title off)
+(pinCenter 250 -30))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 310 50))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 150 50))
+(connect D0:1 D1:1
+(points 2 190 140 249 140))
+(connect D1:0 D2:0
+(points 2 340 150 340 194))
+(connect D5:1 D4:1
+(points 2 210 50 273 50)))
+(stackingOrder 0 2 3 5 4 1))))
+(device 24 CONTEXT
+(properties
+(name "locationPanel")
+(variableName locationPanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 33)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 6))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 LABEL
+(properties
+(name "A")
+(variableName label1)
+(variableScope cont)
+(labelValue "A"))
+(implementation))
+(device 12 FORMULA
+(properties
+(name "label string name")
+(variableScope cont)
+(expr 1 "\"label\"+(a+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.3))
+(interface
+(output 1
+(name "Done"))))
+(device 17 LABEL
+(properties
+(name "B")
+(variableName label2)
+(variableScope cont)
+(labelValue "B"))
+(implementation))
+(device 18 LABEL
+(properties
+(name "C")
+(variableName label3)
+(variableScope cont)
+(labelValue "C"))
+(implementation))
+(device 19 LABEL
+(properties
+(name "D")
+(variableName label4)
+(variableScope cont)
+(labelValue "D"))
+(implementation))
+(device 20 LABEL
+(properties
+(name "E")
+(variableName label5)
+(variableScope cont)
+(labelValue "E"))
+(implementation))
+(device 21 LABEL
+(properties
+(name "F")
+(variableName label6)
+(variableScope cont)
+(labelValue "F"))
+(implementation))
+(device 26 FORMULA
+(properties
+(name "label object name")
+(variableScope cont)
+(expr 1 "label6"))
+(interface
+(input 1
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 28 FORMULA
+(properties
+(name "get label\'s location")
+(variableScope cont)
+(expr 1 "a.location"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 FROMCOORDINATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Coord Data")
+(requires
+(datatype Coord))
+(lock name constraints))
+(output 1
+(name "X Data")
+(lock name constraints))
+(output 2
+(name "Y Data")
+(lock name constraints)
+(optional yes))))
+(device 30 FORMULA
+(properties
+(name "change labels\' location")
+(variableScope cont)
+(expr 1 "label.location = (x,random(50,300));"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(input 3
+(name "label")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORCOUNT
+(properties
+(variableScope cont)
+(count 6))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 32 LABEL
+(properties
+(name "Changing Location of VEE Objects")
+(variableScope cont)
+(labelValue "Changing Location of VEE Objects"))
+(implementation))
+(configuration
+(connect D13:1 D0:0)
+(connect D0:1 D2:1)
+(connect D0:0 D3:0)
+(connect D2:0 D9:0)
+(connect D2:1 D9:1)
+(connect D9:1 D10:1)
+(connect D10:1 D11:1)
+(connect D11:1 D12:1)
+(connect D11:2 D12:2)
+(connect D9:1 D12:3))
+(ShowOnExecPanel
+(relativeOrigin 39 5)))
+(contextCarrier
+(active detail)
+(panel
+(extent 681 409)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 40 120)
+(font "Algerian" 22)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 4 detail
+(relativeOrigin 130 120)
+(font "Algerian" 22)
+(PID 12)
+(title off)
+(tabStop off)
+(tabIndex 12)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 5 detail
+(relativeOrigin 250 120)
+(font "Algerian" 22)
+(PID 13)
+(title off)
+(tabStop off)
+(tabIndex 13)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 6 detail
+(relativeOrigin 350 120)
+(font "Algerian" 22)
+(PID 14)
+(title off)
+(tabStop off)
+(tabIndex 14)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 7 detail
+(relativeOrigin 460 120)
+(font "Algerian" 22)
+(PID 15)
+(title off)
+(tabStop off)
+(tabIndex 15)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 8 detail
+(relativeOrigin 580 120)
+(font "Algerian" 22)
+(PID 16)
+(title off)
+(tabStop off)
+(tabIndex 16)
+(borderStyle flat)
+(extent 46 46)
+(just l))
+(widget 14 detail
+(relativeOrigin 200 0)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 20)
+(title off)
+(tabStop off)
+(tabIndex 20)
+(borderStyle convex)
+(extent 286 36)
+(just c))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 965 445)
+(anchorPt 95 102)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 34)
+(just l))
+(title off)
+(pinCenter 200 50))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 105 25))
+(open
+(extent 364 226))
+(terminals on)
+(pinCenter 280 170))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 140 310))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 12 0))
+(open
+(extent 46 27)
+(just l))
+(title off)
+(pinCenter 260 50))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 13 0))
+(open
+(extent 46 27)
+(just l))
+(title off)
+(pinCenter 320 50))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 13 0))
+(open
+(extent 46 27)
+(just l))
+(title off)
+(pinCenter 380 50))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 12 0))
+(open
+(extent 46 27)
+(just l))
+(title off)
+(pinCenter 450 50))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 46 27)
+(just l))
+(title off)
+(pinCenter 510 50))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 107 25))
+(open
+(extent 364 226))
+(terminals on)
+(pinCenter 430 170))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 112 25))
+(open
+(extent 364 226))
+(terminals on)
+(pinCenter 580 170))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 89 51)
+(iconImage "unbuild.icn"))
+(open)
+(terminals on)
+(pinCenter 710 170))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 138 45))
+(open
+(extent 364 226))
+(terminals on)
+(pinCenter 890 180))
+(devCarrierFor 31
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -20 130))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 206 0))
+(open
+(extent 200 27)
+(just l))
+(title off)
+(pinCenter 130 -30))
+(connect D13:1 D0:0
+(points 5 30 130 50 130 50 90 140 90 140 112))
+(connect D0:1 D2:1
+(points 4 176 140 200 140 200 170 225 170))
+(connect D0:0 D3:0
+(points 2 140 168 140 274))
+(connect D2:0 D9:0
+(points 6 280 185 280 210 350 210 350 140 430 140 430 155))
+(connect D2:1 D9:1
+(points 2 335 170 374 170))
+(connect D9:1 D10:1
+(points 2 486 170 521 170))
+(connect D10:1 D11:1
+(points 2 638 170 663 170))
+(connect D11:1 D12:1
+(points 4 757 160 780 160 780 170 818 170))
+(connect D11:2 D12:2
+(points 2 757 180 818 180))
+(connect D9:1 D12:3
+(points 6 486 170 510 170 510 220 780 220 780 190 818 190)))
+(stackingOrder 1 5 6 7 4 13 3 2 9 10 11 8 0 12 14))))
+(device 30 CONTEXT
+(properties
+(name "disablePanel")
+(variableName disablePanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 33)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 12 FORMULA
+(properties
+(name "Disable Ok")
+(variableScope cont)
+(expr 5 "ok.EnableOnPing = 1;" "ok.Title = \"Button 1 is enabled\";"
+"ok2.EnableOnPing = 0;" "ok2.Title = \"Button 2 is disabled\";" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.8))
+(interface
+(output 1
+(name "Done"))))
+(device 24 LABEL
+(properties
+(name "Changing Disable property of Confirm")
+(variableScope cont)
+(labelValue "Changing Disable property of Confirm"))
+(implementation))
+(device 17 CONFIRM25
+(properties
+(variableName ok)
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 25 CONFIRM25
+(properties
+(name "ok2")
+(variableName ok2)
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 26 FORMULA
+(properties
+(name "Disable Ok")
+(variableScope cont)
+(expr 6 "ok.EnableOnPing = 0;" "ok.Title = \"Button 1 is disabled\";"
+"ok2.EnableOnPing = 1;" "ok2.Title = \"Button 2 is enabled\";" "" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 DELAY
+(properties
+(variableScope cont)
+(delay 0.8))
+(interface
+(output 1
+(name "Done"))))
+(device 28 FORMULA
+(properties
+(name "Disable Ok")
+(variableScope cont)
+(expr 5 "ok.EnableOnPing = 1;" "ok.Title = \"Button 1 is enabled\";"
+"ok2.EnableOnPing = 1;" "ok2.Title = \"Button 2 is enabled\";" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 DELAY
+(properties
+(variableScope cont)
+(delay 0.8))
+(interface
+(output 1
+(name "Done"))))
+(device 30 FORMULA
+(properties
+(name "Disable Ok")
+(variableScope cont)
+(expr 5 "ok.EnableOnPing= 0;" "ok.Title = \"Button 1 is disabled\";"
+"ok2.EnableOnPing = 0;" "ok2.Title = \"Button 2 is disabled\";" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 DELAY
+(properties
+(variableScope cont)
+(delay 0.8))
+(interface
+(output 1
+(name "Done"))))
+(device 32 EXITCONTEXT
+(properties
+(variableScope cont)))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D5:0)
+(connect D5:0 D6:0)
+(connect D6:0 D7:0)
+(connect D7:0 D8:0)
+(connect D8:0 D9:0)
+(connect D9:0 D10:0)
+(connect D10:0 D11:0))
+(ShowOnExecPanel
+(relativeOrigin 227 133)))
+(contextCarrier
+(active detail)
+(panel
+(extent 422 265)
+(drawGrid "off")
+(widget 2 detail
+(relativeOrigin 40 20)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle convex)
+(extent 310 36)
+(just c))
+(widget 3 detail
+(relativeOrigin 40 100)
+(PID 6)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 160 60))
+(widget 4 detail
+(relativeOrigin 40 180)
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 160 60))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 797 530)
+(anchorPt 59 -158)
+(configuration
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 160 240))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 160 310))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 227 0))
+(open
+(extent 237 27)
+(just l))
+(title off)
+(pinCenter 340 160))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 80 150))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 150 150))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 160 350))
+(devCarrierFor 27
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 160 420))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 160 470))
+(devCarrierFor 29
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 160 540))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 160 590))
+(devCarrierFor 31
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 160 660))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 160 720))
+(connect D0:0 D1:0
+(points 2 160 250 160 274))
+(connect D1:0 D5:0
+(points 2 160 328 160 340))
+(connect D5:0 D6:0
+(points 2 160 360 160 384))
+(connect D6:0 D7:0
+(points 2 160 438 160 460))
+(connect D7:0 D8:0
+(points 2 160 480 160 504))
+(connect D8:0 D9:0
+(points 2 160 558 160 580))
+(connect D9:0 D10:0
+(points 2 160 600 160 624))
+(connect D10:0 D11:0
+(points 2 160 678 160 710)))
+(stackingOrder 1 6 3 2 4 8 10 11 5 7 9 0))))
+(device 35 CONTEXT
+(properties
+(name "visiblePanel")
+(variableName visiblePanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 12))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 LABEL
+(properties
+(name "1")
+(variableName label1)
+(variableScope cont)
+(labelValue "1"))
+(implementation))
+(device 7 LABEL
+(properties
+(name "2")
+(variableName label2)
+(variableScope cont)
+(labelValue "2"))
+(implementation))
+(device 8 LABEL
+(properties
+(name "3")
+(variableName label3)
+(variableScope cont)
+(labelValue "3"))
+(implementation))
+(device 13 LABEL
+(properties
+(name "6")
+(variableName label6)
+(variableScope cont)
+(labelValue "6"))
+(implementation))
+(device 14 LABEL
+(properties
+(name "4")
+(variableName label4)
+(variableScope cont)
+(labelValue "4"))
+(implementation))
+(device 15 LABEL
+(properties
+(name "5")
+(variableName label5)
+(variableScope cont)
+(labelValue "5"))
+(implementation))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.3))
+(interface
+(output 1
+(name "Done"))))
+(device 17 FORMULA
+(properties
+(name "set visible to false")
+(variableScope cont)
+(expr 1 "object.visible = intPart(a/6);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "object")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 LABEL
+(properties
+(name "Changing Visibility of VEE Objects")
+(variableScope cont)
+(labelValue "Changing Visibility of VEE Objects"))
+(implementation))
+(device 19 LABEL
+(properties
+(name "Info")
+(variableName label)
+(variableScope cont)
+(labelValue "Info"))
+(implementation))
+(device 20 FORMULA
+(properties
+(name "label string")
+(variableScope cont)
+(expr 1 "\"label\"+((a mod 6)+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name "lable object name")
+(variableScope cont)
+(expr 1 "label6"))
+(interface
+(input 1
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORMULA
+(properties
+(name "set visible to false")
+(variableScope cont)
+(expr 6 "label1.Visible = 1;" "label2.Visible = 1;" "label3.Visible = 1;"
+"label4.Visible = 1;" "label5.Visible = 1;" "label6.Visible = 1;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "a<6"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 24 FORMULA
+(properties
+(name "change information ")
+(variableScope cont)
+(expr 1 "label.Title = ((a mod 6)+1)+\" disappears\";"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 FORMULA
+(properties
+(name "change information")
+(variableScope cont)
+(expr 1 "label.Title = ((a mod 6)+1)+\" appears\";"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D13:0 D0:0)
+(connect D14:0 D7:0)
+(connect D0:1 D8:1)
+(connect D12:1 D8:2)
+(connect D0:1 D11:1)
+(connect D11:0 D12:0)
+(connect D11:1 D12:1)
+(connect D8:0 D14:0)
+(connect D0:1 D14:1)
+(connect D14:1 D15:0)
+(connect D0:1 D15:1)
+(connect D14:2 D16:0)
+(connect D0:1 D16:1))
+(ShowOnExecPanel
+(relativeOrigin 180 39)))
+(contextCarrier
+(active detail)
+(panel
+(extent 422 265)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 10 150)
+(font "Arial" 18)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 2 detail
+(relativeOrigin 70 150)
+(font "Arial" 18)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 3 detail
+(relativeOrigin 140 150)
+(font "Arial" 18)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 4 detail
+(relativeOrigin 340 150)
+(font "Arial" 18)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 5 detail
+(relativeOrigin 210 150)
+(font "Arial" 18)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 6 detail
+(relativeOrigin 270 150)
+(font "Arial" 18)
+(PID 7)
+(title off)
+(tabStop off)
+(tabIndex 7)
+(borderStyle none)
+(extent 50 50)
+(just l))
+(widget 9 detail
+(relativeOrigin 70 20)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 8)
+(borderStyle convex)
+(extent 282 36)
+(just c))
+(widget 10 detail
+(relativeOrigin 10 90)
+(font "Arial" 14)
+(PID 9)
+(title off)
+(tabStop off)
+(tabIndex 9)
+(borderStyle none)
+(extent 380 40)
+(just l))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 864 445)
+(anchorPt 21 146)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 120 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 34)
+(just l))
+(title off)
+(pinCenter 260 50))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 34)
+(just l))
+(title off)
+(pinCenter 320 50))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 34)
+(just l))
+(title off)
+(pinCenter 380 50))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 24)
+(just l))
+(title off)
+(pinCenter 380 100))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 24)
+(just l))
+(title off)
+(pinCenter 320 100))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 34 34)
+(just l))
+(title off)
+(pinCenter 260 100))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 510 400))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 107 25))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 510 140))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 203 0))
+(open
+(extent 197 27)
+(just l))
+(title off)
+(pinCenter 170 -30))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 24 0))
+(open
+(extent 43 27)
+(just l))
+(title off)
+(pinCenter 230 -30))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 250 140))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 107 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 370 140))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 107 25))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 120 50))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 510 230))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 680 330))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 116 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 670 280))
+(connect D13:0 D0:0
+(points 2 120 65 120 104))
+(connect D14:0 D7:0
+(points 2 510 245 510 364))
+(connect D0:1 D8:1
+(points 8 170 140 190 140 190 110 200 110 200 10 440 10 440 130 454 130))
+(connect D12:1 D8:2
+(points 4 426 140 440 140 440 150 454 150))
+(connect D0:1 D11:1
+(points 2 170 140 214 140))
+(connect D11:0 D12:0
+(points 6 250 150 250 170 300 170 300 120 370 120 370 130))
+(connect D11:1 D12:1
+(points 2 286 140 314 140))
+(connect D8:0 D14:0
+(points 2 510 155 510 215))
+(connect D0:1 D14:1
+(points 4 170 140 190 140 190 230 472 230))
+(connect D14:1 D15:0
+(points 3 548 220 680 220 680 320))
+(connect D0:1 D15:1
+(points 8 170 140 190 140 190 230 450 230 450 280 590 280 590 330 618 330))
+(connect D14:2 D16:0
+(points 3 548 240 670 240 670 270))
+(connect D0:1 D16:1
+(points 6 170 140 190 140 190 230 450 230 450 280 609 280)))
+(stackingOrder 3 2 13 1 6 5 0 12 10 11 4 8 14 7 16 15 9))))
+(device 48 CONTEXT
+(properties
+(name "titlePanel")
+(variableName titlePanel)
+(variableScope cont)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 21))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 LABEL
+(properties
+(name "A")
+(variableName label1)
+(variableScope cont)
+(labelValue "A"))
+(implementation))
+(device 12 FORMULA
+(properties
+(name "Show the title")
+(variableScope cont)
+(expr 4 "tmp = strfromlen(s_animateTExt,0,2*a+1);" "label1.title=tmp;"
+"funcGen.Title = tmp;" "label1.ForeColor = \"orange\";"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tmp")
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.2))
+(interface
+(output 1
+(name "Done"))))
+(device 20 DECLVAR
+(properties
+(name "Declare s_animateText")
+(scope con)
+(globalName "s_animateText"))
+(implementation
+(value Text
+(data  ""))))
+(device 21 TOGLOBAL
+(properties
+(name "Set s_animateText")
+(variableScope cont)
+(globalName "s_animateText"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 22 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Welcome to VEE Programmatic Property Demo!"))
+(initValue Text
+(data  ""))))
+(device 23 FORMULA
+(properties
+(name "Get the length of animateText")
+(variableScope cont)
+(expr 1 "strlen(s_animateText)/2;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 LABEL
+(properties
+(name "Changing the title of VEE Objects")
+(variableScope cont)
+(labelValue "Changing the title of VEE Objects"))
+(implementation))
+(device 25 VFUNCTIONGENERATOR
+(properties
+(variableName funcGen)
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(configuration
+(connect D7:1 D0:1)
+(connect D0:1 D2:1)
+(connect D2:0 D3:0)
+(connect D6:1 D5:1)
+(connect D5:0 D7:0))
+(ShowOnExecPanel
+(relativeOrigin 34 36)))
+(contextCarrier
+(active panel)
+(panel
+(extent 712 358)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 0 60)
+(font "High Tower Text" 26)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle none)
+(extent 710 50)
+(just l))
+(widget 8 detail
+(relativeOrigin 0 10)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle convex)
+(extent 706 36)
+(just c))
+(widget 9 detail
+(relativeOrigin 130 130)
+(PID 4)
+(title on)
+(tabIndex 4)
+(borderStyle flat)
+(extent 396 175))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 898 598)
+(anchorPt 49 151)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 220 130))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 11 0))
+(open
+(extent 64 84)
+(just l))
+(title off)
+(pinCenter 340 -50))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 80 25))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 350 130))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 350 270))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 195 103))
+(pinCenter 130 -100))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 112 15))
+(open
+(extent 113 51))
+(terminals on)
+(pinCenter 70 20))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter -20 20))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 174 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 70 130))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 187 0))
+(open
+(extent 192 27)
+(just l))
+(title off)
+(pinCenter 370 50))
+(devCarrierFor 25
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 585 200))
+(connect D7:1 D0:1
+(points 2 159 130 183 130))
+(connect D0:1 D2:1
+(points 2 256 130 307 130))
+(connect D2:0 D3:0
+(points 2 350 145 350 234))
+(connect D6:1 D5:1
+(points 2 -5 20 11 20))
+(connect D5:0 D7:0
+(points 2 70 30 70 120)))
+(stackingOrder 3 1 4 8 6 5 9 0 7 2))))
+(device 27 CONTEXT
+(properties
+(name "panelColor")
+(variableName panel)
+(variableScope cont)
+(trigMode deg)
+(nextID 19)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(showPopupTitle 0)
+(showPopupBorder 0))
+(deviceList
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text Array")
+(variableScope cont))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 10)
+(data  [ "blue" "red" "orange" "yellow" "green" "white" "black" "med green"
+"med red" "med light blue" ]))
+(initValue Text
+(data  ""))))
+(device 10 DECLVAR
+(properties
+(name "Declare colors")
+(scope con)
+(globalName "colors"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(device 11 TOGLOBAL
+(properties
+(name "Set colors")
+(variableScope cont)
+(globalName "colors"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 FORMULA
+(properties
+(name "Change Panel back color")
+(variableScope cont)
+(expr 2 "panel.backcolor = colors[a];" "main.backcolor = colors[(a+19) mod 10]")
+)
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DELAY
+(properties
+(variableScope cont)
+(delay 0.4))
+(interface
+(output 1
+(name "Done"))))
+(device 17 LABEL
+(properties
+(name "Changing the back color of VEE panel.")
+(variableScope cont)
+(labelValue "Changing the back color of VEE panel."))
+(implementation))
+(device 18 FORMULA
+(properties
+(name "Change Panel back color")
+(variableScope cont)
+(expr 1 "main.backcolor = \"light blue gray\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D3:0 D0:0)
+(connect D1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D4:0 D5:0)
+(connect D0:0 D7:0))
+(ShowOnExecPanel
+(relativeOrigin 164 65)))
+(contextCarrier
+(active detail)
+(panel
+(extent 422 265)
+(drawGrid "off")
+(widget 6 detail
+(relativeOrigin 60 20)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle convex)
+(extent 336 36)
+(just c))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 797 445)
+(anchorPt 165 23)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 140))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter 50 40))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 195 103))
+(pinCenter 440 50))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 66 51))
+(terminals on)
+(pinCenter 140 40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 360 240))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 360 350))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 229 0))
+(open
+(extent 286 27)
+(just l))
+(title off)
+(pinCenter 370 100))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 304 126))
+(terminals on)
+(pinCenter 140 240))
+(connect D3:0 D0:0
+(points 2 140 50 140 104))
+(connect D1:1 D3:1
+(points 2 81 40 107 40))
+(connect D0:1 D4:1
+(points 4 190 140 210 140 210 240 282 240))
+(connect D4:0 D5:0
+(points 2 360 250 360 314))
+(connect D0:0 D7:0
+(points 2 140 158 140 230)))
+(stackingOrder 2 0 3 1 5 4 7 6))))
+(device 54 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 55 CONFIRM25
+(properties
+(name "Press F8 to Stop")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 0)
+(isAssigned2FKey F8))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 56 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:1 D0:0)
+(connect D0:0 D1:0)
+(connect D8:0 D3:0)
+(connect D3:0 D4:0)
+(connect D4:0 D5:0)
+(connect D9:0 D6:0)
+(connect D6:0 D7:0)
+(connect D1:0 D8:0)
+(connect D5:0 D9:0)
+(connect D11:1 D10:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 36 39)
+(wndState res)
+(active detail)
+(panel
+(extent 793 587)
+(drawGrid "on")
+(widget 11 detail
+(relativeOrigin 610 540)
+(font "Arial" 16)
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 180 40))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 750 519)
+(anchorPt 23 -8)
+(configuration
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 100))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 88 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 150))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 30 50))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 72 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 230))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 59 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 280))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 330))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 80 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 440))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 73 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 500))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 56 25))
+(open
+(extent 414 46)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 190))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 67 25))
+(open
+(extent 422 196)
+(carbonCopy))
+(terminals on)
+(pinCenter 210 380))
+(devCarrierFor 54
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 510 300))
+(devCarrierFor 55
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 114 34))
+(title off)
+(pinCenter 440 210))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 520 70))
+(connect D2:1 D0:0
+(points 3 66 50 210 50 210 85))
+(connect D0:0 D1:0
+(points 2 210 115 210 135))
+(connect D8:0 D3:0
+(points 2 210 205 210 215))
+(connect D3:0 D4:0
+(points 2 210 245 210 265))
+(connect D4:0 D5:0
+(points 2 210 295 210 315))
+(connect D9:0 D6:0
+(points 2 210 395 210 425))
+(connect D6:0 D7:0
+(points 2 210 455 210 485))
+(connect D1:0 D8:0
+(points 2 210 165 210 175))
+(connect D5:0 D9:0
+(points 2 210 345 210 365))
+(connect D11:1 D10:0
+(points 3 499 210 510 210 510 263)))
+(stackingOrder 2 12 0 1 8 3 4 5 9 7 11 10 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,484 @@
+(saveFormat "2.3")
+(date "Fri 06/Feb/2004 09:29:34 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "Light Blue Gray")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "White" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Yellow" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Object Description Text" "Courier New" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Notepad Text" "Courier New" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 19)
+(popupTitleText "panic-switch")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "Shutdown_Program")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 7 "here, you "
+"1st:  switch off all devices, which are \"power-sensitive\"."
+"        This means, which are able to cause \"trouble\"."
+"        i.e. generators, power-supplies, set relais to \"poff\" etc."
+"2nd: drive your programm down:"
+"        save results, close files and applications." "")))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 392 213)
+(anchorPt 0 1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 325 117)
+(editing disabled))
+(bg "White")
+(font "Arial" 11)
+(pinCenter 190 100)))))))
+(device 0 TOGGLE25
+(properties
+(name "Emergency STOP")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 2 EXITPROCESS
+(properties
+(code 0)))
+(device 3 NOTE
+(properties
+(text2 3 "To enable the user to bring the programm to a"
+"fast and defined stop." "Helps to avoid hazardous situations.")))
+(device 5 IFTHENELSE
+(properties
+(name "a=1 ?")
+(cases 1 "a==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 CONTEXT
+(properties
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(deviceList
+(device 0 DELAY
+(properties
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 140 120))))))
+(device 7 CONTEXT
+(properties
+(trigMode deg)
+(nextID 1)
+(popupMoveable 1))
+(deviceList
+(device 0 DELAY
+(properties
+(delay 3))
+(interface
+(output 1
+(name "Done"))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 150 140))))))
+(device 8 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 9 NEXT)
+(device 10 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 11 CONFIRM25
+(properties
+(name "Emergency STOP")
+(enterButton 0)
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 12 NOTE
+(properties
+(name "Information")
+(text2 16 "The icons in red color represent the shutdown"
+"code you can insert in your program wherever"
+"you need it.   The [a=1 ?] (=IF/THEN/ELSE) object"
+"checks to see if the button was pressed and if so" "initiates the shutdown." ""
+"As this may be a bit late (*), if you do not check"
+"it more often than once in a loop, you may"
+"use an OK-Button and build up an extra "
+"thread as in the other thread. This works immediately !" ""
+"(*) a Delay of 1 sec has been inserted in " "each UO to show the difference!"
+"" "This example was contributed by Peter Weber" "")))
+(device 13 EXITPROCESS
+(properties
+(code 0)))
+(device 15 LABEL
+(properties
+(name "press either button to end program")
+(labelValue "press either button to end program"))
+(implementation))
+(device 16 CALL
+(properties
+(name "Call Shutdown_Program")
+(callFunc "Shutdown_Program")
+(parmMode rev30)))
+(device 17 CALL
+(properties
+(name "Call Shutdown_Program")
+(callFunc "Shutdown_Program")
+(parmMode rev30)))
+(device 18 NOTE
+(properties
+(name "Information")
+(text2 2 "Separate thread which works immediately!" "")))
+(configuration
+(connect D4:0 D0:0)
+(connect D14:0 D1:0)
+(connect D0:1 D3:1)
+(connect D6:1 D4:0)
+(connect D8:1 D5:0)
+(connect D5:0 D7:0)
+(connect D0:0 D8:1)
+(connect D3:2 D8:2)
+(connect D13:0 D11:0)
+(connect D9:0 D13:0)
+(connect D3:1 D14:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(panel
+(extent 263 203)
+(widget 9 detail
+(relativeOrigin 70 90)
+(bg "Red")
+(font "Arial" 12 bold)
+(title off)
+(borderStyle convex)
+(extent 107 27))
+(widget 12 detail
+(relativeOrigin 30 140)
+(title off)
+(borderStyle none)
+(extent 200 25)
+(just l))
+(widget 0 detail
+(relativeOrigin 70 20)
+(font "Arial" 11 bold)
+(title off)
+(borderStyle none)
+(extent 103 56)
+(scaled off)
+(showTitle on)
+(onFilename "stop.icn")
+(offFilename "stop.gif")
+(format custom)))
+(detail
+(extent 822 564)
+(anchorPt 103 133)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 106 15))
+(open
+(extent 70 56)
+(scaled off)
+(showTitle on)
+(onFilename "stop.icn")
+(offFilename "stop.gif")
+(format custom))
+(title off)
+(titleBg "Red")
+(pinCenter 40 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(titleBg "Red")
+(pinCenter 270 120))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 235 65)
+(editing disabled))
+(title off)
+(bg "White")
+(font "Arial" 11)
+(pinCenter 170 -70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 35 25))
+(open
+(extent 54 51))
+(terminals on)
+(titleBg "Red")
+(pinCenter 130 40))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 68 15))
+(terminals on)
+(pinCenter 40 0))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 15))
+(terminals on)
+(pinCenter 130 140))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -10 -60))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 130 170))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 90 100))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 106 15))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 140 260))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 255 247)
+(editing disabled))
+(bg "White")
+(font "Arial" 11)
+(titleBg "Med Yellow Green")
+(pinCenter 500 30))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 140 340))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 185 14))
+(open
+(extent 202 27)
+(just c))
+(title off)
+(titleFont "Arial" 10 bold)
+(pinCenter 470 210))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 290))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 176 51))
+(terminals on)
+(titleBg "Red")
+(pinCenter 270 60))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 225 47)
+(editing disabled))
+(bg "White")
+(font "Arial" 11)
+(titleBg "Med Yellow Green")
+(pinCenter 310 360))
+(connect D4:0 D0:0
+(points 2 40 10 40 30))
+(connect D14:0 D1:0
+(points 2 270 70 270 92))
+(connect D0:1 D3:1
+(points 2 95 40 110 40))
+(connect D6:1 D4:0
+(points 3 26 -60 40 -60 40 -10))
+(connect D8:1 D5:0
+(points 3 105 100 130 100 130 130))
+(connect D5:0 D7:0
+(points 2 130 150 130 160))
+(connect D0:0 D8:1
+(points 3 40 50 40 90 74 90))
+(connect D3:2 D8:2
+(points 6 150 50 160 50 160 70 50 70 50 110 74 110))
+(connect D13:0 D11:0
+(points 2 140 300 140 312))
+(connect D9:0 D13:0
+(points 2 140 270 140 280))
+(connect D3:1 D14:0
+(points 3 150 30 270 30 270 50)))
+(stackingOrder 0 6 2 11 12 4 9 13 14 1 8 5 7 3 15 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

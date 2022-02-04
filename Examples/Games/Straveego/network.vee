@@ -1,0 +1,7867 @@
+(saveFormat "7.0")
+(date "Tue 28/Nov/2006 10:08:58 ")
+(veerev "8.0.9527.1 Beta3 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(UserFunctions
+(nextID 23)
+(context 4
+(properties
+(name "CannotConnect")
+(variableName CannotConnect)
+(variableScope glob)
+(trigMode deg)
+(nextID 3))
+(interface
+(input 1
+(name "HostName")
+(optional yes))
+(output 1
+(type data)
+(name "Continue")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "cannot connect message")
+(variableScope cont)
+(expr 1
+"\"Cannot reach player 1 at \\\"\"+HostName+\"\\\".\\\\nDo you want to keep Trying?\""
+))
+(interface
+(input 1
+(name "hostName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 281 309)
+(message "Cannot reach a player at \"hpislrlb\".\\nDo you want to keep Trying?")
+(symbol Question))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")
+(messageTextFont "Arial" 18)
+(buttonTextFont "Arial" 16)))
+(device 2 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:2 D2:0)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 624 343)
+(anchorPt 498 194)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 173 16))
+(open
+(extent 627 32))
+(terminals on)
+(pinCenter -280 -80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter -110 -80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 0 0))
+(connect I1:1 D0:1
+(points 4 -498 -23 -490 -23 -490 -80 -369 -80))
+(connect D0:1 D1:1
+(points 2 -191 -80 -159 -80))
+(connect D1:2 D2:0
+(points 3 -62 -70 0 -70 0 -29))
+(connect D1:1 O1:1
+(points 4 -62 -90 60 -90 60 -23 125 -23)))
+(stackingOrder 2 0 1))))
+(context 7
+(properties
+(name "CheckForOpponentSetup")
+(variableName CheckForOpponentSetup)
+(variableScope glob)
+(trigMode deg)
+(nextID 24)
+(popupTitleText "CheckForBoard"))
+(interface
+(output 1
+(type data)
+(name "OpponentSetup")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "am Game Host?")
+(variableScope cont)
+(cases 1 "GameHost"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "READ CONTAINER x"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5555
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.3)
+(byteOrder 0))))
+(device 3 TOFROMSOCKET
+(properties
+(name "To/From Socket (Connect)")
+(variableScope cont)
+(transactions 1 "READ CONTAINER x"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hpislkh1" 5555
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.3)
+(byteOrder 0))))
+(device 4 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 5 IFTHENELSE
+(properties
+(name "Connection Shut Down?")
+(variableScope cont)
+(cases 1 "errorCode==855"))
+(interface
+(input 1
+(name "errorCode")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 IFTHENELSE
+(properties
+(name "Non-timeout error?")
+(variableScope cont)
+(cases 1 "errorCode!=853"))
+(interface
+(input 1
+(name "errorCode")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 11 FORMULA
+(properties
+(name "special message")
+(variableScope cont)
+(expr 1 "errMsg.message"))
+(interface
+(input 1
+(name "errMsg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Internal Error:  Select failed")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 13 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 14 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "player 1 host name")
+(variableScope cont)
+(expr 1 "player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 CONTEXT
+(properties
+(name "Terminate")
+(variableScope cont)
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "shut down message")
+(variableScope cont)
+(expr 1 "opponentName+\" has stopped playing StraVEEgo.\\\\nGame Over.\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 281 309)
+(message "Keifer has stopped playing Battleship.\\nGame Over.")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 2 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 381 300)
+(anchorPt 303 188)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 137 16))
+(open
+(extent 449 32))
+(terminals on)
+(pinCenter -190 -70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter -60 -70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter -60 0))
+(connect D0:1 D1:1
+(points 2 -119 -70 -109 -70))
+(connect D1:0 D2:0
+(points 2 -60 -55 -60 -29)))
+(stackingOrder 2 0 1))))
+(device 20 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 9 "This function listens on port" "\'portNo\' for the other player to "
+"specify his piece set-up.  This " "function returns the 1D-array of"
+"the opponent\'s layout.  It does" "not return until the opponent\'s"
+"board is received.  It STOPS in" "the event of a networking error." "")))
+(device 22 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 23 EXITCONTEXT
+(properties
+(variableScope cont)))
+(configuration
+(connect D11:0 D1:0)
+(connect D11:1 D1:1)
+(connect D12:0 D2:0)
+(connect D13:1 D2:1)
+(connect D12:1 D2:2)
+(connect D1:2 D3:1)
+(connect D2:2 D3:2)
+(connect D3:1 D4:1)
+(connect D4:2 D5:0)
+(connect D3:1 D5:1)
+(connect D5:1 D6:0)
+(connect D1:1 D7:1)
+(connect D2:1 D7:2)
+(connect D6:1 D8:1)
+(connect D8:1 D9:1)
+(connect D9:0 D10:0)
+(connect D0:1 D11:0)
+(connect D13:0 D12:0)
+(connect D0:2 D13:0)
+(connect D4:1 D14:0)
+(connect D7:1 D16:1)
+(connect D16:0 D17:0)
+(connect D16:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 973 522)
+(anchorPt 291 232)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 111 25))
+(open
+(extent 136 53))
+(terminals on)
+(pinCenter -210 -70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 50 -50))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 184 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 70 70))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 230 30))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 152 66))
+(terminals on)
+(pinCenter 360 30))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 130 25))
+(open
+(extent 137 53))
+(terminals on)
+(pinCenter 220 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 360 170))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 230 -50))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 115 16))
+(open
+(extent 119 32))
+(terminals on)
+(pinCenter 470 170))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 590 170))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 590 230))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter -80 -50))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter -110 90))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 133 16))
+(open
+(extent 145 32))
+(terminals on)
+(pinCenter -110 60))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 70 31))
+(pinCenter 500 100))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 275 142)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 410 -130))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 610 20))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 610 70))
+(connect D11:0 D1:0
+(points 6 -80 -40 -80 -20 -130 -20 -130 -80 50 -80 50 -65))
+(connect D11:1 D1:1
+(points 2 -55 -50 -31 -50))
+(connect D12:0 D2:0
+(points 6 -110 100 -110 120 -200 120 -200 30 70 30 70 55))
+(connect D13:1 D2:1
+(points 2 -41 60 -25 60))
+(connect D12:1 D2:2
+(points 4 -85 90 -40 90 -40 80 -25 80))
+(connect D1:2 D3:1
+(points 4 131 -40 150 -40 150 20 213 20))
+(connect D2:2 D3:2
+(points 4 164 80 180 80 180 40 213 40))
+(connect D3:1 D4:1
+(points 2 247 30 274 30))
+(connect D4:2 D5:0
+(points 7 446 40 470 40 470 70 270 70 270 120 220 120 220 125))
+(connect D3:1 D5:1
+(points 6 247 30 260 30 260 110 130 110 130 140 152 140))
+(connect D5:1 D6:0
+(points 3 287 130 360 130 360 159))
+(connect D1:1 D7:1
+(points 2 131 -60 213 -60))
+(connect D2:1 D7:2
+(points 4 164 60 170 60 170 -40 213 -40))
+(connect D6:1 D8:1
+(points 2 397 170 410 170))
+(connect D8:1 D9:1
+(points 2 530 170 541 170))
+(connect D9:0 D10:0
+(points 2 590 185 590 201))
+(connect D0:1 D11:0
+(points 5 -152 -80 -140 -80 -140 -90 -80 -90 -80 -61))
+(connect D13:0 D12:0
+(points 2 -110 70 -110 79))
+(connect D0:2 D13:0
+(points 5 -152 -60 -140 -60 -140 -10 -110 -10 -110 49))
+(connect D4:1 D14:0
+(points 3 446 20 500 20 500 82))
+(connect D7:1 D16:1
+(points 6 247 -50 270 -50 270 -40 550 -40 550 20 590 20))
+(connect D16:0 D17:0
+(points 2 610 30 610 59))
+(connect D16:1 O1:1
+(points 4 630 20 650 20 650 28 681 28)))
+(stackingOrder 0 13 12 11 3 4 6 8 9 7 5 10 16 17 14 15 1 2))))
+(context 6
+(properties
+(name "ConnectPlayers")
+(variableName ConnectPlayers)
+(variableScope glob)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "player1Name")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "player2Name")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "yourPlayerNumber")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "Cancelled")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call NetworkDialog")
+(variableScope cont)
+(callFunc "NetworkDialog")
+(parmMode rev30))
+(interface
+(output 1
+(name "playerName")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Host")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Client")
+(lock name constraints)
+(optional yes))
+(output 4
+(name "Quit")
+(lock name constraints)
+(optional yes))))
+(device 1 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 CALL
+(properties
+(name "Call EnterHostnameDialog")
+(variableScope cont)
+(callFunc "EnterHostnameDialog")
+(parmMode rev30))
+(interface
+(output 1
+(name "opponentHostName")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Quit")
+(lock name constraints)
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call ConnectToPlayer2")
+(variableScope cont)
+(callFunc "ConnectToPlayer2")
+(parmMode rev30))
+(interface
+(input 1
+(name "player1Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Abort")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "player2Name")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call ConnectToPlayer1")
+(variableScope cont)
+(callFunc "ConnectToPlayer1")
+(parmMode rev30))
+(interface
+(input 1
+(name "player2Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "HostName")
+(optional yes))
+(output 1
+(name "Abort")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "player1Name")
+(lock name constraints)
+(optional yes))))
+(device 5 BREAK
+(properties
+(variableScope cont)))
+(device 6 CALL
+(properties
+(name "Call InitializeNetworkVariables")
+(variableScope cont)
+(callFunc "InitializeNetworkVariables")
+(parmMode rev30)))
+(device 7 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 8 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 15 FORMULA
+(properties
+(name "set player names")
+(variableScope cont)
+(expr 1 "player1Name = p1Name, player2Name = p2Name"))
+(interface
+(input 1
+(name "p2Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "p1Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DECLVAR
+(properties
+(name "Declare Local \'player1Name\'")
+(scope con)
+(globalName "player1Name"))
+(implementation
+(value Text
+(data  ""))))
+(device 17 DECLVAR
+(properties
+(name "Declare Local \'player2Name\'")
+(scope con)
+(globalName "player2Name"))
+(implementation
+(value Text
+(data  ""))))
+(device 18 FORMULA
+(properties
+(name "set player names")
+(variableScope cont)
+(expr 1 "player1Name = p1Name, player2Name = p2Name"))
+(interface
+(input 1
+(name "p2Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "p1Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "player names & player number")
+(variableScope cont)
+(expr 1 "p1 = player1Name, p2 = player2Name, (GameHost ? 1 : 2)"))
+(interface
+(output 1
+(name "p1")
+(optional yes))
+(output 2
+(name "p2")
+(optional yes))
+(output 3
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 BREAK
+(properties
+(variableScope cont)))
+(device 21 BREAK
+(properties
+(variableScope cont)))
+(device 22 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 28 "This is the first function called in establishing"
+"a networked connection between two players.  It"
+"performs the following tasks:" ""
+"1) It first pops-up a dialog box requesting the "
+"   user\'s name, and whether the user wants to "
+"   \"host\" a game or \"connect\" to a game (client).  " ""
+"2) If the user is \"connecting\" to a game, he also"
+"   needs to specify the hostname of the computer" "   he wishes to connect to."
+"" "3) Depending on whether we are hosting a game"
+"   or being a client, we call appropiate functions"
+"   to establish a connection.  This is done"
+"   quite simply by exchanging player names.  If"
+"   all is successful, this function will return"
+"   two names: \'player1Name\' and \'player2Name\'."
+"   \'player1Name\' is ALWAYS the game host, and"
+"   \'player2Name\' is ALWAYS the game client.  The"
+"   output \'yourPlayerNumber\' is the value 1 or 2"
+"   and is this instanciation\'s player number." ""
+"   If anything went wrong during the connection, "
+"   this function will not typically return.  If the"
+"   user decided to cancel the connection, the"
+"   \'Cancelled\' output will fire." "")))
+(device 23 FORMULA
+(properties
+(name "GameHost = TRUE")
+(variableScope cont)
+(expr 1 "GameHost = 1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 FORMULA
+(properties
+(name "set \'player1HostName\'")
+(variableScope cont)
+(expr 1 "player1HostName = name"))
+(interface
+(input 1
+(name "name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:0)
+(connect D6:0 D1:0)
+(connect D0:3 D2:0)
+(connect D0:2 D3:0)
+(connect D0:1 D3:1)
+(connect D0:1 D4:1)
+(connect D2:1 D4:2)
+(connect D2:2 D5:0)
+(connect D3:1 D7:1)
+(connect D4:1 D7:2)
+(connect D0:4 D7:3)
+(connect D7:1 D8:1)
+(connect D8:0 D9:0)
+(connect D3:2 D10:1)
+(connect D0:1 D10:2)
+(connect D0:1 D13:1)
+(connect D4:2 D13:2)
+(connect D1:0 D14:0)
+(connect D18:0 D15:0)
+(connect D19:0 D16:0)
+(connect D10:0 D18:0)
+(connect D13:0 D19:0)
+(connect D2:1 D19:1)
+(connect D14:1 O1:1)
+(connect D14:2 O2:1)
+(connect D14:3 O3:1)
+(connect D8:1 O4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1072 657)
+(anchorPt 25 88)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 129 45))
+(open
+(extent 196 62))
+(terminals on)
+(pinCenter 130 190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 90 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 181 25))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 270 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 160 25))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 360 170))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 160 25))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 470 320))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 380 390))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 204 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 90 30))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 29 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 700 480))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 760 480))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 760 530))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 360 42))
+(terminals on)
+(pinCenter 530 190))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 198 16))
+(open
+(extent 234 107))
+(pinCenter 90 -50))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 198 16))
+(open
+(extent 234 107))
+(pinCenter 90 -20))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 360 42))
+(terminals on)
+(pinCenter 560 380))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 212 34))
+(open
+(extent 400 62))
+(terminals on)
+(pinCenter 780 410))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 530 270))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 560 470))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "notepad.icn"))
+(open
+(extent 397 412)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 820 140))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 130 16))
+(open
+(extent 124 30))
+(terminals on)
+(pinCenter 530 230))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 154 16))
+(open
+(extent 196 30))
+(terminals on)
+(pinCenter 560 430))
+(connect D1:1 D0:0
+(points 5 129 90 160 90 160 150 130 150 130 165))
+(connect D6:0 D1:0
+(points 2 90 40 90 61))
+(connect D0:3 D2:0
+(points 5 197 190 240 190 240 220 270 220 270 325))
+(connect D0:2 D3:0
+(points 5 197 180 220 180 220 140 360 140 360 155))
+(connect D0:1 D3:1
+(points 2 197 170 277 170))
+(connect D0:1 D4:1
+(points 6 197 170 230 170 230 210 360 210 360 310 387 310))
+(connect D2:1 D4:2
+(points 2 363 330 387 330))
+(connect D2:2 D5:0
+(points 5 363 350 370 350 370 370 380 370 380 379))
+(connect D3:1 D7:1
+(points 10 442 160 450 160 450 220 440 220 440 460 520 460 520 450 600 450 600
+470 683 470))
+(connect D4:1 D7:2
+(points 8 552 310 600 310 600 360 630 360 630 410 660 410 660 480 683 480))
+(connect D0:4 D7:3
+(points 8 197 200 220 200 220 240 160 240 160 500 600 500 600 490 683 490))
+(connect D7:1 D8:1
+(points 2 717 480 740 480))
+(connect D8:0 D9:0
+(points 2 760 490 760 519))
+(connect D3:2 D10:1
+(points 2 442 180 468 180))
+(connect D0:1 D10:2
+(points 6 197 170 230 170 230 210 440 210 440 200 468 200))
+(connect D0:1 D13:1
+(points 10 197 170 230 170 230 210 360 210 360 310 380 310 380 360 420 360 420
+370 498 370))
+(connect D4:2 D13:2
+(points 6 552 330 560 330 560 350 480 350 480 390 498 390))
+(connect D1:0 D14:0
+(points 8 90 118 90 140 150 140 150 130 610 130 610 190 780 190 780 390))
+(connect D18:0 D15:0
+(points 2 530 240 530 259))
+(connect D19:0 D16:0
+(points 2 560 440 560 459))
+(connect D10:0 D18:0
+(points 2 530 205 530 219))
+(connect D13:0 D19:0
+(points 2 560 395 560 419))
+(connect D2:1 D19:1
+(points 8 363 330 370 330 370 340 390 340 390 350 430 350 430 430 480 430))
+(connect D14:1 O1:1
+(points 4 888 400 900 400 900 0 1046 0))
+(connect D14:2 O2:1
+(points 4 888 410 910 410 910 160 1046 160))
+(connect D14:3 O3:1
+(points 4 888 420 920 420 920 320 1046 320))
+(connect D8:1 O4:1
+(points 4 780 480 913 480 913 480 1046 480)))
+(stackingOrder 5 7 8 11 12 10 13 9 1 15 19 16 18 6 17 14 0 2 3 4))))
+(context 3
+(properties
+(name "ConnectToPlayer1")
+(variableName ConnectToPlayer1)
+(variableScope glob)
+(trigMode deg)
+(nextID 47)
+(popupTitleText "AcceptInitiateGame")
+(popupMoveable 1)
+(showPopupTitle 0))
+(interface
+(input 1
+(name "player2Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "HostName")
+(optional yes))
+(output 1
+(type data)
+(name "Abort")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "player1Name")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 7 FORMULA
+(properties
+(name "\"trying to connect...\"")
+(variableScope cont)
+(expr 1 "\"Trying to connect to Player 1 at \\\"\"+hostname+\"\\\" . . .\""))
+(interface
+(input 1
+(name "hostname")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 36 CONFIRM25
+(properties
+(name "Cancel")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 38 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 39 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 44 CONTEXT
+(properties
+(name "SendPlayer2Name")
+(variableScope cont)
+(trigMode deg)
+(nextID 29)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "player2Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 120))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Connect)")
+(variableScope cont)
+(transactions 1 "WRITE TEXT name EOL"))
+(interface
+(input 1
+(name "name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 3 IFTHENELSE
+(properties
+(name "Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(a+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 IFTHENELSE
+(properties
+(name "Non Socket Error?")
+(variableScope cont)
+(cases 1 "errno<857 OR errno>870"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 16 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(message "The connection has been shut down by the peer")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 20)))
+(device 17 FORMULA
+(properties
+(name "special message")
+(variableScope cont)
+(expr 1 "errMsg.message"))
+(interface
+(input 1
+(name "errMsg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 20 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 21 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 24 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to connect to host.")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 25 FORMULA
+(properties
+(name "timeout error message")
+(variableScope cont)
+(expr 1 "\"Timeout occurred while trying to connect to host \"+hostname+\".\""))
+(interface
+(input 1
+(name "hostname")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 11 "This function sends player 2\'s" "name to the host listening"
+"on port \'portNo\' (a local-to-" "library variable). This function "
+"times out after 120 seconds.  " "" "If this function is unsuccessful"
+"in sending player 2\'s name, it" "will STOP and display an " "error message."
+"")))
+(device 28 CONTEXT
+(properties
+(name "Close Socket Connection")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 TOFROMSOCKET
+(properties
+(name "To/From Socket (Connect)")
+(variableScope cont)
+(transactions 1 "EXECUTE CLOSE"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.3)
+(byteOrder 0))))
+(device 2 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D2:0 D0:0)
+(connect D0:0 D1:0)
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect I1:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 489 190)
+(anchorPt 24 16)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 184 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 250 60))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 40))
+(connect D2:0 D0:0
+(points 2 100 50 100 69))
+(connect D0:0 D1:0
+(points 6 100 90 100 110 50 110 50 10 250 10 250 45))
+(connect D0:1 D1:1
+(points 4 125 80 150 80 150 50 155 50))
+(connect D2:1 D1:2
+(points 4 120 40 140 40 140 70 155 70))
+(connect I1:1 D2:1
+(points 4 -24 78 10 78 10 40 80 40)))
+(stackingOrder 2 0 1))))
+(configuration
+(connect D1:0 D0:0)
+(connect D12:0 D1:0)
+(connect I2:1 D1:1)
+(connect D4:0 D2:0)
+(connect I1:1 D2:1)
+(connect D1:1 D2:2)
+(connect D4:1 D2:3)
+(connect D2:0 D3:0)
+(connect D0:1 D3:1)
+(connect D0:1 D4:0)
+(connect D2:1 D5:1)
+(connect D7:0 D6:0)
+(connect D8:1 D7:1)
+(connect D9:1 D8:1)
+(connect D5:1 D9:0)
+(connect D3:1 D10:0)
+(connect D18:0 D12:0)
+(connect D2:1 D13:0)
+(connect D15:0 D14:0)
+(connect D16:1 D15:1)
+(connect D0:0 D16:0)
+(connect I2:1 D16:1)
+(connect I2:1 D18:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1039 564)
+(anchorPt 103 101)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 100 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 184 34))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 350 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 83 25))
+(open
+(extent 177 53))
+(terminals on)
+(pinCenter 350 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 200 110))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 193 53))
+(terminals on)
+(pinCenter 530 90))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 860 330))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 860 270))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 115 16))
+(open
+(extent 139 32))
+(terminals on)
+(pinCenter 740 270))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 630 270))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 470 180))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 100 -70))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 100 0))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 530 50))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 260 380))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 260 310))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 156 16))
+(open
+(extent 442 32))
+(terminals on)
+(pinCenter 100 310))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 274 178)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 790 60))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 174 16))
+(terminals on)
+(pinCenter 100 -40))
+(connect D1:0 D0:0
+(points 2 100 50 100 71))
+(connect D12:0 D1:0
+(points 2 100 10 100 29))
+(connect I2:1 D1:1
+(points 4 -103 320 -90 320 -90 40 80 40))
+(connect D4:0 D2:0
+(points 8 200 120 200 140 250 140 250 90 240 90 240 50 350 50 350 70))
+(connect I1:1 D2:1
+(points 10 -103 40 -90 40 -90 30 60 30 60 20 130 20 130 30 160 30 160 80 255 80))
+(connect D1:1 D2:2
+(points 6 120 40 170 40 170 70 250 70 250 90 255 90))
+(connect D4:1 D2:3
+(points 4 225 110 240 110 240 100 255 100))
+(connect D2:0 D3:0
+(points 2 350 109 350 145))
+(connect D0:1 D3:1
+(points 4 137 100 160 100 160 160 306 160))
+(connect D0:1 D4:0
+(points 5 137 100 150 100 150 90 200 90 200 99))
+(connect D2:1 D5:1
+(points 2 444 90 464 90))
+(connect D7:0 D6:0
+(points 2 860 280 860 301))
+(connect D8:1 D7:1
+(points 2 800 270 811 270))
+(connect D9:1 D8:1
+(points 2 667 270 680 270))
+(connect D5:1 D9:0
+(points 3 596 80 630 80 630 259))
+(connect D3:1 D10:0
+(points 3 394 150 470 150 470 169))
+(connect D18:0 D12:0
+(points 2 100 -30 100 -11))
+(connect D2:1 D13:0
+(points 5 444 90 450 90 450 20 530 20 530 39))
+(connect D15:0 D14:0
+(points 2 260 325 260 351))
+(connect D16:1 D15:1
+(points 2 180 310 211 310))
+(connect D0:0 D16:0
+(points 2 100 128 100 299))
+(connect I2:1 D16:1
+(points 4 -103 320 -90 320 -90 310 19 310))
+(connect I2:1 D18:1
+(points 6 -103 320 -90 320 -90 50 -110 50 -110 -40 10 -40)))
+(stackingOrder 1 4 12 9 8 6 16 14 17 7 15 11 18 0 2 5 10 3 13))))
+(device 45 CONTEXT
+(properties
+(name "GetPlayer1Name")
+(variableScope cont)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "player1Name")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 CALL
+(properties
+(name "Call CannotConnect")
+(variableScope cont)
+(callFunc "CannotConnect")
+(parmMode rev30))
+(interface
+(input 1
+(name "HostName")
+(optional yes))
+(output 1
+(name "Continue")
+(lock name constraints)
+(optional yes))))
+(device 3 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 TOFROMSOCKET
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x STR"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 5 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 8 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 9 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 12 "This function listens on port" "\'portNo\' (a local-to-library"
+"variable) --- for the host" "player to specify his name."
+"This function times out after" "120 seconds.  " ""
+"If this function is unsuccessful" "in getting player 1\'s name, it"
+"will STOP and display an " "error message." "")))
+(configuration
+(connect D1:0 D0:0)
+(connect I1:1 D1:1)
+(connect D3:0 D2:0)
+(connect I1:1 D2:1)
+(connect D0:1 D3:0)
+(connect D5:0 D4:0)
+(connect D1:1 D4:1)
+(connect D5:1 D4:2)
+(connect D3:1 D5:0)
+(connect D4:1 D6:1)
+(connect D6:0 D7:0)
+(connect D6:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 853 339)
+(anchorPt 11 11)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 100 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 139 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 200 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 200 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 111 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 80))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 220 110))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 460 70))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 460 120))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 258 185)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 690 110))
+(connect D1:0 D0:0
+(points 2 100 90 100 131))
+(connect I1:1 D1:1
+(points 4 -11 158 0 158 0 80 80 80))
+(connect D3:0 D2:0
+(points 2 200 248 200 269))
+(connect I1:1 D2:1
+(points 4 -11 158 10 158 10 280 128 280))
+(connect D0:1 D3:0
+(points 3 139 160 200 160 200 191))
+(connect D5:0 D4:0
+(points 6 220 120 220 140 170 140 170 50 340 50 340 65))
+(connect D1:1 D4:1
+(points 4 120 80 140 80 140 70 282 70))
+(connect D5:1 D4:2
+(points 4 245 110 260 110 260 90 282 90))
+(connect D3:1 D5:0
+(points 5 237 220 270 220 270 80 220 80 220 99))
+(connect D4:1 D6:1
+(points 2 398 70 440 70))
+(connect D6:0 D7:0
+(points 2 460 80 460 109))
+(connect D6:1 O1:1
+(points 6 480 70 540 70 540 230 830 230 830 158 841 158)))
+(stackingOrder 1 4 5 6 7 0 3 2 8))))
+(device 46 EXITCONTEXT
+(properties
+(variableScope cont)))
+(configuration
+(connect I2:1 D0:1)
+(connect D0:1 D1:1)
+(connect D4:0 D3:0)
+(connect D2:1 D4:1)
+(connect D1:0 D5:0)
+(connect I1:1 D5:1)
+(connect I2:1 D5:2)
+(connect D5:0 D6:0)
+(connect I2:1 D6:1)
+(connect D6:0 D7:0)
+(connect D4:1 O1:1)
+(connect D6:1 O2:1))
+(ShowOnExecPanel
+(relativeOrigin 151 182)))
+(contextCarrier
+(active detail)
+(panel
+(extent 527 166)
+(drawGrid "off")
+(widget 2 detail
+(relativeOrigin 210 120)
+(bg "Med Light Blue")
+(fg "White")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 110 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Med Light Blue")
+(fg "White")
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 520 50))
+(panelBg "Med Light Blue"))
+(detail
+(extent 806 353)
+(anchorPt 169 157)
+(configuration
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 139 16))
+(open
+(extent 376 32))
+(terminals on)
+(pinCenter -30 -50))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 28 14))
+(open
+(extent 333 30))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 230 -50))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 470 -70))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 540 -20))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 540 -70))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 128 25))
+(terminals on)
+(pinCenter 230 30))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 117 25))
+(terminals on)
+(pinCenter 230 110))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 230 170))
+(connect I2:1 D0:1
+(points 4 -169 109 -160 109 -160 -50 -102 -50))
+(connect D0:1 D1:1
+(points 2 42 -50 61 -50))
+(connect D4:0 D3:0
+(points 2 540 -60 540 -31))
+(connect D2:1 D4:1
+(points 2 496 -70 520 -70))
+(connect D1:0 D5:0
+(points 2 230 -33 230 15))
+(connect I1:1 D5:1
+(points 4 -169 -71 -150 -71 -150 20 163 20))
+(connect I2:1 D5:2
+(points 4 -169 109 -160 109 -160 40 163 40))
+(connect D5:0 D6:0
+(points 2 230 45 230 95))
+(connect I2:1 D6:1
+(points 6 -169 109 -160 109 -160 30 140 30 140 110 169 110))
+(connect D6:0 D7:0
+(points 2 230 125 230 159))
+(connect D4:1 O1:1
+(points 4 560 -70 603 -70 603 -71 636 -71))
+(connect D6:1 O2:1
+(points 4 291 110 468 110 468 109 636 109)))
+(stackingOrder 4 3 2 0 1 7 6 5))))
+(context 2
+(properties
+(name "ConnectToPlayer2")
+(variableName ConnectToPlayer2)
+(variableScope glob)
+(trigMode deg)
+(nextID 44)
+(popupTitleText "InitiateGame")
+(popupMoveable 1)
+(showPopupTitle 0))
+(interface
+(input 1
+(name "player1Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Abort")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "player2Name")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 5 LABEL
+(properties
+(name "Waiting for Player 2 to respond . . .")
+(variableScope cont)
+(labelValue "Waiting for Player 2 to respond . . ."))
+(implementation))
+(device 22 CONFIRM25
+(properties
+(name "Cancel")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 23 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 26 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 34 CONTEXT
+(properties
+(name "GetPlayer2Name")
+(variableScope cont)
+(trigMode deg)
+(nextID 32)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Name")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 120))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "READ TEXT x STR"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 2)
+(byteOrder 0))))
+(device 4 IFTHENELSE
+(properties
+(name "Non-Timeout Error?")
+(variableScope cont)
+(cases 1 "errno!=853"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 IFTHENELSE
+(properties
+(name "Non Socket Error?")
+(variableScope cont)
+(cases 1 "errno<857 OR errno>870"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message
+"Your network is not configured properly to play StraVEEgo.\\nPlease make sure that you have the proper thing-a-ma-bobs installed."
+)
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 7 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 8 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(message "The connection has been shut down by the peer")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 20)))
+(device 9 FORMULA
+(properties
+(name "specific error message")
+(variableScope cont)
+(expr 1 "errmess.message"))
+(interface
+(input 1
+(name "errmess")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 12 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 13 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 14 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 12 "This function listens on port" "\'portNo\' (a local-to-library"
+"variable) --- for the client" "player to specify his name."
+"This function times out after" "120 seconds.  " ""
+"If this function is unsuccessful" "in getting player 2\'s name, it"
+"will STOP and display an " "error message." "")))
+(device 15 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 16 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to find another player.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 21 CONTEXT
+(properties
+(name "Close Socket Connection")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "EXECUTE CLOSE"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.3)
+(byteOrder 0))))
+(device 2 IFTHENELSE
+(properties
+(name "IF 0")
+(variableScope cont)
+(cases 1 "0"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D2:1 D0:0)
+(connect D0:0 D1:0)
+(connect D0:1 D1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 519 211)
+(anchorPt 0 1)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 90 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 240 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 55 53))
+(terminals on)
+(pinCenter 40 40))
+(connect D2:1 D0:0
+(points 3 54 30 90 30 90 69))
+(connect D0:0 D1:0
+(points 6 90 90 90 110 140 110 140 50 240 50 240 65))
+(connect D0:1 D1:1
+(points 2 115 80 159 80)))
+(stackingOrder 0 1 2))))
+(device 22 IFTHENELSE
+(properties
+(name "Connection Shut-Down by Peer?")
+(variableScope cont)
+(cases 1 "errno==855"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 23 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "READ TEXT x STR"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 24 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 30 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 31 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D16:0 D0:0)
+(connect D0:1 D1:0)
+(connect D1:0 D2:0)
+(connect D1:1 D2:1)
+(connect D2:2 D3:1)
+(connect D17:2 D4:0)
+(connect D2:2 D4:1)
+(connect D4:1 D5:0)
+(connect D5:0 D6:0)
+(connect D8:1 D7:1)
+(connect D9:1 D8:1)
+(connect D4:2 D9:0)
+(connect D7:0 D10:0)
+(connect D12:0 D11:0)
+(connect D20:1 D12:1)
+(connect D15:0 D14:0)
+(connect D0:0 D15:0)
+(connect D3:1 D17:0)
+(connect D2:2 D17:1)
+(connect D19:0 D18:0)
+(connect D19:1 D18:1)
+(connect D21:1 D19:0)
+(connect D2:1 D20:1)
+(connect D18:1 D20:2)
+(connect D17:1 D21:0)
+(connect D18:2 D22:1)
+(connect D12:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1171 746)
+(anchorPt 43 63)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 70 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 160 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 330 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 137 25))
+(open
+(extent 103 53))
+(terminals on)
+(pinCenter 500 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 193 53))
+(terminals on)
+(pinCenter 260 360))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 460 380))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 460 440))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 360 430))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 157 16))
+(open
+(extent 116 32))
+(terminals on)
+(pinCenter 220 430))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 80 430))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 360 490))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 900 290))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 900 240))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 258 185)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 840 110))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 70 360))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 70 300))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 174 16))
+(terminals on)
+(pinCenter 70 -20))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 226 25))
+(open
+(extent 143 57))
+(terminals on)
+(pinCenter 640 280))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 840 420))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 700 420))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 830 240))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 610 400))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 960 510))
+(connect D16:0 D0:0
+(points 2 70 -10 70 31))
+(connect D0:1 D1:0
+(points 3 107 60 160 60 160 79))
+(connect D1:0 D2:0
+(points 6 160 100 160 120 210 120 210 60 330 60 330 75))
+(connect D1:1 D2:1
+(points 2 185 90 249 90))
+(connect D2:2 D3:1
+(points 6 411 100 430 100 430 130 410 130 410 220 429 220))
+(connect D17:2 D4:0
+(points 5 755 290 780 290 780 320 260 320 260 345))
+(connect D2:2 D4:1
+(points 8 411 100 430 100 430 130 410 130 410 270 170 270 170 360 194 360))
+(connect D4:1 D5:0
+(points 3 326 350 460 350 460 365))
+(connect D5:0 D6:0
+(points 2 460 395 460 411))
+(connect D8:1 D7:1
+(points 2 301 430 311 430))
+(connect D9:1 D8:1
+(points 2 117 430 139 430))
+(connect D4:2 D9:0
+(points 5 326 370 350 370 350 400 80 400 80 419))
+(connect D7:0 D10:0
+(points 2 360 440 360 461))
+(connect D12:0 D11:0
+(points 2 900 250 900 279))
+(connect D20:1 D12:1
+(points 2 847 240 880 240))
+(connect D15:0 D14:0
+(points 2 70 315 70 331))
+(connect D0:0 D15:0
+(points 2 70 88 70 285))
+(connect D3:1 D17:0
+(points 3 571 210 640 210 640 265))
+(connect D2:2 D17:1
+(points 8 411 100 430 100 430 130 410 130 410 270 440 270 440 280 524 280))
+(connect D19:0 D18:0
+(points 6 700 430 700 450 740 450 740 390 840 390 840 405))
+(connect D19:1 D18:1
+(points 2 725 420 759 420))
+(connect D21:1 D19:0
+(points 5 649 400 660 400 660 390 700 390 700 409))
+(connect D2:1 D20:1
+(points 4 411 80 650 80 650 230 813 230))
+(connect D18:1 D20:2
+(points 6 921 410 930 410 930 380 800 380 800 250 813 250))
+(connect D17:1 D21:0
+(points 5 755 270 790 270 790 330 610 330 610 371))
+(connect D18:2 D22:1
+(points 6 921 430 940 430 940 460 920 460 920 510 940 510))
+(connect D12:1 O1:1
+(points 4 920 240 980 240 980 309 1127 309)))
+(stackingOrder 1 12 11 3 4 9 8 10 14 2 0 16 17 19 13 20 18 21 6 22 5 7 15))))
+(device 35 CONTEXT
+(properties
+(name "SendPlayer1Name")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "player1Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 60))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "WRITE TEXT name EOL"))
+(interface
+(input 1
+(name "name")
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 2)
+(byteOrder 0))))
+(device 2 IFTHENELSE
+(properties
+(name "Transmission Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(i+1)"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 10 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 12 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 14 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to find another player.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 15 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 11 "This function sends player 1\'s" "name to the client listening"
+"on port \'portNo\' (a local-to-" "library variable). This function "
+"times out after 120 seconds.  " "" "If this function is unsuccessful"
+"in sending player 1\'s name, it" "will STOP and display an " "error message."
+"")))
+(configuration
+(connect D5:0 D0:0)
+(connect D3:0 D1:0)
+(connect I1:1 D1:1)
+(connect D3:1 D1:2)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D0:1 D3:0)
+(connect D2:1 D4:0)
+(connect D1:1 D7:0)
+(connect D9:0 D8:0)
+(connect D0:0 D9:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 654 490)
+(anchorPt 58 136)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 90 110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 180 25))
+(open
+(extent 164 53))
+(terminals on)
+(pinCenter 340 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 200 120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 90 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 80 -40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 500 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 90 280))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 90 220))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 274 178)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 420 -10))
+(connect D5:0 D0:0
+(points 2 90 40 90 81))
+(connect D3:0 D1:0
+(points 6 200 130 200 150 150 150 150 90 340 90 340 105))
+(connect I1:1 D1:1
+(points 6 -58 108 -50 108 -50 60 250 60 250 110 259 110))
+(connect D3:1 D1:2
+(points 4 225 120 240 120 240 130 259 130))
+(connect D1:0 D2:0
+(points 2 340 135 340 175))
+(connect D0:1 D2:1
+(points 4 127 110 140 110 140 190 247 190))
+(connect D0:1 D3:0
+(points 5 127 110 140 110 140 80 200 80 200 109))
+(connect D2:1 D4:0
+(points 3 432 180 500 180 500 239))
+(connect D1:1 D7:0
+(points 3 421 120 500 120 500 139))
+(connect D9:0 D8:0
+(points 2 90 235 90 251))
+(connect D0:0 D9:0
+(points 2 90 138 90 205)))
+(stackingOrder 5 0 3 8 4 1 6 10 2 7 9))))
+(device 36 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 25 "This function establishes a " "networked connection between"
+"player 1 (Host) and player 2" "(Client).  It attempts to do"
+"so by first getting player 2\'s" "name, then sending player 1\'s"
+"name to player 2." "" "This networking is accomplished"
+"via the VEE To/From Socket object." "There is a local-to-library declared"
+"variable named \'portNo\', which " "identifies the communication port"
+"used in this connection." "" "If this function is unsuccessful"
+"in either receiving player 2\'s" "name or sending player 1\'s name, it"
+"will STOP and display an error " "message." "" "Note that there is a parallel"
+"thread that allows player 1 to" "abort a connection (Cancel button). " "")))
+(device 40 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 41 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D3:0 D2:0)
+(connect D1:1 D3:1)
+(connect D4:0 D5:0)
+(connect I1:1 D5:1)
+(connect D8:0 D7:0)
+(connect D5:0 D8:0)
+(connect D4:1 D8:1)
+(connect D3:1 O1:1)
+(connect D8:1 O2:1))
+(ShowOnExecPanel
+(relativeOrigin 235 224)))
+(contextCarrier
+(active detail)
+(panel
+(extent 447 164)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 50 10)
+(bg "Light Blue")
+(fg "White")
+(font "Arial" 20)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 370 40)
+(just l))
+(widget 1 detail
+(relativeOrigin 160 100)
+(bg "Light Blue")
+(fg "White")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 100 30))
+(panelBg "Light Blue"))
+(detail
+(extent 855 585)
+(anchorPt 247 270)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 232 28)
+(just l))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 290 -230))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 240 -150))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 300 -100))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 300 -150))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 117 25))
+(terminals on)
+(pinCenter 300 -10))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 128 25))
+(terminals on)
+(pinCenter 300 60))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 292 373)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter -70 -20))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 460 140))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 460 60))
+(connect D3:0 D2:0
+(points 2 300 -140 300 -111))
+(connect D1:1 D3:1
+(points 2 266 -150 280 -150))
+(connect D4:0 D5:0
+(points 2 300 5 300 45))
+(connect I1:1 D5:1
+(points 6 -247 22 -240 22 -240 -250 100 -250 100 60 233 60))
+(connect D8:0 D7:0
+(points 2 460 70 460 129))
+(connect D5:0 D8:0
+(points 6 300 75 300 100 400 100 400 30 460 30 460 49))
+(connect D4:1 D8:1
+(points 4 361 -10 390 -10 390 60 440 60))
+(connect D3:1 O1:1
+(points 4 320 -150 412 -150 412 -128 607 -128))
+(connect D8:1 O2:1
+(points 4 480 60 490 60 490 172 607 172)))
+(stackingOrder 3 1 2 0 6 8 7 5 4))))
+(context 1
+(properties
+(name "EnterHostnameDialog")
+(variableName EnterHostnameDialog)
+(variableScope glob)
+(trigMode deg)
+(nextID 27)
+(popupMoveable 1)
+(showPopupTitle 0))
+(interface
+(output 1
+(type data)
+(name "opponentHostName")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Quit")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 3 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "hplvldug"))
+(initValue Text
+(data  ""))))
+(device 4 CONFIRM25
+(properties
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 7 CONFIRM25
+(properties
+(name "  Cancel  ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 8 CONFIRM25
+(properties
+(name "   Help   ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 13 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 14 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 15 LABEL
+(properties
+(name "Enter your opponent\'s computer name:")
+(variableScope cont)
+(labelValue "Enter your opponent\'s computer name:"))
+(implementation))
+(device 21 LITERALCONSTANT
+(properties
+(name "\"\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 24 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 26 LABEL
+(properties
+(name "Welcome to Networked StraVEEgo.")
+(variableScope cont)
+(labelValue "Welcome to Networked StraVEEgo."))
+(implementation))
+(configuration
+(connect D1:1 D0:0)
+(connect D8:1 D0:1)
+(connect D9:0 D4:0)
+(connect D6:0 D5:0)
+(connect D2:1 D6:1)
+(connect D0:1 D9:1)
+(connect D9:1 O1:1)
+(connect D6:1 O2:1))
+(ShowOnExecPanel
+(relativeOrigin 219 105)))
+(contextCarrier
+(active panel)
+(panel
+(extent 435 211)
+(gridSize 5)
+(drawGrid "off")
+(widget 2 detail
+(relativeOrigin 345 95)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 70 30))
+(widget 3 detail
+(relativeOrigin 345 135)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 5)
+(borderStyle none)
+(extent 70 30))
+(widget 0 detail
+(relativeOrigin 25 80)
+(bg "Light Blue Gray")
+(PID 2)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 185 25))
+(widget 1 detail
+(relativeOrigin 345 55)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 70 30))
+(widget 7 detail
+(relativeOrigin 20 50)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle none)
+(extent 300 25)
+(just l))
+(widget 10 detail
+(relativeOrigin 25 10)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 233 28)
+(just l))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 760 563)
+(anchorPt 986 -11)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 194 30))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter -710 240))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 56 22))
+(title off)
+(pinCenter -730 180))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter -870 360))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 24 14))
+(open
+(extent 47 22))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter -870 480))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter -520 280))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter -760 420))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter -760 360))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 138 0))
+(open
+(extent 258 28)
+(just l))
+(title off)
+(pinCenter -770 120))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 24 16))
+(open
+(extent 194 30))
+(pinCenter -910 240))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter -520 240))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 235 0))
+(open
+(extent 233 28)
+(just l))
+(title off)
+(pinCenter -760 60))
+(connect D1:1 D0:0
+(points 5 -700 180 -690 180 -690 200 -710 200 -710 222))
+(connect D8:1 D0:1
+(points 2 -896 240 -810 240))
+(connect D9:0 D4:0
+(points 2 -520 250 -520 269))
+(connect D6:0 D5:0
+(points 2 -760 370 -760 409))
+(connect D2:1 D6:1
+(points 2 -844 360 -780 360))
+(connect D0:1 D9:1
+(points 2 -611 240 -540 240))
+(connect D9:1 O1:1
+(points 4 -500 240 -480 240 -480 152 -227 152))
+(connect D6:1 O2:1
+(points 4 -740 360 -680 360 -680 432 -227 432)))
+(stackingOrder 5 0 8 1 6 2 3 9 4 7 10))))
+(context 12
+(properties
+(name "GetGameBoardFromPlayer1")
+(variableName GetGameBoardFromPlayer1)
+(variableScope glob)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "GameBoard")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 CALL
+(properties
+(name "Call CannotConnect")
+(variableScope cont)
+(callFunc "CannotConnect")
+(parmMode rev30))
+(interface
+(input 1
+(name "HostName")
+(optional yes))
+(output 1
+(name "Continue")
+(lock name constraints)
+(optional yes))))
+(device 3 FORCOUNT
+(properties
+(variableScope cont)
+(count 10000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 TOFROMSOCKET
+(properties
+(variableScope cont)
+(transactions 1 "READ CONTAINER x"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 5 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 8 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 9 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 10 "This function listens on port" "\'portNo\' for the GameBoard."
+"This function times out after" "120 seconds.  " ""
+"If this function is unsuccessful" "in getting the Game Board, it"
+"will STOP and display an " "error message." "")))
+(device 10 FORMULA
+(properties
+(name "player1HostName")
+(variableScope cont)
+(expr 1 "player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:0 D0:0)
+(connect D9:1 D1:1)
+(connect D3:0 D2:0)
+(connect D9:1 D2:1)
+(connect D0:1 D3:0)
+(connect D5:0 D4:0)
+(connect D1:1 D4:1)
+(connect D5:1 D4:2)
+(connect D3:1 D5:0)
+(connect D4:1 D6:1)
+(connect D6:0 D7:0)
+(connect D6:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1053 337)
+(anchorPt 157 13)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 100 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 139 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 200 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 200 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 111 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 80))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 220 110))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 460 70))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 460 120))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 258 185)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 690 110))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 122 16))
+(open
+(extent 145 32))
+(terminals on)
+(pinCenter -80 160))
+(connect D1:0 D0:0
+(points 2 100 90 100 131))
+(connect D9:1 D1:1
+(points 4 -17 160 0 160 0 80 80 80))
+(connect D3:0 D2:0
+(points 2 200 248 200 269))
+(connect D9:1 D2:1
+(points 4 -17 160 10 160 10 280 128 280))
+(connect D0:1 D3:0
+(points 3 139 160 200 160 200 191))
+(connect D5:0 D4:0
+(points 6 220 120 220 140 170 140 170 50 340 50 340 65))
+(connect D1:1 D4:1
+(points 4 120 80 140 80 140 70 282 70))
+(connect D5:1 D4:2
+(points 4 245 110 260 110 260 90 282 90))
+(connect D3:1 D5:0
+(points 5 237 220 270 220 270 80 220 80 220 99))
+(connect D4:1 D6:1
+(points 2 398 70 440 70))
+(connect D6:0 D7:0
+(points 2 460 80 460 109))
+(connect D6:1 O1:1
+(points 6 480 70 540 70 540 230 830 230 830 155 895 155)))
+(stackingOrder 1 5 6 7 0 8 2 9 3 4))))
+(context 20
+(properties
+(name "GetPlayer1Move")
+(variableName GetPlayer1Move)
+(variableScope glob)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "from")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "to")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 6 "This function listens on \'portNo\'" "for player 1\'s move."
+"This function times out after" "120 seconds.  " "" "")))
+(device 9 CONTEXT
+(properties
+(name "Get Player 1 Move")
+(variableScope cont)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "from")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "to")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 CALL
+(properties
+(name "Call CannotConnect")
+(variableScope cont)
+(callFunc "CannotConnect")
+(parmMode rev30))
+(interface
+(input 1
+(name "HostName")
+(optional yes))
+(output 1
+(name "Continue")
+(lock name constraints)
+(optional yes))))
+(device 3 FORCOUNT
+(properties
+(variableScope cont)
+(count 1000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TOFROMSOCKET
+(properties
+(variableScope cont)
+(transactions 2 "READ BINARY from INT32" "READ BINARY to INT32"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "from")
+(optional yes))
+(output 2
+(name "to")
+(optional yes))
+(output 3
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 6 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 7 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 8 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:0)
+(connect I1:1 D1:1)
+(connect D3:0 D2:0)
+(connect I1:1 D2:1)
+(connect D0:1 D3:0)
+(connect D3:1 D4:0)
+(connect D4:0 D5:0)
+(connect D1:1 D5:1)
+(connect D4:1 D5:2)
+(connect D8:0 D6:0)
+(connect D5:1 D7:1)
+(connect D7:0 D8:0)
+(connect D5:2 D8:1)
+(connect D7:1 O1:1)
+(connect D8:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 608 362)
+(anchorPt 12 15)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 100 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 139 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 200 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 200 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 220 110))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 111 34))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 80))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 460 190))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 460 70))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 460 130))
+(connect D1:0 D0:0
+(points 2 100 90 100 131))
+(connect I1:1 D1:1
+(points 4 -12 165 -10 165 -10 80 80 80))
+(connect D3:0 D2:0
+(points 2 200 248 200 269))
+(connect I1:1 D2:1
+(points 4 -12 165 0 165 0 280 128 280))
+(connect D0:1 D3:0
+(points 3 139 160 200 160 200 191))
+(connect D3:1 D4:0
+(points 5 237 220 270 220 270 80 220 80 220 99))
+(connect D4:0 D5:0
+(points 6 220 120 220 140 170 140 170 40 340 40 340 60))
+(connect D1:1 D5:1
+(points 4 120 80 140 80 140 70 282 70))
+(connect D4:1 D5:2
+(points 4 245 110 260 110 260 90 282 90))
+(connect D8:0 D6:0
+(points 2 460 140 460 179))
+(connect D5:1 D7:1
+(points 2 398 70 440 70))
+(connect D7:0 D8:0
+(points 2 460 80 460 119))
+(connect D5:2 D8:1
+(points 4 398 80 420 80 420 130 440 130))
+(connect D7:1 O1:1
+(points 4 480 70 500 70 500 75 595 75))
+(connect D8:1 O2:1
+(points 4 480 130 540 130 540 255 595 255)))
+(stackingOrder 0 1 4 6 7 8 5 3 2))))
+(device 10 FORMULA
+(properties
+(name "player 1 host name")
+(variableScope cont)
+(expr 1 "player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D2:1 D1:1)
+(connect D1:1 O1:1)
+(connect D1:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 978 338)
+(anchorPt -10 -52)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 268 112)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 680 160))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 128 25))
+(terminals on)
+(pinCenter 330 180))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 133 16))
+(open
+(extent 145 32))
+(terminals on)
+(pinCenter 170 180))
+(connect D2:1 D1:1
+(points 2 239 180 263 180))
+(connect D1:1 O1:1
+(points 6 396 170 420 170 420 240 950 240 950 130 987 130))
+(connect D1:2 O2:1
+(points 4 396 190 410 190 410 310 987 310)))
+(stackingOrder 2 0 1))))
+(context 15
+(properties
+(name "GetPlayer1SetupFromHost")
+(variableName GetPlayer1SetupFromHost)
+(variableScope glob)
+(trigMode deg)
+(nextID 34)
+(popupTitleText "CheckForBoard"))
+(interface
+(output 1
+(type data)
+(name "setup")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 32 CONTEXT
+(properties
+(name "GetPlayer1Setup")
+(variableScope cont)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Ready")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 4 TOFROMSOCKET
+(properties
+(variableScope cont)
+(transactions 1 "READ CONTAINER setup"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "setup")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 5 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 8 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 9 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 12 "This function listens on port" "\'portNo\' (a local-to-library"
+"variable) --- for the host" "player to send an acknowlegement"
+"message that their pieces are" "set-up." " " "If this function is unsuccessful"
+"in getting player 1\'s name, it" "will STOP and display an " "error message."
+"")))
+(device 10 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:0)
+(connect D5:1 D0:1)
+(connect D1:1 D0:2)
+(connect D5:0 D1:0)
+(connect D0:1 D2:1)
+(connect D2:0 D3:0)
+(connect I1:1 D5:1)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 893 339)
+(anchorPt 9 8)
+(configuration
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 111 25))
+(open
+(extent 271 157))
+(terminals on)
+(pinCenter 280 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 160 120))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 420 110))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 420 170))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 258 185)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 690 110))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 160 80))
+(connect D1:0 D0:0
+(points 8 160 130 160 150 210 150 210 140 360 140 360 70 280 70 280 85))
+(connect D5:1 D0:1
+(points 4 180 80 200 80 200 90 222 90))
+(connect D1:1 D0:2
+(points 4 185 120 200 120 200 110 222 110))
+(connect D5:0 D1:0
+(points 2 160 90 160 109))
+(connect D0:1 D2:1
+(points 4 338 90 370 90 370 110 400 110))
+(connect D2:0 D3:0
+(points 2 420 120 420 159))
+(connect I1:1 D5:1
+(points 4 -9 161 0 161 0 80 140 80))
+(connect D2:1 O1:1
+(points 6 440 110 510 110 510 230 840 230 840 161 883 161)))
+(stackingOrder 4 1 5 2 3 0))))
+(device 33 FORMULA
+(properties
+(name "Player1HostName")
+(variableScope cont)
+(expr 1 "Player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 568 257)
+(anchorPt 311 248)
+(configuration
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 118 25))
+(terminals on)
+(pinCenter -60 -180))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 123 16))
+(open
+(extent 146 32))
+(terminals on)
+(pinCenter -230 -180))
+(connect D1:1 D0:1
+(points 2 -166 -180 -122 -180))
+(connect D0:1 O1:1
+(points 4 1 -180 20 -180 20 -120 256 -120)))
+(stackingOrder 1 0))))
+(context 22
+(properties
+(name "GetPlayer2Move")
+(variableName GetPlayer2Move)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "from")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "to")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 2 CONTEXT
+(properties
+(name "Get Player 2 Move")
+(variableScope cont)
+(trigMode deg)
+(nextID 20)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "from")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "to")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 1000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 2 "READ BINARY from INT32" "READ BINARY to INT32"))
+(interface
+(input 1
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "from")
+(optional yes))
+(output 2
+(name "to")
+(optional yes))
+(output 3
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 4 IFTHENELSE
+(properties
+(name "Non-Timeout Error?")
+(variableScope cont)
+(cases 1 "errno!=853"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 IFTHENELSE
+(properties
+(name "Non Socket Error?")
+(variableScope cont)
+(cases 1 "errno<857 OR errno>870"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Unable to receive move from player 2.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 7 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 8 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(message "The connection has been shut down by the peer")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 20)))
+(device 9 FORMULA
+(properties
+(name "specific error message")
+(variableScope cont)
+(expr 1 "errmess.message"))
+(interface
+(input 1
+(name "errmess")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 12 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 13 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 14 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 8 "This function listens on port" "\'portNo\' (a local-to-library"
+"variable) --- for the client" "player to specify his move."
+"This function times out after" "120 seconds.  " "" "")))
+(device 15 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 16 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to receive player 2\'s move.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 19 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D0:1 D1:0)
+(connect D1:0 D2:0)
+(connect D1:1 D2:1)
+(connect D2:3 D3:1)
+(connect D3:1 D4:0)
+(connect D2:3 D4:1)
+(connect D4:1 D5:0)
+(connect D5:0 D6:0)
+(connect D8:1 D7:1)
+(connect D9:1 D8:1)
+(connect D4:2 D9:0)
+(connect D7:0 D10:0)
+(connect D16:0 D11:0)
+(connect D2:1 D12:1)
+(connect D15:0 D14:0)
+(connect D0:0 D15:0)
+(connect D12:0 D16:0)
+(connect D2:2 D16:1)
+(connect D12:1 O1:1)
+(connect D16:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1108 480)
+(anchorPt 5 16)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 70 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 160 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 157 34))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 330 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 137 25))
+(open
+(extent 103 53))
+(terminals on)
+(pinCenter 500 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 193 53))
+(terminals on)
+(pinCenter 570 270))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 870 330))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 870 390))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 740 330))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 157 16))
+(open
+(extent 116 32))
+(terminals on)
+(pinCenter 600 330))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 460 330))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 740 390))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 510 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 510 80))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 257 130)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 840 110))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 70 360))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 70 300))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 510 110))
+(connect D0:1 D1:0
+(points 3 107 60 160 60 160 79))
+(connect D1:0 D2:0
+(points 6 160 100 160 120 210 120 210 50 330 50 330 70))
+(connect D1:1 D2:1
+(points 2 185 90 249 90))
+(connect D2:3 D3:1
+(points 6 411 100 430 100 430 130 410 130 410 220 429 220))
+(connect D3:1 D4:0
+(points 5 571 210 590 210 590 250 570 250 570 255))
+(connect D2:3 D4:1
+(points 6 411 100 430 100 430 130 410 130 410 270 504 270))
+(connect D4:1 D5:0
+(points 3 636 260 870 260 870 315))
+(connect D5:0 D6:0
+(points 2 870 345 870 361))
+(connect D8:1 D7:1
+(points 2 681 330 691 330))
+(connect D9:1 D8:1
+(points 2 497 330 519 330))
+(connect D4:2 D9:0
+(points 5 636 280 650 280 650 300 460 300 460 319))
+(connect D7:0 D10:0
+(points 2 740 340 740 361))
+(connect D16:0 D11:0
+(points 2 510 120 510 139))
+(connect D2:1 D12:1
+(points 2 411 80 490 80))
+(connect D15:0 D14:0
+(points 2 70 315 70 331))
+(connect D0:0 D15:0
+(points 2 70 88 70 285))
+(connect D12:0 D16:0
+(points 2 510 90 510 99))
+(connect D2:2 D16:1
+(points 4 411 90 440 90 440 110 490 110))
+(connect D12:1 O1:1
+(points 6 530 80 550 80 550 0 990 0 990 103 1102 103))
+(connect D16:1 O2:1
+(points 6 530 110 590 110 590 200 940 200 940 343 1102 343)))
+(stackingOrder 1 3 4 9 8 10 6 14 13 12 16 11 2 0 5 7 15))))
+(configuration
+(connect D0:1 O1:1)
+(connect D0:2 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 641 303)
+(anchorPt 18 6)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 128 25))
+(terminals on)
+(pinCenter 100 90))
+(connect D0:1 O1:1
+(points 4 166 80 190 80 190 65 622 65))
+(connect D0:2 O2:1
+(points 4 166 100 190 100 190 225 622 225))))))
+(context 5
+(properties
+(name "InitializeNetworkVariables")
+(variableName InitializeNetworkVariables)
+(variableScope glob)
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare Variable \'portNo\'")
+(scope lib)
+(globalName "portNo"))
+(implementation
+(value Int32
+(data  0))))
+(device 1 FORMULA
+(properties
+(name "portNo = 5381")
+(variableScope cont)
+(expr 1 "portNo = 5381"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 DECLVAR
+(properties
+(name "Declare Variable \'GameHost\'")
+(scope lib)
+(globalName "GameHost"))
+(implementation
+(value Int32
+(data  0))))
+(device 4 DECLVAR
+(properties
+(name "Declare Variable \'Player1HostName\'")
+(scope lib)
+(globalName "Player1HostName"))
+(implementation
+(value Text
+(data  ""))))
+(device 5 FORMULA
+(properties
+(name "GameHost = FALSE")
+(variableScope cont)
+(expr 1 "GameHost = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 767 477)
+(anchorPt -1 -3)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 172 16))
+(open
+(extent 215 107))
+(pinCenter 160 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 99 16))
+(open
+(extent 124 32))
+(terminals on)
+(pinCenter 130 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 199 16))
+(open
+(extent 256 107))
+(pinCenter 380 60))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 249 16))
+(open
+(extent 285 107))
+(pinCenter 400 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 138 16))
+(open
+(extent 124 30))
+(terminals on)
+(pinCenter 130 160)))
+(stackingOrder 1 0 2 3 4))))
+(context 0
+(properties
+(name "NetworkDialog")
+(variableName NetworkDialog)
+(variableScope glob)
+(trigMode deg)
+(nextID 25)
+(popupMoveable 1)
+(showPopupTitle 0))
+(interface
+(output 1
+(type data)
+(name "playerName")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Host")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Client")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "Quit")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LABEL
+(properties
+(name "What is your name?")
+(variableScope cont)
+(labelValue "What is your name?"))
+(implementation))
+(device 1 LABEL
+(properties
+(name "How do you want to play?")
+(variableScope cont)
+(labelValue "How do you want to play?"))
+(implementation))
+(device 2 LITERALCONSTANT
+(properties
+(name "\"\"")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 3 ENUMCONSTANT
+(properties
+(name "Radio Buttons")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Player 1 (Game Host)" 0)
+("Player 2 (Connect to Player 1 Host)" 1))
+(data  "Player 1 (Game Host)"))
+(initValue Text
+(data  "Player 1 (Game Host)"))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 5 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 6 CONFIRM25
+(properties
+(name "   OK   ")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 7 CONFIRM25
+(properties
+(name "  Quit  ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 9 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 10 CONFIRM25
+(properties
+(name "   Help   ")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 LABEL
+(properties
+(name "Welcome to Networked StraVEEgo.")
+(variableScope cont)
+(labelValue "Welcome to Networked StraVEEgo."))
+(implementation))
+(device 13 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 125 359)
+(message
+"To begin playing StraVEEgo, you need to enter your name in the first field.  You also need to select which player you want to be (Player 1 or Player 2).\\n\\nIf you want to be Player 1, you must wait for someone else to play with you.\\nIf you want to be Player 2, you must specify who you want to play with.  You do this by specifying the computer hostname (in a subsequent dialog box) of Player 1."
+)
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 20 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 21 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 23 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 24 IFTHENELSE
+(properties
+(name "host?")
+(variableScope cont)
+(cases 1 "selection==0"))
+(interface
+(input 1
+(name "selection")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D4:0 D3:0)
+(connect D5:1 D3:1)
+(connect D6:1 D4:0)
+(connect D2:1 D4:1)
+(connect D8:1 D9:0)
+(connect D9:1 D11:0)
+(connect D15:0 D12:0)
+(connect D14:0 D13:0)
+(connect D7:1 D14:1)
+(connect D3:2 D15:1)
+(connect D4:1 O1:1)
+(connect D15:1 O2:1)
+(connect D15:2 O3:1)
+(connect D14:1 O4:1))
+(ShowOnExecPanel
+(relativeOrigin 244 109)))
+(contextCarrier
+(active detail)
+(panel
+(extent 470 209)
+(gridSize 5)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 20 55)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle none)
+(extent 160 25)
+(just l))
+(widget 6 detail
+(relativeOrigin 380 65)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 70 30))
+(widget 7 detail
+(relativeOrigin 380 110)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 70 30))
+(widget 9 detail
+(relativeOrigin 380 155)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 70 30))
+(widget 4 detail
+(relativeOrigin 180 52)
+(bg "Light Blue Gray")
+(PID 4)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 190 35))
+(widget 10 detail
+(relativeOrigin 70 10)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 325 25)
+(just l))
+(widget 3 detail
+(relativeOrigin 20 105)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 6)
+(title off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 321 56)
+(format buttons))
+(widget 1 detail
+(relativeOrigin 40 90)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 7)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle none)
+(extent 170 26)
+(just l))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 635 592)
+(anchorPt 119 98)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 138 0))
+(open
+(extent 138 28)
+(just l))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 172 28)
+(just l))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 20 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 24 16))
+(open
+(extent 194 30))
+(pinCenter 40 100))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 321 82)
+(format buttons))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 140 190))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 194 30))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 180 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 24 16))
+(open)
+(terminals on)
+(pinCenter -90 190))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 170 30))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 270 330))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 20 320))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 24 14))
+(open
+(extent 47 22))
+(title off)
+(titleBg "Black")
+(titleFg "Black")
+(titleFont "GUNK" 4)
+(pinCenter 100 370))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 235 0))
+(open
+(extent 233 28)
+(just l))
+(title off)
+(pinCenter 40 -40))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 227 127))
+(terminals on)
+(pinCenter 160 420))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 390 260))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 350 370))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 44 18))
+(open)
+(terminals on)
+(pinCenter 350 330))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 39 25))
+(open
+(extent 96 53))
+(terminals on)
+(pinCenter 390 150))
+(connect D4:0 D3:0
+(points 4 180 117 180 130 140 130 140 146))
+(connect D5:1 D3:1
+(points 2 -76 190 -23 190))
+(connect D6:1 D4:0
+(points 5 196 30 220 30 220 60 180 60 180 82))
+(connect D2:1 D4:1
+(points 2 54 100 80 100))
+(connect D8:1 D9:0
+(points 3 59 320 100 320 100 356))
+(connect D9:1 D11:0
+(points 3 126 370 160 370 160 409))
+(connect D15:0 D12:0
+(points 2 390 165 390 249))
+(connect D14:0 D13:0
+(points 2 350 341 350 359))
+(connect D7:1 D14:1
+(points 2 296 330 325 330))
+(connect D3:2 D15:1
+(points 4 303 210 330 210 330 150 368 150))
+(connect D4:1 O1:1
+(points 4 279 100 300 100 300 -33 515 -33))
+(connect D15:1 O2:1
+(points 4 412 140 430 140 430 117 515 117))
+(connect D15:2 O3:1
+(points 4 412 160 480 160 480 267 515 267))
+(connect D14:1 O4:1
+(points 4 374 330 430 330 430 417 515 417)))
+(stackingOrder 0 9 8 4 1 2 3 6 7 14 13 5 15 12 10 11))))
+(context 11
+(properties
+(name "SendGameBoardToPlayer2")
+(variableName SendGameBoardToPlayer2)
+(variableScope glob)
+(trigMode deg)
+(nextID 31)
+(popupTitleText "CheckForBoard"))
+(interface
+(input 1
+(name "board")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 20 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 2 "This function sends the Game Board" "to the client (player 2).")))
+(device 30 CONTEXT
+(properties
+(name "SendGameBoardToPlayer2")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "GameBoard")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 60))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "WRITE CONTAINER board"))
+(interface
+(input 1
+(name "board")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 2)
+(byteOrder 0))))
+(device 2 IFTHENELSE
+(properties
+(name "Transmission Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(i+1)"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 10 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 12 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 14 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to transmit game board.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 15 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 10 "This function sends the Game Board"
+"to player 2 (client) which should " "be listening on port \'portNo\'. This "
+"function times out after 120 seconds.  " "" "If this function is unsuccessful"
+"in sending the Game Board, it" "will STOP and display an " "error message." "")
+))
+(configuration
+(connect D5:0 D0:0)
+(connect D3:0 D1:0)
+(connect I1:1 D1:1)
+(connect D3:1 D1:2)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D0:1 D3:0)
+(connect D2:1 D4:0)
+(connect D1:1 D7:0)
+(connect D9:0 D8:0)
+(connect D0:0 D9:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 664 490)
+(anchorPt 58 136)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 90 110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 180 25))
+(open
+(extent 164 53))
+(terminals on)
+(pinCenter 340 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 200 120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 90 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 80 -40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 500 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 90 280))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 90 220))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 301 158)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 380 -30))
+(connect D5:0 D0:0
+(points 2 90 40 90 81))
+(connect D3:0 D1:0
+(points 6 200 130 200 150 150 150 150 90 340 90 340 105))
+(connect I1:1 D1:1
+(points 8 -58 108 -50 108 -50 60 150 60 150 70 250 70 250 110 259 110))
+(connect D3:1 D1:2
+(points 4 225 120 240 120 240 130 259 130))
+(connect D1:0 D2:0
+(points 2 340 135 340 175))
+(connect D0:1 D2:1
+(points 4 127 110 140 110 140 190 247 190))
+(connect D0:1 D3:0
+(points 5 127 110 140 110 140 80 200 80 200 109))
+(connect D2:1 D4:0
+(points 3 432 180 500 180 500 239))
+(connect D1:1 D7:0
+(points 3 421 120 500 120 500 139))
+(connect D9:0 D8:0
+(points 2 90 235 90 251))
+(connect D0:0 D9:0
+(points 2 90 138 90 205)))
+(stackingOrder 5 0 3 8 4 6 10 1 2 7 9))))
+(configuration
+(connect I1:1 D1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 803 257)
+(anchorPt 310 247)
+(configuration
+(devCarrierFor 20
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 274 106)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 210 -160))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 191 25))
+(terminals on)
+(pinCenter -130 -120))
+(connect I1:1 D1:1
+(points 4 -310 -119 -269 -119 -269 -120 -228 -120)))
+(stackingOrder 0 1))))
+(context 18
+(properties
+(name "SendPlayer1Move")
+(variableName SendPlayer1Move)
+(variableScope glob)
+(trigMode deg)
+(nextID 38)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "fromSquare")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "toSquare")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 2 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 4 "This function is called after player " "1 has mad a move." "" "")))
+(device 28 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 29 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 IFTHENELSE
+(properties
+(name "Transmission Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(i+1)"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 31 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 2 "WRITE BINARY from INT32" "WRITE BINARY to INT32"))
+(interface
+(input 1
+(name "from")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "to")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 2)
+(byteOrder 0))))
+(device 32 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 33 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to send player 1\'s move to player 2.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 34 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 FORCOUNT
+(properties
+(variableScope cont)
+(count 1000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 36 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 37 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(configuration
+(connect D3:1 D1:0)
+(connect D4:1 D2:0)
+(connect D4:0 D3:0)
+(connect D8:1 D3:1)
+(connect D7:0 D4:0)
+(connect I1:1 D4:1)
+(connect I2:1 D4:2)
+(connect D7:1 D4:3)
+(connect D6:0 D5:0)
+(connect D8:0 D6:0)
+(connect D8:1 D7:0)
+(connect D9:0 D8:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 994 584)
+(anchorPt 117 175)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 311 82)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 610 -80))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 450 160))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 450 60))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 180 25))
+(open
+(extent 164 53))
+(terminals on)
+(pinCenter 290 100))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 157 34))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 290 30))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 40 190))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 40 110))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 150 30))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 40 20))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 40 -60))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 30 -130))
+(connect D3:1 D1:0
+(points 3 382 90 450 90 450 149))
+(connect D4:1 D2:0
+(points 3 371 30 450 30 450 49))
+(connect D4:0 D3:0
+(points 2 290 49 290 85))
+(connect D8:1 D3:1
+(points 6 77 20 90 20 90 80 120 80 120 100 197 100))
+(connect D7:0 D4:0
+(points 6 150 40 150 60 100 60 100 -10 290 -10 290 10))
+(connect I1:1 D4:1
+(points 4 -117 -34 190 -34 190 20 209 20))
+(connect I2:1 D4:2
+(points 6 -117 266 110 266 110 70 200 70 200 30 209 30))
+(connect D7:1 D4:3
+(points 4 175 30 190 30 190 40 209 40))
+(connect D6:0 D5:0
+(points 2 40 125 40 161))
+(connect D8:0 D6:0
+(points 2 40 48 40 95))
+(connect D8:1 D7:0
+(points 5 77 20 90 20 90 0 150 0 150 19))
+(connect D9:0 D8:0
+(points 2 40 -50 40 -9)))
+(stackingOrder 0 1 3 5 7 9 10 4 8 2 6))))
+(context 13
+(properties
+(name "SendPlayer1Setup")
+(variableName SendPlayer1Setup)
+(variableScope glob)
+(trigMode deg)
+(nextID 32)
+(popupTitleText "CheckForBoard"))
+(interface
+(input 1
+(name "setup")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 20 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 2 "This function sends player 1\'s setup" "to player 2.")))
+(device 30 CONTEXT
+(properties
+(name "SendPlayer1Setup")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "setup")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 60))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 TOFROMSOCKET
+(properties
+(name "To/From Socket (Bind)")
+(variableScope cont)
+(transactions 1 "WRITE CONTAINER setup"))
+(interface
+(input 1
+(name "setup")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes))
+(input 2
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "bind" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 2)
+(byteOrder 0))))
+(device 2 IFTHENELSE
+(properties
+(name "Transmission Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(i+1)"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 10 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 12 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 14 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to find another player.")
+(symbol Stop))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(configuration
+(connect D5:0 D0:0)
+(connect D3:0 D1:0)
+(connect I1:1 D1:1)
+(connect D3:1 D1:2)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D0:1 D3:0)
+(connect D2:1 D4:0)
+(connect D1:1 D7:0)
+(connect D9:0 D8:0)
+(connect D0:0 D9:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 694 490)
+(anchorPt 58 136)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 90 110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 157 25))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 180 25))
+(open
+(extent 164 53))
+(terminals on)
+(pinCenter 340 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 200 120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 90 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 80 -40))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 500 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 90 280))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 90 220))
+(connect D5:0 D0:0
+(points 2 90 40 90 81))
+(connect D3:0 D1:0
+(points 6 200 130 200 150 150 150 150 90 340 90 340 105))
+(connect I1:1 D1:1
+(points 6 -58 108 -50 108 -50 60 250 60 250 110 259 110))
+(connect D3:1 D1:2
+(points 4 225 120 240 120 240 130 259 130))
+(connect D1:0 D2:0
+(points 2 340 135 340 175))
+(connect D0:1 D2:1
+(points 4 127 110 140 110 140 190 247 190))
+(connect D0:1 D3:0
+(points 5 127 110 140 110 140 80 200 80 200 109))
+(connect D2:1 D4:0
+(points 3 432 180 500 180 500 239))
+(connect D1:1 D7:0
+(points 3 421 120 500 120 500 139))
+(connect D9:0 D8:0
+(points 2 90 235 90 251))
+(connect D0:0 D9:0
+(points 2 90 138 90 205)))
+(stackingOrder 5 3 2 8 4 6 1 0 7 9))))
+(device 31 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(configuration
+(connect I1:1 D1:1)
+(connect D1:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 803 257)
+(anchorPt 308 248)
+(configuration
+(devCarrierFor 20
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 307 96)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 120 -130))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 129 25))
+(terminals on)
+(pinCenter -170 -140))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 24 16))
+(open)
+(terminals on)
+(pinCenter -170 -90))
+(connect I1:1 D1:1
+(points 4 -308 -120 -300 -120 -300 -140 -237 -140))
+(connect D1:0 D2:0
+(points 2 -170 -125 -170 -101)))
+(stackingOrder 2 0 1))))
+(context 21
+(properties
+(name "SendPlayer2Move")
+(variableName SendPlayer2Move)
+(variableScope glob)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "from")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "to")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "Send Player 2 Move")
+(variableScope cont)
+(trigMode deg)
+(nextID 28)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "from")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "to")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 1000))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Connect)")
+(variableScope cont)
+(transactions 2 "WRITE BINARY from INT32" "WRITE BINARY to INT32"))
+(interface
+(input 1
+(name "from")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "to")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 4
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 3 IFTHENELSE
+(properties
+(name "Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(a+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 IFTHENELSE
+(properties
+(name "Non Socket Error?")
+(variableScope cont)
+(cases 1 "errno<857 OR errno>870"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 16 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(message "The connection has been shut down by the peer")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 20)))
+(device 17 FORMULA
+(properties
+(name "special message")
+(variableScope cont)
+(expr 1 "errMsg.message"))
+(interface
+(input 1
+(name "errMsg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 20 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 21 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 24 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to connect to host.")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 25 FORMULA
+(properties
+(name "timeout error message")
+(variableScope cont)
+(expr 1
+"\"Timeout occurred while trying to send player 2 move to \"+hostname+\".\""))
+(interface
+(input 1
+(name "hostname")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 6 "This function sends player 2\'s" "move to the host listening"
+"on port \'portNo\'.  This function " "times out after 120 seconds.  " "" "")))
+(configuration
+(connect D4:0 D0:0)
+(connect D12:0 D1:0)
+(connect I3:1 D1:1)
+(connect D0:1 D2:0)
+(connect I1:1 D2:1)
+(connect I2:1 D2:2)
+(connect D1:1 D2:3)
+(connect D4:1 D2:4)
+(connect D2:0 D3:0)
+(connect D0:1 D3:1)
+(connect D1:0 D4:0)
+(connect D2:1 D5:1)
+(connect D7:0 D6:0)
+(connect D8:1 D7:1)
+(connect D9:1 D8:1)
+(connect D5:1 D9:0)
+(connect D3:1 D10:0)
+(connect D2:1 D13:0)
+(connect D15:0 D14:0)
+(connect D16:1 D15:1)
+(connect D0:0 D16:0)
+(connect I3:1 D16:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1049 508)
+(anchorPt 93 60)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 100 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 184 45))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 340 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 83 25))
+(open
+(extent 177 53))
+(terminals on)
+(pinCenter 240 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 193 53))
+(terminals on)
+(pinCenter 530 90))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 730 310))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 730 250))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 115 16))
+(open
+(extent 139 32))
+(terminals on)
+(pinCenter 610 250))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 380 200))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 100 -40))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 100 0))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 530 40))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 260 380))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 260 310))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 156 16))
+(open
+(extent 485 32))
+(terminals on)
+(pinCenter 100 310))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 272 107)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 770 20))
+(connect D4:0 D0:0
+(points 2 100 90 100 131))
+(connect D12:0 D1:0
+(points 2 100 10 100 29))
+(connect I3:1 D1:1
+(points 4 -93 363 -70 363 -70 40 80 40))
+(connect D0:1 D2:0
+(points 5 137 160 180 160 180 50 340 50 340 65))
+(connect I1:1 D2:1
+(points 10 -93 23 -80 23 -80 30 60 30 60 20 130 20 130 30 170 30 170 70 245 70))
+(connect I2:1 D2:2
+(points 6 -93 193 -80 193 -80 110 170 110 170 80 245 80))
+(connect D1:1 D2:3
+(points 4 120 40 160 40 160 90 245 90))
+(connect D4:1 D2:4
+(points 4 125 80 150 80 150 100 245 100))
+(connect D2:0 D3:0
+(points 4 340 115 340 140 240 140 240 145))
+(connect D0:1 D3:1
+(points 2 137 160 196 160))
+(connect D1:0 D4:0
+(points 2 100 50 100 69))
+(connect D2:1 D5:1
+(points 2 434 90 464 90))
+(connect D7:0 D6:0
+(points 2 730 260 730 281))
+(connect D8:1 D7:1
+(points 2 670 250 681 250))
+(connect D9:1 D8:1
+(points 2 537 250 550 250))
+(connect D5:1 D9:0
+(points 5 596 80 620 80 620 130 500 130 500 239))
+(connect D3:1 D10:0
+(points 3 284 150 380 150 380 189))
+(connect D2:1 D13:0
+(points 5 434 90 450 90 450 10 530 10 530 29))
+(connect D15:0 D14:0
+(points 2 260 325 260 351))
+(connect D16:1 D15:1
+(points 2 180 310 211 310))
+(connect D0:0 D16:0
+(points 2 100 188 100 299))
+(connect I3:1 D16:1
+(points 4 -93 363 -70 363 -70 310 19 310)))
+(stackingOrder 1 12 11 9 8 6 10 14 5 7 15 17 4 2 0 16 3 13))))
+(device 1 FORMULA
+(properties
+(name "player 1 host name")
+(variableScope cont)
+(expr 1 "player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D1:1 D0:3)))
+(contextCarrier
+(active detail)
+(detail
+(extent 674 383)
+(anchorPt 18 6)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 139 34))
+(terminals on)
+(pinCenter 290 150))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 133 16))
+(open
+(extent 145 32))
+(terminals on)
+(pinCenter 100 160))
+(connect I1:1 D0:1
+(points 6 -18 85 0 85 0 130 190 130 190 140 218 140))
+(connect I2:1 D0:2
+(points 4 -18 285 190 285 190 150 218 150))
+(connect D1:1 D0:3
+(points 2 169 160 218 160)))
+(stackingOrder 1 0))))
+(context 9
+(properties
+(name "SendPlayer2SetupToHost")
+(variableName SendPlayer2SetupToHost)
+(variableScope glob)
+(trigMode deg)
+(nextID 30)
+(popupTitleText "CheckForBoard"))
+(interface
+(input 1
+(name "board")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 20 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 2 "This function sends player 2\'s" "game board to the host.")))
+(device 25 CONTEXT
+(properties
+(name "SendPlayer2Board")
+(variableScope cont)
+(trigMode deg)
+(nextID 29)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "player2Board")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes))
+(input 2
+(name "HostName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(variableScope cont)
+(count 40))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 2 TOFROMSOCKET
+(properties
+(name "To/From Socket (Connect)")
+(variableScope cont)
+(transactions 1 "WRITE CONTAINER board"))
+(interface
+(input 1
+(name "board")
+(requires
+(datatype Int32)
+(shape "Array 1D"))
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(type control)
+(name "Port Number")
+(tag "Port Number")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "hplvldug" 5381
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 0.5)
+(byteOrder 0))))
+(device 3 IFTHENELSE
+(properties
+(name "Successful?")
+(variableScope cont)
+(cases 1 "numTimeouts!=(a+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "portNo")
+(variableScope cont)
+(expr 1 "portNo"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 IFTHENELSE
+(properties
+(name "Non Socket Error?")
+(variableScope cont)
+(cases 1 "errno<857 OR errno>870"))
+(interface
+(input 1
+(name "errno")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 16 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(message "The connection has been shut down by the peer")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 20)))
+(device 17 FORMULA
+(properties
+(name "special message")
+(variableScope cont)
+(expr 1 "errMsg.message"))
+(interface
+(input 1
+(name "errMsg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "errorInfo()")
+(variableScope cont)
+(expr 1 "errorInfo()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 20 DECLVAR
+(properties
+(name "Declare Local \'numTimeouts\'")
+(scope con)
+(globalName "numTimeouts"))
+(implementation
+(value Int32
+(data  0))))
+(device 21 FORMULA
+(properties
+(name "numTimeouts = 0")
+(variableScope cont)
+(expr 1 "numTimeouts = 0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 24 MESSAGEBOX
+(properties
+(variableScope cont)
+(popupTitle "StraVEEgo")
+(position 186 162)
+(message "Timeout occurred while trying to connect to host.")
+(symbol Stop))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageTextFont "Arial" 18)))
+(device 25 FORMULA
+(properties
+(name "timeout error message")
+(variableScope cont)
+(expr 1 "\"Timeout occurred while trying to connect to host \"+hostname+\".\""))
+(interface
+(input 1
+(name "hostname")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 NOTE
+(properties
+(name "Comment")
+(variableScope cont)
+(text2 11 "This function sends player 2\'s" "board to the host listening"
+"on port \'portNo\' (a local-to-" "library variable). This function "
+"times out after 120 seconds.  " "" "If this function is unsuccessful"
+"in sending player 2\'s board, it" "will STOP and display an " "error message."
+"")))
+(device 28 FORMULA
+(properties
+(name "numTimeouts++")
+(variableScope cont)
+(expr 1 "numTimeouts = numTimeouts+1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:0 D0:0)
+(connect D12:0 D1:0)
+(connect I2:1 D1:1)
+(connect D4:0 D2:0)
+(connect I1:1 D2:1)
+(connect D1:1 D2:2)
+(connect D4:1 D2:3)
+(connect D2:0 D3:0)
+(connect D0:1 D3:1)
+(connect D0:1 D4:0)
+(connect D2:1 D5:1)
+(connect D7:0 D6:0)
+(connect D8:1 D7:1)
+(connect D9:1 D8:1)
+(connect D5:1 D9:0)
+(connect D3:1 D10:0)
+(connect D14:0 D13:0)
+(connect D15:1 D14:1)
+(connect D0:0 D15:0)
+(connect I2:1 D15:1)
+(connect D2:1 D17:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1039 509)
+(anchorPt 93 60)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 100 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 100 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 184 34))
+(open
+(extent 281 157))
+(terminals on)
+(pinCenter 350 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 83 25))
+(open
+(extent 177 53))
+(terminals on)
+(pinCenter 250 170))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 16))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 200 110))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 193 53))
+(terminals on)
+(pinCenter 530 90))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 730 310))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 92 16))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 730 250))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 115 16))
+(open
+(extent 139 32))
+(terminals on)
+(pinCenter 610 250))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 70 16))
+(open
+(extent 98 32))
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 380 200))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 200 16))
+(open
+(extent 236 107))
+(pinCenter 100 -40))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 119 16))
+(open
+(extent 143 32))
+(terminals on)
+(pinCenter 100 0))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "stop.icn"))
+(open
+(extent 69 32))
+(pinCenter 260 380))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 520 143))
+(terminals on)
+(pinCenter 260 310))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 156 16))
+(open
+(extent 442 32))
+(terminals on)
+(pinCenter 100 310))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 274 178)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 790 60))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 111 16))
+(open
+(extent 236 32))
+(terminals on)
+(pinCenter 540 40))
+(connect D1:0 D0:0
+(points 2 100 50 100 71))
+(connect D12:0 D1:0
+(points 2 100 10 100 29))
+(connect I2:1 D1:1
+(points 4 -93 324 -80 324 -80 40 80 40))
+(connect D4:0 D2:0
+(points 6 200 120 200 140 240 140 240 50 350 50 350 70))
+(connect I1:1 D2:1
+(points 4 -93 64 210 64 210 80 255 80))
+(connect D1:1 D2:2
+(points 4 120 40 230 40 230 90 255 90))
+(connect D4:1 D2:3
+(points 4 225 110 250 110 250 100 255 100))
+(connect D2:0 D3:0
+(points 4 350 109 350 130 250 130 250 155))
+(connect D0:1 D3:1
+(points 4 137 100 150 100 150 170 206 170))
+(connect D0:1 D4:0
+(points 5 137 100 160 100 160 80 200 80 200 99))
+(connect D2:1 D5:1
+(points 2 444 90 464 90))
+(connect D7:0 D6:0
+(points 2 730 260 730 281))
+(connect D8:1 D7:1
+(points 2 670 250 681 250))
+(connect D9:1 D8:1
+(points 2 537 250 550 250))
+(connect D5:1 D9:0
+(points 5 596 80 620 80 620 130 500 130 500 239))
+(connect D3:1 D10:0
+(points 3 294 160 380 160 380 189))
+(connect D14:0 D13:0
+(points 2 260 325 260 351))
+(connect D15:1 D14:1
+(points 2 180 310 211 310))
+(connect D0:0 D15:0
+(points 2 100 128 100 299))
+(connect I2:1 D15:1
+(points 4 -93 324 -80 324 -80 310 19 310))
+(connect D2:1 D17:0
+(points 5 444 90 450 90 450 10 540 10 540 29)))
+(stackingOrder 1 0 4 12 11 9 8 6 10 15 13 5 16 7 14 2 3 17))))
+(device 29 FORMULA
+(properties
+(name "player1HostName")
+(variableScope cont)
+(expr 1 "player1HostName"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect D2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 803 257)
+(anchorPt 310 249)
+(configuration
+(devCarrierFor 20
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 274 106)
+(editing enabled))
+(titleBg "Dark Yellow")
+(pinCenter 280 -150))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 130 25))
+(terminals on)
+(pinCenter 20 -140))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 122 16))
+(open
+(extent 145 32))
+(terminals on)
+(pinCenter -170 -110))
+(connect I1:1 D1:1
+(points 4 -310 -121 -300 -121 -300 -150 -48 -150))
+(connect D2:1 D1:2
+(points 4 -107 -110 -90 -110 -90 -130 -48 -130)))
+(stackingOrder 2 0 1)))))
+(device 9 CALL
+(properties
+(name "Call ConnectPlayers")
+(variableScope cont)
+(callFunc "ConnectPlayers")
+(parmMode rev30))
+(interface
+(output 1
+(name "player1Name")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "player2Name")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "yourPlayerNumber")
+(lock name constraints)
+(optional yes))
+(output 4
+(name "Cancelled")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Player 1")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Player 2")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 810 480)
+(anchorPt 59 70)
+(configuration
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 140 45))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 290 110))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 57 0))
+(open
+(extent 238 30))
+(pinCenter 570 90))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 57 0))
+(open
+(extent 224 28))
+(pinCenter 570 170))
+(connect D0:1 D1:1
+(points 2 362 90 448 90))
+(connect D0:2 D2:1
+(points 4 362 100 380 100 380 170 455 170)))
+(stackingOrder 1 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,670 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:17:25 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Compiled Function Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 IMPORT
+(properties
+(name "Import Library")
+(libType DLL)
+(libName "myLibrary")
+(fileName "~installDir/examples/Manual/manual49.sl")
+(defnFileName "~installDir/examples/Manual/manual49.h"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 1 VFUNCTIONGENERATOR
+(properties
+(function Cosine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call Function")
+(callFunc "myFunc")
+(parmMode rev2x_22rules))
+(interface
+(input 1
+(name "arraySize")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "array")
+(requires
+(datatype Real64))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "array")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Formula   b[0:a-1]")
+(expr 1 "b[0:a-1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 17 "Overview:"
+"  This program illustrates how to Import and Call a Compiled Function." ""
+"Details:"
+"  This program calls a compiled function called myFunc.  MyFunc requires a long "
+"  which specifies the size of an array and a pointer to an array of reals.  "
+"  The definition file is manual49.h, and the source file is manual49.c.  "
+"  MyFunc adds 1 to every element of the arrray." ""
+"  Before the first call to the compiled function the shared library must be "
+"  loaded using the Import object.  The Function Generator object is used to "
+"  create a waveform which is connected to the array input of myFunc, and "
+"  totSize is used to get the size of the waveform.  Both the original and the "
+"  new array are connected to the XY trace object to display both arrays." ""
+"  To run the program, press Run and notice the two traces in the display.  "
+"  Trace 2 is 1 greater at every point than trace 1.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 3 32)))
+(contextCarrier
+(active detail)
+(panel
+(extent 806 456)
+(widget 0 detail
+(relativeOrigin 4 3)
+(title off)
+(borderStyle flat)
+(extent 795 393)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 365 404)
+(title off)
+(borderStyle flat)
+(extent 69 36)))
+(detail
+(extent 866 520)
+(anchorPt 433 270)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 15))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 70)))
+(stackingOrder 1 0))))
+(device 3 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D2:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 912 591)
+(anchorPt 256 245)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 15))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 806 456)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 190 60))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 140 0))
+(connect D2:0 D0:1
+(points 5 140 15 140 40 -80 40 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 165 -10 190 -10 190 45))
+(connect D0:1 D2:1
+(points 2 59 0 114 0)))
+(stackingOrder 0 2 1))))
+(device 8 CONTEXT
+(properties
+(name "Shared Library Name")
+(trigMode deg)
+(nextID 17))
+(interface
+(output 1
+(type data)
+(name "Name")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "whichos()")
+(expr 1 "whichos()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 IFTHENELSE
+(properties
+(cases 2 "a==\"HP-UX\"" "a==\"SunOS\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 6 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(name "shared library")
+(expr 1 "\"~installDir/examples/Manual/manual49.\"+ext"))
+(interface
+(input 1
+(name "ext")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "sl"))
+(initValue Text
+(data  ""))))
+(device 13 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "so"))
+(initValue Text
+(data  ""))))
+(device 14 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "dll"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D0:1 D1:1)
+(connect D4:1 D2:1)
+(connect D5:1 D2:2)
+(connect D6:1 D2:3)
+(connect D2:1 D3:1)
+(connect D1:1 D4:0)
+(connect D1:2 D5:0)
+(connect D1:3 D6:0)
+(connect D3:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1031 630)
+(anchorPt 97 280)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 88 28))
+(open
+(extent 101 62))
+(terminals on)
+(pinCenter 40 -150))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 100 154))
+(terminals on)
+(pinCenter 30 -10))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 54))
+(open
+(extent 10 204))
+(terminals on)
+(pinCenter 420 30))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 294 55))
+(pinCenter 620 30))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 66 31))
+(title off)
+(pinCenter 330 -20))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 54 30))
+(title off)
+(pinCenter 260 30))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 54 29))
+(title off)
+(pinCenter 210 80))
+(connect D0:1 D1:1
+(points 6 86 -150 110 -150 110 -190 -70 -190 -70 -10 -53 -10))
+(connect D4:1 D2:1
+(points 4 365 -20 380 -20 380 10 394 10))
+(connect D5:1 D2:2
+(points 2 289 30 394 30))
+(connect D6:1 D2:3
+(points 4 239 80 310 80 310 50 394 50))
+(connect D2:1 D3:1
+(points 2 445 30 470 30))
+(connect D1:1 D4:0
+(points 3 132 -60 330 -60 330 -38))
+(connect D1:2 D5:0
+(points 3 132 -10 260 -10 260 12))
+(connect D1:3 D6:0
+(points 3 132 40 210 40 210 63))
+(connect D3:1 O1:1
+(points 4 769 30 790 30 790 34 933 34)))
+(stackingOrder 1 5 6 4 2 3 0))))
+(device 10 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D6:0 D0:0)
+(connect D6:1 D0:1)
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D1:1 D3:2)
+(connect D3:1 D4:1)
+(connect D3:2 D4:2)
+(connect D1:1 D7:1)
+(connect D4:1 D7:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 937 518)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 246 275)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 443 107))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 172 64)
+(iconImage "virtual.icn"))
+(open
+(extent 201 198))
+(terminals on)
+(pinCenter -5 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 124 62))
+(terminals on)
+(pinCenter 250 160))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 202 91))
+(terminals on)
+(pinCenter 370 290))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 105 64)
+(iconImage "formula.icn"))
+(open
+(extent 106 104))
+(terminals on)
+(pinCenter 640 290))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -30 -210))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 176 27))
+(terminals on)
+(pinCenter 0 -130))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 341 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -1 2 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 6)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 3)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 550 30))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 350 -230))
+(connect D6:0 D0:0
+(points 2 0 -114 0 -74))
+(connect D6:1 D0:1
+(points 6 90 -130 110 -130 110 -90 -240 -90 -240 0 -224 0))
+(connect D0:0 D1:0
+(points 2 0 56 0 120))
+(connect D1:1 D2:1
+(points 4 138 240 150 240 150 160 192 160))
+(connect D2:1 D3:1
+(points 6 307 160 330 160 330 200 180 200 180 270 196 270))
+(connect D1:1 D3:2
+(points 4 138 240 160 240 160 310 196 310))
+(connect D3:1 D4:1
+(points 2 543 270 585 270))
+(connect D3:2 D4:2
+(points 2 543 310 585 310))
+(connect D1:1 D7:1
+(points 8 138 240 150 240 150 160 170 160 170 130 240 130 240 -40 377 -40))
+(connect D4:1 D7:2
+(points 6 695 290 720 290 720 200 360 200 360 100 377 100)))
+(stackingOrder 0 1 2 3 5 7 4 8 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase decimal))))

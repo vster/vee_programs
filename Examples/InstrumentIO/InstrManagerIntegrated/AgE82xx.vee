@@ -1,0 +1,1676 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:44:27 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "E82xx"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 22)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "ag e8267c")
+(ppAddr "GPIB0::22::INSTR")
+(eoiEnabled 1)
+(model "ag e8267c"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 242)
+(popupTitleText "Keysight E82xx sample program")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 55 DECLVAR
+(properties
+(name "Declare g_e82xx_frequency")
+(scope glob)
+(globalName "g_e82xx_frequency"))
+(implementation
+(value Real64
+(data  0))))
+(device 56 DECLVAR
+(properties
+(name "Declare g_e82xx_amplitude")
+(scope glob)
+(globalName "g_e82xx_amplitude"))
+(implementation
+(value Real64
+(data  0))))
+(device 57 DECLVAR
+(properties
+(name "Declare g_e82xx_rfState")
+(scope glob)
+(globalName "g_e82xx_rfState"))
+(implementation
+(value UInt8
+(data  0))))
+(device 58 DECLVAR
+(properties
+(name "Declare g_e82xx_instrID")
+(scope glob)
+(globalName "g_e82xx_instrID"))
+(implementation
+(value Text
+(data  ""))))
+(device 61 NOTE
+(properties
+(name "Declare global variables")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The variables are declared to allocate space for them in the PC\'s memory, and to make them globally visible inside and outside User Objects.\\par\r\n}\r\n"
+)))
+(device 95 DECLVAR
+(properties
+(name "Declare g_e82xx_fmDeviation")
+(scope glob)
+(globalName "g_e82xx_fmDeviation"))
+(implementation
+(value UInt8
+(data  0))))
+(device 96 DECLVAR
+(properties
+(name "Declare g_e82xx_fmRate")
+(scope glob)
+(globalName "g_e82xx_fmRate"))
+(implementation
+(value Int16
+(data  0))))
+(device 127 DECLVAR
+(properties
+(name "Declare g_e82xx_fmState")
+(scope glob)
+(globalName "g_e82xx_fmState"))
+(implementation
+(value UInt8
+(data  0))))
+(device 142 TEXTDISPLAY
+(properties
+(name "The microwave signal generator connected is identified as :"))
+(interface
+(input 1
+(name "Data"))))
+(device 224 FROMGLOBAL
+(properties
+(name "Get g_e82xx_fmState")
+(globalName "g_e82xx_fmState"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 223 TOGGLE25
+(properties
+(name "FM on")
+(waitForEvent 1)
+(initializeAtPrerun 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 225 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmState")
+(globalName "g_e82xx_fmState"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 227 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"FM1:STAT \"+g_e82xx_fmState EOL"))
+(implementation
+(iopath "E82xx")))
+(device 226 NEXT)
+(device 218 CONSTANT
+(properties
+(name "Min FM rate ( kHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  0))
+(initValue Int16
+(data  0))))
+(device 217 CONSTANT
+(properties
+(name "Max FM rate ( kHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  1000))
+(initValue Int16
+(data  0))))
+(device 216 FROMGLOBAL
+(properties
+(name "Get g_e82xx_fmRate")
+(globalName "g_e82xx_fmRate"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 215 KNOB
+(properties
+(name "FM rate ( kHz )")
+(waitForEvent 1)
+(range 0 1000)
+(detents 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  400))
+(initValue Int32
+(data  -30))))
+(device 214 CONSTANT
+(properties
+(name "Max FM deviation ( MHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  0))
+(initValue Int16
+(data  0))))
+(device 213 CONSTANT
+(properties
+(name "Max FM deviation ( MHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  8))
+(initValue Int16
+(data  0))))
+(device 212 KNOB
+(properties
+(name "FM deviation ( MHz )")
+(waitForEvent 1)
+(range 0 8)
+(detents 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  4))
+(initValue Int32
+(data  -30))))
+(device 211 FROMGLOBAL
+(properties
+(name "Get g_e82xx_fmDeviation")
+(globalName "g_e82xx_fmDeviation"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 210 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmRate")
+(globalName "g_e82xx_fmRate"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 209 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmDeviation")
+(globalName "g_e82xx_fmDeviation"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 208 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"FM1:INT:FREQ \"+g_e82xx_fmRate+\" kHz\" EOL"))
+(implementation
+(iopath "E82xx")))
+(device 207 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"FM1:DEV \"+g_e82xx_fmDeviation+\" MHz\" EOL"))
+(implementation
+(iopath "E82xx")))
+(device 220 NEXT)
+(device 221 NEXT)
+(device 206 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"OUTP:STAT \"+g_e82xx_rfState EOL"))
+(implementation
+(iopath "E82xx")))
+(device 205 TOGLOBAL
+(properties
+(name "Set g_e82xx_rfState")
+(globalName "g_e82xx_rfState"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 204 FROMGLOBAL
+(properties
+(name "Get g_e82xx_rfState")
+(globalName "g_e82xx_rfState"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 203 TOGGLE25
+(properties
+(name "RF on")
+(waitForEvent 1)
+(initializeAtPrerun 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 222 NEXT)
+(device 194 FROMGLOBAL
+(properties
+(name "Get g_e82xx_frequency")
+(globalName "g_e82xx_frequency"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 193 CONSTANT
+(properties
+(name "Max Frequency ( GHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  20))
+(initValue Int16
+(data  0))))
+(device 192 CONSTANT
+(properties
+(name "Min Frequency ( GHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  1))
+(initValue Int16
+(data  0))))
+(device 199 TOGLOBAL
+(properties
+(name "Set g_e82xx_frequency")
+(globalName "g_e82xx_frequency"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 198 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"FREQ \"+g_e82xx_frequency+\" GHz\" EOL"))
+(implementation
+(iopath "E82xx")))
+(device 191 KNOB
+(properties
+(name "Frequency ( GHz )")
+(waitForEvent 1)
+(range 1 20)
+(detents 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  10))
+(initValue Int32
+(data  -30))))
+(device 231 FROMGLOBAL
+(properties
+(name "Get g_e82xx_amplitude")
+(globalName "g_e82xx_amplitude"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 230 KNOB
+(properties
+(name "Power ( dBm )")
+(waitForEvent 1)
+(range -10 0)
+(detents 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 3
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  -5))
+(initValue Int32
+(data  -30))))
+(device 229 TOGLOBAL
+(properties
+(name "Set g_e82xx_amplitude")
+(globalName "g_e82xx_amplitude"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 234 CONSTANT
+(properties
+(name "Min Power ( dBm )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  -10))
+(initValue Int16
+(data  0))))
+(device 233 CONSTANT
+(properties
+(name "Max Power ( dBm )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  0))
+(initValue Int16
+(data  0))))
+(device 195 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 1 "WRITE TEXT \"POW \"+g_e82xx_amplitude+\" dBm\" EOL"))
+(implementation
+(iopath "E82xx")))
+(device 197 NEXT)
+(device 196 NEXT)
+(device 201 BREAK)
+(device 200 CONFIRM25
+(properties
+(name "Quit")
+(enterButton 1)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 202 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 238 CONTEXT
+(properties
+(name "Preset")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Instrument ID")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Preset Power ( dBm )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  -5))
+(initValue Int16
+(data  0))))
+(device 2 CONSTANT
+(properties
+(name "Preset FM deviation ( MHz )"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  4))
+(initValue UInt8
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Preset FM rate ( kHz )"))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  400))
+(initValue Int16
+(data  0))))
+(device 4 CONSTANT
+(properties
+(name "Preset FM state ( 0 = off amd 1 = on )"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  0))
+(initValue UInt8
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "Preset Frequency ( GHz )"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  10))
+(initValue UInt8
+(data  0))))
+(device 6 CONSTANT
+(properties
+(name "Preset RF output state ( 0 = off and 1 = on )"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  0))
+(initValue UInt8
+(data  0))))
+(device 7 TOGLOBAL
+(properties
+(name "Set g_e82xx_frequency")
+(globalName "g_e82xx_frequency"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmState")
+(globalName "g_e82xx_fmState"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 9 TOGLOBAL
+(properties
+(name "Set g_e82xx_amplitude")
+(globalName "g_e82xx_amplitude"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 10 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmDeviation")
+(globalName "g_e82xx_fmDeviation"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 11 IODEVICE
+(properties
+(name "E82xx (ag e8267c @ 722)")
+(transactions 10 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"FREQ \"+g_e82xx_frequency+\" GHz\" EOL"
+"WRITE TEXT \"POW \"+g_e82xx_amplitude+\" dBm\" EOL"
+"WRITE TEXT \"OUTP:STAT \"+g_e82xx_rfState EOL"
+"WRITE TEXT \"FM2:INT:FREQ \"+g_e82xx_fmRate+\" kHz\" EOL"
+"WRITE TEXT \"FM2:DEV \"+g_e82xx_fmDeviation+\" kHz\" EOL"
+"WRITE TEXT \"FM1:STAT \"+g_e82xx_fmState EOL" "WRITE TEXT \"*IDN?\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "E82xx")))
+(device 12 TOGLOBAL
+(properties
+(name "Set g_e82xx_fmRate")
+(globalName "g_e82xx_fmRate"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 13 TOGLOBAL
+(properties
+(name "Set g_e82xx_rfState")
+(globalName "g_e82xx_rfState"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 14 EXITCONTEXT)
+(device 15 TOGLOBAL
+(properties
+(name "Set g_e82xx_instrID")
+(globalName "g_e82xx_instrID"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:0 D4:0)
+(connect D4:0 D5:0)
+(connect D7:0 D6:0)
+(connect D4:1 D6:1)
+(connect D11:0 D7:0)
+(connect D3:1 D7:1)
+(connect D5:0 D8:0)
+(connect D0:1 D8:1)
+(connect D8:0 D9:0)
+(connect D1:1 D9:1)
+(connect D12:0 D10:0)
+(connect D9:0 D11:0)
+(connect D2:1 D11:1)
+(connect D6:0 D12:0)
+(connect D5:1 D12:1)
+(connect D14:0 D13:0)
+(connect D10:0 D14:0)
+(connect D10:1 D14:1)
+(connect D10:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 765 698)
+(anchorPt 85 34)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 164 29)
+(showFormat int))
+(pinCenter 210 100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 161 15))
+(open
+(extent 197 29)
+(showFormat int))
+(pinCenter 210 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 163 29)
+(showFormat int))
+(pinCenter 210 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 220 15))
+(open
+(extent 256 29)
+(showFormat int))
+(pinCenter 210 280))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 185 29)
+(showFormat int))
+(pinCenter 210 340))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 256 15))
+(open
+(extent 292 29)
+(showFormat int))
+(pinCenter 210 400))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 138 15))
+(open
+(extent 137 51))
+(terminals on)
+(pinCenter 480 340))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 134 14))
+(open
+(extent 149 51))
+(terminals on)
+(pinCenter 480 280))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 140 15))
+(open
+(extent 139 51))
+(terminals on)
+(pinCenter 480 100))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 149 51))
+(terminals on)
+(pinCenter 480 160))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 364 186))
+(terminals on)
+(pinCenter 480 500))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 124 15))
+(open
+(extent 124 51))
+(terminals on)
+(pinCenter 480 220))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 480 400))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 480 630))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 85 51))
+(terminals on)
+(pinCenter 480 590))
+(connect D0:0 D1:0
+(points 2 210 110 210 150))
+(connect D1:0 D2:0
+(points 2 210 170 210 210))
+(connect D2:0 D3:0
+(points 2 210 230 210 270))
+(connect D3:0 D4:0
+(points 2 210 290 210 330))
+(connect D4:0 D5:0
+(points 2 210 350 210 390))
+(connect D7:0 D6:0
+(points 2 480 289 480 330))
+(connect D4:1 D6:1
+(points 2 287 340 408 340))
+(connect D11:0 D7:0
+(points 2 480 230 480 270))
+(connect D3:1 D7:1
+(points 2 322 280 410 280))
+(connect D5:0 D8:0
+(points 6 210 410 210 430 580 430 580 70 480 70 480 90))
+(connect D0:1 D8:1
+(points 2 276 100 407 100))
+(connect D8:0 D9:0
+(points 2 480 110 480 150))
+(connect D1:1 D9:1
+(points 2 293 160 402 160))
+(connect D12:0 D10:0
+(points 2 480 410 480 472))
+(connect D9:0 D11:0
+(points 2 480 170 480 210))
+(connect D2:1 D11:1
+(points 2 276 220 415 220))
+(connect D6:0 D12:0
+(points 2 480 350 480 390))
+(connect D5:1 D12:1
+(points 2 340 400 418 400))
+(connect D14:0 D13:0
+(points 2 480 600 480 620))
+(connect D10:0 D14:0
+(points 2 480 528 480 580))
+(connect D10:1 D14:1
+(points 6 525 500 550 500 550 550 400 550 400 590 418 590))
+(connect D10:1 O1:1
+(points 4 525 500 550 500 550 314 679 314)))
+(stackingOrder 6 7 8 9 11 12 14 13 10 5 4 3 2 1 0))))
+(device 239 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This application displays a graphical user interface that allows the operator to remotely control the signal generator\'s frequency, amplitude and FM.\\f1\\par\r\n\\par\r\nThe controls for the center frequency and the span are initially synchronized with the default values previously applied to the signal generator. The controls have a range of allowable values set by the min and max values. When the operator adjust the controls, the new values are stored back into the global variables and the Direct IO objects relay the values to the instrument\\f0 .\\par\r\n}\r\n"
+)))
+(device 241 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE Pro 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.0 as a minimum.\\par\r\n\\par\r\nNote that this example is using a GPIB interface. But you could also use LAN or USB if you do have those interfaces installed on your PC. For more information go in the VEE Pro Online Help => Contents and Index => Search tab => dial Instrument Manager.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D51:0 D9:0)
+(connect D51:1 D9:1)
+(connect D50:1 D10:0)
+(connect D10:0 D11:0)
+(connect D10:1 D11:1)
+(connect D11:0 D12:0)
+(connect D11:1 D12:1)
+(connect D12:0 D13:0)
+(connect D13:0 D14:0)
+(connect D50:1 D15:0)
+(connect D15:0 D16:0)
+(connect D16:0 D17:0)
+(connect D17:0 D18:0)
+(connect D17:1 D18:1)
+(connect D16:1 D18:2)
+(connect D15:1 D18:3)
+(connect D50:1 D19:0)
+(connect D19:0 D20:0)
+(connect D22:0 D21:0)
+(connect D22:1 D21:1)
+(connect D20:1 D21:2)
+(connect D19:1 D21:3)
+(connect D20:0 D22:0)
+(connect D18:0 D23:0)
+(connect D18:1 D23:1)
+(connect D21:0 D24:0)
+(connect D21:1 D24:1)
+(connect D23:0 D25:0)
+(connect D24:0 D26:0)
+(connect D25:0 D27:0)
+(connect D26:0 D28:0)
+(connect D30:0 D29:0)
+(connect D32:0 D30:0)
+(connect D32:1 D30:1)
+(connect D50:1 D31:0)
+(connect D31:0 D32:0)
+(connect D31:1 D32:1)
+(connect D29:0 D33:0)
+(connect D35:0 D34:0)
+(connect D36:0 D35:0)
+(connect D50:1 D36:0)
+(connect D39:0 D37:0)
+(connect D39:1 D37:1)
+(connect D37:0 D38:0)
+(connect D34:0 D39:0)
+(connect D34:1 D39:1)
+(connect D35:1 D39:2)
+(connect D36:1 D39:3)
+(connect D44:0 D40:0)
+(connect D40:0 D41:0)
+(connect D40:1 D41:1)
+(connect D44:1 D41:2)
+(connect D43:1 D41:3)
+(connect D41:0 D42:0)
+(connect D41:1 D42:1)
+(connect D50:1 D43:0)
+(connect D43:0 D44:0)
+(connect D42:0 D45:0)
+(connect D38:0 D46:0)
+(connect D45:0 D47:0)
+(connect D49:0 D48:0)
+(connect D50:1 D49:0)
+(connect D9:0 D50:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 21 27)
+(wndState res)
+(active panel)
+(panel
+(extent 789 258)
+(drawGrid "on")
+(widget 0 icon
+(relativeOrigin 430 10)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 346 66)
+(iconImage "disclaim.gif")
+(label off))
+(widget 9 detail
+(relativeOrigin 10 10)
+(PID 21)
+(title on)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 406 46))
+(widget 41 detail
+(relativeOrigin 70 90)
+(PID 22)
+(title on)
+(tabStop off)
+(tabIndex 12)
+(borderStyle flat)
+(extent 164 136)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(widget 39 detail
+(relativeOrigin 240 90)
+(PID 23)
+(title on)
+(tabStop off)
+(tabIndex 13)
+(borderStyle flat)
+(extent 174 136)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(widget 18 detail
+(relativeOrigin 430 130)
+(PID 24)
+(title on)
+(tabStop off)
+(tabIndex 14)
+(borderStyle flat)
+(extent 124 96)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(widget 21 detail
+(relativeOrigin 560 130)
+(PID 25)
+(title on)
+(tabStop off)
+(tabIndex 15)
+(borderStyle flat)
+(extent 154 96)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(widget 11 detail
+(relativeOrigin 730 190)
+(PID 26)
+(title off)
+(tabIndex 16)
+(borderStyle none)
+(extent 57 20)
+(scaled off)
+(format check box))
+(widget 32 detail
+(relativeOrigin 730 220)
+(PID 27)
+(title off)
+(tabIndex 17)
+(borderStyle none)
+(extent 57 19)
+(scaled off)
+(format check box))
+(widget 49 detail
+(relativeOrigin 10 220)
+(bg "Blue Gray")
+(PID 28)
+(title off)
+(tabIndex 18)
+(borderStyle none)
+(extent 47 32)))
+(detail
+(extent 873 805)
+(anchorPt -780 -47)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 1230 520))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 203 103))
+(pinCenter 1460 400))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 168 15))
+(open
+(extent 204 103))
+(pinCenter 1460 280))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 146 15))
+(open
+(extent 204 103))
+(pinCenter 1460 460))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 203 103))
+(pinCenter 1460 430))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 146 51)
+(iconImage "notepad.icn"))
+(open
+(extent 344 106)
+(editing enabled))
+(pinCenter 1460 230))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 215 103))
+(pinCenter 1460 310))
+(devCarrierFor 96
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 215 103))
+(pinCenter 1460 340))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 154 15))
+(open
+(extent 204 103))
+(pinCenter 1460 370))
+(devCarrierFor 142
+(active icon)
+(icon
+(extent 357 15))
+(open
+(extent 414 46))
+(pinCenter 800 610))
+(devCarrierFor 224
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 2030 720))
+(devCarrierFor 223
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 57 19)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 2030 790))
+(devCarrierFor 225
+(active icon)
+(icon
+(extent 126 15))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 2030 850))
+(devCarrierFor 227
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 304 46))
+(terminals on)
+(pinCenter 2030 920))
+(devCarrierFor 226
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 2030 980))
+(devCarrierFor 218
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 147 29)
+(showFormat int))
+(pinCenter 1530 740))
+(devCarrierFor 217
+(active icon)
+(icon
+(extent 111 15))
+(open
+(extent 147 29)
+(showFormat int))
+(pinCenter 1530 840))
+(devCarrierFor 216
+(active icon)
+(icon
+(extent 125 15))
+(open
+(extent 124 51))
+(terminals on)
+(pinCenter 1530 910))
+(devCarrierFor 215
+(active open)
+(icon
+(extent 84 0))
+(open
+(extent 124 96)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(pinCenter 1530 1030))
+(devCarrierFor 214
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 181 29)
+(showFormat int))
+(pinCenter 1780 750))
+(devCarrierFor 213
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 181 29)
+(showFormat int))
+(pinCenter 1780 840))
+(devCarrierFor 212
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 154 96)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(pinCenter 1780 1040))
+(devCarrierFor 211
+(active icon)
+(icon
+(extent 152 15))
+(open
+(extent 149 51))
+(terminals on)
+(pinCenter 1780 910))
+(devCarrierFor 210
+(active icon)
+(icon
+(extent 124 15))
+(open
+(extent 124 51))
+(terminals on)
+(pinCenter 1530 1140))
+(devCarrierFor 209
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 149 51))
+(terminals on)
+(pinCenter 1780 1140))
+(devCarrierFor 208
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 364 46))
+(terminals on)
+(pinCenter 1530 1220))
+(devCarrierFor 207
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 354 46))
+(terminals on)
+(pinCenter 1780 1220))
+(devCarrierFor 220
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 1530 1270))
+(devCarrierFor 221
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 1780 1270))
+(devCarrierFor 206
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 304 46))
+(terminals on)
+(pinCenter 2030 1230))
+(devCarrierFor 205
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 2030 1170))
+(devCarrierFor 204
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 2030 1040))
+(devCarrierFor 203
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 57 19)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 2030 1110))
+(devCarrierFor 222
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 2030 1300))
+(devCarrierFor 194
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 137 51))
+(terminals on)
+(pinCenter 1290 900))
+(devCarrierFor 193
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 169 29)
+(showFormat int))
+(pinCenter 1290 830))
+(devCarrierFor 192
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 169 29)
+(showFormat int))
+(pinCenter 1290 740))
+(devCarrierFor 199
+(active icon)
+(icon
+(extent 138 15))
+(open
+(extent 137 51))
+(terminals on)
+(pinCenter 1290 1170))
+(devCarrierFor 198
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 324 46))
+(terminals on)
+(pinCenter 1290 1240))
+(devCarrierFor 191
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 174 136)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(pinCenter 1290 1040))
+(devCarrierFor 231
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 139 51))
+(terminals on)
+(pinCenter 1050 900))
+(devCarrierFor 230
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 164 136)
+(layout horizontal)
+(fastmode on)
+(labelSpacing 1))
+(pinCenter 1050 1040))
+(devCarrierFor 229
+(active icon)
+(icon
+(extent 140 15))
+(open
+(extent 139 51))
+(terminals on)
+(pinCenter 1050 1170))
+(devCarrierFor 234
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 148 29)
+(showFormat int))
+(pinCenter 1050 740))
+(devCarrierFor 233
+(active icon)
+(icon
+(extent 112 15))
+(open
+(extent 148 29)
+(showFormat int))
+(pinCenter 1050 830))
+(devCarrierFor 195
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "io.icn"))
+(open
+(extent 324 46))
+(terminals on)
+(pinCenter 1050 1240))
+(devCarrierFor 197
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 1290 1290))
+(devCarrierFor 196
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 1050 1290))
+(devCarrierFor 201
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 860 830))
+(devCarrierFor 200
+(active open)
+(icon
+(extent 26 0))
+(open
+(extent 47 22))
+(title off)
+(bg "Blue Gray")
+(pinCenter 860 790))
+(devCarrierFor 202
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 800 690))
+(devCarrierFor 238
+(active icon)
+(icon
+(extent 40 15))
+(terminals on)
+(pinCenter 800 550))
+(devCarrierFor 239
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 324 246)
+(editing enabled))
+(pinCenter 1170 350))
+(devCarrierFor 241
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 810 340))
+(connect D51:0 D9:0
+(points 2 800 560 800 600))
+(connect D51:1 D9:1
+(points 6 822 550 840 550 840 580 600 580 600 610 619 610))
+(connect D50:1 D10:0
+(points 7 836 690 1630 690 1630 710 1780 710 1780 690 2030 690 2030 710))
+(connect D10:0 D11:0
+(points 2 2030 730 2030 778))
+(connect D10:1 D11:1
+(points 6 2096 720 2120 720 2120 750 1980 750 1980 790 1999 790))
+(connect D11:0 D12:0
+(points 2 2030 802 2030 840))
+(connect D11:1 D12:1
+(points 6 2061 790 2080 790 2080 820 1940 820 1940 850 1964 850))
+(connect D12:0 D13:0
+(points 2 2030 860 2030 892))
+(connect D13:0 D14:0
+(points 2 2030 948 2030 970))
+(connect D50:1 D15:0
+(points 3 836 690 1530 690 1530 730))
+(connect D15:0 D16:0
+(points 2 1530 750 1530 830))
+(connect D16:0 D17:0
+(points 2 1530 850 1530 900))
+(connect D17:0 D18:0
+(points 2 1530 920 1530 961))
+(connect D17:1 D18:1
+(points 6 1595 910 1620 910 1620 940 1460 940 1460 1000 1465 1000))
+(connect D16:1 D18:2
+(points 6 1588 840 1610 840 1610 870 1450 870 1450 1030 1465 1030))
+(connect D15:1 D18:3
+(points 6 1586 740 1610 740 1610 710 1440 710 1440 1060 1465 1060))
+(connect D50:1 D19:0
+(points 5 836 690 1630 690 1630 710 1780 710 1780 740))
+(connect D19:0 D20:0
+(points 2 1780 760 1780 830))
+(connect D22:0 D21:0
+(points 2 1780 920 1780 971))
+(connect D22:1 D21:1
+(points 6 1858 910 1880 910 1880 940 1690 940 1690 1010 1700 1010))
+(connect D20:1 D21:2
+(points 6 1855 840 1880 840 1880 870 1670 870 1670 1040 1700 1040))
+(connect D19:1 D21:3
+(points 6 1855 750 1880 750 1880 780 1680 780 1680 1070 1700 1070))
+(connect D20:0 D22:0
+(points 2 1780 850 1780 900))
+(connect D18:0 D23:0
+(points 2 1530 1080 1530 1130))
+(connect D18:1 D23:1
+(points 6 1594 1030 1610 1030 1610 1100 1450 1100 1450 1140 1465 1140))
+(connect D21:0 D24:0
+(points 2 1780 1090 1780 1130))
+(connect D21:1 D24:1
+(points 6 1859 1040 1880 1040 1880 1110 1680 1110 1680 1140 1702 1140))
+(connect D23:0 D25:0
+(points 2 1530 1150 1530 1192))
+(connect D24:0 D26:0
+(points 2 1780 1150 1780 1192))
+(connect D25:0 D27:0
+(points 2 1530 1248 1530 1260))
+(connect D26:0 D28:0
+(points 2 1780 1248 1780 1260))
+(connect D30:0 D29:0
+(points 2 2030 1180 2030 1202))
+(connect D32:0 D30:0
+(points 2 2030 1122 2030 1160))
+(connect D32:1 D30:1
+(points 6 2061 1110 2080 1110 2080 1140 1950 1140 1950 1170 1968 1170))
+(connect D50:1 D31:0
+(points 11 836 690 1630 690 1630 950 1840 950 1840 970 1860 970 1860 1030 1960
+1030 1960 1020 2030 1020 2030 1030))
+(connect D31:0 D32:0
+(points 2 2030 1050 2030 1098))
+(connect D31:1 D32:1
+(points 6 2092 1040 2110 1040 2110 1070 1980 1070 1980 1110 1999 1110))
+(connect D29:0 D33:0
+(points 2 2030 1258 2030 1290))
+(connect D35:0 D34:0
+(points 2 1290 840 1290 890))
+(connect D36:0 D35:0
+(points 2 1290 750 1290 820))
+(connect D50:1 D36:0
+(points 3 836 690 1290 690 1290 730))
+(connect D39:0 D37:0
+(points 2 1290 1110 1290 1160))
+(connect D39:1 D37:1
+(points 6 1379 1040 1400 1040 1400 1130 1200 1130 1200 1170 1218 1170))
+(connect D37:0 D38:0
+(points 2 1290 1180 1290 1212))
+(connect D34:0 D39:0
+(points 2 1290 910 1290 951))
+(connect D34:1 D39:1
+(points 6 1362 900 1380 900 1380 930 1170 930 1170 1000 1200 1000))
+(connect D35:1 D39:2
+(points 6 1359 830 1380 830 1380 860 1190 860 1190 1040 1200 1040))
+(connect D36:1 D39:3
+(points 6 1357 740 1380 740 1380 770 1180 770 1180 1080 1200 1080))
+(connect D44:0 D40:0
+(points 2 1050 840 1050 890))
+(connect D40:0 D41:0
+(points 2 1050 910 1050 951))
+(connect D40:1 D41:1
+(points 6 1123 900 1140 900 1140 930 940 930 940 1000 965 1000))
+(connect D44:1 D41:2
+(points 6 1108 830 1130 830 1130 860 930 860 930 1040 965 1040))
+(connect D43:1 D41:3
+(points 6 1107 740 1130 740 1130 770 920 770 920 1080 965 1080))
+(connect D41:0 D42:0
+(points 2 1050 1110 1050 1160))
+(connect D41:1 D42:1
+(points 6 1134 1040 1150 1040 1150 1130 960 1130 960 1170 977 1170))
+(connect D50:1 D43:0
+(points 3 836 690 1050 690 1050 730))
+(connect D43:0 D44:0
+(points 2 1050 750 1050 820))
+(connect D42:0 D45:0
+(points 2 1050 1180 1050 1212))
+(connect D38:0 D46:0
+(points 2 1290 1268 1290 1280))
+(connect D45:0 D47:0
+(points 2 1050 1268 1050 1280))
+(connect D49:0 D48:0
+(points 2 860 803 860 820))
+(connect D50:1 D49:0
+(points 3 836 690 860 690 860 776))
+(connect D9:0 D50:0
+(points 2 800 620 800 662)))
+(stackingOrder 2 6 7 3 8 1 4 39 47 46 37 48 50 24 23 22 21 18 27 11 10 12 14 42
+32 31 30 33 28 17 34 40 41 43 44 45 36 35 38 15 16 25 19 20 26 13 29 49 9 51 52
+0 53 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

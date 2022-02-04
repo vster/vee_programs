@@ -1,0 +1,132 @@
+(saveFormat "7.0")
+(date "Thu 03/Feb/2022 16:47:48 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset204{\\*\\fname Times New Roman;}Times New Roman CYR;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1049\\f0\\fs24\\\'c3\\\'eb\\\'ee\\\'e1\\\'e0\\\'eb\\\'fc\\\'ed\\\'fb\\\'e5 \\\'ef\\\'e5\\\'f0\\\'e5\\\'ec\\\'e5\\\'ed\\\'ed\\\'fb\\\'e5\\lang1033\\f1\\par\r\n}\r\n"
+)))
+(device 1 CONSTANT
+(properties
+(name
+"\302\342\345\344\350\362\345 \344\345\351\361\362\342\350\362 \367\350\361\353\356"
+)
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1.412))
+(initValue Real
+(data  0))))
+(device 2 TOGLOBAL
+(properties
+(name "Set num")
+(variableScope cont)
+(globalName "num"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 3 FROMGLOBAL
+(properties
+(name "Get num")
+(variableScope cont)
+(globalName "num"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 4 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D1:1 D2:1)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1374 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1602 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 354 86)
+(editing enabled))
+(pinCenter 480 170))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 264 36)
+(showFormat real))
+(titleFont "Arial Cyr" 12)
+(pinCenter 370 390))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 50 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 645 390))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 635 550))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 900 550))
+(connect D1:1 D2:1
+(points 2 504 390 566 390))
+(connect D2:0 D3:0
+(points 2 640 418 640 504))
+(connect D3:1 D4:1
+(points 2 714 550 837 550)))
+(stackingOrder 0 1 2 4 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

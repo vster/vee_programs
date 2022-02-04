@@ -1,0 +1,319 @@
+(saveFormat "7.0")
+(date "Thu 03/Feb/2022 16:29:05 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORRANGE
+(properties
+(variableScope cont)
+(from 0)
+(thru 9)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 1 SLIDINGWINDOW
+(properties
+(variableScope cont)
+(vecSize 10)
+(triggerSize 10))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 2 FORMULA
+(properties
+(name "median(x)")
+(variableScope cont)
+(expr 1 "median(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 CONSTANT
+(properties
+(name "Int64")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int64")
+(lock name constraints)))
+(implementation
+(value Int64
+(data  3))
+(initValue Int64
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "Int64")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int64")
+(lock name constraints)))
+(implementation
+(value Int64
+(data  5))
+(initValue Int64
+(data  0))))
+(device 6 FORMULA
+(properties
+(name "A * B")
+(variableScope cont)
+(expr 1 "A * B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 10 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Sine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 11 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "abs(A)+B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 CONSTANT
+(properties
+(name "Real64")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.5))
+(initValue Real
+(data  0))))
+(device 13 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)
+(autoAutoX)))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D4:1 D6:1)
+(connect D5:1 D6:2)
+(connect D6:1 D7:1)
+(connect D8:1 D9:1)
+(connect D10:1 D9:2)
+(connect D9:1 D11:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1374 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1602 869)
+(anchorPt -145 -191)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 340 290))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 139 55))
+(terminals on)
+(pinCenter 600 290))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 90 50))
+(terminals on)
+(pinCenter 890 290))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1150 290))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 340 500))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 340 600))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 29 0))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 510 550))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 760 540))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 465 800))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 870 840))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 560 990))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 414 266)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -2 2 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 1310 810))
+(connect D0:1 D1:1
+(points 2 392 290 488 290))
+(connect D1:1 D2:1
+(points 2 712 290 812 290))
+(connect D2:1 D3:1
+(points 2 987 290 1087 290))
+(connect D4:1 D6:1
+(points 4 376 500 400 500 400 540 440 540))
+(connect D5:1 D6:2
+(points 4 376 600 400 600 400 560 440 560))
+(connect D6:1 D7:1
+(points 4 600 550 620 550 620 540 697 540))
+(connect D8:1 D9:1
+(points 4 602 800 620 800 620 830 765 830))
+(connect D10:1 D9:2
+(points 4 602 990 620 990 620 850 765 850))
+(connect D9:1 D11:1
+(points 4 995 840 1020 840 1020 810 1100 810)))
+(stackingOrder 1 2 0 4 5 6 3 7 8 9 10 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

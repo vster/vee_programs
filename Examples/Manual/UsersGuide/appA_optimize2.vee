@@ -1,0 +1,247 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:08:57 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 START25)
+(device 1 DO
+(interface
+(output 1
+(name "Do"))))
+(device 2 FORRANGE
+(properties
+(from 0)
+(thru 710)
+(step 10))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 3 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(name "sinh(x)")
+(expr 1 "sin(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "cos(x)")
+(expr 1 "cos(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoY)))
+(device 8 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 9 DO
+(interface
+(output 1
+(name "Do"))))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D1:1 D3:1)
+(connect D8:0 D3:2)
+(connect D7:1 D4:1)
+(connect D7:1 D5:1)
+(connect D4:1 D6:1)
+(connect D5:1 D6:2)
+(connect D2:1 D7:1)
+(connect D8:1 D7:2)
+(connect D2:0 D8:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt -1 11)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 120 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 120 110))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 120 210))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 122 48))
+(pinCenter 280 70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 360 230))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 360 270))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 318 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 2)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain -1 1 5 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 650 240))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 260 270))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 120 280))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 540 40))
+(connect D0:0 D1:0
+(points 2 120 73 120 100))
+(connect D1:0 D2:0
+(points 2 120 120 120 150))
+(connect D1:1 D3:1
+(points 4 134 110 170 110 170 60 216 60))
+(connect D8:0 D3:2
+(points 5 120 290 120 310 200 310 200 80 216 80))
+(connect D7:1 D4:1
+(points 4 289 270 310 270 310 230 337 230))
+(connect D7:1 D5:1
+(points 2 289 270 339 270))
+(connect D4:1 D6:1
+(points 4 383 230 400 230 400 170 488 170))
+(connect D5:1 D6:2
+(points 4 381 270 400 270 400 310 488 310))
+(connect D2:1 D7:1
+(points 4 172 210 190 210 190 260 231 260))
+(connect D8:1 D7:2
+(points 2 134 280 231 280))
+(connect D2:0 D8:0
+(points 2 120 252 120 270)))
+(stackingOrder 0 6 2 1 4 5 7 8 3 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

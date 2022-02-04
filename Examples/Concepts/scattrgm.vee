@@ -1,0 +1,368 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:01:36 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Scattergram Plot Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 RANDOMNUMBER
+(properties
+(name "Y1 data")
+(lowerLimit 0)
+(upperLimit 0.6))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 1 RANDOMNUMBER
+(properties
+(name "X axis")
+(lowerLimit 0)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 2 RANDOMNUMBER
+(properties
+(name "Y2 data")
+(lowerLimit 0.4)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 3 XYPLOT
+(properties
+(name "Scatter diagram"))
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints))
+(input 3
+(name "YData2")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(graphMode rectangular)))
+(device 4 FORCOUNT
+(properties
+(name "generate 50 data points")
+(count 50))
+(interface
+(output 1
+(lock name constraints))))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 6 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 18
+"PURPOSE:      Illustrates a method of plotting scattergrams using the X vs Y"
+"              display." ""
+"USER INPUT REQUIRED: Press Run to display the scatterplot of some sample data"
+"              points." ""
+"EXPLANATION:  This program demonstrates the versatility of the X vs Y display. It"
+"              uses 3 inputs, but this could be increased to 13 for up to 12 Y"
+"              data input sets.  In this example, there are Y1 and Y2 data points"
+"              corresponding to each X value, making the X vs Y the appropriate"
+"              display.  (If the data were in X,Y coordinate pairs, the XY"
+"              displays would accomplish similar results.)" ""
+"              Two sets of random data points are generated and plotted using"
+"              different trace colors and point types.   This illustrates how one"
+"              would compare two different data sources against the same reference"
+"              to identify concentrations of data." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 218 74)))
+(contextCarrier
+(active panel)
+(panel
+(extent 759 402)
+(widget 0 detail
+(relativeOrigin 320 360)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 760 350)
+(editing disabled)))
+(detail
+(extent 271 270)
+(anchorPt 118 148)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter -1 -73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 100 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 480 262)
+(anchorPt 246 81)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 842 470)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 70 40))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 70 55 70 70 -210 70 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 70 -10 70 25)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D4:1 D0:0)
+(connect D4:1 D1:0)
+(connect D4:1 D2:0)
+(connect D1:1 D3:1)
+(connect D0:1 D3:2)
+(connect D2:1 D3:3)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 296 422)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 -100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 0 100))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 145 0)
+(iconImage "display.icn"))
+(open
+(extent 439 322)
+(displayMode 63)
+(graphType cartesian)
+(gridType frame)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1 3 linear))
+(scale 1
+(name "right")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 1)
+(show 0)
+(range 0 1 3 linear))
+(domain 0 1 3 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 2)
+(pointType 3))
+(trace 1 onScale 0
+(name "YData2")
+(pen 7)
+(lineType 2)
+(pointType 1)))
+(pinCenter 280 0))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 187 76)
+(iconImage "loop.icn"))
+(open
+(extent 291 34))
+(pinCenter -180 -200))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 250 -380))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -110 -350))
+(connect D4:1 D0:0
+(points 5 -84 -200 -60 -200 -60 -40 0 -40 0 -15))
+(connect D4:1 D1:0
+(points 5 -84 -200 -60 -200 -60 -140 0 -140 0 -115))
+(connect D4:1 D2:0
+(points 5 -84 -200 -60 -200 -60 40 0 40 0 85))
+(connect D1:1 D3:1
+(points 2 41 -100 58 -100))
+(connect D0:1 D3:2
+(points 2 41 0 58 0))
+(connect D2:1 D3:3
+(points 2 41 100 58 100)))
+(stackingOrder 0 1 2 3 6 4 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

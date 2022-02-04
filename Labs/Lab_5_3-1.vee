@@ -1,0 +1,251 @@
+(saveFormat "7.0")
+(date "Fri 04/Feb/2022 11:43:36 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 COLLECTOR
+(properties
+(variableScope cont)
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 4 TOFILE
+(properties
+(variableScope cont)
+(transactions 3 "WRITE TEXT \"Test1\" EOL" "WRITE TEXT now() TIME:HMS:H12 EOL"
+"WRITE TEXT a REAL64 STD EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes)))
+(implementation
+(attr iopath file write "D:\\vst\\VEE Programs\\Labs\\myFile.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 5 FROMFILE
+(properties
+(variableScope cont)
+(transactions 3 "READ TEXT x STR" "READ TEXT y STR" "READ TEXT z REAL64 ARRAY:4"
+))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "y")
+(optional yes))
+(output 3
+(name "z")
+(optional yes)))
+(implementation
+(attr iopath file read "D:\\vst\\VEE Programs\\Labs\\myFile.txt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 6 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 7 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:0 D1:2)
+(connect D1:1 D2:1)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D3:3 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1311 869)
+(anchorPt -151 -19)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 300 270))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 53 25))
+(open
+(extent 95 54))
+(terminals on)
+(pinCenter 520 300))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 244 206))
+(terminals on)
+(pinCenter 870 300))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 244 156))
+(terminals on)
+(pinCenter 880 590))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1170 440))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1170 540))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 134 136))
+(pinCenter 1180 700))
+(connect D0:1 D1:1
+(points 4 350 270 370 270 370 280 430 280))
+(connect D0:0 D1:2
+(points 3 300 288 300 320 430 320))
+(connect D1:1 D2:1
+(points 2 610 300 715 300))
+(connect D2:0 D3:0
+(points 4 870 405 870 430 880 430 880 491))
+(connect D3:1 D4:1
+(points 6 1034 540 1040 540 1040 530 1050 530 1050 440 1107 440))
+(connect D3:2 D5:1
+(points 4 1034 590 1050 590 1050 540 1107 540))
+(connect D3:3 D6:1
+(points 4 1034 640 1050 640 1050 700 1110 700)))
+(stackingOrder 0 1 2 3 4 5 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

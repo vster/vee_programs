@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN1996a.vee">
+		<Description>Retrieves measurement data from a Keysight N1996A CSA Spectrum Analyzer.</Description>
+		<LogicalInstrument name="CSA">
+			<SupportedInstruments>
+				<Instrument idn="agn1996a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

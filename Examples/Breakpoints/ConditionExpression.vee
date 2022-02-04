@@ -1,0 +1,127 @@
+(saveFormat "7.0")
+(date "Thu 08/May/2008 13:29:15 ")
+(veerev "9.0.11307.0 Beta1 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "ag54642a")
+(ppAddr "GPIB0::9::INSTR")
+(model "ag54642a")
+(eoiEnabled 1)
+(VISAddr "GPIB0::9::INSTR")
+(model "ag54642a"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example demostrates how condition expression breakpoint occur.\\par\r\nMake sure both breakpoints and output (debug tab) tool window are visible.\\par\r\nRun the application and observe both breakpoints and output (debug tab) tool window. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 8 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 9 FORMULA
+(properties
+(breakpoint 1)
+(gotBreakpointExpression 1)
+(breakpointExpression "index>5")
+(hitCount 0)
+(gotBreakpointPrintMessage 1)
+(breakpointPrintMessage "Condition expression breakpoint occurs.")
+(variableScope cont)
+(expr 1 "index+2"))
+(interface
+(input 1
+(name "index")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect D2:1 D1:1)
+(connect D3:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 760 647)
+(wndState max)
+(active detail)
+(detail
+(extent 706 632)
+(anchorPt -62 -203)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(extent 56 51)
+(iconImage "notepad.icn"))
+(open
+(extent 504 126)
+(editing disabled))
+(pinCenter 340 300))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 550 420))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 325 420))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 130 420))
+(connect D2:1 D1:1
+(points 2 450 420 487 420))
+(connect D3:1 D2:1
+(points 2 180 420 210 420)))
+(stackingOrder 1 3 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

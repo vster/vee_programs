@@ -1,0 +1,1583 @@
+(saveFormat "7.0")
+(date "Mon 08/Mar/2004 17:39:07 ")
+(veerev "7.0.6308.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"TerraService, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null")
+(filename "C:\\Vee\\current\\examples\\DotNET\\TerraService.dll"))
+(selectedNamespaces "System,Agilent.VeeExample,"))
+(properties
+(trigMode deg)
+(nextID 74)
+(popupTitleText "Search TerraServer Image Web Service")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Create terraService")
+(expr 1
+"Set terraService = CreateInstance(\"TerraService\", \"Agilent.VeeExample.TerraService\" );"
+))
+(interface
+(output 1
+(name "terraService")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TOFILE
+(properties
+(transactions 2 "WRITE BINARY a BYTE" "EXECUTE CLOSE"))
+(interface
+(input 1
+(name "a")
+(optional yes))
+(input 2
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "C:\\DOCUME~1\\hillr\\LOCALS~1\\Temp\\terraServer.JPG"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 FORMULA
+(properties
+(expr 1 "getenv(\"TEMP\")+\"\\\\terraServer.JPG\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 PICTURE
+(properties
+(name "Retrieved Image"))
+(interface
+(input 1
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "Set place = CreateInstance(\"TerraService\", \"Place\" );")
+(expr 9 "typeName = \"Agilent.VeeExample.Place\";"
+"Set place = CreateInstance(\"TerraService\", typeName);" "place.City = city;"
+"place.State = state;" "place.Country = country;"
+"Set facts = terraService.GetPlaceFacts(place);" "Lat = facts.Center.Lat;"
+"Lon = facts.Center.Lon;" "placeType = facts.PlaceTypeId.ToString();"))
+(interface
+(input 1
+(name "terraService")
+(optional yes))
+(input 2
+(name "city")
+(optional yes))
+(input 3
+(name "state")
+(optional yes))
+(input 4
+(name "country")
+(optional yes))
+(output 1
+(name "facts")
+(optional yes))
+(output 2
+(name "typeName")
+(optional yes))
+(output 3
+(name "place")
+(optional yes))
+(output 4
+(name "Lat")
+(optional yes))
+(output 5
+(name "Lon")
+(optional yes))
+(output 6
+(name "placeType")
+(optional yes))
+(output 7
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Latitude"))
+(interface
+(input 1
+(name "Data"))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Longitude"))
+(interface
+(input 1
+(name "Data"))))
+(device 18 LITERALCONSTANT
+(properties
+(name "City"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Loveland"))
+(initValue Text
+(data  ""))))
+(device 19 LITERALCONSTANT
+(properties
+(name "State"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Colorado"))
+(initValue Text
+(data  ""))))
+(device 20 LITERALCONSTANT
+(properties
+(name "Country"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "United States of America"))
+(initValue Text
+(data  ""))))
+(device 21 TEXTDISPLAY
+(properties
+(name "Type of Place"))
+(interface
+(input 1
+(name "Data"))))
+(device 22 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 23 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Courier New;}{\\f3\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\f0\\fs24 Using the TerraServer Web Service\\par\r\n\\cf0\\ulnone\\b0\\f1\\par\r\nThis example demonstrates how to use a web service from VEE.  The following steps are manuals steps that must be done before VEE can use the web service. We have included the necessary files in the examples\\\\dotnet directory, but these are the steps that you need if you are creating a web service client from scratch.  For more help on the TerraServer web service, go to http://terraserver-usa.com/about.aspx?n=AboutTerraServiceOverview.  For more information on other web services, go to http://uddi.microsoft.com/default.aspx and use the search feature.\\par\r\n\\par\r\n1. Obtain the WSDL file for the web service.  For the TerraServer service this can be obtained at http://terraserver.microsoft.com/TerraService.asmx?wsdl .  Save this file as TerraService.wsdl.\\par\r\n\\par\r\n2. Obtain WSDL.EXE.   This tool comes with the .NET 1.1 Framework SDK which can be downloaded for free from http://www.msdn.microsoft.com/netframework/technologyinfo/howtoget .  NOTE: If you have Visual Studio .NET 2003 installed then you already have this tool and you don\'t need to install the SDK. \\par\r\n\\par\r\n3. In order to create an assembly that VEE can use from the WSDL file, execute the following from the command prompt:\\par\r\n\\par\r\n\\cf1\\f2\\fs20 wsdl.exe /namespace:Agilent.VeeExample TerraService.wsdl\\cf0\\f1\\fs24\\par\r\n\\par\r\n4. This produces a C# file called TerraService.cs which we need to compile into a .NET assembly.  Do this by executing the following from a command prompt:\\par\r\n\\par\r\n\\cf1\\f2\\fs20 csc /target:library TerraService.cs\\cf0\\f1\\fs24\\par\r\n\\par\r\n5. Now copy the resulting TerraService.dll into the same directory as your VEE program and then reference the assembly from the Devices | .NET References dialog box.  Note: You will have to browse to the diretory containing TerraService.dll to select it. \\par\r\n\\par\r\n6. In the Function & Object browser, under .NET/CLR object, you should see the assembly TerraService.dll.  Select it and then you should see all the types used to program against the TerraServer web service.\\par\r\n\\par\r\nNote that the System.Text and System.Security.Cryptography namespaces are imported.  \\b\\par\r\n\\par\r\nAssemblies\\b0 : Mscorlib, TerraServer\\par\r\n\\b Namespaces\\b0 : System, Agilent.VeeExample\\par\r\n\\b Classes\\b0 : TerraService, Place, TileId\\f3\\fs17\\par\r\n}\r\n"
+)))
+(device 24 FORMULA
+(properties
+(name "terraService.GetTileMetaFromLonLatPt(point, theme, scale);")
+(expr 4 "Set tileMeta = " "    terraService.GetTileMetaFromLonLatPt(lonLat, "
+"                                         theme, "
+"                                         scale);"))
+(interface
+(input 1
+(name "terraService")
+(optional yes))
+(input 2
+(name "lonLat")
+(optional yes))
+(input 3
+(name "theme")
+(optional yes))
+(input 4
+(name "scale")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "tileMeta")
+(optional yes))
+(output 3
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 25 IFTHENELSE
+(properties
+(name "Map Exists ?")
+(cases 1 "tileMeta.TileExists"))
+(interface
+(input 1
+(name "tileMeta")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 26 MESSAGEBOX
+(properties
+(popupTitle "Map Not Found")
+(message "Sorry.  There isn\'t a map for that location")
+(symbol Exclamation))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 27 FORMULA
+(properties
+(name "terraService.GetTile(id);")
+(expr 1 "terraService.GetTile(tileMeta.Id);"))
+(interface
+(input 1
+(name "terraService")
+(optional yes))
+(input 2
+(name "tileMeta")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 ENUMCONSTANT
+(properties
+(name "Type of Image"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Topo" 0)
+("Photo" 1)
+("" 2))
+(data  "Photo"))
+(initValue Text
+(data  "Topo"))))
+(device 31 FORMULA
+(properties
+(name "Enum.Parse")
+(expr 1 "Enum.Parse(Agilent.VeeExample.Theme, value);"))
+(interface
+(input 1
+(name "value")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 FORMULA
+(properties
+(name "Enum.GetNames")
+(expr 1 "Enum.GetNames(Agilent.VeeExample.Scale);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 ENUMCONSTANT
+(properties
+(name "Select Image Scale"))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Scale1mm" 0)
+("Scale2mm" 1)
+("Scale4mm" 2)
+("Scale8mm" 3)
+("Scale16mm" 4)
+("Scale32mm" 5)
+("Scale63mm" 6)
+("Scale125mm" 7)
+("Scale250mm" 8)
+("Scale500mm" 9)
+("Scale1m" 10)
+("Scale2m" 11)
+("Scale4m" 12)
+("Scale8m" 13)
+("Scale16m" 14)
+("Scale32m" 15)
+("Scale64m" 16)
+("Scale128m" 17)
+("Scale256m" 18)
+("Scale512m" 19)
+("Scale1km" 20)
+("Scale2km" 21)
+("Scale4km" 22)
+("Scale8km" 23)
+("Scale16km" 24))
+(data  "Scale16m"))
+(initValue Text
+(data  "Scale1mm"))))
+(device 34 FORMULA
+(properties
+(name "Enum.Parse")
+(expr 1 "Enum.Parse(Agilent.VeeExample.Scale, value);"))
+(interface
+(input 1
+(name "value")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 MESSAGEBOX
+(properties
+(popupTitle "Could Not Retrieve Image")
+(message "Selected scale not supported.  Select another scale.")
+(symbol Exclamation))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 36 CONFIRM25
+(properties
+(name "Find Image")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 37 LABEL
+(properties
+(name "City:")
+(labelValue "City:"))
+(implementation))
+(device 38 LABEL
+(properties
+(name "State:")
+(labelValue "State:"))
+(implementation))
+(device 39 LABEL
+(properties
+(name "Country:")
+(labelValue "Country:"))
+(implementation))
+(device 40 LABEL
+(properties
+(name "Latitude:")
+(labelValue "Latitude:"))
+(implementation))
+(device 41 LABEL
+(properties
+(name "Longitude:")
+(labelValue "Longitude:"))
+(implementation))
+(device 42 LABEL
+(properties
+(name "Image Type:")
+(labelValue "Image Type:"))
+(implementation))
+(device 43 LABEL
+(properties
+(name "Image Scale:")
+(labelValue "Image Scale:"))
+(implementation))
+(device 44 LABEL
+(properties
+(name "2. Enter a Place:")
+(labelValue "2. Enter a Place:"))
+(implementation))
+(device 45 LABEL
+(properties
+(name "   Or Enter Latitude & Longitude")
+(labelValue "   Or Enter Latitude & Longitude"))
+(implementation))
+(device 46 LABEL
+(properties
+(name "3. Select Image Options")
+(labelValue "3. Select Image Options"))
+(implementation))
+(device 47 LITERALCONSTANT
+(properties
+(name "Lat"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "40.37853"))
+(initValue Text
+(data  ""))))
+(device 48 LITERALCONSTANT
+(properties
+(name "Lon"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "-105.09044"))
+(initValue Text
+(data  ""))))
+(device 50 ENUMCONSTANT
+(properties
+(name "Select Search Method"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Find by Place" 0)
+("Find by Lat & Lon" 1))
+(data  "Find by Place"))
+(initValue Text
+(data  "Find by Place"))))
+(device 51 LABEL
+(properties
+(name "1. Select Search Method")
+(labelValue "1. Select Search Method"))
+(implementation))
+(device 52 LABEL
+(properties
+(name "Retrieved Image:")
+(labelValue "Retrieved Image:"))
+(implementation))
+(device 53 LABEL
+(properties
+(name "Place Type:")
+(labelValue "Place Type:"))
+(implementation))
+(device 54 LABEL
+(properties
+(name "Longitude:")
+(labelValue "Longitude:"))
+(implementation))
+(device 55 LABEL
+(properties
+(name "Latitude:")
+(labelValue "Latitude:"))
+(implementation))
+(device 56 CONFIRM25
+(properties
+(name "Close")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 57 EXITCONTEXT)
+(device 58 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 59 FORMULA
+(properties
+(name "Create LatLonPt")
+(expr 4 "Set lonLatPt = CreateInstance(\"TerraService\", "
+"                              \"Agilent.VeeExample.LonLatPt\" );"
+"lonLatPt.Lat = lat;" "lonLatPt.Lon = lon;"))
+(interface
+(input 1
+(name "lat")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "lon")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "lonLatPt")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 65 IFTHENELSE
+(properties
+(name "Which Search Method ?")
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 66 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 67 FORMULA
+(properties
+(name "Create LatLonPt")
+(expr 4 "Set lonLatPt = CreateInstance(\"TerraService\", "
+"                              \"Agilent.VeeExample.LonLatPt\" );"
+"lonLatPt.Lat = lat;" "lonLatPt.Lon = lon;"))
+(interface
+(input 1
+(name "lat")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "lon")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "lonLatPt")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 68 MESSAGEBOX
+(properties
+(popupTitle "Could Not Find City")
+(message "Could not find specified city.")
+(symbol Exclamation))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 69 CONFIRM25
+(properties
+(name "Help On TerraServer")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 70 PCEXECPROG
+(properties
+(command "http://terraserver-usa.com/about.aspx?n=AboutTerraServiceOverview")
+(waitForExit 0)
+(runStyle Normal)
+(workingDir ""))
+(interface
+(output 1
+(name "Exit code")
+(lock name constraints))))
+(device 73 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D2:0 D1:0)
+(connect D16:1 D1:1)
+(connect D2:1 D1:2)
+(connect D16:0 D2:0)
+(connect D1:0 D3:0)
+(connect D2:1 D3:1)
+(connect D2:1 D3:2)
+(connect D0:1 D4:1)
+(connect D7:1 D4:2)
+(connect D8:1 D4:3)
+(connect D9:1 D4:4)
+(connect D4:4 D5:1)
+(connect D4:5 D6:1)
+(connect D23:1 D7:0)
+(connect D23:1 D8:0)
+(connect D23:1 D9:0)
+(connect D4:6 D10:1)
+(connect D4:0 D13:0)
+(connect D0:1 D13:1)
+(connect D47:1 D13:2)
+(connect D18:1 D13:3)
+(connect D21:1 D13:4)
+(connect D13:2 D14:1)
+(connect D14:2 D15:0)
+(connect D14:1 D16:0)
+(connect D0:1 D16:1)
+(connect D13:2 D16:2)
+(connect D23:1 D17:0)
+(connect D17:1 D18:1)
+(connect D23:1 D19:0)
+(connect D19:0 D20:0)
+(connect D19:1 D20:1)
+(connect D20:1 D21:1)
+(connect D13:3 D22:0)
+(connect D44:1 D23:0)
+(connect D46:2 D34:0)
+(connect D46:2 D35:0)
+(connect D23:1 D36:0)
+(connect D42:1 D43:0)
+(connect D46:1 D45:0)
+(connect D4:4 D45:1)
+(connect D4:5 D45:2)
+(connect D36:2 D46:1)
+(connect D45:1 D47:1)
+(connect D48:1 D47:2)
+(connect D34:1 D48:1)
+(connect D35:1 D48:2)
+(connect D4:7 D49:0)
+(connect D52:1 D50:0)
+(connect D50:1 D51:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 3)
+(wndState res)
+(active detail)
+(panel
+(extent 648 471)
+(drawGrid "on")
+(widget 29 detail
+(relativeOrigin 10 360)
+(font "Tahoma" 12)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle none)
+(extent 90 30)
+(just l))
+(widget 24 detail
+(relativeOrigin 10 130)
+(font "Tahoma" 12)
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30)
+(just l))
+(widget 25 detail
+(relativeOrigin 10 160)
+(font "Tahoma" 12)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle none)
+(extent 70 30)
+(just l))
+(widget 30 detail
+(relativeOrigin 10 390)
+(font "Tahoma" 12)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle none)
+(extent 90 30)
+(just l))
+(widget 27 detail
+(relativeOrigin 290 330)
+(font "Tahoma" 12)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle none)
+(extent 70 35)
+(just l))
+(widget 28 detail
+(relativeOrigin 290 360)
+(font "Tahoma" 12)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle none)
+(extent 70 35)
+(just l))
+(widget 26 detail
+(relativeOrigin 10 190)
+(font "Tahoma" 12)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle none)
+(extent 70 30)
+(just l))
+(widget 7 detail
+(relativeOrigin 70 130)
+(font "Tahoma" 12)
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 180 30))
+(widget 8 detail
+(relativeOrigin 70 160)
+(font "Tahoma" 12)
+(PID 8)
+(title off)
+(tabIndex 8)
+(borderStyle none)
+(extent 180 30))
+(widget 9 detail
+(relativeOrigin 70 190)
+(font "Tahoma" 12)
+(PID 9)
+(title off)
+(tabIndex 9)
+(borderStyle none)
+(extent 180 30))
+(widget 17 detail
+(relativeOrigin 90 360)
+(PID 10)
+(title off)
+(tabIndex 10)
+(borderStyle none)
+(extent 170 30)
+(format dropDown))
+(widget 20 detail
+(relativeOrigin 90 390)
+(PID 11)
+(title off)
+(tabIndex 11)
+(borderStyle none)
+(extent 170 30)
+(format dropDown))
+(widget 3 detail
+(relativeOrigin 290 40)
+(PID 12)
+(title off)
+(tabStop off)
+(tabIndex 12)
+(borderStyle concave)
+(extent 346 276)
+(pictureMode scaled))
+(widget 6 detail
+(relativeOrigin 370 360)
+(PID 13)
+(title off)
+(tabStop off)
+(tabIndex 13)
+(borderStyle concave)
+(extent 266 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(widget 5 detail
+(relativeOrigin 370 330)
+(PID 14)
+(title off)
+(tabStop off)
+(tabIndex 14)
+(borderStyle concave)
+(extent 266 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(widget 10 detail
+(relativeOrigin 370 390)
+(PID 15)
+(title off)
+(tabStop off)
+(tabIndex 15)
+(borderStyle concave)
+(extent 266 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(widget 31 detail
+(relativeOrigin 10 100)
+(font "Verdana" 14 bold)
+(PID 16)
+(title off)
+(tabStop off)
+(tabIndex 16)
+(borderStyle none)
+(extent 250 30)
+(just l))
+(widget 32 detail
+(relativeOrigin 10 230)
+(font "Verdana" 14 bold)
+(PID 17)
+(title off)
+(tabStop off)
+(tabIndex 17)
+(borderStyle none)
+(extent 259 27)
+(just l))
+(widget 33 detail
+(relativeOrigin 10 330)
+(font "Verdana" 14 bold)
+(PID 18)
+(title off)
+(tabStop off)
+(tabIndex 18)
+(borderStyle none)
+(extent 250 30)
+(just l))
+(widget 36 detail
+(relativeOrigin 10 40)
+(font "Tahoma" 12)
+(PID 19)
+(title off)
+(tabIndex 19)
+(borderStyle none)
+(extent 240 59)
+(format buttons))
+(widget 37 detail
+(relativeOrigin 10 10)
+(font "Verdana" 14 bold)
+(PID 20)
+(title off)
+(tabStop off)
+(tabIndex 20)
+(borderStyle none)
+(extent 250 30)
+(just l))
+(widget 38 detail
+(relativeOrigin 290 10)
+(font "Verdana" 14 bold)
+(PID 21)
+(title off)
+(tabStop off)
+(tabIndex 21)
+(borderStyle none)
+(extent 190 25)
+(just l))
+(widget 39 detail
+(relativeOrigin 290 390)
+(font "Tahoma" 12)
+(PID 22)
+(title off)
+(tabStop off)
+(tabIndex 22)
+(borderStyle none)
+(extent 70 35)
+(just l))
+(widget 34 detail
+(relativeOrigin 80 260)
+(PID 23)
+(title off)
+(tabIndex 23)
+(borderStyle none)
+(extent 170 30))
+(widget 35 detail
+(relativeOrigin 80 290)
+(PID 24)
+(title off)
+(tabIndex 24)
+(borderStyle none)
+(extent 170 30))
+(widget 41 detail
+(relativeOrigin 10 260)
+(font "Tahoma" 12)
+(PID 25)
+(title off)
+(tabStop off)
+(tabIndex 25)
+(borderStyle none)
+(extent 59 27)
+(just l))
+(widget 40 detail
+(relativeOrigin 10 290)
+(font "Tahoma" 12)
+(PID 26)
+(title off)
+(tabStop off)
+(tabIndex 26)
+(borderStyle none)
+(extent 70 27)
+(just l))
+(widget 42 detail
+(relativeOrigin 270 440)
+(PID 27)
+(title off)
+(tabIndex 27)
+(borderStyle none)
+(extent 90 25))
+(widget 23 detail
+(relativeOrigin 160 440)
+(PID 28)
+(title off)
+(tabIndex 28)
+(borderStyle none)
+(extent 90 25))
+(widget 50 detail
+(relativeOrigin 380 440)
+(PID 29)
+(title off)
+(tabIndex 29)
+(borderStyle none)
+(extent 135 25)))
+(detail
+(extent 891 871)
+(anchorPt 487 593)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 115 25))
+(open
+(extent 504 46))
+(terminals on)
+(pinCenter 0 -290))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 41 25))
+(open
+(extent 231 127))
+(terminals on)
+(pinCenter 820 240))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 234 50))
+(terminals on)
+(pinCenter 380 290))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 99 0))
+(open
+(extent 135 106)
+(pictureMode scaled))
+(pinCenter 820 350))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 312 0))
+(open
+(extent 404 146))
+(terminals on)
+(font "Lucida Console" 11)
+(pinCenter 385 -120))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 184 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 820 -130))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 184 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 820 -70))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 24 0))
+(open
+(extent 164 26))
+(pinCenter -40 -190))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 32 0))
+(open
+(extent 164 26))
+(pinCenter -40 -120))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 164 26))
+(pinCenter -40 -50))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 80 0))
+(open
+(extent 184 26)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 820 -10))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 340 -270))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 554 246)
+(editing disabled))
+(pinCenter 250 -440))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 358 0))
+(open
+(extent 424 102))
+(terminals on)
+(font "Lucida Console" 11)
+(pinCenter 390 100))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 75 25))
+(open
+(extent 128 51))
+(terminals on)
+(pinCenter 790 90))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 910 160))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 140 0))
+(open
+(extent 264 46))
+(terminals on)
+(font "Lucida Console" 11)
+(pinCenter 395 230))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 84 25))
+(open
+(extent 164 26)
+(format dropDown))
+(pinCenter -140 120))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 304 46))
+(terminals on)
+(pinCenter 10 110))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 294 56))
+(terminals on)
+(pinCenter -330 230))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 116 0))
+(open
+(extent 152 25)
+(format dropDown))
+(pinCenter -140 230))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 304 50))
+(terminals on)
+(pinCenter 10 130))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 740 200))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 94 24))
+(title off)
+(pinCenter -430 -490))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 27 0))
+(open
+(extent 43 27)
+(just l))
+(title off)
+(pinCenter -400 440))
+(devCarrierFor 38
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 43 27)
+(just l))
+(title off)
+(pinCenter -340 440))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 49 0))
+(open
+(extent 57 27)
+(just l))
+(title off)
+(pinCenter -270 440))
+(devCarrierFor 40
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 59 27)
+(just l))
+(title off)
+(font "Tahoma" 12)
+(pinCenter -380 480))
+(devCarrierFor 41
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 70 27)
+(just l))
+(title off)
+(font "Tahoma" 12)
+(pinCenter -280 480))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 73 0))
+(open
+(extent 79 27)
+(just l))
+(title off)
+(pinCenter -380 400))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 84 27)
+(just l))
+(title off)
+(pinCenter -280 400))
+(devCarrierFor 44
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 101 27)
+(just l))
+(title off)
+(pinCenter -370 360))
+(devCarrierFor 45
+(active open)
+(icon
+(extent 187 0))
+(open
+(extent 182 27)
+(just l))
+(title off)
+(pinCenter -210 360))
+(devCarrierFor 46
+(active open)
+(icon
+(extent 144 0))
+(open
+(extent 173 27)
+(just l))
+(title off)
+(pinCenter -340 320))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 104 36))
+(pinCenter -430 90))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 104 36))
+(pinCenter -430 130))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 130 0))
+(open
+(extent 134 56)
+(format buttons))
+(pinCenter -370 -390))
+(devCarrierFor 51
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 173 27)
+(just l))
+(title off)
+(pinCenter -150 320))
+(devCarrierFor 52
+(active open)
+(icon
+(extent 102 0))
+(open
+(extent 105 27)
+(just l))
+(title off)
+(pinCenter -170 440))
+(devCarrierFor 53
+(active open)
+(icon
+(extent 69 0))
+(open
+(extent 84 27)
+(just l))
+(title off)
+(pinCenter -180 400))
+(devCarrierFor 54
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 70 27)
+(just l))
+(title off)
+(font "Tahoma" 12)
+(pinCenter -90 480))
+(devCarrierFor 55
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 59 27)
+(just l))
+(title off)
+(font "Tahoma" 12)
+(pinCenter -190 480))
+(devCarrierFor 56
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter -150 -560))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter -90 -510))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -430 -560))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 97 25))
+(open
+(extent 464 76))
+(terminals on)
+(font "Lucida Console" 11)
+(pinCenter -340 70))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 141 25))
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter -370 -290))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter -250 70))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 97 25))
+(open
+(extent 464 76))
+(terminals on)
+(font "Lucida Console" 11)
+(pinCenter -340 110))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 750 40))
+(devCarrierFor 69
+(active open)
+(icon
+(extent 123 0))
+(open
+(extent 134 24))
+(title off)
+(pinCenter -240 -490))
+(devCarrierFor 70
+(active icon)
+(icon
+(extent 134 51)
+(iconImage "c.icn"))
+(open
+(extent 291 106))
+(terminals on)
+(pinCenter -150 -410))
+(devCarrierFor 73
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -310 -560))
+(connect D2:0 D1:0
+(points 8 380 300 380 330 600 330 600 240 810 240 810 220 820 220 820 225))
+(connect D16:1 D1:1
+(points 2 579 230 797 230))
+(connect D2:1 D1:2
+(points 6 407 290 430 290 430 320 700 320 700 250 797 250))
+(connect D16:0 D2:0
+(points 2 380 255 380 280))
+(connect D1:0 D3:0
+(points 2 820 255 820 276))
+(connect D2:1 D3:1
+(points 4 407 290 430 290 430 320 750 320))
+(connect D2:1 D3:2
+(points 6 407 290 430 290 430 320 700 320 700 380 750 380))
+(connect D0:1 D4:1
+(points 4 60 -300 80 -300 80 -170 100 -170))
+(connect D7:1 D4:2
+(points 4 44 -190 60 -190 60 -140 100 -140))
+(connect D8:1 D4:3
+(points 4 44 -120 60 -120 60 -110 100 -110))
+(connect D9:1 D4:4
+(points 4 44 -50 60 -50 60 -80 100 -80))
+(connect D4:4 D5:1
+(points 4 659 -120 690 -120 690 -130 725 -130))
+(connect D4:5 D6:1
+(points 4 659 -100 680 -100 680 -70 725 -70))
+(connect D23:1 D7:0
+(points 7 -381 -490 -370 -490 -370 -460 -280 -460 -280 -250 -40 -250 -40 -224))
+(connect D23:1 D8:0
+(points 9 -381 -490 -370 -490 -370 -460 -280 -460 -280 -250 -140 -250 -140 -160
+-40 -160 -40 -154))
+(connect D23:1 D9:0
+(points 9 -381 -490 -370 -490 -370 -460 -280 -460 -280 -250 -140 -250 -140 -90
+-40 -90 -40 -84))
+(connect D4:6 D10:1
+(points 6 659 -80 670 -80 670 -60 680 -60 680 -10 725 -10))
+(connect D4:0 D13:0
+(points 2 380 -45 380 28))
+(connect D0:1 D13:1
+(points 4 60 -300 80 -300 80 70 95 70))
+(connect D47:1 D13:2
+(points 4 -235 70 70 70 70 90 95 90))
+(connect D18:1 D13:3
+(points 2 50 110 95 110))
+(connect D21:1 D13:4
+(points 2 50 130 95 130))
+(connect D13:2 D14:1
+(points 4 664 100 680 100 680 90 750 90))
+(connect D14:2 D15:0
+(points 3 830 100 910 100 910 150))
+(connect D14:1 D16:0
+(points 9 830 80 840 80 840 90 760 90 760 80 690 80 690 180 380 180 380 186))
+(connect D0:1 D16:1
+(points 4 60 -300 80 -300 80 220 180 220))
+(connect D13:2 D16:2
+(points 6 664 100 680 100 680 170 160 170 160 240 180 240))
+(connect D23:1 D17:0
+(points 7 -381 -490 -370 -490 -370 -460 -280 -460 -280 -250 -140 -250 -140 86))
+(connect D17:1 D18:1
+(points 2 -56 110 -30 110))
+(connect D23:1 D19:0
+(points 7 -381 -490 -370 -490 -370 -460 -460 -460 -460 160 -330 160 -330 220))
+(connect D19:0 D20:0
+(points 6 -330 240 -330 260 -250 260 -250 180 -140 180 -140 197))
+(connect D19:1 D20:1
+(points 2 -275 230 -219 230))
+(connect D20:1 D21:1
+(points 4 -62 220 -40 220 -40 130 -30 130))
+(connect D13:3 D22:0
+(points 5 664 130 700 130 700 180 740 180 740 190))
+(connect D44:1 D23:0
+(points 5 -394 -560 -370 -560 -370 -520 -430 -520 -430 -505))
+(connect D46:2 D34:0
+(points 5 -297 -280 -270 -280 -270 -240 -430 -240 -430 80))
+(connect D46:2 D35:0
+(points 9 -297 -280 -270 -280 -270 -240 -430 -240 -430 60 -450 60 -450 110 -430
+110 -430 120))
+(connect D23:1 D36:0
+(points 3 -381 -490 -370 -490 -370 -439))
+(connect D42:1 D43:0
+(points 3 -124 -560 -90 -560 -90 -520))
+(connect D46:1 D45:0
+(points 5 -297 -300 -290 -300 -290 -250 -340 -250 -340 55))
+(connect D4:4 D45:1
+(points 6 659 -120 690 -120 690 0 -400 0 -400 60 -391 60))
+(connect D4:5 D45:2
+(points 8 659 -100 680 -100 680 -70 700 -70 700 10 -410 10 -410 80 -391 80))
+(connect D36:2 D46:1
+(points 6 -301 -370 -290 -370 -290 -340 -450 -340 -450 -290 -443 -290))
+(connect D45:1 D47:1
+(points 2 -289 60 -266 60))
+(connect D48:1 D47:2
+(points 4 -289 100 -280 100 -280 80 -266 80))
+(connect D34:1 D48:1
+(points 4 -416 90 -410 90 -410 100 -391 100))
+(connect D35:1 D48:2
+(points 4 -415 130 -400 130 -400 120 -391 120))
+(connect D4:7 D49:0
+(points 5 659 -60 670 -60 670 20 750 20 750 30))
+(connect D52:1 D50:0
+(points 3 -274 -560 -240 -560 -240 -505))
+(connect D50:1 D51:0
+(points 3 -171 -490 -150 -490 -150 -438)))
+(stackingOrder 16 15 2 25 14 1 24 28 29 31 32 33 37 26 38 30 39 27 40 41 5 6 10
+45 22 49 51 13 18 21 47 4 42 50 43 36 3 46 48 23 44 11 20 52 12 19 17 9 8 7 35
+34 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

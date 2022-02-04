@@ -1,0 +1,638 @@
+(saveFormat "2.3")
+(date "Tue 27/Jan/2004 12:51:49 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument4"
+(type GPIB)
+(gateway "156.140.157.38")
+(channel 7)
+(subchannel 3)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HP 8720D"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 18)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "8714C"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 18)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(ppFile "HP871X")
+(ppAddr "GPIB0::18::INSTR")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag8510c"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "EMP@704"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "Hp_Epm_On_Lan"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "junk"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "KEYSIGHT-XB0YMJ5")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag4339b"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HPEPM"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 25)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "vnaScreen"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 12)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp438a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 12)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "C:\\Program Files\\Keysight\\Vee Pro 9.3\\ids\\hp438a.id")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hp4395a"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "HP4395a")
+(ppAddr "GPIB0::16::INSTR")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag4395a"
+(type GPIB)
+(gateway "156.140.159.218")
+(channel 7)
+(subchannel 11)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "agE8364Apna"
+(type GPIB)
+(gateway "KEYSIGHT-XB0YMJ5")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag4352b"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument5"
+(type GPIB)
+(gateway "156.140.159.218")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp4194a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hp4396a"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument6"
+(type GPIB)
+(gateway "156.140.159.218")
+(channel 7)
+(subchannel 26)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nfaN8975a"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 8)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nfa"
+(type GPIB)
+(gateway "156.140.152.236")
+(channel 7)
+(subchannel 8)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "Jedi"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "agE4419B"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nwa"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp8753c.cid")
+(ppFile "AG875X")
+(ppAddr "GPIB0::16::INSTR")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "passThru"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument7"
+(type GPIB)
+(gateway "cc-instr141")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "passThruNew"
+(type GPIB)
+(gateway "cc-instr141")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 IODEVICE
+(properties
+(name "newInstrument7 ( @ 716 on cc-instr141)")
+(transactions 2 "WRITE TEXT \"OUTPIDEN;\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "newInstrument7")))
+(device 3 IODEVICE
+(properties
+(name "newInstrument7 ( @ 716 on cc-instr141)")
+(transactions 1 "WRITE TEXT \"ADDRPASS 19;\" EOL"))
+(implementation
+(iopath "newInstrument7")))
+(device 6 TEXTDISPLAY
+(properties
+(name "Start Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 START25)
+(device 9 TEXTDISPLAY
+(properties
+(name "Stop Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 IODEVICE
+(properties
+(name "passThruNew ( @ 717 on cc-instr141)")
+(transactions 6 "WRITE TEXT \"OPFA\" EOL" "READ TEXT start_f STR"
+"WRITE TEXT \"OPFB\" EOL" "READ TEXT stop_f STR" "WRITE TEXT \"OPCF\" EOL"
+"READ TEXT center_f STR"))
+(interface
+(output 1
+(name "start_f")
+(optional yes))
+(output 2
+(name "stop_f")
+(optional yes))
+(output 3
+(name "center_f")
+(optional yes)))
+(implementation
+(iopath "passThruNew")))
+(device 16 TEXTDISPLAY
+(properties
+(name "Center Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 17 NOTE
+(properties
+(text2 10 "This program provides an outline for a method to use the "
+"8510 Pass Thru functionality. The configuration details follow:" ""
+"The address of the 8510 is 16" "The system buss of the 8510 is 17"
+"The address of the source is 19 (on the 8510C System Interconnect)" ""
+"Now, via Pass Thru, query the Start/Stop/Center " "Frequencies from 83651" ""))
+)
+(configuration
+(connect D4:0 D0:0)
+(connect D0:0 D1:0)
+(connect D6:1 D2:1)
+(connect D0:1 D3:1)
+(connect D6:2 D5:1)
+(connect D1:0 D6:0)
+(connect D6:3 D7:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 600 501)
+(wndState max)
+(active detail)
+(panel
+(extent 600 501)
+(widget 5 detail
+(relativeOrigin 331 380)
+(title on)
+(borderStyle flat)
+(extent 265 37))
+(widget 2 detail
+(relativeOrigin 331 310)
+(title on)
+(borderStyle flat)
+(extent 265 37))
+(widget 7 detail
+(relativeOrigin 331 442)
+(title on)
+(borderStyle flat)
+(extent 265 37)))
+(detail
+(extent 1020 633)
+(anchorPt -4 10)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 253 74))
+(terminals on)
+(pinCenter 180 90))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 253 74))
+(terminals on)
+(pinCenter 180 220))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 112 0))
+(open
+(extent 205 27))
+(pinCenter 530 450))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 265 37))
+(pinCenter 520 90))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 180 10))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 205 27))
+(pinCenter 530 510))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 177))
+(terminals on)
+(pinCenter 165 510))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 126 0))
+(open
+(extent 205 27))
+(pinCenter 530 570))
+(devCarrierFor 17
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 575 187)
+(editing enabled))
+(pinCenter 660 240))
+(connect D4:0 D0:0
+(points 2 180 23 180 32))
+(connect D0:0 D1:0
+(points 2 180 129 180 162))
+(connect D6:1 D2:1
+(points 2 350 450 425 450))
+(connect D0:1 D3:1
+(points 2 339 90 385 90))
+(connect D6:2 D5:1
+(points 2 350 510 425 510))
+(connect D1:0 D6:0
+(points 2 180 259 180 401))
+(connect D6:3 D7:1
+(points 2 350 570 425 570)))
+(stackingOrder 3 4 0 1 8 6 2 5 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

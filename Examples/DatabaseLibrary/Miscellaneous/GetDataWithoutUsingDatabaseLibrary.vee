@@ -1,0 +1,493 @@
+(saveFormat "7.0")
+(date "Mon 11/Aug/2008 10:23:47 ")
+(veerev "9.0.11610.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Data.dll"))
+(assemblyRef 2
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Drawing.dll"))
+(assemblyRef 4
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces "System.Data,System.Data.Common,System.Data.OleDb,"))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Oledb Connection")
+(variableScope cont)
+(expr 1
+"oledbconnection = CreateInstance(\"System.Data\", \"System.Data.OleDb.OleDbConnection\", connectionString);"
+))
+(interface
+(input 1
+(name "connectionString")
+(optional yes))
+(output 1
+(name "oledbconnection")
+(optional yes))))
+(device 2 FILESELECT
+(properties
+(name "File Name Selection")
+(variableScope cont)
+(prompt "Enter File Name:")
+(initialDirectory "~installDir\\Examples\\DatabaseLibrary\\")
+(initialFile "*.mdb")
+(dialogMode Reading))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 3 FORMULA
+(properties
+(name "Access Connection String")
+(variableScope cont)
+(expr 1
+"\"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"+path+\";Persist Security Info=False\";"
+))
+(interface
+(input 1
+(name "path")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "Oledb Command")
+(variableScope cont)
+(expr 1
+"oledbcommand = CreateInstance(\"System.Data\", \"System.Data.OleDb.OleDbCommand\", cmdText, connection);"
+))
+(interface
+(input 1
+(name "connection")
+(optional yes))
+(input 2
+(name "cmdText")
+(optional yes))
+(output 1
+(name "oledbcommand")
+(optional yes))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Select Command")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SELECT * FROM Categories"))
+(initValue Text
+(data  ""))))
+(device 7 FORMULA
+(properties
+(name "Oledb Adapter")
+(variableScope cont)
+(expr 1
+"oledbdataadapter = CreateInstance(\"System.Data\", \"System.Data.OleDb.OleDbDataAdapter\", selectCommand);"
+))
+(interface
+(input 1
+(name "selectCommand")
+(optional yes))
+(output 1
+(name "oledbdataadapter")
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "oleDbDataAdapter.Fill(dataSet, srcTable);")
+(variableScope cont)
+(expr 1 "oleDbDataAdapter.Fill(dataSet, srcTable);"))
+(interface
+(input 1
+(name "oleDbDataAdapter")
+(optional yes))
+(input 2
+(name "dataSet")
+(optional yes))
+(input 3
+(name "srcTable")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "DataSet")
+(variableScope cont)
+(expr 1 "dataset = CreateInstance(\"System.Data\", \"System.Data.DataSet\" );"))
+(interface
+(output 1
+(name "dataset")
+(optional yes))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Table Name")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "CategoriesTable"))
+(initValue Text
+(data  ""))))
+(device 11 CONTEXT
+(properties
+(name "Show Data in DataGrid")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1)
+(popupTitleBackgroundColor "UserObject"))
+(interface
+(input 1
+(name "DataSource")
+(optional yes)))
+(deviceList
+(device 0 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.DataGrid")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(transactions 3
+"dataGrid = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.DataGrid\")"
+"dataGrid.SetDataBinding(dataSource, \"\")"
+"dataGrid.Dock = System.Windows.Forms.DockStyle.Fill")
+(parmInfo 9 "3" "T 0" "T 0" "T 0" "2" "T 0" "T 0" "1" "T 0")
+(memberInfos 3 "Void .ctor()"
+"Void SetDataBinding(System.Object, System.String)"
+"System.Windows.Forms.DockStyle Dock")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.DataGrid, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "dataGrid"))
+(interface
+(input 1
+(name "dataSource")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "dataGrid")
+(optional yes)))
+(implementation))
+(device 1 FORMULA
+(properties
+(name "Add DataGrid to container")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableScope cont)
+(expr 1 "ContainerControl.Controls.Add(dataGrid);"))
+(interface
+(input 1
+(name "dataGrid")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 DOTNETCONTROL
+(properties
+(name "ContainerControl")
+(customHelpMenuName "Database Help")
+(customHelpMenuDescription
+"Help on Displaying Data, and calling \'Show Data in DataGrid\'")
+(customHelpMenuHelpLink "To_Show_Data_In_DataGrid")
+(variableName ContainerControl)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ContainerControl"))
+(implementation
+(state 325 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+000000040000000608000000083331342C20333536060900000004302C2030060A0000000130060B
+000000000B
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 359)
+(drawGrid "on")
+(widget 2 detail
+(relativeOrigin 0 0)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 314 356)))
+(detail
+(extent 546 153)
+(anchorPt 119 52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 204 25))
+(open
+(extent 634 116))
+(terminals on)
+(pinCenter 170 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 154 25))
+(open
+(extent 254 86))
+(terminals on)
+(pinCenter 400 80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 314 356))
+(pinCenter 220 320))
+(connect I1:1 D0:1
+(points 4 -119 24 10 24 10 80 65 80))
+(connect D0:1 D1:1
+(points 2 274 80 320 80)))
+(stackingOrder 0 1 2))))
+(device 12 CONFIRM25
+(properties
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 13 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example will show you how to retrieve data from Access, using .NET methods, without using Database Library. Following   this way, you may build up a more flexible database program, rather than use Database Library.\\par\r\n\\par\r\nRun this example, and open Northwind.mdb, it will show data from table \'Categories\' in DataGrid.\\par\r\n}\r\n"
+)))
+(device 14 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D2:1 D0:1)
+(connect D1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D4:1 D3:2)
+(connect D3:1 D5:1)
+(connect D5:1 D6:1)
+(connect D7:1 D6:2)
+(connect D8:1 D6:3)
+(connect D6:0 D9:0)
+(connect D7:1 D9:1)
+(connect D9:0 D10:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 710 392)
+(wndState max)
+(active detail)
+(detail
+(extent 1000 621)
+(anchorPt -87 -192)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 633 50))
+(terminals on)
+(pinCenter 450 250))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 524 146))
+(terminals on)
+(pinCenter 150 260))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 155 15))
+(open
+(extent 454 56))
+(terminals on)
+(pinCenter 300 250))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 645 50))
+(terminals on)
+(pinCenter 590 260))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 194 36))
+(pinCenter 300 320))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 644 50))
+(terminals on)
+(pinCenter 720 260))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 249 34))
+(open
+(extent 262 70))
+(terminals on)
+(pinCenter 960 270))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 396 50))
+(terminals on)
+(pinCenter 590 340))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 174 29))
+(pinCenter 590 400))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 137 15))
+(open
+(extent 319 359)
+(carbonCopy))
+(terminals on)
+(pinCenter 985 620))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 44 24))
+(title off)
+(pinCenter 960 850))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 166)
+(editing disabled))
+(pinCenter 360 580))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 340 420))
+(connect D2:1 D0:1
+(points 2 380 250 393 250))
+(connect D1:1 D2:1
+(points 2 213 250 220 250))
+(connect D0:1 D3:1
+(points 2 506 250 535 250))
+(connect D4:1 D3:2
+(points 4 355 320 520 320 520 270 535 270))
+(connect D3:1 D5:1
+(points 2 644 260 675 260))
+(connect D5:1 D6:1
+(points 2 765 260 833 260))
+(connect D7:1 D6:2
+(points 4 616 340 780 340 780 270 833 270))
+(connect D8:1 D6:3
+(points 4 629 400 790 400 790 280 833 280))
+(connect D6:0 D9:0
+(points 2 960 289 960 420))
+(connect D7:1 D9:1
+(points 4 616 340 710 340 710 620 743 620))
+(connect D9:0 D10:0
+(points 2 960 802 960 835)))
+(stackingOrder 6 9 10 12 11 5 3 7 8 0 2 1 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

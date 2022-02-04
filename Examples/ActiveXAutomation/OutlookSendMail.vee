@@ -1,0 +1,189 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 12:30:06 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 7 "Set o = GetObject(\"\", \"Outlook.Application\");"
+"Set m = o.CreateItem(0);" "m.To = to;" "m.Subject = \"Test results on \"+date;"
+"m.Body = \"The tests have \"+status+\".\\n\\nJane\";" "m.Send();" ""))
+(interface
+(input 1
+(name "to")
+(optional yes))
+(input 2
+(name "status")
+(optional yes))
+(input 3
+(name "date")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "o")
+(optional yes))
+(output 3
+(name "m")
+(optional yes))))
+(device 1 LITERALCONSTANT
+(properties
+(name "Recipient"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "john_doe@keysight.com"))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Result"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "PASSED"))
+(initValue Text
+(data  ""))))
+(device 4 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a DATE:WDMY TIME:HMS:H24 EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 5 FORMULA
+(properties
+(name "now()")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 NOTE
+(properties
+(text2 5
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs17 Requirements: Office with Outlook installed AND\\par\r\nrunning.\\par\r\n\\par\r\nExample of how to send e-mail using the ActiveX Automation\\par\r\ncapability of VEE and Microsoft Outlook.\\par\r\n}\r\n"
+"running." "" "Example of how to send e-mail using the ActiveX Automation"
+"capability of VEE and Microsoft Outlook 97.")))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D0:3)
+(connect D4:1 D3:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 789 490)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 167 59)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 299 142))
+(terminals on)
+(pinCenter 440 190))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 57 0))
+(open
+(extent 174 29))
+(pinCenter 50 120))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 174 29))
+(pinCenter 50 190))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 53 15))
+(open
+(extent 296 44))
+(pinCenter 50 270))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 54 34))
+(terminals on)
+(pinCenter -140 270))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 445 104)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 80 20))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 500 10))
+(connect D1:1 D0:1
+(points 4 139 120 160 120 160 150 238 150))
+(connect D2:1 D0:2
+(points 2 139 190 238 190))
+(connect D3:1 D0:3
+(points 4 200 270 220 270 220 230 238 230))
+(connect D4:1 D3:1
+(points 2 -120 270 -101 270)))
+(stackingOrder 0 4 6 2 3 1 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,440 @@
+(saveFormat "7.0")
+(date "Sun 10/Dec/2006 14:11:36 ")
+(veerev "8.0.9610.1 Beta3 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 24)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(variableScope cont)
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "random(low,high)")
+(variableScope cont)
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "random(low,high)")
+(variableScope cont)
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "random(low,high)")
+(variableScope cont)
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 CONSTANT
+(properties
+(name "Real64")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  100))
+(initValue Real
+(data  0))))
+(device 6 CONSTANT
+(properties
+(name "Real64")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  -100))
+(initValue Real
+(data  0))))
+(device 14 ALLOCATEARRAY
+(properties
+(name "Alloc Int16")
+(variableScope cont))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 2)
+(dimSizes "4" "1")
+(type "Int16")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 15 FORMULA
+(properties
+(variableScope cont)
+(expr 5 "a[0,0]=b;" "a[1,0]=c;" "a[2,0]=d;" "a[3,0]=e;" "a;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 YPLOT
+(properties
+(name "Strip Chart")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(tracePin 1)
+(tracePin 1)
+(tracePin 1)
+(graphMode strip)
+(isTypeArrayGraph)
+(bufferSize 10000)))
+(device 21 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 22 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Please note that the MatrixInput property of Strip Chart is already set to TRUE.  The default is FALSE.  \\par\r\n}\r\n"
+)))
+(device 23 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D9:1 D0:0)
+(connect D5:1 D0:1)
+(connect D4:1 D0:2)
+(connect D0:0 D1:0)
+(connect D5:1 D1:1)
+(connect D4:1 D1:2)
+(connect D1:0 D2:0)
+(connect D5:1 D2:1)
+(connect D4:1 D2:2)
+(connect D2:0 D3:0)
+(connect D5:1 D3:1)
+(connect D4:1 D3:2)
+(connect D3:0 D6:0)
+(connect D6:0 D7:0)
+(connect D6:1 D7:1)
+(connect D0:1 D7:2)
+(connect D1:1 D7:3)
+(connect D2:1 D7:4)
+(connect D3:1 D7:5)
+(connect D7:1 D8:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1143 789)
+(wndState max)
+(active detail)
+(detail
+(extent 757 614)
+(anchorPt -64 -157)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 147 50))
+(terminals on)
+(pinCenter 180 290))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 147 50))
+(terminals on)
+(pinCenter 180 380))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 147 50))
+(terminals on)
+(pinCenter 180 470))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 164 56))
+(terminals on)
+(pinCenter 180 570))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter -40 390))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter -40 470))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 190 137))
+(terminals on)
+(pinCenter 180 620))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 50 54))
+(open
+(extent 94 146))
+(terminals on)
+(pinCenter 360 430))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 923 308)
+(displayMode 47)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -100 100 4 linear))
+(domain 0 19.99999999999648 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "Trace3")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "Trace4")
+(traceColor "Green")
+(lineType 12)
+(pointType 0))
+(trace 4 onScale 0
+(name "Trace5")
+(traceColor "Red")
+(lineType 12)
+(pointType 0))
+(trace 5 onScale 0
+(name "Trace6")
+(traceColor "Blue")
+(lineType 12)
+(pointType 0))
+(trace 6 onScale 0
+(name "Trace7")
+(traceColor "Dark Yellow")
+(lineType 12)
+(pointType 0))
+(trace 7 onScale 0
+(name "Trace8")
+(traceColor "Dark Gray")
+(lineType 12)
+(pointType 0))
+(trace 8 onScale 0
+(name "Trace9")
+(traceColor "White")
+(lineType 12)
+(pointType 0))
+(trace 9 onScale 0
+(name "Trace10")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 10 onScale 0
+(name "Trace11")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 11 onScale 0
+(name "Trace12")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1)
+(markerColor "White"))
+(pinCenter 410 850))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 60 220))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 384 126)
+(editing disabled))
+(pinCenter 650 300))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 520 230))
+(connect D9:1 D0:0
+(points 3 96 220 180 220 180 275))
+(connect D5:1 D0:1
+(points 6 2 470 20 470 20 460 90 460 90 280 124 280))
+(connect D4:1 D0:2
+(points 4 2 390 80 390 80 300 124 300))
+(connect D0:0 D1:0
+(points 2 180 305 180 365))
+(connect D5:1 D1:1
+(points 6 2 470 20 470 20 460 90 460 90 370 124 370))
+(connect D4:1 D1:2
+(points 2 2 390 124 390))
+(connect D1:0 D2:0
+(points 2 180 395 180 455))
+(connect D5:1 D2:1
+(points 4 2 470 20 470 20 460 124 460))
+(connect D4:1 D2:2
+(points 4 2 390 30 390 30 480 124 480))
+(connect D2:0 D3:0
+(points 2 180 485 180 555))
+(connect D5:1 D3:1
+(points 6 2 470 20 470 20 460 90 460 90 560 124 560))
+(connect D4:1 D3:2
+(points 4 2 390 30 390 30 580 124 580))
+(connect D3:0 D6:0
+(points 2 180 585 180 610))
+(connect D6:0 D7:0
+(points 6 180 630 180 650 420 650 420 370 360 370 360 400))
+(connect D6:1 D7:1
+(points 6 213 620 410 620 410 380 310 380 310 410 332 410))
+(connect D0:1 D7:2
+(points 4 235 290 270 290 270 420 332 420))
+(connect D1:1 D7:3
+(points 4 235 380 260 380 260 430 332 430))
+(connect D2:1 D7:4
+(points 4 235 470 250 470 250 440 332 440))
+(connect D3:1 D7:5
+(points 4 235 570 260 570 260 450 332 450))
+(connect D7:1 D8:1
+(points 6 387 430 430 430 430 660 -70 660 -70 850 -54 850)))
+(stackingOrder 4 5 0 1 2 3 6 7 9 8 10 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

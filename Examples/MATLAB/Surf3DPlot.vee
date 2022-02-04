@@ -1,0 +1,408 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:19:44 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 26)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 200)
+(amplitude -3.191891195797325E-016)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 50))
+(interface
+(input 1
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 3 FORRANGE
+(properties
+(from 0)
+(thru 1)
+(step 0.05))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 4 ALLOCATEARRAY
+(properties
+(name "Alloc Real64"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 2)
+(dimSizes "41" "50")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 5 FORMULA
+(properties
+(expr 1 "g_Array[Row-1,*] = Data"))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Row")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DECLVAR
+(properties
+(name "Declare g_Array")
+(scope glob)
+(globalName "g_Array"))
+(implementation
+(value Real64
+(numDims 2)
+(size 1 1)
+(data  [ [ 0 ] ]))))
+(device 7 TOGLOBAL
+(properties
+(name "g_Array")
+(globalName "g_Array"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 9 MATLABSCRIPT
+(properties
+(name "MATLAB Script: SURF")
+(matlabexpr 14 "set(gcf, \'Renderer\', \'zbuffer\');"
+"fig=findobj(\'Type\',\'Figure\',\'Tag\',tagname);" "if isempty(fig),"
+"  fig=figure(\'Tag\',tagname);" "else," "  figure(fig)" "end" "subplot(2,1,2);"
+"surf(Z);" "xlabel(\'X\');" "ylabel(\'Y\');" "zlabel(\'Z\');"
+"axis([0, 50, 0, 60, -1, 1]); % Disable autoscaling"
+"title([\'surf(g\\_Array[1:\' num2str(Row) \', *])\']);")
+(matlabHelpLink "help/techdoc/ref/surf.html"))
+(interface
+(input 1
+(name "Row")
+(optional yes))
+(input 2
+(name "Z")
+(optional yes))
+(input 3
+(name "tagname")
+(optional yes))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "myPlot"))
+(initValue Text
+(data  ""))))
+(device 11 FROMGLOBAL
+(properties
+(name "g_Array")
+(globalName "g_Array"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 12 CONFIRM25
+(properties
+(name "Done")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 14 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 16 FORRANGE
+(properties
+(from 0.95)
+(thru 0)
+(step -0.05))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 20 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 21 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 22 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Requirements: MATLAB or MATLAB Runtime \\par\r\n              installed\\par\r\n\\par\r\nThis example demonstrates VEE generating \\par\r\nmultiple waveforms, which get stored in an \\par\r\narray (g_Array).  Each individual waveform\\par\r\nis plotted in the MATLAB figure using the\\par\r\nMATLAB \"PLOT\" function.  Using the \"SUBPLOT\"\\par\r\nfunction, we can display multiple graphs in\\par\r\na single figure.\\par\r\n\\par\r\nNext, we produce a 3D shaded surface plot \\par\r\nof the waveforms that have been put into the\\par\r\ng_Array variable.  The MATLAB function \"SURF\"\\par\r\nis used to render the g_Array as a 3D shaded\\par\r\nsurface plot.\\par\r\n\\par\r\nNOTE: You can manually resize the MATLAB\\par\r\n      figure.\\par\r\n}\r\n"
+)))
+(device 23 MATLABSCRIPT
+(properties
+(name "MATLAB Script: PLOT")
+(matlabexpr 12 "fig=findobj(\'Type\',\'Figure\',\'Tag\',tagname);"
+"if isempty(fig)," "  fig=figure(\'Tag\',tagname);" "else," "  figure(fig)"
+"end" "subplot(2,1,1);" "plot(Y);" "xlabel(\'X\');" "ylabel(\'Y\');"
+"axis([0, 50, -1, 1]); % Disable autoscaling"
+"title([\'plot(g\\_Array[\' num2str(Row) \', *])\']);")
+(matlabHelpLink "help/techdoc/ref/plot.html"))
+(interface
+(input 1
+(name "Row")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(input 3
+(name "tagname")
+(optional yes))))
+(device 25 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D10:1 D0:1)
+(connect D5:0 D1:0)
+(connect D0:1 D3:1)
+(connect D12:1 D3:2)
+(connect D2:1 D5:1)
+(connect D12:1 D6:1)
+(connect D8:1 D6:2)
+(connect D7:1 D6:3)
+(connect D0:0 D8:0)
+(connect D11:0 D9:0)
+(connect D1:1 D10:1)
+(connect D11:1 D10:2)
+(connect D1:0 D11:0)
+(connect D0:1 D12:1)
+(connect D12:1 D15:1)
+(connect D0:1 D15:2)
+(connect D7:1 D15:3)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 916 498)
+(wndState max)
+(active detail)
+(detail
+(extent 1028 875)
+(anchorPt -114 -124)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 185 177))
+(terminals on)
+(pinCenter 535 310))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 240 260))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 225 137))
+(terminals on)
+(pinCenter 160 170))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 152 69))
+(terminals on)
+(pinCenter 935 330))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 95 15))
+(open
+(extent 195 103))
+(pinCenter 170 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 45 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 240 170))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 285 227))
+(terminals on)
+(pinCenter 975 810))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 85 27))
+(pinCenter 630 610))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 45 0))
+(open
+(extent 81 47))
+(pinCenter 640 810))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 55 25))
+(title off)
+(pinCenter 240 470))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 340 310))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 240 390))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 84 31))
+(pinCenter 750 350))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 520 160))
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 355 317)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 310 690))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 285 207))
+(terminals on)
+(pinCenter 975 540))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 880 160))
+(connect D10:1 D0:1
+(points 2 355 310 370 310))
+(connect D5:0 D1:0
+(points 2 240 180 240 200))
+(connect D0:1 D3:1
+(points 2 670 310 816 310))
+(connect D12:1 D3:2
+(points 2 776 350 816 350))
+(connect D2:1 D5:1
+(points 2 200 170 215 170))
+(connect D12:1 D6:1
+(points 6 776 350 800 350 800 380 750 380 750 740 770 740))
+(connect D8:1 D6:2
+(points 2 683 810 770 810))
+(connect D7:1 D6:3
+(points 4 675 610 700 610 700 880 770 880))
+(connect D0:0 D8:0
+(points 4 520 401 520 650 640 650 640 766))
+(connect D11:0 D9:0
+(points 2 240 432 240 455))
+(connect D1:1 D10:1
+(points 4 292 260 310 260 310 300 324 300))
+(connect D11:1 D10:2
+(points 4 292 390 310 390 310 320 324 320))
+(connect D1:0 D11:0
+(points 2 240 302 240 330))
+(connect D0:1 D12:1
+(points 4 670 310 690 310 690 350 723 350))
+(connect D12:1 D15:1
+(points 6 776 350 800 350 800 380 750 380 750 470 770 470))
+(connect D0:1 D15:2
+(points 6 670 310 690 310 690 350 700 350 700 540 770 540))
+(connect D7:1 D15:3
+(points 2 675 610 770 610)))
+(stackingOrder 5 1 11 10 0 3 2 12 7 8 13 4 9 14 15 6 16))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,262 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:18:56 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 31)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 VFUNCTIONGENERATOR
+(properties
+(name "Cosine")
+(function Cosine)
+(frequency 2)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 2)
+(numPoints 250))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 9 VFUNCTIONGENERATOR
+(properties
+(name "+Ramp")
+(function +Ramp)
+(frequency 2)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 2)
+(numPoints 250))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 15 MATLABSCRIPT
+(properties
+(matlabexpr 3 "Data=[A B];" "f=inline(\'Data.^2-Data.^3+Data.^4-Data.^5\');"
+"Y=f(Data);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Data")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))))
+(device 17 MATLABSCRIPT
+(properties
+(name "MATLAB Script: PLOT")
+(matlabexpr 16 "fig=findobj(\'Type\',\'Figure\',\'Tag\',tagname);"
+"if isempty(fig)," "  fig=figure(\'Tag\',tagname);" "else," "  figure(fig),"
+"end" "" "xData=1:length(Data);" "Titles={\'Cosine\',\'+Ramp\'};" ""
+"for lp=1:2," "  subplot(2,1,lp)" "  plot(xData,Data(:,lp), \'red\', ..."
+"           xData,Y(:,lp),\'blue\');" "  title(Titles{lp});" "end")
+(matlabHelpLink "help/techdoc/ref/plot.html"))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(input 3
+(name "tagname")
+(optional yes))))
+(device 19 LITERALCONSTANT
+(properties
+(name "Plot1"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Plot1"))
+(initValue Text
+(data  ""))))
+(device 20 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 23 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The first script creates a 2 dimensional\\par\r\narray named Data based on the\\par\r\ncosine and ramp functions.\\par\r\n\\par\r\nA function \"f\" is created using the matlab\\par\r\nfunction inline using the Array Data\\par\r\n\\par\r\nA Variable \"Y\" is assigned to the function f\\par\r\n}\r\n"
+)))
+(device 26 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The second script shows how to plot all four linear\\par\r\nplots using the matlab function \"subplot\".\\par\r\n\\par\r\nsubplot(m,n,p) creates an axes in the p-th pane\\par\r\nof a figure divided into an m-by-n matrix of rectangular panes. The new axes becomes the current axes. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 28 CONFIRM25
+(properties
+(name "Done")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 29 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:     To create a new function using \"inline\" and then plot both the raw\\par\r\n             and new function data using \"subplot\" \\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press the Run toolbar button, wait for the Matlab window\\par\r\n             and select the demo program you wish to run. To close the MATLAB \\par\r\n             window press the CLOSE button.  To end the the VEE Program, \\par\r\n             Press the Done button.\\par\r\n\\par\r\nEXPLANATION: \\par\r\n             In this example, we show the user how to plot and analyze\\par\r\n             collected data from a simulated source.           \\par\r\n\\par\r\n}\r\n"
+)))
+(device 30 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:1 D3:1)
+(connect D2:2 D3:2)
+(connect D4:1 D3:3)
+(connect D3:0 D8:0)))
+(contextCarrier
+(wndRestoredOrigin -4 1)
+(wndRestoredExtent 998 712)
+(wndState max)
+(active detail)
+(detail
+(extent 1028 875)
+(anchorPt -138 -179)
+(configuration
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 190 470))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 190 550))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 345 67))
+(terminals on)
+(pinCenter 505 510))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 275 267))
+(terminals on)
+(pinCenter 985 580))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 32 15))
+(open
+(extent 68 27))
+(pinCenter 730 670))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter 480 790))
+(devCarrierFor 23
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 365 147)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 490 660))
+(devCarrierFor 26
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 465 107)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 980 850))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 970 740))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 585 197)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 590 310))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 480 840))
+(connect D0:1 D2:1
+(points 4 226 470 250 470 250 490 300 490))
+(connect D1:1 D2:2
+(points 4 226 550 250 550 250 530 300 530))
+(connect D2:1 D3:1
+(points 2 720 490 785 490))
+(connect D2:2 D3:2
+(points 4 720 530 740 530 740 580 785 580))
+(connect D4:1 D3:3
+(points 2 748 670 785 670))
+(connect D3:0 D8:0
+(points 2 970 716 970 726)))
+(stackingOrder 2 6 5 3 4 7 8 0 1 9 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

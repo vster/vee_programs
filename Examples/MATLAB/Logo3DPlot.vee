@@ -1,0 +1,165 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:18:42 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 35)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 24 MATLABSCRIPT
+(properties
+(name "MATLAB Script: SURF")
+(matlabexpr 16 "fig=findobj(\'Type\',\'Figure\',\'Tag\',tagname);"
+"if isempty(fig)" "  logo" "  fig=gcf"
+"  set(fig,\'Tag\',tagname,\'Color\',[0 0 0],\'Menubar\',\'none\')" "else"
+"  figure(fig)" "end" " " "L=40*membrane(1,m);" "edge=1:(2*m+1);"
+"s=findobj(fig,\'Type\',\'surface\'); "
+"set(s,\'XData\',edge,\'YData\',edge,\'ZData\',L);" "" "" "")
+(matlabHelpLink "help/techdoc/ref/surf.html"))
+(interface
+(input 1
+(name "m")
+(optional yes))
+(input 2
+(name "tagname")
+(optional yes))))
+(device 25 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "membranePlot"))
+(initValue Text
+(data  ""))))
+(device 27 FORRANGE
+(properties
+(from 2)
+(thru 25)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 28 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 32 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:     To illustrate a membrane plot. \\par\r\n\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press the Run toolbar button, wait for the MATLAB graphic \\par\r\n                      to stop.  To end the Vee program, press the Done\\par\r\n                      button.\\par\r\n\\par\r\nEXPLANATION: In this example, we show the user how to animate a membrane\\par\r\n             plot which shows the MATLAB logo\\par\r\n\\par\r\n}\r\n"
+)))
+(device 33 CONFIRM25
+(properties
+(name "Done")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 34 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D2:1 D0:1)
+(connect D1:1 D0:2)
+(connect D2:0 D5:0)))
+(contextCarrier
+(wndOrigin 2 3)
+(wndState res)
+(active detail)
+(detail
+(extent 719 601)
+(anchorPt -679 -477)
+(configuration
+(devCarrierFor 24
+(active open)
+(icon)
+(open
+(extent 315 257))
+(terminals on)
+(pinCenter 1075 700))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 105 27))
+(pinCenter 740 770))
+(devCarrierFor 27
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter 760 630))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter 1040 510))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 585 167)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 1060 940))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 760 700))
+(devCarrierFor 34
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 1050 1050))
+(connect D2:1 D0:1
+(points 2 812 630 855 630))
+(connect D1:1 D0:2
+(points 2 795 770 855 770))
+(connect D2:0 D5:0
+(points 2 760 672 760 686)))
+(stackingOrder 0 2 1 3 5 4 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

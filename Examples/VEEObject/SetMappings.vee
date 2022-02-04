@@ -1,0 +1,274 @@
+(saveFormat "7.0")
+(date "Wed 18/Jun/2008 14:24:43 ")
+(veerev "9.0.11412.1 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v8)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 COMPARATOR
+(properties
+(variableScope cont)
+(relation ==))
+(interface
+(input 1
+(name "Ref Value")
+(tag "RefValue"))
+(input 2
+(name "Test Value")
+(tag "TestValue"))
+(output 1
+(name "Passed")
+(tag "Passed")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Failed")
+(tag "Failed")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Failures")
+(tag "Failures")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(variableScope cont)
+(expr 1 "ramp(1000,0,999)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 TOFUNCTION
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "0")
+(mapTos "20000000000")))
+(device 8 CONSTANT
+(properties
+(name "Coord")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numDims 1)
+(size 2)
+(numCoordDims 2)
+(data  [ (0, 0) (20000000000, 1000) ]))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 9 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 10 FROMFUNCTION
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Function")
+(tag "Function"))
+(output 1
+(name "Array")
+(tag "Array")
+(lock name constraints))
+(output 2
+(name "Dim 1 Map")
+(tag "Dim 1 Map")
+(lock name constraints))
+(output 3
+(name "Dim 1 From")
+(tag "Dim 1 From")
+(lock name constraints))
+(output 4
+(name "Dim 1 To")
+(tag "Dim 1 To")
+(lock name constraints)))
+(implementation
+(numDims 1)))
+(device 11 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D5:1 D0:1)
+(connect D4:1 D0:2)
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)
+(connect D3:1 D4:1)
+(connect D0:3 D6:1)
+(connect D4:1 D7:1)
+(connect D7:4 D8:1)
+(connect D7:3 D9:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 756 582)
+(wndState max)
+(active detail)
+(detail
+(extent 1008 634)
+(anchorPt -140 48)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 184 70))
+(terminals on)
+(pinCenter 610 320))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 115 19))
+(pinCenter 870 270))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 115 19))
+(pinCenter 870 320))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 158 0))
+(open
+(extent 179 70))
+(terminals on)
+(pinCenter 260 150))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 177 83))
+(terminals on)
+(pinCenter 570 150))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 144 76)
+(showFormat real))
+(pinCenter 330 300))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 174 316))
+(pinCenter 900 530))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 79 48)
+(iconImage "unbuild.icn"))
+(open
+(extent 58 90))
+(terminals on)
+(pinCenter 830 150))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 115 19))
+(pinCenter 1030 210))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 115 19))
+(pinCenter 1030 150))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 600 10))
+(connect D5:1 D0:1
+(points 2 404 300 445 300))
+(connect D4:1 D0:2
+(points 6 721 150 740 150 740 210 420 210 420 340 445 340))
+(connect D0:1 D1:1
+(points 4 764 300 780 300 780 270 810 270))
+(connect D0:2 D2:1
+(points 2 764 320 810 320))
+(connect D3:1 D4:1
+(points 2 402 150 429 150))
+(connect D0:3 D6:1
+(points 4 764 340 780 340 780 530 810 530))
+(connect D4:1 D7:1
+(points 4 721 150 759 150 759 150 738 150))
+(connect D7:4 D8:1
+(points 4 941 180 950 180 950 210 970 210))
+(connect D7:3 D9:1
+(points 4 941 160 950 160 950 150 970 150)))
+(stackingOrder 7 8 9 3 1 2 6 0 5 4 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

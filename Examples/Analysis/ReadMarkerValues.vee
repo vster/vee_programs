@@ -1,0 +1,547 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:43:55 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 71)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 START25)
+(device 8 YPLOT
+(properties
+(name "XY Trace")
+(variableName "xy"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 9 FORMULA
+(properties
+(expr 1 "100*sin(ramp(1400, -720, 720))/ramp(1400, -720, 720)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.05)))
+(device 14 TEXTDISPLAY
+(properties
+(name "Marker 1 Data"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Marker 2 Data"))
+(interface
+(input 1
+(name "Data"))))
+(device 17 TEXTDISPLAY
+(properties
+(name "Delta Y Data"))
+(interface
+(input 1
+(name "Data"))))
+(device 56 LABEL
+(properties
+(name "Reading Markers From VEE Graph Objects")
+(labelValue "Reading Markers From VEE Graph Objects"))
+(implementation))
+(device 62 FORMULA
+(properties
+(name "Get Marker Delta Values")
+(expr 1 "(xy.MarkerDX, xy.MarkerDY)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 63 FORMULA
+(properties
+(name "Get Marker 2 Values")
+(expr 1 "(xy.Marker2X, xy.Marker2Y)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 64 FORMULA
+(properties
+(name "Get Marker 1 Values")
+(expr 1 "(xy.Marker1X, xy.Marker1Y)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 67 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 68 CONFIRM25
+(properties
+(name "Get Marker Values"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 69 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 70 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 20 "PURPOSE:     To illustrate how to programmatically get the value of"
+"             an XY display\'s markers." ""
+"USER INPUT REQUIRED:  Press the START button and move the markers on the"
+"             XY Trace, then press the \"Get Marker Values\" button to"
+"             programmatically extract the marker values." ""
+"EXPLANATION: If you look at the XY Trace\'s properties, you will notice"
+"             a new field called \"Name:\".  This field allows you to assign"
+"             a variable name to the XY Trace.  This variable names allows"
+"             you to access properties of the XY Trace from a formula box."
+"             Currently, the following XY Trace properties can be manipulated"
+"             in this manner:" "" "             Marker1X"
+"             Marker1Y" "             Marker2X" "             Marker2Y"
+"             MarkerDX" "             MarkerDY")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 253 75)))
+(contextCarrier
+(active panel)
+(panel
+(extent 556 390)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 582 348)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 238 348)
+(title off)
+(borderStyle none)
+(extent 74 34))
+(panelBg "Gray"))
+(detail
+(extent 339 242)
+(anchorPt 450 277)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 617 334)
+(editing enabled))
+(pinCenter -120 -50))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 234 68)
+(widget 1 detail
+(relativeOrigin 60 10)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 431 236)
+(anchorPt 235 74)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 825 511)
+(carbonCopy))
+(pinCenter 60 50))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 65 60 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 35)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D3:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:1 D3:1)
+(connect D10:1 D4:1)
+(connect D9:1 D5:1)
+(connect D8:1 D6:1)
+(connect D9:0 D8:0)
+(connect D10:0 D9:0)
+(connect D12:0 D10:0)
+(connect D1:0 D11:0)
+(connect D11:1 D12:0)))
+(contextCarrier
+(wndOrigin 3 0)
+(wndState res)
+(active panel)
+(panel
+(extent 727 498)
+(widget 7 detail
+(relativeOrigin 50 20)
+(font "Arial" 26 bold)
+(title off)
+(borderStyle none)
+(extent 537 42)
+(just c))
+(widget 0 detail
+(relativeOrigin 110 70)
+(title off)
+(borderStyle none)
+(extent 60 30))
+(widget 12 detail
+(relativeOrigin 70 410)
+(title off)
+(borderStyle none)
+(extent 130 30))
+(widget 6 detail
+(relativeOrigin 20 340)
+(title on)
+(borderStyle flat)
+(extent 218 32))
+(widget 5 detail
+(relativeOrigin 20 280)
+(title on)
+(borderStyle flat)
+(extent 218 32))
+(widget 4 detail
+(relativeOrigin 20 220)
+(title on)
+(borderStyle flat)
+(extent 218 32))
+(widget 14 panel
+(relativeOrigin 10 110)
+(title on)
+(borderStyle flat)
+(extent 246 68)
+(carbonCopy))
+(widget 1 detail
+(relativeOrigin 320 110)
+(title on)
+(borderStyle flat)
+(extent 286 308)
+(displayMode 0)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -0.5 2 4 linear))
+(domain 0 0.05000000000000002 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 0)
+(marker 2)
+(markerPenColor 2)))
+(detail
+(extent 741 580)
+(anchorPt 39 110)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "display.icn"))
+(open
+(extent 220 266)
+(displayMode 0)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -0.5 2 4 linear))
+(domain 0 0.05000000000000002 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 0)
+(marker 2)
+(markerPenColor 2))
+(pinCenter 230 40))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 57 16))
+(open
+(extent 381 42))
+(terminals on)
+(pinCenter 0 40))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 108 52)
+(iconImage "build.icn"))
+(open
+(extent 140 32))
+(terminals on)
+(pinCenter 100 40))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 99 16))
+(open
+(extent 218 32))
+(pinCenter 560 230))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 99 16))
+(open
+(extent 218 32))
+(pinCenter 560 310))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 95 16))
+(open
+(extent 218 32))
+(pinCenter 560 390))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 257 15))
+(open
+(extent 537 42)
+(just c))
+(title off)
+(font "Arial" 26 bold)
+(pinCenter 110 -60))
+(devCarrierFor 62
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 216 36))
+(pinCenter 320 390))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 216 36))
+(pinCenter 320 310))
+(devCarrierFor 64
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 216 36))
+(pinCenter 320 230))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 230 120))
+(devCarrierFor 68
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 320 150))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter 560 -60))
+(devCarrierFor 70
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 550 40))
+(connect D3:1 D1:1
+(points 2 156 40 193 40))
+(connect D0:0 D2:0
+(points 2 0 13 0 29))
+(connect D2:1 D3:1
+(points 2 31 40 43 40))
+(connect D10:1 D4:1
+(points 2 430 230 508 230))
+(connect D9:1 D5:1
+(points 2 430 310 508 310))
+(connect D8:1 D6:1
+(points 2 430 390 510 390))
+(connect D9:0 D8:0
+(points 2 320 330 320 351))
+(connect D10:0 D9:0
+(points 2 320 250 320 271))
+(connect D12:0 D10:0
+(points 2 320 163 320 191))
+(connect D1:0 D11:0
+(points 2 230 68 230 92))
+(connect D11:1 D12:0
+(points 3 266 120 320 120 320 136)))
+(stackingOrder 0 2 3 4 1 5 6 10 9 8 11 12 7 14 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

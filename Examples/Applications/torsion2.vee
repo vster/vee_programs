@@ -1,0 +1,1140 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:50:14 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 25)
+(popupTitleText "Torsion Bar Example 2")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Note for Torsion Bar Example")
+(description2 1 "Object \"Display -> Note Pad\"")
+(text2 3 "Calculates the angular deflection of a round shaft and displays"
+"results graphically.  User Input Required: Press \"Start\" or \"Run\" "
+"to see results.  For program details, press on \"Info\".")))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and"
+"Keysight Technologies makes" "no warranty of any kind with "
+"regard to this example.")))
+(device 2 IFTHENELSE
+(properties
+(name "!=0")
+(description2 10 " This \"Flow -> If/Then\" object is being used with"
+" the \"Info\" toggle button to provide feedback"
+" control to prevent activation from \"Run\".  If"
+" the toggle has been activated to provide an"
+" output of one, then downstream objects will also"
+" be activated.  When the If/Then object has"
+" completed its function, the sequence output pin"
+" on the bottom will activate the Reset input pin " " on the toggle button." "")
+(cases 1 "A!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 START25)
+(device 4 TEXTDISPLAY
+(properties
+(name "Young\'s Mod.")
+(description2 8 "This \"Display -> AlphaNumeric\" object displays"
+"the modulus of elasticity value output by the"
+"\"Modulus of Elasticity/Rigidity\" object.  In"
+"this example, it is actually superfluous data,"
+"since it is not actually used.  It does confirm"
+"that the enum selection method can be employed"
+"to generate multiple output values from one" "selection input."))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORRANGE
+(properties
+(name "Max. Torq in-lb")
+(description2 9 "This \"Flow -> Repeat -> For Range\" object is"
+"used to specify the Torque range values, in"
+"inch-pounds, to be applied to the torsion bar"
+"being considered as individual values under the"
+"control of a \"for loop\".  This method is another,"
+"simpler way of obtaining individual range values,"
+"as compared to the method used for the diameter" "range values above." "")
+(from 250)
+(thru 2750)
+(step 500))
+(interface
+(output 1
+(lock name constraints))))
+(device 6 CONSTANT
+(properties
+(name "Min. Dia.")
+(description2 7 "This \"Data -> Constant -> Real\" object is used"
+"to enter the value for the minimum diameter, in"
+"inches, for the torsion bar diameter range to be"
+"used in later calculations and plots." ""
+"See also \"step\", and especially \"MaxDia. in.\"" "for an alternative method."
+)
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.5))
+(initValue Real
+(data  0))))
+(device 7 CONSTANT
+(properties
+(name "Max. Dia. in.")
+(description2 13 "This \"Data -> Constant -> Real\" object is used"
+"to enter the value for the maximum diameter, in"
+"inches, of the torsion bar diameter range to be"
+"used in later calculations and plots." ""
+"For an alternative, simpler method of generating"
+"individual range values, which may be useful in"
+"many other situations, please check the"
+"\"Show Description\" for the \"MaxTorq in-lb\"" "object below." ""
+"See also \"step\" and \"MinDia.\"" "")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  2.5))
+(initValue Real
+(data  1))))
+(device 8 CONSTANT
+(properties
+(name "step")
+(description2 8 "This \"Data -> Constant -> Real\" object is used"
+"to enter the value of the diameter step size, in"
+"inches, for the torsion bar diameter range to be"
+"used in later calculations and plots." ""
+"See also \"MinDia.\", and especially \"MaxDia. in.\" "
+"for another method that is often simpler in some" "situations.")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 9 FORMULA
+(properties
+(name "TotCount")
+(description2 5 "This \"Math -> Formula\" object determines the"
+"number of steps to be used with the diameter size"
+"range specified, and determines the array size to"
+"be created for later calculations, etc." " ")
+(expr 1 "(Dmax-Dmin)/Dstep+1"))
+(interface
+(input 1
+(name "Dmax")
+(optional yes))
+(input 2
+(name "Dmin")
+(optional yes))
+(input 3
+(name "Dstep")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "Generate Pts")
+(expr 1 "ramp(numPts, min, max)"))
+(interface
+(input 1
+(name "max")
+(optional yes))
+(input 2
+(name "min")
+(optional yes))
+(input 3
+(name "numPts")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Shear Mod.")
+(description2 7 "This \"Display -> AlphaNumeric\" object displays"
+"the shear modulus value generated by the"
+"\"Modulus of Elasticity/Rigidity\" object upstream."
+"This object has been added to the panel view, to"
+"provide a confirmation of actual modulus value,"
+"after a \"Matl\" selection has been made." ""))
+(interface
+(input 1
+(name "Data"))))
+(device 12 CONSTANT
+(properties
+(name "Length, in.")
+(description2 3 "This \"Data -> Constant -> Real\" object is used"
+"to enter the value for the effective length, in"
+"inches, of the torsion bar under consideration.")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  10))
+(initValue Real
+(data  10))))
+(device 14 ENUMCONSTANT
+(properties
+(name "Material")
+(description2 12 "This is a \"Data -> Enum\" object, with the"
+"\"Format -> Buttons\" option on the object menu"
+"enabled.  It provides a means for a quick,"
+"graphical method of choosing defined, often used"
+"items from a list, rather than entering specific"
+"values.  However, it must be used with a means"
+"for deciphering the actual values used." ""
+"See also the \"Modulus of Elasticity/Rigidity\""
+"object iconized below, which provides the actual" "values." ""))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("CrMoSteel" 0)
+("Steel" 1)
+("Brass" 2)
+("Alum" 3)
+("Enter Value" 4))
+(data  "Alum"))
+(initValue Text
+(data  "CrMoSteel"))))
+(device 15 CONTEXT
+(properties
+(name "Overview of Torsion Bar Example")
+(description2 3 " This \"Device -> UserObject\" is used to display a"
+" panel containing the Note Pad used to provide an"
+" overview and details of this example.")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 44 "PURPOSE:  This example shows some of VEE\'s capabilities to solve a "
+"  mechanical engineering problem setup and solution. It shows various "
+"  data entry and display methods, and the use of a calculation formula." ""
+"USER INPUT REQUIRED: Press Run or Start to run using example data.  "
+"  All data may be changed." ""
+"EXPLANATION: The program uses a simple formula to calculate the angular"
+"  deflection of a round torsion shaft, given a range of diameters, length, a"
+"  range for applied torque, and material shear modulus value, which in this"
+"  example is selected by clicking the button next to the type of material"
+"  desired.  However, if \"Enter Value\" is selected, a \"pop up\" screen for"
+"  entering values appears after \"Start\" is activated.  While both \"Young\'s"
+"  Modulus\" and \"Shear Modulus\" appear, only the shear modulus is actually used"
+"  in this example." ""
+"  The data is displayed graphically as Deflection Degrees versus Shaft"
+"  Diameter, with multiple graphs based on Torque range.  The graphical display"
+"  object may be altered for appearance or functional reasons by selecting"
+"  various options from the object menu.  For instance, by selecting \"Traces &"
+"  Scales\" from the Properties Dialog and clicking on the X column \"Linear\" switch, "
+"  the X values may also be shown on a log scale.  Note the triangular marker, "
+"  which will indicate the exact values (shown at the bottom of display), when "
+"  a desired location is clicked." ""
+"  The program was built using the \"panel\" approach for simplified data entry and"
+"  viewing. More specifics of the program can be seen by clicking on the \"Detail\""
+"  button above the menu bar.  In this mode, specific objects used in program"
+"  construction can be observed. Most objects have been iconized to save space."
+"  Open by double-clicking on icon.  " ""
+"  To exit \"Info\", click on \"DONE\" below." " "
+"  Some icons are actually \"UserObjects\", which are used to group other sets"
+"  of objects. All objects in a UserObject will be run when the UserObject is"
+"  activated, before flow is passed to the next object beyond the UserObject."
+"  For example, the method of actuating the pop-up panel requires a \"Show on Exec\" "
+"  UserObject (\"Enter Modulus\") nested in the large iconized UserObject at the "
+"  bottom of the work area, called \"Modulus of  Elasticity/Rigidity\"." ""
+"  Select \"Edit Description\" from the object menu of a specific object to obtain"
+"  additional information about it. Use \"Help\" for further information on "
+"  specific objects and concepts." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 218 73)))
+(contextCarrier
+(active detail)
+(panel
+(extent 729 449)
+(widget 1 detail
+(relativeOrigin 300 400)
+(title off)
+(borderStyle none)
+(extent 70 40))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 730 390)
+(editing disabled)))
+(detail
+(extent 584 454)
+(anchorPt 408 226)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 545 329)
+(editing disabled))
+(pinCenter -120 -30))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 70 43))
+(title off)
+(pinCenter -250 180)))
+(stackingOrder 1 0))))
+(device 16 FORMULA
+(properties
+(description2 5 "This \"Math -> Formula\" object calculates an"
+"array of deflection values over the range of"
+"diameter sizes specified, and becomes the " "\"Y input\" value for the plot."
+" ")
+(expr 1 "((180*32)/(pi)^2)*T*L/(G*(D^4))"))
+(interface
+(input 1
+(name "G")
+(optional yes))
+(input 2
+(name "D")
+(optional yes))
+(input 3
+(name "T")
+(optional yes))
+(input 4
+(name "L")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 XYPLOT
+(properties
+(name "Angular Deflection vs. Diameter and Torque")
+(description2 5 "This is a \"Display -> X vsY Plot\" object, which"
+"displays the angular deflection in degrees for"
+"various shaft sizes in inches, and which uses a"
+"\"Next Curve\" input to show several graphs based"
+"on changes in shear modulus values."))
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "Deflection")
+(lock constraints))
+(input 3
+(type control)
+(name "Next Curve")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)))
+(device 18 CONTEXT
+(properties
+(name "Modulus of Elasticity/Rigidity")
+(description2 11 "This \"Device -> UserObject\" is an object which"
+"allows a collection of objects to function as a"
+"unit, such as a subprogram.  In this case, the"
+"collection of objects deciphers the enum value"
+"of the \"Matl\" object, converting this to an"
+"actual value for the Modulus of Rigidity of the"
+"material selected, or allowing input of the"
+"modulus value, if \"Enter Value\" was chosen." ""
+"Double clicking on the icon will enable the open"
+"view, so details may be seen.")
+(trigMode deg)
+(nextID 24))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 1 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 2 CONSTANT
+(properties
+(name "Shear Mod."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  3700000))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Shear Mod."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  6000000))
+(initValue Real
+(data  0))))
+(device 4 CONSTANT
+(properties
+(name "Shear Mod."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  10600000))
+(initValue Real
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "Shear Mod."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  11900000))
+(initValue Real
+(data  0))))
+(device 6 CONSTANT
+(properties
+(name "Young\'s Mod.")
+(description2 3 "This is a \"Data, Constant, Real\" object used to"
+"hold Young\'s Modulus for Alum." ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  10000000))
+(initValue Real
+(data  0))))
+(device 7 IFTHENELSE
+(properties
+(name "If/Then")
+(cases 5 "A==\"CrMoSteel\"" "A==\"Steel\"" "A==\"Brass\"" "A==\"Alum\""
+"A==\"Enter Value\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else")
+(lock name constraints))))
+(device 8 CONSTANT
+(properties
+(name "Young\'s Mod.")
+(description2 3 "This is a \"Data, Constant, Real\" object used to"
+"hold Young\'s Modulus for CrMoSteel." ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  30000000))
+(initValue Real
+(data  0))))
+(device 9 CONSTANT
+(properties
+(name "Young\'s Mod.")
+(description2 4 "This is a \"Data, Constant, Real\" object used to"
+"hold Young\'s Modulus for Steel." "" ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  29000000))
+(initValue Real
+(data  0))))
+(device 10 CONSTANT
+(properties
+(name "Young\'s Mod.")
+(description2 3 "This is a \"Data, Constant, Real\" object used to"
+"hold Young\'s Modulus for Brass." ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  15900000))
+(initValue Real
+(data  0))))
+(device 13 INPUTDLG
+(properties
+(popupTitle "Text Input")
+(position 480 163)
+(prompt "Enter Shear Modulus:")
+(initialValue "95000000")
+(vErrorMessage ""))
+(interface
+(output 1
+(name "Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "real")))
+(configuration
+(connect D8:1 D0:1)
+(connect D9:1 D0:2)
+(connect D10:1 D0:3)
+(connect D6:1 D0:4)
+(connect D11:1 D1:1)
+(connect D5:1 D1:2)
+(connect D4:1 D1:3)
+(connect D3:1 D1:4)
+(connect D2:1 D1:5)
+(connect D7:4 D2:0)
+(connect D7:3 D3:0)
+(connect D7:2 D4:0)
+(connect D7:1 D5:0)
+(connect D7:4 D6:0)
+(connect I1:1 D7:1)
+(connect D7:1 D8:0)
+(connect D7:2 D9:0)
+(connect D7:3 D10:0)
+(connect D7:5 D11:0)
+(connect D1:1 O1:1)
+(connect D0:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 760 626)
+(anchorPt 435 123)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 54))
+(open
+(extent 42 204))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 54))
+(open
+(extent 42 204))
+(terminals on)
+(pinCenter 0 320))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 172 29))
+(pinCenter -221 410))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 172 29))
+(pinCenter -220 350))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 177 33))
+(pinCenter -220 290))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 174 31))
+(pinCenter -220 230))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 176 29))
+(pinCenter -221 50))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 172 184))
+(terminals on)
+(pinCenter -559 -10))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 176 29))
+(pinCenter -220 -110))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 176 29))
+(pinCenter -221 -60))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 176 29))
+(pinCenter -221 -10))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 369 124))
+(terminals on)
+(pinCenter -90 170))
+(connect D8:1 D0:1
+(points 4 -159 -110 -70 -110 -70 -20 -26 -20))
+(connect D9:1 D0:2
+(points 4 -160 -60 -80 -60 -80 -10 -26 -10))
+(connect D10:1 D0:3
+(points 4 -160 -10 -140 -10 -140 0 -26 0))
+(connect D6:1 D0:4
+(points 4 -160 50 -140 50 -140 10 -26 10))
+(connect D11:1 D1:1
+(points 6 -49 160 -30 160 -30 210 -50 210 -50 300 -26 300))
+(connect D5:1 D1:2
+(points 4 -163 230 -140 230 -140 310 -26 310))
+(connect D4:1 D1:3
+(points 4 -163 290 -150 290 -150 320 -26 320))
+(connect D3:1 D1:4
+(points 4 -163 350 -150 350 -150 330 -26 330))
+(connect D2:1 D1:5
+(points 4 -164 410 -140 410 -140 340 -26 340))
+(connect D7:4 D2:0
+(points 7 -421 0 -370 0 -370 20 -310 20 -310 380 -221 380 -221 395))
+(connect D7:3 D3:0
+(points 5 -421 -30 -390 -30 -390 330 -220 330 -220 335))
+(connect D7:2 D4:0
+(points 5 -421 -60 -380 -60 -380 270 -220 270 -220 275))
+(connect D7:1 D5:0
+(points 5 -421 -90 -300 -90 -300 90 -220 90 -220 215))
+(connect D7:4 D6:0
+(points 5 -421 0 -370 0 -370 20 -221 20 -221 35))
+(connect I1:1 D7:1
+(points 6 -435 189 -690 189 -690 100 -700 100 -700 -10 -678 -10))
+(connect D7:1 D8:0
+(points 5 -421 -90 -360 -90 -360 -145 -220 -145 -220 -125))
+(connect D7:2 D9:0
+(points 5 -421 -60 -350 -60 -350 -85 -221 -85 -221 -75))
+(connect D7:3 D10:0
+(points 3 -421 -30 -221 -30 -221 -25))
+(connect D7:5 D11:0
+(points 5 -421 30 -400 30 -400 100 -90 100 -90 155))
+(connect D1:1 O1:1
+(points 4 25 320 38 320 38 29 324 29))
+(connect D0:1 O2:1
+(points 4 25 0 150 0 150 349 324 349)))
+(stackingOrder 0 1 2 6 7 10 8 9 3 4 5 11))))
+(device 19 TOGGLE25
+(properties
+(name "Info")
+(description2 11 " This \"Data -> Toggle\" object, configured in the"
+" button mode, is used as a switch to activate the"
+" \"Info\" object.  Use of this object coupled with"
+" the \"If/Then\" object prevents activation of"
+" downstream objects when \"Run\" is used, instead"
+" of \"Start\".  \"Run\" normally activates all streams"
+" used in the model.  In this case, activation is"
+" prevented, since the button must be clicked to"
+" output a 1 value to the if/then object.  The"
+" Reset input pin ensures that activation will only"
+" occur once for each time the button is clicked.")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 20 LABEL
+(properties
+(labelValue "Multiple Graphs Based on Torque"))
+(implementation))
+(configuration
+(connect D18:1 D2:1)
+(connect D17:2 D4:1)
+(connect D17:0 D5:0)
+(connect D7:1 D9:1)
+(connect D6:1 D9:2)
+(connect D8:1 D9:3)
+(connect D7:1 D10:1)
+(connect D6:1 D10:2)
+(connect D9:1 D10:3)
+(connect D17:1 D11:1)
+(connect D3:0 D13:0)
+(connect D2:1 D14:0)
+(connect D17:1 D15:1)
+(connect D10:1 D15:2)
+(connect D5:1 D15:3)
+(connect D12:1 D15:4)
+(connect D10:1 D16:1)
+(connect D15:1 D16:2)
+(connect D5:1 D16:3)
+(connect D13:1 D17:1)
+(connect D2:0 D18:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 777 590)
+(gridSize 2)
+(widget 0 detail
+(relativeOrigin 180 10)
+(title off)
+(borderStyle flat)
+(extent 586 66)
+(editing disabled))
+(widget 7 detail
+(relativeOrigin 10 150)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 12 detail
+(relativeOrigin 10 210)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 5 detail
+(relativeOrigin 10 270)
+(title on)
+(borderStyle flat)
+(extent 156 78))
+(widget 13 detail
+(relativeOrigin 10 380)
+(title on)
+(borderStyle flat)
+(extent 156 108)
+(format buttons))
+(widget 11 detail
+(relativeOrigin 10 520)
+(title on)
+(borderStyle flat)
+(extent 156 36)
+(formatter
+(realFormat scientific)
+(realSigDigits 16)
+(realRadixSpec 1)
+(integerBase decimal)))
+(widget 16 detail
+(relativeOrigin 180 150)
+(title on)
+(borderStyle flat)
+(extent 588 406)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Degrees")
+(domainName "Shaft Diameter, inches")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0.01 100 4 log))
+(domain 0.5 2 3 linear)
+(trace 0 onScale 0
+(name "Deflection")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0))
+(widget 19 detail
+(relativeOrigin 474 216)
+(title off)
+(borderStyle concave)
+(extent 274 34)
+(just c))
+(widget 1 icon
+(relativeOrigin 180 86)
+(title off)
+(borderStyle none)
+(extent 342 52)
+(iconImage "disclaim.gif")
+(label off))
+(widget 6 detail
+(relativeOrigin 10 86)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 18 detail
+(relativeOrigin 100 10)
+(title off)
+(borderStyle none)
+(extent 74 44)
+(scaled on)
+(format button))
+(widget 3 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle none)
+(extent 74 44)))
+(detail
+(extent 997 678)
+(anchorPt 730 88)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 433 116)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 325 104)
+(editing disabled))
+(pinCenter -400 -47))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 64 59))
+(terminals on)
+(pinCenter -630 -45))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 42 24))
+(open
+(extent 69 39))
+(title off)
+(pinCenter -660 45))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 192 35)
+(formatter
+(realFormat engineering)
+(realSigDigits 16)
+(realRadixSpec 1)
+(integerBase decimal)))
+(pinCenter -150 135))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 118 0)
+(iconImage "loop.icn"))
+(open
+(extent 184 82))
+(pinCenter -410 280))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 66 25))
+(open
+(extent 164 31))
+(pinCenter -650 470))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 92 0))
+(open
+(extent 183 27))
+(pinCenter -640 390))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 46 25))
+(open
+(extent 166 31))
+(pinCenter -650 545))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 110 34))
+(open
+(extent 205 154))
+(terminals on)
+(pinCenter -450 465))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 118 34))
+(open
+(extent 223 154))
+(terminals on)
+(pinCenter -300 455))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 192 35)
+(formatter
+(realFormat engineering)
+(realSigDigits 16)
+(realRadixSpec 1)
+(integerBase decimal)))
+(pinCenter -150 215))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 162 32))
+(pinCenter -430 565))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 160 126)
+(format buttons))
+(pinCenter -650 200))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 40 24)
+(label off))
+(open
+(extent 839 577)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -580 20))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 313 204))
+(terminals on)
+(pinCenter -160 505))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 388 64)
+(iconImage "display.icn"))
+(open
+(extent 512 452)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Degrees")
+(domainName "Shaft Diameter, inches")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0.03568578387042486 35.68578387042482 3 log))
+(domain 0.4 2.600000000000001 3 linear)
+(trace 0 onScale 0
+(name "Deflection")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 230 350))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 280 25))
+(terminals on)
+(pinCenter -400 140))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 34 24))
+(open
+(extent 60 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -700 -45))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 252 58)
+(just l))
+(pinCenter 340 100))
+(connect D18:1 D2:1
+(points 2 -668 -45 -656 -45))
+(connect D17:2 D4:1
+(points 2 -258 150 -249 135))
+(connect D17:0 D5:0
+(points 4 -400 155 -400 180 -410 180 -410 218))
+(connect D7:1 D9:1
+(points 4 -546 390 -530 390 -530 455 -508 455))
+(connect D6:1 D9:2
+(points 4 -566 470 -537 470 -537 465 -508 465))
+(connect D8:1 D9:3
+(points 4 -565 545 -540 545 -540 475 -508 475))
+(connect D7:1 D10:1
+(points 6 -546 390 -530 390 -530 430 -380 430 -380 445 -362 445))
+(connect D6:1 D10:2
+(points 6 -566 470 -530 470 -530 500 -370 500 -370 455 -362 455))
+(connect D9:1 D10:3
+(points 2 -393 465 -362 465))
+(connect D17:1 D11:1
+(points 6 -258 130 -240 130 -240 170 -270 170 -270 215 -249 215))
+(connect D3:0 D13:0
+(points 4 -660 67 -660 90 -650 90 -650 116))
+(connect D2:1 D14:0
+(points 3 -605 -55 -580 -55 -580 5))
+(connect D17:1 D15:1
+(points 8 -258 130 -240 130 -240 170 -270 170 -270 270 -210 270 -210 485 -202
+485))
+(connect D10:1 D15:2
+(points 4 -239 455 -220 455 -220 495 -202 495))
+(connect D5:1 D15:3
+(points 4 -316 280 -290 280 -290 505 -202 505))
+(connect D12:1 D15:4
+(points 4 -347 565 -330 565 -330 515 -202 515))
+(connect D10:1 D16:1
+(points 6 -239 455 -220 455 -220 260 -40 260 -40 200 -29 200))
+(connect D15:1 D16:2
+(points 4 -119 505 -100 505 -100 350 -29 350))
+(connect D5:1 D16:3
+(points 8 -316 280 -290 280 -290 510 -220 510 -220 560 -90 560 -90 500 -29 500))
+(connect D13:1 D17:1
+(points 4 -568 170 -550 200 -550 140 -543 140))
+(connect D2:0 D18:1
+(points 5 -630 -30 -630 -5 -750 -5 -750 -45 -733 -45)))
+(stackingOrder 2 3 4 8 9 10 11 12 15 18 19 0 13 7 6 5 16 17 14 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

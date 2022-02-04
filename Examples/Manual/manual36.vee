@@ -1,0 +1,142 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:15:48 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Using Breakpoints")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 NOTE
+(properties
+(name "Information")
+(text2 6 "This example is used to see how to use"
+"breakpoints in VEE programs.  For " "information about using breakpoints, see"
+"the VEE Help topic" "\"To Control Breakpoints\"." "")))
+(device 9 FORMULA
+(properties
+(name "Random Number")
+(breakpoint 1)
+(expr 1 "random(0, 1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D4:1 D1:1)
+(connect D0:0 D1:2)
+(connect D1:1 D2:1)
+(connect D0:1 D4:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 687 460)
+(anchorPt 130 307)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 113 33))
+(pinCenter 0 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 77 26))
+(open)
+(terminals on)
+(pinCenter 260 50))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 153 205))
+(pinCenter 420 20))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 413 129)
+(editing disabled))
+(title off)
+(pinCenter 100 -160))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 116 16))
+(open
+(extent 147 42))
+(terminals on)
+(pinCenter 130 40))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 100 -270))
+(connect D4:1 D1:1
+(points 2 190 40 219 40))
+(connect D0:0 D1:2
+(points 5 0 19 0 70 200 70 200 60 219 60))
+(connect D1:1 D2:1
+(points 4 301 50 320 50 320 20 341 20))
+(connect D0:1 D4:0
+(points 3 59 0 130 0 130 29)))
+(stackingOrder 2 0 1 3 5 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

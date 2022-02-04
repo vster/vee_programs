@@ -1,0 +1,425 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 09:03:23 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp8752_3.cid")
+(idn "he8753es")
+(ppAddr "GPIB0::16::INSTR")
+(eoiEnabled 1)
+(model "he8753es"
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "PNAscpiLAN"
+(type GPIB)
+(gateway "156.140.156.144")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "eng-dhcp-7")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "passThru"
+(type GPIB)
+(gateway "eng-dhcp-7")
+(channel 7)
+(subchannel 17)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 38)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "newInstrument ( @ 716 on eng-dhcp-7)")
+(transactions 2 "WRITE TEXT \"OI\" EOL" "READ TEXT id STR"))
+(interface
+(output 1
+(name "id")
+(optional yes)))
+(implementation
+(iopath "newInstrument")))
+(device 2 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 IODEVICE
+(properties
+(name "newInstrument ( @ 716 on eng-dhcp-7)")
+(transactions 1 "WRITE TEXT \"PT19\" EOL"))
+(implementation
+(iopath "newInstrument")))
+(device 6 IODEVICE
+(properties
+(name "passThru ( @ 717 on eng-dhcp-7)")
+(transactions 8 "WRITE TEXT \"SYST:LANG \\\"8340\\\"\" EOL" "WRITE TEXT \"OI;\""
+"READ TEXT who_am_i STR" "WRITE TEXT \"FA3GZ FB4GZ\" EOL" "WRITE TEXT \"OPFA\""
+"READ TEXT star_freq STR" "WRITE TEXT \"OPFB\"" "READ TEXT stop_freq STR"))
+(interface
+(output 1
+(name "who_am_i")
+(optional yes))
+(output 2
+(name "star_freq")
+(optional yes))
+(output 3
+(name "stop_freq")
+(optional yes)))
+(implementation
+(iopath "passThru")))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 9 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(text2 3 "Things of Interest to GPIB @ 716!"
+"A SemiColon in the 716 \"OI\" statement " "consistently locked the system.")))
+(device 27 IODEVICE
+(properties
+(name "passThru ( @ 717 on eng-dhcp-7)")
+(transactions 7 "WRITE TEXT \"SYST:LANG \\\"SCPI\\\"\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT who_am_i_scpi STR"
+"WRITE TEXT \"SOUR:FREQ:STAR?\" EOL" "READ TEXT star_freq_scpi STR"
+"WRITE TEXT \"SOUR:FREQ:STOP?\" EOL" "READ TEXT stop_freq_scpi STR"))
+(interface
+(output 1
+(name "who_am_i_scpi")
+(optional yes))
+(output 2
+(name "star_freq_scpi")
+(optional yes))
+(output 3
+(name "stop_freq_scpi")
+(optional yes)))
+(implementation
+(iopath "passThru")))
+(device 28 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 29 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 30 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 31 IODEVICE
+(properties
+(name "passThru ( @ 717 on eng-dhcp-7)")
+(transactions 5 "WRITE TEXT \"SYST:LANG \\\"8340\\\"\" EOL" "WRITE TEXT \"OI;\""
+"READ TEXT who_am_i STR" "WRITE TEXT \"OPFA\"" "READ TEXT start STR"))
+(interface
+(output 1
+(name "who_am_i")
+(optional yes))
+(output 2
+(name "start")
+(optional yes)))
+(implementation
+(iopath "passThru")))
+(device 32 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 34 START25)
+(device 35 HPIBTRANSACTION
+(properties
+(name "Interface Op\'s: GPIB7 on eng-dhcp-7 @ 7")
+(transactions 1 "EXECUTE CLEAR"))
+(implementation
+(gateway "eng-dhcp-7")
+(channel 7)
+(timeout 5)))
+(device 36 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 37 NOTE
+(properties
+(name "ABOUT : 8757_E8257C_ScpiPassThru")
+(text2 12 "Keysight Vee example for the 8757 Scalar Network Analyzer and "
+"compatible E8257C SCPI compliant RF sources The program outlines "
+"a method for using the PassThru mode to access and communicate "
+"with the E8257C family of Performance Signal Generators (note that"
+"the source must be equipped with option 007, Ramp Sweep Capability). "
+"The signal source is connected to the analyzers \"8757 System "
+"Interconnect\" GPIB buss. This is a dedicated GPIB for "
+"controlling the source directly from the 8757 scalar analyzer. "
+"Additionally the program outlines \"on the fly\" change over"
+"of the sources language mode from \"analyzer compatible\" to"
+"\"SPCI\" and back, all via the GPIB and pass thru. " "")))
+(configuration
+(connect D15:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D3:3 D6:1)
+(connect D3:0 D8:0)
+(connect D8:3 D9:1)
+(connect D8:2 D10:1)
+(connect D8:1 D11:1)
+(connect D8:0 D12:0)
+(connect D12:1 D13:1)
+(connect D14:0 D15:0)
+(connect D12:2 D16:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 920 501)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 176 70)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 57))
+(terminals on)
+(pinCenter 260 10))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 185 27))
+(pinCenter 550 -10))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 245 47))
+(terminals on)
+(pinCenter 260 90))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 235 147))
+(terminals on)
+(pinCenter 240 210))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 355 37)
+(scFont "Arial" 14))
+(pinCenter 630 160))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 145 27))
+(pinCenter 710 250))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 155 27))
+(pinCenter 530 260))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 295 76)
+(editing enabled))
+(font "Comic Sans MS" 14)
+(titleFont "Comic Sans MS" 12)
+(pinCenter 610 70))
+(devCarrierFor 27
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 235 127))
+(terminals on)
+(pinCenter 220 370))
+(devCarrierFor 28
+(active open)
+(icon)
+(open
+(extent 175 27)
+(scFont "Arial" 14))
+(pinCenter 770 390))
+(devCarrierFor 29
+(active open)
+(icon)
+(open
+(extent 175 27)
+(scFont "Arial" 14))
+(pinCenter 570 390))
+(devCarrierFor 30
+(active open)
+(icon)
+(open
+(extent 375 27)
+(scFont "Arial" 14))
+(pinCenter 650 330))
+(devCarrierFor 31
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 225 87))
+(terminals on)
+(pinCenter 240 510))
+(devCarrierFor 32
+(active open)
+(icon)
+(open
+(extent 365 37)
+(scFont "Arial" 14))
+(pinCenter 630 480))
+(devCarrierFor 34
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -30 -50))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 220 50)
+(iconImage "io.icn"))
+(open
+(extent 204 70))
+(terminals on)
+(pinCenter -30 10))
+(devCarrierFor 36
+(active open)
+(icon)
+(open
+(extent 175 17)
+(scFont "Arial" 14))
+(pinCenter 540 540))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 255 45)
+(iconImage "notepad.icn"))
+(open
+(extent 585 227)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Light Teal")
+(titleFont "Arial" 14)
+(pinCenter -40 90))
+(connect D15:0 D0:0
+(points 6 -30 37 -30 60 90 60 90 -60 260 -60 260 -39))
+(connect D0:1 D1:1
+(points 4 415 10 430 10 430 -10 455 -10))
+(connect D0:0 D2:0
+(points 2 260 41 260 46))
+(connect D2:0 D3:0
+(points 2 260 116 260 116))
+(connect D3:1 D4:1
+(points 2 430 160 450 160))
+(connect D3:2 D5:1
+(points 4 430 210 620 210 620 250 635 250))
+(connect D3:3 D6:1
+(points 2 430 260 450 260))
+(connect D3:0 D8:0
+(points 2 260 286 260 286))
+(connect D8:3 D9:1
+(points 6 450 410 460 410 460 430 670 430 670 390 680 390))
+(connect D8:2 D10:1
+(points 4 450 370 460 370 460 390 480 390))
+(connect D8:1 D11:1
+(points 2 450 330 460 330))
+(connect D8:0 D12:0
+(points 2 260 436 260 446))
+(connect D12:1 D13:1
+(points 4 425 490 440 490 440 480 445 480))
+(connect D14:0 D15:0
+(points 2 -30 -37 -30 -18))
+(connect D12:2 D16:1
+(points 4 425 530 440 530 440 540 450 540)))
+(stackingOrder 0 2 15 5 14 1 11 10 7 3 4 6 9 8 12 16 13 17))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

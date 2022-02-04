@@ -1,0 +1,503 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:05:16 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 19)
+(popupTitleText "A \"One-Shot\" Button Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 4 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 5 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 7 NOTE
+(properties
+(name "\"Do-Nothing\" Thread")
+(text2 7 "To show the " "effects of the " "\"One-Shot\" when " "another thread "
+"is operating, " "run this thread " "by pressing RUN")))
+(device 8 NOTE
+(properties
+(name "To Operate:")
+(text2 2 "Click on both of the Toggle Buttons several"
+"times, then press RUN and click more.")))
+(device 9 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 10 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Information About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 39
+"PURPOSE:\t To illustrate use of a Toggle Button to create a One-Shot Button."
+"" "USER INPUT REQUIRED:  Before pressing RUN, click on the two Toggle Buttons "
+"             and observe the connected Counters.  Then, press RUN and"
+"             again click on the Toggle buttons, observing that only the"
+"             \"Complete\" method still works." ""
+"EXPLANATION: Often, it is desirable to add a click button to a Panel (such as"
+"             the Info About button you pressed to see this text) in a program."
+"             Since the Toggle object is normally considered as a source of data"
+"             (0 or 1) depending on it\'s current state, it would not appear to"
+"             be the best candidate for such a job." ""
+"             The first attempt is usually to add a START button to the panel so"
+"             that the hosted thread will run whenever the user presses the"
+"             START button.  However, ALL start buttons are \"pressed\" when the"
+"             user selects RUN from the titlebar which is often not the desired"
+"             action.  If you use the OK/Confirm button to control a hosted"
+"             thread, it works only after RUN has been pressed, since it has no"
+"             AutoExecute mode." ""
+"             The solution to the problem is to use a Data ==> Toggle Control ==> Button "
+"             with a Reset Control input, and an If/Then/Else object.  The Toggle has"
+"             Auto Execute enabled so it will operate before RUN has been pressed."
+"             Since Auto Execute mode does not work when any other thread is"
+"             operating, we need a way to continually have the output of the"
+"             Toggle sent to the If/Then/Else test; Until Break queries the "
+"             Toggle from the time RUN is pressed until the program"
+"             stops.  A side effect is that although other threads may"
+"             eventually stop, the Until Break continues to run until either"
+"             Stop is pressed or until a Stop object is executed by one of the"
+"             threads.  " ""
+"             You can look at the examples, trying out each one both before and"
+"             after the RUN button has been pressed to run all threads. Consider"
+"             how you might use several Toggle One-Shots in a single program,"
+"             having each perform a different task, and having them operate both"
+"             with and without a RUN action." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 210 62)))
+(contextCarrier
+(active panel)
+(panel
+(extent 780 534)
+(widget 1 detail
+(relativeOrigin 330 490)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 780 480)
+(editing disabled)))
+(detail
+(extent 318 283)
+(anchorPt 146 97)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 261 67)
+(widget 1 detail
+(relativeOrigin 69 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 619 372)
+(anchorPt 311 161)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 867 539)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 70 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 70 75 70 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 70 -10 70 45)))
+(stackingOrder 0 1 2))))
+(device 11 NOTE
+(properties
+(name "A Simple \"One-Shot\" Thread ")
+(text2 6 "This thread shows a simple \"One-Shot\" structure that is constructed"
+"from a Toggle Button with a Reset Input control pin, set for Auto "
+"Execute. It is not very robust and does not work if it is clicked while"
+"another thread is running (the button goes down, but since Auto Execute"
+"is disabled (because the program is already running), no output data is"
+"sent to the counter.   The program in this thread is not very useful.")))
+(device 12 TOGGLE25
+(properties
+(name "Toggle")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 13 COUNTER
+(properties
+(clearAtPrerun 0)
+(clearAtActivate 0))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 14 NOTE
+(properties
+(name "A Complete \"One-Shot\" Thread")
+(text2 5 "This thread shows a \"One-Shot\" structure that is constructed from a"
+"Toggle Button with a Reset Input control pin, and an If/Then/Else."
+"The Toggle is set for Auto Execute so it will operate before RUN"
+"is pressed.  If you want the Toggle to work while another thread "
+"executes, you must add the Until Break iterator.")))
+(device 15 COUNTER
+(properties
+(clearAtPrerun 0)
+(clearAtActivate 0))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 16 IFTHENELSE
+(properties
+(description2 9 "The output of the Toggle is either 0 or 1.  This"
+"object repeatedly evaluates the input and fires"
+"the \"Then\" output only when A is non-zero.  " ""
+"Without this test, the Until Break device would"
+"repeatedly cause the Toggle to send a 0 or 1 to"
+"its controlled thread, executing the thread over"
+"and over without regard to whether the Toggle was" "pressed.")
+(cases 1 "A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 17 TOGGLE25
+(properties
+(name "Toggle")
+(description2 17 "The output of the Toggle is 0 when the"
+"button is up, and 1 when the button is down." ""
+"The Reset control input resets the Toggle "
+"to up when the pin is activated.  However, it "
+"does not propagate the resulting 0 to the If/Then/Else" "object." ""
+"Auto Execute mode is set to enabled to allow the button to"
+"operate before RUN is pressed.  However, since no"
+"Auto Execute is permitted after any thread begins"
+"running, the Toggle must be driven repeatedly by"
+"the Until Break iterator.  In this mode, the data"
+"out (0 or 1) is repeatedly tested by the If/Then/Else"
+"to see when to execute the \"one-shot\'s\" thread (a" "counter in this case.)"
+"")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 18 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D0:1 D1:1)
+(connect D8:0 D7:1)
+(connect D7:1 D8:1)
+(connect D11:1 D10:1)
+(connect D12:1 D11:1)
+(connect D13:1 D12:0)
+(connect D11:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 813 615)
+(anchorPt 746 260)
+(configuration
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -30 90))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 128 33))
+(pinCenter -30 180))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 144 0)
+(iconImage "notepad.icn"))
+(open
+(extent 169 182)
+(editing disabled))
+(pinCenter -30 -50))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 0)
+(iconImage "notepad.icn"))
+(open
+(extent 427 66)
+(editing disabled))
+(pinCenter -240 -200))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -120 310))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 261 67)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -600 -200))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 222 0)
+(iconImage "notepad.icn"))
+(open
+(extent 612 124)
+(editing disabled))
+(pinCenter -430 -80))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 51 24))
+(open
+(extent 55 24)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -570 30))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 150 34))
+(pinCenter -280 30))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 240 0)
+(iconImage "notepad.icn"))
+(open
+(extent 614 102)
+(editing disabled))
+(pinCenter -430 150))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 150 34))
+(pinCenter -200 250))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 64 59))
+(terminals on)
+(pinCenter -405 270))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 51 24))
+(open
+(extent 55 24)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -540 270))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 85 56)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -660 240))
+(connect D0:1 D1:1
+(points 6 27 90 50 90 50 220 -110 220 -110 180 -97 180))
+(connect D8:0 D7:1
+(points 5 -280 49 -280 60 -620 60 -620 30 -600 30))
+(connect D7:1 D8:1
+(points 2 -540 30 -358 30))
+(connect D11:1 D10:1
+(points 2 -331 250 -278 250))
+(connect D12:1 D11:1
+(points 2 -510 270 -470 270))
+(connect D13:1 D12:0
+(points 3 -615 240 -540 240 -540 255))
+(connect D11:1 D12:1
+(points 6 -331 250 -310 250 -310 320 -590 320 -590 270 -570 270)))
+(stackingOrder 8 7 9 11 12 10 13 6 5 3 2 0 1 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

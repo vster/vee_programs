@@ -1,0 +1,297 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:12:12 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ArrayStats")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "x")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "max(x)")
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "min(x)")
+(expr 1 "min(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "mean(x)")
+(expr 1 "mean(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "sdev(x)")
+(expr 1 "sdev(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "max")
+(optional yes))
+(input 2
+(name "min")
+(optional yes))
+(input 3
+(name "mean")
+(optional yes))
+(input 4
+(name "sdev")
+(optional yes))
+(output 1
+(name "Record"))))
+(configuration
+(connect I1:1 D0:1)
+(connect I1:1 D1:1)
+(connect I1:1 D2:1)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D2:1 D4:3)
+(connect D3:1 D4:4)
+(connect D4:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 861)
+(wndRestoredOrigin 199 65)
+(wndRestoredExtent 549 380)
+(wndState min)
+(active detail)
+(detail
+(extent 549 380)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 130 60))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 38 0))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 130 130))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 49 0))
+(open
+(extent 76 32))
+(terminals on)
+(pinCenter 130 210))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 43 0))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 130 290))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 111 128))
+(terminals on)
+(pinCenter 375 190))
+(connect I1:1 D0:1
+(points 4 0 190 10 190 10 60 62 60))
+(connect I1:1 D1:1
+(points 4 0 190 10 190 10 130 62 130))
+(connect I1:1 D2:1
+(points 4 0 190 20 190 20 210 59 210))
+(connect I1:1 D3:1
+(points 6 0 190 20 190 20 210 30 210 30 290 62 290))
+(connect D0:1 D4:1
+(points 4 218 60 250 60 250 140 267 140))
+(connect D1:1 D4:2
+(points 4 218 130 240 130 240 170 267 170))
+(connect D2:1 D4:3
+(points 4 220 210 240 210 240 200 267 200))
+(connect D3:1 D4:4
+(points 4 218 290 240 290 240 230 267 230))
+(connect D4:1 O1:1
+(points 4 493 190 526 190 526 190 548 190)))
+(stackingOrder 0 1 2 3 4)))))
+(device 0 FORMULA
+(properties
+(expr 1 "ramp(1024,1,1024)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 RECCONST
+(properties
+(name "Record"))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 4)
+(fieldName "max"
+(type Real64))
+(fieldName "min"
+(type Real64))
+(fieldName "mean"
+(type Real64))
+(fieldName "sdev"
+(type Real64)))
+(data 
+(record
+("max" 1024)
+("min" 1)
+("mean" 512.5)
+("sdev" 295.7476401709178))))))
+(device 10 FORMULA
+(properties
+(expr 1 "ArrayStats(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D2:1 D1:1)
+(connect D0:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 960 543)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 2 26)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 156 45))
+(terminals on)
+(pinCenter 120 130))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 171 195)
+(formatters))
+(pinCenter 690 130))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 155 37))
+(terminals on)
+(pinCenter 390 130))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 250 30))
+(connect D2:1 D1:1
+(points 2 520 130 602 130))
+(connect D0:1 D2:1
+(points 2 250 130 280 130)))
+(stackingOrder 0 2 1 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

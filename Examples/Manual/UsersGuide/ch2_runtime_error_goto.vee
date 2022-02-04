@@ -1,0 +1,252 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 20:29:13 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 2 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Sine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(input 1
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 8 CONTEXT
+(properties
+(name "AddNoise")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 VNOISEGENERATOR
+(properties
+(variableScope cont)
+(amplitude 0.401)
+(numPoints 256)
+(interval 0.02))
+(interface
+(output 1
+(name "noise WF"))))
+(device 1 FORMULA
+(properties
+(name "A + B")
+(variableScope cont)
+(expr 1 "A + B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 343 216)
+(anchorPt -1 -3)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 100 51)
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 110 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 32 25))
+(open
+(extent 36 50))
+(terminals on)
+(pinCenter 240 120))
+(connect D0:1 D1:2
+(points 2 162 130 221 130))
+(connect D1:1 O1:1
+(points 4 258 120 280 120 280 110 343 110)))
+(stackingOrder 0 1))))
+(device 9 INPUTDLG
+(properties
+(name "Int32 Input")
+(variableScope cont)
+(popupTitle "Int32 Input")
+(prompt "Enter Frequency:")
+(initialValue "100")
+(valueConstraint "1<=value AND value<=193")
+(vErrorMessage "You must enter a number  between 1 and 193."))
+(interface
+(output 1
+(name "Value")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "integer")))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 11 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 This program is to demonstrate the VEE Run Time error will prompt when a pin an input pin is not connected.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:1 D0:1)
+(connect D3:1 D1:1)
+(connect D1:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 902 551)
+(anchorPt -315 6)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 850 320))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 510 220))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 59 15))
+(terminals on)
+(pinCenter 620 220))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 62 25))
+(open
+(extent 435 107))
+(terminals on)
+(pinCenter 390 230))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing disabled))
+(pinCenter 510 70))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 294 66)
+(editing disabled))
+(pinCenter 850 100))
+(connect D2:1 D0:1
+(points 4 652 220 670 220 670 320 689 320))
+(connect D3:1 D1:1
+(points 2 423 220 450 220))
+(connect D1:1 D2:1
+(points 2 570 220 588 220)))
+(stackingOrder 4 5 3 1 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

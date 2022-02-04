@@ -1,0 +1,665 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:00:26 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Mag/Phase Display")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 1000)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 20
+"PURPOSE:      To illustrates a simple method of displaying the Magnitude and Phase vs."
+"              Frequency from a time-domain waveform.  Note that the Mag/Phase Display"
+"              is a UserObject and not a supplied display object." ""
+"USER INPUT REQUIRED: Press Run to display the Magnitude and Phase of the waveform."
+""
+"EXPLANATION:  A time-domain waveform can be processed by a FFT to give the Frequency"
+"              domain magnitude.  The FFT also produces, as the complex part of the"
+"              spectrum output, a phase vs. frequence output.  This program shows a simple"
+"              way to generate and plot both the magnitude and the phase vs. frequency,"
+"              given a time-domain waveform as input." ""
+"              Note use of the library \"toDB\" object to convert the magnitude to dB for"
+"              a more useful display." "              "
+"              The technique for shifting the X axis of both waveforms during display "
+"              relies on adding a right scale to the display.  Each waveform then has"
+"              a different scaling algorithm, allowing the magnitude to be shifted \"up\""
+"              (scale from 60 to -250) and the phase to be shifted \"down\" (600 to -200)."
+"")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 211 67)))
+(contextCarrier
+(active panel)
+(panel
+(extent 790 444)
+(widget 0 detail
+(relativeOrigin 340 400)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 790 390)
+(editing disabled)))
+(detail
+(extent 321 233)
+(anchorPt 86 133)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter -1 -73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 96 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 504 274)
+(anchorPt 251 90)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 70))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 85 60 110 -210 110 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 55)))
+(stackingOrder 0 1 2))))
+(device 3 CONTEXT
+(properties
+(name "Mag/Phase Display")
+(trigMode deg)
+(nextID 6))
+(interface
+(input 1
+(name "X")
+(requires
+(datatype Spectrum)
+(shape "Array 1D"))
+(optional yes)))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "To dB")
+(description2 7 "Converts from a linear unit to a dB unit.  Select"
+"the dB unit by clicking on the dB type field. "
+"The unit of the input is assumed to be either"
+"Volt or Watt depending the dB type selected." ""
+"LogMag references to 1, like dBW and dBV, but"
+"multiplies by 1 rather than 10 or 20.")
+(locked 1)
+(trigMode deg)
+(nextID 4))
+(interface
+(input 1
+(name "Mag")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "To dB")
+(expr 1 "TodB(Mag, Ref[ordinal(type)], Mult[ordinal(type)])"))
+(interface
+(input 1
+(name "Mag")
+(optional yes))
+(input 2
+(name "Ref")
+(optional yes))
+(input 3
+(name "Mult")
+(optional yes))
+(input 4
+(name "type")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 ENUMCONSTANT
+(properties
+(name "dB type"))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("dBV" 0)
+("dBmV" 1)
+("dBuV" 2)
+("dBW" 3)
+("dBm" 4)
+("dBmW" 5)
+("dBuW" 6)
+("dBpW" 7)
+("LogMag" 8))
+(data  "dBm"))
+(initValue Text
+(data  "dBV"))))
+(device 2 CONSTANT
+(properties
+(name "Ref"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 9)
+(data  [ 1 0.001 1E-006 1 0.001 0.001 1E-006 1E-012 1 ]))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Mult"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 9)
+(data  [ 20 20 20 10 10 10 10 10 1 ]))
+(initValue Real
+(data  0))))
+(configuration
+(connect I1:1 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D0:3)
+(connect D1:1 D0:4)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 168 73)
+(widget 1 detail
+(relativeOrigin 8 23)
+(title on)
+(borderStyle flat)
+(extent 147 26)
+(format list)))))
+(device 1 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "0")
+(mapTos "6450")))
+(device 2 FROMSPECTRUM
+(interface
+(input 1
+(name "Spec Data")
+(tag "Spec Data")
+(requires
+(datatype Spectrum))
+(lock constraints))
+(output 1
+(name "Pcx Ary")
+(tag "Pcx Ary"))
+(output 2
+(name "Start")
+(tag "Start")
+(lock name constraints))
+(output 3
+(name "Stop")
+(tag "Stop")
+(lock name constraints)))
+(implementation
+(freqMode "Start/Stop Freq")))
+(device 3 FROMPCOMPLEX
+(interface
+(input 1
+(name "PComplex")
+(requires
+(datatype PComplex))
+(lock name constraints))
+(output 1
+(name "Mag")
+(lock name constraints))
+(output 2
+(name "Phase")
+(lock name constraints))))
+(device 4 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "0")
+(mapTos "6450")))
+(device 5 YPLOT
+(properties
+(name "Magnitude/Phase"))
+(interface
+(input 1
+(name "Magnitude")
+(lock constraints))
+(input 2
+(name "Phase")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)))
+(configuration
+(connect D4:1 D0:1)
+(connect D3:2 D1:1)
+(connect D2:2 D1:2)
+(connect D2:3 D1:3)
+(connect I1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D3:1 D4:1)
+(connect D2:2 D4:2)
+(connect D2:3 D4:3)
+(connect D0:1 D5:1)
+(connect D1:1 D5:2)))
+(contextCarrier
+(active panel)
+(panel
+(extent 550 393)
+(widget 5 detail
+(relativeOrigin 2 2)
+(title off)
+(borderStyle flat)
+(extent 544 386)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Magnitude")
+(domainName "Frequency")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -250 60 4 linear))
+(scale 1
+(name "Phase")
+(domainName "Frequency")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 7)
+(show 1)
+(range -200 600 4 linear))
+(domain 0 7000 4 linear)
+(trace 0 onScale 0
+(name "Magnitude")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 1
+(name "Phase")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 0)))
+(detail
+(extent 732 584)
+(anchorPt 651 52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 168 73)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 112 70)
+(iconImage "build.icn"))
+(open
+(extent 318 154))
+(terminals on)
+(pinCenter -130 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 161 72)
+(iconImage "unbuild.icn"))
+(open
+(extent 156 100))
+(terminals on)
+(pinCenter -545 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 156 69)
+(iconImage "unbuild.icn"))
+(open
+(extent 80 70))
+(terminals on)
+(pinCenter -345 20))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 112 70)
+(iconImage "build.icn"))
+(open
+(extent 318 154))
+(terminals on)
+(pinCenter -130 0))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 145 70)
+(iconImage "display.icn"))
+(open
+(extent 592 325)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Magnitude")
+(domainName "Frequency")
+(pen 9)
+(show 1)
+(range -250 60 4 linear))
+(scale 1
+(name "Phase")
+(domainName "Frequency")
+(pen 7)
+(show 1)
+(range -200 600 4 linear))
+(domain 0 7000 4 linear)
+(trace 0 onScale 0
+(name "Magnitude")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 1
+(name "Phase")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 1))
+(pinCenter -265 360))
+(connect D4:1 D0:1
+(points 2 -72 0 -42 0))
+(connect D3:2 D1:1
+(points 4 -265 40 -245 40 -245 70 -189 70))
+(connect D2:2 D1:2
+(points 2 -462 90 -189 90))
+(connect D2:3 D1:3
+(points 2 -462 110 -189 110))
+(connect I1:1 D2:1
+(points 4 -649 250 -645 250 -645 90 -628 90))
+(connect D2:1 D3:1
+(points 4 -462 70 -445 70 -445 20 -426 20))
+(connect D3:1 D4:1
+(points 4 -265 0 -245 0 -245 -20 -189 -20))
+(connect D2:2 D4:2
+(points 4 -462 90 -225 90 -225 0 -189 0))
+(connect D2:3 D4:3
+(points 4 -462 110 -215 110 -215 20 -189 20))
+(connect D0:1 D5:1
+(points 6 41 0 55 0 55 150 -575 150 -575 280 -564 280))
+(connect D1:1 D5:2
+(points 6 -72 90 -55 90 -55 140 -585 140 -585 440 -564 440)))
+(stackingOrder 0 1 2 3 4 5))))
+(configuration
+(connect D0:1 D3:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 810 602)
+(anchorPt 155 347)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 156 70)
+(iconImage "virtual.icn"))
+(open
+(extent 220 234))
+(terminals on)
+(pinCenter -5 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 380 -300))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 15 -270))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 163 30))
+(open
+(extent 440 394)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 410 0))
+(connect D0:1 D3:1
+(points 2 147 0 187 0)))
+(stackingOrder 0 2 3 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

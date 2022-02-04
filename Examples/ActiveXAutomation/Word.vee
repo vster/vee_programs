@@ -1,0 +1,479 @@
+(saveFormat "7.0")
+(date "Fri 03/May/2013 16:54:39 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020905-0000-0000-C000-000000000046}")
+(desc "Microsoft Word 8.0 Object Library")
+(filename "D:\\Programs\\Microsoft\\Office97\\Office\\MSWORD8.OLB")
+(verMajor 8)
+(verMinor 0)
+(lcid 0x409)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 30)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "Graph")
+(variableName Graph)
+(variableScope glob)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 YPLOT
+(properties
+(name "XY Trace")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 1 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 308 270)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 307 269)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0)))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 563 348)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 303 265)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0)))
+(pinCenter 380 190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 130 190))
+(connect D1:1 D0:1
+(points 2 190 190 226 190)))
+(stackingOrder 0 1)))))
+(device 3 DECLVAR
+(properties
+(name "Declare Doc")
+(scope glob)
+(globalName "Doc"))
+(implementation
+(value Object
+(data  "COM OFF Word.Document"))))
+(device 6 FORMULA
+(properties
+(name "Start Word, Insert Text and Bitmap File")
+(variableScope cont)
+(expr 15 "Set App = CreateObject(\"Word.Application\");" "App.Visible = TRUE;"
+"Set Doc = App.Documents.Add();" "Doc.Activate();" "Set Wnd = App.ActiveWindow;"
+"Set Sel = App.Selection;"
+"Wnd.View.Type = 3; // wdPageView in Word97, wdPrintView in Word2000"
+"Sel.TypeText(\"*** Test Results ***\");" "Sel.TypeParagraph();"
+"Set Bmp = Doc.Shapes.AddPicture(FileName);" "Bmp.LockAspectRatio = FALSE;"
+"Bmp.Width = 237;" "Bmp.Height = 223;" "Sel.TypeParagraph();"
+"Sel.InsertDateTime(\"M/d/yy h:mm:ss am/pm\", 0);"))
+(interface
+(input 1
+(name "FileName")
+(optional yes))))
+(device 7 DECLVAR
+(properties
+(name "Declare Wnd")
+(scope glob)
+(globalName "Wnd"))
+(implementation
+(value Object
+(data  "COM OFF Word.Window"))))
+(device 8 DECLVAR
+(properties
+(name "Declare Sel")
+(scope glob)
+(globalName "Sel"))
+(implementation
+(value Object
+(data  "COM OFF Word.Selection"))))
+(device 10 DECLVAR
+(properties
+(name "Declare App")
+(scope glob)
+(globalName "App"))
+(implementation
+(value Object
+(data  "COM OFF Word.Application"))))
+(device 11 CALL
+(properties
+(name "Call Graph")
+(variableScope cont)
+(callFunc "Graph")
+(parmMode rev30)))
+(device 12 FORMULA
+(properties
+(name "savePanelImage")
+(variableScope cont)
+(expr 1 "savePanelImage(\"Graph\", fileName, 256)"))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 FORMULA
+(properties
+(name "Get Active Printer")
+(variableScope cont)
+(expr 1 "Printer = App.ActivePrinter"))
+(interface
+(output 1
+(name "Printer")
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "ImageFileName")
+(variableScope cont)
+(expr 1 "getEnv(\"TEMP\")+\"\\\\panel.bmp\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 DECLVAR
+(properties
+(name "Declare Bmp")
+(scope glob)
+(globalName "Bmp"))
+(implementation
+(value Object
+(data  "COM OFF Word.Shape"))))
+(device 19 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Doc.PrintOut(0)")))
+(device 23 IFTHENELSE
+(properties
+(name "Is Printer Config\'d")
+(variableScope cont)
+(cases 1 "strLen(str)!=0"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 24 FORMULA
+(properties
+(name "Close Word")
+(variableScope cont)
+(expr 2 "App.DisplayAlerts = wdAlertsNone;" "App.Quit(0);")))
+(device 25 MESSAGEBOX
+(properties
+(variableScope cont)
+(autoTimeout 1)
+(popupTitle "VEE Example")
+(position 8 52)
+(message "Do you want to print this report?")
+(symbol Information))
+(interface
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "No")))
+(device 26 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+)))
+(device 28 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\fs20 Requirements: Microsoft Word\\par\r\n\\par\r\nThis example uses Word and ActiveX Automation to insert test data and a bitmap of an VEE UserFunction into a Word document.\\par\r\n}\r\n"
+)))
+(device 29 DELGLOBAL
+(properties
+(variableScope cont)
+(globalName "globalA")
+(delAllGlobals 1)))
+(configuration
+(connect D6:0 D1:0)
+(connect D8:1 D1:1)
+(connect D5:0 D6:0)
+(connect D8:1 D6:1)
+(connect D1:0 D7:0)
+(connect D13:1 D10:0)
+(connect D7:1 D11:1)
+(connect D7:0 D12:0)
+(connect D11:1 D13:0)
+(connect D12:0 D16:0)))
+(contextCarrier
+(wndRestoredOrigin 3 2)
+(wndRestoredExtent 895 573)
+(wndState max)
+(active detail)
+(detail
+(extent 1019 877)
+(anchorPt 86 264)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 344 121))
+(pinCenter 510 -120))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 228 0))
+(open
+(extent 295 247))
+(pinCenter 310 130))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 344 121))
+(pinCenter 600 -120))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 344 121))
+(pinCenter 690 -120))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 344 121))
+(pinCenter 420 -120))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 64 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 310 -70))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 300 50))
+(terminals on)
+(pinCenter 310 -40))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 295 50))
+(pinCenter 310 320))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 97 15))
+(open
+(extent 198 50))
+(terminals on)
+(pinCenter 40 -40))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 344 121))
+(pinCenter 780 -120))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 139 50))
+(pinCenter 760 420))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 560 310))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 71 0))
+(open
+(extent 229 65))
+(pinCenter 310 410))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 81 34))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 690 340))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing enabled))
+(pinCenter 540 -180))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 96)
+(editing disabled))
+(pinCenter 150 -140))
+(devCarrierFor 29
+(active open)
+(icon)
+(open
+(extent 114 89))
+(terminals on)
+(pinCenter 310 560))
+(connect D6:0 D1:0
+(points 2 310 -30 310 -14))
+(connect D8:1 D1:1
+(points 4 91 -40 130 -40 130 130 160 130))
+(connect D5:0 D6:0
+(points 2 310 -60 310 -50))
+(connect D8:1 D6:1
+(points 2 91 -40 256 -40))
+(connect D1:0 D7:0
+(points 2 310 256 310 274))
+(connect D13:1 D10:0
+(points 3 733 330 760 330 760 374))
+(connect D7:1 D11:1
+(points 4 460 320 480 320 480 310 504 310))
+(connect D7:0 D12:0
+(points 2 310 347 310 357))
+(connect D11:1 D13:0
+(points 3 615 300 690 300 690 320))
+(connect D12:0 D16:0
+(points 2 310 445 310 495)))
+(stackingOrder 4 0 2 3 9 1 12 6 7 11 13 10 8 5 16 15 14))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

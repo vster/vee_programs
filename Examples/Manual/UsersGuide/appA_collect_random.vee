@@ -1,0 +1,278 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:08:30 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 START25)
+(device 1 DO
+(interface
+(output 1
+(name "Do"))))
+(device 2 FORCOUNT
+(properties
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "random(0,1)")
+(expr 1 "random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 9 DO
+(interface
+(output 1
+(name "Do"))))
+(device 10 FORCOUNT
+(properties
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 11 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(name "random(0,1)")
+(expr 1 "random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 14 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 15 START25)
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D1:1 D3:1)
+(connect D2:0 D3:2)
+(connect D2:1 D4:0)
+(connect D4:1 D5:1)
+(connect D12:0 D6:0)
+(connect D6:0 D7:0)
+(connect D6:1 D8:1)
+(connect D7:0 D8:2)
+(connect D7:1 D9:0)
+(connect D9:1 D10:1)
+(connect D7:0 D10:2)
+(connect D10:1 D11:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt -44 53)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 100 50))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 24 14))
+(open)
+(terminals on)
+(pinCenter 100 90))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 100 170))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 610 150))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 260 160))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 174 167)
+(noformatter))
+(pinCenter 440 160))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 28 19))
+(open)
+(terminals on)
+(pinCenter 100 390))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 100 460))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 620 440))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 260 400))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 260 480))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 174 167)
+(noformatter))
+(pinCenter 450 440))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 100 330))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 240 -20))
+(connect D0:0 D1:0
+(points 2 100 63 100 80))
+(connect D1:0 D2:0
+(points 2 100 99 100 134))
+(connect D1:1 D3:1
+(points 6 114 90 150 90 150 40 550 40 550 140 571 140))
+(connect D2:0 D3:2
+(points 5 100 188 100 270 550 270 550 160 571 160))
+(connect D2:1 D4:0
+(points 5 150 170 170 170 170 130 260 130 260 145))
+(connect D4:1 D5:1
+(points 2 299 160 350 160))
+(connect D12:0 D6:0
+(points 2 100 343 100 378))
+(connect D6:0 D7:0
+(points 2 100 402 100 424))
+(connect D6:1 D8:1
+(points 6 116 390 150 390 150 320 560 320 560 430 581 430))
+(connect D7:0 D8:2
+(points 7 100 478 100 490 210 490 210 550 560 550 560 450 581 450))
+(connect D7:1 D9:0
+(points 5 150 460 170 460 170 370 260 370 260 385))
+(connect D9:1 D10:1
+(points 6 299 400 320 400 320 440 220 440 220 470 231 470))
+(connect D7:0 D10:2
+(points 3 100 478 100 490 231 490))
+(connect D10:1 D11:1
+(points 4 289 480 330 480 330 440 360 440)))
+(stackingOrder 0 1 5 6 7 2 4 9 10 11 12 3 8 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

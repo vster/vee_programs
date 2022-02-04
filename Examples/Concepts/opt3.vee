@@ -1,0 +1,1018 @@
+(saveFormat "7.0")
+(date "Mon 27/Aug/2007 14:58:36 ")
+(veerev "8.01.10010.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.9 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 22)
+(popupTitleText "Optimizing the  Sieve")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Integer")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  200))
+(initValue Int32
+(data  0))))
+(device 1 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 3 TEXTDISPLAY
+(properties
+(name "No. of Primes")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 TIMER
+(properties
+(name "Time (Sec)")
+(variableScope cont))
+(interface
+(input 1
+(name "Time1"))
+(input 2
+(name "Time2"))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 5 TIMER
+(properties
+(name "Time (Sec)")
+(variableScope cont))
+(interface
+(input 1
+(name "Time1"))
+(input 2
+(name "Time2"))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 6 TEXTDISPLAY
+(properties
+(name "No. of Primes")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 7 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 8 CONSTANT
+(properties
+(name "Integer")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  200))
+(initValue Int32
+(data  0))))
+(device 9 CONTEXT
+(properties
+(name "Fast Sieve Sub")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(interface
+(input 1
+(name "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "sum(x)")
+(variableScope cont)
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "X")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 COLLECTOR
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 2 FORRANGE
+(properties
+(variableScope cont)
+(from 3)
+(thru 200)
+(step 2))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name)
+(optional yes)
+(buffer YES))
+(output 1
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "(A MOD ramp(intPart(A/2),2,intPart(A/2)+1))>0")
+(variableScope cont)
+(expr 1 "(A MOD ramp(intPart(A/2), 2, intPart(A/2)+1))>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)
+(connect D3:1 D1:1)
+(connect D2:0 D1:2)
+(connect I1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 710 280)
+(anchorPt 760 139)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 29))
+(open
+(extent 24 50))
+(terminals on)
+(pinCenter -210 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 95 29))
+(open
+(extent 33 86))
+(terminals on)
+(pinCenter -340 0))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 169 82))
+(pinCenter -620 -70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 415 25))
+(open
+(extent 439 54))
+(terminals on)
+(pinCenter -300 -70))
+(connect D1:1 D0:1
+(points 2 -290 0 -247 0))
+(connect D3:1 D1:1
+(points 6 -90 -70 -70 -70 -70 50 -410 50 -410 -10 -390 -10))
+(connect D2:0 D1:2
+(points 3 -620 -27 -620 10 -390 10))
+(connect I1:1 D2:1
+(points 4 -760 0 -750 0 -750 -70 -707 -70))
+(connect D2:1 D3:1
+(points 2 -533 -70 -510 -70))
+(connect D0:1 O1:1
+(points 2 -174 0 -51 0)))
+(stackingOrder 3 2 1 0))))
+(device 10 CONTEXT
+(properties
+(name "Slow Sieve Sub")
+(variableScope cont)
+(trigMode deg)
+(nextID 12))
+(interface
+(input 1
+(name "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "sum(x)")
+(variableScope cont)
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 COLLECTOR
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 4 FORRANGE
+(properties
+(variableScope cont)
+(from 3)
+(thru 200)
+(step 2))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name)
+(optional yes)
+(buffer YES))
+(output 1
+(lock name constraints))))
+(device 5 FORRANGE
+(properties
+(variableScope cont)
+(from 2)
+(thru 100)
+(step 1))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 6 FORMULA
+(properties
+(name "mod")
+(variableScope cont)
+(expr 1 "X MOD Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 IFTHENELSE
+(properties
+(name "A==0")
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 CONSTANT
+(properties
+(name "1")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 9 CONSTANT
+(properties
+(name "0")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 10 BREAK
+(properties
+(variableScope cont)))
+(device 11 FORMULA
+(properties
+(name "(A/2)+1")
+(variableScope cont)
+(expr 1 "intPart(A/2)+1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D9:1 D0:1)
+(connect D8:1 D0:2)
+(connect D2:1 D1:1)
+(connect D3:1 D2:1)
+(connect D4:0 D2:2)
+(connect D5:0 D3:0)
+(connect D0:1 D3:1)
+(connect I1:1 D4:1)
+(connect D4:1 D5:0)
+(connect D11:1 D5:1)
+(connect D4:1 D6:1)
+(connect D5:1 D6:2)
+(connect D6:1 D7:1)
+(connect D7:2 D8:0)
+(connect D7:1 D9:0)
+(connect D9:0 D10:0)
+(connect D4:1 D11:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 721 305)
+(anchorPt 465 171)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter -60 10))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 29))
+(open)
+(terminals on)
+(pinCenter 200 20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 95 29))
+(open
+(extent 33 86))
+(terminals on)
+(pinCenter 100 20))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 10 10))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 169 82))
+(pinCenter -330 -140))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 90 61)
+(iconImage "loop.icn"))
+(open
+(extent 170 86))
+(pinCenter -270 0))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter -160 -130))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 64 70))
+(terminals on)
+(pinCenter -90 -130))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 150 32)
+(showFormat int))
+(pinCenter -130 20))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 150 32)
+(showFormat int))
+(pinCenter 30 -110))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 30 -70))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 160 60))
+(terminals on)
+(pinCenter -380 0))
+(connect D9:1 D0:1
+(points 6 55 -110 90 -110 90 -30 -100 -30 -100 0 -86 0))
+(connect D8:1 D0:2
+(points 2 -105 20 -86 20))
+(connect D2:1 D1:1
+(points 2 150 20 163 20))
+(connect D3:1 D2:1
+(points 2 35 10 50 10))
+(connect D4:0 D2:2
+(points 5 -330 -125 -330 60 40 60 40 30 50 30))
+(connect D5:0 D3:0
+(points 6 -270 33 -270 50 -200 50 -200 -20 10 -20 10 -5))
+(connect D0:1 D3:1
+(points 2 -35 10 -16 10))
+(connect I1:1 D4:1
+(points 4 -465 -19 -450 -19 -450 -140 -388 -140))
+(connect D4:1 D5:0
+(points 5 -273 -140 -250 -140 -250 -100 -270 -100 -270 -33))
+(connect D11:1 D5:1
+(points 2 -339 0 -318 0))
+(connect D4:1 D6:1
+(points 2 -273 -140 -186 -140))
+(connect D5:1 D6:2
+(points 4 -223 0 -210 0 -210 -120 -186 -120))
+(connect D6:1 D7:1
+(points 2 -135 -130 -116 -130))
+(connect D7:2 D8:0
+(points 5 -65 -120 -40 -120 -40 -90 -130 -90 -130 5))
+(connect D7:1 D9:0
+(points 3 -65 -140 30 -140 30 -125))
+(connect D9:0 D10:0
+(points 2 30 -95 30 -85))
+(connect D4:1 D11:1
+(points 6 -273 -140 -250 -140 -250 -100 -440 -100 -440 0 -422 0))
+(connect D1:1 O1:1
+(points 4 236 20 250 20 250 -19 255 -19)))
+(stackingOrder 11 0 1 5 6 7 4 10 9 2 3 8))))
+(device 13 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 6))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:  Using FORMULA objects to evaluate expressions allows Sieve to run\\par\r\n          faster.\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press RUN and observe the relative speed at which the\\par\r\n          answers are calculated.\\par\r\n\\par\r\nEXPLANATION:  Because execution of each VEE object requires a small amount of\\par\r\n          overhead, some algorithms that repeatedly perform the same math\\par\r\n          calculations can be sped up by doing as much as possible in one\\par\r\n          FORMULA object.  \\par\r\n\\par\r\n          The Sieve is a good example of a repetitive calculation that can\\par\r\n          benefit from Formula evaluation.  Double-click both \"Sieve\"\\par\r\n          UserObjects and compare their implementations.   In the lower (slow)\\par\r\n          version, each iteration of the ForRange iterator must run the nested\\par\r\n          iterator while evaluating the MOD function to locate prime numbers.  \\par\r\n\\par\r\n          In the upper (fast) version, the nested iterator is replaced with a\\par\r\n          Ramp function that generates the array of numbers that each nested\\par\r\n          iterator would have generated.  The MOD function then uses PARALLEL\\par\r\n          math to simultaneously evaluate the MOD of each element of the Ramp.\\par\r\n          This produces an output array that is tested for non-zero results.\\par\r\n          The result of testing each array is accumulated in the COLLECTER and\\par\r\n          totaled after all iterations are complete.          \\par\r\n}\r\n"
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 204 40)))
+(contextCarrier
+(active panel)
+(panel
+(extent 800 502)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 350 460)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 800 450)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 329 243)
+(anchorPt 154 67)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 70)))
+(stackingOrder 1 0))))
+(device 3 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 100 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 542 264)
+(anchorPt 135 80)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(pinCenter 200 70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 140 0))
+(connect D1:0 D0:1
+(points 5 200 85 200 100 -80 100 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 165 -10 200 -10 200 55))
+(connect D0:1 D2:1
+(points 2 59 0 114 0)))
+(stackingOrder 0 2 1))))
+(device 16 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 17 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 18 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 19 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The Slow Version takes about 10 to 20 times longer!!\\par\r\n}\r\n"
+)))
+(device 21 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D1:0 D0:0)
+(connect D12:0 D1:0)
+(connect D9:1 D2:1)
+(connect D1:1 D3:1)
+(connect D11:1 D3:2)
+(connect D6:1 D4:1)
+(connect D12:1 D4:2)
+(connect D8:1 D5:1)
+(connect D6:0 D7:0)
+(connect D7:1 D8:1)
+(connect D0:1 D9:1)
+(connect D0:0 D11:0)
+(connect D7:0 D12:0)
+(connect D11:0 D13:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 796 607)
+(anchorPt 88 475)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 150 28)
+(showFormat int))
+(pinCenter 0 -30))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 62 26))
+(open)
+(terminals on)
+(pinCenter 0 -100))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 201 37))
+(pinCenter 380 -30))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 64)
+(iconImage "timer.icn"))
+(open
+(extent 162 34))
+(pinCenter 600 20))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 110 64)
+(iconImage "timer.icn"))
+(open
+(extent 162 34))
+(pinCenter 610 -210))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 201 37))
+(pinCenter 380 -260))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 62 26))
+(open)
+(terminals on)
+(pinCenter 0 -340))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 150 28)
+(showFormat int))
+(pinCenter 0 -260))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 140 29))
+(terminals on)
+(pinCenter 170 -260))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 136 29))
+(terminals on)
+(pinCenter 170 -30))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(pinCenter 80 -410))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 62 26))
+(open)
+(terminals on)
+(pinCenter 0 30))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 62 26))
+(open)
+(terminals on)
+(pinCenter 0 -200))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 110 32))
+(pinCenter 0 100))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 475 42)
+(editing disabled))
+(title off)
+(pinCenter 320 -140))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 381 86)
+(editing disabled))
+(pinCenter 430 -410))
+(connect D1:0 D0:0
+(points 2 0 -85 0 -65))
+(connect D12:0 D1:0
+(points 2 0 -185 0 -116))
+(connect D9:1 D2:1
+(points 2 240 -30 277 -30))
+(connect D1:1 D3:1
+(points 4 33 -100 500 -100 500 10 516 10))
+(connect D11:1 D3:2
+(points 2 33 30 516 30))
+(connect D6:1 D4:1
+(points 4 33 -340 500 -340 500 -220 526 -220))
+(connect D12:1 D4:2
+(points 2 33 -200 526 -200))
+(connect D8:1 D5:1
+(points 2 242 -260 277 -260))
+(connect D6:0 D7:0
+(points 2 0 -325 0 -295))
+(connect D7:1 D8:1
+(points 2 77 -260 97 -260))
+(connect D0:1 D9:1
+(points 2 77 -30 99 -30))
+(connect D0:0 D11:0
+(points 2 0 -14 0 14))
+(connect D7:0 D12:0
+(points 2 0 -244 0 -216))
+(connect D11:0 D13:0
+(points 2 0 45 0 63)))
+(stackingOrder 7 12 6 5 1 13 2 3 4 11 0 10 14 15 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

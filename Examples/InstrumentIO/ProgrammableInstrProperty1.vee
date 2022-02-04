@@ -1,0 +1,413 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:48:28 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "GPIB_Device"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 11)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 0)
+(model ""
+(standard 488))))
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "Light Blue Gray")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "White" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Yellow" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Object Description Text" "Courier New" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Notepad Text" "Courier New" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 22)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Get timeout")
+(expr 1 "IO.GPIB_Device.timeout"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Get address")
+(expr 1 "IO.GPIB_Device.address"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Set timeout")
+(expr 1 "IO.GPIB_Device.timeout=20"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Get timeout")
+(expr 1 "IO.GPIB_Device.timeout"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "Original Timeout Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(properties
+(name "New Timeout Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Original Bus Address"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 IODEVICE
+(properties
+(name "GPIB_Device ( @ 711)")
+(transactions 3 "WRITE TEXT \"*rst\" EOL" "WRITE TEXT \"MEAS:VOLT:DC?\" EOL"
+"READ TEXT x REAL64"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "GPIB_Device")))
+(device 8 FORMULA
+(properties
+(name "Set address")
+(expr 1 "IO.GPIB_Device.address = addr"))
+(interface
+(input 1
+(name "addr")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 TEXTDISPLAY
+(properties
+(name "Voltage Reading in Volt DC"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 FORMULA
+(properties
+(name "Get address")
+(expr 1 "IO.GPIB_Device.address"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(properties
+(name "New Bus Address"))
+(interface
+(input 1
+(name "Data"))))
+(device 14 NOTE
+(properties
+(text2 26 "This program illustrates programmable instrument"
+"properties. This program expects a DMM at bus address"
+"722 to run correctly. This program has its own embedded"
+"instrument configuration with one entry."
+"The bus address of this instrument you see "
+"in the Instrument Manager does not matter as"
+"we are going to set it on the fly."
+"The first formula returns the timeout property."
+"The second formula sets a new timeout value."
+"The thirst formula returns the new timeout value."
+"The fourth formula returns the current address " "property."
+"The fifth formula sets the address property to a new" "value."
+"The sixth formula returns the new address value."
+"The Direct I/O object makes a single DC voltage "
+"measurement on a DMM at the most recently set" "bus address."
+"If you pause the program after your set properties "
+"to new values and you go to the Instrument Manager, "
+"it shows new settings. When your program terminates"
+"the IO configuration reverts to the original (pre-run)"
+"state unless you pause the program and save the "
+"changes made up to that point." "" "")))
+(device 20 CONSTANT
+(properties
+(name "Int32"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  722))
+(initValue Int32
+(data  0))))
+(device 21 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:0 D1:0)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D0:1 D4:1)
+(connect D3:1 D5:1)
+(connect D1:1 D6:1)
+(connect D10:0 D7:0)
+(connect D1:0 D8:0)
+(connect D13:1 D8:1)
+(connect D7:1 D9:1)
+(connect D8:0 D10:0)
+(connect D10:1 D11:1)))
+(contextCarrier
+(wndOrigin 2 6)
+(wndState res)
+(active detail)
+(detail
+(extent 1098 833)
+(anchorPt -90 11)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 69 0))
+(open
+(extent 156 33))
+(terminals on)
+(pinCenter 330 110))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 167 31))
+(terminals on)
+(pinCenter 330 350))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 201 33))
+(terminals on)
+(pinCenter 330 190))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 69 0))
+(open
+(extent 159 34))
+(terminals on)
+(pinCenter 330 270))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 137 0))
+(open
+(extent 173 22))
+(pinCenter 590 110))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 117 0))
+(open
+(extent 153 22))
+(pinCenter 580 270))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 128 0))
+(open
+(extent 164 22))
+(pinCenter 590 350))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 340 610))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 73 0))
+(open
+(extent 216 32))
+(terminals on)
+(pinCenter 335 430))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 162 0))
+(open
+(extent 214 20))
+(pinCenter 620 610))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 167 31))
+(terminals on)
+(pinCenter 330 510))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 108 0))
+(open
+(extent 144 22))
+(pinCenter 580 510))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 415 397)
+(editing enabled))
+(pinCenter 910 360))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 130 430))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 920 100))
+(connect D3:0 D1:0
+(points 2 340 289 340 314))
+(connect D0:0 D2:0
+(points 2 340 129 340 153))
+(connect D2:0 D3:0
+(points 2 340 209 340 232))
+(connect D0:1 D4:1
+(points 2 460 110 501 110))
+(connect D3:1 D5:1
+(points 2 462 270 501 270))
+(connect D1:1 D6:1
+(points 2 466 350 505 350))
+(connect D10:0 D7:0
+(points 2 340 528 340 552))
+(connect D1:0 D8:0
+(points 2 340 368 340 393))
+(connect D13:1 D8:1
+(points 2 166 430 184 430))
+(connect D7:1 D9:1
+(points 2 487 610 510 610))
+(connect D8:0 D10:0
+(points 2 340 448 340 474))
+(connect D10:1 D11:1
+(points 2 466 510 505 510)))
+(stackingOrder 0 5 4 6 7 11 9 2 3 1 10 8 13 14 12))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

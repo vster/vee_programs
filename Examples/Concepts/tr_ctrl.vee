@@ -1,0 +1,433 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:02:43 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 59)
+(popupTitleText "Trace Color Control")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 34 RANDOMNUMBER
+(properties
+(lowerLimit 0)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 35 FORMULA
+(properties
+(name "if (a<limit) green else red")
+(expr 1 "(a<limit ? 3 : 2)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "limit")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 40 TORECORD
+(properties
+(name "Trace Color")
+(outputType array))
+(interface
+(input 1
+(name "traceNum")
+(optional yes))
+(input 2
+(name "pen")
+(optional yes))
+(output 1
+(name "Record")
+(tag "Record"))))
+(device 41 CONSTANT
+(properties
+(name "Trace Num"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 45 FORCOUNT
+(properties
+(count 25))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 46 DELAY
+(properties
+(delay 0.2))
+(interface
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 47 SLIDER
+(properties
+(name "Pass Limit")
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0))
+(initValue Real
+(data  0))))
+(device 51 YPLOT
+(properties
+(name "Strip Chart"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Traces")
+(tag "TracesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode strip)
+(bufferSize 10000)))
+(device 56 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(text2 17 "PURPOSE:     To show the use of the Traces control input pin to a "
+"             Strip Chart display. The control pin changes the line "
+"             color from green to red, depending on the value of the data." ""
+"USER INPUT REQUIRED: Change the Pass Limit (via the Slider) and press "
+"             the Run button." ""
+"EXPLANATION: Often you want to bring attention to a display or"
+"             dynamically change the appearance of a trace. In "
+"             this example, when a single value exceeds a limit, "
+"             the entire trace color changes to get your attention.\033" ""
+"             A record with the trace number (1) and the pen color"
+"             is built and sent to a control input on the display. "
+"             Other options that can be set this way include line "
+"             type and point type." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 250 108)))
+(contextCarrier
+(active panel)
+(panel
+(extent 699 373)
+(widget 1 detail
+(relativeOrigin 0 0)
+(font "courier" 14)
+(title off)
+(borderStyle none)
+(extent 700 320)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 300 330)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 251 270)
+(anchorPt 160 210)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -60 -40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "notepad.icn"))
+(open
+(extent 671 98)
+(editing enabled))
+(title off)
+(font "courier" 14)
+(pinCenter -60 -150)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 278 65)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 76 12)
+(title off)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button)))
+(detail
+(extent 482 271)
+(anchorPt 245 96)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 720 354)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 75 60 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 45)))
+(stackingOrder 0 1 2))))
+(device 58 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D4:1 D0:0)
+(connect D0:1 D1:1)
+(connect D6:1 D1:2)
+(connect D3:1 D2:1)
+(connect D1:1 D2:2)
+(connect D7:0 D5:0)
+(connect D4:1 D6:0)
+(connect D0:1 D7:1)
+(connect D2:1 D7:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 807 603)
+(anchorPt 321 220)
+(configuration
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 135 31))
+(open)
+(terminals on)
+(pinCenter -30 0))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 211 30))
+(open
+(extent 185 104))
+(terminals on)
+(pinCenter 40 210))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "build.icn"))
+(open
+(extent 146 115))
+(terminals on)
+(pinCenter 100 100))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 91 24))
+(open
+(extent 153 34)
+(showFormat int))
+(pinCenter -20 80))
+(devCarrierFor 45
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 128 33))
+(pinCenter -250 -50))
+(devCarrierFor 46
+(active open)
+(icon)
+(open
+(extent 120 32))
+(pinCenter 330 240))
+(devCarrierFor 47
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 131 225)
+(layout vertical)
+(fastmode off))
+(pinCenter -160 220))
+(devCarrierFor 51
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 294 263)
+(displayMode 63)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1 4 linear))
+(domain 0 25 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 2)
+(lineType 1)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(pinCenter 330 30))
+(devCarrierFor 56
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 278 68)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -170 -160))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 160 -170))
+(connect D4:1 D0:0
+(points 3 -184 -50 -30 -50 -30 -18))
+(connect D0:1 D1:1
+(points 6 40 0 60 0 60 40 -80 40 -80 200 -68 200))
+(connect D6:1 D1:2
+(points 2 -92 220 -68 220))
+(connect D3:1 D2:1
+(points 2 28 80 42 80))
+(connect D1:1 D2:2
+(points 6 148 210 170 210 170 170 20 170 20 120 42 120))
+(connect D7:0 D5:0
+(points 2 330 164 330 203))
+(connect D4:1 D6:0
+(points 3 -184 -50 -160 -50 -160 87))
+(connect D0:1 D7:1
+(points 4 40 0 70 0 70 -40 180 -40))
+(connect D2:1 D7:2
+(points 2 157 100 180 100)))
+(stackingOrder 0 3 2 7 4 8 5 1 6 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE4438c-AgE8267x_Excel.vee">
+		<Description>Download waveform to arbitrary waveform generator, save to Excel</Description>
+		<LogicalInstrument name="SigGen">
+			<SupportedInstruments>
+				<Instrument idn="AG E4438C"/>
+				<Instrument idn="AG E8267C"/>
+				<Instrument idn="AG E8267D"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,204 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:17:50 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 38)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 VFUNCTIONGENERATOR
+(properties
+(name "AcquiredData")
+(function Cosine)
+(frequency 2)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 2)
+(numPoints 250))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 17 MATLABSCRIPT
+(properties
+(name "MATLAB Script: PLOT")
+(matlabexpr 5 "Loc=find(Data(:,2)>.99)" "timeLoc=Data(Loc,1);"
+"plot(Data(:,1),Data(:,2), \'r-\', ..." "         timeLoc,Data(Loc,2),\'bo\');"
+"")
+(matlabHelpLink "help/techdoc/ref/plot.html"))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(output 1
+(name "timeLoc")
+(optional yes))))
+(device 21 TEXTDISPLAY
+(properties
+(name "Time Locations"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 MATLABSCRIPT
+(properties
+(matlabexpr 3 "timeData=linspace(0,2,length(Data))\';" "Data=[timeData Data];"
+""))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(output 1
+(name "Data")
+(optional yes))))
+(device 24 NOTE
+(properties
+(name "linspace")
+(text2 9 "The linspace function generates linearly spaced vectors."
+" It is similar to the colon operator \":\", but gives direct "
+"control over the number of points." ""
+"y = linspace(a,b) generates a row vector y of 100 points linearly"
+" spaced between a and b." "" "y = linspace(a,b,n) generates n points." "")))
+(device 29 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 34 CONFIRM25
+(properties
+(name "Done")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 36 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE:     To illustrate how to use MATLAB\'s \"find\" command.\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press the Run toolbar button, wait for the MATLAB plot window.\\par\r\n                      To end the Vee Program, Press the Done button.\\par\r\n\\par\r\nEXPLANATION: \\par\r\n             In this example, we show the user how to convert a 1 dimensional\\par\r\n             array of data into a 2 dimensional array that contains the time. \\par\r\n             Using MATLAB\'s  \"find\" command, the location of the maximum values\\par\r\n             for the waveform are found and circled on the plot.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 37 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D3:1 D1:1)
+(connect D1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D1:0 D6:0)))
+(contextCarrier
+(wndOrigin -3 1)
+(wndState res)
+(active detail)
+(detail
+(extent 1045 728)
+(anchorPt -324 -138)
+(configuration
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 81 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 390 450))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 245 127))
+(terminals on)
+(pinCenter 620 600))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 93 0))
+(open
+(extent 165 247))
+(pinCenter 940 600))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 245 57))
+(terminals on)
+(pinCenter 620 450))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 475 157)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 850 410))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 415 90)
+(editing enabled))
+(pinCenter 630 750))
+(devCarrierFor 34
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 630 690))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 625 197)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 660 270))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 630 800))
+(connect D3:1 D1:1
+(points 6 785 450 810 450 810 500 440 500 440 600 455 600))
+(connect D1:1 D2:1
+(points 2 805 600 855 600))
+(connect D0:1 D3:1
+(points 2 433 450 455 450))
+(connect D1:0 D6:0
+(points 2 630 666 630 676)))
+(stackingOrder 0 3 1 2 4 5 6 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

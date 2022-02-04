@@ -1,0 +1,122 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:12:31 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 VFUNCTIONGENERATOR
+(properties
+(function Cosine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 8 NOTE
+(properties
+(text2 4 "Display Waveform generates" "a cosine waveform and sends"
+"it to a real time display." "")))
+(device 10 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 902 551)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 30 60)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 195 210))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 292 80)
+(editing enabled))
+(pinCenter 400 40))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 540 270))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 190 350))
+(connect D0:1 D2:1
+(points 4 330 210 350 210 350 270 379 270)))
+(stackingOrder 1 0 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

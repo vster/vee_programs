@@ -1,0 +1,530 @@
+(saveFormat "2.3")
+(date "Thu 19/Feb/2004 16:27:44 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "F_changes_character_into_string")
+(trigMode deg)
+(nextID 31)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(input 1
+(name "text_input")
+(optional yes))
+(input 2
+(name "nchar_changed")
+(optional yes))
+(input 3
+(name "nchar_changing")
+(optional yes))
+(output 1
+(type data)
+(name "text_output")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 2 FROMSTRING
+(properties
+(name "From String CHAR:1 ARRAY:*")
+(transactions 1 "READ TEXT x CHAR:1 ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 12 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 ALLOCATEARRAY
+(properties
+(name "Alloc Int32"))
+(interface
+(input 1
+(name "Dim Size 1")
+(tag "Dim Size 1")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Init Value")
+(tag "Init Value")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "23")
+(type "Int32")
+(initEnum "Init Value")
+(initialValue
+(data  111))
+(from 1)
+(thru 10)))
+(device 15 FORMULA
+(properties
+(name "charToInt(str)")
+(expr 1 "charToInt(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "NOT(bitXor(x,y))")
+(expr 1 "NOT(bitXor(x,y))"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 23 FORMULA
+(properties
+(name "NOT(NOT(bitXor(x,y)))")
+(expr 1 "NOT(NOT(bitXor(x,y)))"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 FORMULA
+(properties
+(name "x*y")
+(expr 2 "x*y" ""))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 FORMULA
+(properties
+(name "(bitOr(x,y))")
+(expr 2 "(bitOr(x,y))" ""))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 27 FORMULA
+(properties
+(name "sum(IntToChar(str))")
+(expr 1 "sum(IntToChar(str))"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 28 NOTE
+(properties
+(name "Informacion")
+(text2 27
+"This function changes one specific character by other specific character "
+"into a string of ASCII characters. It can be used to code and decode data." ""
+"Inputs:" "text_input: input string of ASCII characters."
+"nchar_changed: it is the number of ASCII character that will be changed."
+"nchar_changing: it is the number of ASCII character that will substitute "
+"to changed character." "" "Function"
+"- Set the string in array format and change character by its integer ASCII "
+"corresponding."
+"- Generate an array of the same dimension than before which elements have "
+"the integer value of the character to be changed." "- Then, it is obtained: "
+"   a) An array of 1s y 0s, where 1s represents the array positions of "
+"character to be substituted. When it is multiplied by input array, a new "
+"array is obtained with the same values than input array, but when before "
+"it was located the character to be substituted, now there are 0s."
+"   b) An array of 0s u 1s, which is the negation of before . When it is "
+"multiplied by changing character (its corresponding ASCII integer number), "
+"it is obtained an array where all is 0s except the positions to of old "
+"character which are the new character (its integer)"
+"- Next, a bitOR is performed and it is added. The result is transformed "
+"in an array of character and converted in output string." "" "")))
+(device 30 FORMULA
+(properties
+(name "x*y")
+(expr 2 "x*y" ""))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D3:1 D1:1)
+(connect D1:1 D2:1)
+(connect I2:1 D2:2)
+(connect D0:1 D3:1)
+(connect D3:1 D4:1)
+(connect D2:1 D4:2)
+(connect D3:1 D5:1)
+(connect D2:1 D5:2)
+(connect D3:1 D6:1)
+(connect D5:1 D6:2)
+(connect D6:1 D7:1)
+(connect D10:1 D7:2)
+(connect D7:1 D8:1)
+(connect D4:1 D10:1)
+(connect I3:1 D10:2)
+(connect D8:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 645 633)
+(anchorPt 127 154)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 177 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -30 20))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 80 31))
+(terminals on)
+(pinCenter 20 120))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 61 25))
+(open
+(extent 190 113))
+(terminals on)
+(pinCenter 110 130))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 80 14))
+(open
+(extent 104 31))
+(terminals on)
+(pinCenter 130 20))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 83 50))
+(terminals on)
+(pinCenter 240 180))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 129 25))
+(open
+(extent 85 50))
+(terminals on)
+(pinCenter 260 120))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 83 50))
+(terminals on)
+(pinCenter 380 110))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 60 25))
+(open
+(extent 83 50))
+(terminals on)
+(pinCenter 470 170))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 119 14))
+(open
+(extent 104 31))
+(terminals on)
+(pinCenter 590 170))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 71 51)
+(iconImage "notepad.icn"))
+(open
+(extent 545 477)
+(editing enabled))
+(titleBg "Light Gold")
+(pinCenter 10 -120))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 83 50))
+(terminals on)
+(pinCenter 370 200))
+(connect I1:1 D0:1
+(points 4 -127 -48 -160 -48 -160 20 -121 20))
+(connect D3:1 D1:1
+(points 8 172 20 190 20 190 50 170 50 170 90 -30 90 -30 120 -9 120))
+(connect D1:1 D2:1
+(points 2 49 120 77 120))
+(connect I2:1 D2:2
+(points 6 -127 162 -160 162 -160 150 60 150 60 140 77 140))
+(connect D0:1 D3:1
+(points 2 61 20 87 20))
+(connect D3:1 D4:1
+(points 6 172 20 190 20 190 50 170 50 170 170 191 170))
+(connect D2:1 D4:2
+(points 4 143 130 160 130 160 190 191 190))
+(connect D3:1 D5:1
+(points 6 172 20 190 20 190 50 170 50 170 110 193 110))
+(connect D2:1 D5:2
+(points 2 143 130 193 130))
+(connect D3:1 D6:1
+(points 6 172 20 190 20 190 50 350 50 350 100 365 100))
+(connect D5:1 D6:2
+(points 2 327 120 365 120))
+(connect D6:1 D7:1
+(points 4 394 110 410 110 410 160 437 160))
+(connect D10:1 D7:2
+(points 4 384 200 400 200 400 180 437 180))
+(connect D7:1 D8:1
+(points 2 502 170 528 170))
+(connect D4:1 D10:1
+(points 4 289 180 310 180 310 190 355 190))
+(connect I3:1 D10:2
+(points 4 -127 372 310 372 310 210 355 210))
+(connect D8:1 O1:1
+(points 4 652 170 670 170 670 162 517 162)))
+(stackingOrder 0 3 2 1 4 5 10 6 7 8 9)))))
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "I love VEE from Keysight"))
+(initValue Text
+(data  ""))))
+(device 1 CALL
+(properties
+(name "Call F_changes_character_into_string")
+(callFunc "F_changes_character_into_string")
+(parmMode rev30))
+(interface
+(input 1
+(name "text_input")
+(optional yes))
+(input 2
+(name "nchar_changed")
+(optional yes))
+(input 3
+(name "nchar_changing")
+(optional yes))
+(output 1
+(name "text_output")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(expr 1 "chartoint(\"o\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(expr 1 "chartoint(\"u\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "I luve VEE frum Keysight"))
+(initValue Text
+(data  ""))))
+(device 5 NOTE
+(properties
+(text2 5 "This function changes one character in a string into"
+"a different character." "" "Submitted by Juan Carlos Mart\355n Castillejos " ""
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D3:1 D1:3)
+(connect D1:1 D4:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 811 540)
+(anchorPt -68 -40)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 155 27))
+(pinCenter 180 120))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 231 0))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 525 130))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 145 37))
+(pinCenter 180 190))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 145 37))
+(pinCenter 180 250))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 225 37))
+(font "Arial" 16)
+(pinCenter 620 250))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 436 142)
+(editing enabled))
+(pinCenter 550 430))
+(connect D0:1 D1:1
+(points 4 260 120 280 120 280 110 324 110))
+(connect D2:1 D1:2
+(points 4 255 190 300 190 300 130 324 130))
+(connect D3:1 D1:3
+(points 4 255 250 310 250 310 150 324 150))
+(connect D1:1 D4:1
+(points 6 695 130 720 130 720 190 490 190 490 250 505 250)))
+(stackingOrder 1 5 3 2 0 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

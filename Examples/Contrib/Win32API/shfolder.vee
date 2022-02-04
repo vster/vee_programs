@@ -1,0 +1,348 @@
+(saveFormat "2.3")
+(date "Tue 04/Apr/2000 14:42:59 ")
+(veerev "6.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 24)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "GetAppDataFolderPath")
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Compose Path")
+(expr 2 "BasePath + \"\\\\Keysight\\\\\" + " "ProductName"))
+(interface
+(input 1
+(name "BasePath")
+(optional yes))
+(input 2
+(name "ProductName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "definition file")
+(expr 1 "installDir()+\"\\\\examples\\\\contrib\\\\win32api\\\\shfolder.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Get Product Name")
+(expr 11 "// Get the name of the EXE and downcase it." "A = commandLine();"
+"A = strDown(baseName(A[0]));" "// Strip off the .exe"
+"Thru = strPosStr(A, \".exe\");"
+"A = (Thru != -1 ? strFromThru(A, 0, Thru-1) : A);"
+"// Output the appropriate string based on the EXE name"
+"(A == \"vee\" ? \"VEE Pro\" :" "  (A == \"veelab\" ? \"VEE OneLab\" :"
+"    (A == \"veeeval\" ? \"VEE Pro Evaluation\" :"
+"                                   \"VEE Pro RunTime\")));"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "A")
+(optional yes))
+(output 3
+(name "Thru")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "pszPath")
+(expr 1 "\" \" * 261"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 CONSTANT
+(properties
+(name "SHGFP_TYPE_CURRENT"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 6 CONSTANT
+(properties
+(name "CSIDL_LOCAL_APPDATA"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  28))
+(initValue Int32
+(data  0))))
+(device 7 CONSTANT
+(properties
+(name "NULL"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 8 CALL
+(properties
+(name "Call shfolder.SHGetFolderPathA")
+(callFunc "shfolder.SHGetFolderPathA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwndOwner")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "nFolder")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "hToken")
+(requires
+(datatype Int32))
+(optional yes))
+(input 4
+(name "dwFlags")
+(requires
+(datatype Int32))
+(optional yes))
+(input 5
+(name "pszPath")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "pszPath")
+(lock name constraints)
+(optional yes))))
+(device 9 IMPORT
+(properties
+(name "Import Library")
+(libType DLL)
+(libName "shfolder")
+(fileName "shfolder.dll")
+(defnFileName "d:\\vee\\current\\examples\\contrib\\win32api\\shfolder.h"))
+(interface
+(input 1
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(configuration
+(connect D7:2 D0:1)
+(connect D2:1 D0:2)
+(connect D8:0 D7:0)
+(connect D6:1 D7:1)
+(connect D5:1 D7:2)
+(connect D6:1 D7:3)
+(connect D4:1 D7:4)
+(connect D3:1 D7:5)
+(connect D1:1 D8:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 785)
+(wndRestoredOrigin 68 30)
+(wndRestoredExtent 710 536)
+(wndState min)
+(active detail)
+(detail
+(extent 710 536)
+(anchorPt -88 -73)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 91 25))
+(open
+(extent 215 47))
+(terminals on)
+(pinCenter 710 340))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 295 37))
+(terminals on)
+(pinCenter 160 210))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 111 34))
+(open
+(extent 375 187))
+(terminals on)
+(pinCenter 480 380))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 220 340))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 159 15))
+(open
+(extent 195 29)
+(showFormat int))
+(pinCenter 220 310))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 156 15))
+(open
+(extent 192 29)
+(showFormat int)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 220 290))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 72 29)
+(showFormat int))
+(pinCenter 220 260))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 193 54))
+(open
+(extent 175 107))
+(terminals on)
+(pinCenter 480 300))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 315 107))
+(pinCenter 480 210))
+(connect D7:2 D0:1
+(points 4 579 320 600 320 600 330 662 330))
+(connect D2:1 D0:2
+(points 4 538 370 560 370 560 350 662 350))
+(connect D8:0 D7:0
+(points 2 480 220 480 270))
+(connect D6:1 D7:1
+(points 4 240 260 320 260 320 280 381 280))
+(connect D5:1 D7:2
+(points 2 300 290 381 290))
+(connect D6:1 D7:3
+(points 6 240 260 320 260 320 280 350 280 350 300 381 300))
+(connect D4:1 D7:4
+(points 2 302 310 381 310))
+(connect D3:1 D7:5
+(points 4 246 340 320 340 320 320 381 320))
+(connect D1:1 D8:1
+(points 2 200 210 436 210))
+(connect D0:1 O1:1
+(points 4 758 340 838 340 838 340 797 340)))
+(stackingOrder 8 1 7 6 5 4 3 0 2)))))
+(device 22 CALL
+(properties
+(name "Call GetAppDataFolderPath")
+(callFunc "GetAppDataFolderPath")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 23 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 651 350)
+(anchorPt -32 -60)
+(configuration
+(devCarrierFor 22
+(active open)
+(icon
+(extent 166 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 250 140))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 575 47))
+(pinCenter 350 260))
+(connect D0:1 D1:1
+(points 6 370 140 390 140 390 190 40 190 40 260 60 260)))
+(stackingOrder 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

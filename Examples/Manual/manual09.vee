@@ -1,0 +1,418 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:12:45 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dmm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp34401a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Collecting Data into an Array")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 3 FORCOUNT
+(properties
+(count 20))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 6 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 12 SLIDINGWINDOW
+(properties
+(vecSize 5)
+(triggerSize 5))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 13 HPIDSTATE
+(properties
+(name "dmm ( @ 714)"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "hp34401a.cid")
+(driver "dmm")
+(state
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "BEEPSTATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISPLAY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "DCV"))
+(idComp
+(name "MATH")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DBM_REF")
+(typeStr "Enum")
+(state "Valid")
+(value "R600"))
+(idComp
+(name "LIM_LOWER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIM_UPPER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "BAND_DET")
+(typeStr "Enum")
+(state "Valid")
+(value "MED"))
+(idComp
+(name "INP_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "AZERO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "MAX_TRIG")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "TRIG_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "MAX_SAMP")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "SAMP_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRIG")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "ENTRY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "FETCH_IMM"))
+(idComp
+(name "FREQ_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "VOLT_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "FRES_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "CURR_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "DCV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FREQ_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "RES_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "FREQ_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "DCI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "ACV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "ACI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "RES_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1000))
+(idComp
+(name "DELAY_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DELAY")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM")))))
+(device 16 NOTE
+(properties
+(name "Information")
+(text2 15 "This example shows how to use the Collector and"
+"Sliding Collector objects to collect data into an"
+"array. Usually, the Sliding Collector Array Size and" "Trigger are the same."
+"" "1. The For Count triggers the dmm 20 times."
+"2. The dmm generates a simulated reading (live mode"
+"   is off) on each loop iteration."
+"3. The Sliding Collector triggers after every fifth"
+"   reading, outputting a one-dimensional array of" "   five readings."
+"4. The Collector collects four consecutive one-"
+"   dimensional arrays from the Sliding Collector,"
+"   outputting all 20 readings as a two-dimensional"
+"   four-by-five array to the display.")))
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D1:1)
+(connect D0:0 D1:2)
+(connect D1:1 D2:1)
+(connect D4:1 D3:1)
+(connect D0:1 D4:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 919 525)
+(anchorPt 84 131)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 0 0))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 61 25))
+(open
+(extent 127 67))
+(terminals on)
+(pinCenter 665 300))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 95 24))
+(open
+(extent 800 124))
+(pinCenter 390 460))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 160 57))
+(terminals on)
+(pinCenter 650 180))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 222 0)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 8 "SET_UP" "DCV_ITEMS" "MAIN_SET" "IMPEDANCE" "AUTO_ZERO"
+"MULTIMETER" "MIDI_SGL" "MIDS_SIMU"))
+(terminals on)
+(pinCenter 210 180))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 516 153)
+(editing disabled))
+(title off)
+(pinCenter 550 -40))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 100 -80))
+(connect D3:1 D1:1
+(points 6 772 180 800 180 800 230 540 230 540 280 559 280))
+(connect D0:0 D1:2
+(points 5 0 18 0 30 -60 30 -60 320 559 320))
+(connect D1:1 D2:1
+(points 6 771 300 800 300 800 360 -30 360 -30 460 -13 460))
+(connect D4:1 D3:1
+(points 2 496 180 527 180))
+(connect D0:1 D4:0
+(points 3 55 0 230 0 230 53)))
+(stackingOrder 3 0 4 1 2 5 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

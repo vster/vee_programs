@@ -1,0 +1,9284 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:36:04 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hp4155_6"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp4155_6.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 29)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 TEXTDISPLAY
+(properties
+(name "Acc stress time"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 TEXTDISPLAY
+(properties
+(name "Base stress V"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(properties
+(name "Collector stress V"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FORCOUNT
+(properties
+(name "Set number of stress")
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 7 START25)
+(device 8 CONSTANT
+(properties
+(name "Stress time (sec)"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1))
+(initValue Real
+(data  0))))
+(device 9 COUNTER
+(properties
+(name "Monitor stress number")
+(clearAtPrerun 0)
+(clearAtActivate 0))
+(interface
+(input 1
+(name "Data"))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 14 TEXTDISPLAY
+(properties
+(name "Collector Current"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Base Current"))
+(interface
+(input 1
+(name "Data"))))
+(device 17 FORMULA
+(properties
+(name "cal hFE")
+(expr 1 "X/Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 TEXTDISPLAY
+(properties
+(name "hFE"))
+(interface
+(input 1
+(name "Data"))))
+(device 20 YPLOT
+(properties
+(name "Strip Chart"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode strip)))
+(device 25 HPIDSTATE
+(properties
+(name "Stress 1sec(NOT LIVE)"))
+(interface
+(input 1
+(name "STRESS_DURATION")
+(tag "STRESS_DURATION")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "STRESS_MEASUREMENT")
+(tag "STRESS_MEASUREMENT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "STRESS_ACCUMULATE")
+(tag "STRESS_ACCUMULATE")
+(optional yes))
+(output 2
+(name "STR_CONST_OUTPUT_SOU1")
+(tag "STR_CONST_OUTPUT_SOU1")
+(optional yes))
+(output 3
+(name "STR_CONST_OUTPUT_SOU2")
+(tag "STR_CONST_OUTPUT_SOU2")
+(optional yes)))
+(implementation
+(filename "hp4155_6.cid")
+(driver "hp4155_6")
+(state
+(idComp
+(name "TEMP16")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "STRESS_MEASURE"))
+(idComp
+(name "TEMP20")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP21")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP27")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP4")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP5")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP6")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP14")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEAS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SWEEP"))
+(idComp
+(name "TEMP1")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "SMU_PULSE_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU_PULSE_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "CONST_BIT_POS")
+(typeStr "Int16")
+(state "Valid")
+(value 200))
+(idComp
+(name "DUMMY_COUNT1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT4")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DUMMY_COUNT5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT7")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "DUMMY_COUNT8")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "SMU1_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "SET_UNIT_1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SET_UNIT_2")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "SET_UNIT_3")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "SET_UNIT_4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU1_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU1_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I1"))
+(idComp
+(name "SMU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V1"))
+(idComp
+(name "SMU2_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR2"))
+(idComp
+(name "SMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "I"))
+(idComp
+(name "SMU2_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU2_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I2"))
+(idComp
+(name "SMU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "SMU3_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "SMU3_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU3_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU3_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU3_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "SMU3_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "SMU4_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU4_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU4_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU4_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU4_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I4"))
+(idComp
+(name "SMU4_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V4"))
+(idComp
+(name "SMU5_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "SMU5_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "SMU5_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU5_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU5_INAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU5_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU6_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU6_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "SMU6_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU6_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU6_INAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU6_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VMU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VMU1"))
+(idComp
+(name "VMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VMU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VMU2"))
+(idComp
+(name "VSU1_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "VSU1_MODE")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VSU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VSU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "VSU2_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "VSU2_MODE")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VSU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VSU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "PGU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "PGU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PGU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "PGU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PGU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "GNDU_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "USER_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "DEFINE"))
+(idComp
+(name "DEFINE")
+(typeStr "Enum")
+(state "Valid")
+(value "FN1"))
+(idComp
+(name "DELETE")
+(typeStr "Enum")
+(state "Valid")
+(value "FN1"))
+(idComp
+(name "DEL_ALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN1_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN1_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN2_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN2_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN3_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN3_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN4_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN4_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN5_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN5_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN6_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN6_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "USER_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "DEFINE"))
+(idComp
+(name "DEFINE_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "DELETE_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "DELV_ALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR1_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR1_SIZE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR2_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR2_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR3_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR3_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR4_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR4_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR5_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR5_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR6_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR6_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "PRY_SWP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SINGLE"))
+(idComp
+(name "PRY_START_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_START_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_START")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_STOP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_STOP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_STOP")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "PRY_STEP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_STEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_STEP")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PRY_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "PRY_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PRY_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PRY_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PRY_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "PRY_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "PRY_SWP_PCOMPL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "PRY_SWP_HOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEC_START_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SEC_START_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SEC_SWP_START")
+(typeStr "Real")
+(state "Valid")
+(value 2E-005))
+(idComp
+(name "SEC_STEP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SEC_STEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SEC_SWP_STEP")
+(typeStr "Real")
+(state "Valid")
+(value 2E-005))
+(idComp
+(name "SEC_NO_OF_STEPS")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "SEC_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SEC_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "SEC_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "SEC_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEC_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SEC_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "SEC_SWP_PCOMPL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SEC_SWP_HOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_SWP_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_SWP_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SYN_OFFSET_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SYN_OFFSET_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "SYN_SWP_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYN_SWP_RATIO")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYN_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SYN_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SYN_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SYN_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SYN_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SYN_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "SYN_SWP_PCOMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "CONST_MODE1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE4")
+(typeStr "Text")
+(state "Dontcare")
+(value "V"))
+(idComp
+(name "CONST_MODE5")
+(typeStr "Text")
+(state "Dontcare")
+(value "V"))
+(idComp
+(name "CONST_MODE6")
+(typeStr "Text")
+(state "Dontcare")
+(value "V"))
+(idComp
+(name "CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_SOU_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_SOU_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "TEMP8")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP9")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP10")
+(typeStr "Int16")
+(state "Valid")
+(value 8))
+(idComp
+(name "TEMP11")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TEMP60")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP61")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP62")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP63")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP40")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TEMP41")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP42")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP43")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OP_TMP_STORE")
+(typeStr "Text")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "CONST_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT4")
+(typeStr "Text")
+(state "Dontcare")
+(value "SMU2"))
+(idComp
+(name "SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Dontcare")
+(value 0.1))
+(idComp
+(name "CONST_UNIT5")
+(typeStr "Text")
+(state "Dontcare")
+(value "SMU2"))
+(idComp
+(name "SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Dontcare")
+(value 0.1))
+(idComp
+(name "CONST_UNIT6")
+(typeStr "Text")
+(state "Dontcare")
+(value "SMU3"))
+(idComp
+(name "SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SMU_PUL_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU_PUL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_INIT_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "SAMPL_INIT_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 65.535))
+(idComp
+(name "SAMPL_INIT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "NO_SAMPLES")
+(typeStr "Real")
+(state "Valid")
+(value 101))
+(idComp
+(name "SET_NO_LIMIT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TOTAL_SAMPL_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_TIME_NO_LIMIT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_TIME_AUTOMODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SAMPL_HOLDTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_FILTER")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STOP_CONDITION")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "STOP_ENABLE_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STOP_COND_THERSHOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_EVENT")
+(typeStr "Enum")
+(state "Valid")
+(value "HIGH"))
+(idComp
+(name "EVENT_NO")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "SHOW_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHOW_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP12")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SAMP_CONST_MODE1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE4")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE5")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "TEMP13")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_SOU_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_UNIT1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT4")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT5")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU1_PUL_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU1"))
+(idComp
+(name "PGU1_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_PUL_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PULSE_WID_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "PULSE_WID_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "DELAY_TIME_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "RESOLUTION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "PGU1_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PEAK_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "PEAK_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "BASE_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "BASE_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "PGU1_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU1_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU1_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU1_LEAD_TRAIL_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "PGU1_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "PGU1_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_PUL_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PULSE_WID_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "PULSE_WID_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "DELAY_TIME_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "PGU2_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "PGU2_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PEAK_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "PEAK_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "BASE_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "BASE_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "PGU2_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU2_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_LEAD_TRAIL_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "PGU2_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "PGU2_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_CON_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_SOURCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_CON")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_CON_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_SOURCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_CON")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEAS_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU1"))
+(idComp
+(name "MEAS_UNIT_NAME1")
+(typeStr "Text")
+(state "Valid")
+(value "I1"))
+(idComp
+(name "MEAS_RANGE_MODE1")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "TEMP_STRING1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "MEAS_DISCRETE_RANGE1")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME2")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "MEAS_RANGE_MODE2")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE2")
+(typeStr "Enum")
+(state "Valid")
+(value "TWELEV"))
+(idComp
+(name "MEAS_UNIT_NAME3")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "MEAS_RANGE_MODE3")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE3")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME4")
+(typeStr "Text")
+(state "Valid")
+(value "I4"))
+(idComp
+(name "MEAS_RANGE_MODE4")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE4")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME5")
+(typeStr "Text")
+(state "Valid")
+(value "VMU1"))
+(idComp
+(name "MEAS_RANGE_MODE5")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE5")
+(typeStr "Enum")
+(state "Valid")
+(value "TWO"))
+(idComp
+(name "MEAS_UNIT_NAME6")
+(typeStr "Text")
+(state "Valid")
+(value "VMU2"))
+(idComp
+(name "MEAS_RANGE_MODE6")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE6")
+(typeStr "Enum")
+(state "Valid")
+(value "TWO"))
+(idComp
+(name "MEAS_UNIT_NAME7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "MEAS_RANGE_MODE7")
+(typeStr "Enum")
+(state "Invalid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE7")
+(typeStr "Enum")
+(state "Invalid")
+(value "ONE"))
+(idComp
+(name "MEAS_UNIT_NAME8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MEAS_RANGE_MODE8")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE8")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "MEAS_ZERO_CANCEL")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INTEG_TIME_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SHORT"))
+(idComp
+(name "SHORT_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.0006400000000000001))
+(idComp
+(name "SHORT_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 0.032))
+(idComp
+(name "MEDIUM_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEDIUM_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LONG_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.32))
+(idComp
+(name "LONG_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 16))
+(idComp
+(name "WAIT_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "OS_UNIT1")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT2")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "OS_UNIT3")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU3"))
+(idComp
+(name "OS_UNIT4")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "OS_UNIT5")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "OS_UNIT6")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "OS_UNIT7")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT8")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT9")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT10")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT_NO")
+(typeStr "Int16")
+(state "Valid")
+(value 6))
+(idComp
+(name "OS_DONE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OS_MODE_SAMPL")
+(typeStr "Enum")
+(state "Valid")
+(value "SIMUL"))
+(idComp
+(name "TRIGGER_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIGGER_FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "OUTPUT"))
+(idComp
+(name "TRIGGER_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIGGER_POLARITY")
+(typeStr "Enum")
+(state "Valid")
+(value "POSITIVE"))
+(idComp
+(name "STANDBY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "MEASUREMENT_STATUS")
+(typeStr "Text")
+(state "Valid")
+(value "IDLE"))
+(idComp
+(name "TEMP19")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP22")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP23")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TEMP24")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP25")
+(typeStr "Int16")
+(state "Valid")
+(value 6))
+(idComp
+(name "TEMP26")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP50")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP51")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP52")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MODE_SET_BIT")
+(typeStr "Int16")
+(state "Valid")
+(value 14))
+(idComp
+(name "STR_DUMMY_COUNT1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT2")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "STR_DUMMY_COUNT3")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "STR_DUMMY_COUNT4")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "STR_DUMMY_COUNT5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT7")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT8")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT9")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT10")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOUR_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STRESS_SMU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V1"))
+(idComp
+(name "STRESS_SMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "STRESS_SMU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_SMU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "STRESS_SMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "STRESS_SMU3_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU3_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V4"))
+(idComp
+(name "STRESS_SMU4_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU4_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_SMU5_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_SMU5_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_SMU6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_SMU6_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU6_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_VSU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "STRESS_VSU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_VSU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STRESS_VSU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_PGU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_PGU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_PGU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_GNDU_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_GNDU_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_GNDU_FUN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MEASURE_SELECTOR1")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR2")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR3")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR4")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "STRESS_SELECTOR1")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR2")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR3")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR4")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_TRIGGER_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_TRIGGER_POLARITY")
+(typeStr "Enum")
+(state "Valid")
+(value "POSITIVE"))
+(idComp
+(name "STRESS_ACCUMULATE")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "STRESS_HOLDTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_STOP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DURATION"))
+(idComp
+(name "STRESS_DURATION")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "STRESS_PULSECOUNT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_MAIN")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "STRESS_PGU1_PUL_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU1"))
+(idComp
+(name "STRESS_PGU1_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_PULSE_WID_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "STR_PULSE_WID_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "STR_DELAY_TIME_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "STR_RESOLUTION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "STRESS_PGU1_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PEAK_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_PEAK_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_BASE_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_BASE_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_PGU1_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_PGU1_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_PGU1_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STR_PGU1_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STR_PGU1_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STR_PGU1_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STR_PGU1_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "STRESS_PGU1_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU1_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU1_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "STRESS_PGU1_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_PULSE_WID_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "STR_PULSE_WID_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "STR_DELAY_TIME_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "STRESS_PGU2_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "STRESS_PGU2_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PEAK_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_PEAK_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_BASE_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_BASE_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_PGU2_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_PGU2_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "STRESS_PGU2_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "STRESS_PGU2_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "STR_CONST_MODE1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STR_SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0.5))
+(idComp
+(name "STR_SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "SMU3"))
+(idComp
+(name "STR_SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "STR_SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "STR_CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "STR_SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "STR_SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "STR_SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "STR_CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "STR_SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STR_SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_FORCE_RATE")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "STRESS_FORCE_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DATATYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "ASCII"))
+(idComp
+(name "LIST_NAME1")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "LIST_NAME2")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "LIST_NAME3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DISPLAY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRAPHICS"))
+(idComp
+(name "DIS_XAXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "DISPLAY_XAXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "XMIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "XMAX")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DIS_Y1AXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "DISPLAY_Y1AXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "Y1MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "Y1MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "DIS_Y2AXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DISPLAY_Y2AXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "Y2MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "Y2MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DISPLAY_GRID_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISPLAY_LINEPAR_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DIS_DATAVAR1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "DIS_DATAVAR2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "XINCR")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "XUNIT")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "YUNIT")
+(typeStr "Text")
+(state "Valid")
+(value "I"))
+(idComp
+(name "COUNTER_SET_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "GRAT_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRID"))
+(idComp
+(name "LOG_Y")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VALID_DATA")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "NO_PTS1_1")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_2")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_3")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_4")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_5")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_6")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_1")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_2")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_3")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_4")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_5")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_6")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS_X")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "LIST_FILER_OPERATION")
+(typeStr "Enum")
+(state "Valid")
+(value "STORE"))
+(idComp
+(name "LIST_FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_FILE_UNIT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIST_FILE_DATA_SMARK")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LIST_FILE_DATA_DELIMITER")
+(typeStr "Enum")
+(state "Valid")
+(value "SPACE"))
+(idComp
+(name "LIST_DATA_STORE_FIRST")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LIST_DATA_STORE_LAST")
+(typeStr "Real")
+(state "Valid")
+(value 6000))
+(idComp
+(name "LIST_STORE_EXECUTE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIST_STORE_CANCEL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRACE_FILER_OPERATION")
+(typeStr "Enum")
+(state "Valid")
+(value "STORE"))
+(idComp
+(name "TRACE_FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "TRACE_OPERATION_EXECUTE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYS_BEEP")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SYS_FREQ")
+(typeStr "Enum")
+(state "Valid")
+(value "FIFTY"))
+(idComp
+(name "ITEMSETUP1_TITLE")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_DATETIME")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_PAGENO")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_USERCOMMENT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "USER_COMMENT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "INST_PAGE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRAPH"))
+(idComp
+(name "HARDCOPY_FILENAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "HARDCOPY_LANGUAGE")
+(typeStr "Enum")
+(state "Valid")
+(value "PCL"))
+(idComp
+(name "HARDCOPY_RESOLUTION")
+(typeStr "Enum")
+(state "Valid")
+(value "RES75"))
+(idComp
+(name "HARDCOPY_COLOR")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "HARDCOPY_FFEED")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "HARDCOPY_INITSTRING")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "HARDCOPY_TRAILSTRING")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PAGESETUP_SIZE")
+(typeStr "Enum")
+(state "Valid")
+(value "CUSTOM"))
+(idComp
+(name "PAGESETUP_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 11))
+(idComp
+(name "PAGESETUP_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 8.5))
+(idComp
+(name "PAGESETUP_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "INCH"))
+(idComp
+(name "PAGESETUP_LLEFTX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PAGESETUP_LLEFTY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PAGESETUP_URIGHTX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PAGESETUP_URIGHTY")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "ITEMSETUP2_TRACE")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_FRAMEGRID")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_AXISTEXT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_TEXT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "INST_ID")
+(typeStr "Enum")
+(state "Valid")
+(value "HP4156"))
+(idComp
+(name "FINISH_RECALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "INTERPOLATE_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LINE1_MODE_STATUS_NORM")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE_STATUS_GRAD")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE_STATUS_TANG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_NORM")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_GRAD")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_TANG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "LINE1_LINEON")
+(typeStr "Enum")
+(state "Invalid")
+(value "LINEONY1"))
+(idComp
+(name "LINE2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "LINE2_LINEON")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEONY1"))
+(idComp
+(name "LINE1_POINT1_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE1_POINT1_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_POINT1_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE1_POINT2_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_POINT2_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_GRADIENT_ENTRY")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_TANGENT_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE2_POINT1_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_POINT1_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE2_POINT2_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_POINT2_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_GRADIENT_ENTRY")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_TANGENT_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "MARKER_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_SETUP_DISABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANALYSIS_LINE_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "LINE_1"))
+(idComp
+(name "ANAL_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANAL_LINE1_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANAL_LINE2_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MARKER_CURSOR_ANAL_EXE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SWITCH_OFF_MARKER")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OP_TMP_STORE")
+(typeStr "Text")
+(state "Valid")
+(value "")))))
+(device 26 HPIDSTATE
+(properties
+(name "Measure hFE(NOT LIVE)"))
+(interface
+(input 1
+(name "SINGLE_MEASUREMENT")
+(tag "SINGLE_MEASUREMENT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "ANALYSIS_MARK_Y1")
+(tag "ANALYSIS_MARK_Y1")
+(optional yes))
+(output 2
+(name "ANALYSIS_MARK_Y2")
+(tag "ANALYSIS_MARK_Y2")
+(optional yes)))
+(implementation
+(filename "hp4155_6.cid")
+(driver "hp4155_6")
+(state
+(idComp
+(name "TEMP16")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "STRESS_MEASURE"))
+(idComp
+(name "TEMP20")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP21")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP27")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP4")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP5")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP6")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP14")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEAS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SWEEP"))
+(idComp
+(name "TEMP1")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP3")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "SMU_PULSE_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU_PULSE_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "CONST_BIT_POS")
+(typeStr "Int16")
+(state "Valid")
+(value 204))
+(idComp
+(name "DUMMY_COUNT1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT3")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "DUMMY_COUNT4")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DUMMY_COUNT5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "DUMMY_COUNT7")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "DUMMY_COUNT8")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "SMU1_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "SET_UNIT_1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SET_UNIT_2")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "SET_UNIT_3")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "SET_UNIT_4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU1_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU1_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I1"))
+(idComp
+(name "SMU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V1"))
+(idComp
+(name "SMU2_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "SMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU2_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU2_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I2"))
+(idComp
+(name "SMU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "SMU3_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU3_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU3_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU3_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU3_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "SMU3_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "SMU4_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU4_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "SMU4_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU4_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU4_INAME")
+(typeStr "Text")
+(state "Valid")
+(value "I4"))
+(idComp
+(name "SMU4_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "V4"))
+(idComp
+(name "SMU5_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "SMU5_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "SMU5_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU5_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU5_INAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU5_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU6_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "SMU6_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "SMU6_SRES")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SMU6_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SMU6_INAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU6_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VMU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VMU1"))
+(idComp
+(name "VMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VMU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VMU2"))
+(idComp
+(name "VSU1_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "VSU1_MODE")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VSU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VSU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "VSU2_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "VSU2_MODE")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "VSU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "VSU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "PGU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "PGU1_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PGU1_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "PGU2_STAN")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PGU2_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "GNDU_VNAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "USER_FN")
+(typeStr "Enum")
+(state "Valid")
+(value "DEFINE"))
+(idComp
+(name "DEFINE")
+(typeStr "Enum")
+(state "Valid")
+(value "FN1"))
+(idComp
+(name "DELETE")
+(typeStr "Enum")
+(state "Valid")
+(value "FN1"))
+(idComp
+(name "DEL_ALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN1_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN1_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN2_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN2_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN3_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN3_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN4_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN4_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN5_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN5_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FN6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN6_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FN6_FN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DONE6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "USER_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "DEFINE"))
+(idComp
+(name "DEFINE_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "DELETE_VAR")
+(typeStr "Enum")
+(state "Valid")
+(value "VAR1"))
+(idComp
+(name "DELV_ALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR1_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR1_SIZE")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR2_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR2_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR2")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR3_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR3_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR3")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR4_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR4_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR4")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR5_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR5_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "VAR6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR6_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "VAR6_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "DONE_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CLEAR_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CANCEL_VAR6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "LIN"))
+(idComp
+(name "PRY_SWP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SINGLE"))
+(idComp
+(name "PRY_START_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_START_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_START")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_STOP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_STOP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_STOP")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "PRY_STEP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "PRY_STEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PRY_SWP_STEP")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PRY_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "PRY_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PRY_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PRY_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "PRY_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "PRY_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "PRY_SWP_PCOMPL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "PRY_SWP_HOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PRY_SWP_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEC_START_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SEC_START_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SEC_SWP_START")
+(typeStr "Real")
+(state "Valid")
+(value 2E-005))
+(idComp
+(name "SEC_STEP_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SEC_STEP_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SEC_SWP_STEP")
+(typeStr "Real")
+(state "Valid")
+(value 2E-005))
+(idComp
+(name "SEC_NO_OF_STEPS")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "SEC_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SEC_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "SEC_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "SEC_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SEC_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SEC_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "SEC_SWP_PCOMPL")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SEC_SWP_HOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_SWP_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SEC_SWP_STAT")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SYN_OFFSET_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SYN_OFFSET_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "SYN_SWP_OFFSET")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYN_SWP_RATIO")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYN_PCOMPL_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "SYN_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SYN_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SYN_SWP_COMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SYN_PCOMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "SYN_PCOMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 2))
+(idComp
+(name "SYN_SWP_PCOMPL")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "CONST_MODE1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_MODE5")
+(typeStr "Text")
+(state "Dontcare")
+(value "V"))
+(idComp
+(name "CONST_MODE6")
+(typeStr "Text")
+(state "Dontcare")
+(value "V"))
+(idComp
+(name "CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_SOU_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "CONST_SOU_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_SOU_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "CONST_COMPL_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "CONST_COMPL_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "TEMP8")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TEMP9")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP10")
+(typeStr "Int16")
+(state "Valid")
+(value 8))
+(idComp
+(name "TEMP11")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP60")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP61")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP62")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP63")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP40")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TEMP41")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TEMP42")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP43")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OP_TMP_STORE")
+(typeStr "Text")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "CONST_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "SMU3"))
+(idComp
+(name "SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Valid")
+(value 5))
+(idComp
+(name "SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT5")
+(typeStr "Text")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Dontcare")
+(value 0.1))
+(idComp
+(name "CONST_UNIT6")
+(typeStr "Text")
+(state "Dontcare")
+(value "SMU2"))
+(idComp
+(name "SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Dontcare")
+(value 0))
+(idComp
+(name "SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SMU_PUL_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SMU_PUL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SMU_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_INIT_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "SAMPL_INIT_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 65.535))
+(idComp
+(name "SAMPL_INIT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "NO_SAMPLES")
+(typeStr "Real")
+(state "Valid")
+(value 101))
+(idComp
+(name "SET_NO_LIMIT_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TOTAL_SAMPL_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_TIME_NO_LIMIT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_TIME_AUTOMODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SAMPL_HOLDTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMPL_FILTER")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STOP_CONDITION")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "STOP_ENABLE_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STOP_COND_THERSHOLD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STOP_COND_EVENT")
+(typeStr "Enum")
+(state "Valid")
+(value "HIGH"))
+(idComp
+(name "EVENT_NO")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "SHOW_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SHOW_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP12")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "FIRST"))
+(idComp
+(name "SAMP_CONST_MODE1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE4")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE5")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "TEMP13")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_SOU_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_SOU_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_COMPL_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "SAMP_CONST_UNIT1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT3")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT4")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT5")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "SAMP_CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "SAMP_SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "SAMP_CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU1_PUL_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU1"))
+(idComp
+(name "PGU1_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_PUL_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PULSE_WID_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "PULSE_WID_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "DELAY_TIME_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "RESOLUTION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "PGU1_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PEAK_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "PEAK_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "BASE_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "BASE_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "PGU1_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU1_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU1_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU1_LEAD_TRAIL_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "PGU1_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU1_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "PGU1_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_PUL_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PULSE_WID_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "PULSE_WID_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "DELAY_TIME_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "PGU2_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "PGU2_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PEAK_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "PEAK_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "BASE_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "BASE_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "PGU2_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "PGU2_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "PGU2_LEAD_TRAIL_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "PGU2_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "PGU2_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "PGU2_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_CON_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU1_CON_SOURCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_CON")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU2_CON_UNIT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PGU2_CON_SOURCE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PGU1_CON")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEAS_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU1"))
+(idComp
+(name "MEAS_UNIT_NAME1")
+(typeStr "Text")
+(state "Valid")
+(value "I1"))
+(idComp
+(name "MEAS_RANGE_MODE1")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "TEMP_STRING1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "MEAS_DISCRETE_RANGE1")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME2")
+(typeStr "Text")
+(state "Valid")
+(value "I2"))
+(idComp
+(name "MEAS_RANGE_MODE2")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE2")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME3")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "MEAS_RANGE_MODE3")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE3")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME4")
+(typeStr "Text")
+(state "Valid")
+(value "I4"))
+(idComp
+(name "MEAS_RANGE_MODE4")
+(typeStr "Enum")
+(state "Valid")
+(value "LIMIT_AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE4")
+(typeStr "Enum")
+(state "Valid")
+(value "THREE"))
+(idComp
+(name "MEAS_UNIT_NAME5")
+(typeStr "Text")
+(state "Valid")
+(value "VMU1"))
+(idComp
+(name "MEAS_RANGE_MODE5")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE5")
+(typeStr "Enum")
+(state "Valid")
+(value "TWO"))
+(idComp
+(name "MEAS_UNIT_NAME6")
+(typeStr "Text")
+(state "Valid")
+(value "VMU2"))
+(idComp
+(name "MEAS_RANGE_MODE6")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE6")
+(typeStr "Enum")
+(state "Valid")
+(value "TWO"))
+(idComp
+(name "MEAS_UNIT_NAME7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "MEAS_RANGE_MODE7")
+(typeStr "Enum")
+(state "Invalid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE7")
+(typeStr "Enum")
+(state "Invalid")
+(value "ONE"))
+(idComp
+(name "MEAS_UNIT_NAME8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MEAS_RANGE_MODE8")
+(typeStr "Enum")
+(state "Valid")
+(value "AUTO"))
+(idComp
+(name "MEAS_DISCRETE_RANGE8")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "MEAS_ZERO_CANCEL")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INTEG_TIME_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "SHORT"))
+(idComp
+(name "SHORT_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.0006400000000000001))
+(idComp
+(name "SHORT_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 0.032))
+(idComp
+(name "MEDIUM_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "MEDIUM_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LONG_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.32))
+(idComp
+(name "LONG_NPLC")
+(typeStr "Real")
+(state "Valid")
+(value 16))
+(idComp
+(name "WAIT_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "OS_UNIT1")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT2")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU2"))
+(idComp
+(name "OS_UNIT3")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU3"))
+(idComp
+(name "OS_UNIT4")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "OS_UNIT5")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "OS_UNIT6")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "OS_UNIT7")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT8")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT9")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT10")
+(typeStr "Enum")
+(state "Dontcare")
+(value "SMU1"))
+(idComp
+(name "OS_UNIT_NO")
+(typeStr "Int16")
+(state "Valid")
+(value 6))
+(idComp
+(name "OS_DONE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OS_MODE_SAMPL")
+(typeStr "Enum")
+(state "Valid")
+(value "SIMUL"))
+(idComp
+(name "TRIGGER_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIGGER_FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "OUTPUT"))
+(idComp
+(name "TRIGGER_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIGGER_POLARITY")
+(typeStr "Enum")
+(state "Valid")
+(value "POSITIVE"))
+(idComp
+(name "STANDBY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "MEASUREMENT_STATUS")
+(typeStr "Text")
+(state "Valid")
+(value "IDLE"))
+(idComp
+(name "TEMP19")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP22")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP23")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TEMP24")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TEMP25")
+(typeStr "Int16")
+(state "Valid")
+(value 6))
+(idComp
+(name "TEMP26")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TEMP50")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP51")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TEMP52")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MODE_SET_BIT")
+(typeStr "Int16")
+(state "Valid")
+(value 14))
+(idComp
+(name "STR_DUMMY_COUNT1")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT2")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "STR_DUMMY_COUNT3")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "STR_DUMMY_COUNT4")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "STR_DUMMY_COUNT5")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT6")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT7")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT8")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT9")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_DUMMY_COUNT10")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOUR_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "A"))
+(idComp
+(name "STR_SOUR_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_COMPL_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_SOUR_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_COMPL_UNIT8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STRESS_SMU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V1"))
+(idComp
+(name "STRESS_SMU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "COMM"))
+(idComp
+(name "STRESS_SMU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_SMU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "STRESS_SMU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU3_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V3"))
+(idComp
+(name "STRESS_SMU3_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU3_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU4_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V4"))
+(idComp
+(name "STRESS_SMU4_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU4_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_SMU5_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_SMU5_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_SMU5_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_SMU6_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_SMU6_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STRESS_SMU6_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "SYNC"))
+(idComp
+(name "STRESS_VSU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "STRESS_VSU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_VSU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STRESS_VSU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "NSYNC"))
+(idComp
+(name "STRESS_PGU1_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_PGU1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU1_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU2_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_PGU2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_PGU2_FUN")
+(typeStr "Enum")
+(state "Valid")
+(value "DIS"))
+(idComp
+(name "STRESS_GNDU_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_GNDU_MODE")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STRESS_GNDU_FUN")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MEASURE_SELECTOR1")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR2")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR3")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "MEASURE_SELECTOR4")
+(typeStr "Enum")
+(state "Valid")
+(value "SMU"))
+(idComp
+(name "STRESS_SELECTOR1")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR2")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR3")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_SELECTOR4")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU"))
+(idComp
+(name "STRESS_TRIGGER_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_TRIGGER_POLARITY")
+(typeStr "Enum")
+(state "Valid")
+(value "POSITIVE"))
+(idComp
+(name "STRESS_ACCUMULATE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_HOLDTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_FILTER_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_STOP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "STRESS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DURATION"))
+(idComp
+(name "STRESS_DURATION")
+(typeStr "Real")
+(state "Valid")
+(value 0.001))
+(idComp
+(name "STRESS_PULSECOUNT")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_MAIN")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "PGU1"))
+(idComp
+(name "STRESS_PGU1_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_PULSE_WID_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "STR_PULSE_WID_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "STR_DELAY_TIME_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "STR_RESOLUTION")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "STRESS_PGU1_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU1_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PEAK_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_PEAK_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_BASE_MIN1")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_BASE_MAX1")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_PGU1_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_PGU1_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_PGU1_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STR_PGU1_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STR_PGU1_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STR_PGU1_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STR_PGU1_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "STRESS_PGU1_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU1_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU1_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "STRESS_PGU1_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_PUL_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "STR_PULSE_WID_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value 1E-006))
+(idComp
+(name "STR_PULSE_WID_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 9.99E-005))
+(idComp
+(name "STR_DELAY_TIME_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 0.0001))
+(idComp
+(name "STRESS_PGU2_PUL_PERIOD")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_PUL_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 0.005))
+(idComp
+(name "STRESS_PGU2_PUL_DELAYTIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_PUL_NEXT")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PEAK_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_PEAK_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_BASE_MIN2")
+(typeStr "Real")
+(state "Valid")
+(value -40))
+(idComp
+(name "STRESS_BASE_MAX2")
+(typeStr "Real")
+(state "Valid")
+(value 40))
+(idComp
+(name "STRESS_PGU2_PUL_PEAK")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_PGU2_PUL_BASE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_PGU2_LEAD_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_LEAD_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_TRAIL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_TRAIL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.01))
+(idComp
+(name "STRESS_PGU2_RES")
+(typeStr "Real")
+(state "Valid")
+(value 1E-009))
+(idComp
+(name "STRESS_PGU2_PUL_LEAD")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_PUL_TRAIL")
+(typeStr "Real")
+(state "Valid")
+(value 1E-007))
+(idComp
+(name "STRESS_PGU2_PUL_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "LOW"))
+(idComp
+(name "STRESS_PGU2_PUL_PREV")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_UNIT_NO")
+(typeStr "Enum")
+(state "Valid")
+(value "ONE"))
+(idComp
+(name "STR_CONST_MODE1")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE2")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE3")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE4")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE5")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "STR_CONST_MODE6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_MODE7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_MODE8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_CONST_UNIT1")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STR_SOURCE1_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE1_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE1_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE1_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL1")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT2")
+(typeStr "Text")
+(state "Valid")
+(value "SMU3"))
+(idComp
+(name "STR_SOURCE2_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "STR_SOURCE2_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "STR_CONST_OUTPUT_SOU2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE2_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE2_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL2")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT3")
+(typeStr "Text")
+(state "Valid")
+(value "SMU4"))
+(idComp
+(name "STR_SOURCE3_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -100))
+(idComp
+(name "STR_SOURCE3_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "STR_CONST_OUTPUT_SOU3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE3_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -0.1))
+(idComp
+(name "STR_SOURCE3_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL3")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT4")
+(typeStr "Text")
+(state "Valid")
+(value "VSU1"))
+(idComp
+(name "STR_SOURCE4_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE4_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE4_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE4_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL4")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT5")
+(typeStr "Text")
+(state "Valid")
+(value "VSU2"))
+(idComp
+(name "STR_SOURCE5_MIN")
+(typeStr "Real")
+(state "Valid")
+(value -20))
+(idComp
+(name "STR_SOURCE5_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 20))
+(idComp
+(name "STR_CONST_OUTPUT_SOU5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE5_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE5_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL5")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT6")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE6_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE6_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL6")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT7")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE7_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE7_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL7")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STR_CONST_UNIT8")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "STR_SOURCE8_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_SOU8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_COMPL_MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_SOURCE8_COMPL_MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OUTPUT_COMPL8")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "STRESS_FORCE_RATE")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "STRESS_FORCE_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DATATYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "ASCII"))
+(idComp
+(name "LIST_NAME1")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "LIST_NAME2")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "LIST_NAME3")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME4")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME5")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME6")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME7")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_NAME8")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "DISPLAY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRAPHICS"))
+(idComp
+(name "DIS_XAXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "V2"))
+(idComp
+(name "DISPLAY_XAXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "XMIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "XMAX")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "DIS_Y1AXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "I2"))
+(idComp
+(name "DISPLAY_Y1AXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "Y1MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "Y1MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "DIS_Y2AXIS_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "DISPLAY_Y2AXIS_SCALE")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEAR"))
+(idComp
+(name "Y2MIN")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "Y2MAX")
+(typeStr "Real")
+(state "Valid")
+(value 0.1))
+(idComp
+(name "DISPLAY_GRID_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISPLAY_LINEPAR_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DIS_DATAVAR1")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "DIS_DATAVAR2")
+(typeStr "Text")
+(state "Invalid")
+(value ""))
+(idComp
+(name "XINCR")
+(typeStr "Real")
+(state "Valid")
+(value 0.009900990099009901))
+(idComp
+(name "XUNIT")
+(typeStr "Text")
+(state "Valid")
+(value "V"))
+(idComp
+(name "YUNIT")
+(typeStr "Text")
+(state "Valid")
+(value "I"))
+(idComp
+(name "COUNTER_SET_FLAG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "GRAT_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRID"))
+(idComp
+(name "LOG_Y")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VALID_DATA")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "NO_PTS1_1")
+(typeStr "Int16")
+(state "Valid")
+(value 101))
+(idComp
+(name "NO_PTS1_2")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_3")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_4")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_5")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS1_6")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_1")
+(typeStr "Int16")
+(state "Valid")
+(value 101))
+(idComp
+(name "NO_PTS2_2")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_3")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_4")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_5")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS2_6")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "NO_PTS_X")
+(typeStr "Int16")
+(state "Valid")
+(value 101))
+(idComp
+(name "LIST_FILER_OPERATION")
+(typeStr "Enum")
+(state "Valid")
+(value "STORE"))
+(idComp
+(name "LIST_FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LIST_FILE_UNIT_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LIST_FILE_DATA_SMARK")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LIST_FILE_DATA_DELIMITER")
+(typeStr "Enum")
+(state "Valid")
+(value "SPACE"))
+(idComp
+(name "LIST_DATA_STORE_FIRST")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "LIST_DATA_STORE_LAST")
+(typeStr "Real")
+(state "Valid")
+(value 6000))
+(idComp
+(name "LIST_STORE_EXECUTE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIST_STORE_CANCEL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRACE_FILER_OPERATION")
+(typeStr "Enum")
+(state "Valid")
+(value "STORE"))
+(idComp
+(name "TRACE_FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "TRACE_OPERATION_EXECUTE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SYS_BEEP")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SYS_FREQ")
+(typeStr "Enum")
+(state "Valid")
+(value "FIFTY"))
+(idComp
+(name "ITEMSETUP1_TITLE")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_DATETIME")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_PAGENO")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP1_USERCOMMENT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "USER_COMMENT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "INST_PAGE")
+(typeStr "Enum")
+(state "Valid")
+(value "GRAPH"))
+(idComp
+(name "HARDCOPY_FILENAME")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "HARDCOPY_LANGUAGE")
+(typeStr "Enum")
+(state "Valid")
+(value "PCL"))
+(idComp
+(name "HARDCOPY_RESOLUTION")
+(typeStr "Enum")
+(state "Valid")
+(value "RES75"))
+(idComp
+(name "HARDCOPY_COLOR")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "HARDCOPY_FFEED")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "HARDCOPY_INITSTRING")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "HARDCOPY_TRAILSTRING")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "PAGESETUP_SIZE")
+(typeStr "Enum")
+(state "Valid")
+(value "CUSTOM"))
+(idComp
+(name "PAGESETUP_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 11))
+(idComp
+(name "PAGESETUP_WIDTH")
+(typeStr "Real")
+(state "Valid")
+(value 8.5))
+(idComp
+(name "PAGESETUP_UNIT")
+(typeStr "Enum")
+(state "Valid")
+(value "INCH"))
+(idComp
+(name "PAGESETUP_LLEFTX")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PAGESETUP_LLEFTY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "PAGESETUP_URIGHTX")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "PAGESETUP_URIGHTY")
+(typeStr "Real")
+(state "Valid")
+(value 100))
+(idComp
+(name "ITEMSETUP2_TRACE")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_FRAMEGRID")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_AXISTEXT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "ITEMSETUP2_TEXT")
+(typeStr "Enum")
+(state "Valid")
+(value "ENABLED"))
+(idComp
+(name "INST_ID")
+(typeStr "Enum")
+(state "Valid")
+(value "HP4156"))
+(idComp
+(name "FINISH_RECALL")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "INTERPOLATE_STATUS")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "LINE1_MODE_STATUS_NORM")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE_STATUS_GRAD")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE_STATUS_TANG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_NORM")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_GRAD")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE2_MODE_STATUS_TANG")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "LINE1_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "LINE1_LINEON")
+(typeStr "Enum")
+(state "Invalid")
+(value "LINEONY1"))
+(idComp
+(name "LINE2_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "DISABLE"))
+(idComp
+(name "LINE2_LINEON")
+(typeStr "Enum")
+(state "Valid")
+(value "LINEONY1"))
+(idComp
+(name "LINE1_POINT1_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE1_POINT1_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_POINT1_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT1_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE1_POINT2_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_POINT2_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_POINT2_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_GRADIENT_ENTRY")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE1_TANGENT_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE1_TANGENT_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE2_POINT1_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_POINT1_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT1_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "XYCOORD"))
+(idComp
+(name "LINE2_POINT2_X")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_Y")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_POINT2_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_POINT2_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_GRADIENT_ENTRY")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "LINE2_TANGENT_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "LINE2_TANGENT_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND1_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value "I3"))
+(idComp
+(name "MARKER_COND1_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value "1u"))
+(idComp
+(name "MARKER_COND2_TYPE")
+(typeStr "Enum")
+(state "Valid")
+(value "NONE"))
+(idComp
+(name "MARKER_COND2_LEFT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_COND2_RIGHT")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "MARKER_SETUP_DISABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANALYSIS_LINE_SELECT")
+(typeStr "Enum")
+(state "Valid")
+(value "LINE_1"))
+(idComp
+(name "ANAL_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANAL_LINE1_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "ANAL_LINE2_MARK_SKIP")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "MARKER_CURSOR_ANAL_EXE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "SWITCH_OFF_MARKER")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STR_CONST_OP_TMP_STORE")
+(typeStr "Text")
+(state "Valid")
+(value "")))))
+(device 27 NOTE
+(properties
+(text2 3 "This is an example of stress" "measurement on bipolar transistor." "")
+))
+(device 28 NOTE
+(properties
+(text2 1 "")))
+(configuration
+(connect D12:1 D0:1)
+(connect D12:2 D1:1)
+(connect D12:3 D2:1)
+(connect D4:0 D3:0)
+(connect D4:0 D5:0)
+(connect D3:1 D6:1)
+(connect D4:0 D6:2)
+(connect D13:2 D7:1)
+(connect D13:1 D8:1)
+(connect D13:2 D9:1)
+(connect D13:1 D9:2)
+(connect D9:1 D10:1)
+(connect D9:1 D11:1)
+(connect D4:0 D11:2)
+(connect D3:1 D12:0)
+(connect D5:1 D12:1)
+(connect D3:1 D12:2)
+(connect D12:0 D13:0)
+(connect D12:0 D13:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1117 560)
+(anchorPt 920 47)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 207 39))
+(pinCenter 0 0))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 189 39))
+(pinCenter -10 80))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 172 0))
+(open
+(extent 234 39))
+(pinCenter 10 160))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 190 0)
+(iconImage "loop.icn"))
+(open
+(extent 252 32))
+(pinCenter -780 110))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 67 37))
+(title off)
+(pinCenter -780 10))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 163 25))
+(open
+(extent 225 34)
+(showFormat real))
+(pinCenter -790 250))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 199 25))
+(open
+(extent 261 32))
+(pinCenter -470 40))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 163 0))
+(open
+(extent 225 39))
+(pinCenter 10 340))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 180 39))
+(pinCenter -10 260))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 61 112))
+(terminals on)
+(pinCenter -230 480))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 180 39))
+(pinCenter -10 420))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 281)
+(displayMode 63)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 500 4 linear))
+(domain 0 20 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(pinCenter 20 620))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "inst.icn"))
+(open
+(extent 428 215)
+(visiblePanels 4 "STRESS_FORCE" "CRT" "XY_NORMAL" "MAIN"))
+(terminals on)
+(pinCenter -240 100))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "inst.icn"))
+(open
+(extent 428 215)
+(visiblePanels 5 "STRESS_DEFINE" "AUTOANALYSIS" "CRT" "XY_NORMAL" "MAIN"))
+(terminals on)
+(pinCenter -230 280))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "notepad.icn"))
+(open
+(extent 312 102)
+(editing enabled))
+(pinCenter -720 420))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 180 92)
+(editing enabled))
+(pinCenter -720 500))
+(connect D12:1 D0:1
+(points 6 -183 80 -170 80 -170 70 -160 70 -160 0 -106 0))
+(connect D12:2 D1:1
+(points 4 -183 100 -160 100 -160 80 -107 80))
+(connect D12:3 D2:1
+(points 4 -183 120 -160 120 -160 160 -110 160))
+(connect D4:0 D3:0
+(points 2 -780 31 -780 73))
+(connect D4:0 D5:0
+(points 6 -780 31 -780 50 -630 50 -630 150 -790 150 -790 212))
+(connect D3:1 D6:1
+(points 4 -652 110 -620 110 -620 30 -603 30))
+(connect D4:0 D6:2
+(points 3 -780 31 -780 50 -603 50))
+(connect D13:2 D7:1
+(points 4 -173 300 -150 300 -150 340 -105 340))
+(connect D13:1 D8:1
+(points 2 -173 260 -103 260))
+(connect D13:2 D9:1
+(points 6 -173 300 -150 300 -150 330 -280 330 -280 470 -272 470))
+(connect D13:1 D9:2
+(points 6 -173 260 -150 260 -150 230 -310 230 -310 490 -272 490))
+(connect D9:1 D10:1
+(points 4 -189 480 -170 480 -170 420 -103 420))
+(connect D9:1 D11:1
+(points 4 -189 480 -170 480 -170 550 -141 550))
+(connect D4:0 D11:2
+(points 7 -780 31 -780 50 -630 50 -630 150 -530 150 -530 690 -141 690))
+(connect D3:1 D12:0
+(points 7 -652 110 -620 110 -620 80 -320 80 -320 50 -240 50 -240 65))
+(connect D5:1 D12:1
+(points 6 -675 250 -610 250 -610 90 -310 90 -310 80 -298 80))
+(connect D3:1 D12:2
+(points 6 -652 110 -620 110 -620 80 -320 80 -320 120 -298 120))
+(connect D12:0 D13:0
+(points 4 -240 134 -240 150 -230 150 -230 245))
+(connect D12:0 D13:1
+(points 7 -240 134 -240 150 -230 150 -230 220 -320 220 -320 280 -288 280)))
+(stackingOrder 3 9 4 13 5 0 1 2 8 7 10 11 15 14 12 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

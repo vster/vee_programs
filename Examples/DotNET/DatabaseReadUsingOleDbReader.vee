@@ -1,0 +1,526 @@
+(saveFormat "7.0")
+(date "Fri 08/Apr/2005 09:37:31 ")
+(veerev "7.5.7607.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Data.dll"))
+(selectedNamespaces "System,System.Data,System.Data.OleDb,"))
+(properties
+(trigMode deg)
+(nextID 23)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "mdb FileSpec")
+(expr 1
+"installDir()+\"\\\\examples\\\\ActiveXAutomation\\\\Data\\\\testData.mdb\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 DOTNETBUILDER
+(properties
+(name "Execute Commands")
+(transactions 6 "oleDbCommand.CommandText = commandText"
+"return = oleDbCommand.ExecuteScalar()"
+"oleDbCommand.CommandText = commandText2"
+"return2 = oleDbCommand.ExecuteScalar()"
+"oleDbCommand.CommandText = commandText3"
+"oleDbReader = oleDbCommand.ExecuteReader(System.Data.CommandBehavior.Default)")
+(parmInfo 13 "1" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "2" "F" "T 0")
+(memberInfos 6 "System.String CommandText" "System.Object ExecuteScalar()"
+"System.String CommandText" "System.Object ExecuteScalar()"
+"System.String CommandText"
+"System.Data.OleDb.OleDbDataReader ExecuteReader(System.Data.CommandBehavior)")
+(statics 6 "0" "0" "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbCommand, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbCommand"))
+(interface
+(input 1
+(name "oleDbCommand")
+(optional yes))
+(input 2
+(name "commandText")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "commandText2")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 4
+(name "commandText3")
+(optional yes))
+(output 1
+(name "return")
+(optional yes))
+(output 2
+(name "return2")
+(optional yes))
+(output 3
+(name "oleDbReader")
+(optional yes)))
+(implementation))
+(device 4 TEXTDISPLAY
+(properties
+(name "Number of Rows Selected"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "Connection String")
+(expr 1 "\"Provider=Microsoft.JET.OLEDB.4.0;Data Source=\"+A+\";\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 DOTNETBUILDER
+(properties
+(name "Close Database Connection")
+(transactions 1 "oleDbConnection.Close()")
+(parmInfo 1 "0")
+(memberInfos 1 "Void Close()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbConnection, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbConnection"))
+(interface
+(input 1
+(name "oleDbConnection")
+(optional yes))
+(output 1
+(name "oleDbConnection")
+(optional yes)))
+(implementation))
+(device 2 DOTNETBUILDER
+(properties
+(name "Open Database Connection & Create Command")
+(transactions 3
+"oleDbConnection = CreateInstance(\"System.Data\", \"System.Data.OleDb.OleDbConnection\", connectionString)"
+"oleDbConnection.Open()" "oleDbCommand = oleDbConnection.CreateCommand()")
+(parmInfo 8 "4" "T 0" "T 0" "T 0" "T 0" "0" "1" "T 0")
+(memberInfos 3 "Void .ctor(System.String)" "Void Open()"
+"System.Data.OleDb.OleDbCommand CreateCommand()")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbConnection, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbConnection"))
+(interface
+(input 1
+(name "connectionString")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "oleDbConnection")
+(optional yes))
+(output 2
+(name "oleDbCommand")
+(optional yes)))
+(implementation))
+(device 7 LITERALCONSTANT
+(properties
+(name "SQL Command"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SELECT COUNT(*) FROM Specifications"))
+(initValue Text
+(data  ""))))
+(device 8 LITERALCONSTANT
+(properties
+(name "SQL Command"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SELECT COUNT(*) FROM testResults"))
+(initValue Text
+(data  ""))))
+(device 9 TEXTDISPLAY
+(properties
+(name "Number of Rows Selected"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 11 DOTNETBUILDER
+(properties
+(name "DataReader.Read")
+(transactions 1 "return = oleDbDataReader.Read()")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Boolean Read()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbDataReader, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbDataReader"))
+(interface
+(input 1
+(name "oleDbDataReader")
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 12 IFTHENELSE
+(properties
+(name "More Rows?")
+(cases 1 "A!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 13 BREAK)
+(device 14 DOTNETBUILDER
+(properties
+(name "System.Data.OleDb.OleDbDataReader")
+(transactions 2 "item = oleDbDataReader.Item(0)"
+"passFail = oleDbDataReader.Item(\"PassFail\")")
+(parmInfo 6 "2" "T 0" "T 0" "2" "T 0" "T 0")
+(memberInfos 2 "System.Object Item [Int32]" "System.Object Item [System.String]"
+)
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbDataReader, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbDataReader"))
+(interface
+(input 1
+(name "oleDbDataReader")
+(optional yes))
+(output 1
+(name "item")
+(optional yes))
+(output 2
+(name "passFail")
+(optional yes)))
+(implementation))
+(device 15 SCROLLINGTEXTDISPLAY
+(properties
+(name "DUT Name")
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 17 LITERALCONSTANT
+(properties
+(name "SQL Command"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "SELECT * FROM testResults"))
+(initValue Text
+(data  ""))))
+(device 19 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\f0\\fs24 Using OleDbConnection, OleDbCommand and OleDbDataReader to Walk Rows in a Database Table\\par\r\n\\cf0\\ulnone\\b0\\f1\\par\r\nThis example demonstrates how to use the OleDb connection, command and data reader classes to query information from an access database file.  It also shows how to walk through the rows in a database table.\\par\r\n\\par\r\n\\b Assemblies\\b0 : mscorlib, System.Data\\par\r\n\\b Namespaces\\b0 : System, System.Data, System.Data.OleDb\\par\r\n\\b Types\\b0 : System.Data.OleDb.OleDbConnection, System.Data.OleDb.OleDbCommand, System.Data.OleDb.OleDbDataReader\\par\r\n}\r\n"
+)))
+(device 21 SCROLLINGTEXTDISPLAY
+(properties
+(name "Result")
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 22 DOTNETBUILDER
+(properties
+(name "Close OleDbDataReader")
+(transactions 1 "oleDbDataReader.Close()")
+(parmInfo 1 "0")
+(memberInfos 1 "Void Close()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Data.OleDb.OleDbDataReader, System.Data, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "oleDbDataReader"))
+(interface
+(input 1
+(name "oleDbDataReader")
+(optional yes)))
+(implementation))
+(configuration
+(connect D5:0 D1:0)
+(connect D5:2 D1:1)
+(connect D6:1 D1:2)
+(connect D7:1 D1:3)
+(connect D15:1 D1:4)
+(connect D1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D18:0 D4:0)
+(connect D5:1 D4:1)
+(connect D3:1 D5:1)
+(connect D1:2 D8:1)
+(connect D1:0 D9:0)
+(connect D9:1 D10:0)
+(connect D1:3 D10:1)
+(connect D10:1 D11:1)
+(connect D11:2 D12:0)
+(connect D11:1 D13:0)
+(connect D1:3 D13:1)
+(connect D13:1 D14:1)
+(connect D13:2 D17:1)
+(connect D9:0 D18:0)
+(connect D1:3 D18:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1110 764)
+(anchorPt 88 -55)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 111 14))
+(open
+(extent 368 50))
+(terminals on)
+(pinCenter 10 120))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 123 0))
+(open
+(extent 314 126))
+(terminals on)
+(pinCenter 490 280))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 158 0))
+(open
+(extent 194 22))
+(pinCenter 860 240))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 107 15))
+(open
+(extent 344 50))
+(terminals on)
+(pinCenter 140 120))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 171 15))
+(open
+(extent 194 76))
+(terminals on)
+(pinCenter 480 740))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 292 0))
+(open
+(extent 294 76))
+(terminals on)
+(pinCenter 475 120))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 244 36))
+(pinCenter 50 220))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 244 36))
+(pinCenter 50 290))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 158 0))
+(open
+(extent 194 22))
+(pinCenter 860 290))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 480 420))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 630 460))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 75 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 760 460))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 860 500))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 244 76))
+(terminals on)
+(pinCenter 760 600))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 104 76)
+(noformatter))
+(pinCenter 680 730))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 244 36))
+(pinCenter 50 360))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 334 336)
+(editing disabled))
+(pinCenter 120 610))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 94 76)
+(noformatter))
+(pinCenter 800 730))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 234 56))
+(terminals on)
+(pinCenter 480 700))
+(connect D5:0 D1:0
+(points 2 480 160 480 196))
+(connect D5:2 D1:1
+(points 6 744 140 760 140 760 180 200 180 200 230 220 230))
+(connect D6:1 D1:2
+(points 4 174 220 190 220 190 260 220 260))
+(connect D7:1 D1:3
+(points 2 174 290 220 290))
+(connect D15:1 D1:4
+(points 4 174 360 190 360 190 320 220 320))
+(connect D1:1 D2:1
+(points 2 739 240 760 240))
+(connect D0:1 D3:1
+(points 2 68 120 84 120))
+(connect D18:0 D4:0
+(points 2 480 710 480 730))
+(connect D5:1 D4:1
+(points 6 744 100 980 100 980 370 370 370 370 740 392 740))
+(connect D3:1 D5:1
+(points 2 196 120 215 120))
+(connect D1:2 D8:1
+(points 4 739 280 750 280 750 290 760 290))
+(connect D1:0 D9:0
+(points 2 480 345 480 392))
+(connect D9:1 D10:0
+(points 3 516 420 630 420 630 450))
+(connect D1:3 D10:1
+(points 6 739 320 760 320 760 380 550 380 550 460 572 460))
+(connect D10:1 D11:1
+(points 2 687 460 720 460))
+(connect D11:2 D12:0
+(points 3 800 470 860 470 860 490))
+(connect D11:1 D13:0
+(points 5 800 450 820 450 820 500 730 500 730 541))
+(connect D1:3 D13:1
+(points 8 739 320 760 320 760 380 550 380 550 470 500 470 500 600 515 600))
+(connect D13:1 D14:1
+(points 6 944 580 970 580 970 800 610 800 610 730 625 730))
+(connect D13:2 D17:1
+(points 6 944 620 960 620 960 790 740 790 740 730 750 730))
+(connect D9:0 D18:0
+(points 2 480 448 480 690))
+(connect D1:3 D18:1
+(points 10 739 320 760 320 760 380 550 380 550 470 500 470 500 600 380 600 380
+700 402 700)))
+(stackingOrder 9 2 8 16 4 12 10 5 1 3 0 14 17 13 18 6 7 15 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

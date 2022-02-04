@@ -1,0 +1,1096 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 12:30:24 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 F1 M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "Light Blue Gray")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "White" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Yellow" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Object Description Text" "Courier New" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Notepad Text" "Courier New" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 100)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 0
+(properties
+(name "err_check")
+(trigMode deg)
+(nextID 23)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "B")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 1 FORMULA
+(properties
+(expr 1 "\"Error in program:\"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 MESSAGEBOX
+(properties
+(position 593 392)
+(message "Error in Program")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 3 EXITCONTEXT)
+(device 4 IFTHENELSE
+(properties
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 9 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 2 "WRITE TEXT \"SYST:ERR?;\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 10 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 11 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 12 START25)
+(device 13 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 15 LABEL
+(properties
+(name "err_check User FUNCTION Description")
+(labelValue "err_check User FUNCTION Description"))
+(implementation))
+(device 16 NOTE
+(properties
+(text2 2 "This is the full Error String, i.e. error" "number and description."))
+)
+(device 19 NOTE
+(properties
+(text2 6 "The entire error string is passed to the A "
+"input terminal, but the REQUIRED data type "
+"on the A input is SET to INT32. Therefor" "the If/Then/Else Object ONLY READS "
+"the ERROR NUMBER." "")))
+(device 20 NOTE
+(properties
+(text2 3
+"The error QUE can FILL with MULTIPLE errors. Therefor this USER FUNCTION will REPEAT/UNTIL "
+"all ERRORS are read from the ERROR Queue. When the ERROR number evaluates to 0 the "
+"If/Then/Else pings the BREAK (i.e. EXIT the REPEAT UNTIL/BREAK loop).")))
+(device 21 NOTE
+(properties
+(text2 2
+"If an error exist in the error que then utilize a MESSAGE BOX to advise the USER!"
+"")))
+(configuration
+(connect D4:2 D0:1)
+(connect D2:1 D0:2)
+(connect D2:2 D0:3)
+(connect D5:0 D1:0)
+(connect D5:1 D1:1)
+(connect D4:1 D2:0)
+(connect D1:1 D2:1)
+(connect D0:1 D3:0)
+(connect D6:0 D4:0)
+(connect D5:1 D4:1)
+(connect D7:1 D5:0)
+(connect D5:1 D6:1)
+(connect D8:0 D7:0)
+(connect D5:1 D9:1)
+(connect D4:2 D9:2)
+(connect D9:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1037 658)
+(anchorPt -173 36)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 34 49))
+(open
+(extent 23 86))
+(terminals on)
+(pinCenter 980 680))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 57 16))
+(open
+(extent 170 44))
+(terminals on)
+(pinCenter 90 660))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 93 33))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 700 660))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 1030 770))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 82 25))
+(open
+(extent 57 53))
+(terminals on)
+(pinCenter 475 410))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 174 53)
+(iconImage "io.icn"))
+(open
+(extent 215 85))
+(terminals on)
+(pinCenter 100 260))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 247 29))
+(pinCenter 480 260))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 40 120))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 40 50))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 760 310))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 236 0))
+(open
+(extent 527 42)
+(just c))
+(title off)
+(bg "Green")
+(font "Arial" 20 bold)
+(pinCenter 530 0))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 338 60)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 810 250))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 342 131)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 310 510))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 752 94)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 500 130))
+(devCarrierFor 21
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 646 54)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 610 770))
+(connect D4:2 D0:1
+(points 4 546 420 900 420 900 670 960 670))
+(connect D2:1 D0:2
+(points 4 870 630 890 630 890 680 960 680))
+(connect D2:2 D0:3
+(points 2 870 690 960 690))
+(connect D5:0 D1:0
+(points 2 100 305 100 617))
+(connect D5:1 D1:1
+(points 6 240 260 260 260 260 330 -50 330 -50 660 -28 660))
+(connect D4:1 D2:0
+(points 5 546 400 560 400 560 430 690 430 690 575))
+(connect D1:1 D2:1
+(points 2 227 660 509 660))
+(connect D0:1 D3:0
+(points 3 999 680 1030 680 1030 759))
+(connect D6:0 D4:0
+(points 2 480 277 480 363))
+(connect D5:1 D4:1
+(points 6 240 260 260 260 260 300 380 300 380 410 414 410))
+(connect D7:1 D5:0
+(points 3 76 120 100 120 100 197))
+(connect D5:1 D6:1
+(points 2 240 260 354 260))
+(connect D8:0 D7:0
+(points 2 40 63 40 92))
+(connect D5:1 D9:1
+(points 4 240 260 260 260 260 300 731 300))
+(connect D4:2 D9:2
+(points 4 546 420 570 420 570 320 731 320))
+(connect D9:1 O1:1
+(points 4 789 310 910 310 910 292 1209 292)))
+(stackingOrder 2 5 1 6 9 3 0 11 4 7 8 13 14 12 10))))
+(context 1
+(properties
+(name "wait_for_meas")
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "meas_data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 IFTHENELSE
+(properties
+(cases 1 "bit(a, 4)==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 SERIALPOLL
+(properties
+(name "Spoll: HPEPM ( @ 713)")
+(iopath "HPEPM")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0x10))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 3 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 4 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 5 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 6 START25)
+(device 7 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 1 "READ TEXT meas_data REAL64"))
+(interface
+(output 1
+(name "meas_data")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 8 BREAK)
+(device 9 LABEL
+(properties
+(name "wait_for_meas User FUNCTION Description")
+(labelValue "wait_for_meas User FUNCTION Description"))
+(implementation))
+(device 10 NOTE
+(properties
+(text2 2 "Use the SPOLL object to determine and " "monitor the status byte.")))
+(device 11 NOTE
+(properties
+(text2 5 "Bit 4 of the status byte indicates \"Data Available\"."
+"When queried for a measurement this bit is set when"
+"the measurement is complete and the \"data is available\"."
+"Stay in the SPOLL until bit 4 is set to 1. Then read"
+"the measured data from the power meter. ")))
+(device 12 NOTE
+(properties
+(text2 2
+"Once the data has been read from the power meter then the REPEAT UNTIL "
+"BREAK can be EXITED, thus the BREAK object is pinged.")))
+(device 13 NOTE
+(properties
+(text2 3 "How many times through the SPOLL Loop before the "
+"MEASUREMENT was complete and the DATA AVAILABLE?" "")))
+(configuration
+(connect D1:1 D0:1)
+(connect D3:1 D1:0)
+(connect D1:1 D2:1)
+(connect D5:0 D3:0)
+(connect D3:1 D4:1)
+(connect D0:1 D6:0)
+(connect D6:0 D7:0)
+(connect D6:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 796 637)
+(anchorPt -38 -20)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 146 51))
+(terminals on)
+(pinCenter 635 470))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 227 51)
+(iconImage "io.icn"))
+(open
+(extent 306 106))
+(terminals on)
+(pinCenter 230 330))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 125 147)
+(noformatter))
+(pinCenter 580 330))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 180 210))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 84 31))
+(pinCenter 340 210))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 180 140))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 215 47))
+(terminals on)
+(pinCenter 745 550))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 770 590))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 267 0))
+(open
+(extent 527 42)
+(just c))
+(title off)
+(bg "Green")
+(font "Arial" 20 bold)
+(pinCenter 660 50))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 362 67)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 230 430))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 450 127)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 890 300))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 579 64)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 720 640))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 443 64)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 630 190))
+(connect D1:1 D0:1
+(points 4 435 330 470 330 470 470 529 470))
+(connect D3:1 D1:0
+(points 3 216 210 240 210 240 256))
+(connect D1:1 D2:1
+(points 2 435 330 515 330))
+(connect D5:0 D3:0
+(points 2 180 153 180 182))
+(connect D3:1 D4:1
+(points 2 216 210 295 210))
+(connect D0:1 D6:0
+(points 3 750 460 770 460 770 506))
+(connect D6:0 D7:0
+(points 2 770 576 770 580))
+(connect D6:1 O1:1
+(points 4 935 550 1070 550 1070 338 833 338)))
+(stackingOrder 1 3 4 5 8 0 9 12 6 7 11 2 10)))))
+(device 16 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 7 "WRITE TEXT \"INIT1:CONT OFF\" EOL"
+"WRITE TEXT \"SENS1:AVER:COUN:AUTO OFF;\" EOL"
+"WRITE TEXT \"SENS1:AVER:COUN 128\" EOL" "WRITE TEXT \"OUTP:ROSC ON;*OPC?\" EOL"
+"READ TEXT done2 INT32" "WRITE TEXT \"INIT\" EOL" "WRITE TEXT \"FETCH?\" EOL"))
+(interface
+(output 1
+(name "done2")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 20 TEXTDISPLAY
+(properties
+(name "Data"))
+(interface
+(input 1
+(name "Data"))))
+(device 71 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 72 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 4 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"*OPC?\" EOL" "READ TEXT done1 INT32"))
+(interface
+(output 1
+(name "done1")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 73 NOTE
+(properties
+(text2 1 "Execute a CLEAR on the HPIB card.")))
+(device 74 HPIBTRANSACTION
+(properties
+(name "Interface Op\'s: GPIB7 @ 7")
+(transactions 1 "EXECUTE CLEAR"))
+(implementation
+(gateway "This host")
+(channel 7)
+(timeout 5)))
+(device 75 START25)
+(device 76 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 78 NOTE
+(properties
+(text2 3 "How many times through the SPOLL Loop before the "
+"MEASUREMENT was complete and the DATA AVAILABLE?" "")))
+(device 80 NOTE
+(properties
+(text2 5 "Bit 4 of the status byte indicates \"Data Available\"."
+"When queried for a measurement this bit is set when"
+"the measurement is complete and the \"data is available\"."
+"Stay in the SPOLL until bit 4 is set to 1. Then read"
+"the measured data from the power meter. ")))
+(device 81 NOTE
+(properties
+(text2 1 "Use the SPOLL to determine and monitor status byte.")))
+(device 83 BREAK)
+(device 84 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 1 "READ TEXT meas_data REAL64"))
+(interface
+(output 1
+(name "meas_data")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 86 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 87 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 88 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 89 SERIALPOLL
+(properties
+(name "Spoll: HPEPM ( @ 713)")
+(iopath "HPEPM")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0x10))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 90 IFTHENELSE
+(properties
+(cases 1 "bit(a, 4)==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 93 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 94 IODEVICE
+(properties
+(name "HPEPM ( @ 713)")
+(transactions 2 "WRITE TEXT \"SENS1:AVER:COUN:AUTO?\" EOL"
+"READ TEXT stat INT16"))
+(interface
+(output 1
+(name "stat")
+(optional yes)))
+(implementation
+(iopath "HPEPM")))
+(device 95 TEXTDISPLAY
+(properties
+(name "Auto Filter State"))
+(interface
+(input 1
+(name "Data"))))
+(device 99 NOTE
+(properties
+(name "ABOUT:EPM_Averages_SPOLL.vee")
+(text2 7 "Keysight Vee sample program for the EPM E-Series "
+"of average sensing RF power meters. The program "
+"uses the manual filter mode which allows the user "
+"to set the filter length (a.k.a. averages). "
+"The program also utilizes an SPOLL to determine "
+"when the measurement data is available." "")))
+(configuration
+(connect D3:0 D0:0)
+(connect D12:1 D1:1)
+(connect D3:1 D2:1)
+(connect D5:0 D3:0)
+(connect D6:0 D5:0)
+(connect D0:1 D7:1)
+(connect D19:0 D11:0)
+(connect D17:1 D12:0)
+(connect D14:1 D13:1)
+(connect D0:0 D14:0)
+(connect D16:1 D15:1)
+(connect D14:1 D16:0)
+(connect D16:1 D17:1)
+(connect D0:0 D18:1)
+(connect D16:1 D18:2)
+(connect D12:0 D19:0)
+(connect D19:1 D20:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 856 637)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 161 -31)
+(configuration
+(devCarrierFor 16
+(active open)
+(icon
+(extent 182 0)
+(iconImage "io.icn"))
+(open
+(extent 345 137))
+(terminals on)
+(pinCenter 80 350))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 105 27)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(bg "Lightest Gray")
+(titleBg "Light Blue")
+(titleFont "Arial" 14 bold)
+(pinCenter 680 560))
+(devCarrierFor 71
+(active open)
+(icon)
+(open
+(extent 105 27))
+(pinCenter 320 200))
+(devCarrierFor 72
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 231 93))
+(terminals on)
+(pinCenter 80 200))
+(devCarrierFor 73
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 275 35)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 390 90))
+(devCarrierFor 74
+(active open)
+(icon
+(extent 232 0)
+(iconImage "io.icn"))
+(open
+(extent 230 44))
+(terminals on)
+(pinCenter 90 110))
+(devCarrierFor 75
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 90 50))
+(devCarrierFor 76
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 390 350))
+(devCarrierFor 78
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 443 64)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 100 700))
+(devCarrierFor 80
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 450 127)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 610 190))
+(devCarrierFor 81
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 445 45)
+(editing enabled))
+(title off)
+(bg "Med Light Teal")
+(font "Comic Sans MS" 14 bold)
+(titleBg "Med Light Blue")
+(pinCenter 100 630))
+(devCarrierFor 83
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 520 760))
+(devCarrierFor 84
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 225 47))
+(terminals on)
+(pinCenter 495 640))
+(devCarrierFor 86
+(active open)
+(icon)
+(open
+(extent 105 17))
+(pinCenter 260 460))
+(devCarrierFor 87
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 90 460))
+(devCarrierFor 88
+(active open)
+(icon)
+(open
+(extent 125 167)
+(noformatter))
+(pinCenter 590 410))
+(devCarrierFor 89
+(active open)
+(icon
+(extent 227 51)
+(iconImage "io.icn"))
+(open
+(extent 305 77))
+(terminals on)
+(pinCenter 130 550))
+(devCarrierFor 90
+(active open)
+(icon)
+(open
+(extent 95 47))
+(terminals on)
+(pinCenter 455 550))
+(devCarrierFor 93
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 420 430))
+(devCarrierFor 94
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 215 47))
+(terminals on)
+(pinCenter 515 720))
+(devCarrierFor 95
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 155 27)
+(formatter
+(realFormat fixed)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(bg "Lightest Gray")
+(titleBg "Light Blue")
+(titleFont "Arial" 14 bold)
+(pinCenter 750 720))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 250 52)
+(iconImage "notepad.icn"))
+(open
+(extent 375 117)
+(editing enabled))
+(bg "Light Gray")
+(titleBg "Med Light Teal")
+(titleFont "Arial" 14)
+(pinCenter 680 80))
+(connect D3:0 D0:0
+(points 2 90 249 90 261))
+(connect D12:1 D1:1
+(points 6 690 640 710 640 710 590 620 590 620 560 625 560))
+(connect D3:1 D2:1
+(points 2 248 200 265 200))
+(connect D5:0 D3:0
+(points 2 90 134 90 133))
+(connect D6:0 D5:0
+(points 2 90 63 90 67))
+(connect D0:1 D7:1
+(points 2 305 350 327 350))
+(connect D19:0 D11:0
+(points 2 520 746 520 750))
+(connect D17:1 D12:0
+(points 5 545 540 570 540 570 590 520 590 520 596))
+(connect D14:1 D13:1
+(points 2 126 460 205 460))
+(connect D0:0 D14:0
+(points 2 90 421 90 432))
+(connect D16:1 D15:1
+(points 6 335 550 360 550 360 470 480 470 480 410 525 410))
+(connect D14:1 D16:0
+(points 3 126 460 140 460 140 491))
+(connect D16:1 D17:1
+(points 2 335 550 375 550))
+(connect D0:0 D18:1
+(points 7 90 421 90 440 190 440 190 480 340 480 340 420 381 420))
+(connect D16:1 D18:2
+(points 4 335 550 360 550 360 440 381 440))
+(connect D12:0 D19:0
+(points 2 520 666 520 676))
+(connect D19:1 D20:1
+(points 2 665 720 670 720)))
+(stackingOrder 10 6 8 14 5 4 18 17 3 15 1 12 16 2 9 0 7 13 19 20 11 21))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

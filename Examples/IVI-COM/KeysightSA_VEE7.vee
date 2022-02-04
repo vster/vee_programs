@@ -1,0 +1,556 @@
+(saveFormat "7.0")
+(date "Thu 28/Apr/2005 14:11:05 ")
+(veerev "7.5.7621.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"Agilent.AgilentSa.Interop, Version=2.2.0.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(libid "{D63A412D-AE99-40B5-A536-E8AB384874F2}")
+(desc "IVI AgilentSa (Agilent Technologies) 2.2 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\AgilentSa.dll")
+(verMajor 2)
+(verMinor 2)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Agilent.AgilentSa.Interop.DLL"
+))
+(assemblyRef 2
+(displayName
+"Agilent.AgilentSaAppSa.Interop, Version=2.2.0.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(libid "{91E5AB69-1B65-495C-AD6B-78C62A89E7AF}")
+(desc "IVI AgilentSaAppSa (Agilent Technologies) 2.2 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\AgilentSaAppSa.dll")
+(verMajor 2)
+(verMinor 2)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Agilent.AgilentSaAppSa.Interop.DLL"
+))
+(assemblyRef 3
+(displayName
+"Ivi.Driver.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1"
+)
+(libid "{47ED5120-A398-11D4-BA58-000064657374}")
+(desc "IviDriver 1.0 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\IviDriverTypeLib.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Ivi.Driver.Interop.dll"
+))
+(assemblyRef 4
+(displayName
+"Ivi.SpecAn.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1"
+)
+(libid "{47ED5126-A398-11D4-BA58-000064657374}")
+(desc "IviSpecAn 1.0 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\IviSpecAnTypeLib.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Ivi.SpecAn.Interop.dll"
+))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 68)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Select the SA application")
+(expr 3 "AgilentSaClass.Application.Select(\"SA\"); "
+"// Wait 6 secs for the analyzer to switch to SA mode"
+"AgilentSaClass.System.WaitForOperationComplete (6000);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 2 DECLVAR
+(properties
+(name "Declare AgilentSaClass")
+(scope glob)
+(globalName "AgilentSaClass"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "GPIB0::18::INSTR"))
+(initValue Text
+(data  ""))))
+(device 4 FORMULA
+(properties
+(name "Create Agilent.AgilentSa.Interop.AgilentSaClass and initialize it")
+(expr 2
+"set AgilentSAClass = CreateInstance(\"Agilent.AgilentSa.Interop\", \"Agilent.AgilentSa.Interop.AgilentSaClass\" );"
+"AgilentSaClass.Initialize(ResourceName, asVariantBool(1), asVariantBool(1));"))
+(interface
+(input 1
+(name "resourceName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Get Instrument Model and Firmware Revision")
+(expr 2 "A = AgilentSaClass.Identity.InstrumentModel;"
+"AgilentSaClass.Identity.InstrumentFirmwareRevision;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "A")
+(optional yes))))
+(device 29 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 30 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 31 DECLVAR
+(properties
+(name "Declare AgilentSaAppSa")
+(scope glob)
+(globalName "AgilentSaAppSa"))
+(implementation
+(value Object
+(data 
+".NET OFF Agilent.AgilentSaAppSa.Interop,Agilent.AgilentSaAppSa.Interop.AgilentSaAppSaClass"
+))))
+(device 32 FORMULA
+(properties
+(name "Get SA app, set scale, reference level, frequency, etc")
+(expr 11 "set AgilentSaAppSa = AgilentSaClass.Application.SA;"
+"AgilentSaAppSa.Acquisition.VerticalScale = Agilent.AgilentSaAppSa.Interop.AgilentSaAppSaAcquisitionVerticalScaleEnum.AgilentSaAppSaAcquisitionVerticalScaleLinear;"
+"AgilentSaAppSa.Level.AmplitudeUnits = Agilent.AgilentSaAppSa.Interop.AgilentSaAppSaLevelAmplitudeUnitsEnum.AgilentSaAppSaLevelAmplitudeUnitsV;"
+"AgilentSaAppSa.Level.Reference = 0.02597;"
+"AgilentSaAppSa.Frequency.Center = 970000;"
+"AgilentSaAppSa.Frequency.Span = 0; "
+"AgilentSaAppSa.SweepCoupling.VideoBandwidth = 10000;"
+"AgilentSaAppSa.Acquisition.DetectorType = Agilent.AgilentSaAppSa.Interop.AgilentSaAppSaAcquisitionDetectorTypeEnum.AgilentSaAppSaAcquisitionDetectorTypeSample;"
+"// set for single sweep"
+"AgilentSaAppSa.Acquisition.SweepModeContinuous = asVariantBool(False);"
+"AgilentSaAppSa.SweepCoupling.SweepTime = 0.05;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 42 DECLVAR
+(properties
+(name "Declare resultData")
+(scope glob)
+(globalName "resultData"))
+(implementation
+(value Real64
+(numDims 1)
+(size 1)
+(data  [ 0 ]))))
+(device 43 ALLOCATEARRAY
+(properties
+(name "Alloc Real64"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "10")
+(type "Real64")
+(initEnum "Lin Ramp")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 47 DECLVAR
+(properties
+(name "Declare nTraces")
+(scope glob)
+(globalName "nTraces"))
+(implementation
+(value Int32
+(data  0))))
+(device 48 DECLVAR
+(properties
+(name "Declare traceName")
+(scope glob)
+(globalName "traceName"))
+(implementation
+(value Text
+(data  ""))))
+(device 49 DECLVAR
+(properties
+(name "Declare nPoints")
+(scope glob)
+(globalName "nPoints"))
+(implementation
+(value Int32
+(data  0))))
+(device 50 FORMULA
+(properties
+(name "Perform a sweep and get the data")
+(expr 9 "nTraces = AgilentSaAppSa.Traces.Count;"
+"traceName = AgilentSaAppSa.Traces.name(1); " ""
+"// initialize resultData with any double array" "resultData = A; "
+"resultdata = AgilentSaAppSa.Traces.Item(\"Trace1\").ReadY(60000);" ""
+"// Return to sweep mode continuous"
+"AgilentSaAppSa.Acquisition.SweepModeContinuous = asVariantBool(1);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "traceName")
+(optional yes))
+(output 2
+(name "nTraces")
+(optional yes))
+(output 3
+(name "resultData")
+(optional yes))
+(output 4
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 53 FORMULA
+(properties
+(name "AgilentSaClass.Close( );")
+(expr 1 "AgilentSaClass.Close( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 57 FORMULA
+(properties
+(name "AgilentSaClass.Close( );")
+(expr 3 "" "// Always close the driver, otherwise, VEE will be left running."
+"AgilentSaClass.Close( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 58 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 59 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 60 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 61 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\b\\f0\\fs20 NOTE: this example was written for VEE 7.0 and it also works with VEE 7.5.  However, with VEE 7.5, there is an easier way to use IVI-COM driver and it is integrated with Instrument Manager.  Please refer to other IVI-COM examples in this directory.\\par\r\n\\par\r\n\\cf0\\b0\\fs18 This example demonstrates the use of IVI-COM drivers in VEE through the .NET interop.  \\par\r\n\\par\r\nTo use this example, you need to have Keysight SA IVI-COM driver Version 2.2.0.0 or later installed.  You can download the driver from http://www.keysight.com/find/adn.  \\par\r\n\\par\r\nAfter you have installed the Keysight SA IVI-COM driver, you can see the examples installed with the Keysight SA driver.  This VEE program has almost a one-to-one correspondence to the VB example.\\par\r\n\\par\r\nTo use an IVI-COM driver through the .NET interop, choose Device > .NET Assembly References, then choose the COM tab.  This will take some time as VEE searches for all of the installed COM type libraries on your machine.  For this VEE program, select the IVI AgilentSa, IVI AgilentSaAppSa, IVISpecAn and IVI Driver type libraries.  Choose OK.  VEE automatically loads the interop assemblies for these type libraries.  \\par\r\nIf you have installed the drivers correctly, they should all be primary interop assemblies issued by IVI and Keysight.  \\par\r\n\\par\r\nBefore you do anything else with an IVI-COM driver, you have to create it.  You do this by calling the constructor of the IVI-COM driver class.  In this \\par\r\ncase, go to the Function & Object Browser, select .NET Objects under Type, select Agilent.AgilentSa.Interop under Assemblies, select Agilent.AgilentSa.Interop.AgilentSaClass under Class, and select Constructor under Members.  Choose the Create Instance button.  The formula template is created for you.  \\par\r\n\\par\r\nThe second thing you must do with an IVI-COM driver is to call Initialize on the IVI-COM driver class.  Open the Function & Object Browser again, and scroll to Initialize under Member and create the template.  Fill in the resource name, etc.    \\par\r\n\\par\r\nBefore you exit VEE, you must call Close on the IVI-COM driver to release resources, otherwise, VEE processes are left running.  This is a peculiarity of IVI-COM drivers.\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect D3:0 D0:0)
+(connect D2:1 D3:1)
+(connect D0:0 D4:0)
+(connect D4:2 D5:1)
+(connect D4:1 D6:1)
+(connect D4:0 D8:0)
+(connect D8:0 D14:0)
+(connect D10:1 D14:1)
+(connect D0:2 D15:0)
+(connect D14:0 D16:0)
+(connect D14:1 D17:1)
+(connect D14:2 D18:1)
+(connect D14:3 D19:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 544 369)
+(wndState max)
+(active detail)
+(detail
+(extent 841 619)
+(anchorPt 129 293)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 148 25))
+(open
+(extent 415 67))
+(terminals on)
+(pinCenter 390 50))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 144 15))
+(open
+(extent 195 103))
+(pinCenter 410 -60))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 26 15))
+(open
+(extent 125 27))
+(pinCenter 100 10))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 375 15))
+(open
+(extent 515 97))
+(terminals on)
+(pinCenter 390 10))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 271 25))
+(open
+(extent 335 137))
+(terminals on)
+(pinCenter 390 160))
+(devCarrierFor 29
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 680 210))
+(devCarrierFor 30
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 680 150))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 330 104))
+(pinCenter 410 -90))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 312 25))
+(open
+(extent 355 117))
+(terminals on)
+(pinCenter 390 220))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 185 103))
+(pinCenter 110 160))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 190 113))
+(terminals on)
+(pinCenter 90 350))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 100 15))
+(open
+(extent 195 103))
+(pinCenter 560 -90))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 195 103))
+(pinCenter 570 -60))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 96 15))
+(open
+(extent 195 103))
+(pinCenter 700 -90))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 203 45))
+(open
+(extent 375 187))
+(terminals on)
+(pinCenter 390 350))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 166 31))
+(terminals on)
+(pinCenter 680 90))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 415 61))
+(terminals on)
+(pinCenter 390 430))
+(devCarrierFor 58
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 680 280))
+(devCarrierFor 59
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 680 340))
+(devCarrierFor 60
+(active open)
+(icon)
+(open
+(extent 135 127))
+(pinCenter 680 450))
+(devCarrierFor 61
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 246)
+(editing disabled))
+(pinCenter 110 -150))
+(connect D3:0 D0:0
+(points 2 390 20 390 35))
+(connect D2:1 D3:1
+(points 2 165 10 200 10))
+(connect D0:0 D4:0
+(points 2 390 65 390 145))
+(connect D4:2 D5:1
+(points 4 528 170 570 170 570 210 617 210))
+(connect D4:1 D6:1
+(points 2 528 150 617 150))
+(connect D4:0 D8:0
+(points 2 390 175 390 205))
+(connect D8:0 D14:0
+(points 2 390 235 390 325))
+(connect D10:1 D14:1
+(points 2 130 350 286 350))
+(connect D0:2 D15:0
+(points 3 466 60 680 60 680 80))
+(connect D14:0 D16:0
+(points 2 390 375 390 420))
+(connect D14:1 D17:1
+(points 4 494 330 510 330 510 280 617 280))
+(connect D14:2 D18:1
+(points 2 494 340 617 340))
+(connect D14:3 D19:1
+(points 4 494 350 510 350 510 450 610 450)))
+(stackingOrder 6 9 3 2 16 5 17 18 19 7 1 11 12 13 0 15 8 4 14 10 20))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

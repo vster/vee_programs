@@ -1,0 +1,186 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:03 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 TOFILE
+(properties
+(transactions 3 "WRITE TEXT \"Test1\" EOL" "WRITE TEXT now() TIME:HM:H12 EOL"
+"WRITE TEXT a REAL64 STD EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes)))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 1 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 FROMFILE
+(properties
+(transactions 3 "READ TEXT x STR" "READ TEXT y STR" "READ TEXT z REAL64 ARRAY:4"
+))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "y")
+(optional yes))
+(output 3
+(name "z")
+(optional yes)))
+(implementation
+(attr iopath file read "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 6 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D2:1 D0:1)
+(connect D1:1 D2:1)
+(connect D1:0 D2:2)
+(connect D0:0 D3:0)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D3:3 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 716 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 265 137))
+(terminals on)
+(pinCenter 480 120))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 90 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 210 120))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 231 108))
+(terminals on)
+(pinCenter 480 310))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 790 150))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 790 220))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 105 137))
+(pinCenter 790 340))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 200 430))
+(connect D2:1 D0:1
+(points 2 239 120 315 120))
+(connect D1:1 D2:1
+(points 4 140 80 160 80 160 110 181 110))
+(connect D1:0 D2:2
+(points 3 90 98 90 130 181 130))
+(connect D0:0 D3:0
+(points 2 480 191 480 235))
+(connect D3:1 D4:1
+(points 6 628 280 640 280 640 220 670 220 670 150 727 150))
+(connect D3:2 D5:1
+(points 4 628 310 680 310 680 220 727 220))
+(connect D3:3 D6:1
+(points 2 628 340 735 340)))
+(stackingOrder 0 1 2 3 4 6 5 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

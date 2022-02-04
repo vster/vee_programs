@@ -1,0 +1,1218 @@
+(saveFormat "7.0")
+(date "Mon 20/Aug/2007 15:38:10 ")
+(veerev "8.5.10420.0 Beta2 - Botticelli")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "instr"
+(type USB)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "F1")
+(input 1)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 37)
+(popupTitleText "Select Visa Address")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 0
+(properties
+(name "EnumerateVisaAddresses")
+(variableName EnumerateVisaAddresses)
+(variableScope glob)
+(trigMode deg)
+(nextID 22)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "searchExpr")
+(optional yes))
+(output 1
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Path to VISA32.DLL")
+(variableScope cont)
+(expr 2
+"sysDir = ((strFromLen(whichOS(),0,9) == \"Windows_9\") ? \"System\" : \"System32\");"
+"getenv(\"windir\")+\"\\\\\"+sysDir+\"\\\\visa32.dll\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "sysDir")
+(optional yes))))
+(device 1 DELETE
+(properties
+(name "Delete VISA Library")
+(variableScope cont)
+(libName "visaLib"))
+(implementation))
+(device 2 FORMULA
+(properties
+(name "retCnt-1")
+(variableScope cont)
+(expr 1 "A-1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "120 char buffer")
+(variableScope cont)
+(expr 1 "\" \"*120"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "120 char buffer")
+(variableScope cont)
+(expr 1 "\" \"*120"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 CALL
+(properties
+(name "Call visaLib.viClose")
+(variableScope cont)
+(callFunc "visaLib.viClose")
+(parmMode rev30))
+(interface
+(input 1
+(name "vi")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 6 CALL
+(properties
+(name "Call HandleVisaReturnCode")
+(variableScope cont)
+(callFunc "HandleVisaReturnCode")
+(parmMode rev30))
+(interface
+(input 1
+(name "status")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "vi")
+(optional yes))))
+(device 7 CALL
+(properties
+(name "Call visaLib.viFindRsrc")
+(variableScope cont)
+(callFunc "visaLib.viFindRsrc")
+(parmMode rev30))
+(interface
+(input 1
+(name "sesn")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "expr")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "vi")
+(requires
+(datatype Int32))
+(optional yes))
+(input 4
+(name "retCnt")
+(requires
+(datatype Int32))
+(optional yes))
+(input 5
+(name "desc")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "expr")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "vi")
+(lock name constraints)
+(optional yes))
+(output 4
+(name "retCnt")
+(lock name constraints)
+(optional yes))
+(output 5
+(name "desc")
+(lock name constraints)
+(optional yes))))
+(device 8 CALL
+(properties
+(name "Call visaLib.viFindNext")
+(variableScope cont)
+(callFunc "visaLib.viFindNext")
+(parmMode rev30))
+(interface
+(input 1
+(name "vi")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "desc")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "desc")
+(lock name constraints)
+(optional yes))))
+(device 9 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 10 COLLECTOR
+(properties
+(variableScope cont)
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 11 FORRANGE
+(properties
+(name "For 0 to retCnt - 1")
+(variableScope cont)
+(from 1)
+(thru 1)
+(step 1))
+(interface
+(input 1
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 12 IFTHENELSE
+(properties
+(name "retCnt - 1 > 0 ?")
+(variableScope cont)
+(cases 1 "A>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 13 CALL
+(properties
+(name "Call HandleVisaReturnCode")
+(variableScope cont)
+(callFunc "HandleVisaReturnCode")
+(parmMode rev30))
+(interface
+(input 1
+(name "status")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "vi")
+(optional yes))))
+(device 14 CONSTANT
+(properties
+(name "0")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 15 CALL
+(properties
+(name "Call HandleVisaReturnCode")
+(variableScope cont)
+(callFunc "HandleVisaReturnCode")
+(parmMode rev30))
+(interface
+(input 1
+(name "status")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "vi")
+(optional yes))))
+(device 16 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 17 CALL
+(properties
+(name "Call visaLib.viOpenDefaultRM")
+(variableScope cont)
+(callFunc "visaLib.viOpenDefaultRM")
+(parmMode rev30))
+(interface
+(input 1
+(name "vi")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "vi")
+(lock name constraints)
+(optional yes))))
+(device 18 IMPORT
+(properties
+(name "Import VISA Library")
+(variableScope cont)
+(libType DLL)
+(libName "visaLib")
+(fileName "C:\\WINDOWS\\System32\\visa32.dll")
+(defnFileName "~installDir/examples/InstrumentIO/visa_vee.h"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(configuration
+(connect D5:0 D1:0)
+(connect D7:4 D2:1)
+(connect D7:0 D5:0)
+(connect D17:2 D5:1)
+(connect D8:1 D6:1)
+(connect D17:2 D6:2)
+(connect D17:0 D7:0)
+(connect D17:2 D7:1)
+(connect I1:1 D7:2)
+(connect D14:1 D7:3)
+(connect D14:1 D7:4)
+(connect D4:1 D7:5)
+(connect D11:1 D8:0)
+(connect D7:3 D8:1)
+(connect D3:1 D8:2)
+(connect D7:5 D9:1)
+(connect D8:2 D9:2)
+(connect D9:1 D10:1)
+(connect D7:0 D10:2)
+(connect D12:1 D11:0)
+(connect D2:1 D11:1)
+(connect D2:1 D12:1)
+(connect D7:1 D13:1)
+(connect D17:2 D13:2)
+(connect D17:1 D15:1)
+(connect D17:2 D15:2)
+(connect D18:0 D17:0)
+(connect D16:1 D17:1)
+(connect D0:0 D18:0)
+(connect D0:1 D18:1)
+(connect D10:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 732 385)
+(anchorPt -392 -98)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 116 25))
+(open
+(extent 464 66))
+(terminals on)
+(pinCenter 290 50))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 114 15))
+(open
+(extent 151 31))
+(pinCenter 290 560))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 500 480))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 90 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 540 630))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 90 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 60 400))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 290 520))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 171 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 980 620))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 137 54))
+(open
+(extent 134 156))
+(terminals on)
+(pinCenter 280 340))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 144 44))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 700 620))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 26 34))
+(open)
+(terminals on)
+(pinCenter 890 410))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 960 440))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 103 51)
+(iconImage "loop.icn"))
+(open
+(extent 120 79))
+(pinCenter 680 540))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 88 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 590 480))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 171 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 590 290))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 50 360))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 171 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 590 170))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 31 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 110 170))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 178 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 290 170))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 404 106))
+(pinCenter 290 120))
+(connect D5:0 D1:0
+(points 2 290 530 290 550))
+(connect D7:4 D2:1
+(points 4 351 350 380 350 380 480 473 480))
+(connect D7:0 D5:0
+(points 4 280 369 280 450 290 450 290 510))
+(connect D17:2 D5:1
+(points 6 381 180 400 180 400 210 140 210 140 520 228 520))
+(connect D8:1 D6:1
+(points 2 774 610 892 610))
+(connect D17:2 D6:2
+(points 6 381 180 470 180 470 260 840 260 840 630 892 630))
+(connect D17:0 D7:0
+(points 4 290 185 290 220 280 220 280 310))
+(connect D17:2 D7:1
+(points 6 381 180 400 180 400 210 190 210 190 320 209 320))
+(connect I1:1 D7:2
+(points 4 392 290 10 290 10 330 209 330))
+(connect D14:1 D7:3
+(points 6 64 360 80 360 80 350 180 350 180 340 209 340))
+(connect D14:1 D7:4
+(points 4 64 360 80 360 80 350 209 350))
+(connect D4:1 D7:5
+(points 4 107 400 130 400 130 360 209 360))
+(connect D11:1 D8:0
+(points 5 734 540 750 540 750 580 700 580 700 595))
+(connect D7:3 D8:1
+(points 6 351 340 390 340 390 550 610 550 610 610 625 610))
+(connect D3:1 D8:2
+(points 2 587 630 625 630))
+(connect D7:5 D9:1
+(points 4 351 360 370 360 370 400 874 400))
+(connect D8:2 D9:2
+(points 4 774 630 790 630 790 420 874 420))
+(connect D9:1 D10:1
+(points 4 905 410 920 410 920 430 931 430))
+(connect D7:0 D10:2
+(points 3 280 369 280 450 931 450))
+(connect D12:1 D11:0
+(points 3 636 470 680 470 680 512))
+(connect D2:1 D11:1
+(points 4 526 480 520 480 520 540 626 540))
+(connect D2:1 D12:1
+(points 2 526 480 543 480))
+(connect D7:1 D13:1
+(points 4 351 320 370 320 370 280 502 280))
+(connect D17:2 D13:2
+(points 4 381 180 470 180 470 300 502 300))
+(connect D17:1 D15:1
+(points 4 381 160 441 160 441 160 502 160))
+(connect D17:2 D15:2
+(points 4 381 180 441 180 441 180 502 180))
+(connect D18:0 D17:0
+(points 2 290 130 290 155))
+(connect D16:1 D17:1
+(points 4 128 170 163 170 163 170 198 170))
+(connect D0:0 D18:0
+(points 2 290 65 290 110))
+(connect D0:1 D18:1
+(points 6 350 40 370 40 370 90 210 90 210 120 231 120))
+(connect D10:1 O1:1
+(points 4 989 440 1172 440 1172 290 1123 290)))
+(stackingOrder 1 2 3 5 8 9 11 12 13 16 15 0 14 4 17 18 7 10 6))))
+(context 1
+(properties
+(name "HandleVisaReturnCode")
+(variableName HandleVisaReturnCode)
+(variableScope glob)
+(trigMode deg)
+(nextID 12)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "status")
+(optional yes))
+(input 2
+(name "vi")
+(optional yes)))
+(deviceList
+(device 5 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message
+"Visa status code:0xffffffffbfff0011  VI_ERROR_RSRC_NFOUND: No matching resources found / no more matches"
+))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(device 4 IFTHENELSE
+(properties
+(name "status < 0 ?")
+(variableScope cont)
+(cases 1 "A<0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 CALL
+(properties
+(name "Call visaLib.viStatusDesc")
+(variableScope cont)
+(callFunc "visaLib.viStatusDesc")
+(parmMode rev30))
+(interface
+(input 1
+(name "vi")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "status")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "desc")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "desc")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "1024 char buffer")
+(variableScope cont)
+(expr 1 "\" \"*1024"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 TOSTRING
+(properties
+(name "status decimal to hex string")
+(variableScope cont)
+(transactions 1 "WRITE TEXT a HEX:8 PREFIX EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "visaLib.viClose(vi);" "\"Visa status code:\"+status+\"  \"+msg;"))
+(interface
+(input 1
+(name "status")
+(optional yes))
+(input 2
+(name "vi")
+(optional yes))
+(input 3
+(name "msg")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D5:1 D0:1)
+(connect I1:1 D1:1)
+(connect D1:1 D2:0)
+(connect I2:1 D2:1)
+(connect I1:1 D2:2)
+(connect D3:1 D2:3)
+(connect I1:1 D4:1)
+(connect D4:1 D5:1)
+(connect I2:1 D5:2)
+(connect D2:2 D5:3)))
+(contextCarrier
+(active detail)
+(detail
+(extent 528 355)
+(anchorPt -178 92)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 69 25))
+(open
+(extent 211 55))
+(pinCenter 680 270))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 70 25))
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 270 130))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 152 0))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 350 260))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 97 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 90 280))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 165 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 330 80))
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 50 34))
+(open
+(extent 314 65))
+(terminals on)
+(pinCenter 580 270))
+(connect D5:1 D0:1
+(points 2 607 270 643 270))
+(connect I1:1 D1:1
+(points 6 178 -5 -60 -5 -60 80 180 80 180 130 232 130))
+(connect D1:1 D2:0
+(points 3 307 120 360 120 360 204))
+(connect I2:1 D2:1
+(points 4 178 175 20 175 20 240 209 240))
+(connect I1:1 D2:2
+(points 6 178 -5 -60 -5 -60 80 180 80 180 260 209 260))
+(connect D3:1 D2:3
+(points 2 141 280 209 280))
+(connect I1:1 D4:1
+(points 4 178 -5 -60 -5 -60 80 245 80))
+(connect D4:1 D5:1
+(points 4 415 80 530 80 530 260 552 260))
+(connect I2:1 D5:2
+(points 4 178 175 530 175 530 270 552 270))
+(connect D2:2 D5:3
+(points 2 510 280 552 280)))
+(stackingOrder 1 2 3 4 5 0)))))
+(device 2 FORMULA
+(properties
+(name "Change VisaAddress")
+(variableScope cont)
+(expr 1 "io.instr.VisaAddress = Address;"))
+(interface
+(input 1
+(name "Address")
+(optional yes))
+(output 1
+(name "Address")
+(optional yes))))
+(device 4 TEXTDISPLAY
+(properties
+(name "IDN")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 11 ENUMCONSTANT
+(properties
+(name "Select Search Expression")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("?*INSTR" 0)
+("GPIB?*INSTR" 1)
+("TCPIP?*INSTR" 2)
+("GPIB[1-3]::?*INSTR" 3)
+("GPIB[^0]::?*INSTR" 4)
+("ASRL1+::INSTR" 5)
+("(GPIB0|TCPIP0)?*INSTR" 6)
+("(TCPIP|USB)?*INSTR" 7)
+("?*::7::?*INSTR" 8)
+("?*" 9))
+(data  "?*INSTR"))
+(initValue Text
+(data  "?*INSTR"))))
+(device 12 CALL
+(properties
+(name "Call EnumerateVisaAddresses")
+(variableScope cont)
+(callFunc "EnumerateVisaAddresses")
+(parmMode rev30))
+(interface
+(input 1
+(name "searchExpr")
+(optional yes))
+(output 1
+(name "Array")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 16 TEXTDISPLAY
+(properties
+(name "Visa Address")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 19 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 This example shows how to dynamically change VISA address among GPIB, USB and TCPIP interfaces.\\par\r\n1) Open the Instrument Manager, there is an instrument named \"instr\". It has no VISA address assigned;\\par\r\n2) Connect instruments via GPIB, USB or TCP/IP to your PC;\\par\r\n3) Run the program, the VISA addresses of all active instruments will appear in the Select Visa Address object; \\par\r\n4) Select one of the VISA address listed in the Select Visa Address Combox.\\par\r\n5) You will see \\par\r\n  \\cf1\\i\\f1 -- the title of the Direct IO object changes according to the VISA Addess you select.\\par\r\n  -- the VISA Addess you select appears in the Visa Address object. \\par\r\n  -- the identification string of the instrument corresponding to the selected VISA Address appears in the IDN object.\\par\r\n\\cf0\\i0\\f0\\par\r\n\\cf2\\f1 Note: Error occurs if you select an address other than GPIB, USB, or TCP/IP address.\\par\r\nVEE 8.5 or later is requied.\\cf0\\i\\f0\\par\r\n}\r\n"
+)))
+(device 9 ENUMCONSTANT
+(properties
+(name "Select Visa Address")
+(variableName SelectVisaAddress)
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtActivate 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("" 0))
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 23 IODEVICE
+(properties
+(name "instr ( @(NOT LIVE))")
+(variableScope cont)
+(transactions 6 "WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR" "EXECUTE CLEAR"
+"EXECUTE LOCAL" "EXECUTE REMOTE" "EXECUTE TRIGGER"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 17)
+(iopath "instr")))
+(device 29 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\i\\f1\\fs24\\par\r\n}\r\n"
+)))
+(device 30 LABEL
+(properties
+(name "Select a valid Visa Address")
+(variableScope cont)
+(labelValue "Select a valid Visa Address"))
+(implementation))
+(device 31 FORMULA
+(properties
+(name "errorInfo().Message")
+(variableScope cont)
+(expr 1 "errorInfo().Message"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 MESSAGEBOX
+(properties
+(variableScope cont)
+(position 151 324)
+(message "Continue?")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 35 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(configuration
+(connect D6:1 D0:1)
+(connect D7:1 D1:1)
+(connect D2:1 D3:1)
+(connect D0:1 D4:1)
+(connect D3:0 D6:0)
+(connect D3:1 D6:2)
+(connect D0:0 D7:0)
+(connect D3:2 D10:0)
+(connect D10:1 D11:1)
+(connect D11:0 D12:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 3)
+(wndState res)
+(active detail)
+(panel
+(extent 456 213)
+(drawGrid "off")
+(widget 6 detail
+(relativeOrigin 20 70)
+(bg "Light Blue Gray")
+(PID 0)
+(title on)
+(titleBg "Light Blue Gray")
+(tabIndex 0)
+(borderStyle flat)
+(extent 416 26)
+(format dropDown))
+(widget 9 detail
+(relativeOrigin 20 20)
+(bg "Light Blue Gray")
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle convex)
+(extent 416 36)
+(just l))
+(widget 1 detail
+(relativeOrigin 20 130)
+(bg "Light Blue Gray")
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 416 56))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 1115 675)
+(anchorPt 430 497)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 224 50))
+(terminals on)
+(pinCenter 140 -100))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 25 15))
+(open
+(extent 514 36))
+(pinCenter 620 40))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 184 25))
+(open
+(extent 191 25)
+(format dropDown))
+(pinCenter -200 -210))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 187 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter -200 -160))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 80 15))
+(open
+(extent 524 36))
+(pinCenter 620 -100))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 664 306)
+(editing disabled))
+(pinCenter 320 -320))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 126 25))
+(open
+(extent 162 25)
+(format dropDown))
+(titleFont "Arial" 12 bold)
+(pinCenter -200 -90))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 122 0)
+(iconImage "io.icn"))
+(open
+(extent 287 136))
+(terminals on)
+(pinCenter 140 40))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 264 64)
+(iconImage "notepad.icn"))
+(open
+(extent 334 126)
+(editing disabled))
+(pinCenter -200 -290))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 194 44)
+(just l))
+(title off)
+(pinCenter -200 -360))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 134 56))
+(terminals on)
+(pinCenter -190 160))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter -40 160))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -40 240))
+(connect D6:1 D0:1
+(points 2 -117 -100 73 -100))
+(connect D7:1 D1:1
+(points 2 316 40 360 40))
+(connect D2:1 D3:1
+(points 6 -106 -220 -100 -220 -100 -240 -320 -240 -320 -160 -296 -160))
+(connect D0:1 D4:1
+(points 2 206 -100 355 -100))
+(connect D3:0 D6:0
+(points 2 -200 -145 -200 -123))
+(connect D3:1 D6:2
+(points 6 -104 -170 -80 -170 -80 -50 -300 -50 -300 -80 -284 -80))
+(connect D0:0 D7:0
+(points 2 140 -90 140 -49))
+(connect D3:2 D10:0
+(points 5 -104 -150 -70 -150 -70 -40 -190 -40 -190 150))
+(connect D10:1 D11:1
+(points 2 -129 160 -83 160))
+(connect D11:0 D12:0
+(points 2 -40 175 -40 212)))
+(stackingOrder 2 8 5 9 4 7 0 11 12 3 10 6 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

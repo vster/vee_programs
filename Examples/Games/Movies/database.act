@@ -1,0 +1,7010 @@
+(schema
+ (numFields 3)
+ (fieldName "name"
+  (type Text)
+ )
+ (fieldName "movie"
+  (type Int32)
+  (numDims 1)
+  (size 20)
+ )
+ (fieldName "movie_title"
+  (type Text)
+  (numDims 1)
+  (size 20)
+ )
+)
+
+(record
+ ( "name" "BOGUS ACTOR")
+ ( "movie"
+   [ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Abe Vigoda")
+ ( "movie"
+   [ 45 46 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GODFATHER" "THE GODFATHER PART 2" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Adam Sandler")
+ ( "movie"
+   [ 81 319 320 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WEDDING SINGER" "HAPPY GILMORE" "AIRHEADS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Adrienne Barbeau")
+ ( "movie"
+   [ 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ESCAPE FROM NEW YORK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Agnes Moorehead")
+ ( "movie"
+   [ 528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HUSH...HUSH, SWEET CHARLOTTE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Aidan Quinn")
+ ( "movie"
+   [ 186 188 513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LEGENDS OF THE FALL" "BENNY & JOON" "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Al Pacino")
+ ( "movie"
+   [ 37 45 46 47 237 403 404 405 406 407 408 440 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GLENGARRY GLEN ROSS " "THE GODFATHER" "THE GODFATHER PART 2" "HEAT" "DICK TRACY" "DEVIL\'S ADVOCATE" "DONNIE BRASCO" "SCENT OF A WOMAN" "SCARFACE" "AND JUSTICE FOR ALL" "CITY HALL" "AUTHOR! AUTHOR!" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan Alda")
+ ( "movie"
+   [ 72 258 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MURDER AT 1600" "CALIFORNIA SUITE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan Arkin")
+ ( "movie"
+   [ 37 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GLENGARRY GLEN ROSS " "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan Bates")
+ ( "movie"
+   [ 60 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan Hale")
+ ( "movie"
+   [ 305 529 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NIGHT AND DAY" "HANG \'EM HIGH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan King")
+ ( "movie"
+   [ 440 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AUTHOR! AUTHOR!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alan Young")
+ ( "movie"
+   [ 444 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TIME MACHINE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Albert Brooks")
+ ( "movie"
+   [ 202 342 481 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BROADCAST NEWS" "TAXI DRIVER" "UNFAITHFULLY YOURS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Albert Finney")
+ ( "movie"
+   [ 335 378 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANNIE" "TWO FOR THE ROAD" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alec Baldwin")
+ ( "movie"
+   [ 37 333 419 470 474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GLENGARRY GLEN ROSS " "THE HUNT FOR RED OCTOBER" "BEETLEJUICE" "WORKING GIRL" "GHOSTS OF MISSISSIPPI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alec Guinness")
+ ( "movie"
+   [ 13 362 482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE EMPIRE STRIKES BACK" "MURDER BY DEATH" "LOVESICK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alex Karras")
+ ( "movie"
+   [ 93 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLAZING SADDLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alice Ghostley")
+ ( "movie"
+   [ 240 262 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GRADUATE" "GREASE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Alicia Silverstone")
+ ( "movie"
+   [ 5 351 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN & ROBIN" "CLUELESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ally Sheedy")
+ ( "movie"
+   [ 48 142 395 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BREAKFAST CLUB" "ST. ELMO\'S FIRE" "WAR GAMES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Amanda Donohoe")
+ ( "movie"
+   [ 515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LAIR OF THE WHITE WORM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Amy Irving")
+ ( "movie"
+   [ 263 373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CARRIE" "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Andie MacDowell")
+ ( "movie"
+   [ 142 192 199 332 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ST. ELMO\'S FIRE" "BAD GIRLS" "MICHAEL" "FOUR WEDDINGS AND A FUNERAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Andrew McCarthy")
+ ( "movie"
+   [ 52 142 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LESS THAN ZERO" "ST. ELMO\'S FIRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Andy Garcia")
+ ( "movie"
+   [ 24 242 243 244 245 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "UNTOUCHABLES" "NIGHT FALLS ON MANHATTAN" "DEAD AGAIN" "DESPERATE MEASURES" "BLACK RAIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Angela Lansbury")
+ ( "movie"
+   [ 299 412 416 536 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE THREE MUSKETEERS" "THE MIRROR CRACK\'D" "THE GREATEST STORY EVER TOLD" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Angie Dickinson")
+ ( "movie"
+   [ 325 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SABRINA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anita Ekberg")
+ ( "movie"
+   [ 501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUR FOR TEXAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anjelica Huston")
+ ( "movie"
+   [ 352 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ADDAMS FAMILY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ann Margret")
+ ( "movie"
+   [ 144 442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GRUMPY OLD MEN" "THE CINCINNATI KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anne Archer")
+ ( "movie"
+   [ 176 283 327 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FATAL ATTRACTION" "CANCEL MY RESERVATION" "CLEAR AND PRESENT DANGER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anne Bancroft")
+ ( "movie"
+   [ 58 91 240 256 343 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HONEYMOON IN VEGAS" "SILENT MOVIE" "THE GRADUATE" "AGNES OF GOD" "THE ELEPHANT MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anne Baxter")
+ ( "movie"
+   [ 80 532 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TEN COMMANDMENTS" "ALL ABOUT EVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Annette Bening")
+ ( "movie"
+   [ 32 172 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "THE AMERICAN PRESIDENT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Annette Funicello")
+ ( "movie"
+   [ 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anthony Edwards")
+ ( "movie"
+   [ 30 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOP GUN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anthony Hopkins")
+ ( "movie"
+   [ 73 186 207 343 425 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENCE OF THE LAMBS" "LEGENDS OF THE FALL" "BRAM STOKER\'S DRACULA" "THE ELEPHANT MAN" "CHAPLIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anthony Michael Hall")
+ ( "movie"
+   [ 7 48 49 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VACATION" "BREAKFAST CLUB" "SIXTEEN CANDLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anthony Perkins")
+ ( "movie"
+   [ 375 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PSYCHO" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Anthony Quinn")
+ ( "movie"
+   [ 117 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LAST ACTION HERO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Antonio Banderas")
+ ( "movie"
+   [ 105 185 427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "INTERVIEW WITH THE VAMPIRE" "FOUR ROOMS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Arnold Schwarzenegger")
+ ( "movie"
+   [ 5 78 116 117 118 119 120 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN & ROBIN" "TRUE LIES" "THE TERMINATOR" "LAST ACTION HERO" "ERASER" "TOTAL RECALL" "PREDATOR" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Art Carney")
+ ( "movie"
+   [ 117 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LAST ACTION HERO" "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Audrey Hepburn")
+ ( "movie"
+   [ 42 376 377 378 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHARADE" "BREAKFAST AT TIFFANY\'S" "SABRINA (1954)" "TWO FOR THE ROAD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Barbara Eden")
+ ( "movie"
+   [ 487 488 489 490 491 492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A VERY BRADY SEQUEL" "THE STEPFORD CHILDREN" "HARPER VALLEY P.T.A" "THE FEMINIST AND THE FUZZ" "7 FACES OF DR. LAO" "VOYAGE TO THE BOTTOM OF THE SEA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Barbara Hershey")
+ ( "movie"
+   [ 35 315 370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "HOOSIERS" "HANNAH AND HER SISTERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Barbra Streisand")
+ ( "movie"
+   [ 459 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A STAR IS BORN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Basil Rathbone")
+ ( "movie"
+   [ 282 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASANOVA\'S BIG NIGHT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bela Lugosi")
+ ( "movie"
+   [ 497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABBOTT AND COSTELLO MEET FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ben Kingsley")
+ ( "movie"
+   [ 149 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SNEAKERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ben Vereen")
+ ( "movie"
+   [ 383 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALL THAT JAZZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bernadette Peters")
+ ( "movie"
+   [ 91 216 335 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENT MOVIE" "PENNIES FROM HEAVEN" "ANNIE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bette Davis")
+ ( "movie"
+   [ 528 530 531 532 533 534 535 536 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HUSH...HUSH, SWEET CHARLOTTE" "WHAT EVER HAPPENED TO BABY JANE?" "PHONE CALL FROM A STRANGER" "ALL ABOUT EVE" "THE MAN WHO CAME TO DINNER" "JEZEBEL" "DARK SECRET OF HARVEST HOME" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bette Midler")
+ ( "movie"
+   [ 59 60 61 62 63 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOCUS POKUS" "THE ROSE" "DOWN AND OUT IN BEVERLY HILLS" "RUTHLESS PEOPLE" "FIRST WIVES CLUB" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Beverly D\'Angelo")
+ ( "movie"
+   [ 7 94 228 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VACATION" "EYE FOR AN EYE" "EVERY WHICH WAY BUT LOOSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bill Cosby")
+ ( "movie"
+   [ 258 365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CALIFORNIA SUITE" "MOTHER, JUGS, & SPEED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bill Murray")
+ ( "movie"
+   [ 8 26 218 233 463 520 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CADDYSHACK" "GHOSTBUSTERS" "LITTLE SHOP OF HORRORS" "TOOTSIE" "STRIPES" "THE MAN WHO KNEW TOO LITTLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bill Paxton")
+ ( "movie"
+   [ 28 50 78 99 116 127 308 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIENS" "TWISTER" "TRUE LIES" "APOLLO 13" "THE TERMINATOR" "TOMBSTONE" "TITANIC" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bill Pullman")
+ ( "movie"
+   [ 51 62 70 100 101 201 353 394 465 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIBLING RIVALRY" "RUTHLESS PEOPLE" "WHILE YOU WERE SLEEPING" "SLEEPLESS IN SEATTLE" "A LEAGUE OF THEIR OWN" "THE ACCIDENTAL TOURIST" "CASPER" "INDEPENDENCE DAY" "SPACEBALLS" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Billie Burke")
+ ( "movie"
+   [ 246 414 533 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WIZARD OF OZ" "FATHER OF THE BRIDE (1950)" "THE MAN WHO CAME TO DINNER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Billy Bob Thornton")
+ ( "movie"
+   [ 148 260 354 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDECENT PROPOSAL" "PRIMARY COLORS" "SLING BLADE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Billy Crystal")
+ ( "movie"
+   [ 269 275 276 277 278 279 280 373 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MR. SATURDAY NIGHT" "FATHER\'S DAY" "FORGET PARIS" "CITY SLICKERS II" "WHEN HARRY MET SALLY" "THE PRINCESS BRIDE" "RUNNING SCARED" "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Billy Dee Williams")
+ ( "movie"
+   [ 2 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN" "THE EMPIRE STRIKES BACK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Billy Zane")
+ ( "movie"
+   [ 196 308 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BACK TO THE FUTURE" "TITANIC" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bing Crosby")
+ ( "movie"
+   [ 281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROAD TO HONG KONG" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Blair Brown")
+ ( "movie"
+   [ 67 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALTERED STATES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bo Derek")
+ ( "movie"
+   [ 483 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "10" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bob Barker")
+ ( "movie"
+   [ 319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HAPPY GILMORE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bob Hope")
+ ( "movie"
+   [ 281 282 283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROAD TO HONG KONG" "CASANOVA\'S BIG NIGHT" "CANCEL MY RESERVATION" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bob Hoskins")
+ ( "movie"
+   [ 398 436 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE COTTON CLUB" "BRAZIL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Boris Karloff")
+ ( "movie"
+   [ 496 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RAVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brad Pitt")
+ ( "movie"
+   [ 114 138 183 184 185 186 187 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THELMA & LOUISE" "SLEEPERS" "THE DEVIL\'S OWN" "TWELVE MONKEYS" "INTERVIEW WITH THE VAMPIRE" "LEGENDS OF THE FALL" "SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brendan Fraser")
+ ( "movie"
+   [ 320 321 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AIRHEADS" "GEORGE OF THE JUNGLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brian Dennehy")
+ ( "movie"
+   [ 108 122 150 181 204 441 483 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COCOON" "FIRST BLOOD" "LEGAL EAGLES" "SILVERADO" "GORKY PARK" "LOOKING FOR MR. GOODBAR" "10" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brian Keith")
+ ( "movie"
+   [ 130 431 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE QUEST" "THE PARENT TRAP" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bridget Fonda")
+ ( "movie"
+   [ 194 205 408 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DOC HOLLYWOOD" "LITTLE BUDDHA" "CITY HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brion James")
+ ( "movie"
+   [ 18 109 125 193 349 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLADE RUNNER" "48 HOURS" "TANGO & CASH" "RADIOLAND MURDERS" "THE FIFTH ELEMENT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Brooke Shields")
+ ( "movie"
+   [ 55 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ENDLESS LOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bruce Dern")
+ ( "movie"
+   [ 523 524 525 526 527 528 529 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLACK SUNDAY" "FAMILY PLOT" "THE GREAT GATSBY" "SUPPORT YOUR LOCAL SHERIFF!" "THE ST. VALENTINE\'S DAY MASSACRE" "HUSH...HUSH, SWEET CHARLOTTE" "HANG \'EM HIGH" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bruce Willis")
+ ( "movie"
+   [ 86 112 155 184 349 402 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLIND DATE" "PULP FICTION" "NOBODY\'S FOOL" "TWELVE MONKEYS" "THE FIFTH ELEMENT" "THE JACKAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bruno Kirby")
+ ( "movie"
+   [ 278 404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WHEN HARRY MET SALLY" "DONNIE BRASCO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Bud Abbott")
+ ( "movie"
+   [ 497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABBOTT AND COSTELLO MEET FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Buddy Ebsen")
+ ( "movie"
+   [ 251 376 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CAPTAIN JANUARY" "BREAKFAST AT TIFFANY\'S" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Buddy Hackett")
+ ( "movie"
+   [ 270 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Burgess Meredith")
+ ( "movie"
+   [ 121 144 462 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ROCKY" "GRUMPY OLD MEN" "TWILIGHT ZONE--THE MOVIE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Burt Lancaster")
+ ( "movie"
+   [ 124 248 288 381 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FIELD OF DREAMS" "JUDGEMENT AT NUREMBERG" "TRAPEZE" "AIRPORT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Burt Reynolds")
+ ( "movie"
+   [ 88 89 90 91 221 227 366 369 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MAN WHO LOVED WOMEN" "THE CANNONBALL RUN" "SMOKEY AND THE BANDIT" "SILENT MOVIE" "EVERYTHING YOU .. ABOUT SEX " "CITY HEAT" "FUZZ" "100 RIFLES" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Buster Keaton")
+ ( "movie"
+   [ 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "C. Thomas Howell")
+ ( "movie"
+   [ 31 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carl Reiner")
+ ( "movie"
+   [ 217 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DEAD MEN DON\'T WEAR PLAID" "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carl Weathers")
+ ( "movie"
+   [ 120 121 319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PREDATOR" "ROCKY" "HAPPY GILMORE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carol Burnett")
+ ( "movie"
+   [ 335 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANNIE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carrie Fisher")
+ ( "movie"
+   [ 13 51 278 370 476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE EMPIRE STRIKES BACK" "SIBLING RIVALRY" "WHEN HARRY MET SALLY" "HANNAH AND HER SISTERS" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carrier Fisher")
+ ( "movie"
+   [ 466 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BLUES BROTHERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Carroll O\'Connor")
+ ( "movie"
+   [ 231 413 447 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "KELLY\'S HEROES" "CLEOPATRA" "THE DEVIL\'S BRIGADE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cary Elwes")
+ ( "movie"
+   [ 50 279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TWISTER" "THE PRINCESS BRIDE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cary Grant")
+ ( "movie"
+   [ 41 42 287 300 301 302 303 304 305 306 307 356 432 521 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NORTH BY NORTHWEST" "CHARADE" "OPERATION PETTICOAT" "THE GRASS IS GREENER" "TO CATCH A THIEF" "MONKEY BUSINESS" "THAT TOUCH OF MINK" "INDISCREET" "NIGHT AND DAY" "HIS GIRL FRIDAY" "THE PHILADELPHIA STORY" "THE BACHELOR AND THE BOBBY-SOXER" "MY FAVORITE WIFE" "NOTORIOUS" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Catherine O\'Hara")
+ ( "movie"
+   [ 237 336 419 423 464 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DICK TRACY" "HOME ALONE 2" "BEETLEJUICE" "THE PAPER" "HOME ALONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cathy Moriarty")
+ ( "movie"
+   [ 123 353 476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COP LAND" "CASPER" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charles Bronson")
+ ( "movie"
+   [ 289 501 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DIRTY DOZEN" "FOUR FOR TEXAS" "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charles Durning")
+ ( "movie"
+   [ 110 152 233 237 347 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NORTH DALLAS FORTY" "THE STING" "TOOTSIE" "DICK TRACY" "I.Q." "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charles Grodin")
+ ( "movie"
+   [ 182 454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT MUPPET CAPER" "HEAVEN CAN WAIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charles Martin Smith")
+ ( "movie"
+   [ 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charlie Sheen")
+ ( "movie"
+   [ 139 177 331 338 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOADED WEAPON" "WALL STREET" "PLATOON" "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Charlton Heston")
+ ( "movie"
+   [ 78 79 80 127 415 416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRUE LIES" "AIRPORT 1975" "THE TEN COMMANDMENTS" "TOMBSTONE" "PLANET OF THE APES" "THE GREATEST STORY EVER TOLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cheech Marin")
+ ( "movie"
+   [ 452 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cher")
+ ( "movie"
+   [ 129 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILKWOOD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Chevy Chase")
+ ( "movie"
+   [ 6 7 8 9 10 57 215 469 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUL PLAY" "VACATION" "CADDYSHACK" "FLETCH" "NOTHING BUT TROUBLE" "LA STORY" "THE THREE AMIGOS" "DEAL OF THE CENTURY" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Chris Farley")
+ ( "movie"
+   [ 82 320 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WAYNE\'S WORLD 2" "AIRHEADS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Chris O\'Donnell")
+ ( "movie"
+   [ 4 5 190 338 405 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "BATMAN & ROBIN" "FRIED GREEN TOMATOES" "THE THREE MUSKETEERS" "SCENT OF A WOMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Chris Sarandon")
+ ( "movie"
+   [ 279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE PRINCESS BRIDE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christian Slater")
+ ( "movie"
+   [ 140 185 268 428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG GUNS II" "INTERVIEW WITH THE VAMPIRE" "BROKEN ARROW" "ROBIN HOOD: PRINCE OF THIEVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christina Ricci")
+ ( "movie"
+   [ 352 353 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ADDAMS FAMILY" "CASPER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Guest")
+ ( "movie"
+   [ 133 218 279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THIS IS SPINAL TAP" "LITTLE SHOP OF HORRORS" "THE PRINCESS BRIDE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Lloyd")
+ ( "movie"
+   [ 193 196 328 352 421 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RADIOLAND MURDERS" "BACK TO THE FUTURE" "ONE FLEW OVER THE CUCKOO\'S NEST" "THE ADDAMS FAMILY" "MR. MOM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Penn")
+ ( "movie"
+   [ 56 165 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOOTLOOSE" "ALL THE RIGHT MOVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Plummer")
+ ( "movie"
+   [ 104 106 184 203 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DRAGNET" "SOUND OF MUSIC" "TWELVE MONKEYS" "EYEWITNESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Reeve")
+ ( "movie"
+   [ 316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SUPERMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Christopher Walken")
+ ( "movie"
+   [ 3 82 112 216 318 372 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN RETURNS" "WAYNE\'S WORLD 2" "PULP FICTION" "PENNIES FROM HEAVEN" "A VIEW TO A KILL" "ANNIE HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cicely Tyson")
+ ( "movie"
+   [ 190 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FRIED GREEN TOMATOES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cindy Pickett")
+ ( "movie"
+   [ 115 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MEN\'S CLUB" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cindy Williams")
+ ( "movie"
+   [ 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Claire Bloom")
+ ( "movie"
+   [ 374 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MIGHTY APHRODITE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Clark Gable")
+ ( "movie"
+   [ 249 250 500 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GONE WITH THE WIND" "IT HAPPENED ONE NIGHT" "THE TALL MEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Claude Rains")
+ ( "movie"
+   [ 294 416 521 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASABLANCA" "THE GREATEST STORY EVER TOLD" "NOTORIOUS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Claudette Colbert")
+ ( "movie"
+   [ 250 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT HAPPENED ONE NIGHT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cleavon Little")
+ ( "movie"
+   [ 93 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLAZING SADDLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cliff Robertson")
+ ( "movie"
+   [ 447 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DEVIL\'S BRIGADE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Clint Eastwood")
+ ( "movie"
+   [ 224 225 226 227 228 229 230 231 232 290 460 529 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABSOLUTE POWER" "IN THE LINE OF FIRE" "UNFORGIVEN" "CITY HEAT" "EVERY WHICH WAY BUT LOOSE" "DIRTY HARRY" "PLAY MISTY FOR ME" "KELLY\'S HEROES" "WHERE EAGLES DARE" "PAINT YOUR WAGON" "THUNDERBOLT AND LIGHTFOOT" "HANG \'EM HIGH" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Clint Howard")
+ ( "movie"
+   [ 99 128 423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOLLO 13" "BACKDRAFT" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cloris Leachman")
+ ( "movie"
+   [ 92 153 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG FRANKENSTEIN" "BUTCH CASSIDY AND THE SUNDANCE KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Connie Stevens")
+ ( "movie"
+   [ 510 511 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MISTER JERICO" "THE SEX SYMBOL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Corey Haim")
+ ( "movie"
+   [ 53 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LOST BOYS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Courtney Cox")
+ ( "movie"
+   [ 168 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ACE VENTURA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Craig T. Nelson")
+ ( "movie"
+   [ 129 165 220 403 407 474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILKWOOD" "ALL THE RIGHT MOVES" "STIR CRAZY" "DEVIL\'S ADVOCATE" "AND JUSTICE FOR ALL" "GHOSTS OF MISSISSIPPI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cuba Gooding, Jr.")
+ ( "movie"
+   [ 163 235 326 478 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JERRY MAGUIRE" "OUTBREAK" "AS GOOD AS IT GETS" "COMING TO AMERICA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Cybill Shepherd")
+ ( "movie"
+   [ 191 342 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHANCES ARE" "TAXI DRIVER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dabney Coleman")
+ ( "movie"
+   [ 104 110 159 233 255 257 395 396 495 516 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DRAGNET" "NORTH DALLAS FORTY" "THE TOWERING INFERNO" "TOOTSIE" "ON GOLDEN POND" "9 TO 5" "WAR GAMES" "YOUNG DOCTORS IN LOVE" "THE TROUBLE WITH GIRLS" "MEET THE APPLEGATES" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Damon Wayans")
+ ( "movie"
+   [ 64 214 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEVERLY HILLS COP" "ROXANNE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dan Aykroyd")
+ ( "movie"
+   [ 10 14 26 85 104 107 143 149 210 390 425 466 467 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NOTHING BUT TROUBLE" "DRIVING MISS DAISY" "GHOSTBUSTERS" "MY STEPMOTHER IS AN ALIEN" "DRAGNET" "TRADING PLACES" "MY FELLOW AMERICANS" "SNEAKERS" "SERGEANT BILKO" "INTO THE NIGHT" "CHAPLIN" "THE BLUES BROTHERS" "1941" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dan Hedaya")
+ ( "movie"
+   [ 29 188 351 352 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIEN RESURRECTION" "BENNY & JOON" "CLUELESS" "THE ADDAMS FAMILY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dana Carvey")
+ ( "movie"
+   [ 82 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WAYNE\'S WORLD 2" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Daniel Stern")
+ ( "movie"
+   [ 38 277 336 370 464 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DINER" "CITY SLICKERS II" "HOME ALONE 2" "HANNAH AND HER SISTERS" "HOME ALONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Danny Aiello")
+ ( "movie"
+   [ 46 350 371 408 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GODFATHER PART 2" "THE PROFESSIONAL" "THE PURPLE ROSE OF CAIRO" "CITY HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Danny De Vito")
+ ( "movie"
+   [ 3 32 62 83 113 171 175 328 420 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN RETURNS" "MARS ATTACKS!" "RUTHLESS PEOPLE" "L.A. CONFIDENTIAL" "GET SHORTY" "THE RAINMAKER" "THE WAR OF THE ROSES" "ONE FLEW OVER THE CUCKOO\'S NEST" "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Danny Glover")
+ ( "movie"
+   [ 97 171 181 213 435 457 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLACES IN THE HEART" "THE RAINMAKER" "SILVERADO" "GRAND CANYON" "PURE LUCK" "LETHAL WEAPON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Danny Kaye")
+ ( "movie"
+   [ 443 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FIVE PENNIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Darren McGavin")
+ ( "movie"
+   [ 84 274 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NATURAL" "TRIBES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Daryl Hannah")
+ ( "movie"
+   [ 18 96 102 144 150 177 214 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLADE RUNNER" "STEEL MAGNOLIAS" "SPLASH" "GRUMPY OLD MEN" "LEGAL EAGLES" "WALL STREET" "ROXANNE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "David Alan Grier")
+ ( "movie"
+   [ 337 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MCHALE\'S NAVY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "David Bowie")
+ ( "movie"
+   [ 390 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INTO THE NIGHT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "David Duchovny")
+ ( "movie"
+   [ 425 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHAPLIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "David Niven")
+ ( "movie"
+   [ 359 360 361 362 536 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASINO ROYAL" "TRAIL OF THE PINK PANTHER" "AROUND THE WORLD IN 80 DAYS" "MURDER BY DEATH" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "David Ogden Stiers")
+ ( "movie"
+   [ 194 201 374 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DOC HOLLYWOOD" "THE ACCIDENTAL TOURIST" "MIGHTY APHRODITE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dean Jones")
+ ( "movie"
+   [ 327 514 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CLEAR AND PRESENT DANGER" "ANY WEDNESDAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dean Martin")
+ ( "movie"
+   [ 89 272 367 381 418 501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "THE CADDY" "BANDOLERO!" "AIRPORT" "FIVE CARD STUD" "FOUR FOR TEXAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dean Stockwell")
+ ( "movie"
+   [ 323 337 391 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AIR FORCE ONE" "MCHALE\'S NAVY" "DUNE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Debbie Reynolds")
+ ( "movie"
+   [ 76 296 502 503 504 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOW THE WEST WAS WON" "SINGIN\' IN THE RAIN" "THE BODYGUARD" "DIVORCE AMERICAN STYLE" "TAMMY AND THE BACHELOR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Deborah Kerr")
+ ( "movie"
+   [ 300 358 359 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GRASS IS GREENER" "THE KING AND I" "CASINO ROYAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Deborah Walley")
+ ( "movie"
+   [ 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Debra Winger")
+ ( "movie"
+   [ 150 264 276 399 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LEGAL EAGLES" "URBAN COWBOY" "FORGET PARIS" "AN OFFICER AND A GENTLEMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Demi Moore")
+ ( "movie"
+   [ 10 33 142 148 173 373 472 473 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NOTHING BUT TROUBLE" "A FEW GOOD MEN" "ST. ELMO\'S FIRE" "INDECENT PROPOSAL" "DISCLOSURE" "DECONSTRUCTING HARRY" "THE BUTCHER\'S WIFE" "GHOST" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Denis Leary")
+ ( "movie"
+   [ 139 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOADED WEAPON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dennis Franz")
+ ( "movie"
+   [ 265 346 468 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLOWOUT" "CITY OF ANGELS" "BLOWOUT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dennis Hopper")
+ ( "movie"
+   [ 43 69 160 315 409 410 529 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "SPEED" "COOL HAND LUKE" "HOOSIERS" "REBEL WITHOUT A CAUSE" "GIANT" "HANG \'EM HIGH" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dennis Miller")
+ ( "movie"
+   [ 71 72 173 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NET" "MURDER AT 1600" "DISCLOSURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dennis Quaid")
+ ( "movie"
+   [ 35 348 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "INNERSPACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Denzel Washington")
+ ( "movie"
+   [ 105 206 312 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "MUCH ADO ABOUT NOTHING" "CRIMSON TIDE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Diana Rigg")
+ ( "movie"
+   [ 182 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT MUPPET CAPER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Diane Baker")
+ ( "movie"
+   [ 71 72 73 74 451 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NET" "MURDER AT 1600" "SILENCE OF THE LAMBS" "MIRAGE" "JOURNEY TO THE CENTER OF THE EARTH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Diane Keaton")
+ ( "movie"
+   [ 45 46 63 211 372 441 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GODFATHER" "THE GODFATHER PART 2" "FIRST WIVES CLUB" "FATHER OF THE BRIDE" "ANNIE HALL" "LOOKING FOR MR. GOODBAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Diane Lane")
+ ( "movie"
+   [ 72 398 425 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MURDER AT 1600" "THE COTTON CLUB" "CHAPLIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dianne Wiest")
+ ( "movie"
+   [ 53 370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LOST BOYS" "HANNAH AND HER SISTERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dick Butkus")
+ ( "movie"
+   [ 365 488 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MOTHER, JUGS, & SPEED" "THE STEPFORD CHILDREN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dick Sargent")
+ ( "movie"
+   [ 303 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THAT TOUCH OF MINK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dick Van Dyke")
+ ( "movie"
+   [ 237 503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DICK TRACY" "DIVORCE AMERICAN STYLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dick Van Patten")
+ ( "movie"
+   [ 465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPACEBALLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dolly Parton")
+ ( "movie"
+   [ 96 257 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STEEL MAGNOLIAS" "9 TO 5" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dom De Luise")
+ ( "movie"
+   [ 89 91 93 219 420 465 484 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "SILENT MOVIE" "BLAZING SADDLES" "HAUNTED HONEYMOON" "JOHNNY DANGEROUSLY" "SPACEBALLS" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Don Ameche")
+ ( "movie"
+   [ 107 108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRADING PLACES" "COCOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Don Rickles")
+ ( "movie"
+   [ 231 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "KELLY\'S HEROES" "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Donald O\'Connor")
+ ( "movie"
+   [ 296 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SINGIN\' IN THE RAIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Donald Sutherland")
+ ( "movie"
+   [ 1 128 136 173 222 231 235 289 339 385 386 392 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "BACKDRAFT" "JFK" "DISCLOSURE" "START THE REVOLUTION WITHOUT ME" "KELLY\'S HEROES" "OUTBREAK" "THE DIRTY DOZEN" "A TIME TO KILL" "KLUTE" "M*A*S*H" "INVASION OF THE BODY SNATCHERS" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Donna Mills")
+ ( "movie"
+   [ 230 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLAY MISTY FOR ME" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Donna Reed")
+ ( "movie"
+   [ 272 434 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CADDY" "IT\'S A WONDERFUL LIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Doris Day")
+ ( "movie"
+   [ 303 519 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THAT TOUCH OF MINK" "THE MAN WHO KNEW TOO MUCH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dorothy Lamour")
+ ( "movie"
+   [ 281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROAD TO HONG KONG" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Douglas Fairbanks, Jr.")
+ ( "movie"
+   [ 448 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOST STORY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Drew Barrymore")
+ ( "movie"
+   [ 4 67 81 192 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "ALTERED STATES" "THE WEDDING SINGER" "BAD GIRLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dudley Moore")
+ ( "movie"
+   [ 479 480 481 482 483 484 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEST DEFENSE" "ARTHUR" "UNFAITHFULLY YOURS" "LOVESICK" "10" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dustin Hoffman")
+ ( "movie"
+   [ 20 25 138 151 233 234 235 236 237 238 239 240 241 384 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAMILY BUSINESS" "RAINMAN" "SLEEPERS" "ALL THE PRESIDENT\'S MEN" "TOOTSIE" "SPHERE" "OUTBREAK" "HOOK" "DICK TRACY" "KRAMER VS. KRAMER" "PAPILLON" "THE GRADUATE" "LITTLE BIG MAN" "MARATHON MAN" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dwayne Hickman")
+ ( "movie"
+   [ 253 494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CAT BALLOU" "DR. GOLDFOOT AND THE BIKINI MACHINE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Dyan Cannon")
+ ( "movie"
+   [ 440 454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AUTHOR! AUTHOR!" "HEAVEN CAN WAIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "E.G. Marshall")
+ ( "movie"
+   [ 224 293 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABSOLUTE POWER" "THE CAINE MUTINY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Earl Holliman")
+ ( "movie"
+   [ 273 274 410 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VISIT TO A SMALL PLANET" "TRIBES" "GIANT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ed Begley, Jr.")
+ ( "movie"
+   [ 201 516 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ACCIDENTAL TOURIST" "MEET THE APPLEGATES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ed Harris")
+ ( "movie"
+   [ 17 35 37 94 97 99 224 429 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROCK" "THE RIGHT STUFF" "GLENGARRY GLEN ROSS " "EYE FOR AN EYE" "PLACES IN THE HEART" "APOLLO 13" "ABSOLUTE POWER" "THE ABYSS" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eddie Albert")
+ ( "movie"
+   [ 77 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eddie Murphy")
+ ( "movie"
+   [ 64 107 109 478 479 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEVERLY HILLS COP" "TRADING PLACES" "48 HOURS" "COMING TO AMERICA" "BEST DEFENSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Edmond O\'Brien")
+ ( "movie"
+   [ 285 368 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT IMPOSTER" "FANTASTIC VOYAGE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Edward G. Robinson")
+ ( "movie"
+   [ 80 442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TEN COMMANDMENTS" "THE CINCINNATI KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Edward Norton")
+ ( "movie"
+   [ 401 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PRIMAL FEAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Efrem Zimbalist, Jr.")
+ ( "movie"
+   [ 445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE REWARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eli Wallach")
+ ( "movie"
+   [ 379 455 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DEEP" "LORD JIM" "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elisabeth Shue")
+ ( "movie"
+   [ 164 373 476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COCKTAIL" "DECONSTRUCTING HARRY" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elizabeth Ashley")
+ ( "movie"
+   [ 291 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SHIP OF FOOLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elizabeth McGovern")
+ ( "movie"
+   [ 482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOVESICK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elizabeth Perkins")
+ ( "movie"
+   [ 137 411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HE SAID, SHE SAID" "THE FLINTSTONES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elizabeth Taylor")
+ ( "movie"
+   [ 410 411 412 413 414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GIANT" "THE FLINTSTONES" "THE MIRROR CRACK\'D" "CLEOPATRA" "FATHER OF THE BRIDE (1950)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ellen Barkin")
+ ( "movie"
+   [ 38 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DINER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elliott Gould")
+ ( "movie"
+   [ 386 387 388 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "M*A*S*H" "CAPRICORN ONE" "CALIFORNIA SPLIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Elvis Presley")
+ ( "movie"
+   [ 495 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TROUBLE WITH GIRLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Emilio Estevez")
+ ( "movie"
+   [ 31 48 139 140 141 142 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "BREAKFAST CLUB" "LOADED WEAPON" "YOUNG GUNS II" "STAKEOUT" "ST. ELMO\'S FIRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Emma Thompson")
+ ( "movie"
+   [ 206 243 260 309 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MUCH ADO ABOUT NOTHING" "DEAD AGAIN" "PRIMARY COLORS" "SENSE AND SENSIBILITY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eric Idle")
+ ( "movie"
+   [ 353 452 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASPER" "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eric Stoltz")
+ ( "movie"
+   [ 112 163 189 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PULP FICTION" "JERRY MAGUIRE" "SOME KIND OF WONDERFUL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ernest Borgnine")
+ ( "movie"
+   [ 12 289 317 337 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ESCAPE FROM NEW YORK" "THE DIRTY DOZEN" "THE POSEIDON ADVENTURE" "MCHALE\'S NAVY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Esther Williams")
+ ( "movie"
+   [ 297 298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAKE ME OUT TO THE BALL GAME" "ZIEGFELD FOLLIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ethel Merman")
+ ( "movie"
+   [ 270 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eugene Levy")
+ ( "movie"
+   [ 102 486 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPLASH" "STAY TUNED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eva Marie Saint")
+ ( "movie"
+   [ 41 103 162 283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NORTH BY NORTHWEST" "NOTHING IN COMMON" "EXODUS" "CANCEL MY RESERVATION" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Eve Arden")
+ ( "movie"
+   [ 305 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NIGHT AND DAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Farrah Fawcett")
+ ( "movie"
+   [ 89 490 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "THE FEMINIST AND THE FUZZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Faye Dunaway")
+ ( "movie"
+   [ 159 241 355 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "LITTLE BIG MAN" "DON JUAN DEMARCO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fernando Lamas")
+ ( "movie"
+   [ 369 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "100 RIFLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Forest Whitaker")
+ ( "movie"
+   [ 65 141 157 266 331 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAST TIMES AT RIDGEMOUNT HIGH" "STAKEOUT" "THE COLOR OF MONEY" "PHENOMENON" "PLATOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Forrest Tucker")
+ ( "movie"
+   [ 283 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CANCEL MY RESERVATION" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Frances McDormand")
+ ( "movie"
+   [ 314 322 401 472 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MISSISSIPPI BURNING" "FARGO" "PRIMAL FEAR" "THE BUTCHER\'S WIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Frank Gorshin")
+ ( "movie"
+   [ 285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT IMPOSTER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Frank Sinatra")
+ ( "movie"
+   [ 297 501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAKE ME OUT TO THE BALL GAME" "FOUR FOR TEXAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Frankie Avalon")
+ ( "movie"
+   [ 262 492 493 494 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GREASE" "VOYAGE TO THE BOTTOM OF THE SEA" "BEACH BLANKET BINGO" "DR. GOLDFOOT AND THE BIKINI MACHINE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred Astaire")
+ ( "movie"
+   [ 159 298 448 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "ZIEGFELD FOLLIES" "GHOST STORY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred Gwynne")
+ ( "movie"
+   [ 176 195 398 426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FATAL ATTRACTION" "THE SECRET OF MY SUCCESS" "THE COTTON CLUB" "MY COUSIN VINNY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred MacMurray")
+ ( "movie"
+   [ 146 293 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE APARTMENT" "THE CAINE MUTINY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred Savage")
+ ( "movie"
+   [ 279 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE PRINCESS BRIDE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred Ward")
+ ( "movie"
+   [ 35 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fred Willard")
+ ( "movie"
+   [ 223 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILVER STREAK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Frederick Forrest")
+ ( "movie"
+   [ 60 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Fritz Weaver")
+ ( "movie"
+   [ 523 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLACK SUNDAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "G.D. Spradlin")
+ ( "movie"
+   [ 43 46 110 111 175 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "THE GODFATHER PART 2" "NORTH DALLAS FORTY" "THE LONG KISS GOODNIGHT" "THE WAR OF THE ROSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gabrielle Anwar")
+ ( "movie"
+   [ 405 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SCENT OF A WOMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gary Busey")
+ ( "movie"
+   [ 457 458 459 460 461 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LETHAL WEAPON" "UNDER SIEGE" "A STAR IS BORN" "THUNDERBOLT AND LIGHTFOOT" "CARNY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gary Oldman")
+ ( "movie"
+   [ 136 198 207 323 349 350 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JFK" "LOST IN SPACE" "BRAM STOKER\'S DRACULA" "AIR FORCE ONE" "THE FIFTH ELEMENT" "THE PROFESSIONAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gary Sinise")
+ ( "movie"
+   [ 95 99 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FORREST GUMP" "APOLLO 13" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gavin MacLeod")
+ ( "movie"
+   [ 231 287 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "KELLY\'S HEROES" "OPERATION PETTICOAT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Geena Davis")
+ ( "movie"
+   [ 9 101 111 114 201 233 419 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FLETCH" "A LEAGUE OF THEIR OWN" "THE LONG KISS GOODNIGHT" "THELMA & LOUISE" "THE ACCIDENTAL TOURIST" "TOOTSIE" "BEETLEJUICE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gene Hackman")
+ ( "movie"
+   [ 92 113 154 224 226 310 311 312 313 314 315 316 317 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG FRANKENSTEIN" "GET SHORTY" "TWILIGHT" "ABSOLUTE POWER" "UNFORGIVEN" "EXTREME MEASURES" "THE BIRDCAGE" "CRIMSON TIDE" "NO WAY OUT" "MISSISSIPPI BURNING" "HOOSIERS" "SUPERMAN" "THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gene Kelly")
+ ( "movie"
+   [ 295 296 297 298 299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "XANADU" "SINGIN\' IN THE RAIN" "TAKE ME OUT TO THE BALL GAME" "ZIEGFELD FOLLIES" "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gene Wilder")
+ ( "movie"
+   [ 92 93 219 220 221 222 223 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG FRANKENSTEIN" "BLAZING SADDLES" "HAUNTED HONEYMOON" "STIR CRAZY" "EVERYTHING YOU .. ABOUT SEX " "START THE REVOLUTION WITHOUT ME" "SILVER STREAK" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George C. Scott")
+ ( "movie"
+   [ 39 161 363 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAPS" "THE HUSTLER" "DR  STRANGELOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Clooney")
+ ( "movie"
+   [ 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN & ROBIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Hamilton")
+ ( "movie"
+   [ 194 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DOC HOLLYWOOD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Kennedy")
+ ( "movie"
+   [ 42 74 79 160 289 364 367 381 460 536 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHARADE" "MIRAGE" "AIRPORT 1975" "COOL HAND LUKE" "THE DIRTY DOZEN" "NAKED GUN 33 1/3" "BANDOLERO!" "AIRPORT" "THUNDERBOLT AND LIGHTFOOT" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Peppard")
+ ( "movie"
+   [ 76 376 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOW THE WEST WAS WON" "BREAKFAST AT TIFFANY\'S" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Reeves")
+ ( "movie"
+   [ 249 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GONE WITH THE WIND" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "George Segal")
+ ( "movie"
+   [ 291 388 527 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SHIP OF FOOLS" "CALIFORNIA SPLIT" "THE ST. VALENTINE\'S DAY MASSACRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gilda Radner")
+ ( "movie"
+   [ 219 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HAUNTED HONEYMOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gina Lollobrigida")
+ ( "movie"
+   [ 288 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRAPEZE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ginger Rogers")
+ ( "movie"
+   [ 302 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MONKEY BUSINESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Glenn Close")
+ ( "movie"
+   [ 32 36 84 176 209 236 323 423 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "THE BIG CHILL" "THE NATURAL" "FATAL ATTRACTION" "DANGEROUS LIAISONS" "HOOK" "AIR FORCE ONE" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Glenn Ford")
+ ( "movie"
+   [ 316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SUPERMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Glenne Headly")
+ ( "movie"
+   [ 210 212 237 371 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SERGEANT BILKO" "DIRTY ROTTEN SCOUNDRELS" "DICK TRACY" "THE PURPLE ROSE OF CAIRO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Goldie Hawn")
+ ( "movie"
+   [ 6 11 63 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUL PLAY" "OVERBOARD" "FIRST WIVES CLUB" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Grace Jones")
+ ( "movie"
+   [ 318 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A VIEW TO A KILL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Grace Kelly")
+ ( "movie"
+   [ 301 433 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TO CATCH A THIEF" "REAR WINDOW" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Graham Chapman")
+ ( "movie"
+   [ 452 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Greg Kinnear")
+ ( "movie"
+   [ 325 326 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SABRINA" "AS GOOD AS IT GETS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gregory Hines")
+ ( "movie"
+   [ 280 398 469 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RUNNING SCARED" "THE COTTON CLUB" "DEAL OF THE CENTURY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gregory Peck")
+ ( "movie"
+   [ 74 76 438 439 453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MIRAGE" "HOW THE WEST WAS WON" "CAPE FEAR" "CAPE FEAR (1962)" "THE BOYS FROM BRAZIL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Griffin Dunne")
+ ( "movie"
+   [ 420 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Gwyneth Paltrow")
+ ( "movie"
+   [ 187 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Hal Holbrook")
+ ( "movie"
+   [ 151 177 259 387 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALL THE PRESIDENT\'S MEN" "WALL STREET" "JULIA" "CAPRICORN ONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harold Ramis")
+ ( "movie"
+   [ 26 463 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOSTBUSTERS" "STRIPES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harrison Ford")
+ ( "movie"
+   [ 13 15 16 18 43 44 183 323 324 325 327 470 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE EMPIRE STRIKES BACK" "RAIDERS OF THE LOST ARK" "INDIANA JONES LAST CRUSADE" "BLADE RUNNER" "APOCALYPSE NOW" "AMERICAN GRAFFITI" "THE DEVIL\'S OWN" "AIR FORCE ONE" "THE FUGITIVE" "SABRINA" "CLEAR AND PRESENT DANGER" "WORKING GIRL" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harry Connick, Jr.")
+ ( "movie"
+   [ 394 471 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDEPENDENCE DAY" "COPYCAT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harry Dean Stanton")
+ ( "movie"
+   [ 12 27 46 60 160 267 396 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ESCAPE FROM NEW YORK" "ALIEN" "THE GODFATHER PART 2" "THE ROSE" "COOL HAND LUKE" "SHE\'S SO LOVELY" "YOUNG DOCTORS IN LOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harry Morgan")
+ ( "movie"
+   [ 75 104 490 526 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE SHOOTIST" "DRAGNET" "THE FEMINIST AND THE FUZZ" "SUPPORT YOUR LOCAL SHERIFF!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harry Shearer")
+ ( "movie"
+   [ 133 435 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THIS IS SPINAL TAP" "PURE LUCK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harvey Keitel")
+ ( "movie"
+   [ 112 114 115 123 342 365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PULP FICTION" "THELMA & LOUISE" "THE MEN\'S CLUB" "COP LAND" "TAXI DRIVER" "MOTHER, JUGS, & SPEED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Harvey Korman")
+ ( "movie"
+   [ 93 193 360 411 417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLAZING SADDLES" "RADIOLAND MURDERS" "TRAIL OF THE PINK PANTHER" "THE FLINTSTONES" "LORD LOVE A DUCK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Hayley Mills")
+ ( "movie"
+   [ 430 431 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TROUBLE WITH ANGELS" "THE PARENT TRAP" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Helen Hunt")
+ ( "movie"
+   [ 50 169 269 326 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TWISTER" "PEGGY SUE GOT MARRIED" "MR. SATURDAY NIGHT" "AS GOOD AS IT GETS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Helena Bonham Carter")
+ ( "movie"
+   [ 513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Henry Fonda")
+ ( "movie"
+   [ 76 77 252 255 534 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOW THE WEST WAS WON" "THE LONGEST DAY" "FORT APACHE" "ON GOLDEN POND" "JEZEBEL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Henry Gibson")
+ ( "movie"
+   [ 271 466 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NUTTY PROFESSOR" "THE BLUES BROTHERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Henry Silva")
+ ( "movie"
+   [ 445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE REWARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Henry Winkler")
+ ( "movie"
+   [ 422 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MR. MOM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Herbert Lom")
+ ( "movie"
+   [ 286 360 510 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPARTACUS" "TRAIL OF THE PINK PANTHER" "MISTER JERICO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Hoagy Carmichael")
+ ( "movie"
+   [ 498 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LAS VEGAS STORY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Holly Hunter")
+ ( "movie"
+   [ 202 471 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BROADCAST NEWS" "COPYCAT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Hugh Grant")
+ ( "movie"
+   [ 309 310 332 393 515 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SENSE AND SENSIBILITY" "EXTREME MEASURES" "FOUR WEDDINGS AND A FUNERAL" "NINE MONTHS" "THE LAIR OF THE WHITE WORM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Hume Cronyn")
+ ( "movie"
+   [ 108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COCOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Humphrey Bogart")
+ ( "movie"
+   [ 292 293 294 377 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE AFRICAN QUEEN" "THE CAINE MUTINY" "CASABLANCA" "SABRINA (1954)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Inger Stevens")
+ ( "movie"
+   [ 418 512 529 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FIVE CARD STUD" "A GUIDE FOR THE MARRIED MAN" "HANG \'EM HIGH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ingrid Bergman")
+ ( "movie"
+   [ 294 304 380 521 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASABLANCA" "INDISCREET" "MURDER ON THE ORIENT EXPRESS" "NOTORIOUS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Irene Dunne")
+ ( "movie"
+   [ 432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MY FAVORITE WIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "J.T. Walsh")
+ ( "movie"
+   [ 126 128 139 354 370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TEQUILA SUNRISE" "BACKDRAFT" "LOADED WEAPON" "SLING BLADE" "HANNAH AND HER SISTERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Albertson")
+ ( "movie"
+   [ 317 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Benny")
+ ( "movie"
+   [ 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Haley")
+ ( "movie"
+   [ 246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WIZARD OF OZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Lemmon")
+ ( "movie"
+   [ 37 40 136 143 144 145 146 178 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GLENGARRY GLEN ROSS " "SOME LIKE IT HOT" "JFK" "MY FELLOW AMERICANS" "GRUMPY OLD MEN" "THE GREAT RACE" "THE APARTMENT" "THE CHINA SYNDROME" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Lord")
+ ( "movie"
+   [ 19 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DR. NO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Nicholson")
+ ( "movie"
+   [ 2 32 33 202 326 328 496 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN" "MARS ATTACKS!" "A FEW GOOD MEN" "BROADCAST NEWS" "AS GOOD AS IT GETS" "ONE FLEW OVER THE CUCKOO\'S NEST" "THE RAVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Palance")
+ ( "movie"
+   [ 2 125 277 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN" "TANGO & CASH" "CITY SLICKERS II" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Warden")
+ ( "movie"
+   [ 70 98 131 151 182 374 407 454 536 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WHILE YOU WERE SLEEPING" "BEYOND THE POSEIDON ADVENTURE" "USED CARS" "ALL THE PRESIDENT\'S MEN" "THE GREAT MUPPET CAPER" "MIGHTY APHRODITE" "AND JUSTICE FOR ALL" "HEAVEN CAN WAIT" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jack Weston")
+ ( "movie"
+   [ 74 366 442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MIRAGE" "FUZZ" "THE CINCINNATI KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jackie Cooper")
+ ( "movie"
+   [ 316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SUPERMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jackie Gleason")
+ ( "movie"
+   [ 90 103 161 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SMOKEY AND THE BANDIT" "NOTHING IN COMMON" "THE HUSTLER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jacqueline Bisset")
+ ( "movie"
+   [ 378 379 380 381 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TWO FOR THE ROAD" "THE DEEP" "MURDER ON THE ORIENT EXPRESS" "AIRPORT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Arness")
+ ( "movie"
+   [ 509 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THEM!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Belushi")
+ ( "movie"
+   [ 218 485 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LITTLE SHOP OF HORRORS" "REAL MEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Brolin")
+ ( "movie"
+   [ 357 368 387 505 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WESTWORLD" "FANTASTIC VOYAGE" "CAPRICORN ONE" "OUR MAN FLINT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Brown")
+ ( "movie"
+   [ 466 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BLUES BROTHERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Caan")
+ ( "movie"
+   [ 45 46 58 91 118 237 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GODFATHER" "THE GODFATHER PART 2" "HONEYMOON IN VEGAS" "SILENT MOVIE" "ERASER" "DICK TRACY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Coburn")
+ ( "movie"
+   [ 42 118 140 341 477 505 506 507 508 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHARADE" "ERASER" "YOUNG GUNS II" "MAVERICK" "SISTER ACT 2" "OUR MAN FLINT" "THE BALTIMORE BULLET" "LOVING COUPLES" "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Coco")
+ ( "movie"
+   [ 362 484 488 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MURDER BY DEATH" "WHOLLY MOSES" "THE STEPFORD CHILDREN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Daly")
+ ( "movie"
+   [ 415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLANET OF THE APES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Dean")
+ ( "movie"
+   [ 409 410 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "REBEL WITHOUT A CAUSE" "GIANT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Earl Jones")
+ ( "movie"
+   [ 124 149 327 333 363 478 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FIELD OF DREAMS" "SNEAKERS" "CLEAR AND PRESENT DANGER" "THE HUNT FOR RED OCTOBER" "DR  STRANGELOVE" "COMING TO AMERICA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Garner")
+ ( "movie"
+   [ 143 154 341 526 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MY FELLOW AMERICANS" "TWILIGHT" "MAVERICK" "SUPPORT YOUR LOCAL SHERIFF!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Mason")
+ ( "movie"
+   [ 41 247 451 452 453 454 455 456 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NORTH BY NORTHWEST" "A STAR IS BORN (1954)" "JOURNEY TO THE CENTER OF THE EARTH" "YELLOWBEARD" "THE BOYS FROM BRAZIL" "HEAVEN CAN WAIT" "LORD JIM" "LOLITA" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Spader")
+ ( "movie"
+   [ 52 55 177 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LESS THAN ZERO" "ENDLESS LOVE" "WALL STREET" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Stewart")
+ ( "movie"
+   [ 75 76 307 367 433 434 518 519 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE SHOOTIST" "HOW THE WEST WAS WON" "THE PHILADELPHIA STORY" "BANDOLERO!" "REAR WINDOW" "IT\'S A WONDERFUL LIFE" "VERTIGO" "THE MAN WHO KNEW TOO MUCH" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Whitmore")
+ ( "movie"
+   [ 415 509 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLANET OF THE APES" "THEM!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "James Woods")
+ ( "movie"
+   [ 203 340 425 474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EYEWITNESS" "CONTACT" "CHAPLIN" "GHOSTS OF MISSISSIPPI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jami Gertz")
+ ( "movie"
+   [ 49 50 51 52 53 54 55 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIXTEEN CANDLES" "TWISTER" "SIBLING RIVALRY" "LESS THAN ZERO" "THE LOST BOYS" "QUICKSILVER" "ENDLESS LOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jamie Lee Curtis")
+ ( "movie"
+   [ 78 107 180 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRUE LIES" "TRADING PLACES" "A FISH CALLED WANDA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jan-Michael Vincent")
+ ( "movie"
+   [ 274 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRIBES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jane Fonda")
+ ( "movie"
+   [ 178 253 254 255 256 257 258 259 385 514 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CHINA SYNDROME" "CAT BALLOU" "THE MORNING AFTER" "ON GOLDEN POND" "AGNES OF GOD" "9 TO 5" "CALIFORNIA SUITE" "JULIA" "KLUTE" "ANY WEDNESDAY" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jane Russell")
+ ( "movie"
+   [ 498 499 500 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LAS VEGAS STORY" "GENTLEMEN PREFER BLONDES" "THE TALL MEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jane Wyman")
+ ( "movie"
+   [ 305 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NIGHT AND DAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Janet Leigh")
+ ( "movie"
+   [ 375 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PSYCHO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jason Alexander")
+ ( "movie"
+   [ 397 423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PRETTY WOMAN" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jason Patric")
+ ( "movie"
+   [ 53 329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LOST BOYS" "SPEED 2: CRUISE CONTROL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jason Robards")
+ ( "movie"
+   [ 105 151 208 423 514 527 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "ALL THE PRESIDENT\'S MEN" "PARENTHOOD" "THE PAPER" "ANY WEDNESDAY" "THE ST. VALENTINE\'S DAY MASSACRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jayne Mansfield")
+ ( "movie"
+   [ 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jean Reno")
+ ( "movie"
+   [ 344 345 350 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MISSION: IMPOSSIBLE" "FRENCH KISS" "THE PROFESSIONAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jean Simmons")
+ ( "movie"
+   [ 300 450 503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GRASS IS GREENER" "THE ROBE" "DIVORCE AMERICAN STYLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jean Stapleton")
+ ( "movie"
+   [ 199 385 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MICHAEL" "KLUTE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jeff Bridges")
+ ( "movie"
+   [ 254 460 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MORNING AFTER" "THUNDERBOLT AND LIGHTFOOT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jeff Daniels")
+ ( "movie"
+   [ 69 371 472 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPEED" "THE PURPLE ROSE OF CAIRO" "THE BUTCHER\'S WIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jeff Goldblum")
+ ( "movie"
+   [ 35 36 181 388 389 390 392 393 394 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "THE BIG CHILL" "SILVERADO" "CALIFORNIA SPLIT" "JURASSIC PARK" "INTO THE NIGHT" "INVASION OF THE BODY SNATCHERS" "NINE MONTHS" "INDEPENDENCE DAY" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jeffrey Jones")
+ ( "movie"
+   [ 486 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STAY TUNED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jennifer Beals")
+ ( "movie"
+   [ 427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUR ROOMS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jennifer Jason Leigh")
+ ( "movie"
+   [ 115 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MEN\'S CLUB" "BACKDRAFT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jennifer Tilly")
+ ( "movie"
+   [ 167 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LIAR, LIAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jerry Lewis")
+ ( "movie"
+   [ 269 271 272 273 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MR. SATURDAY NIGHT" "THE NUTTY PROFESSOR" "THE CADDY" "VISIT TO A SMALL PLANET" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jessica Lange")
+ ( "movie"
+   [ 233 383 438 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOOTSIE" "ALL THAT JAZZ" "CAPE FEAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jessica Tandy")
+ ( "movie"
+   [ 14 108 155 190 517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DRIVING MISS DAISY" "COCOON" "NOBODY\'S FOOL" "FRIED GREEN TOMATOES" "THE BIRDS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jessica Walter")
+ ( "movie"
+   [ 230 424 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLAY MISTY FOR ME" "THE FLAMINGO KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jill Clayburgh")
+ ( "movie"
+   [ 223 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILVER STREAK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jill St. John")
+ ( "movie"
+   [ 21 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DIAMONDS ARE FOREVER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jim Backus")
+ ( "movie"
+   [ 409 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "REBEL WITHOUT A CAUSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jim Brown")
+ ( "movie"
+   [ 289 369 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DIRTY DOZEN" "100 RIFLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jim Carrey")
+ ( "movie"
+   [ 4 167 168 169 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "LIAR, LIAR" "ACE VENTURA" "PEGGY SUE GOT MARRIED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jimmy Durante")
+ ( "movie"
+   [ 270 533 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "THE MAN WHO CAME TO DINNER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jimmy Smits")
+ ( "movie"
+   [ 280 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RUNNING SCARED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joan Blondell")
+ ( "movie"
+   [ 442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CINCINNATI KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joan Collins")
+ ( "movie"
+   [ 281 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROAD TO HONG KONG" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joan Crawford")
+ ( "movie"
+   [ 530 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WHAT EVER HAPPENED TO BABY JANE?" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joan Cusack")
+ ( "movie"
+   [ 49 202 393 470 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIXTEEN CANDLES" "BROADCAST NEWS" "NINE MONTHS" "WORKING GIRL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joan Fontaine")
+ ( "movie"
+   [ 282 492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASANOVA\'S BIG NIGHT" "VOYAGE TO THE BOTTOM OF THE SEA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joanna Cassidy")
+ ( "movie"
+   [ 18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLADE RUNNER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joanne Woodward")
+ ( "movie"
+   [ 105 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jodie Foster")
+ ( "movie"
+   [ 73 340 341 342 461 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENCE OF THE LAMBS" "CONTACT" "MAVERICK" "TAXI DRIVER" "CARNY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joe Don Baker")
+ ( "movie"
+   [ 9 437 438 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FLETCH" "TOMORROW NEVER DIES" "CAPE FEAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joe Flaherty")
+ ( "movie"
+   [ 319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HAPPY GILMORE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joe Flynn")
+ ( "movie"
+   [ 503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DIVORCE AMERICAN STYLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joe Pesci")
+ ( "movie"
+   [ 136 336 426 464 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JFK" "HOME ALONE 2" "MY COUSIN VINNY" "HOME ALONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joe Piscopo")
+ ( "movie"
+   [ 420 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joey Bishop")
+ ( "movie"
+   [ 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Astin")
+ ( "movie"
+   [ 303 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THAT TOUCH OF MINK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Belushi")
+ ( "movie"
+   [ 1 466 467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "THE BLUES BROTHERS" "1941" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Candy")
+ ( "movie"
+   [ 10 102 134 136 218 463 464 465 466 467 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NOTHING BUT TROUBLE" "SPLASH" "PLANES, TRAINS, & AUTOMOBILES" "JFK" "LITTLE SHOP OF HORRORS" "STRIPES" "HOME ALONE" "SPACEBALLS" "THE BLUES BROTHERS" "1941" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Carradine")
+ ( "movie"
+   [ 80 169 221 495 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TEN COMMANDMENTS" "PEGGY SUE GOT MARRIED" "EVERYTHING YOU .. ABOUT SEX " "THE TROUBLE WITH GIRLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Cleese")
+ ( "movie"
+   [ 22 180 181 182 182 321 452 513 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TIME BANDITS" "A FISH CALLED WANDA" "SILVERADO" "THE GREAT MUPPET CAPER" "THE GREAT MUPPET CAPER" "GEORGE OF THE JUNGLE" "YELLOWBEARD" "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Cusack")
+ ( "movie"
+   [ 49 156 408 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIXTEEN CANDLES" "FAT MAN AND LITTLE BOY" "CITY HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Fiedler")
+ ( "movie"
+   [ 489 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HARPER VALLEY P.T.A" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Forsythe")
+ ( "movie"
+   [ 407 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AND JUSTICE FOR ALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Gielgud")
+ ( "movie"
+   [ 343 480 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ELEPHANT MAN" "ARTHUR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Goodman")
+ ( "movie"
+   [ 411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FLINTSTONES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Houseman")
+ ( "movie"
+   [ 448 484 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOST STORY" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Hurt")
+ ( "movie"
+   [ 27 340 343 465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIEN" "CONTACT" "THE ELEPHANT MAN" "SPACEBALLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Huston")
+ ( "movie"
+   [ 359 482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASINO ROYAL" "LOVESICK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Larroquette")
+ ( "movie"
+   [ 86 462 463 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLIND DATE" "TWILIGHT ZONE--THE MOVIE" "STRIPES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Lithgow")
+ ( "movie"
+   [ 56 265 383 462 468 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOOTLOOSE" "BLOWOUT" "ALL THAT JAZZ" "TWILIGHT ZONE--THE MOVIE" "BLOWOUT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Lovitz")
+ ( "movie"
+   [ 215 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE THREE AMIGOS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Malkovich")
+ ( "movie"
+   [ 97 209 225 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLACES IN THE HEART" "DANGEROUS LIAISONS" "IN THE LINE OF FIRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Ritter")
+ ( "movie"
+   [ 354 484 485 486 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SLING BLADE" "WHOLLY MOSES" "REAL MEN" "STAY TUNED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Travolta")
+ ( "movie"
+   [ 112 113 199 260 261 262 263 264 265 266 267 268 468 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PULP FICTION" "GET SHORTY" "MICHAEL" "PRIMARY COLORS" "FACE OFF" "GREASE" "CARRIE" "URBAN COWBOY" "BLOWOUT" "PHENOMENON" "SHE\'S SO LOVELY" "BROKEN ARROW" "BLOWOUT" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Vernon")
+ ( "movie"
+   [ 1 229 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "DIRTY HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "John Wayne")
+ ( "movie"
+   [ 75 76 77 252 416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE SHOOTIST" "HOW THE WEST WAS WON" "THE LONGEST DAY" "FORT APACHE" "THE GREATEST STORY EVER TOLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Johnny Depp")
+ ( "movie"
+   [ 188 331 355 404 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BENNY & JOON" "PLATOON" "DON JUAN DEMARCO" "DONNIE BRASCO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jon Lovitz")
+ ( "movie"
+   [ 85 101 139 277 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MY STEPMOTHER IS AN ALIEN" "A LEAGUE OF THEIR OWN" "LOADED WEAPON" "CITY SLICKERS II" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jon Voight")
+ ( "movie"
+   [ 47 171 344 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HEAT" "THE RAINMAKER" "MISSION: IMPOSSIBLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jonathan Pryce")
+ ( "movie"
+   [ 436 437 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BRAZIL" "TOMORROW NEVER DIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jonathan Winters")
+ ( "movie"
+   [ 270 411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "THE FLINTSTONES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jose Ferrer")
+ ( "movie"
+   [ 291 293 391 416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SHIP OF FOOLS" "THE CAINE MUTINY" "DUNE" "THE GREATEST STORY EVER TOLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Joseph Cotten")
+ ( "movie"
+   [ 528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HUSH...HUSH, SWEET CHARLOTTE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Judd Nelson")
+ ( "movie"
+   [ 48 142 320 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BREAKFAST CLUB" "ST. ELMO\'S FIRE" "AIRHEADS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Judge Reinhold")
+ ( "movie"
+   [ 62 64 65 463 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RUTHLESS PEOPLE" "BEVERLY HILLS COP" "FAST TIMES AT RIDGEMOUNT HIGH" "STRIPES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Judy Garland")
+ ( "movie"
+   [ 246 247 248 298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WIZARD OF OZ" "A STAR IS BORN (1954)" "JUDGEMENT AT NUREMBERG" "ZIEGFELD FOLLIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julia Ormond")
+ ( "movie"
+   [ 186 325 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LEGENDS OF THE FALL" "SABRINA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julia Roberts")
+ ( "movie"
+   [ 34 96 236 397 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FLATLINERS" "STEEL MAGNOLIAS" "HOOK" "PRETTY WOMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julie Andrews")
+ ( "movie"
+   [ 88 106 483 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MAN WHO LOVED WOMEN" "SOUND OF MUSIC" "10" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julie Christie")
+ ( "movie"
+   [ 454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HEAVEN CAN WAIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julie Kavner")
+ ( "movie"
+   [ 276 370 373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FORGET PARIS" "HANNAH AND HER SISTERS" "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Julie Newmar")
+ ( "movie"
+   [ 490 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FEMINIST AND THE FUZZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Juliette Binoche")
+ ( "movie"
+   [ 330 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ENGLISH PATIENT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Juliette Lewis")
+ ( "movie"
+   [ 438 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CAPE FEAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "June Allyson")
+ ( "movie"
+   [ 284 299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VEGA$" "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "June Lockhart")
+ ( "movie"
+   [ 198 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOST IN SPACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Jurgen Prochnow")
+ ( "movie"
+   [ 330 391 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ENGLISH PATIENT" "DUNE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Karen Allen")
+ ( "movie"
+   [ 1 15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "RAIDERS OF THE LOST ARK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Karen Black")
+ ( "movie"
+   [ 524 525 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAMILY PLOT" "THE GREAT GATSBY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Karl Malden")
+ ( "movie"
+   [ 98 285 442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEYOND THE POSEIDON ADVENTURE" "THE GREAT IMPOSTER" "THE CINCINNATI KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kate Capshaw")
+ ( "movie"
+   [ 245 479 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLACK RAIN" "BEST DEFENSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kate Winslet")
+ ( "movie"
+   [ 308 309 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TITANIC" "SENSE AND SENSIBILITY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Katharine Hepburn")
+ ( "movie"
+   [ 255 292 307 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ON GOLDEN POND" "THE AFRICAN QUEEN" "THE PHILADELPHIA STORY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Katharine Ross")
+ ( "movie"
+   [ 240 522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GRADUATE" "THE STEPFORD WIVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kathleen Turner")
+ ( "movie"
+   [ 66 169 175 179 201 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BODY HEAT" "PEGGY SUE GOT MARRIED" "THE WAR OF THE ROSES" "A SIMPLE WISH" "THE ACCIDENTAL TOURIST" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kathy Bates")
+ ( "movie"
+   [ 237 260 308 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DICK TRACY" "PRIMARY COLORS" "TITANIC" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kathy Najimy")
+ ( "movie"
+   [ 59 477 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOCUS POKUS" "SISTER ACT 2" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Keanu Reeves")
+ ( "movie"
+   [ 69 200 205 206 207 208 209 403 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPEED" "I LOVE YOU TO DEATH" "LITTLE BUDDHA" "MUCH ADO ABOUT NOTHING" "BRAM STOKER\'S DRACULA" "PARENTHOOD" "DANGEROUS LIAISONS" "DEVIL\'S ADVOCATE" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Keenan Wynn")
+ ( "movie"
+   [ 130 145 283 299 363 531 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE QUEST" "THE GREAT RACE" "CANCEL MY RESERVATION" "THE THREE MUSKETEERS" "DR  STRANGELOVE" "PHONE CALL FROM A STRANGER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Keifer Sutherland")
+ ( "movie"
+   [ 94 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EYE FOR AN EYE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kelly McGillis")
+ ( "movie"
+   [ 30 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOP GUN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kelly Preston")
+ ( "movie"
+   [ 163 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JERRY MAGUIRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kenneth Branagh")
+ ( "movie"
+   [ 513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kevin Bacon")
+ ( "movie"
+   [ 1 33 34 38 54 56 99 134 135 136 137 138 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "A FEW GOOD MEN" "FLATLINERS" "DINER" "QUICKSILVER" "FOOTLOOSE" "APOLLO 13" "PLANES, TRAINS, & AUTOMOBILES" "THE RIVER WILD" "JFK" "HE SAID, SHE SAID" "SLEEPERS" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kevin Costner")
+ ( "movie"
+   [ 24 124 136 181 313 422 428 502 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "UNTOUCHABLES" "FIELD OF DREAMS" "JFK" "SILVERADO" "NO WAY OUT" "MR. MOM" "ROBIN HOOD: PRINCE OF THIEVES" "THE BODYGUARD" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kevin Kline")
+ ( "movie"
+   [ 36 180 181 200 213 345 425 476 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIG CHILL" "A FISH CALLED WANDA" "SILVERADO" "I LOVE YOU TO DEATH" "GRAND CANYON" "FRENCH KISS" "CHAPLIN" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kevin McCarthy")
+ ( "movie"
+   [ 74 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MIRAGE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kevin Spacey")
+ ( "movie"
+   [ 37 83 187 235 339 470 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GLENGARRY GLEN ROSS " "L.A. CONFIDENTIAL" "SEVEN" "OUTBREAK" "A TIME TO KILL" "WORKING GIRL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kiefer Sutherland")
+ ( "movie"
+   [ 33 34 53 140 197 338 339 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A FEW GOOD MEN" "FLATLINERS" "THE LOST BOYS" "YOUNG GUNS II" "DARK CITY" "THE THREE MUSKETEERS" "A TIME TO KILL" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kim Basinger")
+ ( "movie"
+   [ 2 23 82 83 84 85 86 87 88 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN" "NEVER SAY NEVER AGAIN" "WAYNE\'S WORLD 2" "L.A. CONFIDENTIAL" "THE NATURAL" "MY STEPMOTHER IS AN ALIEN" "BLIND DATE" "NINE 1/2 WEEKS" "THE MAN WHO LOVED WOMEN" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kim Hunter")
+ ( "movie"
+   [ 415 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLANET OF THE APES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kim Novak")
+ ( "movie"
+   [ 412 518 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MIRROR CRACK\'D" "VERTIGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kirk Douglas")
+ ( "movie"
+   [ 286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPARTACUS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kirsten Dunst")
+ ( "movie"
+   [ 185 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INTERVIEW WITH THE VAMPIRE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kirstie Alley")
+ ( "movie"
+   [ 51 373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIBLING RIVALRY" "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kris Kristofferson")
+ ( "movie"
+   [ 459 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A STAR IS BORN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kristin Scott-Thomas")
+ ( "movie"
+   [ 330 332 344 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ENGLISH PATIENT" "FOUR WEDDINGS AND A FUNERAL" "MISSION: IMPOSSIBLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Kurt Russell")
+ ( "movie"
+   [ 11 12 125 126 127 128 129 130 131 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "OVERBOARD" "ESCAPE FROM NEW YORK" "TANGO & CASH" "TEQUILA SUNRISE" "TOMBSTONE" "BACKDRAFT" "SILKWOOD" "THE QUEST" "USED CARS" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lana Turner")
+ ( "movie"
+   [ 299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Laraine Newman")
+ ( "movie"
+   [ 411 484 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FLINTSTONES" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Larry Hagman")
+ ( "movie"
+   [ 260 316 365 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PRIMARY COLORS" "SUPERMAN" "MOTHER, JUGS, & SPEED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Larry Storch")
+ ( "movie"
+   [ 145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT RACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Laura Dern")
+ ( "movie"
+   [ 156 389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAT MAN AND LITTLE BOY" "JURASSIC PARK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lauren Bacall")
+ ( "movie"
+   [ 75 143 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE SHOOTIST" "MY FELLOW AMERICANS" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lauren Holly")
+ ( "movie"
+   [ 325 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SABRINA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Laurence Fishburne")
+ ( "movie"
+   [ 43 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Laurence Olivier")
+ ( "movie"
+   [ 286 384 453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPARTACUS" "MARATHON MAN" "THE BOYS FROM BRAZIL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "LeVar Burton")
+ ( "movie"
+   [ 441 475 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOOKING FOR MR. GOODBAR" "STAR TREK: GENERATIONS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lea Thompson")
+ ( "movie"
+   [ 165 189 196 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALL THE RIGHT MOVES" "SOME KIND OF WONDERFUL" "BACK TO THE FUTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lee J. Cobb")
+ ( "movie"
+   [ 162 505 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EXODUS" "OUR MAN FLINT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lee Marvin")
+ ( "movie"
+   [ 204 253 289 290 291 293 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GORKY PARK" "CAT BALLOU" "THE DIRTY DOZEN" "PAINT YOUR WAGON" "SHIP OF FOOLS" "THE CAINE MUTINY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lee Strasberg")
+ ( "movie"
+   [ 407 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AND JUSTICE FOR ALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lena Horne")
+ ( "movie"
+   [ 298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ZIEGFELD FOLLIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Leonard Nimoy")
+ ( "movie"
+   [ 392 509 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INVASION OF THE BODY SNATCHERS" "THEM!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Leonardo DiCaprio")
+ ( "movie"
+   [ 308 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TITANIC" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Leslie Nielsen")
+ ( "movie"
+   [ 317 364 504 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE POSEIDON ADVENTURE" "NAKED GUN 33 1/3" "TAMMY AND THE BACHELOR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lily Tomlin")
+ ( "movie"
+   [ 257 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "9 TO 5" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Linda Evans")
+ ( "movie"
+   [ 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Linda Hamilton")
+ ( "movie"
+   [ 116 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TERMINATOR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Liza Minnelli")
+ ( "movie"
+   [ 91 480 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENT MOVIE" "ARTHUR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lon Chaney, Jr.")
+ ( "movie"
+   [ 497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABBOTT AND COSTELLO MEET FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lou Costello")
+ ( "movie"
+   [ 497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ABBOTT AND COSTELLO MEET FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Louis Anderson")
+ ( "movie"
+   [ 54 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "QUICKSILVER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Louis Armstrong")
+ ( "movie"
+   [ 443 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FIVE PENNIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Louis Gossett, Jr.")
+ ( "movie"
+   [ 379 399 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DEEP" "AN OFFICER AND A GENTLEMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Louis Nye")
+ ( "movie"
+   [ 489 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HARPER VALLEY P.T.A" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Louise Fletcher")
+ ( "movie"
+   [ 328 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ONE FLEW OVER THE CUCKOO\'S NEST" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Lucille Ball")
+ ( "movie"
+   [ 298 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ZIEGFELD FOLLIES" "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Luke Perry")
+ ( "movie"
+   [ 349 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FIFTH ELEMENT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Macaulay Culkin")
+ ( "movie"
+   [ 336 464 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOME ALONE 2" "HOME ALONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Madeleine Stowe")
+ ( "movie"
+   [ 141 184 192 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STAKEOUT" "TWELVE MONKEYS" "BAD GIRLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Madeline Kahn")
+ ( "movie"
+   [ 92 93 227 452 484 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG FRANKENSTEIN" "BLAZING SADDLES" "CITY HEAT" "YELLOWBEARD" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Madonna")
+ ( "movie"
+   [ 101 237 427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A LEAGUE OF THEIR OWN" "DICK TRACY" "FOUR ROOMS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Margaret Hamilton")
+ ( "movie"
+   [ 246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WIZARD OF OZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Margot Kidder")
+ ( "movie"
+   [ 316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SUPERMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mariel Hemingway")
+ ( "movie"
+   [ 373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marilu Henner")
+ ( "movie"
+   [ 88 420 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MAN WHO LOVED WOMEN" "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marilyn Monroe")
+ ( "movie"
+   [ 40 302 499 532 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SOME LIKE IT HOT" "MONKEY BUSINESS" "GENTLEMEN PREFER BLONDES" "ALL ABOUT EVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marion Ross")
+ ( "movie"
+   [ 287 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "OPERATION PETTICOAT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marisa Tomei")
+ ( "movie"
+   [ 423 424 425 426 427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE PAPER" "THE FLAMINGO KID" "CHAPLIN" "MY COUSIN VINNY" "FOUR ROOMS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mark Hamill")
+ ( "movie"
+   [ 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE EMPIRE STRIKES BACK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mark Harmon")
+ ( "movie"
+   [ 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEYOND THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marlene Dietrich")
+ ( "movie"
+   [ 248 361 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JUDGEMENT AT NUREMBERG" "AROUND THE WORLD IN 80 DAYS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marlon Brando")
+ ( "movie"
+   [ 43 45 316 355 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "THE GODFATHER" "SUPERMAN" "DON JUAN DEMARCO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Balsam")
+ ( "movie"
+   [ 151 241 375 376 380 438 439 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALL THE PRESIDENT\'S MEN" "LITTLE BIG MAN" "PSYCHO" "BREAKFAST AT TIFFANY\'S" "MURDER ON THE ORIENT EXPRESS" "CAPE FEAR" "CAPE FEAR (1962)" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Landau")
+ ( "movie"
+   [ 41 400 408 413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NORTH BY NORTHWEST" "INTERSECTION" "CITY HALL" "CLEOPATRA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Lawrence")
+ ( "movie"
+   [ 132 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NOTHING TO LOSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Mull")
+ ( "movie"
+   [ 421 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MR. MOM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Sheen")
+ ( "movie"
+   [ 43 172 177 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "THE AMERICAN PRESIDENT" "WALL STREET" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Martin Short")
+ ( "movie"
+   [ 32 179 211 215 348 435 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "A SIMPLE WISH" "FATHER OF THE BRIDE" "THE THREE AMIGOS" "INNERSPACE" "PURE LUCK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Marty Feldman")
+ ( "movie"
+   [ 91 92 452 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENT MOVIE" "YOUNG FRANKENSTEIN" "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mary Elizabeth Mastrantonio")
+ ( "movie"
+   [ 428 429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ROBIN HOOD: PRINCE OF THIEVES" "THE ABYSS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mary Kay Place")
+ ( "movie"
+   [ 36 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIG CHILL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mary Steenburgen")
+ ( "movie"
+   [ 105 472 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "THE BUTCHER\'S WIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mary Stuart Masterson")
+ ( "movie"
+   [ 188 189 190 191 192 193 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BENNY & JOON" "SOME KIND OF WONDERFUL" "FRIED GREEN TOMATOES" "CHANCES ARE" "BAD GIRLS" "RADIOLAND MURDERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mary-Louise Parker")
+ ( "movie"
+   [ 190 213 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FRIED GREEN TOMATOES" "GRAND CANYON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Matt Damon")
+ ( "movie"
+   [ 171 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RAINMAKER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Matt Dillon")
+ ( "movie"
+   [ 31 424 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "THE FLAMINGO KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Matt LeBlanc")
+ ( "movie"
+   [ 198 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOST IN SPACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Matthew Broderick")
+ ( "movie"
+   [ 20 395 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAMILY BUSINESS" "WAR GAMES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Matthew McConaughey")
+ ( "movie"
+   [ 339 340 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A TIME TO KILL" "CONTACT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Maureen O\'Hara")
+ ( "movie"
+   [ 431 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE PARENT TRAP" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Maureen Stapleton")
+ ( "movie"
+   [ 108 381 420 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COCOON" "AIRPORT" "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Max von Sydow")
+ ( "movie"
+   [ 23 370 391 416 445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NEVER SAY NEVER AGAIN" "HANNAH AND HER SISTERS" "DUNE" "THE GREATEST STORY EVER TOLD" "THE REWARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Meg Ryan")
+ ( "movie"
+   [ 30 100 278 345 346 347 348 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOP GUN" "SLEEPLESS IN SEATTLE" "WHEN HARRY MET SALLY" "FRENCH KISS" "CITY OF ANGELS" "I.Q." "INNERSPACE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Meg Tilly")
+ ( "movie"
+   [ 36 256 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIG CHILL" "AGNES OF GOD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mel Brooks")
+ ( "movie"
+   [ 91 93 465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENT MOVIE" "BLAZING SADDLES" "SPACEBALLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mel Gibson")
+ ( "movie"
+   [ 126 341 457 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TEQUILA SUNRISE" "MAVERICK" "LETHAL WEAPON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Melanie Griffith")
+ ( "movie"
+   [ 155 470 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NOBODY\'S FOOL" "WORKING GIRL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Melvyn Douglas")
+ ( "movie"
+   [ 448 449 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOST STORY" "HUD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Meryl Streep")
+ ( "movie"
+   [ 129 135 238 259 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILKWOOD" "THE RIVER WILD" "KRAMER VS. KRAMER" "JULIA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mia Farrow")
+ ( "movie"
+   [ 370 371 525 536 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HANNAH AND HER SISTERS" "THE PURPLE ROSE OF CAIRO" "THE GREAT GATSBY" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Ansara")
+ ( "movie"
+   [ 492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VOYAGE TO THE BOTTOM OF THE SEA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Biehn")
+ ( "movie"
+   [ 28 116 127 429 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIENS" "THE TERMINATOR" "TOMBSTONE" "THE ABYSS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Caine")
+ ( "movie"
+   [ 98 212 258 370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEYOND THE POSEIDON ADVENTURE" "DIRTY ROTTEN SCOUNDRELS" "CALIFORNIA SUITE" "HANNAH AND HER SISTERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Douglas")
+ ( "movie"
+   [ 170 172 173 174 175 176 177 178 245 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GAME" "THE AMERICAN PRESIDENT" "DISCLOSURE" "BASIC INSTINCT" "THE WAR OF THE ROSES" "FATAL ATTRACTION" "WALL STREET" "THE CHINA SYNDROME" "BLACK RAIN" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael J. Fox")
+ ( "movie"
+   [ 32 172 194 195 196 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "THE AMERICAN PRESIDENT" "DOC HOLLYWOOD" "THE SECRET OF MY SUCCESS" "BACK TO THE FUTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Keaton")
+ ( "movie"
+   [ 2 3 206 244 419 420 421 422 423 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN" "BATMAN RETURNS" "MUCH ADO ABOUT NOTHING" "DESPERATE MEASURES" "BEETLEJUICE" "JOHNNY DANGEROUSLY" "MR. MOM" "MR. MOM" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael McKean")
+ ( "movie"
+   [ 131 132 133 134 193 320 396 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "USED CARS" "NOTHING TO LOSE" "THIS IS SPINAL TAP" "PLANES, TRAINS, & AUTOMOBILES" "RADIOLAND MURDERS" "AIRHEADS" "YOUNG DOCTORS IN LOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Palin")
+ ( "movie"
+   [ 22 180 436 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TIME BANDITS" "A FISH CALLED WANDA" "BRAZIL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Rennie")
+ ( "movie"
+   [ 446 447 450 531 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DAY THE EARTH STOOD STILL" "THE DEVIL\'S BRIGADE" "THE ROBE" "PHONE CALL FROM A STRANGER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael Richards")
+ ( "movie"
+   [ 396 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG DOCTORS IN LOVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michael York")
+ ( "movie"
+   [ 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Michelle Pfeiffer")
+ ( "movie"
+   [ 3 126 147 209 390 406 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN RETURNS" "TEQUILA SUNRISE" "UP CLOSE AND PERSONAL" "DANGEROUS LIAISONS" "INTO THE NIGHT" "SCARFACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mickey Rooney")
+ ( "movie"
+   [ 270 376 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "BREAKFAST AT TIFFANY\'S" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mickey Rourke")
+ ( "movie"
+   [ 38 66 87 171 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DINER" "BODY HEAT" "NINE 1/2 WEEKS" "THE RAINMAKER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mike Myers")
+ ( "movie"
+   [ 82 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WAYNE\'S WORLD 2" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mimi Rogers")
+ ( "movie"
+   [ 198 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOST IN SPACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Mira Sorvino")
+ ( "movie"
+   [ 374 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MIGHTY APHRODITE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Molly Ringwald")
+ ( "movie"
+   [ 48 49 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BREAKFAST CLUB" "SIXTEEN CANDLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Montgomery Clift")
+ ( "movie"
+   [ 248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JUDGEMENT AT NUREMBERG" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Morgan Freeman")
+ ( "movie"
+   [ 14 187 203 226 235 428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DRIVING MISS DAISY" "SEVEN" "EYEWITNESS" "UNFORGIVEN" "OUTBREAK" "ROBIN HOOD: PRINCE OF THIEVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Myrna Loy")
+ ( "movie"
+   [ 356 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BACHELOR AND THE BOBBY-SOXER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nancy Allen")
+ ( "movie"
+   [ 467 468 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "1941" "BLOWOUT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nancy Kulp")
+ ( "movie"
+   [ 377 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SABRINA (1954)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nanette Fabray")
+ ( "movie"
+   [ 489 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HARPER VALLEY P.T.A" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nastassja Kinski")
+ ( "movie"
+   [ 275 481 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FATHER\'S DAY" "UNFAITHFULLY YOURS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Natalie Wood")
+ ( "movie"
+   [ 145 409 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT RACE" "REBEL WITHOUT A CAUSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nathan Lane")
+ ( "movie"
+   [ 137 311 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HE SAID, SHE SAID" "THE BIRDCAGE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ned Beatty")
+ ( "movie"
+   [ 151 193 223 283 316 467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALL THE PRESIDENT\'S MEN" "RADIOLAND MURDERS" "SILVER STREAK" "CANCEL MY RESERVATION" "SUPERMAN" "1941" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nick Nolte")
+ ( "movie"
+   [ 61 109 110 379 438 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DOWN AND OUT IN BEVERLY HILLS" "48 HOURS" "NORTH DALLAS FORTY" "THE DEEP" "CAPE FEAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nicolas Cage")
+ ( "movie"
+   [ 17 58 169 261 346 398 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROCK" "HONEYMOON IN VEGAS" "PEGGY SUE GOT MARRIED" "FACE OFF" "CITY OF ANGELS" "THE COTTON CLUB" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Nicole Kidman")
+ ( "movie"
+   [ 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Norman Fell")
+ ( "movie"
+   [ 240 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GRADUATE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "O.J. Simpson")
+ ( "movie"
+   [ 159 364 387 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "NAKED GUN 33 1/3" "CAPRICORN ONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Olivia Newton-John")
+ ( "movie"
+   [ 262 295 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GREASE" "XANADU" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Olivia de Havilland")
+ ( "movie"
+   [ 528 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HUSH...HUSH, SWEET CHARLOTTE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Olympia Dukakis")
+ ( "movie"
+   [ 96 374 470 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STEEL MAGNOLIAS" "MIGHTY APHRODITE" "WORKING GIRL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Omar Sharif")
+ ( "movie"
+   [ 506 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BALTIMORE BULLET" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Orson Welles")
+ ( "movie"
+   [ 222 359 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "START THE REVOLUTION WITHOUT ME" "CASINO ROYAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Pam Dawber")
+ ( "movie"
+   [ 486 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STAY TUNED" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Pat Boone")
+ ( "movie"
+   [ 451 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JOURNEY TO THE CENTER OF THE EARTH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Pat McCormick")
+ ( "movie"
+   [ 90 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SMOKEY AND THE BANDIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Pat Morita")
+ ( "movie"
+   [ 58 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HONEYMOON IN VEGAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Patricia Neal")
+ ( "movie"
+   [ 446 448 449 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE DAY THE EARTH STOOD STILL" "GHOST STORY" "HUD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Patrick Macnee")
+ ( "movie"
+   [ 318 396 510 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A VIEW TO A KILL" "YOUNG DOCTORS IN LOVE" "MISTER JERICO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Patrick McGoohan")
+ ( "movie"
+   [ 223 339 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILVER STREAK" "A TIME TO KILL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Patrick Stewart")
+ ( "movie"
+   [ 57 391 475 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LA STORY" "DUNE" "STAR TREK: GENERATIONS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Patrick Swayze")
+ ( "movie"
+   [ 31 473 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "GHOST" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Le Mat")
+ ( "movie"
+   [ 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Lynde")
+ ( "movie"
+   [ 493 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEACH BLANKET BINGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Mazursky")
+ ( "movie"
+   [ 61 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DOWN AND OUT IN BEVERLY HILLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Newman")
+ ( "movie"
+   [ 91 152 153 154 155 156 157 158 159 160 161 162 449 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENT MOVIE" "THE STING" "BUTCH CASSIDY AND THE SUNDANCE KID" "TWILIGHT" "NOBODY\'S FOOL" "FAT MAN AND LITTLE BOY" "THE COLOR OF MONEY" "ABSENCE OF MALICE" "THE TOWERING INFERNO" "COOL HAND LUKE" "THE HUSTLER" "EXODUS" "HUD" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Reiser")
+ ( "movie"
+   [ 28 38 64 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIENS" "DINER" "BEVERLY HILLS COP" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paul Williams")
+ ( "movie"
+   [ 90 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SMOKEY AND THE BANDIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Paula Prentiss")
+ ( "movie"
+   [ 522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE STEPFORD WIVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Penny Marshall")
+ ( "movie"
+   [ 490 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FEMINIST AND THE FUZZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Boyle")
+ ( "movie"
+   [ 58 70 92 98 342 420 452 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HONEYMOON IN VEGAS" "WHILE YOU WERE SLEEPING" "YOUNG FRANKENSTEIN" "BEYOND THE POSEIDON ADVENTURE" "TAXI DRIVER" "JOHNNY DANGEROUSLY" "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Falk")
+ ( "movie"
+   [ 145 270 279 362 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT RACE" "IT\'S A MAD MAD MAD MAD WORLD" "THE PRINCESS BRIDE" "MURDER BY DEATH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Fonda")
+ ( "movie"
+   [ 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Gallagher")
+ ( "movie"
+   [ 520 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MAN WHO KNEW TOO LITTLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Lawford")
+ ( "movie"
+   [ 77 162 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "EXODUS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Lorre")
+ ( "movie"
+   [ 294 492 496 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASABLANCA" "VOYAGE TO THE BOTTOM OF THE SEA" "THE RAVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter O\'Toole")
+ ( "movie"
+   [ 455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LORD JIM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Sellers")
+ ( "movie"
+   [ 281 359 360 362 363 456 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROAD TO HONG KONG" "CASINO ROYAL" "TRAIL OF THE PINK PANTHER" "MURDER BY DEATH" "DR  STRANGELOVE" "LOLITA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Peter Ustinov")
+ ( "movie"
+   [ 182 286 536 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT MUPPET CAPER" "SPARTACUS" "DEATH ON THE NILE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Phil Hartman")
+ ( "movie"
+   [ 86 139 210 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLIND DATE" "LOADED WEAPON" "SERGEANT BILKO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Phil Silvers")
+ ( "movie"
+   [ 270 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "IT\'S A MAD MAD MAD MAD WORLD" "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Phoebe Cates")
+ ( "movie"
+   [ 65 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAST TIMES AT RIDGEMOUNT HIGH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Pierce Brosnan")
+ ( "movie"
+   [ 32 412 437 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "THE MIRROR CRACK\'D" "TOMORROW NEVER DIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Priscilla Presley")
+ ( "movie"
+   [ 364 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "NAKED GUN 33 1/3" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rachel Ward")
+ ( "movie"
+   [ 217 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DEAD MEN DON\'T WEAR PLAID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ralph Bellamy")
+ ( "movie"
+   [ 107 283 306 397 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRADING PLACES" "CANCEL MY RESERVATION" "HIS GIRL FRIDAY" "PRETTY WOMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ralph Fiennes")
+ ( "movie"
+   [ 330 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ENGLISH PATIENT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ralph Macchio")
+ ( "movie"
+   [ 31 426 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "MY COUSIN VINNY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Randolf Scott")
+ ( "movie"
+   [ 432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MY FAVORITE WIFE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Randy Quaid")
+ ( "movie"
+   [ 7 394 423 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VACATION" "INDEPENDENCE DAY" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Raquel Welch")
+ ( "movie"
+   [ 365 366 367 368 369 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MOTHER, JUGS, & SPEED" "FUZZ" "BANDOLERO!" "FANTASTIC VOYAGE" "100 RIFLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Raul Julia")
+ ( "movie"
+   [ 126 254 352 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TEQUILA SUNRISE" "THE MORNING AFTER" "THE ADDAMS FAMILY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ray Bolger")
+ ( "movie"
+   [ 246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE WIZARD OF OZ" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ray Liotta")
+ ( "movie"
+   [ 123 124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "COP LAND" "FIELD OF DREAMS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ray Walston")
+ ( "movie"
+   [ 65 146 152 223 290 420 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FAST TIMES AT RIDGEMOUNT HIGH" "THE APARTMENT" "THE STING" "SILVER STREAK" "PAINT YOUR WAGON" "JOHNNY DANGEROUSLY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Raymond Burr")
+ ( "movie"
+   [ 282 433 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CASANOVA\'S BIG NIGHT" "REAR WINDOW" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rebecca De Mornay")
+ ( "movie"
+   [ 166 338 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RISKY BUSINESS" "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Red Buttons")
+ ( "movie"
+   [ 284 317 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VEGA$" "THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Red Skelton")
+ ( "movie"
+   [ 298 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ZIEGFELD FOLLIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rene Russo")
+ ( "movie"
+   [ 113 225 235 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GET SHORTY" "IN THE LINE OF FIRE" "OUTBREAK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rex Harrison")
+ ( "movie"
+   [ 413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CLEOPATRA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Benjamin")
+ ( "movie"
+   [ 357 373 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "WESTWORLD" "DECONSTRUCTING HARRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Burton")
+ ( "movie"
+   [ 77 232 413 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "WHERE EAGLES DARE" "CLEOPATRA" "THE ROBE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Chamberlain")
+ ( "movie"
+   [ 159 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Crenna")
+ ( "movie"
+   [ 66 122 325 424 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BODY HEAT" "FIRST BLOOD" "SABRINA" "THE FLAMINGO KID" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Dreyfuss")
+ ( "movie"
+   [ 44 61 141 172 242 382 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "DOWN AND OUT IN BEVERLY HILLS" "STAKEOUT" "THE AMERICAN PRESIDENT" "NIGHT FALLS ON MANHATTAN" "JAWS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Gere")
+ ( "movie"
+   [ 397 398 399 400 401 402 441 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PRETTY WOMAN" "THE COTTON CLUB" "AN OFFICER AND A GENTLEMAN" "INTERSECTION" "PRIMAL FEAR" "THE JACKAL" "LOOKING FOR MR. GOODBAR" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Harris")
+ ( "movie"
+   [ 226 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "UNFORGIVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Jordan")
+ ( "movie"
+   [ 195 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE SECRET OF MY SUCCESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Kiel")
+ ( "movie"
+   [ 223 319 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILVER STREAK" "HAPPY GILMORE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Masur")
+ ( "movie"
+   [ 166 276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RISKY BUSINESS" "FORGET PARIS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Pryor")
+ ( "movie"
+   [ 220 223 258 484 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STIR CRAZY" "SILVER STREAK" "CALIFORNIA SUITE" "WHOLLY MOSES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Roundtree")
+ ( "movie"
+   [ 187 227 321 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SEVEN" "CITY HEAT" "GEORGE OF THE JUNGLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Richard Widmark")
+ ( "movie"
+   [ 248 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JUDGEMENT AT NUREMBERG" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rick Moranis")
+ ( "movie"
+   [ 26 57 208 218 411 465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOSTBUSTERS" "LA STORY" "PARENTHOOD" "LITTLE SHOP OF HORRORS" "THE FLINTSTONES" "SPACEBALLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rita Moreno")
+ ( "movie"
+   [ 296 358 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SINGIN\' IN THE RAIN" "THE KING AND I" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "River Phoenix")
+ ( "movie"
+   [ 16 149 200 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDIANA JONES LAST CRUSADE" "SNEAKERS" "I LOVE YOU TO DEATH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rob Lowe")
+ ( "movie"
+   [ 31 142 340 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE OUTSIDERS" "ST. ELMO\'S FIRE" "CONTACT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rob Reiner")
+ ( "movie"
+   [ 63 100 133 260 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FIRST WIVES CLUB" "SLEEPLESS IN SEATTLE" "THIS IS SPINAL TAP" "PRIMARY COLORS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert De Niro")
+ ( "movie"
+   [ 24 46 47 123 128 138 342 436 438 513 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "UNTOUCHABLES" "THE GODFATHER PART 2" "HEAT" "COP LAND" "BACKDRAFT" "SLEEPERS" "TAXI DRIVER" "BRAZIL" "CAPE FEAR" "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Downey, Jr.")
+ ( "movie"
+   [ 52 191 425 476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LESS THAN ZERO" "CHANCES ARE" "CHAPLIN" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Duvall")
+ ( "movie"
+   [ 43 45 46 84 266 354 386 423 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "APOCALYPSE NOW" "THE GODFATHER" "THE GODFATHER PART 2" "THE NATURAL" "PHENOMENON" "SLING BLADE" "M*A*S*H" "THE PAPER" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Klein")
+ ( "movie"
+   [ 260 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PRIMARY COLORS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Mitchum")
+ ( "movie"
+   [ 77 127 300 418 438 439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "TOMBSTONE" "THE GRASS IS GREENER" "FIVE CARD STUD" "CAPE FEAR" "CAPE FEAR (1962)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Redford")
+ ( "movie"
+   [ 84 147 148 149 150 151 152 153 525 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NATURAL" "UP CLOSE AND PERSONAL" "INDECENT PROPOSAL" "SNEAKERS" "LEGAL EAGLES" "ALL THE PRESIDENT\'S MEN" "THE STING" "BUTCH CASSIDY AND THE SUNDANCE KID" "THE GREAT GATSBY" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Ryan")
+ ( "movie"
+   [ 500 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TALL MEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Shaw")
+ ( "movie"
+   [ 152 379 382 523 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE STING" "THE DEEP" "JAWS" "BLACK SUNDAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Stack")
+ ( "movie"
+   [ 467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "1941" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Urich")
+ ( "movie"
+   [ 284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VEGA$" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Vaughn")
+ ( "movie"
+   [ 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robert Wagner")
+ ( "movie"
+   [ 77 159 360 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "THE TOWERING INFERNO" "TRAIL OF THE PINK PANTHER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Robin Williams")
+ ( "movie"
+   [ 236 275 311 373 393 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOOK" "FATHER\'S DAY" "THE BIRDCAGE" "DECONSTRUCTING HARRY" "NINE MONTHS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rock Hudson")
+ ( "movie"
+   [ 410 412 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GIANT" "THE MIRROR CRACK\'D" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rod Steiger")
+ ( "movie"
+   [ 77 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONGEST DAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rod Taylor")
+ ( "movie"
+   [ 444 517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TIME MACHINE" "THE BIRDS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Roddy McDowall")
+ ( "movie"
+   [ 11 77 317 413 415 416 417 418 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "OVERBOARD" "THE LONGEST DAY" "THE POSEIDON ADVENTURE" "CLEOPATRA" "PLANET OF THE APES" "THE GREATEST STORY EVER TOLD" "LORD LOVE A DUCK" "FIVE CARD STUD" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rodney Dangerfield")
+ ( "movie"
+   [ 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CADDYSHACK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Roger Corman")
+ ( "movie"
+   [ 105 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PHILADELPHIA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Roger Moore")
+ ( "movie"
+   [ 89 318 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "A VIEW TO A KILL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ron Howard")
+ ( "movie"
+   [ 44 75 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "THE SHOOTIST" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ron Silver")
+ ( "movie"
+   [ 129 482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILKWOOD" "LOVESICK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ronny Cox")
+ ( "movie"
+   [ 39 64 72 119 489 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAPS" "BEVERLY HILLS COP" "MURDER AT 1600" "TOTAL RECALL" "HARPER VALLEY P.T.A" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rosalind Russell")
+ ( "movie"
+   [ 306 430 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HIS GIRL FRIDAY" "THE TROUBLE WITH ANGELS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rosanna Arquette")
+ ( "movie"
+   [ 112 181 535 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PULP FICTION" "SILVERADO" "DARK SECRET OF HARVEST HOME" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rosie O\'Donnell")
+ ( "movie"
+   [ 100 101 411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SLEEPLESS IN SEATTLE" "A LEAGUE OF THEIR OWN" "THE FLINTSTONES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ross Martin")
+ ( "movie"
+   [ 145 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT RACE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rowan Atkinson")
+ ( "movie"
+   [ 332 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUR WEDDINGS AND A FUNERAL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Roy Scheider")
+ ( "movie"
+   [ 115 171 382 383 384 385 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE MEN\'S CLUB" "THE RAINMAKER" "JAWS" "ALL THAT JAZZ" "MARATHON MAN" "KLUTE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rudy Vallee")
+ ( "movie"
+   [ 356 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BACHELOR AND THE BOBBY-SOXER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Rutger Hauer")
+ ( "movie"
+   [ 18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLADE RUNNER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ruth Gordon")
+ ( "movie"
+   [ 228 417 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EVERY WHICH WAY BUT LOOSE" "LORD LOVE A DUCK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ryan O\'Neal")
+ ( "movie"
+   [ 191 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHANCES ARE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sal Mineo")
+ ( "movie"
+   [ 162 409 410 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EXODUS" "REBEL WITHOUT A CAUSE" "GIANT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sally Field")
+ ( "movie"
+   [ 90 94 95 96 97 98 158 476 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SMOKEY AND THE BANDIT" "EYE FOR AN EYE" "FORREST GUMP" "STEEL MAGNOLIAS" "PLACES IN THE HEART" "BEYOND THE POSEIDON ADVENTURE" "ABSENCE OF MALICE" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sally Kellerman")
+ ( "movie"
+   [ 386 507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "M*A*S*H" "LOVING COUPLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sam Elliot")
+ ( "movie"
+   [ 127 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOMBSTONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sam Neill")
+ ( "movie"
+   [ 389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JURASSIC PARK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sam Shepard")
+ ( "movie"
+   [ 35 96 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "STEEL MAGNOLIAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sam Waterston")
+ ( "movie"
+   [ 525 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GREAT GATSBY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sammy Davis Jr.")
+ ( "movie"
+   [ 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CANNONBALL RUN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Samuel L. Jackson")
+ ( "movie"
+   [ 111 112 139 234 339 389 478 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE LONG KISS GOODNIGHT" "PULP FICTION" "LOADED WEAPON" "SPHERE" "A TIME TO KILL" "JURASSIC PARK" "COMING TO AMERICA" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sandra Bullock")
+ ( "movie"
+   [ 68 69 70 71 329 339 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DEMOLITION MAN" "SPEED" "WHILE YOU WERE SLEEPING" "THE NET" "SPEED 2: CRUISE CONTROL" "A TIME TO KILL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sarah Jessica Parker")
+ ( "movie"
+   [ 32 56 57 58 59 63 310 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARS ATTACKS!" "FOOTLOOSE" "LA STORY" "HONEYMOON IN VEGAS" "HOCUS POKUS" "FIRST WIVES CLUB" "EXTREME MEASURES" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Scott Bakula")
+ ( "movie"
+   [ 51 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SIBLING RIVALRY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Scott Glenn")
+ ( "movie"
+   [ 35 43 73 128 181 224 264 333 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE RIGHT STUFF" "APOCALYPSE NOW" "SILENCE OF THE LAMBS" "BACKDRAFT" "SILVERADO" "ABSOLUTE POWER" "URBAN COWBOY" "THE HUNT FOR RED OCTOBER" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sean Connery")
+ ( "movie"
+   [ 16 17 19 20 21 22 23 24 77 333 380 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDIANA JONES LAST CRUSADE" "THE ROCK" "DR. NO" "FAMILY BUSINESS" "DIAMONDS ARE FOREVER" "TIME BANDITS" "NEVER SAY NEVER AGAIN" "UNTOUCHABLES" "THE LONGEST DAY" "THE HUNT FOR RED OCTOBER" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sean Penn")
+ ( "movie"
+   [ 39 65 170 267 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAPS" "FAST TIMES AT RIDGEMOUNT HIGH" "THE GAME" "SHE\'S SO LOVELY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sean Young")
+ ( "movie"
+   [ 18 168 177 313 391 396 463 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLADE RUNNER" "ACE VENTURA" "WALL STREET" "NO WAY OUT" "DUNE" "YOUNG DOCTORS IN LOVE" "STRIPES" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sebastian Cabot")
+ ( "movie"
+   [ 444 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TIME MACHINE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sela Ward")
+ ( "movie"
+   [ 324 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE FUGITIVE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sharon Stone")
+ ( "movie"
+   [ 119 137 174 234 400 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOTAL RECALL" "HE SAID, SHE SAID" "BASIC INSTINCT" "SPHERE" "INTERSECTION" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shelley Duvall")
+ ( "movie"
+   [ 22 214 372 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TIME BANDITS" "ROXANNE" "ANNIE HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shelley Long")
+ ( "movie"
+   [ 422 487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MR. MOM" "A VERY BRADY SEQUEL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shelley Winters")
+ ( "movie"
+   [ 317 416 456 511 531 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE POSEIDON ADVENTURE" "THE GREATEST STORY EVER TOLD" "LOLITA" "THE SEX SYMBOL" "PHONE CALL FROM A STRANGER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shirley Jones")
+ ( "movie"
+   [ 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEYOND THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shirley MacLaine")
+ ( "movie"
+   [ 96 146 361 507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STEEL MAGNOLIAS" "THE APARTMENT" "AROUND THE WORLD IN 80 DAYS" "LOVING COUPLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Shirley Temple")
+ ( "movie"
+   [ 251 252 356 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CAPTAIN JANUARY" "FORT APACHE" "THE BACHELOR AND THE BOBBY-SOXER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sid Caesar")
+ ( "movie"
+   [ 79 91 262 270 512 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AIRPORT 1975" "SILENT MOVIE" "GREASE" "IT\'S A MAD MAD MAD MAD WORLD" "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sidney Poitier")
+ ( "movie"
+   [ 149 402 416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SNEAKERS" "THE JACKAL" "THE GREATEST STORY EVER TOLD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sigourney Weaver")
+ ( "movie"
+   [ 26 27 28 29 203 469 470 471 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOSTBUSTERS" "ALIEN" "ALIENS" "ALIEN RESURRECTION" "EYEWITNESS" "DEAL OF THE CENTURY" "WORKING GIRL" "COPYCAT" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sissy Spacek")
+ ( "movie"
+   [ 136 263 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JFK" "CARRIE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Slim Pickens")
+ ( "movie"
+   [ 93 363 467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BLAZING SADDLES" "DR  STRANGELOVE" "1941" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sondra Locke")
+ ( "movie"
+   [ 228 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EVERY WHICH WAY BUT LOOSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sonny Landham")
+ ( "movie"
+   [ 109 120 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "48 HOURS" "PREDATOR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Spencer Tracy")
+ ( "movie"
+   [ 76 248 270 414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "HOW THE WEST WAS WON" "JUDGEMENT AT NUREMBERG" "IT\'S A MAD MAD MAD MAD WORLD" "FATHER OF THE BRIDE (1950)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Stella Stevens")
+ ( "movie"
+   [ 271 317 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NUTTY PROFESSOR" "THE POSEIDON ADVENTURE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Stephen Collins")
+ ( "movie"
+   [ 507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOVING COUPLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Steve Buscemi")
+ ( "movie"
+   [ 320 322 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AIRHEADS" "FARGO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Steve Guttenberg")
+ ( "movie"
+   [ 38 108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DINER" "COCOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Steve Martin")
+ ( "movie"
+   [ 57 134 208 210 211 212 213 214 215 216 217 218 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LA STORY" "PLANES, TRAINS, & AUTOMOBILES" "PARENTHOOD" "SERGEANT BILKO" "FATHER OF THE BRIDE" "DIRTY ROTTEN SCOUNDRELS" "GRAND CANYON" "ROXANNE" "THE THREE AMIGOS" "PENNIES FROM HEAVEN" "DEAD MEN DON\'T WEAR PLAID" "LITTLE SHOP OF HORRORS" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Steve McQueen")
+ ( "movie"
+   [ 159 239 442 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "PAPILLON" "THE CINCINNATI KID" "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Steven Seagal")
+ ( "movie"
+   [ 458 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "UNDER SIEGE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sting")
+ ( "movie"
+   [ 391 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DUNE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Stockard Channing")
+ ( "movie"
+   [ 63 115 147 154 262 516 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FIRST WIVES CLUB" "THE MEN\'S CLUB" "UP CLOSE AND PERSONAL" "TWILIGHT" "GREASE" "MEET THE APPLEGATES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Strother Martin")
+ ( "movie"
+   [ 153 160 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BUTCH CASSIDY AND THE SUNDANCE KID" "COOL HAND LUKE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Susan Sarandon")
+ ( "movie"
+   [ 114 154 334 507 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THELMA & LOUISE" "TWILIGHT" "THE ROCKY HORROR PICTURE SHOW" "LOVING COUPLES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Suzanne Pleshette")
+ ( "movie"
+   [ 517 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIRDS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Suzanne Somers")
+ ( "movie"
+   [ 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Sylvester Stallone")
+ ( "movie"
+   [ 68 121 122 123 125 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DEMOLITION MAN" "ROCKY" "FIRST BLOOD" "COP LAND" "TANGO & CASH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Talia Shire")
+ ( "movie"
+   [ 45 46 121 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE GODFATHER" "THE GODFATHER PART 2" "ROCKY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ted Danson")
+ ( "movie"
+   [ 66 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BODY HEAT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ted Knight")
+ ( "movie"
+   [ 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CADDYSHACK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ted Levine")
+ ( "movie"
+   [ 73 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SILENCE OF THE LAMBS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Telly Savalas")
+ ( "movie"
+   [ 98 231 289 387 416 439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BEYOND THE POSEIDON ADVENTURE" "KELLY\'S HEROES" "THE DIRTY DOZEN" "CAPRICORN ONE" "THE GREATEST STORY EVER TOLD" "CAPE FEAR (1962)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Teri Garr")
+ ( "movie"
+   [ 92 179 199 233 421 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YOUNG FRANKENSTEIN" "A SIMPLE WISH" "MICHAEL" "TOOTSIE" "MR. MOM" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Teri Hatcher")
+ ( "movie"
+   [ 125 437 476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TANGO & CASH" "TOMORROW NEVER DIES" "SOAPDISH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "The Three Stooges")
+ ( "movie"
+   [ 501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUR FOR TEXAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tim Conway")
+ ( "movie"
+   [ 329 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SPEED 2: CRUISE CONTROL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tim Curry")
+ ( "movie"
+   [ 139 333 334 335 336 337 338 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOADED WEAPON" "THE HUNT FOR RED OCTOBER" "THE ROCKY HORROR PICTURE SHOW" "ANNIE" "HOME ALONE 2" "MCHALE\'S NAVY" "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tim Matheson")
+ ( "movie"
+   [ 1 9 130 467 487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "FLETCH" "THE QUEST" "1941" "A VERY BRADY SEQUEL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tim Robbins")
+ ( "movie"
+   [ 30 132 347 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TOP GUN" "NOTHING TO LOSE" "I.Q." "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Timothy Hutton")
+ ( "movie"
+   [ 39 345 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAPS" "FRENCH KISS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tina Louise")
+ ( "movie"
+   [ 522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE STEPFORD WIVES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Arnold")
+ ( "movie"
+   [ 78 337 393 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TRUE LIES" "MCHALE\'S NAVY" "NINE MONTHS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Berenger")
+ ( "movie"
+   [ 36 331 441 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIG CHILL" "PLATOON" "LOOKING FOR MR. GOODBAR" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Bosley")
+ ( "movie"
+   [ 503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DIVORCE AMERICAN STYLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Cruise")
+ ( "movie"
+   [ 25 30 31 33 39 55 157 163 164 165 166 185 344 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "RAINMAN" "TOP GUN" "THE OUTSIDERS" "A FEW GOOD MEN" "TAPS" "ENDLESS LOVE" "THE COLOR OF MONEY" "JERRY MAGUIRE" "COCKTAIL" "ALL THE RIGHT MOVES" "RISKY BUSINESS" "INTERVIEW WITH THE VAMPIRE" "MISSION: IMPOSSIBLE" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Hanks")
+ ( "movie"
+   [ 95 99 100 101 102 103 104 105 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FORREST GUMP" "APOLLO 13" "SLEEPLESS IN SEATTLE" "A LEAGUE OF THEIR OWN" "SPLASH" "NOTHING IN COMMON" "DRAGNET" "PHILADELPHIA" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Hulce")
+ ( "movie"
+   [ 1 208 513 513 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "PARENTHOOD" "MARY SHELLEY\'S FRANKENSTEIN" "MARY SHELLEY\'S FRANKENSTEIN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tom Skerritt")
+ ( "movie"
+   [ 27 30 96 340 366 386 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIEN" "TOP GUN" "STEEL MAGNOLIAS" "CONTACT" "FUZZ" "M*A*S*H" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tommy Chong")
+ ( "movie"
+   [ 452 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "YELLOWBEARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tommy Lee Jones")
+ ( "movie"
+   [ 4 136 324 458 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "JFK" "THE FUGITIVE" "UNDER SIEGE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tony Curtis")
+ ( "movie"
+   [ 40 145 284 285 286 287 288 412 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SOME LIKE IT HOT" "THE GREAT RACE" "VEGA$" "THE GREAT IMPOSTER" "SPARTACUS" "OPERATION PETTICOAT" "TRAPEZE" "THE MIRROR CRACK\'D" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tony Randall")
+ ( "movie"
+   [ 221 491 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EVERYTHING YOU .. ABOUT SEX " "7 FACES OF DR. LAO" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tony Roberts")
+ ( "movie"
+   [ 372 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANNIE HALL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tracey Ullman")
+ ( "movie"
+   [ 200 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "I LOVE YOU TO DEATH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Truman Capote")
+ ( "movie"
+   [ 362 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MURDER BY DEATH" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Tuesday Weld")
+ ( "movie"
+   [ 417 440 441 442 443 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LORD LOVE A DUCK" "AUTHOR! AUTHOR!" "LOOKING FOR MR. GOODBAR" "THE CINCINNATI KID" "THE FIVE PENNIES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Uma Thurman")
+ ( "movie"
+   [ 5 112 209 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN & ROBIN" "PULP FICTION" "DANGEROUS LIAISONS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Ursula Andress")
+ ( "movie"
+   [ 19 359 501 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DR. NO" "CASINO ROYAL" "FOUR FOR TEXAS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Val Kilmer")
+ ( "movie"
+   [ 4 30 47 127 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BATMAN FOREVER" "TOP GUN" "HEAT" "TOMBSTONE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Valerie Perrine")
+ ( "movie"
+   [ 316 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "SUPERMAN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Van Heflin")
+ ( "movie"
+   [ 299 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE THREE MUSKETEERS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Van Johnson")
+ ( "movie"
+   [ 293 371 503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE CAINE MUTINY" "THE PURPLE ROSE OF CAIRO" "DIVORCE AMERICAN STYLE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vanessa Redgrave")
+ ( "movie"
+   [ 259 344 380 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JULIA" "MISSION: IMPOSSIBLE" "MURDER ON THE ORIENT EXPRESS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vanessa Williams")
+ ( "movie"
+   [ 118 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ERASER" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vera Miles")
+ ( "movie"
+   [ 375 390 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PSYCHO" "INTO THE NIGHT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Verna Bloom")
+ ( "movie"
+   [ 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ANIMAL HOUSE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vic Morrow")
+ ( "movie"
+   [ 462 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TWILIGHT ZONE--THE MOVIE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Victor Buono")
+ ( "movie"
+   [ 501 528 530 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FOUR FOR TEXAS" "HUSH...HUSH, SWEET CHARLOTTE" "WHAT EVER HAPPENED TO BABY JANE?" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Victor Mature")
+ ( "movie"
+   [ 450 498 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE ROBE" "THE LAS VEGAS STORY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vincent Price")
+ ( "movie"
+   [ 80 282 299 494 495 496 497 498 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TEN COMMANDMENTS" "CASANOVA\'S BIG NIGHT" "THE THREE MUSKETEERS" "DR. GOLDFOOT AND THE BIKINI MACHINE" "THE TROUBLE WITH GIRLS" "THE RAVEN" "ABBOTT AND COSTELLO MEET FRANKENSTEIN" "THE LAS VEGAS STORY" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Vivien Leigh")
+ ( "movie"
+   [ 249 291 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GONE WITH THE WIND" "SHIP OF FOOLS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Wallace Shawn")
+ ( "movie"
+   [ 279 351 469 482 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE PRINCESS BRIDE" "CLUELESS" "DEAL OF THE CENTURY" "LOVESICK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Walter Brennan")
+ ( "movie"
+   [ 504 526 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "TAMMY AND THE BACHELOR" "SUPPORT YOUR LOCAL SHERIFF!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Walter Matthau")
+ ( "movie"
+   [ 42 74 136 144 258 347 512 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "CHARADE" "MIRAGE" "JFK" "GRUMPY OLD MEN" "CALIFORNIA SUITE" "I.Q." "A GUIDE FOR THE MARRIED MAN" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Walter Pidgeon")
+ ( "movie"
+   [ 492 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "VOYAGE TO THE BOTTOM OF THE SEA" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Warren Beatty")
+ ( "movie"
+   [ 237 454 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DICK TRACY" "HEAVEN CAN WAIT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Warren Oates")
+ ( "movie"
+   [ 463 467 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "STRIPES" "1941" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Wayne Knight")
+ ( "movie"
+   [ 389 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "JURASSIC PARK" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Wesley Snipes")
+ ( "movie"
+   [ 68 72 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "DEMOLITION MAN" "MURDER AT 1600" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Whit Bissell")
+ ( "movie"
+   [ 444 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TIME MACHINE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Whitney Houston")
+ ( "movie"
+   [ 502 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BODYGUARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Whoopi Goldberg")
+ ( "movie"
+   [ 473 474 475 476 477 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "GHOST" "GHOSTS OF MISSISSIPPI" "STAR TREK: GENERATIONS" "SOAPDISH" "SISTER ACT 2" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Wilford Brimley")
+ ( "movie"
+   [ 84 108 143 158 178 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE NATURAL" "COCOON" "MY FELLOW AMERICANS" "ABSENCE OF MALICE" "THE CHINA SYNDROME" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Will Geer")
+ ( "movie"
+   [ 367 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "BANDOLERO!" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Will Smith")
+ ( "movie"
+   [ 394 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDEPENDENCE DAY" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Willem Dafoe")
+ ( "movie"
+   [ 314 327 329 330 331 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MISSISSIPPI BURNING" "CLEAR AND PRESENT DANGER" "SPEED 2: CRUISE CONTROL" "THE ENGLISH PATIENT" "PLATOON" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Baldwin")
+ ( "movie"
+   [ 34 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FLATLINERS" "BACKDRAFT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Devane")
+ ( "movie"
+   [ 384 524 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "MARATHON MAN" "FAMILY PLOT" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William H. Macy")
+ ( "movie"
+   [ 322 323 474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FARGO" "AIR FORCE ONE" "GHOSTS OF MISSISSIPPI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Hickey")
+ ( "movie"
+   [ 276 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "FORGET PARIS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Holden")
+ ( "movie"
+   [ 159 359 377 447 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TOWERING INFERNO" "CASINO ROYAL" "SABRINA (1954)" "THE DEVIL\'S BRIGADE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Hurt")
+ ( "movie"
+   [ 36 66 67 197 198 199 200 201 202 203 204 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE BIG CHILL" "BODY HEAT" "ALTERED STATES" "DARK CITY" "LOST IN SPACE" "MICHAEL" "I LOVE YOU TO DEATH" "THE ACCIDENTAL TOURIST" "BROADCAST NEWS" "EYEWITNESS" "GORKY PARK" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Shatner")
+ ( "movie"
+   [ 139 248 475 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "LOADED WEAPON" "JUDGEMENT AT NUREMBERG" "STAR TREK: GENERATIONS" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "William Windom")
+ ( "movie"
+   [ 134 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "PLANES, TRAINS, & AUTOMOBILES" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Winona Ryder")
+ ( "movie"
+   [ 29 207 419 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "ALIEN RESURRECTION" "BRAM STOKER\'S DRACULA" "BEETLEJUICE" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Wolfman Jack")
+ ( "movie"
+   [ 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "AMERICAN GRAFFITI" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Woody Allen")
+ ( "movie"
+   [ 221 359 370 371 372 373 374 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "EVERYTHING YOU .. ABOUT SEX " "CASINO ROYAL" "HANNAH AND HER SISTERS" "THE PURPLE ROSE OF CAIRO" "ANNIE HALL" "DECONSTRUCTING HARRY" "MIGHTY APHRODITE" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Woody Harrelson")
+ ( "movie"
+   [ 148 194 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "INDECENT PROPOSAL" "DOC HOLLYWOOD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Yul Brynner")
+ ( "movie"
+   [ 80 357 358 366 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TEN COMMANDMENTS" "WESTWORLD" "THE KING AND I" "FUZZ" "THE MAGNIFICENT SEVEN" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Yvette Mimieux")
+ ( "movie"
+   [ 444 445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "THE TIME MACHINE" "THE REWARD" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)
+(record
+ ( "name" "Zsa Zsa Gabor")
+ ( "movie"
+   [ 487 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+ )
+ ( "movie_title"
+   [ "A VERY BRADY SEQUEL" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ]
+ )
+)

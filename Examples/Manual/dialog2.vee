@@ -1,0 +1,390 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:11:06 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "A Dialog Box with a Timeout")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 1 CONTEXT
+(properties
+(name "Text Input")
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Y")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 CONFIRM25
+(properties
+(name "Cancel")
+(enterButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 EXITCONTEXT)
+(device 3 LITERALCONSTANT
+(properties
+(name "Enter Text:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "333"))
+(initValue Text
+(data  ""))))
+(device 4 EXITCONTEXT)
+(device 5 DELAY
+(properties
+(delay 4))
+(interface
+(output 1
+(name "Done")
+(tag "Done"))))
+(device 6 EXITCONTEXT)
+(configuration
+(connect D1:1 D2:0)
+(connect D0:1 D3:0)
+(connect D3:0 D4:0)
+(connect D5:0 D6:0)
+(connect D3:1 O1:1)
+(connect D5:1 O2:1))
+(ShowOnExecPanel
+(relativeOrigin 376 97)))
+(contextCarrier
+(active panel)
+(panel
+(extent 199 161)
+(widget 3 detail
+(relativeOrigin 10 20)
+(title on)
+(borderStyle flat)
+(extent 176 38))
+(widget 0 detail
+(relativeOrigin 30 90)
+(title off)
+(borderStyle none)
+(extent 60 20))
+(widget 1 detail
+(relativeOrigin 110 90)
+(title off)
+(borderStyle none)
+(extent 56 20)))
+(detail
+(extent 460 234)
+(anchorPt 43 32)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 49 20))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 58 22))
+(title off)
+(pinCenter 150 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter 190 170))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 84 0))
+(open
+(extent 160 25))
+(pinCenter 60 70))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter 60 170))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 81 31))
+(pinCenter 320 120))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter 320 170))
+(connect D1:1 D2:0
+(points 3 181 120 190 120 190 160))
+(connect D0:1 D3:0
+(points 3 27 0 60 0 60 37))
+(connect D3:0 D4:0
+(points 2 60 85 60 160))
+(connect D5:0 D6:0
+(points 2 320 138 320 160))
+(connect D3:1 O1:1
+(points 4 142 70 160 70 160 24 416 24))
+(connect D5:1 O2:1
+(points 4 363 120 400 120 400 144 416 144)))
+(stackingOrder 0 3 4 2 1 6 5))))
+(device 4 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the"
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "execute Panel."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(text2 20 "" "PURPOSE: To demonstrate adding a timeout "
+"to a custom dialog box built from" "a UserObject Pop-Up Panel." ""
+"USER DATA REQUIRED:  Press Run." "" "EXPLANATION:  To get user input, you\'ll"
+"generally use Dialog Box objects that" "have a built-in timeout feature.  But"
+"if you need more complex dialog boxes," "you need to make custom dialog boxes"
+"from UserObject or UserFunction Pop-Up" "Panels.  This program shows the basic"
+"structure and logic of a custom dialog" "box with a timeout." ""
+"For more details, see the \"VEE Help\" topic" "\"To Set a Timeout\"." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 62 32)))
+(contextCarrier
+(active panel)
+(panel
+(extent 535 449)
+(widget 1 detail
+(relativeOrigin 20 10)
+(title on)
+(borderStyle flat)
+(extent 486 358)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 240 400)
+(title off)
+(borderStyle flat)
+(extent 66 34)))
+(detail
+(extent 556 473)
+(anchorPt 429 377)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -170 60))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 71 51)
+(iconImage "notepad.icn"))
+(open
+(extent 420 356)
+(editing enabled))
+(pinCenter -170 -160)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 329 266)
+(anchorPt 259 178)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 535 409)
+(carbonCopy))
+(pinCenter -110 -97))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 -110 -82 -110 -57 -210 -57 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 5 25 -10 50 -10 50 -127 -110 -127 -110 -112)))
+(stackingOrder 0 1 2))))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(wndOrigin 17 10)
+(wndState res)
+(active detail)
+(detail
+(extent 756 350)
+(anchorPt 680 272)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 146 25))
+(pinCenter -350 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 79 25))
+(open
+(extent 199 161)
+(carbonCopy))
+(terminals on)
+(pinCenter -530 10))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -490 -150))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -130 -190))
+(connect D1:1 D0:1
+(points 2 -488 0 -426 0)))
+(stackingOrder 3 2 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

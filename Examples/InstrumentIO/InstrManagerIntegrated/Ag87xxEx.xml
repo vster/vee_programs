@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag87XXEX.vee">
+		<Description>Control the 87XXET/ES in order to retrieve its measurement data</Description>
+		<LogicalInstrument name="NetworkAnalyzer">
+			<SupportedInstruments>
+				<Instrument idn="Ag8719ET"/>
+				<Instrument idn="Ag8719ES"/>
+				<Instrument idn="Ag8720ET"/>
+				<Instrument idn="Ag8720ES"/>
+				<Instrument idn="Ag8722ET"/>
+				<Instrument idn="Ag8722ES"/>
+				<Instrument idn="Ag8753ET"/>
+				<Instrument idn="Ag8753ES"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

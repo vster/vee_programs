@@ -1,0 +1,237 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:24:32 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 3 MATLABSCRIPT
+(properties
+(matlabexpr 8 "y = exp(-s*t)" "stem3(real(y),imag(y),t)" "hold on"
+"plot3(real(y),imag(y),t,\'k\')" "xlabel(a)" "ylabel(b)" "zlabel(c)" ""))
+(interface
+(input 1
+(name "t")
+(optional yes))
+(input 2
+(name "s")
+(optional yes))
+(input 3
+(name "a")
+(optional yes))
+(input 4
+(name "b")
+(optional yes))
+(input 5
+(name "c")
+(optional yes))
+(output 1
+(name "y")
+(optional yes))))
+(device 4 CONFIRM25
+(properties
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Real"))
+(initValue Text
+(data  ""))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Imaginary"))
+(initValue Text
+(data  ""))))
+(device 7 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Amplitude"))
+(initValue Text
+(data  ""))))
+(device 8 CONSTANT
+(properties
+(name "Complex"))
+(interface
+(output 1
+(name "Complex")
+(lock name constraints)))
+(implementation
+(value Complex
+(data  (0.1, 1)))
+(initValue Complex
+(data  (0, 0)))))
+(device 9 ALLOCATEARRAY
+(properties
+(name "Alloc Real64"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "100")
+(type "Real64")
+(initEnum "Lin Ramp")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 11 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D1:1 D0:1)
+(connect D7:1 D1:1)
+(connect D6:1 D1:2)
+(connect D3:1 D1:3)
+(connect D4:1 D1:4)
+(connect D5:1 D1:5)
+(connect D1:0 D2:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 624 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1028 875)
+(anchorPt 1 -1)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 145 337))
+(pinCenter 820 230))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 275 157))
+(terminals on)
+(pinCenter 540 200))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 540 330))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 200 300))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 200 370))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 200 440))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 89 29)
+(showFormat real))
+(pinCenter 200 230))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 190 113))
+(terminals on)
+(pinCenter 155 120))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 540 460))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 540 80))
+(connect D1:1 D0:1
+(points 4 710 200 730 200 730 230 745 230))
+(connect D7:1 D1:1
+(points 4 292 120 310 120 310 140 370 140))
+(connect D6:1 D1:2
+(points 4 247 230 310 230 310 170 370 170))
+(connect D3:1 D1:3
+(points 4 289 300 320 300 320 200 370 200))
+(connect D4:1 D1:4
+(points 4 289 370 330 370 330 230 370 230))
+(connect D5:1 D1:5
+(points 4 289 440 340 440 340 260 370 260))
+(connect D1:0 D2:0
+(points 2 540 281 540 316)))
+(stackingOrder 1 7 6 3 4 5 2 0 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

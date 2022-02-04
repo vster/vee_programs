@@ -1,0 +1,698 @@
+(saveFormat "2.3")
+(date "Wed 28/Jan/2004 10:30:38 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "ESASPECAN"
+(type GPIB)
+(gateway "tsstkl24en")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 8)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "d2476cc26")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 60)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument5"
+(type GPIB)
+(gateway "comptest3e2050a")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "ag_4395a"
+(type GPIB)
+(gateway "e1gunderson24en")
+(channel 7)
+(subchannel 24)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hp4396a"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "my_hp8751a_panel"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp8751a.id")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument2"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 25)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "nwa"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hpe4419_pnp"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "HPE4419")
+(ppAddr "GPIB0::13::INSTR")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HPEPM"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "Hp_Epm_On_Lan"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "EMP@704"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "junk"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "e4396a"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 4)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "NFMeter"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HP856XE"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "VNA"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "HP53150A"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "keysight_4284a"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 2)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 25)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 3 "WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR"
+"WRITE TEXT \"MARK1;MARKMINI;\" EOL"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 TEXTDISPLAY
+(properties
+(name "Who am I?"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"OUTPMARK\" EOL" "READ TEXT x REAL32 ARRAY:3"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 3 TEXTDISPLAY
+(properties
+(name "As 3 element arra"))
+(interface
+(input 1
+(name "Data"))))
+(device 4 START25)
+(device 5 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"OUTPMARK\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 6 TEXTDISPLAY
+(properties
+(name "As a contiguous string"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"OUTPMARK\" EOL" "READ TEXT x REAL32"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 8 TEXTDISPLAY
+(properties
+(name "As a real 32"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Via TOKEN"))
+(interface
+(input 1
+(name "Data"))))
+(device 12 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 4 "WRITE TEXT \"OUTPMARK\" EOL"
+"READ TEXT amplitude TOKEN EXCLUDE:\",\"" "READ TEXT junk TOKEN EXCLUDE:\",\""
+"READ TEXT Stimulus STR"))
+(interface
+(output 1
+(name "amplitude")
+(optional yes))
+(output 2
+(name "junk")
+(optional yes))
+(output 3
+(name "Stimulus")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 13 TEXTDISPLAY
+(properties
+(name "Via TOKEN"))
+(interface
+(input 1
+(name "Data"))))
+(device 14 TEXTDISPLAY
+(properties
+(name "Via TOKEN"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 4 "WRITE TEXT \"OUTPMARK\" EOL" "READ TEXT amplitude REAL64"
+"READ TEXT junk REAL64" "READ TEXT Stimulus REAL64"))
+(interface
+(output 1
+(name "amplitude")
+(optional yes))
+(output 2
+(name "junk")
+(optional yes))
+(output 3
+(name "Stimulus")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 20 TEXTDISPLAY
+(properties
+(name "As 3 of 3 Real 64 type"))
+(interface
+(input 1
+(name "Data"))))
+(device 21 TEXTDISPLAY
+(properties
+(name "As 2 of 3 Real 64 type"))
+(interface
+(input 1
+(name "Data"))))
+(device 22 TEXTDISPLAY
+(properties
+(name "As 1 of 3 Real 64 type"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 NOTE
+(properties
+(name "8753_marker description")
+(text2 11 "The intent of this program is to offer various methods for"
+"reading the marker data out of the 8753/8720 family VNAs."
+"Note that marker data and the validity of the data is a "
+"function of the analyzers DISPLAY FORMAT. The first value "
+"is the marker reading; the second value may or may not"
+"be valid as a function of the DISPLAY FORMAT; the third"
+"value is the STIMULUS (frequency or time). For full details"
+"refer to the 8753/8720 Programmer\'s Guide Marker Data "
+"section. For this example the FORMAT is LOG MAG, per the"
+"manual the second marker value is \"insignificant\", a.k.a."
+"a place holder, or equivallently JUNK")))
+(device 24 NOTE
+(properties
+(name " Information for read as REAL 32")
+(text2 2 "Note how the data is truncated on the \",\" "
+"due to the read definition of type REAL 32")))
+(configuration
+(connect D4:0 D0:0)
+(connect D0:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:1 D3:1)
+(connect D2:0 D5:0)
+(connect D5:1 D6:1)
+(connect D5:0 D7:0)
+(connect D7:1 D8:1)
+(connect D10:1 D9:1)
+(connect D7:0 D10:0)
+(connect D10:2 D11:1)
+(connect D10:3 D12:1)
+(connect D10:0 D13:0)
+(connect D13:3 D14:1)
+(connect D13:2 D15:1)
+(connect D13:1 D16:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 829 465)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -45 -22)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 205 77))
+(terminals on)
+(pinCenter 230 110))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 125 47))
+(pinCenter 450 110))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 225 57))
+(terminals on)
+(pinCenter 230 210))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 135 57)
+(formatter
+(realFormat standard)
+(realSigDigits 7)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 460 210))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 230 30))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 225 57))
+(terminals on)
+(pinCenter 230 300))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 119 0))
+(open
+(extent 335 27))
+(pinCenter 570 300))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 225 57))
+(terminals on)
+(pinCenter 230 390))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 64 0))
+(open
+(extent 145 27))
+(pinCenter 480 390))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 58 0))
+(open
+(extent 155 17))
+(pinCenter 510 460))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 255 87))
+(terminals on)
+(pinCenter 210 490))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 58 0))
+(open
+(extent 155 17))
+(pinCenter 690 460))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 58 0))
+(open
+(extent 155 17))
+(pinCenter 870 460))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 205 87))
+(terminals on)
+(pinCenter 210 610))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 155 17)
+(formatter
+(realFormat standard)
+(realSigDigits 7)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 910 580))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 155 17))
+(pinCenter 730 580))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 155 17))
+(pinCenter 550 580))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 130 0)
+(iconImage "notepad.icn"))
+(open
+(extent 505 207)
+(editing enabled))
+(pinCenter 790 150))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 173 0)
+(iconImage "notepad.icn"))
+(open
+(extent 395 57)
+(editing enabled))
+(pinCenter 770 390))
+(connect D4:0 D0:0
+(points 2 230 43 230 51))
+(connect D0:1 D1:1
+(points 2 365 110 385 110))
+(connect D0:0 D2:0
+(points 2 230 151 230 161))
+(connect D2:1 D3:1
+(points 2 375 210 390 210))
+(connect D2:0 D5:0
+(points 2 230 241 230 251))
+(connect D5:1 D6:1
+(points 2 375 300 400 300))
+(connect D5:0 D7:0
+(points 2 230 331 230 341))
+(connect D7:1 D8:1
+(points 2 375 390 405 390))
+(connect D10:1 D9:1
+(points 2 410 460 430 460))
+(connect D7:0 D10:0
+(points 2 230 421 230 426))
+(connect D10:2 D11:1
+(points 4 410 490 600 490 600 460 610 460))
+(connect D10:3 D12:1
+(points 4 410 520 780 520 780 460 790 460))
+(connect D10:0 D13:0
+(points 2 230 536 230 546))
+(connect D13:3 D14:1
+(points 6 385 640 400 640 400 630 820 630 820 580 830 580))
+(connect D13:2 D15:1
+(points 4 385 610 640 610 640 580 650 580))
+(connect D13:1 D16:1
+(points 2 385 580 470 580)))
+(stackingOrder 2 0 4 5 7 10 13 3 8 9 11 12 16 15 14 1 17 18 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

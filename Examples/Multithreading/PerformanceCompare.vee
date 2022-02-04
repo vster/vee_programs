@@ -1,0 +1,1121 @@
+(saveFormat "7.0")
+(date "Wed 16/Apr/2008 12:24:03 ")
+(veerev "9.0.11214.1 Beta1 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "UsingThreadObject")
+(variableScope cont)
+(trigMode deg)
+(nextID 6)
+(popupMoveable 1)
+(popupTitleBackgroundColor "UserObject"))
+(deviceList
+(device 0 THREADOBJECT
+(properties
+(name "ThreadObject1")
+(variableScope cont)
+(trigMode deg)
+(nextID 19)
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Black")
+(popupTitleFont "GUNK" 4)
+(processorNo 1)
+(manualAllocateProcNo 0)
+(threadpriority normal))
+(deviceList
+(device 0 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 1 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 3 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "y=bartlet(A+b);" "b"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(device 4 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 16 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect D1:1 D0:1)
+(connect D4:0 D0:2)
+(connect D4:1 D2:1)
+(connect D3:1 D2:2)
+(connect D4:1 D3:0)
+(connect D1:1 D4:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 939 389)
+(anchorPt -143 97)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 340 50))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 70 40))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 144 76))
+(terminals on)
+(pinCenter 520 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 260 180))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 160 110))
+(connect D1:1 D0:1
+(points 2 84 40 301 40))
+(connect D4:0 D0:2
+(points 5 160 128 160 140 230 140 230 60 301 60))
+(connect D4:1 D2:1
+(points 6 210 110 260 110 260 90 400 90 400 60 415 60))
+(connect D3:1 D2:2
+(points 4 320 180 400 180 400 100 415 100))
+(connect D4:1 D3:0
+(points 3 210 110 260 110 260 152))
+(connect D1:1 D4:0
+(points 3 84 40 160 40 160 74)))
+(stackingOrder 1 0 3 4 2))))
+(device 1 THREADOBJECT
+(properties
+(name "ThreadObject2")
+(variableScope cont)
+(trigMode deg)
+(nextID 18)
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Black")
+(popupTitleFont "GUNK" 4)
+(processorNo 1)
+(manualAllocateProcNo 0)
+(threadpriority normal))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "bartlet(x)")
+(variableScope cont)
+(expr 2 "y=blackman(x+a);" "a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 6 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 14 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 15 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect D4:1 D0:1)
+(connect D1:1 D0:2)
+(connect D4:1 D1:0)
+(connect D3:1 D2:1)
+(connect D4:0 D2:2)
+(connect D3:1 D4:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 939 259)
+(anchorPt -54 -83)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 194 66))
+(terminals on)
+(pinCenter 540 290))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 300 310))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 380 200))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 110 190))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 210 250))
+(connect D4:1 D0:1
+(points 4 260 250 280 250 280 270 410 270))
+(connect D1:1 D0:2
+(points 2 360 310 410 310))
+(connect D4:1 D1:0
+(points 5 260 250 280 250 280 270 300 270 300 282))
+(connect D3:1 D2:1
+(points 2 124 190 341 190))
+(connect D4:0 D2:2
+(points 5 210 268 210 280 290 280 290 210 341 210))
+(connect D3:1 D4:0
+(points 3 124 190 210 190 210 214)))
+(stackingOrder 4 2 3 0 1))))
+(device 2 THREADOBJECT
+(properties
+(name "ThreadObject3")
+(variableScope cont)
+(trigMode deg)
+(nextID 18)
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Black")
+(popupTitleFont "GUNK" 4)
+(processorNo 1)
+(manualAllocateProcNo 0)
+(threadpriority normal))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "bartlet(x)")
+(variableScope cont)
+(expr 2 "y=hamming(x+a);" "a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 6 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 14 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 15 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(configuration
+(connect D4:1 D0:1)
+(connect D1:1 D0:2)
+(connect D4:1 D1:0)
+(connect D3:1 D2:1)
+(connect D4:0 D2:2)
+(connect D3:1 D4:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 939 259)
+(anchorPt -94 -141)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 194 66))
+(terminals on)
+(pinCenter 580 230))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 280 330))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 390 210))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 110 160))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 210 250))
+(connect D4:1 D0:1
+(points 6 260 250 280 250 280 240 440 240 440 210 450 210))
+(connect D1:1 D0:2
+(points 6 340 330 360 330 360 250 440 250 440 250 450 250))
+(connect D4:1 D1:0
+(points 3 260 250 280 250 280 302))
+(connect D3:1 D2:1
+(points 6 124 160 210 160 210 190 280 190 280 200 351 200))
+(connect D4:0 D2:2
+(points 5 210 268 210 280 290 280 290 220 351 220))
+(connect D3:1 D4:0
+(points 3 124 160 210 160 210 214)))
+(stackingOrder 3 4 2 1 0))))
+(configuration))
+(contextCarrier
+(active detail)
+(panel
+(extent 122 150)
+(drawGrid "on")
+(widget 0 icon
+(relativeOrigin 10 10)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 89 16))
+(widget 1 icon
+(relativeOrigin 10 50)
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 89 16))
+(widget 2 icon
+(relativeOrigin 10 90)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 89 16)))
+(detail
+(extent 785 439)
+(anchorPt -1 -30)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 89 15))
+(terminals on)
+(pinCenter 110 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 89 15))
+(terminals on)
+(pinCenter 220 100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 89 15))
+(terminals on)
+(pinCenter 340 100)))
+(stackingOrder 1 2 0))))
+(device 1 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 2 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 3 CONTEXT
+(properties
+(name "UsingUserObject")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "UserObject1")
+(variableScope cont)
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(deviceList
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 4 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 5 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 6 FORMULA
+(properties
+(name "bartlet(x)")
+(variableScope cont)
+(expr 2 "y=hamming(x+a);" "a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(configuration
+(connect D1:1 D0:0)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D0:1 D3:0)
+(connect D0:1 D4:1)
+(connect D3:1 D4:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 882 274)
+(anchorPt -139 -214)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 260 320))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 160 230))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 440 280))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 330 400))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 194 66))
+(terminals on)
+(pinCenter 630 300))
+(connect D1:1 D0:0
+(points 3 174 230 260 230 260 284))
+(connect D1:1 D2:1
+(points 6 174 230 260 230 260 260 330 260 330 270 401 270))
+(connect D0:0 D2:2
+(points 5 260 338 260 350 340 350 340 290 401 290))
+(connect D0:1 D3:0
+(points 3 310 320 330 320 330 372))
+(connect D0:1 D4:1
+(points 6 310 320 330 320 330 310 490 310 490 280 500 280))
+(connect D3:1 D4:2
+(points 6 390 400 410 400 410 320 490 320 490 320 500 320)))
+(stackingOrder 0 1 2 3 4))))
+(device 1 CONTEXT
+(properties
+(name "UserObject2")
+(variableScope cont)
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(deviceList
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "y=bartlet(A+b);" "b"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(device 5 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 6 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(configuration
+(connect D3:1 D0:0)
+(connect D0:1 D1:0)
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D3:1 D4:1)
+(connect D0:0 D4:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 882 273)
+(anchorPt -59 -188)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 170 350))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 270 420))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 144 76))
+(terminals on)
+(pinCenter 560 320))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 80 280))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 540 230))
+(connect D3:1 D0:0
+(points 3 94 280 170 280 170 314))
+(connect D0:1 D1:0
+(points 3 220 350 270 350 270 392))
+(connect D0:1 D2:1
+(points 6 220 350 270 350 270 330 410 330 410 300 455 300))
+(connect D1:1 D2:2
+(points 4 330 420 350 420 350 340 455 340))
+(connect D3:1 D4:1
+(points 4 94 280 170 280 170 220 501 220))
+(connect D0:0 D4:2
+(points 5 170 368 170 380 240 380 240 240 501 240)))
+(stackingOrder 0 1 3 2 4))))
+(device 2 CONTEXT
+(properties
+(name "UserObject3")
+(variableScope cont)
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(deviceList
+(device 2 FORCOUNT
+(properties
+(variableScope cont)
+(count 100))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 3 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 4 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 5 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 65536))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 6 FORMULA
+(properties
+(name "bartlet(x)")
+(variableScope cont)
+(expr 2 "y=blackman(x+a);" "a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "y")
+(optional yes))))
+(configuration
+(connect D1:1 D0:0)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D0:1 D3:0)
+(connect D0:1 D4:1)
+(connect D3:1 D4:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 882 273)
+(anchorPt -19 -198)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 140 290))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 40 230))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 510 240))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 230 350))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 194 66))
+(terminals on)
+(pinCenter 530 330))
+(connect D1:1 D0:0
+(points 3 54 230 140 230 140 254))
+(connect D1:1 D2:1
+(points 2 54 230 471 230))
+(connect D0:0 D2:2
+(points 5 140 308 140 400 320 400 320 250 471 250))
+(connect D0:1 D3:0
+(points 5 190 290 210 290 210 310 230 310 230 322))
+(connect D0:1 D4:1
+(points 8 190 290 210 290 210 310 230 310 230 300 310 300 310 310 400 310))
+(connect D3:1 D4:2
+(points 2 290 350 400 350)))
+(stackingOrder 0 1 3 4 2))))
+(configuration))
+(contextCarrier
+(active panel)
+(panel
+(extent 100 121)
+(drawGrid "on")
+(widget 2 icon
+(relativeOrigin 10 80)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 75 15))
+(widget 1 icon
+(relativeOrigin 10 50)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 75 15))
+(widget 0 icon
+(relativeOrigin 10 10)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 75 15)))
+(detail
+(extent 499 497)
+(anchorPt -177 -124)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 75 15))
+(terminals on)
+(titleBg "Light Green")
+(pinCenter 230 140))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 75 15))
+(terminals on)
+(titleBg "Light Green")
+(pinCenter 230 180))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 75 15))
+(terminals on)
+(titleBg "Light Green")
+(pinCenter 230 210)))
+(stackingOrder 0 1 2))))
+(device 4 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 5 TIMER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 6 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(device 7 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The only difference between the \"UsingUserObject\" and \"UsingThreadObject\" is that the UsingThreadObject replaces the UserObject to ThreadObject. You can see the performance improvement.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D4:0 D3:0)
+(connect D4:1 D5:1)
+(connect D3:0 D5:2)))
+(contextCarrier
+(wndOrigin 11 11)
+(wndState res)
+(active detail)
+(detail
+(extent 761 668)
+(anchorPt -108 -83)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 117 15))
+(open
+(extent 114 116)
+(carbonCopy))
+(terminals on)
+(pinCenter 290 510))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 290 400))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 510 510))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 104 15))
+(open
+(extent 114 116)
+(carbonCopy))
+(terminals on)
+(pinCenter 290 300))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 290 190))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 31))
+(pinCenter 510 300))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 334 64)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 370 130))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 334 44)
+(label off))
+(open
+(extent 414 106)
+(editing enabled))
+(pinCenter 370 680))
+(connect D1:0 D0:0
+(points 2 290 410 290 431))
+(connect D1:1 D2:1
+(points 4 304 400 400 400 400 500 471 500))
+(connect D0:0 D2:2
+(points 5 290 570 290 590 400 590 400 520 471 520))
+(connect D4:0 D3:0
+(points 2 290 200 290 221))
+(connect D4:1 D5:1
+(points 4 304 190 390 190 390 290 471 290))
+(connect D3:0 D5:2
+(points 5 290 360 290 380 400 380 400 310 471 310)))
+(stackingOrder 1 4 5 2 3 7 6 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

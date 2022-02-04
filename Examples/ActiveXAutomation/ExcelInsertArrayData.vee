@@ -1,0 +1,313 @@
+(saveFormat "7.0")
+(date "Mon 17/Jun/2013 17:39:35 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "D:\\APPS\\MICROSOFT\\OFFICE97\\OFFICE\\excel8.olb")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 55)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "Set up Excel Worksheet")
+(variableScope cont)
+(expr 5
+"set sheet = CreateObject(\"Excel.Application\").Workbooks.Add.worksheets(1);"
+"sheet.Application.Visible = TRUE;"
+"sheet.Application.Windows(1).Caption = \"Test System Results\";"
+"set range = sheet.Range(\"A2:A21\");" "range.NumberFormat = \"0.000\";")))
+(device 4 FORMULA
+(properties
+(name "Fill in Cells")
+(variableScope cont)
+(expr 1 "range = transpose([A])"))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "Fill in Title")
+(variableScope cont)
+(expr 1 "sheet.Range(\"A1:A1\") = \"DC Volts\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "Have Excel Calculate Std Deviation")
+(variableScope cont)
+(expr 1 "sheet.Application.WorksheetFunction.StDev(range)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 TEXTDISPLAY
+(properties
+(name "Standard Deviation")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 39 FORMULA
+(properties
+(name "Array of Test Data")
+(variableScope cont)
+(expr 1 "randomize(ramp(20), 4.5, 5.5)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 DECLVAR
+(properties
+(name "Declare range")
+(scope glob)
+(globalName "range"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 44 DECLVAR
+(properties
+(name "Declare sheet")
+(scope glob)
+(globalName "sheet"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 46 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\fbidis\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Arial;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\ltrpar\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 48 FORMULA
+(properties
+(name "Close Excel App")
+(variableScope cont)
+(expr 1 "sheet.Application.Quit()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 49 MESSAGEBOX
+(properties
+(variableScope cont)
+(autoTimeout 1)
+(popupTitle "VEE Example")
+(message "Shutdown Excel ?")
+(symbol Question))
+(interface
+(output 1
+(name "Yes")
+(lock name constraints))
+(output 2
+(name "No")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "Yes  No")
+(buttonLabel1 "Yes")
+(buttonLabel2 "No")
+(buttonLabel3 "")
+(bdefault "Yes")))
+(device 50 BEEP
+(properties
+(variableScope cont)
+(frequency 1000)
+(duration 0.1)
+(volume 80))
+(implementation))
+(device 52 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}{\\f1\\fswiss\\fprq2\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\fs20 If you would like Excel.exe to exit at the end of the run, please check \"Disable Debug Features\" in \"Default Preference\" before running this example.\\cf0\\ul\\f1\\fs20\\par\r\n\\par\r\nRequirements\\ulnone : Excel\\par\r\n\\par\r\nThis example uses ActiveX Automation to create a new Excel workbook, then insert an array of random data into a spreadsheet in one operation. It then uses Excel\'s StDev function to calculate the standard deviation of the data inserted into Excel. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 54 DELGLOBAL
+(properties
+(variableScope cont)
+(globalName "globalA")
+(delAllGlobals 1)))
+(configuration
+(connect D2:0 D1:0)
+(connect D5:1 D1:1)
+(connect D0:0 D2:0)
+(connect D1:0 D3:0)
+(connect D3:1 D4:1)
+(connect D10:1 D9:0)
+(connect D11:0 D10:0)
+(connect D3:0 D11:0)
+(connect D9:0 D13:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 911 562)
+(wndState max)
+(active detail)
+(detail
+(extent 928 778)
+(anchorPt 6 284)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 165 0))
+(open
+(extent 494 116))
+(pinCenter 270 20))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 316 50))
+(terminals on)
+(pinCenter 270 240))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 375 50))
+(pinCenter 270 150))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 209 0))
+(open
+(extent 375 50))
+(pinCenter 270 330))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 182 34)
+(scFont "Lucida Sans" 18 italic))
+(fg "Black")
+(pinCenter 590 330))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 135 16))
+(open
+(extent 185 50))
+(pinCenter -30 240))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 112 17))
+(open
+(extent 421 126))
+(pinCenter 620 80))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 104 15))
+(open
+(extent 388 126))
+(pinCenter 620 40))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 720 -20))
+(devCarrierFor 48
+(active open)
+(icon
+(extent 112 25))
+(open
+(extent 180 50))
+(pinCenter 360 500))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 81 34))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 270 420))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 33 15))
+(open
+(extent 162 79))
+(pinCenter 270 370))
+(devCarrierFor 52
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 774 146)
+(editing disabled))
+(pinCenter 420 -150))
+(devCarrierFor 54
+(active open)
+(icon)
+(open
+(extent 114 89))
+(terminals on)
+(pinCenter 360 620))
+(connect D2:0 D1:0
+(points 2 270 177 270 194))
+(connect D5:1 D1:1
+(points 2 65 240 79 240))
+(connect D0:0 D2:0
+(points 2 270 80 270 104))
+(connect D1:0 D3:0
+(points 2 270 267 270 284))
+(connect D3:1 D4:1
+(points 2 460 330 496 330))
+(connect D10:1 D9:0
+(points 3 313 410 360 410 360 454))
+(connect D11:0 D10:0
+(points 2 270 380 270 400))
+(connect D3:0 D11:0
+(points 2 270 357 270 360))
+(connect D9:0 D13:0
+(points 2 360 527 360 555)))
+(stackingOrder 7 6 9 11 2 1 5 3 10 8 13 4 0 12))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

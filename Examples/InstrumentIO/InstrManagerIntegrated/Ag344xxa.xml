@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag344xxa.vee">
+		<Description>Retrieves measurement data from an Keysight DMM.</Description>
+		<LogicalInstrument name="DMM">
+			<SupportedInstruments>
+				<Instrument idn="hp34401a"/>
+				<Instrument idn="ag34401a"/>
+				<Instrument idn="ag34405a"/>
+				<Instrument idn="ag34410a"/>
+				<Instrument idn="ag34411a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

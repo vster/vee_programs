@@ -1,0 +1,797 @@
+(saveFormat "7.0")
+(date "Mon 26/Mar/2012 16:03:53 ")
+(veerev "9.3.15222.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\System.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\drawing.dll"))
+(assemblyRef 4
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces "System,System.Diagnostics,"))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 51)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 FORMULA
+(properties
+(name "Process.GetProcessesByName(processName);")
+(variableScope cont)
+(expr 1 "Process.GetProcessesByName(processName);"))
+(interface
+(input 1
+(name "processName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "vee"))
+(initValue Text
+(data  ""))))
+(device 4 FOREACH
+(properties
+(name "For Each Element In")
+(variableScope cont))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(lock name)
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "pointer = proc.MainWindowHandle;" "title = proc.MainWIndowTitle;"))
+(interface
+(input 1
+(name "proc")
+(optional yes))
+(output 1
+(name "pointer")
+(optional yes))
+(output 2
+(name "title")
+(optional yes))))
+(device 6 SCROLLINGTEXTDISPLAY
+(properties
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 14 SCROLLINGTEXTDISPLAY
+(properties
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f2\\fswiss\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 Create your \\cf1\\b own\\cf0\\b0  template for object Descriptions by editing the file: \\ul\\b <VEE install dir>\\\\templates\\\\description.rtf\\ulnone\\b0\\f1\\fs17\\par\r\n\\f2\\fs20\\par\r\n}\r\n"
+)
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 33 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType DLL)
+(libName "User32")
+(fileName "C:\\Windows\\System32\\user32.dll")
+(defnFileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\examples\\Contrib\\Win32API\\user32.h"
+))
+(interface
+(input 1
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 34 TEXTDISPLAY
+(properties
+(name "ClassName")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 35 CALL
+(properties
+(name "Call User32.GetClassNameA")
+(variableScope cont)
+(callFunc "User32.GetClassNameA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hWnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "ClassName")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "BufSize")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "ClassName")
+(lock name constraints)
+(optional yes))))
+(device 39 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "Couldn\'t retrieve window handle")))
+(device 40 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 43 CALL
+(properties
+(name "Call user32.FindWindowA")
+(variableScope cont)
+(callFunc "user32.FindWindowA")
+(parmMode rev30))
+(interface
+(input 1
+(name "lpClassName")
+(requires
+(datatype Text))
+(optional yes))
+(input 2
+(name "lpWindowName")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassName")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "lpWindowName")
+(lock name constraints)
+(optional yes))))
+(device 44 FORMULA
+(properties
+(name "Generate .H Path")
+(variableScope cont)
+(expr 1 "installDir()+\"\\\\examples\\\\Contrib\\\\Win32API\\\\user32.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 38 FORMULA
+(properties
+(name "ToInt32")
+(variableScope cont)
+(expr 1 "A.ToInt32();"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 47 FORMULA
+(properties
+(name "empty String")
+(variableScope cont)
+(expr 1 "A*\" \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 48 CONSTANT
+(properties
+(name "255")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  255))
+(initValue Int32
+(data  0))))
+(device 42 CONTEXT
+(properties
+(name "FlashWindow UserObject")
+(variableScope cont)
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "InputTerm")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "TRUE")
+(variableScope cont)
+(expr 1 "TRUE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name "FALSE")
+(variableScope cont)
+(expr 1 "FALSE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 5 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 6 DELAY
+(properties
+(variableScope cont)
+(delay 0.5))
+(interface
+(output 1
+(name "Done"))))
+(device 9 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 10 CONFIRM25
+(properties
+(name "OK Already")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 CALL
+(properties
+(name "Call user32.FlashWindow")
+(variableScope cont)
+(callFunc "user32.FlashWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "bInvert")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "FALSE")
+(variableScope cont)
+(expr 1 "FALSE"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D1:0)
+(connect D1:1 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D3:2)
+(connect D5:0 D4:0)
+(connect I1:1 D4:1)
+(connect D2:1 D4:2)
+(connect D3:0 D5:0)
+(connect D4:0 D6:0)
+(connect D9:0 D7:0)
+(connect D8:1 D9:0)
+(connect I1:1 D9:1)
+(connect D10:1 D9:2)))
+(contextCarrier
+(active detail)
+(panel
+(extent 94 39)
+(drawGrid "off")
+(widget 8 detail
+(relativeOrigin 0 0)
+(bg "Med Green")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 92 39))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 680 521)
+(anchorPt 72 -52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 64 35))
+(terminals on)
+(pinCenter 150 190))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 120 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 150 320))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 180))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 350 310))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 360 370))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 230 520))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 76 25))
+(title off)
+(pinCenter 150 390))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 220 470))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 30 480))
+(connect I1:1 D1:0
+(points 5 -72 312 -60 312 -60 60 120 60 120 82))
+(connect D1:1 D3:0
+(points 3 156 110 360 110 360 134))
+(connect I1:1 D3:1
+(points 6 -72 312 -60 312 -60 220 190 220 190 170 209 170))
+(connect D0:1 D3:2
+(points 2 171 190 209 190))
+(connect D5:0 D4:0
+(points 2 360 250 360 264))
+(connect I1:1 D4:1
+(points 6 -72 312 -60 312 -60 290 190 290 190 300 209 300))
+(connect D2:1 D4:2
+(points 2 173 320 209 320))
+(connect D3:0 D5:0
+(points 2 360 208 360 230))
+(connect D4:0 D6:0
+(points 2 360 338 360 360))
+(connect D9:0 D7:0
+(points 2 230 498 230 510))
+(connect D8:1 D9:0
+(points 3 190 390 230 390 230 424))
+(connect I1:1 D9:1
+(points 6 -72 312 -60 312 -60 290 60 290 60 460 79 460))
+(connect D10:1 D9:2
+(points 2 53 480 79 480)))
+(stackingOrder 9 7 0 3 4 5 6 2 10 8 1))))
+(device 49 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Purpose:\\ulnone\\fs20\\par\r\nTo show interopability of .NET windows handle with User32.dll windows handle.\\par\r\n\\par\r\n\\ul\\fs20 Implementation:\\ulnone\\fs20\\par\r\nThis program get a list of VEE processes currently running in the system using .NET Process class. \\par\r\n\\par\r\nFor each process, associated window handle and main window caption are retreived. These values are then passed to User32.dll for further processing i.e. GetClassNameA and FindWindowA . FindWindowA will flash the particular VEE window. Click OK Already button to stop flashing and proceed with next VEE process.\\par\r\n\\par\r\nThe GetClassNameA and FindWindowA code portion are taken from\\i\\fs20  examples\\\\contrib\\\\VEE_Window_mods.vee \\i0\\fs20 and\\i\\fs20  examples\\\\contrib\\\\Win32API\\\\user32.vee \\i0\\fs20 respectively.\\par\r\n\\par\r\n\\par\r\n\\par\r\n \\par\r\n}\r\n"
+)))
+(device 50 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D6:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:1 D2:1)
+(connect D2:1 D3:1)
+(connect D3:1 D4:1)
+(connect D3:2 D5:1)
+(connect D12:0 D6:0)
+(connect D12:1 D6:1)
+(connect D8:2 D7:1)
+(connect D13:1 D8:1)
+(connect D14:1 D8:2)
+(connect D15:1 D8:3)
+(connect D10:1 D9:0)
+(connect D11:1 D10:1)
+(connect D8:2 D11:1)
+(connect D3:2 D11:2)
+(connect D3:1 D13:1)
+(connect D15:1 D14:1)
+(connect D11:1 D16:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 702 386)
+(wndState max)
+(active detail)
+(detail
+(extent 1693 855)
+(anchorPt 149 103)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 291 0))
+(open
+(extent 300 50))
+(terminals on)
+(pinCenter 605 140))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 64 26))
+(pinCenter 260 140))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 122 51)
+(iconImage "loop.icn"))
+(open
+(extent 158 31))
+(pinCenter 320 280))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 284 86))
+(terminals on)
+(pinCenter 625 280))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 173 167)
+(noformatter))
+(pinCenter 350 480))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 274 176)
+(noformatter))
+(pinCenter 670 480))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 82 15))
+(open
+(extent 529 105))
+(pinCenter 580 20))
+(devCarrierFor 34
+(active open)
+(icon
+(extent 73 0))
+(open
+(extent 404 26))
+(pinCenter 1120 180))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 178 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 1140 90))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 1210 510))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 990 380))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 1120 280))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 103 15))
+(open
+(extent 223 50))
+(pinCenter 220 30))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 94 56))
+(terminals on)
+(pinCenter 910 60))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 71 50))
+(terminals on)
+(pinCenter 980 90))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 75 29)
+(showFormat int))
+(pinCenter 900 90))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 154 15))
+(open
+(extent 101 39)
+(carbonCopy))
+(terminals on)
+(pinCenter 1070 490))
+(devCarrierFor 49
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 314 446)
+(editing disabled))
+(pinCenter 50 300))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter 60 -40))
+(connect D6:0 D0:0
+(points 2 580 75 580 94))
+(connect D1:1 D0:1
+(points 2 294 140 352 140))
+(connect D0:1 D2:1
+(points 6 807 140 830 140 830 190 220 190 220 280 238 280))
+(connect D2:1 D3:1
+(points 2 401 280 440 280))
+(connect D3:1 D4:1
+(points 8 819 260 840 260 840 200 420 200 420 320 240 320 240 480 261 480))
+(connect D3:2 D5:1
+(points 6 819 300 840 300 840 350 510 350 510 480 530 480))
+(connect D12:0 D6:0
+(points 6 220 40 220 60 280 60 280 -70 580 -70 580 -53))
+(connect D12:1 D6:1
+(points 4 274 30 290 30 290 20 313 20))
+(connect D8:2 D7:1
+(points 6 1231 100 1250 100 1250 130 900 130 900 180 915 180))
+(connect D13:1 D8:1
+(points 4 934 60 1030 60 1030 80 1048 80))
+(connect D14:1 D8:2
+(points 2 1019 90 1048 90))
+(connect D15:1 D8:3
+(points 6 915 90 930 90 930 120 1030 120 1030 100 1048 100))
+(connect D10:1 D9:0
+(points 3 1028 370 1210 370 1210 500))
+(connect D11:1 D10:1
+(points 6 1320 260 1340 260 1340 330 930 330 930 380 952 380))
+(connect D8:2 D11:1
+(points 6 1231 100 1250 100 1250 130 900 130 900 260 919 260))
+(connect D3:2 D11:2
+(points 2 819 300 919 300))
+(connect D3:1 D13:1
+(points 4 819 260 870 260 870 60 885 60))
+(connect D15:1 D14:1
+(points 2 915 90 940 90))
+(connect D11:1 D16:1
+(points 6 1320 260 1340 260 1340 330 930 330 930 490 947 490)))
+(stackingOrder 1 9 8 13 14 15 10 16 3 11 7 2 4 5 18 6 12 0 17))
+(numberFormats
+(realFormat standard)
+(realSigDigits 7)
+(realRadixSpec 4)
+(integerBase decimal))))

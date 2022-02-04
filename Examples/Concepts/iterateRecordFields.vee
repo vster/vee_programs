@@ -1,0 +1,224 @@
+(saveFormat "7.0")
+(date "Mon 23/Jun/2008 10:30:40 ")
+(veerev "9.0.11420.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 208)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 193 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 197 FORMULA
+(properties
+(name "get a field\'s value")
+(variableScope cont)
+(expr 1 "Rec.B"))
+(interface
+(input 1
+(name "Rec")
+(optional yes))
+(input 2
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 199 FORMULA
+(properties
+(name "Create formula to retrieve field\'s value")
+(variableScope cont)
+(expr 1 "\"Rec.\"+fieldName"))
+(interface
+(input 1
+(name "fieldName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 202 FROMRECORD
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))))
+(device 204 RECCONST
+(properties
+(name "Record")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "A"
+(type Text))
+(fieldName "B"
+(type Real64)))
+(data 
+(record
+("A" "Text field")
+("B" 1.25))))))
+(device 205 FOREACH
+(properties
+(name "For Each Element In")
+(variableScope cont))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 206 SCROLLINGTEXTDISPLAY
+(properties
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 207 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example illustrates how to iterate through the fields in a Record Scalar.\\par\r\nThe UnBuild Record provides an array of the field names.\\par\r\nThe ForEach iterates through those field names.\\par\r\nThe \"Create formula\" creates the \'Rec.Field\' fomula string.  This string, created for each field name, is passed into the second formula with a control input.  The second formula will execute the passed-in expression, which changes every iteration, to get each field of the record.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:0 D1:0)
+(connect D4:1 D1:1)
+(connect D2:1 D1:2)
+(connect D5:1 D2:1)
+(connect D4:1 D3:1)
+(connect D3:1 D5:1)
+(connect D1:1 D6:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 879 688)
+(anchorPt 801 465)
+(configuration
+(devCarrierFor 193
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter -170 -380))
+(devCarrierFor 197
+(active open)
+(icon
+(extent 103 25))
+(open
+(extent 144 50))
+(terminals on)
+(pinCenter -365 70))
+(devCarrierFor 199
+(active open)
+(icon
+(extent 225 15))
+(open
+(extent 154 50))
+(terminals on)
+(pinCenter -470 -40))
+(devCarrierFor 202
+(active open)
+(icon
+(extent 95 51)
+(iconImage "unbuild.icn"))
+(open
+(extent 19 53))
+(terminals on)
+(pinCenter -601 -170))
+(devCarrierFor 204
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 171 120)
+(formatters))
+(pinCenter -770 -170))
+(devCarrierFor 205
+(active icon)
+(icon
+(extent 122 51)
+(iconImage "loop.icn"))
+(open
+(extent 158 31))
+(pinCenter -420 -170))
+(devCarrierFor 206
+(active open)
+(icon)
+(open
+(extent 174 167)
+(noformatter))
+(pinCenter -90 70))
+(devCarrierFor 207
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 196)
+(editing disabled))
+(pinCenter -590 -340))
+(connect D2:0 D1:0
+(points 4 -480 -13 -480 0 -370 0 -370 24))
+(connect D4:1 D1:1
+(points 4 -746 -170 -720 -170 -720 60 -500 60))
+(connect D2:1 D1:2
+(points 6 -341 -40 -320 -40 -320 10 -520 10 -520 80 -500 80))
+(connect D5:1 D2:1
+(points 6 -357 -170 -340 -170 -340 -120 -640 -120 -640 -40 -620 -40))
+(connect D4:1 D3:1
+(points 2 -746 -170 -702 -170))
+(connect D3:1 D5:1
+(points 2 -519 -170 -484 -170))
+(connect D1:1 D6:1
+(points 2 -241 70 -180 70)))
+(stackingOrder 3 1 2 4 5 7 0 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

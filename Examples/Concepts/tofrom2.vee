@@ -1,0 +1,714 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 22:22:03 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 66)
+(popupTitleText "To From File example")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 2 DELAY
+(properties
+(name "Simulate Processing Delay")
+(variableScope cont)
+(delay 1)))
+(device 3 COUNTER
+(properties
+(name "# Records Read")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 5 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 6 BREAK
+(properties
+(variableScope cont)))
+(device 7 NEXT
+(properties
+(variableScope cont)))
+(device 8 NEXT
+(properties
+(variableScope cont)))
+(device 9 FROMFILE
+(properties
+(name "Read until File has valid data")
+(description2 15 "To allow this thread to wait until the data file"
+"exists and has at least one record of data, we"
+"need to loop repeatedly here.  " ""
+"The REWIND transaction will fail until the file"
+"exists.  Once the file exists, the READ TEXT will"
+"fail until at least one set of data is available"
+"in the file.  After both of these are satisfied,"
+"we need to REWIND the file so real data processing" "can begin.   " ""
+"Falling through to the Sequence Out pin and the"
+"BREAK will terminate this endless wait for data." "" "")
+(variableScope cont)
+(transactions 3 "EXECUTE REWIND" "READ TEXT null REAL64 ARRAY:256"
+"EXECUTE REWIND"))
+(interface
+(output 1
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 10 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 11 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 12 FROMFILE
+(properties
+(name "Read a Record From File")
+(variableScope cont)
+(transactions 1 "READ TEXT x REAL64 ARRAY:256"))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 13 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\f0\\fs20 Purpose:\\ulnone\\par\r\nIllustrate how one thread writes to a file and a second thread reads the data and processes it at it\'s own speed.\\par\r\n\\par\r\n\\ul User Input Required:\\ulnone\\par\r\nPress RUN and observe that the generating thread writes data faster than the consuming thread can process.\\par\r\n\\par\r\n\\ul Explanation:\\ulnone\\par\r\nIt may be useful in some situations to create and store data in a file so that it can be read back in and processed at non-real time rates.  This example shows how one \"thread\" can create and write data to a file as quickly as possible.  The second thread, running in parallel, reads the data back in and performs some simulated, time-consuming processing on the data.\\par\r\n\\par\r\nOne important concept illustrated is the existence of independent \"read\" and \"write\" file pointers for each file.  This allows independent reading or writing in conjunction with Rewinding, etc.  Remember, however, that only one read pointer exists for all \"From File\" objects with a common file name, and only one write pointer exists for all \"To File\" objects with a common name.\\par\r\n\\par\r\nIt may be instructional to use the Edit Menu to enable \"Show Execution Flow\" as you run this example; the \"parallel\" execution of each thread will be seen clearly.\\par\r\n\\par\r\nOne final point:  Since the order of execution is not guaranteed, it is possible for the \"consumer\" thread to execute before the \"producer\" thread. This might give a false EOF if there is not yet data in the file, or, if the file doesn\'t exist, an Error would be generated by the Read.  \\par\r\n\\par\r\nTo solve this, we assume a new file is used each time the example is run; in the example, we remove the file after all data is processed, so the same file name can be reused.  An alternative would be to use a filename based on the date and time.  In either case, the consuming thread must first loop repeatedly, issuing a REWIND on the file name.  This will fail with an error until the file actually exits.  You could also count the number of failures and exit if some limit is reached.\\par\r\n\\par\r\nAfter it is determined that the file exists, we must also make sure there is at least one complete data record available for reading.  The same endless loop reads a record into the dummy variable \"null\";  if an EOF results, then not enough data is yet available in the file.  Once the read succeeds, we REWIND the file so we can terminate the first Until Break and begin processing data records in the second Until Break.\\par\r\n\\par\r\nAfter all data is processed, the file is removed using an Execute Program object.\\par\r\n}\r\n"
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 231 46)))
+(contextCarrier
+(active panel)
+(panel
+(extent 739 562)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 320 520)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 740 510)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 299 224)
+(anchorPt 494 269)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 494 466)
+(editing disabled))
+(pinCenter -180 20))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter -1 67)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 249 64)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 68 8)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 432 290)
+(anchorPt 243 90)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 862 532)
+(carbonCopy))
+(pinCenter 70 70))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 70 85 70 110 -210 110 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 70 -10 70 55)))
+(stackingOrder 0 1 2))))
+(device 14 YPLOT
+(properties
+(name "Processed Data")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode strip)))
+(device 15 FORMULA
+(properties
+(name "linRamp(256,0,1)")
+(description2 2 "Generate some output data" "")
+(variableScope cont)
+(expr 1 "ramp(256, 0, 1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORCOUNT
+(properties
+(variableScope cont)
+(count 20))
+(interface
+(output 1
+(lock name constraints))))
+(device 18 COUNTER
+(properties
+(name "# Records Written")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 19 TOFILE
+(properties
+(name "Write Generated Data To File")
+(variableScope cont)
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 20 YPLOT
+(properties
+(name "Generated Data")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode strip)))
+(device 53 FROMFILE
+(properties
+(name "Delete the File when done")
+(description2 11 "The recommended way to delete a file is to"
+"execute a DELETE command in a From File"
+" device.  If the file does not exist, an error is" "not generated. " ""
+"Why would a DELETE in a TO File not be a good way"
+"to delete a file?  Remember that a file opened for Write"
+"will create the file if it doesn\'t exist.  A From File, on the"
+"other hand, simply ignores the command if the file" "doesn\'t exist." "")
+(variableScope cont)
+(transactions 1 "EXECUTE DELETE"))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 61 FROMFILE
+(properties
+(name "Delete the data File at Start")
+(description2 11 "The recommended way to delete a file is to"
+"execute a DELETE command in a From File"
+" device.  If the file does not exist, an error is"
+"generated.  An ERROR output can trap this. " ""
+"Why would a DELETE in a TO File not be a good way"
+"to delete a file?  Remember that a file opened for Write"
+"will create the file if it doesn\'t exist.  A From File, on the"
+"other hand, simply ignores the command if the file" "doesn\'t exist." "")
+(variableScope cont)
+(transactions 1 "EXECUTE DELETE"))
+(interface
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 62 LABEL
+(properties
+(name "Generate Data to File")
+(variableScope cont)
+(labelValue "Generate Data to File"))
+(implementation))
+(device 63 LABEL
+(properties
+(name "Read Data from File")
+(variableScope cont)
+(labelValue "Read Data from File"))
+(implementation))
+(device 65 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Press RUN, Most objects have a Show Description info box.Additional help is in the InfoAbout object\\par\r\n\\par\r\nIf there is VEE Run Time Error with message \"File \'\\\\tmp\\\\example.dat\' was not found\", please create a folder named \'tmp\' at your program root drive, e.g. \"C:\\\\tmp\". \\par\r\n}\r\n"
+)))
+(configuration
+(connect D10:0 D1:0)
+(connect D10:1 D2:1)
+(connect D18:0 D3:0)
+(connect D7:0 D4:0)
+(connect D7:1 D5:0)
+(connect D7:2 D6:0)
+(connect D8:1 D7:0)
+(connect D8:0 D9:0)
+(connect D9:1 D10:0)
+(connect D10:1 D12:1)
+(connect D14:1 D13:0)
+(connect D19:0 D14:0)
+(connect D13:1 D15:1)
+(connect D13:1 D16:1)
+(connect D13:1 D17:1)
+(connect D10:2 D18:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 812 615)
+(wndState max)
+(active detail)
+(detail
+(extent 1400 861)
+(anchorPt 502 173)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 344 66)
+(editing disabled))
+(pinCenter -290 -140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 235 25))
+(open
+(extent 309 28))
+(pinCenter -280 590))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 160 32))
+(pinCenter -10 480))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 120 38))
+(pinCenter 0 600))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 57 24))
+(open)
+(terminals on)
+(pinCenter -140 410))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 70 330))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 70 420))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 195 26))
+(open
+(extent 275 101))
+(terminals on)
+(pinCenter -145 330))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 80 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -390 240))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 80 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -390 400))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 148 25))
+(open
+(extent 241 85))
+(terminals on)
+(pinCenter -285 520))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 251 63)
+(carbonCopy))
+(pinCenter -310 -50))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 136 0)
+(iconImage "display.icn"))
+(open
+(extent 236 176)
+(displayMode 0)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 2 3 linear))
+(domain 0 6000 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(pinCenter 230 520))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 137 25))
+(open
+(extent 181 39))
+(terminals on)
+(pinCenter -340 180))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 80 64)
+(iconImage "loop.icn"))
+(open
+(extent 141 41))
+(pinCenter -400 120))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 163 0))
+(open
+(extent 176 24))
+(pinCenter -80 200))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 168 25))
+(open
+(extent 246 101))
+(terminals on)
+(pinCenter -80 100))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 136 0)
+(iconImage "display.icn"))
+(open
+(extent 236 176)
+(displayMode 0)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 2 3 linear))
+(domain 0 6000 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(pinCenter 230 170))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 200 25))
+(open
+(extent 273 68))
+(terminals on)
+(pinCenter 0 560))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 187 27))
+(open
+(extent 375 69))
+(terminals on)
+(pinCenter -400 50))
+(devCarrierFor 62
+(active open)
+(icon
+(extent 150 0))
+(open
+(extent 149 28)
+(just l))
+(title off)
+(pinCenter 210 30))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 139 28)
+(just l))
+(title off)
+(pinCenter 230 380))
+(devCarrierFor 65
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 136)
+(editing disabled))
+(pinCenter 120 -70))
+(connect D10:0 D1:0
+(points 2 -280 565 -280 575))
+(connect D10:1 D2:1
+(points 4 -122 500 -110 500 -110 480 -93 480))
+(connect D18:0 D3:0
+(points 2 0 575 0 585))
+(connect D7:0 D4:0
+(points 2 -140 383 -140 395))
+(connect D7:1 D5:0
+(points 3 35 300 70 300 70 315))
+(connect D7:2 D6:0
+(points 5 35 360 50 360 50 370 70 370 70 405))
+(connect D8:1 D7:0
+(points 3 -348 240 -140 240 -140 259))
+(connect D8:0 D9:0
+(points 2 -390 274 -390 365))
+(connect D9:1 D10:0
+(points 3 -348 400 -280 400 -280 457))
+(connect D10:1 D12:1
+(points 4 -122 500 -100 500 -100 520 109 520))
+(connect D14:1 D13:0
+(points 3 -358 120 -340 120 -340 165))
+(connect D19:0 D14:0
+(points 2 -400 66 -400 85))
+(connect D13:1 D15:1
+(points 4 -269 180 -250 180 -250 200 -171 200))
+(connect D13:1 D16:1
+(points 4 -269 180 -260 180 -260 100 -236 100))
+(connect D13:1 D17:1
+(points 8 -269 180 -250 180 -250 200 -190 200 -190 230 30 230 30 170 109 170))
+(connect D10:2 D18:0
+(points 5 -122 540 -110 540 -110 530 0 530 0 545)))
+(stackingOrder 13 8 10 7 1 6 18 3 20 16 14 11 15 22 17 5 4 9 2 12 21 19 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

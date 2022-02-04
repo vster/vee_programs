@@ -1,0 +1,523 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:58:44 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Feedback Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 START25)
+(device 1 FORMULA
+(properties
+(name ".5*z1")
+(expr 1 ".5*z1"))
+(interface
+(input 1
+(name "z1")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORCOUNT
+(properties
+(count 256))
+(interface
+(output 1
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name ".5")
+(expr 1 ".5*a"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 VFUNCTIONGENERATOR
+(properties
+(name "Square Wave")
+(function Square)
+(frequency 50)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 180)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(lock name constraints))))
+(device 6 FROMWAVEFORM
+(interface
+(input 1
+(name "Wf Data")
+(requires
+(datatype Waveform))
+(lock name constraints))
+(output 1
+(name "Real Ary")
+(lock name constraints))
+(output 2
+(name "Interval")
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(name "x(n)")
+(expr 1 "b[a]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 YPLOT
+(properties
+(name "one pole IIR filter"))
+(interface
+(input 1
+(name "filtered")
+(lock constraints))
+(input 2
+(name "original")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)))
+(device 9 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Overview of Feedback Example")
+(text2 24
+"PURPOSE: This example illustrates feedback and how it can be used to implement a simple"
+"  one-pole IIR digital filter." "" "USER INPUT REQUIRED: Press Run." ""
+"EXPLANATION:  The For Count, Function Generator (labeled \"Square Wave\"),"
+"  UnBuild Waveform, and Formula (labeled \"x(n)\") generates the sequence of numbers "
+"  to be filtered." ""
+"  In general, the construction of digital filters involves storing previous"
+"  values.  A one-pole filter only needs one previous value of the output.  VEE"
+"  provides a Shift Register which can maintain an arbitrary number of previous"
+"  values.  How many are kept depends on the number of outputs added." ""
+"  At first glance, you might think the \"1 Prev\" output of the Shift Register"
+"  should be used.  When feedback is used in a VEE program, execution around the loop"
+"  is done once and only once for each iteration.  Otherwise, infinite loops"
+"  would be too easy to build.  Thus a delay of one interaction is always present when "
+"  feedback is used.  Thus, this example shows the Current output pin being used.  "
+"  Actually, the Shift Register is not needed for this simple filter as the feedback "
+"  path could be connected directly to the Formula box." ""
+"  The display shows how the edge of the square wave is smoothed by the low-pass"
+"  filter.")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 207 54)))
+(contextCarrier
+(active detail)
+(panel
+(extent 800 523)
+(widget 0 detail
+(relativeOrigin 340 480)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 800 470)
+(editing disabled)))
+(detail
+(extent 698 597)
+(anchorPt 154 97)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -80 460))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 635 337)
+(editing enabled))
+(pinCenter 210 190)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 96 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 509 275)
+(anchorPt 241 74)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 120 70))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 120 85 120 110 -210 110 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 120 -10 120 55)))
+(stackingOrder 0 1 2))))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 11 SHIFTREGISTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Current")
+(lock name constraints))
+(output 2
+(name "1 Prev")
+(lock name constraints)
+(optional yes))))
+(device 12 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 13 CONSTANT
+(properties
+(name "0.0"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(configuration
+(connect D11:1 D1:1)
+(connect D1:1 D2:1)
+(connect D7:1 D2:2)
+(connect D0:0 D3:0)
+(connect D2:1 D4:1)
+(connect D5:1 D6:1)
+(connect D3:1 D7:1)
+(connect D6:1 D7:2)
+(connect D4:1 D8:1)
+(connect D7:1 D8:2)
+(connect D12:1 D11:1)
+(connect D2:1 D12:1)
+(connect D13:1 D12:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 821 514)
+(anchorPt 80 168)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 42 24))
+(open
+(extent 148 44))
+(title off)
+(bg "Med Dark Green")
+(fg "White")
+(pinCenter 10 110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 79 204))
+(terminals on)
+(pinCenter 240 10))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 330 20))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 148 34))
+(pinCenter 10 190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 79 54))
+(terminals on)
+(pinCenter 400 20))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "virtual.icn"))
+(open
+(extent 239 198))
+(terminals on)
+(pinCenter 10 270))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 154 64)
+(iconImage "unbuild.icn"))
+(open)
+(terminals on)
+(pinCenter 170 270))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 79 104))
+(terminals on)
+(pinCenter 300 200))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 181 0)
+(iconImage "display.icn"))
+(open
+(extent 275 371)
+(displayMode 63)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "y(n)")
+(domainName "n")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0.75 1.05 3 linear))
+(domain 125 140 3 linear)
+(trace 0 onScale 0
+(name "filtered")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "original")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(pinCenter 590 110))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 90 -100))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 440 -130))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 143 96))
+(open
+(extent 46 64))
+(terminals on)
+(pinCenter 100 30))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 0 30))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 24 16))
+(open
+(extent 69 30)
+(showFormat real))
+(pinCenter -50 40))
+(connect D11:1 D1:1
+(points 2 185 10 198 10))
+(connect D1:1 D2:1
+(points 2 281 10 304 10))
+(connect D7:1 D2:2
+(points 6 325 200 350 200 350 170 290 170 290 30 304 30))
+(connect D0:0 D3:0
+(points 2 10 134 10 152))
+(connect D2:1 D4:1
+(points 2 355 20 374 20))
+(connect D5:1 D6:1
+(points 2 67 270 90 270))
+(connect D3:1 D7:1
+(points 2 86 190 274 190))
+(connect D6:1 D7:2
+(points 4 249 250 260 250 260 210 274 210))
+(connect D4:1 D8:1
+(points 2 425 20 450 20))
+(connect D7:1 D8:2
+(points 2 325 200 450 200))
+(connect D12:1 D11:1
+(points 2 17 30 34 30))
+(connect D2:1 D12:1
+(points 6 355 20 370 20 370 -40 -30 -40 -30 20 -17 20))
+(connect D13:1 D12:2
+(points 2 -36 40 -17 40)))
+(stackingOrder 9 1 7 6 11 5 12 8 13 3 0 2 4 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

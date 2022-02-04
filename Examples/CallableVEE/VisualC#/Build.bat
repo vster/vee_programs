@@ -1,0 +1,1 @@
+csc.exe /out:CallableVeeSample.exe /t:winexe /r:CallableVEE.dll *.cs

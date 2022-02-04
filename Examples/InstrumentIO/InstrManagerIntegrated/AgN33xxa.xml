@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN33xxa.vee">
+		<Description>Programs inputs, measure input conditions, and strip chart</Description>
+		<LogicalInstrument name="ElectronicLoad">
+			<SupportedInstruments>
+				<Instrument idn="agn3300a"/>
+				<Instrument idn="agn3301a"/>
+				<Instrument idn="hpn3300a"/>
+				<Instrument idn="hpn3301a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

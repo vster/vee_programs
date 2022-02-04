@@ -1,0 +1,229 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:13:18 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 24)
+(popupTitleText "Using UnBuild Record")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 1 VFUNCTIONGENERATOR
+(properties
+(function Sine)
+(frequency 100)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 3 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Record")
+(tag "Record"))))
+(device 10 FORMULA
+(properties
+(name "now( )")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 12 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 17 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type List")
+(tag "Type List")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "A")
+(tag "A")
+(optional yes))
+(output 4
+(name "B")
+(tag "B")
+(optional yes))))
+(device 20 NOTE
+(properties
+(name "Information")
+(text2 4 "This example shows how to use the Unbuild Record"
+"object to extract fields from a record.  For"
+"further information, see the \"VEE Help\" topic"
+"\"To Extract a Field from a Record\".")))
+(device 23 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D5:3 D3:1)
+(connect D5:4 D4:1)
+(connect D1:1 D5:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 929 495)
+(anchorPt 88 209)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 146 59)
+(iconImage "virtual.icn"))
+(open
+(extent 204 182))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 113 64))
+(terminals on)
+(pinCenter 195 60))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 69 32))
+(terminals on)
+(pinCenter -10 100))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 232 203)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 700 70))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 265 32)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 6)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HMS H24)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter 700 240))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 107 57)
+(iconImage "unbuild.icn"))
+(open
+(extent 11 90))
+(terminals on)
+(pinCenter 445 60))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 495 120)
+(editing disabled))
+(title off)
+(pinCenter 170 -140))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 610 -130))
+(connect D0:1 D1:1
+(points 4 75 0 90 0 90 40 106 40))
+(connect D2:1 D1:2
+(points 4 77 100 90 100 90 80 106 80))
+(connect D5:3 D3:1
+(points 2 523 70 581 70))
+(connect D5:4 D4:1
+(points 4 523 90 540 90 540 240 565 240))
+(connect D1:1 D5:1
+(points 2 314 60 356 60)))
+(stackingOrder 1 2 6 3 4 0 5 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

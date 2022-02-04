@@ -1,0 +1,670 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:50:02 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 24)
+(popupTitleText "Simple NPV")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "CashFlows")
+(description2 8 "This is a \"Data -> Constant -> Real\" object, with"
+"the \"Config... Array Elements\" set to 12."
+"Increasing this value would allow entry of a"
+"larger initial number of cash flows.  However,"
+"VEE allows additional data to be added at the"
+"end of a defined input array by merely pressing"
+"the \"Tab\" or \"down-arrow\" key from the last" "element of the input.  "))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 13)
+(data  [ -14500 1650 3000 10000 -2000 0 1000 5000 4000 -2000 500 -1000 -150 ]))
+(initValue Real
+(data  0))))
+(device 1 START25
+(properties
+(name "Recalc NPV")
+(description2 6 "This is a \"Flow -> Start\" object." ""
+"It is used as an alternative to \"Run\", especially"
+"when it is desired to activate a single thread"
+"in a multi-thread program.  In this example, \"Run\""
+"and \"Start\" provide essentially the same function.")))
+(device 2 FORMULA
+(properties
+(name " / ")
+(description2 6 "This is a \"Math -> +-*/ -> /\" object. " ""
+"Note that each element of the \"CashFlows\" array "
+"is divided by the corresponding element in the"
+"array built by the (1+R/P/100^N) formula." "")
+(expr 1 "X/Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "sum(x)")
+(description2 3 "It provides the sum of all elements in a one "
+"dimensional array." "")
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "sum(x)")
+(description2 4 "It provides the sum of all elements in a one"
+"This is an \"AdvMath -> Array -> sum(x)\" object." ""
+"It provides the sum of all elements of a one")
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TEXTDISPLAY
+(properties
+(name "Sum of Cash Flows")
+(description2 5 "This is a \"Display -> AlphaNumeric\" object." ""
+"It is used to display a single output in this"
+"case, but may also be used to display an array." ""))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FROMARRAY
+(properties
+(name "CashFlows Size")
+(description2 9 "This is a \"Data -> UnBuild Data -> Array\" object." ""
+"It is used in this example merely to obtain the"
+"number of values entered into the \"CashFlows\""
+"object, or, in other words, to determine the size" "of the array.  " ""
+"Note:  From a formula, you can use totsize(x)" "to determine the array size.")
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 8 CONSTANT
+(properties
+(name "Discount Rate, %")
+(description2 6 "This is a \"Data -> Constant -> Real\" object, used"
+"for data input, in this case for the desired"
+"\"Discount Rate\".  The value is entered in a"
+"percent format instead of as a decimal value"
+"(ie, 12 rather than .12) merely because this seems" "more natural.  "))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  9))
+(initValue Real
+(data  0.1))))
+(device 9 CONSTANT
+(properties
+(name "Periods/Year")
+(description2 3 "This is a \"Data -> Constant -> Real\" object, used"
+"for data input, in this case for the number of periods" "per year."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  12))
+(initValue Real
+(data  0.1))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Net Present Value")
+(description2 1 ""))
+(interface
+(input 1
+(name "Data"))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Individual PV")
+(description2 7 "This is a \"Display -> AlphaNumeric\" object." ""
+"Note that this display device may be use to show"
+"either a single element, or the multiple elements"
+"of an array.  The scroll bar is used to view array"
+"elements that don\'t fit on the screen properly." ""))
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(name "Warranty Disclaimer")
+(description2 1 "   ")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to " "this example.")))
+(device 19 FORMULA
+(properties
+(name " (1+R/P/100)^N ")
+(description2 10 "This is a \"Math -> Formula\" object." ""
+"A number of input elements acting as \"named "
+"variables\" may be used by the mathematical "
+"formula entered into this object to produce the" "Result output." ""
+"This formula uses parallel math to generate "
+"an output array for each value of the Ramp" "array.")
+(expr 1 "(1+R/P/100)^ramp(N, 0, N-1)"))
+(interface
+(input 1
+(name "N")
+(optional yes))
+(input 2
+(name "R")
+(optional yes))
+(input 3
+(name "P")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Overview of Simple NPV Example")
+(description2 1 "")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(description2 1 "low -> OK\" \"buttons\", used for keeping the panel")
+(text2 36
+"PURPOSE: To demonstrate financial capabilities of VEE, using a simple"
+"\t\t Net Present Value model with no provision for effect of taxes." ""
+"REQUIRED USER DATA: Press Run.  Input values may be changed." ""
+"EXPLANATION: You may change the Annual Interest Rate and Number of"
+"        Periods per Year as well as Cash Flows for each individual"
+"        period, including the total number of Cash Flows.  Click on"
+"        \"Discount Rate\" and enter annual rate.  Similarly, click the"
+"        \"Periods/Year\" and \"CashFlows\" data fields to enter data. "
+"        You may position the cursor on Cash Flow Field to change,"
+"        type in the value, then use \"Tab\" to enter value and cycle"
+"        down to the next Cash Flow field.  To add a line, simply"
+"        press \"Tab\" from the last line, or \"Insert line\" from any"
+"        location.  To delete a line, position cursor on line and press"
+"        \"Delete line\".  When all desired data has been entered, click"
+"        \"Run\" or \"Start\" to run program." ""
+"        Note: the program follows the convention that money received is "
+"        entered as a positive Cash Flow, and that money paid out is "
+"        entered as a negative Cash Flow.  Hence, positive NPV indicates "
+"        achievement of the discount rate goal.  If Cash Flows are assumed "
+"        to occur at the END of each period, do not use the 0000: entry line."
+"        Cash Flows starting with the 0000: entry line effectively occur"
+"        at the BEGINNING of each period." ""
+"        Please click \"Detail\" (left above menu bar) to view the program"
+"        from another perspective.  One might thus observe the inherent"
+"        advantages of using the \"Panel\" feature of VEE on display"
+"        layout and organization of data.  Also note that calculations"
+"        are easily achieved using array math." ""
+"        By bringing up the \"Object Menu\" for each device and selecting"
+"        \"Edit Description\", additional information will be shown for"
+"        the specific object." "")))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 233 80)))
+(contextCarrier
+(active detail)
+(panel
+(extent 649 443)
+(gridSize 2)
+(widget 1 detail
+(relativeOrigin 280 388)
+(title off)
+(borderStyle none)
+(extent 74 47))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 650 380)
+(editing disabled)))
+(detail
+(extent 690 569)
+(anchorPt 203 157)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 645 397)
+(editing disabled))
+(pinCenter 140 140))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 70 43))
+(title off)
+(pinCenter -140 -120)))
+(stackingOrder 1 0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 465 228)
+(anchorPt 235 64)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 280 25))
+(open
+(extent 771 435)
+(carbonCopy))
+(pinCenter 40 50))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 40 65 40 90 -210 90 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 40 -10 40 35)))
+(stackingOrder 0 1 2))))
+(device 22 LABEL
+(properties
+(labelValue "Inputs:"))
+(implementation))
+(device 23 LABEL
+(properties
+(labelValue "Outputs:"))
+(implementation))
+(configuration
+(connect D1:0 D0:0)
+(connect D0:1 D2:1)
+(connect D12:1 D2:2)
+(connect D2:1 D3:1)
+(connect D0:1 D4:1)
+(connect D4:1 D5:1)
+(connect D0:1 D6:1)
+(connect D3:1 D9:1)
+(connect D2:1 D10:1)
+(connect D6:5 D12:1)
+(connect D7:1 D12:2)
+(connect D8:1 D12:3)))
+(contextCarrier
+(wndOrigin 2 5)
+(wndState res)
+(active panel)
+(panel
+(extent 732 520)
+(gridSize 2)
+(widget 14 detail
+(relativeOrigin 6 6)
+(font "lucida" 18)
+(title off)
+(borderStyle none)
+(extent 96 29)
+(just l))
+(widget 7 detail
+(relativeOrigin 6 100)
+(title on)
+(borderStyle flat)
+(extent 202 34))
+(widget 0 detail
+(relativeOrigin 6 166)
+(title on)
+(borderStyle flat)
+(extent 202 198))
+(widget 5 detail
+(relativeOrigin 6 392)
+(title on)
+(borderStyle flat)
+(extent 202 40))
+(widget 11 icon
+(relativeOrigin 6 460)
+(title off)
+(borderStyle none)
+(extent 342 52)
+(iconImage "disclaim.gif")
+(label off))
+(widget 13 panel
+(relativeOrigin 242 36)
+(title on)
+(borderStyle flat)
+(extent 214 68)
+(widget 1 detail
+(relativeOrigin 43 10)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(widget 1 detail
+(relativeOrigin 242 166)
+(title off)
+(borderStyle none)
+(extent 221 52))
+(widget 15 detail
+(relativeOrigin 504 6)
+(font "lucida" 18)
+(title off)
+(borderStyle none)
+(extent 111 29)
+(just l))
+(widget 8 detail
+(relativeOrigin 6 36)
+(title on)
+(borderStyle flat)
+(extent 203 32))
+(widget 10 detail
+(relativeOrigin 504 36)
+(title on)
+(borderStyle flat)
+(extent 216 328)
+(formatter
+(realFormat fixed)
+(realSigDigits 16)
+(realRadixSpec 2)
+(integerBase decimal)))
+(widget 9 detail
+(relativeOrigin 504 396)
+(title on)
+(borderStyle flat)
+(extent 216 38)
+(formatter
+(realFormat fixed)
+(realSigDigits 16)
+(realRadixSpec 2)
+(integerBase decimal))))
+(detail
+(extent 815 615)
+(anchorPt 93 193)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 169 166))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 89 24))
+(open
+(extent 112 43))
+(title off)
+(pinCenter 0 -160))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 79 104))
+(terminals on)
+(pinCenter 310 70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 88 54))
+(terminals on)
+(pinCenter 450 70))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 88 54))
+(terminals on)
+(pinCenter 180 0))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 163 0))
+(open
+(extent 222 37))
+(pinCenter 380 0))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 101 158))
+(terminals on)
+(pinCenter 10 160))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 154 25))
+(open
+(extent 158 26))
+(pinCenter 10 260))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 168 28))
+(pinCenter 10 330))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 163 25))
+(open
+(extent 176 42)
+(formatter
+(realFormat fixed)
+(realSigDigits 16)
+(realRadixSpec 2)
+(integerBase decimal)))
+(pinCenter 610 70))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 215 256)
+(formatter
+(realFormat fixed)
+(realSigDigits 16)
+(realRadixSpec 2)
+(integerBase decimal)))
+(pinCenter 580 260))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 395 80)
+(editing disabled))
+(pinCenter 240 -160))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 145 34))
+(open
+(extent 204 140))
+(terminals on)
+(pinCenter 270 260))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 275 79)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 570 -120))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 98 31)
+(just l))
+(pinCenter 250 -81))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 98 31)
+(just l))
+(pinCenter 360 -81))
+(connect D1:0 D0:0
+(points 2 0 -136 0 -104))
+(connect D0:1 D2:1
+(points 4 87 0 110 0 110 60 284 60))
+(connect D12:1 D2:2
+(points 6 424 260 440 260 440 150 260 150 260 80 284 80))
+(connect D2:1 D3:1
+(points 2 335 70 408 70))
+(connect D0:1 D4:1
+(points 2 87 0 138 0))
+(connect D4:1 D5:1
+(points 2 221 0 266 0))
+(connect D0:1 D6:1
+(points 6 87 0 110 0 110 110 -80 110 -80 160 -61 160))
+(connect D3:1 D9:1
+(points 2 491 70 519 70))
+(connect D2:1 D10:1
+(points 6 335 70 390 70 390 110 450 110 450 260 470 260))
+(connect D6:5 D12:1
+(points 4 80 180 110 180 110 220 135 220))
+(connect D7:1 D12:2
+(points 2 91 260 135 260))
+(connect D8:1 D12:3
+(points 4 96 330 120 330 120 300 135 300)))
+(stackingOrder 2 3 4 5 6 1 14 15 7 8 12 10 9 13 11 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

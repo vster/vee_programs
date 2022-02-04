@@ -1,0 +1,263 @@
+(saveFormat "7.0")
+(date "Sun 07/Mar/2004 11:30:55 ")
+(veerev "7.0.6305.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINNT\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINNT\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces "System,System.Windows.Forms,"))
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "FolderBrowserDialog")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name
+"Set folderBrowserDialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.FolderBrowserDialog\" );"
+)
+(expr 10
+"Set folderBrowserDialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.FolderBrowserDialog\" );"
+"" "//Set the starting folder"
+"folderBrowserDialog.RootFolder=Environment.SpecialFolder.Desktop; " ""
+"//Set the dialog title" "folderBrowserDialog.Description=\"Select a folder\";"
+"" "//Allow user to create a new folder"
+"folderBrowserDialog.ShowNewFolderButton=asClrType(\"true\",System.Boolean);"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 DECLVAR
+(properties
+(name "Declare folderBrowserDialog")
+(scope glob)
+(globalName "folderBrowserDialog"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 4 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 5 CONFIRM25
+(properties
+(name "Select A Folder")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 6 FORMULA
+(properties
+(expr 5
+"//Show the dialog. Note that no files are shown in this dialog, only folders."
+"folderBrowserDialog.ShowDialog();" ""
+"//Get the selected folder. Note that when re-using the dialog, it remembers the previously selected folder."
+"folderBrowserDialog.SelectedPath "))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 CONFIRM25
+(properties
+(name "Close")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 14 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 15 EXITCONTEXT)
+(device 18 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\f0\\fs24 SelectFolder\\par\r\n\\cf0\\ulnone\\b0\\f1\\par\r\nDemonstrates how to allow users to select a folder without selecting a file.  This uses the .Net 1.1 FolderBrowserDialog, and uses the Special Folders Enum to start at the users Desktop.\\par\r\n    \\par\r\nNote that System.Windows.Forms namespace is imported.  \\par\r\n\\par\r\nSee examples\\\\dotnet\\\\SelectFiles.vee for selecting one or more files.  \\b\\par\r\n\\par\r\n\\par\r\nAssemblies\\b0 : Mscorlib\\par\r\n\\b Namespaces\\b0 : System, System.Windows.Forms \\par\r\n\\b Classes\\b0 : System.Windows.Forms.FolderBrowserDialog, System.Environment.SpecialFolder\\f2\\fs17\\par\r\n}\r\n"
+)))
+(device 19 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D0:0 D2:0)
+(connect D2:1 D3:0)
+(connect D3:1 D4:0)
+(connect D4:1 D5:1)
+(connect D7:1 D6:0)
+(connect D6:1 D8:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 1 0)
+(wndState res)
+(active detail)
+(panel
+(extent 795 168)
+(drawGrid "on")
+(widget 3 detail
+(relativeOrigin 10 20)
+(PID 2)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 100 30))
+(widget 5 detail
+(relativeOrigin 10 50)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 766 26))
+(widget 6 detail
+(relativeOrigin 330 130)
+(PID 4)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 90 30)))
+(detail
+(extent 1048 865)
+(anchorPt -164 154)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 720 0))
+(open
+(extent 674 186))
+(terminals on)
+(pinCenter 540 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 174 15))
+(open
+(extent 335 104))
+(pinCenter 500 -70))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 300 230))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 124 34))
+(title off)
+(pinCenter 450 270))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 624 106))
+(terminals on)
+(pinCenter 540 370))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 494 26))
+(pinCenter 550 500))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 64 34))
+(title off)
+(pinCenter 740 270))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 650 230))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 840 280))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 534 276)
+(editing disabled))
+(pinCenter 210 -120))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 490 -120))
+(connect D0:0 D2:0
+(points 4 550 165 550 190 300 190 300 202))
+(connect D2:1 D3:0
+(points 3 336 230 450 230 450 250))
+(connect D3:1 D4:0
+(points 3 514 270 550 270 550 296))
+(connect D4:1 D5:1
+(points 6 904 370 920 370 920 450 280 450 280 500 300 500))
+(connect D7:1 D6:0
+(points 3 686 230 740 230 740 250))
+(connect D6:1 D8:0
+(points 5 774 270 780 270 780 250 840 250 840 270)))
+(stackingOrder 2 4 10 1 9 8 3 7 6 5 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

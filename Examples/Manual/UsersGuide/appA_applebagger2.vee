@@ -1,0 +1,227 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:08:24 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 "random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 ACCUMULATOR
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 4 BREAK)
+(device 5 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 6 START25)
+(device 7 IFTHENELSE
+(properties
+(name "If A <= 10")
+(cases 1 "A<=10"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 SHIFTREGISTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Current")
+(lock name constraints))
+(output 2
+(name "1 Prev")
+(lock name constraints)
+(optional yes))))
+(device 9 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Number of Apples"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D5:0 D0:0)
+(connect D0:1 D1:0)
+(connect D1:1 D2:1)
+(connect D9:0 D3:0)
+(connect D0:1 D4:1)
+(connect D2:1 D6:1)
+(connect D4:1 D7:1)
+(connect D6:2 D8:0)
+(connect D7:2 D8:1)
+(connect D8:1 D9:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 110 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 106 15))
+(open
+(extent 111 35))
+(terminals on)
+(pinCenter 260 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 110 31))
+(pinCenter 390 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 500 270))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 84 31))
+(pinCenter 130 210))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 110 30))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 55 25))
+(open
+(extent 65 51))
+(terminals on)
+(pinCenter 535 90))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 17 50))
+(terminals on)
+(pinCenter 250 210))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 370 220))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 108 0))
+(open
+(extent 144 22))
+(pinCenter 500 220))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 270 320))
+(connect D5:0 D0:0
+(points 2 110 43 110 62))
+(connect D0:1 D1:0
+(points 5 146 90 180 90 180 60 260 60 260 80))
+(connect D1:1 D2:1
+(points 2 315 90 350 90))
+(connect D9:0 D3:0
+(points 2 500 233 500 260))
+(connect D0:1 D4:1
+(points 6 146 90 170 90 170 140 70 140 70 210 85 210))
+(connect D2:1 D6:1
+(points 2 429 90 470 90))
+(connect D4:1 D7:1
+(points 2 174 210 207 210))
+(connect D6:2 D8:0
+(points 5 610 100 630 100 630 140 370 140 370 210))
+(connect D7:2 D8:1
+(points 2 293 220 352 220))
+(connect D8:1 D9:1
+(points 2 387 220 425 220)))
+(stackingOrder 5 4 7 8 9 3 0 1 6 2 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

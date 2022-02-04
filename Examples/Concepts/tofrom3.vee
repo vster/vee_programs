@@ -1,0 +1,306 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:02:26 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "Enums and CASE transactions")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 TOSTRING
+(properties
+(transactions 1 "WRITE CASE a OF \"Colt\", \"Kitten\", \"Puppy\" EOL"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 ENUMCONSTANT
+(properties
+(name "Radio Buttons")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Horse" 0)
+("Cat" 1)
+("Dog" 2))
+(data  "Dog"))
+(initValue Text
+(data  "Horse"))))
+(device 3 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(device 4 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Explanation")
+(text2 36 "PURPOSE: This example shows the use of the enumerated types"
+"  (from the Selection Control object - \"Radio Buttons\") and "
+"  the WRITE CASE I/O transaction together. Use this technique "
+"  to map easily-understood strings into corresponding output " "  strings." ""
+"USER INPUT REQUIRED: Click \"Run\" and observe the output."
+"  Select another choice from the Radio Button list and "
+"  observe the corresponding output." ""
+"EXPLANATION: The Selection Control object has three values: "
+"  \"Horse\", \"Cat\", \"Dog\".  The WRITE CASE transaction has three"
+"  possible cases: \"Colt\", \"Kitten\", and \"Puppy\".  Click one"
+"  of the Radio Button to choose one of the adult animals."
+"  Because the Radio Button object has Auto Execute turned on, the"
+"  thread starts executing automatically after the selection" "  is made." ""
+"  An enumerated type has an implicit ordinal value,"
+"  whatever choice is made will map into the cases of the"
+"  WRITE CASE transaction.  If \"Dog\" is selected in the Enum"
+"  object, the ordinal value \'2\' is seen by the variable \'A\'"
+"  in the To String object.  This maps into the third case," "  \"Puppy\".  " ""
+"  Note that an enumerated type\'s value starts at zero. "
+"  Also note that an Integer could just have easily been"
+"  given to the \'A\' variable. This integer would have been 0,"
+"  1, or 2.  If the number is less than zero or greater than"
+"  n-1 where n is the number of cases, then an error will" "  appear." ""
+"  The Selection Control object has the ability to display its "
+"  values in various formats including a pop-up list, a drop-down "
+"  list, or as radio buttons. " "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 261 58)))
+(contextCarrier
+(active panel)
+(panel
+(extent 639 460)
+(widget 0 detail
+(relativeOrigin 270 420)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 640 410)
+(editing disabled)))
+(detail
+(extent 866 520)
+(anchorPt 433 350)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 813 350)
+(editing disabled))
+(pinCenter 0 -120)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 266 81)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 72 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 518 287)
+(anchorPt 283 93)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 643 427)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 80))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 95 60 120 -210 120 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 65)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D2:1 D0:1)
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 447)
+(anchorPt 440 244)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 353 59))
+(pinCenter -40 10))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 192 35))
+(pinCenter 260 10))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 106 0))
+(open
+(extent 142 77)
+(format buttons))
+(pinCenter -330 30))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 291 99)
+(editing disabled))
+(pinCenter 50 -150))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 266 81)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -290 -140))
+(connect D2:1 D0:1
+(points 2 -257 10 -219 10))
+(connect D0:1 D1:1
+(points 2 139 10 161 10)))
+(stackingOrder 4 0 1 2 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

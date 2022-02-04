@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE5515c_WCDMA.vee">
+		<Description>Use a 8960 Wireless Communications Test Set running a W-CDMA Test or Lab Application to make TX Power measurements on a W-CDMA mobile phone.</Description>
+		<LogicalInstrument name="E5515C">
+			<SupportedInstruments>
+				<Instrument idn="ag8960 series 10 e5515"/>
+				<Instrument idn="ag8960"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,153 @@
+(saveFormat "7.0")
+(date "Thu 07/Apr/2005 18:45:40 ")
+(veerev "7.5.7607.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 5 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 CONSTANT
+(properties
+(name "Real32"))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 0 1 2 3 4 5 6 7 8 9 ]))
+(initValue Real32
+(data  0))))
+(device 9 FORMULA
+(properties
+(expr 1 "2*A+3"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 DELAY
+(properties
+(delay 4))
+(interface
+(output 1
+(name "Done"))))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 12 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In this example, the hold off effect of the Gate object is highlighted by using the Delay object. When using the Gate object, containers do not pass through until the sequence pin is activated. (If the sequence pin in is not connected, the Gate object acts as a pass through.)\\par\r\n\\par\r\nThe Delay object delays the execution of the program for the time set in seconds.\\cf0\\i\\f1\\par\r\n}\r\n"
+)))
+(configuration
+(connect D4:0 D0:0)
+(connect D3:1 D0:1)
+(connect D0:1 D1:1)
+(connect D2:1 D3:1)
+(connect D3:0 D4:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 512 361)
+(wndState max)
+(active detail)
+(detail
+(extent 853 691)
+(anchorPt 5 -132)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 480 410))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 124 216))
+(pinCenter 610 410))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 117 164)
+(showFormat real))
+(pinCenter 100 410))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 410))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 480 270))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 396 84)
+(editing enabled))
+(pinCenter 200 230))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 330 620))
+(connect D4:0 D0:0
+(points 2 480 288 480 400))
+(connect D3:1 D0:1
+(points 2 425 410 462 410))
+(connect D0:1 D1:1
+(points 2 497 410 545 410))
+(connect D2:1 D3:1
+(points 2 161 410 195 410))
+(connect D3:0 D4:0
+(points 8 310 437 310 460 450 460 450 340 420 340 420 210 480 210 480 234)))
+(stackingOrder 0 1 3 2 4 6 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

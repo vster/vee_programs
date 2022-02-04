@@ -1,0 +1,1093 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:50:07 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 30)
+(popupTitleText "DS1 Pulse Test")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Upper Points"))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numDims 1)
+(size 11)
+(numCoordDims 2)
+(data  [ (0, 0.05) (2.5E-007, 0.05) (3.25E-007, 0.8) (3.26E-007, 1.15)
+(4.25E-007, 1.15) (5.000000000000001E-007, 1.05) (6.75E-007, 1.05)
+(7.250000000000002E-007, -0.07000000000000001) (1.1E-006, 0.05)
+(1.25E-006, 0.05) (1.75E-006, 0.05) ]))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 1 CONSTANT
+(properties
+(name "Lower Points"))
+(interface
+(output 1
+(name "Coord")
+(lock name constraints)))
+(implementation
+(value Coord
+(numDims 1)
+(size 13)
+(numCoordDims 2)
+(data  [ (0, -0.05) (3.499999999999999E-007, -0.05) (3.51E-007, 0.5)
+(4E-007, 0.95) (5.000000000000001E-007, 0.95) (6.000000000000001E-007, 0.9)
+(6.5E-007, 0.5) (6.51E-007, -0.45) (8.000000000000001E-007, -0.45)
+(9.25E-007, -0.2) (1.1E-006, -0.05) (1.25E-006, -0.05) (1.75E-006, -0.05) ]))
+(initValue Coord
+(numCoordDims 2)
+(data  (0, 0)))))
+(device 2 COMPARATOR
+(properties
+(relation >=))
+(interface
+(input 1
+(name "Ref Value")
+(tag "RefValue"))
+(input 2
+(name "Test Value")
+(tag "TestValue"))
+(output 1
+(name "Passed")
+(tag "Passed")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Failed")
+(tag "Failed")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Failures")
+(tag "Failures")
+(lock name constraints)
+(optional yes))))
+(device 3 COMPARATOR
+(properties
+(relation <=))
+(interface
+(input 1
+(name "Ref Value")
+(tag "RefValue"))
+(input 2
+(name "Test Value")
+(tag "TestValue"))
+(output 1
+(name "Passed")
+(tag "Passed")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Failed")
+(tag "Failed")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "Failures")
+(tag "Failures")
+(lock name constraints)
+(optional yes))))
+(device 4 VECTORCONCATENATOR
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 11 NOTE
+(properties
+(name "TO OPERATE")
+(text2 2 "Set a Reference Delay time using the"
+"slider and observe the resulting displays.")))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 16 "PURPOSE: To simulate a DS1 Pulse Template test using"
+"  previously stored waveform data." ""
+"USER INPUT REQUIRED: Select a Reference Delay using the" "  slider." ""
+"EXPLANATION: A common measurement in the telecomm field"
+"  monitors the pulse shape from a DS1 test fixture.  This"
+"  program illustrates how to automate the waveform template"
+"  matching to a measured DS1 pulse. " ""
+"  The Upper and Lower limits are defined using coordinates"
+"  of the line segment end points for the templates.  By"
+"  passing the normalized measured pulse through the upper"
+"  and lower comparators, any points outside the template"
+"  area are discovered and plotted.")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 288 105)))
+(contextCarrier
+(active panel)
+(panel
+(extent 570 371)
+(widget 0 detail
+(relativeOrigin 240 320)
+(title off)
+(borderStyle none)
+(extent 68 42))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 570 310)
+(editing disabled)))
+(detail
+(extent 577 471)
+(anchorPt 433 340)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -180 70))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 526 342)
+(editing disabled))
+(pinCenter -160 -140)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 464 246)
+(anchorPt 256 52)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 615 363)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 75 60 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 45)))
+(stackingOrder 0 1 2))))
+(device 14 FORMULA
+(properties
+(name "Normalize")
+(description2 3 "The specification calls for normalized data.  This"
+"is computed by dividing the Y values by the +3 V"
+"max specification.  That is +3 V normalizes to 1.0.")
+(expr 1 "A/3"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 CONTEXT
+(properties
+(name "Read Data Files")
+(trigMode deg)
+(nextID 9))
+(interface
+(input 1
+(name "RefDly")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FROMARRAY
+(properties
+(expr 1 "Ary[A:*]"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 1 FORMULA
+(properties
+(name "RefDlyMappingFrom")
+(expr 1 "intPart(abs((xorig+RefDly)/xinc))"))
+(interface
+(input 1
+(name "xorig")
+(optional yes))
+(input 2
+(name "RefDly")
+(optional yes))
+(input 3
+(name "xinc")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FROMFILE
+(properties
+(name "Read Preamble")
+(transactions 8 "READ TEXT pts REAL64" "READ TEXT cnt REAL64"
+"READ TEXT xinc REAL64" "READ TEXT xorig REAL64" "READ TEXT xref REAL64"
+"READ TEXT yinc REAL64" "READ TEXT yorig REAL64" "READ TEXT yref REAL64"))
+(interface
+(output 1
+(name "pts")
+(optional yes))
+(output 2
+(name "cnt")
+(optional yes))
+(output 3
+(name "xinc")
+(optional yes))
+(output 4
+(name "xorig")
+(optional yes))
+(output 5
+(name "xref")
+(optional yes))
+(output 6
+(name "yinc")
+(optional yes))
+(output 7
+(name "yorig")
+(optional yes))
+(output 8
+(name "yref")
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Applications/telecom1.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 FROMFILE
+(properties
+(name "Read Raw Data")
+(transactions 1 "READ TEXT x REAL64 ARRAY:501"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Applications/telecom2.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "0")
+(mapTos "1.602E-006")))
+(device 5 FORMULA
+(properties
+(name "RefDlyMappingTo")
+(expr 1 "((pts*xinc)+xorig)+RefDly"))
+(interface
+(input 1
+(name "RefDly")
+(optional yes))
+(input 2
+(name "pts")
+(optional yes))
+(input 3
+(name "xinc")
+(optional yes))
+(input 4
+(name "xorig")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(input 7
+(name "G")
+(optional yes))
+(input 8
+(name "H")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 7 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 8 FORMULA
+(properties
+(name "Scale Y")
+(expr 1 "(unscaled-yref)*yinc+yorig"))
+(interface
+(input 1
+(name "unscaled")
+(optional yes))
+(input 2
+(name "yinc")
+(optional yes))
+(input 3
+(name "yorig")
+(optional yes))
+(input 4
+(name "yref")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D3:1 D0:1)
+(connect D1:1 D0:2)
+(connect D2:4 D1:1)
+(connect I1:1 D1:2)
+(connect D2:3 D1:3)
+(connect D0:1 D4:1)
+(connect D5:1 D4:2)
+(connect I1:1 D5:1)
+(connect D2:1 D5:2)
+(connect D2:3 D5:3)
+(connect D2:4 D5:4)
+(connect D2:1 D6:1)
+(connect D2:2 D6:2)
+(connect D2:3 D6:3)
+(connect D2:4 D6:4)
+(connect D2:5 D6:5)
+(connect D2:6 D6:6)
+(connect D2:7 D6:7)
+(connect D2:8 D6:8)
+(connect D6:1 D7:1)
+(connect D4:1 D8:1)
+(connect D2:6 D8:2)
+(connect D2:7 D8:3)
+(connect D2:8 D8:4)
+(connect D8:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 818 448)
+(anchorPt 489 74)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 147 160))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 163 64)
+(iconImage "formula.icn"))
+(open
+(extent 331 154))
+(terminals on)
+(pinCenter -200 20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 85))
+(open
+(extent 324 274))
+(terminals on)
+(pinCenter -415 220))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 324 153))
+(terminals on)
+(pinCenter -200 -40))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 118 64)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 30 90))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 145 64)
+(iconImage "formula.icn"))
+(open
+(extent 277 254))
+(terminals on)
+(pinCenter -200 110))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 85))
+(open
+(extent 40 410))
+(terminals on)
+(pinCenter -200 220))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 190 25))
+(open
+(extent 260 188)
+(noformatter))
+(pinCenter -40 220))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 268 204))
+(terminals on)
+(pinCenter 200 110))
+(connect D3:1 D0:1
+(points 4 -134 -40 -100 -40 -100 -20 -58 -20))
+(connect D1:1 D0:2
+(points 2 -116 20 -58 20))
+(connect D2:4 D1:1
+(points 4 -349 210 -360 210 -360 0 -284 0))
+(connect I1:1 D1:2
+(points 6 -489 149 -480 149 -480 90 -330 90 -330 20 -284 20))
+(connect D2:3 D1:3
+(points 4 -349 200 -320 200 -320 40 -284 40))
+(connect D0:1 D4:1
+(points 6 57 -20 70 -20 70 40 -40 40 -40 70 -32 70))
+(connect D5:1 D4:2
+(points 2 -125 110 -32 110))
+(connect I1:1 D5:1
+(points 4 -489 149 -480 149 -480 90 -275 90))
+(connect D2:1 D5:2
+(points 4 -349 180 -330 180 -330 100 -275 100))
+(connect D2:3 D5:3
+(points 4 -349 200 -320 200 -320 110 -275 110))
+(connect D2:4 D5:4
+(points 4 -349 210 -310 210 -310 120 -275 120))
+(connect D2:1 D6:1
+(points 2 -349 180 -226 180))
+(connect D2:2 D6:2
+(points 2 -349 190 -226 190))
+(connect D2:3 D6:3
+(points 2 -349 200 -226 200))
+(connect D2:4 D6:4
+(points 2 -349 210 -226 210))
+(connect D2:5 D6:5
+(points 2 -349 220 -226 220))
+(connect D2:6 D6:6
+(points 2 -349 230 -226 230))
+(connect D2:7 D6:7
+(points 2 -349 240 -226 240))
+(connect D2:8 D6:8
+(points 2 -349 250 -226 250))
+(connect D6:1 D7:1
+(points 2 -175 220 -138 220))
+(connect D4:1 D8:1
+(points 2 91 90 158 90))
+(connect D2:6 D8:2
+(points 6 -349 230 -360 230 -360 300 130 300 130 100 158 100))
+(connect D2:7 D8:3
+(points 6 -349 240 -250 240 -250 290 120 290 120 110 158 110))
+(connect D2:8 D8:4
+(points 6 -349 250 -240 250 -240 280 110 280 110 120 158 120))
+(connect D8:1 O1:1
+(points 4 241 110 260 110 260 149 328 149)))
+(stackingOrder 0 1 2 3 4 5 6 7 8))))
+(device 16 SLIDER
+(properties
+(name "Ref Delay")
+(autoTrigger 1)
+(range 2.5E-007 4.5E-007)
+(detents 1E-008))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  3.5E-007))
+(initValue Real
+(data  3.25E-007))))
+(device 18 YPLOT
+(properties
+(name "DS1 PULSE"))
+(interface
+(input 1
+(name "Fail Points"))
+(input 2
+(name "Upper Limit")
+(optional yes))
+(input 3
+(name "Test Signal")
+(optional yes))
+(input 4
+(name "Lower Limit")
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(graphMode rectangular)))
+(device 19 COLORALARM
+(properties
+(name "Test Result:")
+(split 0.33)
+(split2 0.66)
+(hilabel "Passed")
+(midlabel "Mid")
+(lowlabel "Failed"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 28 IFTHENELSE
+(properties
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 29 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data")
+(lock name constraints))))
+(configuration
+(connect D9:0 D0:0)
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D8:1 D2:2)
+(connect D0:1 D3:1)
+(connect D8:1 D3:2)
+(connect D3:3 D4:1)
+(connect D2:3 D4:2)
+(connect D9:1 D8:1)
+(connect D10:1 D9:1)
+(connect D4:1 D11:1)
+(connect D0:1 D11:2)
+(connect D8:1 D11:3)
+(connect D1:1 D11:4)
+(connect D14:1 D12:1)
+(connect D4:1 D13:1)
+(connect D13:1 D14:1)
+(connect D13:2 D14:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 630 410)
+(widget 10 detail
+(relativeOrigin 0 120)
+(title on)
+(borderStyle flat)
+(extent 126 268)
+(layout vertical)
+(fastmode off))
+(widget 11 detail
+(relativeOrigin 130 120)
+(title on)
+(borderStyle flat)
+(extent 496 268)
+(displayMode 7)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Amplitude")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -0.6000000000000001 1.2 3 linear))
+(domain 0 1.8E-006 3 linear)
+(trace 0 onScale 0
+(name "Fail Points")
+(pen 2)
+(lineType 2)
+(pointType 1))
+(trace 1 onScale 0
+(name "Upper Limit")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Test Signal")
+(pen 1)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Lower Limit")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(markerInterpolate 1))
+(widget 5 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle flat)
+(extent 476 56)
+(editing disabled))
+(widget 12 detail
+(relativeOrigin 340 60)
+(title on)
+(borderStyle flat)
+(extent 136 28)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Green")
+(lowcolor "Warning Red")
+(layout rectangle))
+(widget 6 icon
+(relativeOrigin 0 60)
+(title off)
+(borderStyle none)
+(extent 340 50)
+(iconImage "disclaim.gif")
+(label off))
+(widget 7 panel
+(relativeOrigin 480 0)
+(title on)
+(borderStyle flat)
+(extent 146 88)
+(widget 1 detail
+(relativeOrigin 20 20)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))))
+(detail
+(extent 815 617)
+(anchorPt 105 355)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 192 97)
+(showFormat real))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 193 93)
+(showFormat real))
+(pinCenter 0 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 110 34))
+(open
+(extent 251 110))
+(terminals on)
+(pinCenter 200 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 34))
+(open
+(extent 251 110))
+(terminals on)
+(pinCenter 200 0))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 118 25))
+(open)
+(terminals on)
+(pinCenter 370 20))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "notepad.icn"))
+(open
+(extent 180 90)
+(editing enabled))
+(pinCenter 190 -190))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 630 -320))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 280 -290))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "formula.icn"))
+(open
+(extent 79 54))
+(terminals on)
+(pinCenter 190 -100))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 145 25))
+(terminals on)
+(pinCenter 0 -100))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 181 177)
+(layout vertical)
+(fastmode off))
+(pinCenter 10 -240))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 110 54))
+(open
+(extent 397 347)
+(displayMode 63)
+(graphType cartesian)
+(gridType off)
+(scale 0
+(name "Amplitude")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -0.6000000000000001 1.2 3 linear))
+(domain 0 1.8E-006 3 linear)
+(trace 0 onScale 0
+(name "Fail Points")
+(pen 2)
+(lineType 2)
+(pointType 1))
+(trace 1 onScale 0
+(name "Upper Limit")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Test Signal")
+(pen 1)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Lower Limit")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(markerInterpolate 1))
+(pinCenter 680 40))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 124 75)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Green")
+(lowcolor "Red")
+(layout rectangle))
+(pinCenter 780 -210))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 67 51))
+(terminals on)
+(pinCenter 540 -210))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 48 28))
+(open)
+(terminals on)
+(pinCenter 640 -210))
+(connect D9:0 D0:0
+(points 2 0 -85 0 -69))
+(connect D0:0 D1:0
+(points 2 0 51 0 73))
+(connect D1:1 D2:1
+(points 4 99 140 110 140 110 100 142 100))
+(connect D8:1 D2:2
+(points 6 247 -100 270 -100 270 -50 120 -50 120 120 142 120))
+(connect D0:1 D3:1
+(points 4 98 0 110 0 110 -10 142 -10))
+(connect D8:1 D3:2
+(points 6 247 -100 270 -100 270 -50 120 -50 120 10 142 10))
+(connect D3:3 D4:1
+(points 2 257 10 308 10))
+(connect D2:3 D4:2
+(points 4 257 120 280 120 280 30 308 30))
+(connect D9:1 D8:1
+(points 2 75 -100 132 -100))
+(connect D10:1 D9:1
+(points 6 103 -240 110 -240 110 -130 -90 -130 -90 -100 -75 -100))
+(connect D4:1 D11:1
+(points 4 431 20 450 20 450 -80 479 -80))
+(connect D0:1 D11:2
+(points 8 98 0 110 0 110 -10 130 -10 130 -40 460 -40 460 0 479 0))
+(connect D8:1 D11:3
+(points 8 247 -100 270 -100 270 -50 440 -50 440 10 460 10 460 80 479 80))
+(connect D1:1 D11:4
+(points 4 99 140 120 140 120 160 479 160))
+(connect D14:1 D12:1
+(points 2 666 -210 715 -210))
+(connect D4:1 D13:1
+(points 4 431 20 450 20 450 -210 491 -210))
+(connect D13:1 D14:1
+(points 2 589 -220 613 -220))
+(connect D13:2 D14:2
+(points 2 589 -200 613 -200)))
+(stackingOrder 4 8 11 0 1 10 3 9 2 13 14 12 5 7 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

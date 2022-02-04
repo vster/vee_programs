@@ -1,0 +1,258 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:08 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 21)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Test1"))
+(initValue Text
+(data  ""))))
+(device 1 FORMULA
+(properties
+(name "now()")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 4)
+(data  [ 2.2 3.3 4.4 5.5 ]))
+(initValue Real
+(data  0))))
+(device 3 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "testname")
+(optional yes))
+(input 2
+(name "time")
+(optional yes))
+(input 3
+(name "data")
+(optional yes))
+(output 1
+(name "Record"))))
+(device 14 FROMRECORD
+(interface
+(input 1
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
+(output 1
+(name "Name List")
+(tag "Name List")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type List")
+(tag "Type List")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "testname")
+(tag "A")
+(optional yes))
+(output 4
+(name "time")
+(tag "B")
+(optional yes))
+(output 5
+(name "data")
+(optional yes))))
+(device 15 TEXTDISPLAY
+(properties
+(name " Name List"))
+(interface
+(input 1
+(name "Data"))))
+(device 16 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 17 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 18 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 19 TEXTDISPLAY
+(properties
+(name "Type List"))
+(interface
+(input 1
+(name "Data"))))
+(device 20 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D3:1)
+(connect D1:1 D3:2)
+(connect D2:1 D3:3)
+(connect D3:1 D4:1)
+(connect D4:1 D5:1)
+(connect D4:3 D6:1)
+(connect D4:4 D7:1)
+(connect D4:5 D8:1)
+(connect D4:2 D9:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 636 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt -412 -126)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 174 29))
+(pinCenter 490 160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 32))
+(terminals on)
+(pinCenter 490 200))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 117 74)
+(showFormat real))
+(pinCenter 490 240))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 51)
+(iconImage "build.icn"))
+(open
+(extent 97 62))
+(terminals on)
+(pinCenter 610 200))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 95 51)
+(iconImage "unbuild.icn"))
+(open
+(extent 17 102))
+(terminals on)
+(pinCenter 638 360))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 143 79))
+(pinCenter 790 200))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 890 360))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 271 35)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 4)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HM H12)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter 930 430))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 119 111))
+(pinCenter 810 540))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 53 0))
+(open
+(extent 125 74))
+(pinCenter 960 260))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 640 630))
+(connect D0:1 D3:1
+(points 4 533 160 550 160 550 190 568 190))
+(connect D1:1 D3:2
+(points 2 510 200 568 200))
+(connect D2:1 D3:3
+(points 4 514 240 530 240 530 210 568 210))
+(connect D3:1 D4:1
+(points 6 651 200 670 200 670 260 520 260 520 360 540 360))
+(connect D4:1 D5:1
+(points 6 719 320 740 320 740 270 700 270 700 200 716 200))
+(connect D4:3 D6:1
+(points 2 719 360 827 360))
+(connect D4:4 D7:1
+(points 4 719 380 740 380 740 430 792 430))
+(connect D4:5 D8:1
+(points 4 719 400 730 400 730 540 748 540))
+(connect D4:2 D9:1
+(points 4 719 340 750 340 750 260 895 260)))
+(stackingOrder 1 0 2 3 4 6 8 5 9 7 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

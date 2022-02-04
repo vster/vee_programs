@@ -1,0 +1,428 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:00:09 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 13)
+(popupTitleText "Layout 2 Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 SHIFTREGISTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Current")
+(lock name constraints))
+(output 2
+(name "1 Prev")
+(lock name constraints))
+(output 3
+(name "2 Prev"))
+(output 4
+(name "3 Prev")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 SHIFTREGISTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Current")
+(lock name constraints))
+(output 2
+(name "1 Prev")
+(lock name constraints))
+(output 3
+(name "2 Prev"))
+(output 4
+(name "3 Prev")
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 IFTHENELSE
+(properties
+(name "If/Then")
+(cases 1 "0<=A AND A<10"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 7 IFTHENELSE
+(properties
+(name "If/Then")
+(cases 1 "0<=A AND A<10"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 CONSTANT
+(properties
+(name "0"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(numDims 1)
+(size 1)
+(data  [ 0 ]))
+(initValue Int32
+(data  0))))
+(device 9 NOTE
+(properties
+(name "Overview of Layout2 example")
+(text2 21 "Purpose: Demonstrate the effect of"
+"  alignment and sizing on layout." "" "Required user input: none" ""
+"Explanation:" "The top pairs of Get Values objects"
+"  and the If/Then objects shows how" "  important alignment can be.  By"
+"  aligning the objects the lines" "  become both short and straight.  " ""
+"  The bottom pairs of Shift Registers " "  and + objects demonstrates how "
+"  changing the size of an object can" "  affect line layout.  By sizing"
+"  the Shift Register so the output pin" "  spacing matches the spacing of the"
+"  + boxes, the lines become shorter " "  and straighter." "")))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 11 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 12 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(configuration
+(connect D8:1 D0:1)
+(connect D0:1 D1:1)
+(connect D0:2 D1:2)
+(connect D0:3 D2:1)
+(connect D0:4 D2:2)
+(connect D8:1 D3:1)
+(connect D3:3 D4:1)
+(connect D3:4 D4:2)
+(connect D3:1 D5:1)
+(connect D3:2 D5:2)
+(connect D12:1 D6:1)
+(connect D12:2 D6:2)
+(connect D12:3 D6:3)
+(connect D12:4 D6:4)
+(connect D12:5 D6:5)
+(connect D11:1 D7:1)
+(connect D11:2 D7:2)
+(connect D11:3 D7:3)
+(connect D11:4 D7:4)
+(connect D11:5 D7:5)
+(connect D8:1 D11:1)
+(connect D8:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 520)
+(anchorPt 605 333)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 140 76))
+(open)
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 47 27))
+(open)
+(terminals on)
+(pinCenter 120 -20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 120 20))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 136 45))
+(open)
+(terminals on)
+(pinCenter 0 -96))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 130 -66))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 47 27))
+(open)
+(terminals on)
+(pinCenter 130 -106))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 54))
+(open)
+(terminals on)
+(pinCenter 120 -186))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 78 54))
+(open)
+(terminals on)
+(pinCenter 120 -256))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 162 40)
+(showFormat int))
+(pinCenter -130 -146))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 253 0))
+(open
+(extent 424 399)
+(editing disabled))
+(pinCenter -380 -100))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -400 140))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 147 160))
+(terminals on)
+(pinCenter -10 -266))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "unbuild.icn"))
+(open
+(extent 147 160))
+(terminals on)
+(pinCenter -10 -186))
+(connect D8:1 D0:1
+(points 4 -105 -146 -90 -146 -90 0 -73 0))
+(connect D0:1 D1:1
+(points 2 72 -30 94 -30))
+(connect D0:2 D1:2
+(points 2 72 -10 94 -10))
+(connect D0:3 D2:1
+(points 2 72 10 94 10))
+(connect D0:4 D2:2
+(points 2 72 30 94 30))
+(connect D8:1 D3:1
+(points 4 -105 -146 -90 -146 -90 -96 -71 -96))
+(connect D3:3 D4:1
+(points 6 70 -96 80 -96 80 -86 90 -86 90 -76 104 -76))
+(connect D3:4 D4:2
+(points 4 70 -86 80 -86 80 -56 104 -56))
+(connect D3:1 D5:1
+(points 2 70 -116 104 -116))
+(connect D3:2 D5:2
+(points 4 70 -106 90 -106 90 -96 104 -96))
+(connect D12:1 D6:1
+(points 2 47 -206 78 -206))
+(connect D12:2 D6:2
+(points 2 47 -196 78 -196))
+(connect D12:3 D6:3
+(points 2 47 -186 78 -186))
+(connect D12:4 D6:4
+(points 2 47 -176 78 -176))
+(connect D12:5 D6:5
+(points 2 47 -166 78 -166))
+(connect D11:1 D7:1
+(points 4 47 -286 70 -286 70 -276 78 -276))
+(connect D11:2 D7:2
+(points 4 47 -276 70 -276 70 -266 78 -266))
+(connect D11:3 D7:3
+(points 4 47 -266 60 -266 60 -256 78 -256))
+(connect D11:4 D7:4
+(points 4 47 -256 60 -256 60 -246 78 -246))
+(connect D11:5 D7:5
+(points 4 47 -246 60 -246 60 -236 78 -236))
+(connect D8:1 D11:1
+(points 4 -105 -146 -90 -146 -90 -266 -68 -266))
+(connect D8:1 D12:1
+(points 4 -105 -146 -90 -146 -90 -186 -68 -186)))
+(stackingOrder 0 1 2 3 4 5 6 7 8 11 12 9 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

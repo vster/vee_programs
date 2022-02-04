@@ -1,0 +1,884 @@
+(saveFormat "7.0")
+(date "Fri 06/Jul/2018 18:21:44 ")
+(veerev "9.33.1806.2902 Windows 10 Edition")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 82)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 4 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 19 25 33 30 22 14 15 22 33 55 ]))
+(initValue Real32
+(data  0))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A1"))
+(initValue Text
+(data  ""))))
+(device 13 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 14 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 19 25 33 30 22 14 17 25 44 77 ]))
+(initValue Real32
+(data  0))))
+(device 15 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 22 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 24 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 25 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 19 25 33 30 22 14 17 25 23 27 ]))
+(initValue Real32
+(data  0))))
+(device 36 NOTE
+(properties
+(name "Example")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 The Excel Library\'s charting objects offer some of the charting features Excel provides. To use any chart Excel can create:\\par\r\nIN EXCEL:\\par\r\n  Create a custom chart from data in the sheet,\\par\r\n  Save it in a workbook,\\par\r\nIN VEE:\\par\r\n  Use the Open Workbook object (instead of NewWorkbook)\\par\r\n  Use DataToCells to overwrite the data used by the chart\\par\r\n  Excel auto-updates the chart based on the new data.\\par\r\n\\par\r\nThis example demonstrates the above idea by updating a chart in an existing Workbook instead of using any of the Excel Library Create Chart objects.\\par\r\n\\par\r\nUsing the Excel Library\'s Send Data -> DataToCells object with input pin \'Cell\' set to the location used by the chart, the chart is made to auto-update. \\par\r\n}\r\n"
+)))
+(device 39 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 41 CONSTANT
+(properties
+(name "Real32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 19 25 33 30 22 14 17 33 77 105 ]))
+(initValue Real32
+(data  0))))
+(device 42 FORMULA
+(properties
+(name "Location of spreadsheet")
+(variableScope cont)
+(expr 2 "installDir()+" "\"\\\\Examples\\\\ExcelLibrary\\\\Sales.xls\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 54 CONTEXT
+(properties
+(name "OpenWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "fileName")
+(optional yes)))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.OpenWorkbookRW")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(callFunc "xlLib.OpenWorkbookRW")
+(parmMode rev30))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(input 2
+(name "OpenMode")
+(optional yes))))
+(device 1 RECCONST
+(properties
+(name "Open Workbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 1)
+(fieldName "ReadOnly"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("ReadOnly" "False"))))))
+(device 2 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 OpenWorkbookRW can open a workbook\\par\r\nfor Read-Only or Read-Write\\par\r\naccess by changing the ReadOnly\\par\r\nmode in the Open Workbook settings.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 692 402)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 505 110))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 245 87)
+(formatters))
+(pinCenter 160 190))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 272 127)
+(editing enabled))
+(pinCenter 460 280))
+(connect I1:1 D0:1
+(points 4 0 200 10 200 10 100 334 100))
+(connect D1:1 D0:2
+(points 4 285 190 310 190 310 120 334 120)))
+(stackingOrder 0 1 2))))
+(device 67 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe")
+)
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 0 1 2))))
+(device 69 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "RaiseError")
+("DisplayAlerts" "True"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus\\par\r\n  the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons\\par\r\n  at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook\\par\r\n  client windows instead of Excel.\\par\r\n}\r\n"
+)))
+(device 15 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 25 26)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 110))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 494 196)
+(editing enabled))
+(pinCenter 640 120))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 584 336)
+(editing enabled))
+(pinCenter 290 450))
+(connect D1:1 D0:1
+(points 4 304 120 310 120 310 110 330 110)))
+(stackingOrder 1 2 0 3))))
+(device 72 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(variableScope cont)
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(device 74 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(variableScope cont)
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(device 76 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(variableScope cont)
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(device 78 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(variableScope cont)
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(device 79 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1031\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(device 81 CONTEXT
+(properties
+(name "Quit Excel Library")
+(breakpoint 1)
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D15:0 D2:0)
+(connect D12:0 D4:0)
+(connect D16:0 D5:0)
+(connect D17:0 D6:0)
+(connect D18:0 D9:0)
+(connect D14:0 D12:0)
+(connect D11:1 D12:1)
+(connect D13:0 D14:0)
+(connect D4:1 D15:0)
+(connect D7:1 D15:1)
+(connect D1:1 D15:2)
+(connect D2:0 D16:0)
+(connect D0:1 D16:1)
+(connect D1:1 D16:2)
+(connect D5:0 D17:0)
+(connect D3:1 D17:1)
+(connect D1:1 D17:2)
+(connect D6:0 D18:0)
+(connect D10:1 D18:1)
+(connect D1:1 D18:2)
+(connect D4:0 D20:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 892 863)
+(anchorPt 143 81)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 115 177)
+(showFormat real))
+(pinCenter 130 460))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 115 27))
+(pinCenter 160 310))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 370 330))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 115 177)
+(showFormat real))
+(pinCenter 130 690))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 290 150))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 370 450))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 370 590))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 125 177)
+(showFormat real))
+(pinCenter -50 350))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 534 286)
+(editing enabled))
+(pinCenter 670 100))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 370 710))
+(devCarrierFor 41
+(active open)
+(icon)
+(open
+(extent 115 177)
+(showFormat real))
+(pinCenter -50 660))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 146 0))
+(open
+(extent 224 66))
+(terminals on)
+(pinCenter 50 80))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 93 15))
+(terminals on)
+(pinCenter 290 80))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 290 -10))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter 290 30))
+(devCarrierFor 72
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 370 260))
+(devCarrierFor 74
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 370 380))
+(devCarrierFor 76
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 370 510))
+(devCarrierFor 78
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 370 640))
+(devCarrierFor 79
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 40 -20))
+(devCarrierFor 81
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 290 210))
+(connect D15:0 D2:0
+(points 2 370 275 370 294))
+(connect D12:0 D4:0
+(points 2 290 90 290 122))
+(connect D16:0 D5:0
+(points 2 370 395 370 414))
+(connect D17:0 D6:0
+(points 2 370 525 370 554))
+(connect D18:0 D9:0
+(points 2 370 655 370 674))
+(connect D14:0 D12:0
+(points 2 290 39 290 70))
+(connect D11:1 D12:1
+(points 2 214 80 241 80))
+(connect D13:0 D14:0
+(points 2 290 0 290 20))
+(connect D4:1 D15:0
+(points 5 326 150 380 150 380 230 370 230 370 245))
+(connect D7:1 D15:1
+(points 4 15 350 40 350 40 250 300 250))
+(connect D1:1 D15:2
+(points 4 220 310 250 310 250 270 300 270))
+(connect D2:0 D16:0
+(points 2 370 348 370 365))
+(connect D0:1 D16:1
+(points 4 190 460 210 460 210 370 300 370))
+(connect D1:1 D16:2
+(points 4 220 310 240 310 240 390 300 390))
+(connect D5:0 D17:0
+(points 2 370 468 370 495))
+(connect D3:1 D17:1
+(points 6 190 690 200 690 200 620 210 620 210 500 300 500))
+(connect D1:1 D17:2
+(points 4 220 310 240 310 240 520 300 520))
+(connect D6:0 D18:0
+(points 2 370 608 370 625))
+(connect D10:1 D18:1
+(points 6 10 660 30 660 30 800 210 800 210 630 300 630))
+(connect D1:1 D18:2
+(points 6 220 310 240 310 240 520 270 520 270 650 300 650))
+(connect D4:0 D20:0
+(points 2 290 178 290 200)))
+(stackingOrder 5 0 1 4 2 6 9 3 7 10 8 12 11 13 14 15 16 17 18 20 19))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

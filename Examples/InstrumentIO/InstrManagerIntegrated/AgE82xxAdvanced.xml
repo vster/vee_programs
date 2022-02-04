@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE82xxAdvanced.vee">
+		<Description>Set up generator and retain settings for the next session</Description>
+		<LogicalInstrument name="E82xx">
+			<SupportedInstruments>
+				<Instrument idn="agE8241A"/>
+				<Instrument idn="agE8244A"/>
+				<Instrument idn="agE8251A"/>
+				<Instrument idn="agE8254A"/>
+				<Instrument idn="ag E8241A"/>
+				<Instrument idn="ag E8244A"/>
+				<Instrument idn="ag E8251A"/>
+				<Instrument idn="ag E8254A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>
+

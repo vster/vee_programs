@@ -1,0 +1,3059 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:17:01 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "pulseGenerator"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 10)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 241)
+(popupTitleText "Keysight Pulse Generator")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 - VEE Pro 7.5 or above.\\par\r\n- Newer GPIB IO interface from Keysight, such as 82350B PCI-GPIB, E5810A LAN-GPIB or 82357A USB-GPIB.\\par\r\n- Keysight IO libraries version \\f1 Suite 14.0\\f0  or above.\\par\r\n- Pentium PC with Windows XP Pro and SP2.\\par\r\n\\par\r\nNote that this example is using an instrument at GPIB address 710.  Set the pulse generator\'s address to 10 by pressing the CONFIG softkey and turning the MODIFY knob.  If the CONFIG softkey is not displayed, press MORE. \\par\r\n}\r\n"
+)))
+(device 2 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 3 NOTE
+(properties
+(name "Comments")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This sample demonstrates how VEE Pro can control Keysight\'s E831xA, 8110xA, and 81110A pulse generators.  \\par\r\n\\par\r\nThis application displays a graphical user interface that allows the operator to remotely set up the generator.  The user can control output amplitude by specifying either voltage or current values; output pulse width by specifying pulse width or duty cycle, and repetition rate by specifying frequency or period.  The application supports pulse mode, pattern mode (for models that support it), and burst mode.  \\par\r\n\\f1\\par\r\nNote that you can double-click on any minimized objects in the Detail view to expand them and see more details.  Several Note Pad objects offer documentation throughout the program.  \\par\r\n\\par\r\n}\r\n"
+)))
+(device 10 CONTEXT
+(properties
+(name "initialize")
+(trigMode deg)
+(nextID 64)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 4 "EXECUTE CLEAR" "WRITE TEXT \"*rst;*cls\" EOL"
+"WRITE TEXT \"*idn?\" EOL" "READ TEXT idn STR"))
+(interface
+(output 1
+(name "idn")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(iopath "pulseGenerator")))
+(device 1 TOGLOBAL
+(properties
+(name "Set g_811xx_instrID")
+(globalName "g_811xx_instrID"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 2 FROMSTRING
+(properties
+(transactions 1 "READ TEXT idnBreakdown TOKEN EXCLUDE:\",\" ARRAY:4"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "idnBreakdown")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 IFTHENELSE
+(properties
+(cases 5 "strPosStr(A[1], \"E8311A\")>0" "strPosStr(A[1], \"E8312A\")>0"
+"strPosStr(A[1], \"81101A\")>0" "strPosStr(A[1], \"81104A\")>0"
+"strPosStr(A[1], \"81110A\")>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(expr 1 "g_811xx_modelNumber=A[1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 11 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 This section of the program resets the instrument and initializes it to a known state.  It then reads the instrument\'s identification string, extracts the model number, and checks it for compatibility.  \\par\r\n\\par\r\nTwo compatibility checks are made:\\par\r\n1.  Is the instrument a supported pulse generator? \\par\r\n2.  Is it an 81101A?  If so, no PRBS capability.  \\par\r\n\\par\r\nFinally, the supported/unsupported status is written to the global variable g_811xx_status, which is then written to the Main panel\'s status display.  \\par\r\n}\r\n"
+)))
+(device 24 IFTHENELSE
+(properties
+(cases 1 "strPosStr(g_811xx_modelNumber, \"81101A\")>0"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 43 FORMULA
+(properties
+(name "PRBS not supported")
+(expr 1 "g_811xx_status = g_811xx_status+\", Pattern mode not supported\"")))
+(device 44 FORMULA
+(properties
+(name "PRBS supported")
+(expr 1 "g_811xx_status = g_811xx_status+\", Pattern mode supported\"")))
+(device 55 FORMULA
+(properties
+(name "Set g_811xx_supported")
+(expr 1 "g_811xx_supported=0")))
+(device 56 FORMULA
+(properties
+(name "Set g_811xx_supported")
+(expr 1 "g_811xx_supported=1")))
+(device 57 FORMULA
+(properties
+(expr 1 "g_811xx_prbs=0"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 58 FORMULA
+(properties
+(expr 1 "g_811xx_prbs=1"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 59 FORMULA
+(properties
+(name "Set g_811xx_status")
+(expr 1
+"g_811xx_status=\"No instruments found.  Check connections and set instrument address to 10.\""
+)))
+(device 60 FORMULA
+(properties
+(name "Set g_811xx_supported")
+(expr 1 "g_811xx_supported=0")))
+(device 61 FORMULA
+(properties
+(name "Set g_811xx_status")
+(expr 1
+"g_811xx_status=\"Found: \" + g_811xx_modelNumber + \"; Status: Not supported\""
+)))
+(device 63 FORMULA
+(properties
+(name "Set g_811xx_status")
+(expr 1
+"g_811xx_status=\"Found: \" + g_811xx_modelNumber + \"; Status: Supported\"")))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:1 D2:1)
+(connect D2:1 D3:1)
+(connect D2:1 D4:1)
+(connect D3:1 D5:1)
+(connect D3:2 D5:2)
+(connect D3:3 D5:3)
+(connect D3:4 D5:4)
+(connect D3:5 D5:5)
+(connect D17:0 D7:0)
+(connect D12:0 D8:0)
+(connect D13:0 D9:0)
+(connect D16:0 D10:0)
+(connect D7:0 D11:0)
+(connect D7:1 D12:0)
+(connect D7:2 D13:0)
+(connect D0:2 D14:0)
+(connect D14:0 D15:0)
+(connect D3:6 D16:0)
+(connect D5:1 D17:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1160 974)
+(anchorPt -75 44)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 149 51)
+(iconImage "io.icn"))
+(open
+(extent 244 96))
+(terminals on)
+(pinCenter 200 30))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 84 51))
+(terminals on)
+(pinCenter 420 20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 304 86))
+(terminals on)
+(pinCenter 400 70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 74 74))
+(open
+(extent 180 122))
+(terminals on)
+(pinCenter 530 150))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 254 56))
+(terminals on)
+(pinCenter 530 70))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 26 54))
+(open)
+(terminals on)
+(pinCenter 630 140))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 354 276)
+(editing enabled))
+(pinCenter 310 420))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 291 51))
+(terminals on)
+(pinCenter 740 260))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 123 15))
+(open
+(extent 384 56))
+(terminals on)
+(pinCenter 960 330))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 414 56))
+(terminals on)
+(pinCenter 860 360))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 590 270))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 740 320))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 960 290))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 860 300))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 554 50))
+(terminals on)
+(pinCenter 300 110))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 141 15))
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 300 160))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 464 56))
+(terminals on)
+(pinCenter 590 220))
+(devCarrierFor 63
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 444 56))
+(terminals on)
+(pinCenter 740 210))
+(connect D0:1 D1:1
+(points 2 277 20 358 20))
+(connect D0:1 D2:1
+(points 4 277 20 310 20 310 70 362 70))
+(connect D2:1 D3:1
+(points 4 437 70 470 70 470 150 490 150))
+(connect D2:1 D4:1
+(points 2 437 70 502 70))
+(connect D3:1 D5:1
+(points 2 569 120 614 120))
+(connect D3:2 D5:2
+(points 2 569 130 614 130))
+(connect D3:3 D5:3
+(points 2 569 140 614 140))
+(connect D3:4 D5:4
+(points 2 569 150 614 150))
+(connect D3:5 D5:5
+(points 2 569 160 614 160))
+(connect D17:0 D7:0
+(points 2 740 220 740 245))
+(connect D12:0 D8:0
+(points 2 960 300 960 320))
+(connect D13:0 D9:0
+(points 2 860 310 860 350))
+(connect D16:0 D10:0
+(points 2 590 230 590 260))
+(connect D7:0 D11:0
+(points 2 740 275 740 310))
+(connect D7:1 D12:0
+(points 3 778 250 960 250 960 280))
+(connect D7:2 D13:0
+(points 3 778 270 860 270 860 290))
+(connect D0:2 D14:0
+(points 3 277 40 300 40 300 100))
+(connect D14:0 D15:0
+(points 2 300 120 300 150))
+(connect D3:6 D16:0
+(points 3 569 170 590 170 590 210))
+(connect D5:1 D17:0
+(points 3 645 140 740 140 740 200)))
+(stackingOrder 5 6 15 11 10 8 2 1 4 16 3 9 13 12 7 0 14 17))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Status"))
+(interface
+(input 1
+(name "Data"))))
+(device 18 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 22 CONFIRM25
+(properties
+(name "Send Settings")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 31 FROMGLOBAL
+(properties
+(name "Get g_811xx_status")
+(globalName "g_811xx_status"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 60 EXITPROCESS
+(properties
+(code 0)))
+(device 61 CONFIRM25
+(properties
+(name "Stop")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 62 CONTEXT
+(properties
+(name "declareGlobals")
+(trigMode deg)
+(nextID 50)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Declare global variables")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The variables are declared to allocate space for them in the PC\'s memory, and to make them globally visible inside and outside User Objects.\\par\r\n}\r\n"
+)))
+(device 1 DECLVAR
+(properties
+(name "Declare g_811xx_instrID")
+(scope glob)
+(globalName "g_811xx_instrID"))
+(implementation
+(value Text
+(data  ""))))
+(device 2 DECLVAR
+(properties
+(name "Declare g_811xx_pulsePeriod")
+(scope glob)
+(globalName "g_811xx_pulsePeriod"))
+(implementation
+(value Real64
+(data  0))))
+(device 3 DECLVAR
+(properties
+(name "Declare g_811xx_modelNumber")
+(scope glob)
+(globalName "g_811xx_modelNumber"))
+(implementation
+(value Text
+(data  ""))))
+(device 4 DECLVAR
+(properties
+(name "Declare g_811xx_pulseWidth")
+(scope glob)
+(globalName "g_811xx_pulseWidth"))
+(implementation
+(value Real64
+(data  0))))
+(device 5 DECLVAR
+(properties
+(name "Declare g_811xx_supported")
+(scope glob)
+(globalName "g_811xx_supported"))
+(implementation
+(value UInt8
+(data  0))))
+(device 6 DECLVAR
+(properties
+(name "Declare g_811xx_outputState")
+(scope glob)
+(globalName "g_811xx_outputState"))
+(implementation
+(value UInt8
+(data  0))))
+(device 7 DECLVAR
+(properties
+(name "Declare g_811xx_prbs")
+(scope glob)
+(globalName "g_811xx_prbs"))
+(implementation
+(value Text
+(data  ""))))
+(device 8 DECLVAR
+(properties
+(name "Declare g_811xx_status")
+(scope glob)
+(globalName "g_811xx_status"))
+(implementation
+(value Text
+(data  ""))))
+(device 9 DECLVAR
+(properties
+(name "Declare g_811xx_highVoltage")
+(scope glob)
+(globalName "g_811xx_highVoltage"))
+(implementation
+(value Real64
+(data  0))))
+(device 10 DECLVAR
+(properties
+(name "Declare g_811xx_lowVoltage")
+(scope glob)
+(globalName "g_811xx_lowVoltage"))
+(implementation
+(value Real64
+(data  0))))
+(device 11 DECLVAR
+(properties
+(name "Declare g_811xx_highCurrent")
+(scope glob)
+(globalName "g_811xx_highCurrent"))
+(implementation
+(value Real64
+(data  0))))
+(device 12 DECLVAR
+(properties
+(name "Declare g_811xx_lowCurrent")
+(scope glob)
+(globalName "g_811xx_lowCurrent"))
+(implementation
+(value Real64
+(data  0))))
+(device 13 DECLVAR
+(properties
+(name "Declare g_811xx_amplitudeControl")
+(scope glob)
+(globalName "g_811xx_amplitudeControl"))
+(implementation
+(value Text
+(data  ""))))
+(device 14 DECLVAR
+(properties
+(name "Declare g_811xx_frequency")
+(scope glob)
+(globalName "g_811xx_frequency"))
+(implementation
+(value Real64
+(data  0))))
+(device 15 DECLVAR
+(properties
+(name "Declare g_811xx_repRateControl")
+(scope glob)
+(globalName "g_811xx_repRateControl"))
+(implementation
+(value Text
+(data  ""))))
+(device 16 DECLVAR
+(properties
+(name "Declare g_811xx_dutyCycle")
+(scope glob)
+(globalName "g_811xx_dutyCycle"))
+(implementation
+(value UInt8
+(data  0))))
+(device 17 DECLVAR
+(properties
+(name "Declare g_811xx_widthControl")
+(scope glob)
+(globalName "g_811xx_widthControl"))
+(implementation
+(value Text
+(data  ""))))
+(device 18 DECLVAR
+(properties
+(name "Declare g_811xx_prbsNumberOfBits")
+(scope glob)
+(globalName "g_811xx_prbsNumberOfBits"))
+(implementation
+(value Text
+(data  ""))))
+(device 19 DECLVAR
+(properties
+(name "Declare g_811xx_outputMode")
+(scope glob)
+(globalName "g_811xx_outputMode"))
+(implementation
+(value Text
+(data  ""))))
+(device 20 DECLVAR
+(properties
+(name "Declare g_811xx_prbsLength")
+(scope glob)
+(globalName "g_811xx_prbsLength"))
+(implementation
+(value Int32
+(data  0))))
+(device 21 DECLVAR
+(properties
+(name "Declare g_811xx_burstCount")
+(scope glob)
+(globalName "g_811xx_burstCount"))
+(implementation
+(value Int32
+(data  0))))
+(device 41 DECLVAR
+(properties
+(name "Declare g_811xx_modeChoices")
+(scope glob)
+(globalName "g_811xx_modeChoices"))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "" ]))))
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 530 556)
+(anchorPt -11 34)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 146 51)
+(iconImage "notepad.icn"))
+(open
+(extent 344 106)
+(editing enabled))
+(pinCenter 260 50))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 195 103))
+(pinCenter 160 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 181 15))
+(open
+(extent 231 103))
+(pinCenter 380 140))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 195 15))
+(open
+(extent 231 103))
+(pinCenter 160 170))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 176 15))
+(open
+(extent 231 103))
+(pinCenter 380 170))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 169 15))
+(open
+(extent 231 103))
+(pinCenter 160 200))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 176 15))
+(open
+(extent 231 103))
+(pinCenter 380 230))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 135 15))
+(open
+(extent 231 103))
+(pinCenter 160 230))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 231 103))
+(pinCenter 160 260))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 231 103))
+(pinCenter 160 290))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 173 15))
+(open
+(extent 231 103))
+(pinCenter 160 320))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 231 103))
+(pinCenter 160 350))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 173 15))
+(open
+(extent 231 103))
+(pinCenter 160 380))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 212 15))
+(open
+(extent 248 103))
+(pinCenter 160 410))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 248 103))
+(pinCenter 380 200))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 200 15))
+(open
+(extent 236 103))
+(pinCenter 380 440))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 165 15))
+(open
+(extent 236 103))
+(pinCenter 380 260))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 183 15))
+(open
+(extent 248 103))
+(pinCenter 160 440))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 221 15))
+(open
+(extent 257 103))
+(pinCenter 380 290))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 178 15))
+(open
+(extent 257 103))
+(pinCenter 380 350))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 177 15))
+(open
+(extent 257 103))
+(pinCenter 380 320))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 174 15))
+(open
+(extent 261 103))
+(pinCenter 380 380))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 248 103))
+(pinCenter 380 410)))
+(stackingOrder 1 2 3 4 7 8 9 10 11 12 14 6 13 16 18 20 21 19 15 17 5 22 0))))
+(device 80 CONTEXT
+(properties
+(name "sendSettings")
+(trigMode deg)
+(nextID 52)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 1 "g_811xx_amplitudeControl==\"Voltage\""))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 2 "WAIT INTERVAL:2"
+"WRITE TEXT \":outp1 \", g_811xx_outputState EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 3 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 3 "WRITE TEXT \":hold volt\" EOL"
+"WRITE TEXT \":volt1:high \", g_811xx_highVoltage EOL"
+"WRITE TEXT \":volt1:low \", g_811xx_lowVoltage EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 4 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 3 "WRITE TEXT \":hold curr\" EOL"
+"WRITE TEXT \":curr1:high \", g_811xx_highCurrent, \"mA\" EOL"
+"WRITE TEXT \":curr1:low \", g_811xx_lowCurrent, \"mA\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 5 IFTHENELSE
+(properties
+(cases 1 "g_811xx_repRateControl==\"Frequency\""))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":freq \", g_811xx_frequency, \"MHz\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 9 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":puls:per \", g_811xx_pulsePeriod, \"ns\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 10 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":puls:widt1 \", g_811xx_pulseWidth, \"ns\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 11 IFTHENELSE
+(properties
+(cases 1 "g_811xx_widthControl==\"Pulse width\""))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 12 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":puls:dcyc1 \", g_811xx_dutyCycle EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 13 IFTHENELSE
+(properties
+(cases 2 "g_811xx_outputMode==\"Pattern mode (PRBS)\" AND g_811xx_prbs==1"
+"g_811xx_outputMode==\"Pattern mode (PRBS)\" AND g_811xx_prbs==0"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 14 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 5 "WRITE TEXT \":arm:sour imm\" EOL"
+"WRITE TEXT \":trig:coun \", g_811xx_prbsLength EOL"
+"WRITE TEXT \":dig:sign1:form nrz\" EOL"
+"WRITE TEXT \":dig:patt:prbs1 \", g_811xx_prbsNumberOfBits, \",\", g_811xx_prbsLength EOL"
+"WRITE TEXT \":dig:patt on\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 15 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 3 "WRITE TEXT \"*rst;*opc?\" EOL" "READ TEXT opc STR"
+"WRITE TEXT \":outp1 off\" EOL"))
+(interface
+(output 1
+(name "opc")
+(optional yes)))
+(implementation
+(iopath "pulseGenerator")))
+(device 19 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":dig:patt off\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(device 27 IFTHENELSE
+(properties
+(cases 1 "g_811xx_outputMode==\"Burst mode (ext trig\\\'d)\""))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 32 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If the user has selected Voltage control, set the voltage.    \\par\r\n\\par\r\nIf the user has selected Current control, set the current.    \\par\r\n\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If the user has selected Frequency control, set the frequency.    \\par\r\n\\par\r\nIf the user has selected Period control, set the period.    \\par\r\n\\par\r\n}\r\n"
+)))
+(device 35 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If the user has selected Pulse width control, set the pulse width.    \\par\r\n\\par\r\nIf the user has selected Duty cycle control, set the duty cycle.    \\par\r\n\\par\r\n}\r\n"
+)))
+(device 36 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If the user has selected Pattern mode and Pattern mode is supported buy the generator, send the appropriate commands.  \\par\r\n\\par\r\nIf the user has selected Pattern mode but Pattern mode is not supported by the generator, inform the user by writing a message to the status display.  \\par\r\n\\par\r\nIf the user has not selected Pattern mode, ensure that pattern mode is off.   \\par\r\n\\par\r\n}\r\n"
+)))
+(device 37 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 If the user has selected Burst mode, send the appropriate commands.  \\par\r\n\\par\r\n}\r\n"
+)))
+(device 38 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 Allow the instrument enough time to configure itself with a hard-coded delay.  Then enable/disable the output based on the user\'s selection.  \\par\r\n\\par\r\n}\r\n"
+)))
+(device 44 TOGLOBAL
+(properties
+(name "Set g_811xx_status")
+(globalName "g_811xx_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 45 FORMULA
+(properties
+(expr 1 "\"Pattern mode not supported by \",g_811xx_modelNumber"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 46 DELAY
+(properties
+(delay 3))
+(interface
+(output 1
+(name "Done"))))
+(device 48 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 6 "WRITE TEXT \":trig:sour int2\" EOL"
+"WRITE TEXT \":arm:sour ext1\" EOL" "WRITE TEXT \":arm:sens edge\" EOL"
+"WRITE TEXT \":arm:slop pos\" EOL"
+"WRITE TEXT \":trig:coun \", g_811xx_burstCount EOL"
+"WRITE TEXT \":puls:doub1 off\" EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(configuration
+(connect D12:0 D0:0)
+(connect D14:0 D1:0)
+(connect D0:1 D2:0)
+(connect D0:2 D3:0)
+(connect D0:0 D4:0)
+(connect D4:1 D5:0)
+(connect D4:2 D6:0)
+(connect D8:1 D7:0)
+(connect D4:0 D8:0)
+(connect D8:2 D9:0)
+(connect D8:0 D10:0)
+(connect D10:1 D11:0)
+(connect D10:3 D13:0)
+(connect D10:0 D14:0)
+(connect D10:2 D21:0)
+(connect D22:1 D21:1)
+(connect D21:0 D23:0)
+(connect D14:1 D24:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1080 1012)
+(anchorPt 137 20)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 240 51))
+(terminals on)
+(pinCenter 140 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 334 76))
+(terminals on)
+(pinCenter 140 730))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 324 196))
+(terminals on)
+(pinCenter 320 190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 324 196))
+(terminals on)
+(pinCenter 490 190))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 245 51))
+(terminals on)
+(pinCenter 140 250))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 304 56))
+(terminals on)
+(pinCenter 320 310))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 314 56))
+(terminals on)
+(pinCenter 490 310))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 344 96))
+(terminals on)
+(pinCenter 320 430))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 245 51))
+(terminals on)
+(pinCenter 140 370))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 344 96))
+(terminals on)
+(pinCenter 490 430))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 84 34))
+(open
+(extent 417 62))
+(terminals on)
+(pinCenter 140 490))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 524 116))
+(terminals on)
+(pinCenter 320 550))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 294 76))
+(terminals on)
+(pinCenter 140 60))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 294 86))
+(terminals on)
+(pinCenter 490 550))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 84 25))
+(open
+(extent 361 51))
+(terminals on)
+(pinCenter 140 610))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 136)
+(editing enabled))
+(pinCenter 50 140))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 136)
+(editing enabled))
+(pinCenter 50 260))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 136)
+(editing enabled))
+(pinCenter 50 380))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 494 186)
+(editing enabled))
+(pinCenter 50 500))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 76)
+(editing enabled))
+(pinCenter 50 630))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 274 136)
+(editing enabled))
+(pinCenter 10 730))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 83 51))
+(terminals on)
+(pinCenter 720 520))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 354 56))
+(terminals on)
+(pinCenter 610 520))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 720 560))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 149 54)
+(iconImage "io.icn"))
+(open
+(extent 294 186))
+(terminals on)
+(pinCenter 310 660))
+(connect D12:0 D0:0
+(points 2 140 89 140 115))
+(connect D14:0 D1:0
+(points 2 140 625 140 700))
+(connect D0:1 D2:0
+(points 3 179 120 320 120 320 160))
+(connect D0:2 D3:0
+(points 3 179 140 490 140 490 160))
+(connect D0:0 D4:0
+(points 2 140 145 140 235))
+(connect D4:1 D5:0
+(points 3 179 240 320 240 320 280))
+(connect D4:2 D6:0
+(points 3 179 260 490 260 490 280))
+(connect D8:1 D7:0
+(points 3 179 360 320 360 320 400))
+(connect D4:0 D8:0
+(points 2 140 265 140 355))
+(connect D8:2 D9:0
+(points 3 179 380 490 380 490 400))
+(connect D8:0 D10:0
+(points 2 140 385 140 470))
+(connect D10:1 D11:0
+(points 3 184 480 320 480 320 520))
+(connect D10:3 D13:0
+(points 3 184 500 490 500 490 520))
+(connect D10:0 D14:0
+(points 2 140 509 140 595))
+(connect D10:2 D21:0
+(points 3 184 490 720 490 720 510))
+(connect D22:1 D21:1
+(points 2 637 520 659 520))
+(connect D21:0 D23:0
+(points 2 720 530 720 550))
+(connect D14:1 D24:0
+(points 3 184 600 310 600 310 630)))
+(stackingOrder 3 15 16 6 7 9 0 8 2 4 5 13 11 10 22 21 23 18 17 19 20 24 1 14 12))))
+(device 101 CONTEXT
+(properties
+(name "errorCheck")
+(trigMode deg)
+(nextID 34)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 3 "EXECUTE CLEAR" "WRITE TEXT \":syst:err?\" EOL"
+"READ TEXT error STR"))
+(interface
+(output 1
+(name "error")
+(optional yes)))
+(implementation
+(iopath "pulseGenerator")))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "strPosStr(A, \"No error\")>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 FORMULA
+(properties
+(expr 1 "\"None\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 This object\'s purpose is to check the instrument for errors and warnings.  The error status is written to the global variable g_811xx_status, which is then written to the Main panel\'s status display.  \\par\r\n\\par\r\nThe object also checks to make sure that the generator\'s output is in the correct state.  The generator occasionally will not turn its output on as it\'s instructed to in the sendSettings object.  \\par\r\n}\r\n"
+)))
+(device 10 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 3 "EXECUTE CLEAR" "WRITE TEXT \":syst:warn:str?\" EOL"
+"READ TEXT warning STR"))
+(interface
+(output 1
+(name "warning")
+(optional yes)))
+(implementation
+(iopath "pulseGenerator")))
+(device 17 TOGLOBAL
+(properties
+(name "Set g_811xx_status")
+(globalName "g_811xx_status"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 20 IFTHENELSE
+(properties
+(cases 1 "strLen(A)==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 22 FORMULA
+(properties
+(expr 1 "\"None\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 26 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 27 FORMULA
+(properties
+(expr 1 "g_811xx_status=g_811xx_status+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 28 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 29 FORMULA
+(properties
+(expr 1 "\"Errors: \"+A+\", Warnings: \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 2 "WRITE TEXT \":outp1?\" EOL" "READ TEXT x BYTE"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "pulseGenerator")))
+(device 32 IFTHENELSE
+(properties
+(cases 1 "A!=g_811xx_outputState"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 33 IODEVICE
+(properties
+(name "pulseGenerator ( @ 710)")
+(transactions 1 "WRITE TEXT \":outp1 \", g_811xx_outputState EOL"))
+(implementation
+(iopath "pulseGenerator")))
+(configuration
+(connect D0:0 D1:0)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)
+(connect D1:2 D3:0)
+(connect D0:1 D3:1)
+(connect D1:0 D5:0)
+(connect D13:1 D6:1)
+(connect D5:0 D7:0)
+(connect D5:1 D7:1)
+(connect D7:1 D8:0)
+(connect D7:2 D9:0)
+(connect D5:1 D9:1)
+(connect D2:1 D10:1)
+(connect D3:1 D10:2)
+(connect D12:1 D11:1)
+(connect D8:1 D12:1)
+(connect D9:1 D12:2)
+(connect D10:1 D13:1)
+(connect D7:0 D14:0)
+(connect D14:1 D15:1)
+(connect D15:1 D16:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 736 872)
+(anchorPt -50 -170)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 149 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 140 300))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 169 51))
+(terminals on)
+(pinCenter 140 390))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 314 56))
+(terminals on)
+(pinCenter 300 410))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 310 480))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 314 216)
+(editing enabled))
+(pinCenter 600 310))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 149 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 140 580))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 117 15))
+(open
+(extent 83 51))
+(terminals on)
+(pinCenter 580 450))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 101 51))
+(terminals on)
+(pinCenter 140 700))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 164 56))
+(terminals on)
+(pinCenter 320 680))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 320 750))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 26 25))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter 380 450))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 214 50))
+(terminals on)
+(pinCenter 490 740))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 26 25))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter 400 740))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 214 56))
+(terminals on)
+(pinCenter 460 450))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 149 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 140 840))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 165 51))
+(terminals on)
+(pinCenter 300 840))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 149 51)
+(iconImage "io.icn"))
+(open
+(extent 294 76))
+(terminals on)
+(pinCenter 390 920))
+(connect D0:0 D1:0
+(points 2 140 328 140 375))
+(connect D0:1 D1:1
+(points 6 217 300 240 300 240 360 80 360 80 390 102 390))
+(connect D1:1 D2:0
+(points 3 178 380 300 380 300 400))
+(connect D1:2 D3:0
+(points 5 178 400 200 400 200 440 310 440 310 470))
+(connect D0:1 D3:1
+(points 6 217 300 240 300 240 360 250 360 250 480 292 480))
+(connect D1:0 D5:0
+(points 2 140 405 140 552))
+(connect D13:1 D6:1
+(points 2 487 450 519 450))
+(connect D5:0 D7:0
+(points 2 140 608 140 685))
+(connect D5:1 D7:1
+(points 6 217 580 240 580 240 670 80 670 80 700 102 700))
+(connect D7:1 D8:0
+(points 5 178 690 250 690 250 650 320 650 320 670))
+(connect D7:2 D9:0
+(points 3 178 710 320 710 320 740))
+(connect D5:1 D9:1
+(points 4 217 580 240 580 240 750 302 750))
+(connect D2:1 D10:1
+(points 4 327 410 350 410 350 440 364 440))
+(connect D3:1 D10:2
+(points 4 327 480 340 480 340 460 364 460))
+(connect D12:1 D11:1
+(points 2 415 740 462 740))
+(connect D8:1 D12:1
+(points 4 347 680 370 680 370 730 384 730))
+(connect D9:1 D12:2
+(points 2 337 750 384 750))
+(connect D10:1 D13:1
+(points 2 395 450 432 450))
+(connect D7:0 D14:0
+(points 2 140 715 140 812))
+(connect D14:1 D15:1
+(points 2 217 840 262 840))
+(connect D15:1 D16:0
+(points 3 338 830 390 830 390 892)))
+(stackingOrder 10 8 9 13 12 11 5 7 0 14 15 16 2 3 1 6 4))))
+(device 148 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(name "Alarm")
+(lock name constraints))))
+(device 154 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 This OnCycle object updates the instrument\'s status on the Main panel twice per second.  \\par\r\n}\r\n"
+)))
+(device 166 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 When the user clicks \"Send Settings\", all of the settings in the GUI are written to global variables and then sent via the sendSettings UserObject.  \\par\r\n\\par\r\nThe errorCheck UserObject then checks to see if the settings generated any errors or warnings in the instrument.  If they did, the program displays them in the Status bar.  \\par\r\n\\par\r\nWhen the thread completes execution, the UntilBreak object causes it to execute again.  The Send Settings button is then reactivated so that the user can send different settings if desired.  This process continues until the user exits the program.  \\par\r\n}\r\n"
+)))
+(device 175 CONTEXT
+(properties
+(name "setUpGUI")
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "OutputTerm")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "OutputTerm")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "OutputTerm")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 1 "g_811xx_supported==0"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 DELAY
+(properties
+(delay 7))
+(interface
+(output 1
+(name "Done"))))
+(device 2 EXITPROCESS
+(properties
+(code 0)))
+(device 3 IFTHENELSE
+(properties
+(cases 1 "g_811xx_prbs==0"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 2)
+(data  [ "Pulse mode" "Burst mode (ext trig\'d)" ]))
+(initValue Text
+(data  ""))))
+(device 5 TOGLOBAL
+(properties
+(name "Set g_811xx_modeChoices")
+(globalName "g_811xx_modeChoices"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 3)
+(data  [ "Pulse mode" "Burst mode (ext trig\'d)" "Pattern mode (PRBS)" ]))
+(initValue Text
+(data  ""))))
+(device 7 TOGLOBAL
+(properties
+(name "Set g_811xx_modeChoices")
+(globalName "g_811xx_modeChoices"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 FROMGLOBAL
+(properties
+(name "Get g_811xx_modeChoices")
+(globalName "g_811xx_modeChoices"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 9 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033\\deflangfe1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 These If/Then objects check for:\\par\r\n\\par\r\n1.  Is the connected instrument a supported pulse generator?  If not, quit after a 7 second delay.  \\par\r\n\\par\r\n2.  If #1 is true, is PRBS supported?  If not, remove \"Pattern mode (PRBS)\" as an output mode selection and disable the \"Pattern length\" and \"Pattern # bits\" user inputs.  \\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:0)
+(connect D1:0 D2:0)
+(connect D0:2 D3:0)
+(connect D3:1 D5:0)
+(connect D4:1 D5:1)
+(connect D3:2 D7:0)
+(connect D6:1 D7:1)
+(connect D0:0 D8:0)
+(connect D5:0 O1:1)
+(connect D5:0 O2:1)
+(connect D8:1 O3:1)
+(connect D8:0 O4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 764 726)
+(anchorPt -3 279)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 159 51))
+(terminals on)
+(pinCenter 140 -160))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 420 -130))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 420 -70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 71 25))
+(open
+(extent 159 51))
+(terminals on)
+(pinCenter 290 20))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 237 60))
+(pinCenter 400 60))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 164 56))
+(terminals on)
+(pinCenter 530 60))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 244 76))
+(pinCenter 210 130))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 234 76))
+(terminals on)
+(pinCenter 340 130))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 167 15))
+(open
+(extent 133 51))
+(terminals on)
+(pinCenter 140 210))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 464 186)
+(editing enabled))
+(pinCenter 80 40))
+(connect D0:1 D1:0
+(points 3 178 -170 420 -170 420 -140))
+(connect D1:0 D2:0
+(points 2 420 -120 420 -98))
+(connect D0:2 D3:0
+(points 3 178 -150 290 -150 290 5))
+(connect D3:1 D5:0
+(points 3 328 10 530 10 530 50))
+(connect D4:1 D5:1
+(points 2 415 60 444 60))
+(connect D3:2 D7:0
+(points 3 328 30 340 30 340 120))
+(connect D6:1 D7:1
+(points 2 225 130 254 130))
+(connect D0:0 D8:0
+(points 2 140 -145 140 200))
+(connect D5:0 O1:1
+(points 5 530 70 530 90 640 90 640 -187 766 -187))
+(connect D5:0 O2:1
+(points 5 530 70 530 90 640 90 640 -7 766 -7))
+(connect D8:1 O3:1
+(points 4 226 210 498 210 498 173 766 173))
+(connect D8:0 O4:1
+(points 3 140 220 140 353 766 353)))
+(stackingOrder 1 3 5 2 6 7 4 0 8 9))))
+(device 240 CONSTANT
+(properties
+(name "Burst count"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1))
+(initValue Real
+(data  0))))
+(device 239 TOGLOBAL
+(properties
+(name "Set g_811xx_burstCount")
+(globalName "g_811xx_burstCount"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 238 CONSTANT
+(properties
+(name "Pattern length"))
+(interface
+(input 1
+(type control)
+(name "Disable Editing")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  16383))
+(initValue Real
+(data  0))))
+(device 237 TOGLOBAL
+(properties
+(name "Set g_811xx_prbsLength")
+(globalName "g_811xx_prbsLength"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 236 CONSTANT
+(properties
+(name "Duty cycle (%)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  50))
+(initValue Real
+(data  0))))
+(device 235 TOGLOBAL
+(properties
+(name "Set g_811xx_dutyCycle")
+(globalName "g_811xx_dutyCycle"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 234 CONSTANT
+(properties
+(name "Pulse width (ns)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  100))
+(initValue Real
+(data  0))))
+(device 233 CONSTANT
+(properties
+(name "Frequency (MHz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  2))
+(initValue Real
+(data  0))))
+(device 232 TOGLOBAL
+(properties
+(name "Set g_811xx_frequency")
+(globalName "g_811xx_frequency"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 231 TOGLOBAL
+(properties
+(name "Set g_811xx_pulseWidth")
+(globalName "g_811xx_pulseWidth"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 230 CONSTANT
+(properties
+(name "Period (ns)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1000))
+(initValue Real
+(data  0))))
+(device 229 TOGLOBAL
+(properties
+(name "Set g_811xx_pulsePeriod")
+(globalName "g_811xx_pulsePeriod"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 228 CONSTANT
+(properties
+(name "Low current (mA)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 227 TOGLOBAL
+(properties
+(name "Set g_811xx_lowCurrent")
+(globalName "g_811xx_lowCurrent"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 226 CONSTANT
+(properties
+(name "High current (mA)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  50))
+(initValue Real
+(data  0))))
+(device 225 TOGLOBAL
+(properties
+(name "Set g_811xx_highCurrent")
+(globalName "g_811xx_highCurrent"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 224 CONSTANT
+(properties
+(name "Low voltage (V)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 223 TOGLOBAL
+(properties
+(name "Set g_811xx_lowVoltage")
+(globalName "g_811xx_lowVoltage"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 222 CONSTANT
+(properties
+(name "High voltage (V)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1))
+(initValue Real
+(data  0))))
+(device 221 TOGLOBAL
+(properties
+(name "Set g_811xx_highVoltage")
+(globalName "g_811xx_highVoltage"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 220 TOGLOBAL
+(properties
+(name "Set g_811xx_outputState")
+(globalName "g_811xx_outputState"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 219 TOGLOBAL
+(properties
+(name "Set g_811xx_outputMode")
+(globalName "g_811xx_outputMode"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 218 TOGLOBAL
+(properties
+(name "Set g_811xx_widthControl")
+(globalName "g_811xx_widthControl"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 217 TOGLOBAL
+(properties
+(name "Set g_811xx_repRateControl")
+(globalName "g_811xx_repRateControl"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 216 TOGLOBAL
+(properties
+(name "Set g_811xx_amplitudeControl")
+(globalName "g_811xx_amplitudeControl"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 215 TOGLOBAL
+(properties
+(name "Set g_811xx_prbsNumberOfBits")
+(globalName "g_811xx_prbsNumberOfBits"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 214 TOGGLE25
+(properties
+(name "Output"))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 213 ENUMCONSTANT
+(properties
+(name "Pattern # bits"))
+(interface
+(input 1
+(type control)
+(name "Disable Editing")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("7" 0)
+("8" 1)
+("9" 2)
+("10" 3)
+("11" 4)
+("12" 5)
+("13" 6)
+("14" 7))
+(data  "14"))
+(initValue Text
+(data  "7"))))
+(device 212 ENUMCONSTANT
+(properties
+(name "Output mode"))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Pulse mode" 0)
+("Burst mode (ext trig\'d)" 1)
+("Pattern mode (PRBS)" 2))
+(data  "Pulse mode"))
+(initValue Text
+(data  "Pulse mode"))))
+(device 211 ENUMCONSTANT
+(properties
+(name "Width control"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Pulse width" 0)
+("Duty cycle" 1))
+(data  "Pulse width"))
+(initValue Text
+(data  "Pulse width"))))
+(device 210 ENUMCONSTANT
+(properties
+(name "Rep rate control"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Frequency" 0)
+("Period" 1))
+(data  "Period"))
+(initValue Text
+(data  "Frequency"))))
+(device 209 ENUMCONSTANT
+(properties
+(name "Amplitude control"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Voltage" 0)
+("Current" 1))
+(data  "Voltage"))
+(initValue Text
+(data  "Voltage"))))
+(configuration
+(connect D10:0 D3:0)
+(connect D7:1 D4:1)
+(connect D16:4 D5:0)
+(connect D5:1 D6:0)
+(connect D13:1 D7:0)
+(connect D9:0 D8:0)
+(connect D10:0 D9:0)
+(connect D17:0 D11:0)
+(connect D11:0 D12:0)
+(connect D10:0 D13:0)
+(connect D3:0 D16:0)
+(connect D19:0 D17:0)
+(connect D17:1 D18:1)
+(connect D21:0 D19:0)
+(connect D16:2 D19:1)
+(connect D19:1 D20:1)
+(connect D23:0 D21:0)
+(connect D21:1 D22:1)
+(connect D24:0 D23:0)
+(connect D27:0 D24:0)
+(connect D24:1 D25:1)
+(connect D23:1 D26:1)
+(connect D29:0 D27:0)
+(connect D27:1 D28:1)
+(connect D31:0 D29:0)
+(connect D29:1 D30:1)
+(connect D33:0 D31:0)
+(connect D31:1 D32:1)
+(connect D35:0 D33:0)
+(connect D33:1 D34:1)
+(connect D43:0 D35:0)
+(connect D35:1 D36:1)
+(connect D43:1 D37:1)
+(connect D45:1 D38:1)
+(connect D46:1 D39:1)
+(connect D47:1 D40:1)
+(connect D48:1 D41:1)
+(connect D44:1 D42:1)
+(connect D44:0 D43:0)
+(connect D45:0 D44:0)
+(connect D16:1 D44:1)
+(connect D46:0 D45:0)
+(connect D16:3 D45:1)
+(connect D47:0 D46:0)
+(connect D48:0 D47:0)
+(connect D6:0 D48:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 5)
+(wndState res)
+(active panel)
+(panel
+(extent 740 493)
+(drawGrid "on")
+(widget 6 detail
+(relativeOrigin 430 130)
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 110 30))
+(widget 4 detail
+(relativeOrigin 10 260)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 716 46))
+(widget 9 detail
+(relativeOrigin 430 170)
+(bg "Blue Gray")
+(PID 12)
+(title off)
+(tabIndex 10)
+(borderStyle none)
+(extent 110 30))
+(widget 31 detail
+(relativeOrigin 270 10)
+(PID 58)
+(title on)
+(tabIndex 11)
+(borderStyle flat)
+(extent 126 29)
+(showFormat real))
+(widget 29 detail
+(relativeOrigin 270 60)
+(PID 59)
+(title on)
+(tabIndex 12)
+(borderStyle flat)
+(extent 126 29)
+(showFormat real))
+(widget 27 detail
+(relativeOrigin 270 130)
+(PID 60)
+(title on)
+(tabIndex 13)
+(borderStyle flat)
+(extent 126 29)
+(showFormat real))
+(widget 35 detail
+(relativeOrigin 150 10)
+(PID 61)
+(title on)
+(tabIndex 14)
+(borderStyle flat)
+(extent 116 29)
+(showFormat real))
+(widget 33 detail
+(relativeOrigin 150 60)
+(PID 62)
+(title on)
+(tabIndex 15)
+(borderStyle flat)
+(extent 116 28)
+(showFormat real))
+(widget 24 detail
+(relativeOrigin 150 130)
+(PID 63)
+(title on)
+(tabIndex 16)
+(borderStyle flat)
+(extent 116 29)
+(showFormat real))
+(widget 23 detail
+(relativeOrigin 150 190)
+(PID 64)
+(title on)
+(tabIndex 17)
+(borderStyle flat)
+(extent 116 26)
+(showFormat real))
+(widget 21 detail
+(relativeOrigin 270 190)
+(PID 65)
+(title on)
+(tabIndex 18)
+(borderStyle flat)
+(extent 126 29)
+(showFormat real))
+(widget 19 detail
+(relativeOrigin 570 190)
+(PID 66)
+(title on)
+(tabIndex 19)
+(borderStyle flat)
+(extent 136 29)
+(showFormat real))
+(widget 17 detail
+(relativeOrigin 580 70)
+(PID 67)
+(title on)
+(tabIndex 20)
+(borderStyle flat)
+(extent 116 29)
+(showFormat real))
+(widget 43 detail
+(relativeOrigin 460 30)
+(PID 68)
+(title off)
+(tabIndex 21)
+(borderStyle none)
+(extent 40 66)
+(scaled off)
+(showTitle on)
+(format vpaddle))
+(widget 44 detail
+(relativeOrigin 570 140)
+(PID 69)
+(title on)
+(tabIndex 22)
+(borderStyle flat)
+(extent 136 28)
+(format dropDown))
+(widget 45 detail
+(relativeOrigin 560 10)
+(PID 70)
+(title on)
+(tabIndex 23)
+(borderStyle flat)
+(extent 156 25)
+(format dropDown))
+(widget 46 detail
+(relativeOrigin 20 190)
+(PID 71)
+(title on)
+(tabIndex 24)
+(borderStyle flat)
+(extent 126 26)
+(format dropDown))
+(widget 47 detail
+(relativeOrigin 20 130)
+(PID 72)
+(title on)
+(tabIndex 25)
+(borderStyle flat)
+(extent 126 28)
+(format dropDown))
+(widget 48 detail
+(relativeOrigin 20 40)
+(PID 73)
+(title on)
+(tabIndex 26)
+(borderStyle flat)
+(extent 126 26)
+(format dropDown))
+(widget 2 detail
+(relativeOrigin 10 320)
+(PID 74)
+(title on)
+(titleFont "Arial" 12)
+(tabIndex 27)
+(borderStyle flat)
+(extent 356 146)
+(editing enabled))
+(widget 0 detail
+(relativeOrigin 370 320)
+(PID 76)
+(title on)
+(tabIndex 28)
+(borderStyle flat)
+(extent 354 148)
+(editing enabled)))
+(detail
+(extent 1302 1032)
+(anchorPt 30 132)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 414 236)
+(editing enabled))
+(pinCenter 210 470))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 170 -40))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 414 306)
+(editing enabled))
+(pinCenter 210 170))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 48 15))
+(terminals on)
+(pinCenter 480 10))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 39 15))
+(open
+(extent 494 36))
+(pinCenter 900 50))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 540 180))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 84 0))
+(open
+(extent 94 24))
+(title off)
+(pinCenter 700 220))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 109 51))
+(terminals on)
+(pinCenter 790 50))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 1020 90))
+(devCarrierFor 61
+(active open)
+(icon
+(extent 29 0))
+(open
+(extent 94 24))
+(title off)
+(bg "Blue Gray")
+(pinCenter 1020 20))
+(devCarrierFor 62
+(active icon)
+(icon
+(extent 92 15))
+(terminals on)
+(pinCenter 480 -60))
+(devCarrierFor 80
+(active icon)
+(icon
+(extent 80 15))
+(terminals on)
+(pinCenter 700 880))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 67 15))
+(terminals on)
+(pinCenter 700 910))
+(devCarrierFor 148
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 89 31))
+(pinCenter 670 20))
+(devCarrierFor 154
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 294 66)
+(editing enabled))
+(pinCenter 670 -70))
+(devCarrierFor 166
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 404 266)
+(editing enabled))
+(pinCenter 540 250))
+(devCarrierFor 175
+(active icon)
+(icon
+(extent 59 45))
+(terminals on)
+(pinCenter 480 100))
+(devCarrierFor 240
+(active icon)
+(icon
+(extent 68 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 840))
+(devCarrierFor 239
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 840))
+(devCarrierFor 238
+(active icon)
+(icon
+(extent 83 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 810))
+(devCarrierFor 237
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 810))
+(devCarrierFor 236
+(active icon)
+(icon
+(extent 83 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 780))
+(devCarrierFor 235
+(active icon)
+(icon
+(extent 137 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 780))
+(devCarrierFor 234
+(active icon)
+(icon
+(extent 97 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 750))
+(devCarrierFor 233
+(active icon)
+(icon
+(extent 100 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 720))
+(devCarrierFor 232
+(active icon)
+(icon
+(extent 138 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 720))
+(devCarrierFor 231
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 750))
+(devCarrierFor 230
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 140 29)
+(showFormat real))
+(pinCenter 700 690))
+(devCarrierFor 229
+(active icon)
+(icon
+(extent 154 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 690))
+(devCarrierFor 228
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 138 29)
+(showFormat real))
+(pinCenter 700 660))
+(devCarrierFor 227
+(active icon)
+(icon
+(extent 146 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 660))
+(devCarrierFor 226
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 141 29)
+(showFormat real))
+(pinCenter 700 630))
+(devCarrierFor 225
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 630))
+(devCarrierFor 224
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 124 29)
+(showFormat real))
+(pinCenter 700 600))
+(devCarrierFor 223
+(active icon)
+(icon
+(extent 146 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 600))
+(devCarrierFor 222
+(active icon)
+(icon
+(extent 104 14))
+(open
+(extent 130 29)
+(showFormat real))
+(pinCenter 700 570))
+(devCarrierFor 221
+(active icon)
+(icon
+(extent 151 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 570))
+(devCarrierFor 220
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 880 500))
+(devCarrierFor 219
+(active icon)
+(icon
+(extent 150 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 870 380))
+(devCarrierFor 218
+(active icon)
+(icon
+(extent 156 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 870 340))
+(devCarrierFor 217
+(active icon)
+(icon
+(extent 172 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 870 300))
+(devCarrierFor 216
+(active icon)
+(icon
+(extent 184 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 870 260))
+(devCarrierFor 215
+(active icon)
+(icon
+(extent 193 15))
+(open
+(extent 184 46))
+(terminals on)
+(pinCenter 870 420))
+(devCarrierFor 214
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 42 66)
+(scaled off)
+(showTitle on)
+(format vpaddle))
+(title off)
+(pinCenter 700 500))
+(devCarrierFor 213
+(active icon)
+(icon
+(extent 79 25))
+(open
+(extent 163 25)
+(format dropDown))
+(pinCenter 700 430))
+(devCarrierFor 212
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 114 25)
+(format dropDown))
+(pinCenter 700 390))
+(devCarrierFor 211
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 134 26)
+(format dropDown))
+(pinCenter 700 350))
+(devCarrierFor 210
+(active icon)
+(icon
+(extent 95 25))
+(open
+(extent 140 25)
+(format dropDown))
+(pinCenter 700 310))
+(devCarrierFor 209
+(active icon)
+(icon
+(extent 104 25))
+(open
+(extent 144 26)
+(format dropDown))
+(pinCenter 700 270))
+(connect D10:0 D3:0
+(points 2 480 -50 480 0))
+(connect D7:1 D4:1
+(points 2 851 50 878 50))
+(connect D16:4 D5:0
+(points 3 512 110 540 110 540 152))
+(connect D5:1 D6:0
+(points 3 576 180 700 180 700 205))
+(connect D13:1 D7:0
+(points 3 706 20 790 20 790 40))
+(connect D9:0 D8:0
+(points 2 1020 34 1020 62))
+(connect D10:0 D9:0
+(points 4 480 -50 480 -30 1020 -30 1020 5))
+(connect D17:0 D11:0
+(points 2 700 850 700 870))
+(connect D11:0 D12:0
+(points 2 700 890 700 900))
+(connect D10:0 D13:0
+(points 4 480 -50 480 -30 670 -30 670 -8))
+(connect D3:0 D16:0
+(points 2 480 20 480 75))
+(connect D19:0 D17:0
+(points 2 700 820 700 830))
+(connect D17:1 D18:1
+(points 2 736 840 804 840))
+(connect D21:0 D19:0
+(points 2 700 790 700 800))
+(connect D16:2 D19:1
+(points 4 512 90 600 90 600 810 656 810))
+(connect D19:1 D20:1
+(points 2 744 810 803 810))
+(connect D23:0 D21:0
+(points 2 700 760 700 770))
+(connect D21:1 D22:1
+(points 2 744 780 809 780))
+(connect D24:0 D23:0
+(points 2 700 730 700 740))
+(connect D27:0 D24:0
+(points 2 700 700 700 710))
+(connect D24:1 D25:1
+(points 2 752 720 808 720))
+(connect D23:1 D26:1
+(points 2 751 750 803 750))
+(connect D29:0 D27:0
+(points 2 700 670 700 680))
+(connect D27:1 D28:1
+(points 2 736 690 800 690))
+(connect D31:0 D29:0
+(points 2 700 640 700 650))
+(connect D29:1 D30:1
+(points 2 753 660 804 660))
+(connect D33:0 D31:0
+(points 2 700 610 700 620))
+(connect D31:1 D32:1
+(points 2 755 630 802 630))
+(connect D35:0 D33:0
+(points 2 700 579 700 590))
+(connect D33:1 D34:1
+(points 2 748 600 804 600))
+(connect D43:0 D35:0
+(points 2 700 535 700 560))
+(connect D35:1 D36:1
+(points 2 754 570 802 570))
+(connect D43:1 D37:1
+(points 2 723 500 803 500))
+(connect D45:1 D38:1
+(points 2 741 380 792 380))
+(connect D46:1 D39:1
+(points 2 741 340 789 340))
+(connect D47:1 D40:1
+(points 2 750 300 781 300))
+(connect D48:1 D41:1
+(points 2 754 260 775 260))
+(connect D44:1 D42:1
+(points 2 742 420 771 420))
+(connect D44:0 D43:0
+(points 2 700 445 700 464))
+(connect D45:0 D44:0
+(points 2 700 405 700 415))
+(connect D16:1 D44:1
+(points 4 512 80 610 80 610 430 658 430))
+(connect D46:0 D45:0
+(points 2 700 365 700 375))
+(connect D16:3 D45:1
+(points 6 512 100 620 100 620 350 640 350 640 390 658 390))
+(connect D47:0 D46:0
+(points 2 700 325 700 335))
+(connect D48:0 D47:0
+(points 2 700 285 700 295))
+(connect D6:0 D48:0
+(points 2 700 234 700 255)))
+(stackingOrder 4 1 7 13 10 9 8 14 5 15 43 42 40 39 38 37 36 34 32 30 28 26 25 22
+20 18 6 41 16 48 47 46 45 44 31 17 19 21 23 24 27 29 33 35 3 12 11 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

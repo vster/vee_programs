@@ -1,0 +1,446 @@
+(saveFormat "7.0")
+(date "Wed 29/Aug/2007 02:24:36 ")
+(veerev "8.5.10427.1 Beta2 - Botticelli")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020905-0000-0000-C000-000000000046}")
+(desc "Microsoft Word 9.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\MSWORD9.OLB")
+(verMajor 8)
+(verMinor 1)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "Graph")
+(variableName Graph)
+(variableScope glob)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Sine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 1 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)
+(autoAutoX)
+(autoAutoY)))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 580 379)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 20 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title on)
+(titleBg "Light Blue Gray")
+(tabIndex 0)
+(borderStyle flat)
+(extent 186 215))
+(widget 1 detail
+(relativeOrigin 230 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title on)
+(titleBg "Light Blue Gray")
+(tabIndex 1)
+(borderStyle flat)
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 732 405)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 225 220))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 600 220))
+(connect D0:1 D1:1
+(points 2 360 220 439 220)))
+(stackingOrder 1 0)))))
+(device 0 DECLVAR
+(properties
+(name "Declare App")
+(scope glob)
+(globalName "App"))
+(implementation
+(value Object
+(data  "COM ON Word.Application"))))
+(device 1 DECLVAR
+(properties
+(name "Declare Doc")
+(scope glob)
+(globalName "Doc"))
+(implementation
+(value Object
+(data  "COM ON Word.Document"))))
+(device 2 DECLVAR
+(properties
+(name "Declare Sel")
+(scope glob)
+(globalName "Sel"))
+(implementation
+(value Object
+(data  "COM OFF Word.Selection"))))
+(device 3 DECLVAR
+(properties
+(name "Declare Bmp")
+(scope glob)
+(globalName "Bmp"))
+(implementation
+(value Object
+(data  "COM OFF Word.Shape"))))
+(device 4 DECLVAR
+(properties
+(name "Declare Wnd")
+(scope glob)
+(globalName "Wnd"))
+(implementation
+(value Object
+(data  "COM OFF Word.Window"))))
+(device 5 CALL
+(properties
+(name "Call Graph")
+(variableScope cont)
+(callFunc "Graph")
+(parmMode rev30)))
+(device 6 FORMULA
+(properties
+(name "Image Filename")
+(variableScope cont)
+(expr 1 "getEnv(\"temp\")+ \"\\\\panel.bmp\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Save Panel Image")
+(variableScope cont)
+(expr 1 " savePanelImage(\"Graph\", FileName, 256)"))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Set App = CreateObject(\"Word.Application\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 FORMULA
+(properties
+(variableScope cont)
+(expr 11 " App.Visible = 1;" " Set Doc = App.Documents.Add( );"
+" Doc.Activate ( );" " Set Wnd = App.ActiveWindow;" " Set Sel = App.Selection;"
+" Wnd.View.Type = 3;" " Sel.TypeText (\"***Test Results***\");"
+" Sel.TypeParagraph ( );" " Set Bmp = Doc.Shapes.AddPicture(FileName);"
+" Sel.TypeParagraph ( );" " Sel.InsertDateTime (\"M/d/yy h:mm:ss am/pm\", 0);"))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "App.ActivePrinter"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 IFTHENELSE
+(properties
+(name "Is Printer Configured?")
+(variableScope cont)
+(cases 1 "strLen(str)!=0"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "Doc.PrintOut(0)")))
+(device 13 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "App.Quit(0)")))
+(device 15 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D5:0 D7:0)
+(connect D6:1 D7:1)
+(connect D7:0 D8:0)
+(connect D8:0 D9:0)
+(connect D6:1 D9:1)
+(connect D9:0 D10:0)
+(connect D10:1 D11:1)
+(connect D11:1 D12:0)
+(connect D10:0 D13:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 977 584)
+(anchorPt 3 48)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 344 121))
+(pinCenter 480 40))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 344 157))
+(pinCenter 480 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 344 157))
+(pinCenter 580 60))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 344 157))
+(pinCenter 580 100))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 344 157))
+(pinCenter 480 120))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 64 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 340 40))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 238 51))
+(terminals on)
+(pinCenter 170 70))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 326 72))
+(terminals on)
+(pinCenter 320 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 280 116))
+(terminals on)
+(pinCenter 340 120))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 328 194))
+(terminals on)
+(pinCenter 350 270))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 123 50))
+(terminals on)
+(pinCenter 160 440))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 132 0))
+(open
+(extent 163 71))
+(terminals on)
+(pinCenter 495 440))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 160 50))
+(terminals on)
+(pinCenter 500 550))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 138 50))
+(terminals on)
+(pinCenter 170 530))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 290 -20))
+(connect D5:0 D7:0
+(points 4 340 50 340 60 320 60 320 70))
+(connect D6:1 D7:1
+(points 4 222 70 240 70 240 80 262 80))
+(connect D7:0 D8:0
+(points 4 320 90 320 100 340 100 340 110))
+(connect D8:0 D9:0
+(points 2 340 130 340 152))
+(connect D6:1 D9:1
+(points 6 222 70 240 70 240 100 90 100 90 270 113 270))
+(connect D9:0 D10:0
+(points 6 340 369 340 390 290 390 290 380 170 380 170 394))
+(connect D10:1 D11:1
+(points 4 274 440 290 440 290 440 381 440))
+(connect D11:1 D12:0
+(points 5 619 420 640 420 640 490 500 490 500 504))
+(connect D10:0 D13:0
+(points 2 170 467 170 484)))
+(stackingOrder 1 4 2 3 0 5 8 12 13 11 10 14 6 9 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

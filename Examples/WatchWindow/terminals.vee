@@ -1,0 +1,209 @@
+(saveFormat "7.0")
+(date "Fri 03/May/2013 10:24:27 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 31)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\fbidis\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Arial;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\ltrpar\\cf1\\f0\\fs20 This example demonstrates how to observe and change the value of Output Terminals. \\par\r\n\\par\r\nWe compare two integers here. The default value of bigNum is \"7\" and smallNum is \"9\". \\par\r\n\\par\r\n1. Select View=>Watch Window=>\"Terminals\".\\par\r\n\\par\r\n2. Right click the line between the object \"bigNum\" and If/Then/Else box, select \"Watch data\" to add the output terminal of \"bigNum\" into Watch Window. Then add the output terminal of \"smallNum\" into the Watch Window too. Now, you can see two items, \"\\{bigNum-M.21\\}.Int16\" and \"\\{smallNum-M22\\}.Int16\" under the root node \"Main\".\\par\r\n\\par\r\n3. Press \"Run\" to start the program.\\par\r\n\\par\r\n4. The program will stop at If/Then/Else box. Now the value of \"\\{bigNum-M.21\\}.Int16\" is \"7\" and the value of \"\\{smallNum-M22\\}.Int16\" is \"9\". \\par\r\n\\par\r\n5. Double click the value of \"\\{smallNum-M22\\}.Int16\" in the Watch Window and change it to 5. The color of the value changes to red. It means the value of the output terminal \"Int16\" in \"smallNum\" object has changed.\\par\r\n\\par\r\n\\pard\\ltrpar\\nowidctlpar\\qj 6. Press \"Run\", it will pops up a message box \"bigNum > smallNum\", click \"Ok\".\\f1\\par\r\n}\r\n"
+)))
+(device 21 CONSTANT
+(properties
+(name "bigNum")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  7))
+(initValue Int16
+(data  0))))
+(device 22 CONSTANT
+(properties
+(name "smallNum")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int16")
+(lock name constraints)))
+(implementation
+(value Int16
+(data  9))
+(initValue Int16
+(data  0))))
+(device 25 IFTHENELSE
+(properties
+(breakpoint 1)
+(variableScope cont)
+(cases 1 "big>small"))
+(interface
+(input 1
+(name "big")
+(optional yes))
+(input 2
+(name "small")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 26 MESSAGEBOX
+(properties
+(name "bigNum > smallNum")
+(variableScope cont)
+(position 94 182)
+(message "bigNum > smallNum")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 27 MESSAGEBOX
+(properties
+(name "bigNum <= smallNum")
+(variableScope cont)
+(position 134 203)
+(message "bigNum <= smallNum")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 30 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D3:1)
+(connect D2:1 D3:2)
+(connect D3:1 D4:0)
+(connect D3:2 D5:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 967 627)
+(wndState max)
+(active detail)
+(detail
+(extent 913 697)
+(anchorPt -127 103)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 466)
+(editing enabled))
+(pinCenter 360 250))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 48 15))
+(open
+(extent 54 29)
+(showFormat int))
+(terminals on)
+(pinCenter 655 40))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 63 15))
+(open
+(extent 54 26)
+(showFormat int))
+(terminals on)
+(pinCenter 655 100))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 85 96))
+(terminals on)
+(pinCenter 845 70))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 126 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 1030 70))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 134 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 1030 130))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 414 76)
+(editing enabled))
+(pinCenter 320 -50))
+(connect D1:1 D3:1
+(points 2 724 40 750 40))
+(connect D2:1 D3:2
+(points 2 724 100 750 100))
+(connect D3:1 D4:0
+(points 3 930 40 1030 40 1030 55))
+(connect D3:2 D5:0
+(points 3 930 100 1030 100 1030 115)))
+(stackingOrder 3 1 2 4 5 0 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,1491 @@
+(saveFormat "7.0")
+(date "Wed 29/Mar/2006 10:31:34 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.141 M.140 M.140.2 M.140.1 M.139 M)
+(sysconfig
+(iodevice "oscilloscope"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 7)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "ag54832d")
+(ppAddr "GPIB0::7::INSTR")
+(eoiEnabled 1)
+(model "ag54832d"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 142)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 8 CONSTANT
+(properties
+(name "Enter Scope Channel Number"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 10 CONSTANT
+(properties
+(name "Enter Number of Points in Sweep"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  32000))
+(initValue Int32
+(data  0))))
+(device 23 TEXTDISPLAY
+(properties
+(name "Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 24 TEXTDISPLAY
+(properties
+(name "Period"))
+(interface
+(input 1
+(name "Data"))))
+(device 25 TEXTDISPLAY
+(properties
+(name "Duty Cycle"))
+(interface
+(input 1
+(name "Data"))))
+(device 26 TEXTDISPLAY
+(properties
+(name "Pulse Width"))
+(interface
+(input 1
+(name "Data"))))
+(device 58 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 107 EXITPROCESS
+(properties
+(code 0)))
+(device 109 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 110 CONFIRM25
+(properties
+(name "Start Measurement")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 111 TEXTDISPLAY
+(properties
+(name "Instrument ID / Error message"))
+(interface
+(input 1
+(name "Data"))))
+(device 112 NOTE
+(properties
+(name "Analog Scope Measurement Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The purpose of this sample is to show how to use VEE to retrieve analog data from an Infiniium Oscilloscope and display it in a VEE data display object.\\par\r\n\\par\r\nNote that the data could also be sent to a text file, to Excel or MATLAB for reporting or data analysis using the available Excel Vee objects or the MATLAB Script object. In this example, the measured data is displayed in an Excel spreadsheet.\\par\r\n\\par\r\nPlease press the Run button in the VEE menu from the Panel or the Detail view to start this sample. And to stop it, if it is not already done, just press the Stop button in the same VEE menu. In this example, different values for the number of points in the sweep and the oscilloscope channel number for the signal source can be modified by typing a new value into the object.\\!\r\n par\r\n\\par\r\nNote that you can double click on the \"Note Pad\" objects in the Detail view to see help in the various steps in the program.\\par\r\n}\r\n"
+)))
+(device 113 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version 14.1\\par\r\n   as a minimum.\\par\r\n -Apply a signal to the oscilloscope such as the one available on the front panel of \\par\r\n   the Infiniium scopes.                                             \\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 707 on the GPIB bus.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(device 126 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The measured waveform is obtained from the global variable and displayed with the Vee XY trace object.\\cf0\\f1\\fs17\\par\r\n}\r\n"
+)))
+(device 132 NOTE
+(properties
+(name "Measured Parameters ")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The oscilloscope measures the following signal parameters displayed below:\\par\r\n}\r\n"
+)))
+(device 133 YPLOT
+(properties
+(name "Measured Waveform"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 139 CONTEXT
+(properties
+(name "instrumentPreset")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "Data")
+(optional yes))
+(output 1
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare g_analogScope_channelNumber")
+(scope glob)
+(globalName "g_analogScope_channelNumber"))
+(implementation
+(value Text
+(data  ""))))
+(device 1 DECLVAR
+(properties
+(name "Declare g_analogScope_measuredParameters")
+(scope glob)
+(globalName "g_analogScope_measuredParameters"))
+(implementation
+(value Real64
+(numDims 1)
+(size 1)
+(data  [ 0 ]))))
+(device 2 DECLVAR
+(properties
+(name "Declare g_analogScope_numberPoints")
+(scope glob)
+(globalName "g_analogScope_numberPoints"))
+(implementation
+(value Int32
+(data  0))))
+(device 3 DECLVAR
+(properties
+(name "Declare g_analogScope_waveform")
+(scope glob)
+(globalName "g_analogScope_waveform"))
+(implementation
+(value Real64
+(numDims 1)
+(size 1)
+(data  [ 0 ]))))
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Four global variables are declared for use in the program.\\cf0\\f1\\fs17\\par\r\n}\r\n"
+)))
+(device 5 IODEVICE
+(properties
+(name "Reset oscilloscope ")
+(transactions 6 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*CLS\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT x STR" "WRITE TEXT \"SYST:ERR?\" EOL"
+"READ TEXT errorNo STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(name "errorNo")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "oscilloscope")))
+(device 6 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT \"Error number \", A, \" has occurred.\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 EXITPROCESS
+(properties
+(code 0)))
+(device 8 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 9 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT \"CHAN\", A EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 10 TOGLOBAL
+(properties
+(name "Set g_analogScope_channelNumber")
+(globalName "g_analogScope_channelNumber"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 11 TOGLOBAL
+(properties
+(name "Set g_analogScope_numberPoints")
+(globalName "g_analogScope_numberPoints"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 12 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In theReset oscilloscope Direct IO object, the oscilloscope is sent the commands \"*RST\", \"*CLS\" and \"*IDN?\".  The identity of the instrument  is returned and dispalyed.The Oscilloscope is queried for an error using the \"SYST:ERR?\" command. If an error occurs, the error is trapped by the Direct IO object, sent to the display and the program is stopped. \\par\r\n}\r\n"
+)))
+(device 13 IFTHENELSE
+(properties
+(name "If A == B")
+(cases 1 "A==B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 CONSTANT
+(properties
+(name "UInt8"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  0))
+(initValue UInt8
+(data  0))))
+(device 15 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D15:1 D6:1)
+(connect D6:0 D7:0)
+(connect D5:1 D8:1)
+(connect D6:1 D8:2)
+(connect I1:1 D9:1)
+(connect D9:1 D10:1)
+(connect I2:1 D11:1)
+(connect D5:2 D13:1)
+(connect D14:1 D13:2)
+(connect D13:2 D15:0)
+(connect D5:2 D15:1)
+(connect D8:1 O1:1)))
+(contextCarrier
+(wndOrigin 322 630)
+(wndRestoredOrigin -43 364)
+(wndRestoredExtent 1021 692)
+(wndState min)
+(active detail)
+(detail
+(extent 940 623)
+(anchorPt 7 -42)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 284 14))
+(open
+(extent 287 103))
+(pinCenter 340 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 284 14))
+(open
+(extent 324 103))
+(pinCenter 340 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 284 14))
+(open
+(extent 275 103))
+(pinCenter 340 140))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 284 14))
+(open
+(extent 248 103))
+(pinCenter 340 170))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 214 86)
+(editing enabled))
+(pinCenter 640 130))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 204 54)
+(iconImage "io.icn"))
+(open
+(extent 224 146))
+(terminals on)
+(pinCenter 530 390))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 820 440))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 840 560))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 780 370))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 70 190))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 224 15))
+(open
+(extent 190 57))
+(terminals on)
+(pinCenter 260 230))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 212 15))
+(open
+(extent 178 51))
+(terminals on)
+(pinCenter 210 560))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 176)
+(editing enabled))
+(pinCenter 210 430))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 48 25))
+(open)
+(terminals on)
+(pinCenter 640 480))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter 530 500))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 710 450))
+(connect D15:1 D6:1
+(points 4 727 450 750 450 750 440 791 440))
+(connect D6:0 D7:0
+(points 4 820 450 820 470 840 470 840 532))
+(connect D5:1 D8:1
+(points 4 634 370 650 370 650 360 764 360))
+(connect D6:1 D8:2
+(points 6 849 440 870 440 870 410 740 410 740 380 764 380))
+(connect I1:1 D9:1
+(points 4 -7 193 17 193 17 190 41 190))
+(connect D9:1 D10:1
+(points 4 99 190 120 190 120 230 145 230))
+(connect I2:1 D11:1
+(points 4 -7 513 0 513 0 560 101 560))
+(connect D5:2 D13:1
+(points 6 634 410 650 410 650 440 600 440 600 470 613 470))
+(connect D14:1 D13:2
+(points 4 567 500 590 500 590 490 613 490))
+(connect D13:2 D15:0
+(points 7 666 490 680 490 680 460 670 460 670 420 710 420 710 440))
+(connect D5:2 D15:1
+(points 4 634 410 650 410 650 450 692 450))
+(connect D8:1 O1:1
+(points 4 795 370 820 370 820 353 932 353)))
+(stackingOrder 0 1 2 3 4 12 8 13 14 6 7 15 5 11 9 10))))
+(device 140 CONTEXT
+(properties
+(name "measurement")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In the User Objects, MeasureWaveform and MeasureParameters, Vee Direct IO is used to control the oscilloscope to measure the analog waveform and a set of six signal parameters.\\par\r\n}\r\n"
+)))
+(device 1 CONTEXT
+(properties
+(name "MeasureWaveform")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 FROMGLOBAL
+(properties
+(name "Get g_analogScope_channelNumber")
+(globalName "g_analogScope_channelNumber"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 1 FROMGLOBAL
+(properties
+(name "Get g_analogScope_numberPoints")
+(globalName "g_analogScope_numberPoints"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 2 IODEVICE
+(properties
+(name "oscilloscope (ag54832d @ 707)")
+(transactions 4 "WRITE TEXT \":SYST:HEAD OFF\" EOL"
+"WRITE TEXT \":TIM:REF CENT;RANG 2E-3\" EOL"
+"WRITE TEXT \":\", A, \":RANG 2\" EOL"
+"WRITE TEXT \":ACQ:MODE RTIM;AVER OFF;POINTS \", B EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "oscilloscope")))
+(device 3 IODEVICE
+(properties
+(name "oscilloscope (ag54832d @ 707)")
+(transactions 12 "WRITE TEXT \":DIGITIZE \", A EOL"
+"WRITE TEXT \":\", A, \":DISP ON\" EOL"
+"WRITE TEXT \":WAVEFORM:FORMAT WORD\" EOL"
+"WRITE TEXT \"WAVEFORM:SOURCE \", A EOL" "WRITE TEXT \":WAVEFORM:DATA?\" EOL"
+"READ BINBLOCK waveformData INT16 ARRAY:*" "WRITE TEXT \"WAVEFORM:YINC?\" EOL"
+"READ TEXT yInc REAL64" "WRITE TEXT \":WAVEFORM:YOR?\" EOL"
+"READ TEXT yOr REAL64" "WRITE TEXT \":WAVEFORM:XINC?\" EOL"
+"READ TEXT xInc REAL64"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "yInc")
+(optional yes))
+(output 2
+(name "waveformData")
+(optional yes))
+(output 3
+(name "yOr")
+(optional yes))
+(output 4
+(name "xInc")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "oscilloscope")))
+(device 4 FORMULA
+(properties
+(name "Scale Raw Data")
+(expr 1 "(A*B)+C"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 1E-007)))
+(device 6 TOGLOBAL
+(properties
+(name "Set g_analogScope_waveform")
+(globalName "g_analogScope_waveform"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The signal placed on the channel is measured and displayed. The raw data from the oscilloscope is transferred into VEE Pro, scaled, and will be displayed with a VEE waveform display object.\\par\r\n\\cf1\\f1\\fs24\\par\r\nMeasurement Steps:\\par\r\nPhase 1:\\par\r\n1) Turn off the system headers.\\par\r\n2) Program the range full scale to 2 volts.\\par\r\n3) Program scope for real time acquisition, no averaging, and memory depth to the user determined number of points.\\par\r\n\\par\r\nPhase 2:\\par\r\n4) The \"Digitize\" command is used to acquire new data from the scope.\\par\r\n5) The data transfer from the scope to the computer is programmed for Word format.\\par\r\n6) The waveform data is requested with the \"DATA?\" command.\\par\r\n7) The waveform conversion fa!\r\n ctors are requested:  ie. the x and y origin and increment factors.\\par\r\n8) the raw waveform data is scaled and stored in a global variable.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D2:1)
+(connect D1:1 D2:2)
+(connect D2:0 D3:0)
+(connect D0:1 D3:1)
+(connect D3:2 D4:1)
+(connect D3:1 D4:2)
+(connect D3:3 D4:3)
+(connect D4:1 D5:1)
+(connect D3:4 D5:2)
+(connect D5:1 D6:1)))
+(contextCarrier
+(wndOrigin 2 630)
+(wndRestoredOrigin -71 268)
+(wndRestoredExtent 916 390)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt -97 150)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 225 24))
+(open
+(extent 191 51))
+(terminals on)
+(pinCenter 220 -80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 224 24))
+(open
+(extent 179 51))
+(terminals on)
+(pinCenter 220 -30))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 193 51)
+(iconImage "io.icn"))
+(open
+(extent 374 146))
+(terminals on)
+(pinCenter 370 80))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 193 51)
+(iconImage "io.icn"))
+(open
+(extent 374 206))
+(terminals on)
+(pinCenter 300 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 96 34))
+(open
+(extent 135 62))
+(terminals on)
+(pinCenter 520 160))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 94 51)
+(iconImage "build.icn"))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 270 270))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 184 15))
+(open
+(extent 150 51))
+(terminals on)
+(pinCenter 470 270))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 426)
+(editing enabled))
+(pinCenter 830 150))
+(connect D0:1 D2:1
+(points 6 335 -80 360 -80 360 20 260 20 260 70 271 70))
+(connect D1:1 D2:2
+(points 6 334 -30 350 -30 350 0 250 0 250 90 271 90))
+(connect D2:0 D3:0
+(points 4 370 108 370 120 300 120 300 132))
+(connect D0:1 D3:1
+(points 6 335 -80 360 -80 360 20 180 20 180 160 201 160))
+(connect D3:2 D4:1
+(points 2 399 150 469 150))
+(connect D3:1 D4:2
+(points 4 399 140 440 140 440 160 469 160))
+(connect D3:3 D4:3
+(points 4 399 160 430 160 430 170 469 170))
+(connect D4:1 D5:1
+(points 6 570 160 590 160 590 220 210 220 210 260 220 260))
+(connect D3:4 D5:2
+(points 6 399 170 420 170 420 210 200 210 200 280 220 280))
+(connect D5:1 D6:1
+(points 2 319 270 375 270)))
+(stackingOrder 4 5 6 3 7 2 0 1))))
+(device 2 CONTEXT
+(properties
+(name "MeasureParameters")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "oscilloscope (ag54832d @ 707)")
+(transactions 8 "WRITE TEXT \":MEAS:FREQ? \", channelNumber EOL"
+"READ TEXT frequency REAL64" "WRITE TEXT \":MEAS:PER? \", channelNumber EOL"
+"READ TEXT period REAL64" "WRITE TEXT \":MEAS:DUTY? \", channelNumber EOL"
+"READ TEXT dutyCycle REAL64" "WRITE TEXT \":MEAS:PWID? \", channelNumber EOL"
+"READ TEXT pulseWidth REAL64"))
+(interface
+(input 1
+(name "channelNumber")
+(optional yes))
+(output 1
+(name "frequency")
+(optional yes))
+(output 2
+(name "period")
+(optional yes))
+(output 3
+(name "dutyCycle")
+(optional yes))
+(output 4
+(name "pulseWidth")
+(optional yes)))
+(implementation
+(ioDevType 1)
+(iopath "oscilloscope")))
+(device 1 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 TOGLOBAL
+(properties
+(name "Set g_analogScope_measuredParameters")
+(globalName "g_analogScope_measuredParameters"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 4 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The parameters frequency,period,duty cycle, and pulse width are measured and assigned to the global variable g_analogScope_measuredParameters.\\par\r\n}\r\n"
+)))
+(device 5 FROMGLOBAL
+(properties
+(name "Get g_analogScope_channelNumber")
+(globalName "g_analogScope_channelNumber"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(configuration
+(connect D5:1 D0:1)
+(connect D0:1 D1:1)
+(connect D0:2 D1:2)
+(connect D0:3 D1:3)
+(connect D0:4 D1:4)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndOrigin 162 630)
+(wndRestoredOrigin -78 232)
+(wndRestoredExtent 842 182)
+(wndState min)
+(active detail)
+(detail
+(extent 960 623)
+(anchorPt 277 124)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 193 65)
+(iconImage "io.icn"))
+(open
+(extent 364 216))
+(terminals on)
+(pinCenter 160 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 26 65))
+(open
+(extent 12 122))
+(terminals on)
+(pinCenter 500 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 320 180))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 260 15))
+(open
+(extent 226 51))
+(terminals on)
+(pinCenter 520 180))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 40 -30))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 225 15))
+(open
+(extent 191 51))
+(terminals on)
+(pinCenter -80 90))
+(connect D5:1 D0:1
+(points 2 35 90 61 90))
+(connect D0:1 D1:1
+(points 2 259 70 484 70))
+(connect D0:2 D1:2
+(points 2 259 80 484 80))
+(connect D0:3 D1:3
+(points 2 259 90 484 90))
+(connect D0:4 D1:4
+(points 2 259 100 484 100))
+(connect D1:1 D2:1
+(points 6 515 90 540 90 540 150 280 150 280 170 291 170))
+(connect D0:0 D2:2
+(points 3 160 125 160 190 291 190))
+(connect D2:1 D3:1
+(points 2 349 180 387 180)))
+(stackingOrder 4 2 3 1 0 5))))
+(configuration
+(connect D1:0 D2:0)))
+(contextCarrier
+(wndOrigin 482 630)
+(wndRestoredOrigin 24 167)
+(wndRestoredExtent 836 287)
+(wndState min)
+(active detail)
+(detail
+(extent 836 287)
+(anchorPt -52 15)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 116)
+(editing enabled))
+(pinCenter 280 150))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 204 44))
+(terminals on)
+(pinCenter 660 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 204 54))
+(terminals on)
+(pinCenter 660 200))
+(connect D1:0 D2:0
+(points 2 660 114 660 170)))
+(stackingOrder 0 1 2))))
+(device 141 CONTEXT
+(properties
+(name "dataAnalysis")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "waveform")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "frequency")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "period")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "duty cycle")
+(lock constraints)
+(optional yes))
+(output 5
+(type data)
+(name "pulse width")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FROMGLOBAL
+(properties
+(name "Get g_analogScope_waveform")
+(globalName "g_analogScope_waveform"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 1 FROMGLOBAL
+(properties
+(name "Get g_analogScope_measuredParameters")
+(globalName "g_analogScope_measuredParameters"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(name "frequency")
+(expr 1 "A[0]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "period")
+(expr 1 "A[1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(name "duty cycle")
+(expr 1 "A[2]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "pulse width")
+(expr 1 "A[3]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The data stored in the global variables is accessed for display. By using a formula object, the data stored in the parameters data array is accessed.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D1:1 D3:1)
+(connect D1:1 D4:1)
+(connect D1:1 D5:1)
+(connect D0:1 O1:1)
+(connect D2:1 O2:1)
+(connect D3:1 O3:1)
+(connect D4:1 O4:1)
+(connect D5:1 O5:1)))
+(contextCarrier
+(wndOrigin 642 630)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 330 300)
+(wndState min)
+(active detail)
+(detail
+(extent 910 623)
+(anchorPt 109 87)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 264 24))
+(open
+(extent 151 51))
+(terminals on)
+(pinCenter 260 150))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 264 24))
+(open
+(extent 227 51))
+(terminals on)
+(pinCenter 260 310))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 124 24))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 140))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 124 24))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 620 220))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 124 24))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 630 300))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 124 24))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 620 380))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 254 106)
+(editing enabled))
+(pinCenter 240 10))
+(connect D0:0 D1:0
+(points 2 260 164 260 295))
+(connect D1:1 D2:1
+(points 6 394 310 420 310 420 270 520 270 520 140 545 140))
+(connect D1:1 D3:1
+(points 6 394 310 420 310 420 270 520 270 520 220 555 220))
+(connect D1:1 D4:1
+(points 4 394 310 420 310 420 300 565 300))
+(connect D1:1 D5:1
+(points 6 394 310 420 310 420 300 530 300 530 380 555 380))
+(connect D0:1 O1:1
+(points 4 394 150 410 150 410 -16 800 -16))
+(connect D2:1 O2:1
+(points 4 674 140 690 140 690 104 800 104))
+(connect D3:1 O3:1
+(points 4 684 220 726 220 726 224 800 224))
+(connect D4:1 O4:1
+(points 4 694 300 731 300 731 344 800 344))
+(connect D5:1 O5:1
+(points 4 684 380 700 380 700 464 800 464)))
+(stackingOrder 1 0 3 4 6 5 2))))
+(configuration
+(connect D9:1 D0:0)
+(connect D0:0 D1:0)
+(connect D18:2 D2:1)
+(connect D18:3 D3:1)
+(connect D18:4 D4:1)
+(connect D18:5 D5:1)
+(connect D18:0 D7:0)
+(connect D8:1 D9:0)
+(connect D16:1 D10:1)
+(connect D18:1 D15:1)
+(connect D0:1 D16:1)
+(connect D1:1 D16:2)
+(connect D1:0 D17:0)
+(connect D17:0 D18:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 0)
+(wndState res)
+(active panel)
+(panel
+(extent 628 366)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 390 60)
+(PID 0)
+(title on)
+(tabIndex 0)
+(borderStyle flat)
+(extent 226 38)
+(showFormat int))
+(widget 1 detail
+(relativeOrigin 390 0)
+(PID 1)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 226 36)
+(showFormat int))
+(widget 9 detail
+(relativeOrigin 0 290)
+(PID 3)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 130 60))
+(widget 2 detail
+(relativeOrigin 390 230)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 116 38))
+(widget 3 detail
+(relativeOrigin 510 230)
+(PID 5)
+(title on)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 106 38))
+(widget 4 detail
+(relativeOrigin 390 290)
+(PID 6)
+(title on)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 116 38))
+(widget 5 detail
+(relativeOrigin 510 290)
+(PID 7)
+(title on)
+(tabStop off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 106 38))
+(widget 10 detail
+(relativeOrigin 140 290)
+(PID 9)
+(title on)
+(tabStop off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 236 38))
+(widget 11 detail
+(relativeOrigin 0 0)
+(PID 10)
+(title on)
+(tabIndex 10)
+(borderStyle flat)
+(extent 386 68)
+(editing enabled))
+(widget 14 detail
+(relativeOrigin 390 120)
+(PID 13)
+(title on)
+(tabIndex 12)
+(borderStyle flat)
+(extent 226 88)
+(editing enabled))
+(widget 15 detail
+(relativeOrigin 0 90)
+(PID 14)
+(title on)
+(tabIndex 13)
+(borderStyle flat)
+(extent 386 178)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Volts")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.2 1.2 4 linear))
+(domain 0 1E-007 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))))
+(detail
+(extent 711 417)
+(anchorPt -23 202)
+(configuration
+(devCarrierFor 8
+(active open)
+(icon
+(extent 181 15))
+(open
+(extent 217 36)
+(showFormat int))
+(pinCenter 340 170))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 200 0))
+(open
+(extent 236 36)
+(showFormat int))
+(pinCenter 340 260))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 154 26))
+(pinCenter 540 680))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 154 26))
+(pinCenter 540 750))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 154 26))
+(pinCenter 540 820))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 72 0))
+(open
+(extent 154 26))
+(pinCenter 540 890))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 334 64)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 780 -60))
+(devCarrierFor 107
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 340 660))
+(devCarrierFor 109
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 150 40))
+(devCarrierFor 110
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 154 44))
+(title off)
+(pinCenter 330 60))
+(devCarrierFor 111
+(active open)
+(icon
+(extent 182 0))
+(open
+(extent 314 36))
+(pinCenter 850 150))
+(devCarrierFor 112
+(active open)
+(icon
+(extent 339 51)
+(iconImage "notepad.icn"))
+(open
+(extent 424 106)
+(editing enabled))
+(pinCenter 270 -60))
+(devCarrierFor 113
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 540 -60))
+(devCarrierFor 126
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 116)
+(editing enabled))
+(pinCenter 890 330))
+(devCarrierFor 132
+(active open)
+(icon
+(extent 138 0)
+(iconImage "notepad.icn"))
+(open
+(extent 444 76)
+(editing enabled))
+(pinCenter 900 800))
+(devCarrierFor 133
+(active open)
+(icon
+(extent 124 0)
+(iconImage "display.icn"))
+(open
+(extent 444 286)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Volts")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.2 1.2 4 linear))
+(domain 0 1E-007 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0)))
+(pinCenter 890 570))
+(devCarrierFor 139
+(active icon)
+(icon
+(extent 124 34))
+(terminals on)
+(pinCenter 600 150))
+(devCarrierFor 140
+(active icon)
+(icon
+(extent 224 44))
+(terminals on)
+(pinCenter 340 340))
+(devCarrierFor 141
+(active icon)
+(icon
+(extent 77 85))
+(terminals on)
+(pinCenter 340 460))
+(connect D9:1 D0:0
+(points 5 409 60 430 60 430 100 340 100 340 131))
+(connect D0:0 D1:0
+(points 2 340 190 340 221))
+(connect D18:2 D2:1
+(points 4 381 450 450 450 450 680 460 680))
+(connect D18:3 D3:1
+(points 4 381 460 440 460 440 750 460 750))
+(connect D18:4 D4:1
+(points 4 381 470 430 470 430 820 460 820))
+(connect D18:5 D5:1
+(points 4 381 480 420 480 420 890 460 890))
+(connect D18:0 D7:0
+(points 2 340 505 340 632))
+(connect D8:1 D9:0
+(points 5 186 40 210 40 210 20 330 20 330 35))
+(connect D16:1 D10:1
+(points 2 664 150 690 150))
+(connect D18:1 D15:1
+(points 4 381 440 460 440 460 570 665 570))
+(connect D0:1 D16:1
+(points 4 451 170 470 170 470 140 535 140))
+(connect D1:1 D16:2
+(points 4 460 260 480 260 480 160 535 160))
+(connect D1:0 D17:0
+(points 2 340 280 340 315))
+(connect D17:0 D18:0
+(points 2 340 364 340 415)))
+(stackingOrder 6 8 9 0 10 1 13 15 2 3 4 5 7 16 17 18 14 12 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

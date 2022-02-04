@@ -1,0 +1,429 @@
+(saveFormat "7.0")
+(date "Mon 18/Apr/2005 17:22:29 ")
+(veerev "7.5.7618.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.dll"))
+(assemblyRef 3
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Drawing.dll"
+))
+(assemblyRef 4
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "LinkLabel_LinkClicked")
+(trigMode deg)
+(nextID 6)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 DOTNETBUILDER
+(properties
+(name "Get LinkData")
+(transactions 1 "linkData = linkLabelLinkClickedEventArgs.Link.LinkData")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "System.Object LinkData")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "linkLabelLinkClickedEventArgs"))
+(interface
+(input 1
+(name "linkLabelLinkClickedEventArgs")
+(optional yes))
+(output 1
+(name "linkData")
+(optional yes)))
+(implementation))
+(device 1 DOTNETBUILDER
+(properties
+(name "Start a process with the link data")
+(transactions 1 "return = System.Diagnostics.Process.Start(fileName)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "System.Diagnostics.Process Start(System.String)")
+(statics 1 "1")
+(assemblyQualifiedName
+"System.Diagnostics.Process, System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "process"))
+(interface
+(input 1
+(name "fileName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 3 DOTNETBUILDER
+(properties
+(name "Set Link visited to true")
+(transactions 1 "LinkLabel.Links.Item(index).Visited = asVariantBool(True)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "Boolean Visited")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "LinkLabel"))
+(interface
+(input 1
+(name "index")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 4 DOTNETBUILDER
+(properties
+(name "Get Link Index")
+(transactions 1 "return = LinkLabel.Links.IndexOf(link)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "Int32 IndexOf(Link)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "LinkLabel"))
+(interface
+(input 1
+(name "link")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 5 DOTNETBUILDER
+(properties
+(name "Get Link")
+(transactions 1 "link = linkLabelLinkClickedEventArgs.Link")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Link Link")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "linkLabelLinkClickedEventArgs"))
+(interface
+(input 1
+(name "linkLabelLinkClickedEventArgs")
+(optional yes))
+(output 1
+(name "link")
+(optional yes)))
+(implementation))
+(configuration
+(connect I2:1 D0:1)
+(connect D0:1 D1:1)
+(connect D3:1 D2:1)
+(connect D4:1 D3:1)
+(connect I2:1 D4:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 654 348)
+(anchorPt 99 -108)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 374 66))
+(terminals on)
+(pinCenter 100 280))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 194 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 300 280))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 384 76))
+(terminals on)
+(pinCenter 380 370))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 384 76))
+(terminals on)
+(pinCenter 210 370))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 49 15))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 90 370))
+(connect I2:1 D0:1
+(points 4 -99 371 -90 371 -90 280 58 280))
+(connect D0:1 D1:1
+(points 2 141 280 200 280))
+(connect D3:1 D2:1
+(points 2 254 370 312 370))
+(connect D4:1 D3:1
+(points 2 117 370 165 370))
+(connect I2:1 D4:1
+(points 4 -99 371 -90 371 -90 370 63 370)))
+(stackingOrder 0 4 1 3 2)))))
+(device 0 DOTNETCONTROL
+(properties
+(name "LinkLabel")
+(variableName LinkLabel)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.LinkLabel"))
+(implementation
+(state 396 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F060000000A0A0B0000000902000000090300000010020000000600000006040000000954657874
+416C69676E060500000008546162496E64657806060000000453697A650607000000084C6F636174
+696F6E060800000004466F6E740609000000044E616D65100300000006000000060A0000000C4D69
+64646C6543656E746572060B0000000130060C000000073434342C203336060D00000004302C2030
+060E00000017417269616C2C20313270742C207374796C653D426F6C64060F000000000B
+)))
+(device 1 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.LinkLabel")
+(transactions 4 "LinkLabel.Text = \"Visit keysight.com.  Find VEE here. \""
+"LinkLabel.LinkArea = linkArea" "LinkLabel.Links.Item(0).LinkData = linkData"
+"return = LinkLabel.Links.Add(25, 3, linkData1)")
+(parmInfo 12 "1" "T 0" "1" "T 0" "2" "T 0" "T 0" "4" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 4 "System.String Text" "System.Windows.Forms.LinkArea LinkArea"
+"System.Object LinkData" "Link Add(Int32, Int32, System.Object)")
+(statics 4 "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "LinkLabel"))
+(interface
+(input 1
+(name "linkArea")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "linkData")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "linkData1")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 2 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.LinkArea")
+(transactions 1
+"linkArea = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.LinkArea\", 6, 11)"
+)
+(parmInfo 6 "5" "T 0" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.LinkArea, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "linkArea"))
+(interface
+(output 1
+(name "linkArea")
+(optional yes)))
+(implementation))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "www.keysight.com"))
+(initValue Text
+(data  ""))))
+(device 6 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "www.keysight.com/find/vee"))
+(initValue Text
+(data  ""))))
+(device 7 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 9 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of a Windows Forms control, LinkLabel.  Click on the hyperlink in the label and you should appropriate web page being brought up.  This is achieved by handling the LinkClicked event of the LinkLabel.  To create an event handler, use the Create Event Handler context menu of the control.  \\par\r\n\\par\r\n\\b Tip\\b0   \\par\r\nTo get a .NET Operation Builder to work on the LinkLabel, use the \"Generate .NET Operation Builder\" context menu from the LinkLabel control.\\par\r\n\\par\r\nTo get a .NET Operation Builder to work on any other types, e.g., LinkArea, go to Device->.NET Operation Builder, then click on the Find toolbar button, and type in the search text.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Event handling\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: LinkLabel\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D2:1 D1:1)
+(connect D3:1 D1:2)
+(connect D4:1 D1:3)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 734 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 619)
+(anchorPt -35 -24)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 59 0))
+(open
+(extent 444 36))
+(pinCenter 350 80))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 344 106))
+(terminals on)
+(pinCenter 320 400))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 203 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 180 140))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 170 210))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 170 280))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 70 50))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 496)
+(editing disabled))
+(pinCenter 800 390))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 770 90))
+(connect D2:1 D1:1
+(points 6 284 140 290 140 290 320 70 320 70 370 75 370))
+(connect D3:1 D1:2
+(points 6 259 210 280 210 280 240 50 240 50 400 75 400))
+(connect D4:1 D1:3
+(points 6 259 280 280 280 280 310 60 310 60 430 75 430)))
+(stackingOrder 5 4 6 0 7 1 3 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

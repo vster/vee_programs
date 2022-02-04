@@ -1,0 +1,1253 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:48:58 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 66)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 3)
+(context 0
+(properties
+(name "PadZero")
+(trigMode deg)
+(nextID 6))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(output 1
+(type data)
+(name "PadData")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "(C==2^B ? A : concat(A, ramp((2^(B+1)-C), 0, 0)))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(expr 1 "IntPart(log(Totsize(A)+0.1)/log(2))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(expr 1 "totsize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)
+(connect D2:1 D0:3)
+(connect I1:1 D1:1)
+(connect I1:1 D2:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 511 327)
+(anchorPt 336 180)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 57 25))
+(open
+(extent 424 58))
+(terminals on)
+(pinCenter -15 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 57 16))
+(open
+(extent 247 42))
+(terminals on)
+(pinCenter -95 -110))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 93 32))
+(terminals on)
+(pinCenter -205 120))
+(connect I1:1 D0:1
+(points 4 -336 -17 -315 -17 -315 -20 -260 -20))
+(connect D1:1 D0:2
+(points 6 81 -110 105 -110 105 -70 -275 -70 -275 0 -260 0))
+(connect D2:1 D0:3
+(points 6 -106 120 -85 120 -85 60 -275 60 -275 20 -260 20))
+(connect I1:1 D1:1
+(points 6 -336 -17 -315 -17 -315 -20 -285 -20 -285 -110 -251 -110))
+(connect I1:1 D2:1
+(points 4 -336 -17 -315 -17 -315 120 -284 120))
+(connect D0:1 O1:1
+(points 6 249 0 255 0 255 -10 175 -10 175 -17 174 -17)))
+(stackingOrder 2 0 1))))
+(context 1
+(properties
+(name "ScaleFFT")
+(trigMode rad)
+(nextID 5))
+(interface
+(input 1
+(name "Tdata")
+(optional yes))
+(output 1
+(type data)
+(name "CpxData")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 3 FORMULA
+(properties
+(expr 1 "concat(A[0], 2*A[1:totsize(A)-1])"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORMULA
+(properties
+(expr 1 "fft(A)/totsize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:1)
+(connect I1:1 D1:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 419 277)
+(anchorPt 219 160)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 233 29))
+(terminals on)
+(pinCenter -15 0))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 141 30))
+(terminals on)
+(pinCenter -66 -97))
+(connect D1:1 D0:1
+(points 6 67 -97 75 -97 75 -60 -185 -60 -185 0 -164 0))
+(connect I1:1 D1:1
+(points 4 -219 -22 -206 -22 -206 -97 -169 -97))
+(connect D0:1 O1:1
+(points 4 164 0 175 0 175 -22 199 -22)))
+(stackingOrder 1 0)))))
+(device 3 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "ramp(numElem,from,thru)")
+(expr 1 "ramp(N, 0, (N-1))"))
+(interface
+(input 1
+(name "N")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 START25
+(properties
+(name "Check Pad Function")))
+(device 8 CALL
+(properties
+(name "Call PadZero")
+(callFunc "PadZero")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(output 1
+(name "PadData")
+(lock name constraints)
+(optional yes))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Frequency"))
+(interface
+(input 1
+(name "Data"))))
+(device 14 TEXTDISPLAY
+(properties
+(name "Amplitude"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 TEXTDISPLAY
+(properties
+(name "Phase"))
+(interface
+(input 1
+(name "Data"))))
+(device 16 TEXTDISPLAY
+(properties
+(name "DC Offset"))
+(interface
+(input 1
+(name "Data"))))
+(device 17 TEXTDISPLAY
+(properties
+(name "Span"))
+(interface
+(input 1
+(name "Data"))))
+(device 25 VFUNCTIONGENERATOR
+(properties
+(function Cosine)
+(frequency 1000)
+(amplitude 0.5)
+(dcOffset -1.66)
+(degRad Rad)
+(phaseShift 1)
+(interval 0.008999999999999999)
+(numPoints 128))
+(interface
+(input 1
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Num Points")
+(tag "Num Points")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 26 START25)
+(device 27 FROMWAVEFORM
+(interface
+(input 1
+(name "Wf Data")
+(requires
+(datatype Waveform))
+(lock name constraints))
+(output 1
+(name "Real Ary")
+(lock name constraints))
+(output 2
+(name "Time Span")
+(lock name constraints))))
+(device 28 YPLOT
+(properties
+(name "Input Signal"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 49 FORMULA
+(properties
+(description2 3 "This Formula gives timespan of the signal being analyzed ..."
+"nothing to it, you multiply the number of samples times the"
+"sample period (inverse of the frequency).")
+(expr 1 "S/Rate"))
+(interface
+(input 1
+(name "Rate")
+(optional yes))
+(input 2
+(name "S")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 47 FORMULA
+(properties
+(description2 2
+"This Formula simply gives the DC offset of the Fourier spectrum"
+"-- which is by definition always the element with index 0.")
+(expr 1 "re(D[0])"))
+(interface
+(input 1
+(name "D")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 46 FORMULA
+(properties
+(description2 2 "This formula simply gives the phase of the largest element in"
+"the FFT spectrum, as identified by \"MaxIndex()\".")
+(expr 1 "phase(D[Index])"))
+(interface
+(input 1
+(name "D")
+(optional yes))
+(input 2
+(name "Index")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 44 FORMULA
+(properties
+(description2 2 "This Formula simply gives the magnitude of the largest element"
+"in the FFT spectrum as given by \"MaxIndex()\".")
+(expr 1 "D[Index]"))
+(interface
+(input 1
+(name "D")
+(optional yes))
+(input 2
+(name "Index")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 45 FORMULA
+(properties
+(description2 12 "This Formula returns the frequency of the maximum harmonic in"
+"the input waveform.  This is a little tricky to do because the "
+"FFT itself doesn\'t have any time data ... it just regards the"
+"input as a sequence of samples.  " ""
+"However, the last item in the data set defines the harmonic"
+"with the same frequency as the original sampled data; all the"
+"other samples are simply the ratios of the index of the given"
+"harmonic to the index of the last harmonic.  Given knowledge of"
+"the actual sample rate, you can then determine the frequency of"
+"any harmonic." "")
+(expr 1 "Rate*(Index/S)"))
+(interface
+(input 1
+(name "Index")
+(requires
+(datatype Real64))
+(optional yes))
+(input 2
+(name "Rate")
+(optional yes))
+(input 3
+(name "S")
+(requires
+(datatype Real64))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 48 FORMULA
+(properties
+(name "maxIndex(x)")
+(description2 3
+"This Formula finds the largest harmonic in the FFT spectrum ..."
+"note that it skips over the DC term lest it be larger than"
+"the largest harmonic and cause confusion.")
+(expr 1 "1+maxIndex(X[1:totsize(X)-1])"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 42 FORMULA
+(properties
+(name "mag(x)")
+(expr 1 "mag(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 43 CALL
+(properties
+(name "Call ScaleFFT")
+(callFunc "ScaleFFT")
+(parmMode rev30))
+(interface
+(input 1
+(name "Tdata")
+(optional yes))
+(output 1
+(name "CpxData")
+(lock name constraints)
+(optional yes))))
+(device 51 FORMULA
+(properties
+(name "totSize(x)")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 52 CONSTANT
+(properties
+(name "Frequency"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1000))
+(initValue Real
+(data  0))))
+(device 53 CONSTANT
+(properties
+(name "NCycles"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  9))
+(initValue Real
+(data  0))))
+(device 54 FORMULA
+(properties
+(description2 4 "This Formula computes the total timespan of the data to be"
+"generated.  All you have to do is take the period (the inverse"
+"of) the desired frequency and multiply it by the number of" "cycles.")
+(expr 1 "B/A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 55 YPLOT
+(properties
+(name "MagSpec"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 56 INPUTDLG
+(properties
+(popupTitle "Text Input")
+(prompt "Enter Integer Value:")
+(initialValue "1")
+(valueConstraint "0<value")
+(vErrorMessage "You must enter an integer greater than 0."))
+(interface
+(output 1
+(name "Value")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "integer")))
+(device 57 MESSAGEBOX
+(properties
+(position -2 -32)
+(message "32")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 58 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 59 CONSTANT
+(properties
+(name "NPoints"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  128))
+(initValue Int32
+(data  0))))
+(device 60 FORMULA
+(properties
+(description2 4 "This Formula determines the sample rate of the signal ... it"
+"divides the timespan of the signal by the number of samples "
+"to give the sample interval, and then returns the inverse of"
+"that to give the sample frequency.")
+(expr 1 "B/A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 61 LABEL
+(properties
+(name "FFT Functions & Tests")
+(labelValue "FFT Functions & Tests"))
+(implementation))
+(device 62 NOTE
+(properties
+(text2 41 "" "FFT Functions & Tests / v1.0 / 01 dec 96 / gvg" ""
+"* This little program tests the operation of two VEE UserFunctions:" ""
+" % ScaleFFT:  Generate a scaled FFT.  The standard FFT provided"
+"   by VEE is not \"scaled\" to the actual magnitudes of signal"
+"   components in the original waveform.  To scale it, you must"
+"   divide the output by the number of bits in the original"
+"   waveform and then multiply all the elements in the output but"
+"   the first one by two.  This function performs the FFT and then"
+"   scales the output for you." ""
+" % PadZero:  If you try to perform an FFT on an input whose number of"
+"   values isn\'t a power of two, VEE performs a DFT instead of an"
+"   FFT -- which means that it can take a monstrously long time if"
+"   the number of values is large (a DFT\'s execution time increases"
+"   with the square of the number of points).  However, you can "
+"   pad the input with additional array elements set to zero to get"
+"   a power of two ... the FFT works just the same (though it is "
+"   ironic that in some cases you will almost double the size of the"
+"   input and have it work a lot faster)." ""
+"The program itself tests these two functions and shows other things"
+"that can be done with FFT data ... you can generate a waveform with"
+"the desired parameters, run it through the FFT, and then get the "
+"amplitude of the biggest harmonic, as well as its frequency, and"
+"the DC value of the original waveform.  The time it takes to perform"
+"the FFT and the time span of the data input is also presented (see"
+"the \"Edit Description\" fields for the Formula boxes to see what they"
+"do in detail)." ""
+"There is also a little program to test out the \"PadZero\" function"
+"-- all it does is generate a ramp of the requested length and then"
+"add zeroes to that data to make it come out to a power of two." "" "[<>]" "  "
+" " " " "  ")))
+(device 64 DO
+(interface
+(output 1
+(name "Do"))))
+(device 65 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D26:1 D1:1)
+(connect D1:1 D3:1)
+(connect D17:1 D4:1)
+(connect D16:1 D5:1)
+(connect D15:1 D6:1)
+(connect D14:1 D7:1)
+(connect D13:1 D8:1)
+(connect D10:0 D9:0)
+(connect D22:1 D9:1)
+(connect D24:1 D9:2)
+(connect D29:1 D9:3)
+(connect D9:1 D11:1)
+(connect D11:1 D12:1)
+(connect D12:0 D12:2)
+(connect D30:1 D13:1)
+(connect D21:1 D13:2)
+(connect D20:1 D14:1)
+(connect D20:1 D15:1)
+(connect D18:1 D15:2)
+(connect D19:1 D16:1)
+(connect D18:1 D16:2)
+(connect D18:1 D17:1)
+(connect D30:1 D17:2)
+(connect D21:1 D17:3)
+(connect D19:1 D18:1)
+(connect D20:1 D19:1)
+(connect D33:0 D20:0)
+(connect D11:1 D20:1)
+(connect D11:1 D21:1)
+(connect D22:1 D24:1)
+(connect D23:1 D24:2)
+(connect D19:1 D25:1)
+(connect D25:0 D25:2)
+(connect D2:0 D26:0)
+(connect D0:1 D27:1)
+(connect D33:1 D28:1)
+(connect D20:1 D28:2)
+(connect D24:1 D30:1)
+(connect D29:1 D30:2)
+(connect D11:1 D33:0)))
+(contextCarrier
+(wndOrigin 23 13)
+(wndState res)
+(active panel)
+(panel
+(extent 640 418)
+(widget 10 detail
+(relativeOrigin 10 10)
+(title off)
+(borderStyle none)
+(extent 47 22))
+(widget 25 detail
+(relativeOrigin 230 219)
+(title on)
+(borderStyle flat)
+(extent 276 118)
+(displayMode 0)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1.8 4 linear))
+(domain 0 70 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(widget 12 detail
+(relativeOrigin 230 69)
+(title on)
+(borderStyle flat)
+(extent 276 118)
+(displayMode 0)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -2.2 -0.9 4 linear))
+(domain 0 140 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(widget 9 detail
+(relativeOrigin 10 159)
+(title on)
+(borderStyle flat)
+(extent 204 182))
+(widget 22 detail
+(relativeOrigin 110 99)
+(title on)
+(borderStyle flat)
+(extent 106 28)
+(showFormat real))
+(widget 29 detail
+(relativeOrigin 10 99)
+(title on)
+(borderStyle flat)
+(extent 86 28)
+(showFormat int))
+(widget 23 detail
+(relativeOrigin 10 39)
+(title on)
+(borderStyle flat)
+(extent 86 28)
+(showFormat real))
+(widget 8 detail
+(relativeOrigin 520 309)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 6 detail
+(relativeOrigin 520 249)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 7 detail
+(relativeOrigin 520 189)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 5 detail
+(relativeOrigin 520 129)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 4 detail
+(relativeOrigin 520 69)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 31 detail
+(relativeOrigin 230 10)
+(font "Arial" 26 bold)
+(title off)
+(borderStyle none)
+(extent 400 40)
+(just c))
+(widget 28 detail
+(relativeOrigin 110 39)
+(title on)
+(borderStyle flat)
+(extent 106 28))
+(widget 2 detail
+(relativeOrigin 20 380)
+(title off)
+(borderStyle none)
+(extent 150 20)))
+(detail
+(extent 898 552)
+(anchorPt 514 1121)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 63 16))
+(open
+(extent 92 32))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 177 16))
+(open
+(extent 141 70))
+(terminals on)
+(pinCenter -240 0))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 140 0))
+(open
+(extent 143 22))
+(title off)
+(pinCenter -360 -60))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 91 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter -90 0))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 74 16))
+(open
+(extent 131 28))
+(pinCenter 120 -350))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 68 16))
+(open
+(extent 131 28))
+(pinCenter 120 -300))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 44 16))
+(open
+(extent 131 28))
+(pinCenter 130 -250))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 68 16))
+(open
+(extent 131 28))
+(pinCenter 120 -210))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 37 16))
+(open
+(extent 131 28))
+(pinCenter 130 -170))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 136 65)
+(iconImage "virtual.icn"))
+(open
+(extent 204 182))
+(terminals on)
+(pinCenter 70 -550))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 70 -610))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 127 52)
+(iconImage "unbuild.icn"))
+(open)
+(terminals on)
+(pinCenter -30 -440))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 81 52)
+(iconImage "display.icn"))
+(open
+(extent 296 272)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(pen 9)
+(show 1)
+(range -2.2 -0.9 4 linear))
+(domain 0 140 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 130 -440))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 100 42))
+(terminals on)
+(pinCenter 50 -170))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 57 16))
+(open
+(extent 91 32))
+(terminals on)
+(pinCenter 40 -210))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 156 42))
+(terminals on)
+(pinCenter 50 -250))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 107 42))
+(terminals on)
+(pinCenter 40 -300))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 57 34))
+(open
+(extent 125 62))
+(terminals on)
+(pinCenter 40 -350))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 81 16))
+(open
+(extent 217 32))
+(terminals on)
+(pinCenter -70 -290))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 47 16))
+(open
+(extent 77 32))
+(terminals on)
+(pinCenter -170 -290))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 91 16))
+(open
+(extent 125 55))
+(terminals on)
+(pinCenter -400 -240))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 63 16))
+(open
+(extent 92 32))
+(terminals on)
+(pinCenter -90 -160))
+(devCarrierFor 52
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 110 30)
+(showFormat real))
+(pinCenter -380 -570))
+(devCarrierFor 53
+(active open)
+(icon
+(extent 56 0))
+(open
+(extent 96 25)
+(showFormat real))
+(pinCenter -400 -500))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 72 42))
+(terminals on)
+(pinCenter -250 -530))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 68 52)
+(iconImage "display.icn"))
+(open
+(extent 296 272)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(pen 9)
+(show 1)
+(range 0 1.8 4 linear))
+(domain 0 70 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 30 -100))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 86 25))
+(open
+(extent 449 107))
+(terminals on)
+(pinCenter -390 0))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 90 0))
+(devCarrierFor 58
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 76 32))
+(pinCenter -290 -280))
+(devCarrierFor 59
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 101 30)
+(showFormat int))
+(pinCenter -390 -420))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 57 25))
+(open
+(extent 72 42))
+(terminals on)
+(pinCenter -270 -420))
+(devCarrierFor 61
+(active open)
+(icon
+(extent 159 0))
+(open
+(extent 388 42)
+(just c))
+(title off)
+(font "Arial" 26 bold)
+(pinCenter -260 -670))
+(devCarrierFor 62
+(active open)
+(icon
+(extent 68 52)
+(iconImage "notepad.icn"))
+(open
+(extent 673 362)
+(editing enabled))
+(pinCenter -160 -900))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 24 16))
+(open)
+(terminals on)
+(pinCenter -390 -330))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 150 -670))
+(connect D3:1 D0:1
+(points 2 -42 0 -34 0))
+(connect D26:1 D1:1
+(points 2 -345 -10 -331 0))
+(connect D1:1 D3:1
+(points 2 -149 0 -138 0))
+(connect D17:1 D4:1
+(points 2 71 -350 80 -350))
+(connect D16:1 D5:1
+(points 2 71 -300 83 -300))
+(connect D15:1 D6:1
+(points 2 81 -250 105 -250))
+(connect D14:1 D7:1
+(points 2 71 -210 83 -210))
+(connect D13:1 D8:1
+(points 2 81 -170 109 -170))
+(connect D10:0 D9:0
+(points 2 70 -597 70 -585))
+(connect D22:1 D9:1
+(points 2 -323 -570 -1 -570))
+(connect D24:1 D9:2
+(points 6 -219 -530 -210 -530 -210 -560 -90 -560 -90 -550 -1 -550))
+(connect D29:1 D9:3
+(points 8 -337 -420 -300 -420 -300 -390 -190 -390 -190 -500 -100 -500 -100 -530
+-1 -530))
+(connect D9:1 D11:1
+(points 6 140 -550 160 -550 160 -490 -120 -490 -120 -440 -96 -440))
+(connect D11:1 D12:1
+(points 2 36 -450 87 -450))
+(connect D12:0 D12:2
+(points 5 130 -412 130 -390 70 -390 70 -430 87 -430))
+(connect D30:1 D13:1
+(points 8 -239 -420 -220 -420 -220 -380 -240 -380 -240 -350 -20 -350 -20 -180 19
+-180))
+(connect D21:1 D13:2
+(points 2 -56 -160 19 -160))
+(connect D20:1 D14:1
+(points 6 -352 -240 -220 -240 -220 -260 -30 -260 -30 -210 9 -210))
+(connect D20:1 D15:1
+(points 4 -352 -240 -220 -240 -220 -260 19 -260))
+(connect D18:1 D15:2
+(points 4 -27 -290 -10 -290 -10 -240 19 -240))
+(connect D19:1 D16:1
+(points 6 -144 -290 -130 -290 -130 -320 -30 -320 -30 -310 9 -310))
+(connect D18:1 D16:2
+(points 2 -27 -290 9 -290))
+(connect D18:1 D17:1
+(points 4 -27 -290 -10 -290 -10 -360 9 -360))
+(connect D30:1 D17:2
+(points 6 -239 -420 -220 -420 -220 -380 -240 -380 -240 -350 9 -350))
+(connect D21:1 D17:3
+(points 6 -56 -160 -40 -160 -40 -270 0 -270 0 -340 9 -340))
+(connect D19:1 D18:1
+(points 2 -144 -290 -113 -290))
+(connect D20:1 D19:1
+(points 4 -352 -240 -220 -240 -220 -290 -196 -290))
+(connect D33:0 D20:0
+(points 4 -390 -320 -390 -300 -400 -300 -400 -251))
+(connect D11:1 D20:1
+(points 8 36 -450 50 -450 50 -390 -60 -390 -60 -360 -470 -360 -470 -240 -448
+-240))
+(connect D11:1 D21:1
+(points 10 36 -450 50 -450 50 -390 -60 -390 -60 -360 -250 -360 -250 -340 -230
+-340 -230 -160 -124 -160))
+(connect D22:1 D24:1
+(points 4 -323 -570 -300 -570 -300 -540 -281 -540))
+(connect D23:1 D24:2
+(points 4 -350 -500 -330 -500 -330 -520 -281 -520))
+(connect D19:1 D25:1
+(points 4 -144 -290 -130 -290 -130 -110 -7 -110))
+(connect D25:0 D25:2
+(points 5 30 -72 30 -50 -30 -50 -30 -90 -7 -90))
+(connect D2:0 D26:0
+(points 4 -360 -47 -360 -30 -390 -30 -390 -15))
+(connect D0:1 D27:1
+(points 2 34 0 41 0))
+(connect D33:1 D28:1
+(points 4 -376 -330 -360 -330 -360 -290 -331 -290))
+(connect D20:1 D28:2
+(points 4 -352 -240 -340 -240 -340 -270 -331 -270))
+(connect D24:1 D30:1
+(points 6 -219 -530 -210 -530 -210 -490 -310 -490 -310 -430 -301 -430))
+(connect D29:1 D30:2
+(points 4 -337 -420 -320 -420 -320 -410 -301 -410))
+(connect D11:1 D33:0
+(points 7 36 -450 50 -450 50 -390 -60 -390 -60 -360 -390 -360 -390 -341)))
+(stackingOrder 8 7 6 5 4 11 9 10 12 25 1 2 22 30 29 23 17 16 15 13 19 18 14 28
+33 21 20 26 3 0 27 24 32 31 34))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

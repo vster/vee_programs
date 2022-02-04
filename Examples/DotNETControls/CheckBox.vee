@@ -1,0 +1,797 @@
+(saveFormat "7.0")
+(date "Thu 14/Apr/2005 16:19:08 ")
+(veerev "7.5.7614.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F5 F6 F7 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 50)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 8)
+(context 5
+(properties
+(name "cb1_CheckedChanged")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Selected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 IFTHENELSE
+(properties
+(cases 1 "sender.checked"))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Unselected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:1 D0:0)
+(connect I1:1 D0:1)
+(connect I1:1 D1:1)
+(connect D1:2 D2:0)
+(connect I1:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 712 391)
+(anchorPt -40 -1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 410 230))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 335 100))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 410 360))
+(connect D1:1 D0:0
+(points 5 437 90 460 90 460 150 410 150 410 176))
+(connect I1:1 D0:1
+(points 4 40 96 70 96 70 230 230 230))
+(connect I1:1 D1:1
+(points 4 40 96 80 96 80 100 223 100))
+(connect D1:2 D2:0
+(points 5 437 110 610 110 610 290 410 290 410 306))
+(connect I1:1 D2:1
+(points 6 40 96 70 96 70 230 200 230 200 360 230 360)))
+(stackingOrder 0 2 1))))
+(context 6
+(properties
+(name "cb2_CheckedChanged")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Unselected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 IFTHENELSE
+(properties
+(cases 1 "sender.checked"))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Selected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:2 D0:0)
+(connect I1:1 D0:1)
+(connect I1:1 D1:1)
+(connect D1:1 D2:0)
+(connect I1:1 D2:1)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active detail)
+(detail
+(extent 471 391)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 260 420))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 185 160))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 260 290))
+(connect D1:2 D0:0
+(points 5 287 170 460 170 460 350 260 350 260 366))
+(connect I1:1 D0:1
+(points 6 0 95 10 95 10 160 50 160 50 420 80 420))
+(connect I1:1 D1:1
+(points 4 0 95 10 95 10 160 73 160))
+(connect D1:1 D2:0
+(points 5 287 150 310 150 310 210 260 210 260 236))
+(connect I1:1 D2:1
+(points 6 0 95 10 95 10 160 50 160 50 290 80 290)))
+(stackingOrder 0 1 2))))
+(context 7
+(properties
+(name "cb3_CheckedChanged")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Unselected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 IFTHENELSE
+(properties
+(cases 1 "sender.checked"))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(expr 1 "label.Text = sender.text + \" Selected\""))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:2 D0:0)
+(connect I1:1 D0:1)
+(connect I1:1 D1:1)
+(connect D1:1 D2:0)
+(connect I1:1 D2:1)))
+(contextCarrier
+(wndOrigin 42 42)
+(wndState res)
+(active detail)
+(detail
+(extent 471 391)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 280 430))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 205 170))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 280 300))
+(connect D1:2 D0:0
+(points 5 307 180 480 180 480 360 280 360 280 376))
+(connect I1:1 D0:1
+(points 6 0 95 10 95 10 170 70 170 70 430 100 430))
+(connect I1:1 D1:1
+(points 4 0 95 10 95 10 170 93 170))
+(connect D1:1 D2:0
+(points 5 307 160 330 160 330 220 280 220 280 246))
+(connect I1:1 D2:1
+(points 6 0 95 10 95 10 170 70 170 70 300 100 300)))
+(stackingOrder 0 1 2)))))
+(device 1 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 4 DOTNETBUILDER
+(properties
+(name "System.Drawing.Point")
+(transactions 1
+"point = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 40)")
+(parmInfo 6 "5" "T 0" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Drawing.Point, System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(objectName "point"))
+(interface
+(output 1
+(name "point")
+(optional yes)))
+(implementation))
+(device 9 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of couple Windows Forms control, GroupBox and CheckBox.  This example also demonstrates how to build a composite control using other controls, for example, our GroupBox control contains a number of CheckBox controls.\\par\r\n\\par\r\nGroup control is used to contain and group other controls, like RadioButtons, CheckBoxes.\\par\r\n\\par\r\nWhen building a composite control, only place the container (parent) directly on the VEE workspace.  Add the child controls programmatically to the parent as we did here in code.   \\par\r\n\\par\r\nWe updated the label text by handling the CheckedChanged event of CheckBox.  We created the event handler by declaring the CheckBox and used the \"Create Event handler\" context menu.\\par\r\n\\par\r\n\\b Tip\\par\r\n\\b0 To get a .NET Op Builder to build Point operations, go to Device->.NET Operation Builder, then click on Find toolbar button and type in \"point\".  You can quickly find any .NET type in your referenced assemblies using this handy tool.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Building Composite Control\\par\r\nDesign time property change\\par\r\nRun time property change\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: GroupBox, CheckBox\\par\r\n\\par\r\n}\r\n"
+)))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 DOTNETCONTROL
+(properties
+(name "GroupBox")
+(variableName GroupBox)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.GroupBox"))
+(implementation
+(state 498 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0A0000000A0A170000000902000000090300000010020000000900000006040000000454657874
+06050000000453697A65060600000009466F7265436F6C6F72060700000004466F6E740608000000
+0754616253746F700609000000044E616D65060A000000084C6F636174696F6E060B000000094261
+636B436F6C6F72060C00000008546162496E646578100300000009000000060D000000114D616B65
+2053656C656374696F6E287329060E000000083237342C20323036060F0000000E4461726B4F6C69
+7665477265656E06100000002154696D6573204E657720526F6D616E2C20313270742C207374796C
+653D426F6C6406110000000546616C7365061200000000061300000004302C203006140000000B54
+72616E73706172656E74061500000001300B
+)))
+(device 14 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.GroupBox")
+(transactions 3 "GroupBox.Controls.Add(value)" "GroupBox.Controls.Add(value1)"
+"GroupBox.Controls.Add(value2)")
+(parmInfo 6 "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Void Add(System.Windows.Forms.Control)"
+"Void Add(System.Windows.Forms.Control)"
+"Void Add(System.Windows.Forms.Control)")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.GroupBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "GroupBox"))
+(interface
+(input 1
+(name "value")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "value1")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "value2")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 25 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 396 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F060000000A0A0B0000000902000000090300000010020000000600000006040000000954657874
+416C69676E060500000008546162496E6465780606000000044E616D650607000000084C6F636174
+696F6E060800000004466F6E7406090000000453697A65100300000006000000060A0000000C4D69
+64646C6543656E746572060B0000000130060C00000000060D00000004302C2030060E0000001741
+7269616C2C20313270742C207374796C653D426F6C64060F000000073235342C2033360B
+)))
+(device 27 DECLVAR
+(properties
+(name "Declare cb1")
+(scope glob)
+(globalName "cb1"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.CheckBox"))))
+(device 30 DOTNETBUILDER
+(properties
+(name "System.Drawing.Point")
+(transactions 1
+"point = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 80)")
+(parmInfo 6 "5" "T 0" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Drawing.Point, System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(objectName "point"))
+(interface
+(output 1
+(name "point")
+(optional yes)))
+(implementation))
+(device 32 DOTNETBUILDER
+(properties
+(name "System.Drawing.Point")
+(transactions 1
+"point = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 120)")
+(parmInfo 6 "5" "T 0" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Drawing.Point, System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(objectName "point"))
+(interface
+(output 1
+(name "point")
+(optional yes)))
+(implementation))
+(device 35 TOGLOBAL
+(properties
+(name "Set cb1")
+(globalName "cb1"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 43 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.CheckBox")
+(transactions 6
+"checkBox = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+"checkBox.AutoCheck = asVariantBool(True)"
+"checkBox.CheckState = System.Windows.Forms.CheckState.Checked"
+"checkBox.Location = location" "checkBox.Text = \"Item 0\""
+"checkBox.Appearance = System.Windows.Forms.Appearance.Button")
+(parmInfo 14 "3" "T 0" "T 0" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "1"
+"T 0")
+(memberInfos 6 "Void .ctor()" "Boolean AutoCheck"
+"System.Windows.Forms.CheckState CheckState" "System.Drawing.Point Location"
+"System.String Text" "System.Windows.Forms.Appearance Appearance")
+(statics 6 "0" "0" "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.CheckBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "checkBox"))
+(interface
+(input 1
+(name "location")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "checkBox")
+(optional yes)))
+(implementation))
+(device 44 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.CheckBox")
+(transactions 5
+"checkBox = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+"checkBox.AutoCheck = asVariantBool(True)"
+"checkBox.CheckState = System.Windows.Forms.CheckState.Checked"
+"checkBox.Location = location" "checkBox.Text = \"Item 1\"")
+(parmInfo 12 "3" "T 0" "T 0" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 5 "Void .ctor()" "Boolean AutoCheck"
+"System.Windows.Forms.CheckState CheckState" "System.Drawing.Point Location"
+"System.String Text")
+(statics 5 "0" "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.CheckBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "checkBox"))
+(interface
+(input 1
+(name "location")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "checkBox")
+(optional yes)))
+(implementation))
+(device 45 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.CheckBox")
+(transactions 5
+"checkBox = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+"checkBox.AutoCheck = asVariantBool(True)"
+"checkBox.CheckState = System.Windows.Forms.CheckState.Checked"
+"checkBox.Location = location" "checkBox.Text = \"Item 2\"")
+(parmInfo 12 "3" "T 0" "T 0" "T 0" "1" "T 0" "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 5 "Void .ctor()" "Boolean AutoCheck"
+"System.Windows.Forms.CheckState CheckState" "System.Drawing.Point Location"
+"System.String Text")
+(statics 5 "0" "0" "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.CheckBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "checkBox"))
+(interface
+(input 1
+(name "location")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "checkBox")
+(optional yes)))
+(implementation))
+(device 46 DECLVAR
+(properties
+(name "Declare cb2")
+(scope glob)
+(globalName "cb2"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.CheckBox"))))
+(device 47 DECLVAR
+(properties
+(name "Declare cb3")
+(scope glob)
+(globalName "cb3"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.CheckBox"))))
+(device 48 TOGLOBAL
+(properties
+(name "Set cb2")
+(globalName "cb2"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 49 TOGLOBAL
+(properties
+(name "Set cb3")
+(globalName "cb3"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(configuration
+(connect D11:1 D5:1)
+(connect D12:1 D5:2)
+(connect D13:1 D5:3)
+(connect D11:1 D10:1)
+(connect D1:1 D11:1)
+(connect D8:1 D12:1)
+(connect D9:1 D13:1)
+(connect D12:1 D16:1)
+(connect D13:1 D17:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 391)
+(wndState max)
+(active detail)
+(detail
+(extent 962 523)
+(anchorPt 72 -172)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 30 190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -20 510))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 342 486)
+(editing disabled))
+(pinCenter 720 510))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 720 190))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 59 0))
+(open
+(extent 274 206))
+(pinCenter 230 340))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 224 106))
+(terminals on)
+(pinCenter 230 730))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 254 36))
+(title off)
+(pinCenter 220 190))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 345 124))
+(pinCenter 480 370))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -20 560))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -20 610))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 45 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 440 510))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 211 15))
+(open
+(extent 234 96))
+(terminals on)
+(pinCenter 220 520))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 211 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 220 560))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 211 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 220 610))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 345 124))
+(pinCenter 480 410))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 345 124))
+(pinCenter 480 450))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 45 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 440 560))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 45 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 440 610))
+(connect D11:1 D5:1
+(points 10 328 520 360 520 360 480 80 480 80 530 70 530 70 650 60 650 60 700 65
+700))
+(connect D12:1 D5:2
+(points 8 328 560 350 560 350 490 90 490 90 630 40 630 40 730 65 730))
+(connect D13:1 D5:3
+(points 6 328 610 350 610 350 640 50 640 50 760 65 760))
+(connect D11:1 D10:1
+(points 4 328 520 360 520 360 510 415 510))
+(connect D1:1 D11:1
+(points 4 49 510 70 510 70 520 112 520))
+(connect D8:1 D12:1
+(points 2 49 560 112 560))
+(connect D9:1 D13:1
+(points 2 49 610 112 610))
+(connect D12:1 D16:1
+(points 2 328 560 415 560))
+(connect D13:1 D17:1
+(points 2 328 610 415 610)))
+(stackingOrder 0 9 8 1 3 17 16 10 5 12 13 4 6 7 14 15 11 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

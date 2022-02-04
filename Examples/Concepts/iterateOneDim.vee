@@ -1,0 +1,237 @@
+(saveFormat "7.0")
+(date "Thu 07/Apr/2005 18:46:07 ")
+(veerev "7.5.7607.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 1 "Array1D[index]"))
+(interface
+(input 1
+(name "index")
+(optional yes))
+(input 2
+(name "Array1D")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORCOUNT
+(properties
+(count 10))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(expr 3 "Array1D=A;" "totSize(A);" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Array1D")
+(optional yes))))
+(device 3 CONSTANT
+(properties
+(name "Real32"))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 0 1 2 3 4 5 6 7 8 9 ]))
+(initValue Real32
+(data  0))))
+(device 5 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FOREACH
+(properties
+(name "For Each Element In"))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 7 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 In the VEE 7.5 example above, the For Each object iterates the one dimensional array.\\par\r\n\\par\r\nIn the VEE 7.0 example below, there are three objects opposed to the single For Each object noted above.\\par\r\n\\par\r\nThe For Each object is much more efficient than previous methods and handles up to 10 dimensions.\\cf0\\i\\f1\\par\r\n}\r\n"
+)))
+(device 9 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 10 CONSTANT
+(properties
+(name "Real32"))
+(interface
+(output 1
+(name "Real32")
+(lock name constraints)))
+(implementation
+(value Real32
+(numDims 1)
+(size 10)
+(data  [ 0 1 2 3 4 5 6 7 8 9 ]))
+(initValue Real32
+(data  0))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:2 D0:2)
+(connect D2:1 D1:1)
+(connect D9:1 D2:1)
+(connect D0:1 D4:1)
+(connect D3:1 D5:1)
+(connect D5:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 512 361)
+(wndState max)
+(active detail)
+(detail
+(extent 853 691)
+(anchorPt 15 134)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 105 50))
+(terminals on)
+(pinCenter 665 470))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 470 420))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 145 80))
+(terminals on)
+(pinCenter 265 460))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 117 164)
+(showFormat real))
+(pinCenter 80 40))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 184 166)
+(noformatter))
+(pinCenter 900 470))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 158 31))
+(pinCenter 310 40))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 174 167)
+(noformatter))
+(pinCenter 530 40))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 56 19)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 370 270))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing enabled))
+(pinCenter 310 -100))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 117 164)
+(showFormat real))
+(pinCenter 70 460))
+(connect D1:1 D0:1
+(points 4 506 420 530 420 530 460 550 460))
+(connect D2:2 D0:2
+(points 2 400 480 550 480))
+(connect D2:1 D1:1
+(points 4 400 440 410 440 410 420 433 420))
+(connect D9:1 D2:1
+(points 2 131 460 160 460))
+(connect D0:1 D4:1
+(points 2 770 470 805 470))
+(connect D3:1 D5:1
+(points 2 141 40 228 40))
+(connect D5:1 D6:1
+(points 2 391 40 440 40)))
+(stackingOrder 6 5 3 9 2 1 0 4 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

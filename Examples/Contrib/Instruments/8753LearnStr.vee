@@ -1,0 +1,365 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 08:45:29 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "Light Blue Gray")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Red" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "White" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "Med Dark Blue" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Blue" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 12)
+(Property "Object Title Text" "Arial" 14)
+(Property "Object Text" "Arial" 11)
+(Property "Object Description Text" "Courier New" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Notepad Text" "Courier New" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 14)
+(Property "AlphaNumeric Scalar Text" "Arial" 18)
+(Property "AlphaNumeric Array Text" "Arial" 14)
+(Property "Bus Monitor Text" "Courier New" 14)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 19)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 4 "WRITE TEXT \"OUTPLEAS;\" EOL"
+"READ TEXT header_start STR MAXFW:2" "READ BINARY num_bytes INT16"
+"READ BINARY learn_data BYTE ARRAY:num_bytes"))
+(interface
+(output 1
+(name "header_start")
+(optional yes))
+(output 2
+(name "num_bytes")
+(optional yes))
+(output 3
+(name "learn_data")
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 1 START25)
+(device 2 TEXTDISPLAY
+(properties
+(name "header information"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(properties
+(name "bytes in learn string"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 2 "WRITE TEXT \"PRES;\" EOL" "WAIT INTERVAL:4"))
+(implementation
+(iopath "nwa")))
+(device 7 TOGLOBAL
+(properties
+(name "Set VARIABLE LearnData")
+(globalName "LearnData"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 IODEVICE
+(properties
+(name "nwa ( @ 716)")
+(transactions 6 "WRITE TEXT \"INPULEAS;\" EOL" "WRITE TEXT \"#A\" STR"
+"WRITE BINARY y INT16" "WRITE BINARY a BYTE" "WRITE TEXT \"OPC?;WAIT;\" EOL"
+"READ TEXT z INT32"))
+(interface
+(input 1
+(name "y")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "z")
+(optional yes)))
+(implementation
+(iopath "nwa")))
+(device 9 FORMULA
+(properties
+(expr 2 "totSize(A)" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FROMGLOBAL
+(properties
+(name "Get LearnData")
+(globalName "LearnData"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 14 NOTE
+(properties
+(text2 5 "Request learn string via the OUTPLEAS command."
+"Read #A header into \'header_start\', read "
+"the number of bytes in learn string into "
+"\'num_bytes\' and read actual learn " "string data into \'learn_data\'.")))
+(device 15 NOTE
+(properties
+(text2 6 "After acquiring learn string" "data preset the instrument, "
+"wait for preset to execute" "(observe analyzer), and then"
+"get the learn string data" "")))
+(device 16 NOTE
+(properties
+(text2 5 "Output the learn string data via the INPULEAS command. Write the #A "
+"header information, get the total size of array \'LearnData\' and pass"
+"the size to the object thus defining the number of bytes contained in"
+"\'LearnData\'. Finally, write the LearnData data array to the insturment." ""))
+)
+(device 17 CONFIRM25
+(properties
+(name "OK: Select to Preset"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 18 NOTE
+(properties
+(name "ABOUT: 8753LearnStr.vee")
+(text2 11 "Keysight Vee example program for reading and writing the binary "
+"learn string from and to the 8753 and 8720 family of vector network "
+"analyzers. The program reads the binary learn string into the variable"
+"\'LearnData\' and then pauses execution, allowing the user to select "
+"the OK button and preset the instrument (via the program). After the"
+"preset the \'LearnData\' variable (array) is loaded BACK into the analyzer"
+"via the INPULEAS (a.k.a. INPUt LEArn String). After completion of the"
+"learn string load, the instrument should return to the USER setup prior"
+"to the instrument preset. Note that for the 8753ES test the learn string "
+"is comprised of the HEADER and 7652 binary bytes or blocks. " "")))
+(configuration
+(connect D1:0 D0:0)
+(connect D0:1 D2:1)
+(connect D0:2 D3:1)
+(connect D12:0 D4:0)
+(connect D0:3 D5:1)
+(connect D7:1 D6:1)
+(connect D8:1 D6:2)
+(connect D8:1 D7:1)
+(connect D4:0 D8:0)
+(connect D0:0 D12:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1048 659)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt -152 -30)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 295 97))
+(terminals on)
+(pinCenter 500 250))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 530 150))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 130 0))
+(open
+(extent 165 33))
+(pinCenter 960 150))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 172 28))
+(pinCenter 960 210))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 305 56))
+(terminals on)
+(pinCenter 530 410))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 178 0))
+(open
+(extent 175 37))
+(terminals on)
+(pinCenter 995 280))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 215 127))
+(terminals on)
+(pinCenter 1030 540))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 99 48))
+(terminals on)
+(pinCenter 760 510))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 115 56))
+(terminals on)
+(pinCenter 525 510))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 335 107)
+(editing enabled))
+(pinCenter 330 110))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 259 120)
+(editing enabled))
+(pinCenter 290 530))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 623 102)
+(editing enabled))
+(pinCenter 590 680))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 140 0))
+(open
+(extent 255 35))
+(title off)
+(pinCenter 530 330))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 185 52)
+(iconImage "notepad.icn"))
+(open
+(extent 535 177)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Med Light Teal")
+(pinCenter 710 100))
+(connect D1:0 D0:0
+(points 2 530 163 530 181))
+(connect D0:1 D2:1
+(points 4 740 220 760 220 760 150 875 150))
+(connect D0:2 D3:1
+(points 4 740 250 770 250 770 210 871 210))
+(connect D12:0 D4:0
+(points 2 530 350 530 361))
+(connect D0:3 D5:1
+(points 2 740 280 865 280))
+(connect D7:1 D6:1
+(points 2 862 510 890 510))
+(connect D8:1 D6:2
+(points 4 625 510 660 510 660 570 890 570))
+(connect D8:1 D7:1
+(points 2 625 510 678 510))
+(connect D4:0 D8:0
+(points 2 530 440 530 461))
+(connect D0:0 D12:0
+(points 2 530 301 530 310)))
+(stackingOrder 7 8 10 2 3 5 0 11 6 12 13 9 1 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

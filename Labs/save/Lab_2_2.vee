@@ -1,0 +1,317 @@
+(saveFormat "7.0")
+(date "Thu 03/Feb/2022 15:59:33 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "M.16.1")
+(input 0)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 19)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Display Waveform\\par\r\n}\r\n"
+)))
+(device 7 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Sine)
+(frequency 200)
+(amplitude 10)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 1024))
+(interface
+(input 1
+(name "Frequency")
+(tag "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 12 SLIDER
+(properties
+(name "Real64 Slider")
+(variableScope cont)
+(enableEditing 1)
+(range 1 4)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  2.866))
+(initValue Real
+(data  0))))
+(device 14 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)
+(autoAutoX)
+(autoAutoY)))
+(device 16 CONTEXT
+(properties
+(name "AddNoise")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "A - B")
+(variableScope cont)
+(expr 1 "A - B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 VNOISEGENERATOR
+(properties
+(variableScope cont)
+(amplitude 2.866)
+(numPoints 1024)
+(interval 0.02))
+(interface
+(input 1
+(name "Amplitude")
+(tag "Amplitude")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "noise WF"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)
+(connect I2:1 D1:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 511 266)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 28 25))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 420 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 100 51)
+(iconImage "virtual.icn"))
+(open
+(extent 133 79))
+(terminals on)
+(pinCenter 110 180))
+(connect I1:1 D0:1
+(points 4 0 62 10 62 10 70 403 70))
+(connect D1:1 D0:2
+(points 4 162 180 180 180 180 90 403 90))
+(connect I2:1 D1:1
+(points 4 0 202 10 202 10 180 57 180))
+(connect D0:1 O1:1
+(points 4 436 80 460 80 460 132 510 132)))
+(stackingOrder 0 1))))
+(device 17 INPUTDLG
+(properties
+(name "Int32 Input")
+(variableScope cont)
+(popupTitle "Int32 Input")
+(prompt "Enter Frequency:")
+(initialValue "200")
+(valueConstraint "0<=value AND value<=593")
+(vErrorMessage "You must enter an Int32 between 0 and 10."))
+(interface
+(output 1
+(name "Value")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "integer")))
+(device 18 TOFILE
+(properties
+(variableScope cont)
+(transactions 1 "WRITE CONTAINER a"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "wavedata"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect D5:1 D1:1)
+(connect D4:1 D3:1)
+(connect D1:1 D4:1)
+(connect D2:1 D4:2)
+(connect D4:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1374 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1602 869)
+(anchorPt 95 124)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 670 60))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 385 400))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 82 15))
+(open
+(extent 118 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 30 600))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 504 286)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -15 15 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 1220 600))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 59 25))
+(terminals on)
+(pinCenter 640 590))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 379 107))
+(terminals on)
+(pinCenter 150 160))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 233 127))
+(terminals on)
+(pinCenter 1120 200))
+(connect D5:1 D1:1
+(points 6 392 130 410 130 410 240 200 240 200 400 217 400))
+(connect D4:1 D3:1
+(points 4 672 590 690 590 690 600 965 600))
+(connect D1:1 D4:1
+(points 4 522 400 540 400 540 580 608 580))
+(connect D2:1 D4:2
+(points 2 91 600 608 600))
+(connect D4:1 D6:1
+(points 6 672 590 690 590 690 600 940 600 940 200 971 200)))
+(stackingOrder 2 4 1 5 3 0 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,408 @@
+(saveFormat "7.0")
+(date "Tue 12/Apr/2005 16:23:36 ")
+(veerev "7.5.7612.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 23)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ListBox_SelectedValueChanged")
+(trigMode deg)
+(nextID 7)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 1 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ListBox")
+(transactions 2 "selectedItems = listBox.SelectedItems"
+"count = listBox.SelectedItems.Count")
+(parmInfo 4 "1" "T 0" "1" "T 0")
+(memberInfos 2 "SelectedObjectCollection SelectedItems" "Int32 Count")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "listBox"))
+(interface
+(output 1
+(name "selectedItems")
+(optional yes))
+(output 2
+(name "count")
+(optional yes)))
+(implementation))
+(device 3 FORMULA
+(properties
+(expr 1 "label.Text = label.Text + \" \" + a; "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 5 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ListBox")
+(transactions 1 "item = listBox.SelectedItems.Item(index)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "System.Object Item [Int32]")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "listBox"))
+(interface
+(input 1
+(name "index")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "item")
+(optional yes)))
+(implementation))
+(device 6 FORMULA
+(properties
+(expr 1 "label.Text = \"\"; "))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D3:1 D1:1)
+(connect D4:0 D2:0)
+(connect D0:2 D2:1)
+(connect D2:1 D3:1)))
+(contextCarrier
+(wndOrigin 82 82)
+(wndState res)
+(active detail)
+(detail
+(extent 712 391)
+(anchorPt -55 1)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 235 270))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 224 56))
+(terminals on)
+(pinCenter 700 410))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 590 170))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 284 76))
+(terminals on)
+(pinCenter 740 290))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 224 56))
+(terminals on)
+(pinCenter 580 70))
+(connect D3:1 D1:1
+(points 6 924 290 940 290 940 460 540 460 540 410 555 410))
+(connect D4:0 D2:0
+(points 2 590 100 590 142))
+(connect D0:2 D2:1
+(points 4 479 290 500 290 500 170 553 170))
+(connect D2:1 D3:1
+(points 6 626 170 650 170 650 210 540 210 540 290 555 290)))
+(stackingOrder 0 3 4 2 1)))))
+(device 13 DOTNETCONTROL
+(properties
+(name "ListBox")
+(variableName ListBox)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ListBox"))
+(implementation
+(state 447 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F090000000A0A1700000009020000000903000000100200000008000000060400000004466F6E74
+06050000000453697A65060600000006536F7274656406070000000A4974656D4865696768740608
+000000044E616D650609000000084C6F636174696F6E060A000000094261636B436F6C6F72060B00
+000008546162496E646578100300000008000000060C00000017417269616C2C20313270742C2073
+74796C653D426F6C64060D000000073333342C203939060E0000000454727565060F000000023139
+061000000000061100000004302C2030061200000011436F6E74726F6C4C696768744C6967687406
+1300000001300B
+)))
+(device 14 DOTNETBUILDER
+(properties
+(name "Add an Item")
+(transactions 1 "return = ListBox.Items.Add(item)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "Int32 Add(System.Object)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ListBox"))
+(interface
+(input 1
+(name "item")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "return")
+(optional yes)))
+(implementation))
+(device 15 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 16 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary:\\b0\\par\r\nThis example demonstrates the use of coupleWindows Forms controls, ListBox and Label.\\par\r\n\\par\r\nWe set the Font and Sorted properties of the control via the \"Control Properties\" context menu.  We added a few items to the control at run time.  We also enabled multiple selection of items.   We created an event handler for the ListBox to handle the SelectionedValueChanged event.  In the event handler, we updated the text of the label according to what\'s been selected.      \\par\r\n\\par\r\n\\b Concept Illustrated:\\par\r\n\\b0 Design time property change\\par\r\nRun time property change\\par\r\nEvent Handling\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where:\\b0\\par\r\nDevice -> Windows Forms Controls\\par\r\n\\par\r\n\\b Control Details:\\par\r\n\\b0 Assembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: ListBox, Label\\par\r\n}\r\n"
+)))
+(device 17 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 19 LITERALCONSTANT
+(properties
+(name "Text Array"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 4)
+(data  [ "blue" "red" "orange" "yellow" ]))
+(initValue Text
+(data  ""))))
+(device 20 FOREACH
+(properties
+(name "For Each Element In"))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(lock name)
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 21 DOTNETBUILDER
+(properties
+(name "Turn on multiple selection with shift,ctrl, arrow key")
+(transactions 1
+"ListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended")
+(parmInfo 2 "1" "F")
+(memberInfos 1 "System.Windows.Forms.SelectionMode SelectionMode")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ListBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ListBox"))
+(implementation))
+(device 22 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 438 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F070000000A0A0B0000000902000000090300000010020000000700000006040000000854616249
+6E64657806050000000453697A650606000000094261636B436F6C6F720607000000084C6F636174
+696F6E060800000004466F6E7406090000000454657874060A000000044E616D6510030000000700
+0000060B0000000130060C000000073333342C203334060D000000055768697465060E0000000430
+2C2030060F0000001A417269616C2C2031342E323570742C207374796C653D426F6C640610000000
+1E53656C656374206F6E65206F72206D6F7265206974656D732062656C6F770611000000000B
+)))
+(configuration
+(connect D6:1 D1:1)
+(connect D7:0 D6:0)
+(connect D5:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 601 365)
+(wndState max)
+(active detail)
+(detail
+(extent 659 619)
+(anchorPt 64 113)
+(configuration
+(devCarrierFor 13
+(active open)
+(icon
+(extent 44 0))
+(open
+(extent 334 106))
+(pinCenter 230 80))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 71 15))
+(open
+(extent 204 56))
+(terminals on)
+(pinCenter 290 320))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 338 58)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 660 -30))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 364 426)
+(editing disabled))
+(pinCenter 670 260))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -10 110))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 237 74))
+(pinCenter -20 320))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 122 51)
+(iconImage "loop.icn"))
+(open)
+(pinCenter 100 320))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 297 15))
+(open
+(extent 324 46))
+(terminals on)
+(pinCenter 250 190))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 334 34))
+(title off)
+(pinCenter 230 -20))
+(connect D6:1 D1:1
+(points 2 163 320 252 320))
+(connect D7:0 D6:0
+(points 4 250 200 250 220 100 220 100 292))
+(connect D5:1 D6:1
+(points 2 11 320 36 320)))
+(stackingOrder 2 4 6 5 0 7 1 8 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

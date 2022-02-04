@@ -1,0 +1,373 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:09:38 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 51)
+(popupTitleText "XY Display Trace & Scale Control")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 3 FORMULA
+(properties
+(name "Random Trace")
+(expr 1 "randomize(ramp(10))"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 RECCONST
+(properties
+(name "Traces Control"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 4)
+(schema
+(numFields 5)
+(fieldName "traceNum"
+(type Int32))
+(fieldName "name"
+(type Text))
+(fieldName "pen"
+(type Enum)
+(values
+("Black" 0)
+("White" 1)
+("Red" 2)
+("Green" 3)
+("Yellow" 4)
+("Blue" 5)
+("Salmon" 6)
+("Cyan" 7)
+("Orange" 8)
+("Gray" 9)))
+(fieldName "lineType"
+(type Enum)
+(values
+("none" 0)
+("_________" 1)
+(".       ." 2)
+("........." 3)
+("_ _ _ _ _" 4)
+("__ __ __" 5)
+("__ . __ ." 6)
+("__ _ __ _" 7)
+("__ _ _ __" 8)))
+(fieldName "pointType"
+(type Enum)
+(values
+("." 0)
+("Diamond" 1)
+("Square" 2)
+("X" 3)
+("+" 4)
+("Vert Line" 5)
+("Area Fill" 6))))
+(data 
+(record
+("traceNum" 1)
+("name" "Trace1")
+("pen" "Yellow")
+("lineType" "_________")
+("pointType" "."))
+(record
+("traceNum" 2)
+("name" "Trace2")
+("pen" "Cyan")
+("lineType" "_________")
+("pointType" "."))
+(record
+("traceNum" 3)
+("name" "Trace3")
+("pen" "Salmon")
+("lineType" "_________")
+("pointType" "."))
+(record
+("traceNum" 4)
+("name" "Trace4")
+("pen" "Green")
+("lineType" "_________")
+("pointType" "."))))))
+(device 9 RECCONST
+(properties
+(name "Scales Control"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 2)
+(schema
+(numFields 5)
+(fieldName "Scale"
+(type Enum)
+(values
+("X" 0)
+("Y" 1)
+("Y2" 2)
+("Y3" 3)))
+(fieldName "Name"
+(type Text))
+(fieldName "Min"
+(type Real64))
+(fieldName "Max"
+(type Real64))
+(fieldName "Mapping"
+(type Enum)
+(values
+("Linear" 0)
+("Log" 1))))
+(data 
+(record
+("Scale" "X")
+("Name" "X name")
+("Min" 0)
+("Max" 5)
+("Mapping" "Linear"))
+(record
+("Scale" "Y")
+("Name" "Y name")
+("Min" 0)
+("Max" 1)
+("Mapping" "Linear"))))))
+(device 19 FORMULA
+(properties
+(name "Random Trace")
+(expr 1 "randomize(ramp(10))"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(name "Random Trace")
+(expr 1 "randomize(ramp(10))"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name "Random Trace")
+(expr 1 "randomize(ramp(10))"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 44 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Trace3")
+(lock constraints)
+(optional yes))
+(input 4
+(name "Trace4")
+(lock constraints)
+(optional yes))
+(input 5
+(type control)
+(name "Traces")
+(tag "TracesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(input 6
+(type control)
+(name "Scales")
+(tag "ScalesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(graphMode rectangular)))
+(device 48 NOTE
+(properties
+(text2 8 "Shows how to adjust traces and scales on an "
+"XY Display, using the Traces Control and Scales "
+"Scales Control record constants that can be"
+"merged from library file \"XY_cntrl\"." ""
+"To control only one scale or trace, use the "
+"\"Config...\" menu entry on the Trace or Scale "
+"control to set Array Elements: 0")))
+(device 50 NOTE
+(properties
+(text2 1 "")))
+(configuration
+(connect D0:1 D6:1)
+(connect D3:1 D6:2)
+(connect D4:1 D6:3)
+(connect D5:1 D6:4)
+(connect D1:1 D6:5)
+(connect D2:1 D6:6)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 456 193)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 205 62))
+(terminals on)
+(pinCenter -70 50))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 136 25))
+(open
+(extent 265 264)
+(formatters))
+(pinCenter -310 -30))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 136 25))
+(open
+(extent 275 264)
+(formatters))
+(pinCenter -310 270))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 205 62))
+(terminals on)
+(pinCenter -70 100))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 205 62))
+(terminals on)
+(pinCenter -70 150))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 118 25))
+(open
+(extent 205 62))
+(terminals on)
+(pinCenter -70 200))
+(devCarrierFor 44
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 232 307)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1 4 linear))
+(domain 0 5 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Trace3")
+(pen 6)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Trace4")
+(pen 3)
+(lineType 1)
+(pointType 0)))
+(terminals on)
+(pinCenter 190 180))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 478 168)
+(editing disabled))
+(title off)
+(pinCenter 100 -100))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 200 100)
+(editing enabled))
+(pinCenter 60 380))
+(connect D0:1 D6:1
+(points 2 -9 50 21 50))
+(connect D3:1 D6:2
+(points 2 -9 100 21 100))
+(connect D4:1 D6:3
+(points 2 -9 150 21 150))
+(connect D5:1 D6:4
+(points 2 -9 200 21 200))
+(connect D1:1 D6:5
+(points 4 -175 -30 -150 -30 -150 250 21 250))
+(connect D2:1 D6:6
+(points 4 -170 270 -150 270 -150 300 21 300)))
+(stackingOrder 1 2 6 5 4 0 3 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

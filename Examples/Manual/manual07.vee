@@ -1,0 +1,233 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:12:24 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 43)
+(popupTitleText "Changing Values in an Array 1D")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 15 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 13 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 2)
+(dimSizes "4" "3")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 18 FORMULA
+(properties
+(name "A[B, C] = D")
+(expr 1 "A[B, C] = D"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(output 1
+(name "A")
+(optional yes))))
+(device 20 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 25 FORMULA
+(properties
+(name "Random Number")
+(expr 1 "random(0, 1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 FORCOUNT
+(properties
+(count 3))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 40 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 41 NOTE
+(properties
+(name "Information")
+(text2 21 "This example shows how to use the assignment operator"
+"to change values in a two-dimensional array." ""
+"1. Alloc Real allocates a 2-dimension array."
+"2. The array of zeros is input to the JCT (Junction)"
+"   object and propagates to the assignment operator."
+"   The assignment operator is set up with pin A to get the"
+"   array, pin B gets the array index for the rows, pin C"
+"   gets the array index for the columns, and pin D gets" "   the new value."
+"3. For each row (0-4) from the top For Count, all three"
+"   columns get values from Random Number."
+"4. When the assignment operator receives all four inputs,"
+"   it outputs an array to the display and JCT with the"
+"   current array location set to the value on pin D."
+"5. The JCT pin A receives the new array, passing it"
+"   on to the assignment operator.  The cycle repeats"
+"   with an incremented indexes from the For Count objects,"
+"   and new value from Random Number."
+"6. The program ends when both For Count objects finish,"
+"   and final values propagate to the display.")))
+(device 42 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D6:1 D2:1)
+(connect D0:1 D2:2)
+(connect D5:1 D2:3)
+(connect D4:1 D2:4)
+(connect D2:1 D3:1)
+(connect D5:1 D4:0)
+(connect D0:1 D5:0)
+(connect D2:1 D6:1)
+(connect D1:1 D6:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 690 524)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 111 30))
+(pinCenter -600 -50))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 212 142))
+(terminals on)
+(pinCenter -525 -180))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 92 84))
+(terminals on)
+(pinCenter -250 -60))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 303 134))
+(pinCenter 30 -150))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 116 16))
+(open
+(extent 107 44))
+(terminals on)
+(pinCenter -430 50))
+(devCarrierFor 35
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 111 30))
+(pinCenter -520 10))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 29 25))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter -320 -190))
+(devCarrierFor 41
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 570 221)
+(editing disabled))
+(title off)
+(pinCenter -390 -400))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 90 -410))
+(connect D6:1 D2:1
+(points 6 -303 -190 -280 -190 -280 -150 -350 -150 -350 -90 -329 -90))
+(connect D0:1 D2:2
+(points 4 -542 -50 -520 -50 -520 -70 -329 -70))
+(connect D5:1 D2:3
+(points 4 -462 10 -430 10 -430 -50 -329 -50))
+(connect D4:1 D2:4
+(points 4 -370 50 -350 50 -350 -30 -329 -30))
+(connect D2:1 D3:1
+(points 4 -172 -60 -150 -60 -150 -150 -124 -150))
+(connect D5:1 D4:0
+(points 3 -462 10 -430 10 -430 39))
+(connect D0:1 D5:0
+(points 3 -542 -50 -520 -50 -520 -26))
+(connect D2:1 D6:1
+(points 6 -172 -60 -150 -60 -150 -220 -350 -220 -350 -200 -337 -200))
+(connect D1:1 D6:2
+(points 2 -377 -180 -337 -180)))
+(stackingOrder 1 6 2 0 5 4 3 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

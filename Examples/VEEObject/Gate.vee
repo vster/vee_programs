@@ -1,0 +1,346 @@
+(saveFormat "7.0")
+(date "Tue 05/Aug/2008 09:20:05 ")
+(veerev "9.0.11521.0 Beta2 - Titian")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 17)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 3 FORCOUNT
+(properties
+(variableScope cont)
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 DELAY
+(properties
+(name "holding 2 sec")
+(variableScope cont)
+(delay 2))
+(interface
+(output 1
+(name "Done"))))
+(device 11 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 14 DELAY
+(properties
+(name "holding 1 sec")
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(device 15 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 16 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Overview of Gate Example")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 PURPOSE: This example illustrates the use of Gate object. Gate is an object that passes the input data to the data output pin when the sequence in pin is activated. Use Gate to hold the container until another action occurs (and activates the sequence input pin).\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Toggle on the Execution Flow and Data Flow (under Debug menu). \\par\r\nPress Run.\\par\r\n\\par\r\nEXPLANATION:  In this program, data sent to Gate data input pin is held for 2 seconds before sending to AlphaNumeric to display.\\par\r\n\\par\r\nThe holding 1 sec object at the bottom is used to slow down the execution for your better observation. Toggling the Data Flow animation on (Debug => Show Data Flow) will help you to understand the use of Gate object. \\par\r\n\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 30 37)))
+(contextCarrier
+(active detail)
+(panel
+(extent 739 560)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 300 520)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 740 510)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 415 261)
+(anchorPt 455 327)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 10 -80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 790 256)
+(editing disabled))
+(pinCenter 0 -140)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 176 70)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 24 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 550 263)
+(anchorPt 240 54)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 812 455)
+(carbonCopy))
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D2:1 D0:0)
+(connect D1:1 D0:1)
+(connect D1:1 D2:0)
+(connect D0:1 D3:1)
+(connect D3:0 D5:0)
+(connect D1:1 D6:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 722 400)
+(anchorPt -39 30)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 30 15))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 300 220))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 100 110))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 71 31))
+(pinCenter 250 140))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 430 220))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 440 10))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 71 31))
+(pinCenter 430 260))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 430 110))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 164 66)
+(carbonCopy))
+(pinCenter 130 30))
+(connect D2:1 D0:0
+(points 3 293 140 300 140 300 184))
+(connect D1:1 D0:1
+(points 4 150 110 190 110 190 220 261 220))
+(connect D1:1 D2:0
+(points 3 150 110 250 110 250 130))
+(connect D0:1 D3:1
+(points 2 338 220 367 220))
+(connect D3:0 D5:0
+(points 2 430 233 430 250))
+(connect D1:1 D6:1
+(points 2 150 110 367 110)))
+(stackingOrder 2 0 3 6 5 1 4 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

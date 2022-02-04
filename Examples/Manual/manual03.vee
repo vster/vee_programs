@@ -1,0 +1,211 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:11:59 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 21)
+(popupTitleText "Looping with Flow Branching")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 1 "a MOD 5"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 COUNTER
+(properties
+(name "Counter1"))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 7 COUNTER
+(properties
+(name "Counter2"))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 14 FORCOUNT
+(properties
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 16 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  3))
+(initValue Int32
+(data  0))))
+(device 17 FORMULA
+(properties
+(name "a + b")
+(expr 1 "A+B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 19 NOTE
+(properties
+(name "Information")
+(text2 8 "This example shows how looping with flow "
+"branching can lead to a problem, the AlphaNumeric"
+"object never displays results.  This can "
+"be solved using the Sample & Hold object. See"
+"example program manual04.vee for a solution.    "
+"For more information, see the \"VEE Help\" topic"
+"\"To Loop Part of a VEE Program\"." "")))
+(device 20 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)
+(connect D3:0 D4:0)
+(connect D2:1 D5:1)
+(connect D4:1 D5:2)
+(connect D5:1 D6:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 900 447)
+(anchorPt 384 270)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 91 70))
+(terminals on)
+(pinCenter -5 0))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 120 35))
+(pinCenter 190 -40))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 121 33))
+(pinCenter 190 40))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter -190 0))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 104 30)
+(showFormat int))
+(pinCenter -190 140))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 36 25))
+(open)
+(terminals on)
+(pinCenter 10 130))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 148 30))
+(pinCenter 220 150))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 473 165)
+(editing disabled))
+(title off)
+(pinCenter -120 -180))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 320 -160))
+(connect D3:1 D0:1
+(points 2 -135 0 -83 0))
+(connect D0:1 D1:1
+(points 4 83 -20 100 -20 100 -40 127 -40))
+(connect D0:2 D2:1
+(points 4 83 20 100 20 100 40 127 40))
+(connect D3:0 D4:0
+(points 2 -190 18 -190 104))
+(connect D2:1 D5:1
+(points 6 253 40 270 40 270 80 -20 80 -20 120 -11 120))
+(connect D4:1 D5:2
+(points 2 -136 140 -11 140))
+(connect D5:1 D6:1
+(points 4 30 130 50 130 50 150 143 150)))
+(stackingOrder 0 5 2 1 6 3 4 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

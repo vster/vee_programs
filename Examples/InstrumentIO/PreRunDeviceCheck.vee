@@ -1,0 +1,198 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:48:06 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "GPIBDev2"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 12)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 0)
+(model ""
+(standard 488)))
+(iodevice "GPIBDev1"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 11)
+(readTerm "E")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "D:\\programs\\Agilent Technologies\\VEE 5.0\\hpids\\hp34401a.cid")
+(eoiEnabled 0)
+(model ""
+(standard 488)))
+(iodevice "GPIBDev3"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 13)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(ppFile "HPE1429")
+(ppAddr "GPIB0::9::6::INSTR")
+(eoiEnabled 0)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 IODEVICE
+(properties
+(name "GPIBDev1 ( @ 711)")
+(transactions 1 "WRITE TEXT \"*rst\" EOL"))
+(implementation
+(iopath "GPIBDev1")))
+(device 4 IODEVICE
+(properties
+(name "GPIBDev2 ( @ 712)")
+(transactions 1 "WRITE TEXT \"*rst\" EOL"))
+(implementation
+(iopath "GPIBDev2")))
+(device 5 IODEVICE
+(properties
+(name "GPIBDev3 ( @ 713)")
+(transactions 3 "WRITE TEXT \"*rst\" EOL" "WRITE TEXT \"*idn?\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(iopath "GPIBDev3")))
+(device 6 NOTE
+(properties
+(text2 30 "This program shows two features:"
+"1. It has its own device configuration embedded"
+"when it was saved. You can see this by bringing"
+"up the Instrument Manager. The device configuration"
+"you see will be different from your default one. You can"
+"see your default device configuration by selecting " "File-->New."
+"2. If you check the \"Check Instrument Addresses at "
+"PreRun\" checkbox in the Default Preferences"
+"dialog box, VEE will check at PreRun time if the "
+"instruments referenced in the Instrument Control "
+"Objects are online and accessible. This feature is "
+"useful during program development. Your shipping code"
+"should have this feature turned off." ""
+"When you run this program during prerun you will get"
+"a device not found message. Depending on your GPIB"
+"configuration you may see a list of alternative addresses"
+"to use. You may reassign a valid address to a missing device"
+"and may able to run the program successfully."
+"If you do not fix the bus address you will get an error "
+"box with Troubleshooter button. If you select it you might"
+"get a list of alternate live bus addresses you can reassign to"
+"the missing devices. If you this you might able to rerun"
+"the program to a successful conclusion. As a test you might"
+"want to assign the same live address to all three objects if"
+"you have at least one GPIB instrument in your system." "" "" "")))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D2:1 D4:1)))
+(contextCarrier
+(wndOrigin 24 22)
+(wndState res)
+(active detail)
+(detail
+(extent 913 579)
+(anchorPt -199 0)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 400 130))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 400 260))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 400 400))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 464 399)
+(editing enabled))
+(pinCenter 840 230))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 357 30))
+(pinCenter 770 500))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 420 40))
+(connect D0:0 D1:0
+(points 2 400 169 400 202))
+(connect D1:0 D2:0
+(points 2 400 299 400 342))
+(connect D2:1 D4:1
+(points 4 547 400 570 400 570 500 589 500)))
+(stackingOrder 0 2 1 4 3 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

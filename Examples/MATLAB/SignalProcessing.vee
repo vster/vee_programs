@@ -1,0 +1,272 @@
+(saveFormat "7.0")
+(date "Thu 14/Sep/2006 19:19:32 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 34)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 7 VFUNCTIONGENERATOR
+(properties
+(function Square)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 19 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 20 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Requirements: MATLAB Runtime Installed\\par\r\n\\par\r\nThis example illustrates how to use the Signal Processing\\par\r\ncapabilities of MATLAB to extend what you can do in VEE.\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 22 MATLABSCRIPT
+(properties
+(name "MATLAB Script: BUTTER")
+(matlabexpr 1 "[b,a] = butter(9, 0.1);")
+(matlabHelpLink "help/toolbox/signal/butter.html"))
+(interface
+(output 1
+(name "b")
+(optional yes))
+(output 2
+(name "a")
+(optional yes))))
+(device 25 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Filtered")
+(lock constraints))
+(input 2
+(name "Original")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 27 MATLABSCRIPT
+(properties
+(name "MATLAB Script: FILTER")
+(matlabexpr 1 "[y,zf]=filter(b,a,X);")
+(matlabHelpLink "help/techdoc/ref/filter.html"))
+(interface
+(input 1
+(name "b")
+(optional yes))
+(input 2
+(name "a")
+(optional yes))
+(input 3
+(name "X")
+(optional yes))
+(output 1
+(name "y")
+(optional yes))
+(output 2
+(name "zf")
+(optional yes))))
+(device 30 FROMWAVEFORM
+(interface
+(input 1
+(name "Wf Data")
+(requires
+(datatype Waveform))
+(lock name constraints))
+(output 1
+(name "Real64 Ary")
+(lock name constraints))
+(output 2
+(name "Time Span")
+(lock name constraints))))
+(device 31 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.02)))
+(device 33 LABEL
+(properties
+(name "This example only works in VEE Pro and VEE Pro runtime.")
+(labelValue "This example only works in VEE Pro and VEE Pro runtime."))
+(implementation))
+(configuration
+(connect D7:1 D4:1)
+(connect D0:1 D4:2)
+(connect D3:1 D5:1)
+(connect D3:2 D5:2)
+(connect D0:1 D5:3)
+(connect D0:1 D6:1)
+(connect D5:1 D7:1)
+(connect D6:2 D7:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 759 386)
+(wndState max)
+(active detail)
+(detail
+(extent 1028 875)
+(anchorPt -193 203)
+(configuration
+(devCarrierFor 7
+(active open)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 325 250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 400 -170))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 464 111)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 460 -50))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 135 47))
+(terminals on)
+(pinCenter 330 90))
+(devCarrierFor 25
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 345 317)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1.5 1.5 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Filtered")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Original")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 1030 170))
+(devCarrierFor 27
+(active open)
+(icon)
+(open
+(extent 121 70))
+(terminals on)
+(pinCenter 580 100))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 112 51)
+(iconImage "unbuild.icn"))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter 660 180))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 94 51)
+(iconImage "build.icn"))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 770 90))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 347 0))
+(open
+(extent 328 27)
+(just l))
+(title off)
+(pinCenter 760 -170))
+(connect D7:1 D4:1
+(points 2 819 90 855 90))
+(connect D0:1 D4:2
+(points 2 460 250 855 250))
+(connect D3:1 D5:1
+(points 2 430 80 487 80))
+(connect D3:2 D5:2
+(points 2 430 100 487 100))
+(connect D0:1 D5:3
+(points 4 460 250 480 250 480 120 487 120))
+(connect D0:1 D6:1
+(points 4 460 250 480 250 480 180 601 180))
+(connect D5:1 D7:1
+(points 2 673 80 720 80))
+(connect D6:2 D7:2
+(points 6 718 190 740 190 740 140 700 140 700 100 720 100)))
+(stackingOrder 1 5 3 6 7 2 4 0 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

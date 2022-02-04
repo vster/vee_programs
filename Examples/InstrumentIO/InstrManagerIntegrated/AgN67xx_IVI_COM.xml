@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN67xx_IVI_COM.vee">
+		<Description>Program outputs and measure output conditions using List mode.</Description>
+		<LogicalInstrument name="powerSupply">
+			<SupportedInstruments>
+				<Instrument idn="agn6700A"/>
+				<Instrument idn="agn6700B"/>
+				<Instrument idn="agn6701A"/>
+				<Instrument idn="agn6702A"/>
+				<Instrument idn="agn6710A"/>
+				<Instrument idn="agn6711A"/>
+				<Instrument idn="agn6712A"/>
+				<Instrument idn="agn6731B"/>
+				<Instrument idn="agn6732B"/>
+				<Instrument idn="agn6734B"/>
+				<Instrument idn="agn6735B"/>
+				<Instrument idn="agn6736B"/>
+				<Instrument idn="agn6741B"/>
+				<Instrument idn="agn6742B"/>
+				<Instrument idn="agn6743B"/>
+				<Instrument idn="agn6744B"/>
+				<Instrument idn="agn6745B"/>
+				<Instrument idn="agn6746B"/>
+				<Instrument idn="agn6751A"/>
+				<Instrument idn="agn6752A"/>
+				<Instrument idn="agn6761A"/>
+				<Instrument idn="agn6762A"/>
+				<Instrument idn="agn6773A"/>
+				<Instrument idn="agn6774A"/>
+				<Instrument idn="agn6775A"/>
+				<Instrument idn="agn6776A"/>											
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

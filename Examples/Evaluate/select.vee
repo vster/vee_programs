@@ -1,0 +1,609 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:20:12 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F3 F2 F1 F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 44)
+(popupTitleText "SELECT.VEE")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 4)
+(context 3
+(properties
+(name "CallDie")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction")
+(showPopupTitle 0)
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(cases 2 "A==\"Item 1\"" "A==\"Item 2\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 1 CALL
+(properties
+(name "Call die1")
+(callFunc "die1")
+(parmMode rev30)))
+(device 2 CALL
+(properties
+(name "Call die2")
+(callFunc "die2")
+(parmMode rev30)))
+(device 3 CALL
+(properties
+(name "Call die3")
+(callFunc "die3")
+(parmMode rev30)))
+(device 4 TEXTDISPLAY
+(properties
+(name "Item Selected:"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D4:0 D0:0)
+(connect I1:1 D0:1)
+(connect D0:1 D1:0)
+(connect D0:2 D2:0)
+(connect D0:3 D3:0)
+(connect I1:1 D4:1))
+(ShowOnExecPanel
+(relativeOrigin 395 320)))
+(contextCarrier
+(wndOrigin 482 647)
+(wndRestoredOrigin 320 233)
+(wndRestoredExtent 290 128)
+(wndState min)
+(active panel)
+(panel
+(extent 290 128)
+(widget 4 detail
+(relativeOrigin 0 0)
+(title on)
+(titleFont "Arial" 20 bold)
+(borderStyle flat)
+(extent 286 100)
+(scFont "Arial" 24 bold)))
+(detail
+(extent 420 454)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 86 34))
+(open
+(extent 145 62))
+(terminals on)
+(pinCenter 110 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 60 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 230 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 60 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 230 120))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 60 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 200 160))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 107 17))
+(open
+(extent 210 25))
+(pinCenter 180 260))
+(connect D4:0 D0:0
+(points 6 180 275 180 300 310 300 310 40 110 40 110 60))
+(connect I1:1 D0:1
+(points 4 0 226 10 226 10 80 64 80))
+(connect D0:1 D1:0
+(points 5 155 70 170 70 170 50 230 50 230 69))
+(connect D0:2 D2:0
+(points 5 155 80 170 80 170 100 230 100 230 109))
+(connect D0:3 D3:0
+(points 7 155 90 160 90 160 110 180 110 180 140 200 140 200 149))
+(connect I1:1 D4:1
+(points 4 0 226 20 226 20 260 72 260)))
+(stackingOrder 0 1 2 3 4))))
+(context 0
+(properties
+(name "die1")
+(trigMode deg)
+(nextID 2)
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 217 278)))
+(contextCarrier
+(wndOrigin 2 647)
+(wndRestoredOrigin 109 274)
+(wndRestoredExtent 203 244)
+(wndState min)
+(active panel)
+(panel
+(extent 203 244)
+(gridSize 2)
+(pictureMode scaled)
+(pictureImage "die1.gif")
+(widget 0 detail
+(relativeOrigin 136 204)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle none)
+(extent 60 26)))
+(detail
+(extent 350 300)
+(anchorPt 175 150)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 26 0))
+(open
+(extent 56 24))
+(title off)
+(pinCenter 0 0))))))
+(context 1
+(properties
+(name "die2")
+(trigMode deg)
+(nextID 2)
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 183 279)))
+(contextCarrier
+(wndOrigin 162 647)
+(wndRestoredOrigin 107 281)
+(wndRestoredExtent 207 241)
+(wndState min)
+(active panel)
+(panel
+(extent 207 241)
+(gridSize 2)
+(pictureMode scaled)
+(pictureImage "die2.gif")
+(widget 0 detail
+(relativeOrigin 140 204)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle none)
+(extent 60 26)))
+(detail
+(extent 350 300)
+(anchorPt 175 150)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 26 0))
+(open
+(extent 56 24))
+(title off)
+(pinCenter 0 0))))))
+(context 2
+(properties
+(name "die3")
+(trigMode deg)
+(nextID 2)
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 179 285)))
+(contextCarrier
+(wndOrigin 322 647)
+(wndRestoredOrigin 107 279)
+(wndRestoredExtent 207 243)
+(wndState min)
+(active panel)
+(panel
+(extent 207 243)
+(gridSize 2)
+(pictureMode scaled)
+(pictureImage "die3.gif")
+(widget 0 detail
+(relativeOrigin 138 210)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle none)
+(extent 60 26)))
+(detail
+(extent 350 300)
+(anchorPt 175 150)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 26 0))
+(open
+(extent 56 24))
+(title off)
+(pinCenter 0 0)))))))
+(device 2 ENUMCONSTANT
+(properties
+(name "Radio Buttons")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 3 ENUMCONSTANT
+(properties
+(name "Cyclic Button")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 4 ENUMCONSTANT
+(properties
+(name "List")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 5 ENUMCONSTANT
+(properties
+(name "Drop-Down List")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 6 ENUMCONSTANT
+(properties
+(name "Pop-Up List")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Item 1" 0)
+("Item 2" 1)
+("Item 3" 2))
+(data  "Item 1"))
+(initValue Text
+(data  "Item 1"))))
+(device 29 NOTE
+(properties
+(text2 4
+"This program demonstrates some of the selection controls available in VEE."
+"Just select an item using any one of five VEE selection objects. (No need to click Run.) "
+"The item selected will be displayed as well as a die with the item number."
+"Click OK on the picture of the die to continue.")))
+(device 38 CALL
+(properties
+(name "Call CallDie")
+(callFunc "CallDie")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 39 CALL
+(properties
+(name "Call CallDie")
+(callFunc "CallDie")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 40 CALL
+(properties
+(name "Call CallDie")
+(callFunc "CallDie")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 41 CALL
+(properties
+(name "Call CallDie")
+(callFunc "CallDie")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 42 CALL
+(properties
+(name "Call CallDie")
+(callFunc "CallDie")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 43 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D4:1 D6:1)
+(connect D1:1 D7:1)
+(connect D3:1 D8:1)
+(connect D2:1 D9:1)
+(connect D0:1 D10:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 827 529)
+(gridSize 2)
+(widget 5 detail
+(relativeOrigin 32 12)
+(title off)
+(borderStyle convex)
+(extent 762 90)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 30 111)
+(title on)
+(borderStyle convex)
+(extent 148 85)
+(format buttons))
+(widget 2 detail
+(relativeOrigin 192 111)
+(title on)
+(borderStyle convex)
+(extent 132 89)
+(format scrollList))
+(widget 3 detail
+(relativeOrigin 336 111)
+(title on)
+(borderStyle convex)
+(extent 161 23)
+(format dropDown))
+(widget 1 detail
+(relativeOrigin 510 111)
+(title on)
+(borderStyle convex)
+(extent 141 26)
+(format cyclic))
+(widget 4 detail
+(relativeOrigin 662 111)
+(title on)
+(borderStyle convex)
+(extent 132 26)
+(format list)))
+(detail
+(extent 553 557)
+(anchorPt 100 106)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 17))
+(open
+(extent 151 87)
+(format buttons))
+(pinCenter 0 0))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 103 17))
+(open
+(extent 155 31)
+(format cyclic))
+(pinCenter 0 240))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 29 17))
+(open
+(extent 154 60)
+(format scrollList))
+(pinCenter 0 100))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 123 17))
+(open
+(extent 154 28)
+(format dropDown))
+(pinCenter 0 180))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 94 17))
+(open
+(extent 155 34)
+(format list))
+(pinCenter 0 310))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 68 50)
+(iconImage "notepad.icn"))
+(open
+(extent 652 79)
+(editing enabled))
+(pinCenter 320 0))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 140 310))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 140 230))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 150 180))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 140 90))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 80 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 140 -20))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter 270 -70))
+(connect D4:1 D6:1
+(points 4 80 300 90 300 90 310 97 310))
+(connect D1:1 D7:1
+(points 2 80 230 97 230))
+(connect D3:1 D8:1
+(points 4 79 170 90 170 90 180 107 180))
+(connect D2:1 D9:1
+(points 4 79 80 90 80 90 90 97 90))
+(connect D0:1 D10:1
+(points 2 78 -20 97 -20)))
+(stackingOrder 1 4 3 0 2 7 8 9 10 6 5 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

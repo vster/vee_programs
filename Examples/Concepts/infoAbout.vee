@@ -1,0 +1,971 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:59:41 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "\"Info About\" pop-up help example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "TO RUN:")
+(text2 5 "Press For #1, click on the Info About button."
+"Press For #2, either click on Info About button or press its Start button then"
+"              click its Info About button."
+"Press For #3, press its Start button then click its Info About button." "")))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 3 CONTEXT
+(properties
+(name "Press For #1")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 7))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 21 "This is a toggle device with the name changed to"
+"reflect its function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"With AutoExecute set you can press the button and get"
+"info if the program is not executing.  However, the"
+"drawback to this approach is that the button doesn\'t"
+"work when the program is running.")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 30
+"PURPOSE:     To describe the pop-up help device used in many of the examples."
+"" "USER INPUT REQUIRED:  If you are reading this, you have done enough to get"
+"             started." ""
+"EXPLANATION: The InfoAbout device is a nested set of User Objects that use the"
+"             Notepad device to display information.  The \"Show Panel on"
+"             Execute\" capability of a User Object provides the mechanism to"
+"             display the note pads only when desired." ""
+"             What you are looking at is the pop-up help display.  Note that"
+"             you cannot directly edit the data from this view, since the"
+"             Notepad containing this text has disabled \"Enable Editing\". "
+"             To change this, you need to change the view of the \"Press For\""
+"             user object from the Panel to the Detail view. Click the DONE"
+"             button below and change to the Detail view -- you can then pop"
+"             this help screen up using the InfoAbout button." ""
+"             After changing the Press For device to the Detail view, you will"
+"             see the \"Info About\" button, an If/Then/Else, and a \"Info About"
+"             This Example\" device. You can use the \"Show Description\" on each"
+"             device\'s Object menu for info on how the device works.  You can"
+"             also double-click the left button on the \"Info About This"
+"             Example\" to gain access to this Notepad again." ""
+"             To examine the internals of the \"Info About This Example\" user"
+"             object, you must double-click the left button over the iconic"
+"             view.  You will then see the Panel view with this Notepad"
+"             visible.  To examine the internals of the \"Info About This"
+"             Example\" device, press the \"Detail\" button in it\'s title bar."
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "If You\'re Lost")
+(description2 7 "You could remove this device totally and it "
+"would have no affect on the InfoAbout help"
+"system -- it\'s only here in case you get lost." ""
+"If this device is an icon, double click the"
+"left button on it to open up the \"If you\'re Lost\"" "Notepad.")
+(text2 22 "This notepad is not part" "of the device -- it just"
+"tells how to back out of" "this example if you are" "lost." ""
+"To return to the Panel" "view of the \"Info About" "This Example\", press the"
+"Panel button in it\'s title" "bar. " "" "If you hit the \"iconize\" dot"
+"in the upper right corner of" "the \"Info About This Example\","
+"you will be able to look at" "the \"Press For\" user object"
+"Detail view again." "" "(You must double-click on the"
+"device to reopen the non-iconic" "views.)")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 217 40)))
+(contextCarrier
+(active detail)
+(panel
+(extent 770 595)
+(widget 1 detail
+(relativeOrigin 330 550)
+(title off)
+(borderStyle none)
+(extent 70 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 770 540)
+(editing disabled)))
+(detail
+(extent 628 517)
+(anchorPt 95 48)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 136 0)
+(iconImage "notepad.icn"))
+(open
+(extent 301 414)
+(editing enabled))
+(pinCenter 321 203)))
+(stackingOrder 0 1 2))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 498 307)
+(anchorPt 194 338)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -90 -240))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 192 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 90 -170))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 40 -240))
+(connect D1:0 D0:1
+(points 5 90 -155 90 -130 -170 -130 -170 -240 -150 -240))
+(connect D2:1 D1:0
+(points 3 65 -250 90 -250 90 -185))
+(connect D0:1 D2:1
+(points 2 -31 -240 14 -240)))
+(stackingOrder 0 1 2))))
+(device 9 CONTEXT
+(properties
+(name "Press For #2")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 8))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 29 "This is a toggle device with the name changed to"
+"reflect its function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+"One drawback to this approach is that if you run this"
+"program the \"Until Break\" object pings the Toggle button "
+"repeatedly which uses up your CPU cycles.  \"Press For #3\""
+"shows how to avoid this problem." "")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 30
+"PURPOSE:     To describe the pop-up help device used in many of the examples."
+"" "USER INPUT REQUIRED:  If you are reading this, you have done enough to get"
+"             started." ""
+"EXPLANATION: The InfoAbout device is a nested set of User Objects that use the"
+"             Notepad device to display information.  The \"Show Panel on"
+"             Execute\" capability of a User Object provides the mechanism to"
+"             display the note pads only when desired." ""
+"             What you are looking at is the pop-up help display.  Note that"
+"             you cannot directly edit the data from this view, since the"
+"             Notepad containing this text has disabled \"Enable Editing\". "
+"             To change this, you need to change the view of the \"Press For\""
+"             user object from the Panel to the Detail view. Click the DONE"
+"             button below and change to the Detail view -- you can then pop"
+"             this help screen up using the InfoAbout button." ""
+"             After changing the Press For device to the Detail view, you will"
+"             see the \"Info About\" button, an If/Then/Else, and a \"Info About"
+"             This Example\" device. You can use the \"Show Description\" on each"
+"             device\'s Object menu for info on how the device works.  You can"
+"             also double-click the left button on the \"Info About This"
+"             Example\" to gain access to this Notepad again." ""
+"             To examine the internals of the \"Info About This Example\" user"
+"             object, you must double-click the left button over the iconic"
+"             view.  You will then see the Panel view with this Notepad"
+"             visible.  To examine the internals of the \"Info About This"
+"             Example\" device, press the \"Detail\" button in it\'s title bar."
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "If You\'re Lost")
+(description2 7 "You could remove this device totally and it "
+"would have no affect on the InfoAbout help"
+"system -- it\'s only here in case you get lost." ""
+"If this device is an icon, double click the"
+"left button on it to open up the \"If you\'re Lost\"" "Notepad.")
+(text2 22 "This notepad is not part" "of the device -- it just"
+"tells how to back out of" "this example if you are" "lost." ""
+"To return to the Panel" "view of the \"Info About" "This Example\", press the"
+"Panel button in it\'s title" "bar. " "" "If you hit the \"iconize\" dot"
+"in the upper right corner of" "the \"Info About This Example\","
+"you will be able to look at" "the \"Press For\" user object"
+"Detail view again." "" "(You must double-click on the"
+"device to reopen the non-iconic" "views.)")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 217 40)))
+(contextCarrier
+(active detail)
+(panel
+(extent 770 595)
+(widget 1 detail
+(relativeOrigin 330 550)
+(title off)
+(borderStyle none)
+(extent 70 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 770 540)
+(editing disabled)))
+(detail
+(extent 628 517)
+(anchorPt 95 48)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 136 0)
+(iconImage "notepad.icn"))
+(open
+(extent 301 414)
+(editing enabled))
+(pinCenter 321 203)))
+(stackingOrder 0 1 2))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 7 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D3:1 D0:0)
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 498 307)
+(anchorPt 219 373)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -90 -240))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 192 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 90 -170))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 40 -240))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -140 -310))
+(connect D3:1 D0:0
+(points 3 -101 -310 -90 -310 -90 -262))
+(connect D1:0 D0:1
+(points 5 90 -155 90 -130 -170 -130 -170 -240 -150 -240))
+(connect D2:1 D1:0
+(points 3 65 -250 90 -250 90 -185))
+(connect D0:1 D2:1
+(points 2 -31 -240 14 -240)))
+(stackingOrder 0 1 2 3))))
+(device 11 CONTEXT
+(properties
+(name "Press For #3")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(trigMode deg)
+(nextID 8))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 15 "This is a toggle device with the name changed to"
+"reflect its function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"Wait for Input\" option.  In"
+"this case, the button ONLY works while the program"
+"is executing (RUN button on Toolbar pressed).  However,"
+"since it waits for the user to press the button, this"
+"style does not use a lot of CPU cycles.")
+(waitForEvent 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(text2 30
+"PURPOSE:     To describe the pop-up help device used in many of the examples."
+"" "USER INPUT REQUIRED:  If you are reading this, you have done enough to get"
+"             started." ""
+"EXPLANATION: The InfoAbout device is a nested set of User Objects that use the"
+"             Notepad device to display information.  The \"Show Panel on"
+"             Execute\" capability of a User Object provides the mechanism to"
+"             display the note pads only when desired." ""
+"             What you are looking at is the pop-up help display.  Note that"
+"             you cannot directly edit the data from this view, since the"
+"             Notepad containing this text has disabled \"Enable Editing\". "
+"             To change this, you need to change the view of the \"Press For\""
+"             user object from the Panel to the Detail view. Click the DONE"
+"             button below and change to the Detail view -- you can then pop"
+"             this help screen up using the InfoAbout button." ""
+"             After changing the Press For device to the Detail view, you will"
+"             see the \"Info About\" button, an If/Then/Else, and a \"Info About"
+"             This Example\" device. You can use the \"Show Description\" on each"
+"             device\'s Object menu for info on how the device works.  You can"
+"             also double-click the left button on the \"Info About This"
+"             Example\" to gain access to this Notepad again." ""
+"             To examine the internals of the \"Info About This Example\" user"
+"             object, you must double-click the left button over the iconic"
+"             view.  You will then see the Panel view with this Notepad"
+"             visible.  To examine the internals of the \"Info About This"
+"             Example\" device, press the \"Detail\" button in it\'s title bar."
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "If You\'re Lost")
+(description2 7 "You could remove this device totally and it "
+"would have no affect on the InfoAbout help"
+"system -- it\'s only here in case you get lost." ""
+"If this device is an icon, double click the"
+"left button on it to open up the \"If you\'re Lost\"" "Notepad.")
+(text2 22 "This notepad is not part" "of the device -- it just"
+"tells how to back out of" "this example if you are" "lost." ""
+"To return to the Panel" "view of the \"Info About" "This Example\", press the"
+"Panel button in it\'s title" "bar. " "" "If you hit the \"iconize\" dot"
+"in the upper right corner of" "the \"Info About This Example\","
+"you will be able to look at" "the \"Press For\" user object"
+"Detail view again." "" "(You must double-click on the"
+"device to reopen the non-iconic" "views.)")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 217 40)))
+(contextCarrier
+(active detail)
+(panel
+(extent 770 595)
+(widget 1 detail
+(relativeOrigin 330 550)
+(title off)
+(borderStyle none)
+(extent 70 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 770 540)
+(editing disabled)))
+(detail
+(extent 628 517)
+(anchorPt 95 48)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 136 0)
+(iconImage "notepad.icn"))
+(open
+(extent 301 414)
+(editing enabled))
+(pinCenter 321 203)))
+(stackingOrder 0 1 2))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 7 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D3:1 D0:0)
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 101 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 498 307)
+(anchorPt 219 373)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -90 -240))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 192 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 90 -170))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 40 -240))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -140 -310))
+(connect D3:1 D0:0
+(points 3 -101 -310 -90 -310 -90 -262))
+(connect D1:0 D0:1
+(points 5 90 -155 90 -130 -170 -130 -170 -240 -150 -240))
+(connect D2:1 D1:0
+(points 3 65 -250 90 -250 90 -185))
+(connect D0:1 D2:1
+(points 2 -31 -240 14 -240)))
+(stackingOrder 0 1 2 3))))
+(device 12 START25)
+(device 13 START25)
+(device 14 LABEL
+(properties
+(name "Only Works when program not running")
+(labelValue "Only Works when program not running"))
+(implementation))
+(device 15 LABEL
+(properties
+(name "Works when program is running or not.  But uses lots of CPU cycles.")
+(labelValue
+"Works when program is running or not.  But uses lots of CPU cycles."))
+(implementation))
+(device 16 LABEL
+(properties
+(name "Works ONLY when program is running.  But uses few CPU cycles.")
+(labelValue "Works ONLY when program is running.  But uses few CPU cycles."))
+(implementation))
+(device 17 LABEL
+(properties
+(name "THIS IS THE BEST SOLUTION")
+(labelValue "THIS IS THE BEST SOLUTION"))
+(implementation))
+(configuration
+(connect D6:0 D3:0)
+(connect D5:0 D4:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 123 170)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 0)
+(iconImage "notepad.icn"))
+(open
+(extent 749 101)
+(editing enabled))
+(pinCenter 270 -90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing enabled))
+(pinCenter 430 410))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 90 25))
+(open
+(extent 294 76)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 40 40))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 90 25))
+(open
+(extent 294 76)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 40 200))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 90 25))
+(open
+(extent 294 76)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 40 360))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 40 270))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 40 110))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 267 0))
+(open
+(extent 444 34)
+(just l))
+(title off)
+(pinCenter 430 0))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 471 0))
+(open
+(extent 444 34)
+(just l))
+(title off)
+(pinCenter 430 160))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 453 0))
+(open
+(extent 444 34)
+(just l))
+(title off)
+(pinCenter 430 320))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 209 0))
+(open
+(extent 444 34)
+(just c))
+(title off)
+(bg "Pale Yellow")
+(pinCenter 430 360))
+(connect D6:0 D3:0
+(points 2 40 123 40 141))
+(connect D5:0 D4:0
+(points 2 40 283 40 301)))
+(stackingOrder 4 0 2 5 7 9 8 10 3 1 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

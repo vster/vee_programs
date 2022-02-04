@@ -1,0 +1,4850 @@
+(schema
+ (numFields 3)
+ (fieldName "title"
+  (type Text)
+ )
+ (fieldName "actors"
+  (type Text)
+  (numDims 1)
+  (size 10)
+ )
+ (fieldName "actors_index"
+  (type Int32)
+  (numDims 1)
+  (size 10)
+ )
+)
+
+(record
+ ( "title" "INVALID MOVIE")
+ ( "actors"
+   [ "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" "bogus actor" ]
+ )
+ ( "actors_index"
+   [ 0 0 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ANIMAL HOUSE")
+ ( "actors"
+   [ "Karen Allen" "Kevin Bacon" "John Belushi" "Verna Bloom" "Tim Matheson" "Donald Sutherland" "John Vernon" "Tom Hulce" "" "" ]
+ )
+ ( "actors_index"
+   [ 414 430 373 741 713 183 391 722 0 0 ]
+ )
+)
+(record
+ ( "title" "BATMAN")
+ ( "actors"
+   [ "Michael Keaton" "Jack Nicholson" "Kim Basinger" "Billy Dee Williams" "Jack Palance" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 524 303 436 63 304 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BATMAN RETURNS")
+ ( "actors"
+   [ "Michael Keaton" "Danny De Vito" "Christopher Walken" "Michelle Pfeiffer" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 524 145 119 530 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BATMAN FOREVER")
+ ( "actors"
+   [ "Val Kilmer" "Tommy Lee Jones" "Jim Carrey" "Nicole Kidman" "Drew Barrymore" "Chris O\'Donnell" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 734 725 355 549 189 110 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BATMAN & ROBIN")
+ ( "actors"
+   [ "George Clooney" "Chris O\'Donnell" "Uma Thurman" "Alicia Silverstone" "Arnold Schwarzenegger" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 251 110 732 19 42 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FOUL PLAY")
+ ( "actors"
+   [ "Chevy Chase" "Goldie Hawn" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 263 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "VACATION")
+ ( "actors"
+   [ "Chevy Chase" "Beverly D\'Angelo" "Anthony Michael Hall" "Randy Quaid" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 55 38 593 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CADDYSHACK")
+ ( "actors"
+   [ "Chevy Chase" "Rodney Dangerfield" "Ted Knight" "Bill Murray" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 640 705 57 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FLETCH")
+ ( "actors"
+   [ "Chevy Chase" "Geena Davis" "Tim Matheson" "Joe Don Baker" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 246 713 366 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NOTHING BUT TROUBLE")
+ ( "actors"
+   [ "Chevy Chase" "Dan Aykroyd" "Demi Moore" "John Candy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 140 162 374 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "OVERBOARD")
+ ( "actors"
+   [ "Kurt Russell" "Goldie Hawn" "Roddy McDowall" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 263 639 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ESCAPE FROM NEW YORK")
+ ( "actors"
+   [ "Kurt Russell" "Adrienne Barbeau" "Ernest Borgnine" "Harry Dean Stanton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 3 217 276 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE EMPIRE STRIKES BACK")
+ ( "actors"
+   [ "Harrison Ford" "Carrie Fisher" "Mark Hamill" "Alec Guinness" "Billy Dee Williams" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 93 487 16 63 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DRIVING MISS DAISY")
+ ( "actors"
+   [ "Jessica Tandy" "Morgan Freeman" "Dan Aykroyd" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 349 538 140 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RAIDERS OF THE LOST ARK")
+ ( "actors"
+   [ "Harrison Ford" "Karen Allen" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 414 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INDIANA JONES LAST CRUSADE")
+ ( "actors"
+   [ "Harrison Ford" "Sean Connery" "River Phoenix" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 669 620 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ROCK")
+ ( "actors"
+   [ "Nicolas Cage" "Sean Connery" "Ed Harris" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 548 669 197 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLADE RUNNER")
+ ( "actors"
+   [ "Harrison Ford" "Daryl Hannah" "Joanna Cassidy" "Rutger Hauer" "Sean Young" "Brion James" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 149 363 653 671 77 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DR. NO")
+ ( "actors"
+   [ "Sean Connery" "Jack Lord" "Ursula Andress" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 302 733 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FAMILY BUSINESS")
+ ( "actors"
+   [ "Sean Connery" "Dustin Hoffman" "Matthew Broderick" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 191 506 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DIAMONDS ARE FOREVER")
+ ( "actors"
+   [ "Sean Connery" "Jill St. John" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 352 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TIME BANDITS")
+ ( "actors"
+   [ "Sean Connery" "John Cleese" "Shelley Duvall" "Michael Palin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 376 675 526 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NEVER SAY NEVER AGAIN")
+ ( "actors"
+   [ "Sean Connery" "Max von Sydow" "Kim Basinger" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 510 436 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "UNTOUCHABLES")
+ ( "actors"
+   [ "Sean Connery" "Kevin Costner" "Andy Garcia" "Robert De Niro" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 431 25 623 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RAINMAN")
+ ( "actors"
+   [ "Tom Cruise" "Dustin Hoffman" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 191 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GHOSTBUSTERS")
+ ( "actors"
+   [ "Bill Murray" "Sigourney Weaver" "Rick Moranis" "Dan Aykroyd" "Harold Ramis" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 57 683 618 140 273 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALIEN")
+ ( "actors"
+   [ "Sigourney Weaver" "Tom Skerritt" "John Hurt" "Harry Dean Stanton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 683 723 383 276 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALIENS")
+ ( "actors"
+   [ "Sigourney Weaver" "Bill Paxton" "Michael Biehn" "Paul Reiser" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 683 58 520 570 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALIEN RESURRECTION")
+ ( "actors"
+   [ "Sigourney Weaver" "Winona Ryder" "Dan Hedaya" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 683 770 141 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TOP GUN")
+ ( "actors"
+   [ "Tom Cruise" "Tom Skerritt" "Val Kilmer" "Kelly McGillis" "Anthony Edwards" "Meg Ryan" "Tim Robbins" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 723 734 427 36 511 714 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE OUTSIDERS")
+ ( "actors"
+   [ "Matt Dillon" "Ralph Macchio" "C. Thomas Howell" "Patrick Swayze" "Rob Lowe" "Emilio Estevez" "Tom Cruise" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 504 591 89 565 621 213 720 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MARS ATTACKS!")
+ ( "actors"
+   [ "Jack Nicholson" "Glenn Close" "Annette Bening" "Pierce Brosnan" "Danny De Vito" "Martin Short" "Sarah Jessica Parker" "Michael J. Fox" "" "" ]
+ )
+ ( "actors_index"
+   [ 303 260 34 586 145 496 666 523 0 0 ]
+ )
+)
+(record
+ ( "title" "A FEW GOOD MEN")
+ ( "actors"
+   [ "Tom Cruise" "Jack Nicholson" "Demi Moore" "Kevin Bacon" "Kiefer Sutherland" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 303 162 430 435 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FLATLINERS")
+ ( "actors"
+   [ "Kiefer Sutherland" "Julia Roberts" "Kevin Bacon" "William Baldwin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 435 404 430 762 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE RIGHT STUFF")
+ ( "actors"
+   [ "Sam Shepard" "Scott Glenn" "Ed Harris" "Dennis Quaid" "Fred Ward" "Barbara Hershey" "Jeff Goldblum" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 661 668 197 167 236 46 342 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BIG CHILL")
+ ( "actors"
+   [ "Glenn Close" "Tom Berenger" "William Hurt" "Jeff Goldblum" "Mary Kay Place" "Kevin Kline" "Meg Tilly" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 260 718 767 342 499 432 512 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GLENGARRY GLEN ROSS ")
+ ( "actors"
+   [ "Al Pacino" "Jack Lemmon" "Alec Baldwin" "Ed Harris" "Alan Arkin" "Kevin Spacey" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 301 15 197 8 434 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DINER")
+ ( "actors"
+   [ "Steve Guttenberg" "Daniel Stern" "Mickey Rourke" "Kevin Bacon" "Ellen Barkin" "Paul Reiser" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 692 143 532 430 210 570 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TAPS")
+ ( "actors"
+   [ "George C. Scott" "Timothy Hutton" "Ronny Cox" "Sean Penn" "Tom Cruise" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 250 715 645 670 720 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SOME LIKE IT HOT")
+ ( "actors"
+   [ "Marilyn Monroe" "Tony Curtis" "Jack Lemmon" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 484 726 301 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NORTH BY NORTHWEST")
+ ( "actors"
+   [ "Cary Grant" "Eva Marie Saint" "James Mason" "Martin Landau" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 221 321 492 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CHARADE")
+ ( "actors"
+   [ "Cary Grant" "Audrey Hepburn" "Walter Matthau" "James Coburn" "George Kennedy" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 44 749 315 253 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "APOCALYPSE NOW")
+ ( "actors"
+   [ "Marlon Brando" "Robert Duvall" "Martin Sheen" "Laurence Fishburne" "Dennis Hopper" "Harrison Ford" "Scott Glenn" "G.D. Spradlin" "" "" ]
+ )
+ ( "actors_index"
+   [ 490 625 495 452 165 274 668 240 0 0 ]
+ )
+)
+(record
+ ( "title" "AMERICAN GRAFFITI")
+ ( "actors"
+   [ "Richard Dreyfuss" "Ron Howard" "Paul Le Mat" "Charles Martin Smith" "Cindy Williams" "Wolfman Jack" "Harrison Ford" "Suzanne Somers" "" "" ]
+ )
+ ( "actors_index"
+   [ 609 643 566 103 122 771 274 701 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GODFATHER")
+ ( "actors"
+   [ "Marlon Brando" "Al Pacino" "James Caan" "Robert Duvall" "Diane Keaton" "Abe Vigoda" "Talia Shire" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 490 6 314 625 171 1 703 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GODFATHER PART 2")
+ ( "actors"
+   [ "Al Pacino" "Robert De Niro" "Danny Aiello" "James Caan" "Robert Duvall" "Diane Keaton" "Abe Vigoda" "Talia Shire" "G.D. Spradlin" "Harry Dean Stanton" ]
+ )
+ ( "actors_index"
+   [ 6 623 144 314 625 171 1 703 240 276 ]
+ )
+)
+(record
+ ( "title" "HEAT")
+ ( "actors"
+   [ "Al Pacino" "Robert De Niro" "Val Kilmer" "Jon Voight" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 623 734 395 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BREAKFAST CLUB")
+ ( "actors"
+   [ "Emilio Estevez" "Anthony Michael Hall" "Judd Nelson" "Molly Ringwald" "Ally Sheedy" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 213 38 400 536 20 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SIXTEEN CANDLES")
+ ( "actors"
+   [ "Molly Ringwald" "Anthony Michael Hall" "Joan Cusack" "Jami Gertz" "John Cusack" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 536 38 361 326 377 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TWISTER")
+ ( "actors"
+   [ "Bill Paxton" "Jami Gertz" "Helen Hunt" "Cary Elwes" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 58 326 282 96 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SIBLING RIVALRY")
+ ( "actors"
+   [ "Kirstie Alley" "Bill Pullman" "Carrie Fisher" "Jami Gertz" "Scott Bakula" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 441 59 93 326 667 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LESS THAN ZERO")
+ ( "actors"
+   [ "Andrew McCarthy" "Jami Gertz" "Robert Downey, Jr." "James Spader" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 24 326 624 322 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE LOST BOYS")
+ ( "actors"
+   [ "Jason Patric" "Corey Haim" "Jami Gertz" "Kiefer Sutherland" "Dianne Wiest" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 334 133 326 435 173 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "QUICKSILVER")
+ ( "actors"
+   [ "Jami Gertz" "Kevin Bacon" "Louis Anderson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 326 430 469 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ENDLESS LOVE")
+ ( "actors"
+   [ "Brooke Shields" "James Spader" "Tom Cruise" "Jami Gertz" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 78 322 720 326 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FOOTLOOSE")
+ ( "actors"
+   [ "Kevin Bacon" "John Lithgow" "Christopher Penn" "Sarah Jessica Parker" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 430 386 116 666 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LA STORY")
+ ( "actors"
+   [ "Steve Martin" "Sarah Jessica Parker" "Patrick Stewart" "Chevy Chase" "Rick Moranis" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 666 564 108 618 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HONEYMOON IN VEGAS")
+ ( "actors"
+   [ "James Caan" "Nicolas Cage" "Sarah Jessica Parker" "Pat Morita" "Anne Bancroft" "Peter Boyle" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 314 548 666 560 32 574 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOCUS POKUS")
+ ( "actors"
+   [ "Bette Midler" "Sarah Jessica Parker" "Kathy Najimy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 54 666 423 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ROSE")
+ ( "actors"
+   [ "Bette Midler" "Alan Bates" "Frederick Forrest" "Harry Dean Stanton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 54 9 238 276 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DOWN AND OUT IN BEVERLY HILLS")
+ ( "actors"
+   [ "Bette Midler" "Richard Dreyfuss" "Nick Nolte" "Paul Mazursky" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 54 609 547 568 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RUTHLESS PEOPLE")
+ ( "actors"
+   [ "Danny De Vito" "Bette Midler" "Judge Reinhold" "Bill Pullman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 145 54 401 59 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FIRST WIVES CLUB")
+ ( "actors"
+   [ "Bette Midler" "Goldie Hawn" "Diane Keaton" "Stockard Channing" "Sarah Jessica Parker" "Rob Reiner" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 54 263 171 697 666 622 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BEVERLY HILLS COP")
+ ( "actors"
+   [ "Eddie Murphy" "Judge Reinhold" "Ronny Cox" "Paul Reiser" "Damon Wayans" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 199 401 645 570 139 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FAST TIMES AT RIDGEMOUNT HIGH")
+ ( "actors"
+   [ "Sean Penn" "Judge Reinhold" "Phoebe Cates" "Ray Walston" "Forest Whitaker" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 670 401 585 598 226 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BODY HEAT")
+ ( "actors"
+   [ "William Hurt" "Kathleen Turner" "Richard Crenna" "Ted Danson" "Mickey Rourke" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 421 608 704 532 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALTERED STATES")
+ ( "actors"
+   [ "William Hurt" "Blair Brown" "Drew Barrymore" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 66 189 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEMOLITION MAN")
+ ( "actors"
+   [ "Sylvester Stallone" "Wesley Snipes" "Sandra Bullock" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 702 754 665 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPEED")
+ ( "actors"
+   [ "Sandra Bullock" "Keanu Reeves" "Dennis Hopper" "Jeff Daniels" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 665 424 165 341 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WHILE YOU WERE SLEEPING")
+ ( "actors"
+   [ "Sandra Bullock" "Bill Pullman" "Peter Boyle" "Jack Warden" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 665 59 574 305 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE NET")
+ ( "actors"
+   [ "Sandra Bullock" "Dennis Miller" "Diane Baker" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 665 166 170 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MURDER AT 1600")
+ ( "actors"
+   [ "Diane Baker" "Wesley Snipes" "Ronny Cox" "Diane Lane" "Dennis Miller" "Alan Alda" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 170 754 645 172 166 7 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SILENCE OF THE LAMBS")
+ ( "actors"
+   [ "Jodie Foster" "Anthony Hopkins" "Diane Baker" "Ted Levine" "Scott Glenn" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 365 37 170 706 668 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MIRAGE")
+ ( "actors"
+   [ "Gregory Peck" "Walter Matthau" "Diane Baker" "Kevin McCarthy" "Jack Weston" "George Kennedy" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 269 749 170 433 306 253 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE SHOOTIST")
+ ( "actors"
+   [ "John Wayne" "Lauren Bacall" "Ron Howard" "James Stewart" "Harry Morgan" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 392 450 643 323 277 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOW THE WEST WAS WON")
+ ( "actors"
+   [ "Spencer Tracy" "Henry Fonda" "Gregory Peck" "George Peppard" "Debbie Reynolds" "James Stewart" "John Wayne" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 688 284 269 254 158 323 392 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE LONGEST DAY")
+ ( "actors"
+   [ "John Wayne" "Robert Mitchum" "Henry Fonda" "Rod Steiger" "Robert Wagner" "Roddy McDowall" "Eddie Albert" "Richard Burton" "Sean Connery" "Peter Lawford" ]
+ )
+ ( "actors_index"
+   [ 392 627 284 637 634 639 198 606 669 578 ]
+ )
+)
+(record
+ ( "title" "TRUE LIES")
+ ( "actors"
+   [ "Charlton Heston" "Arnold Schwarzenegger" "Jamie Lee Curtis" "Tom Arnold" "Bill Paxton" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 105 42 327 717 58 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AIRPORT 1975")
+ ( "actors"
+   [ "Charlton Heston" "George Kennedy" "Sid Caesar" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 105 253 681 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TEN COMMANDMENTS")
+ ( "actors"
+   [ "Charlton Heston" "Yul Brynner" "Edward G. Robinson" "Anne Baxter" "Vincent Price" "John Carradine" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 105 774 201 33 745 375 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE WEDDING SINGER")
+ ( "actors"
+   [ "Drew Barrymore" "Adam Sandler" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 189 2 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WAYNE\'S WORLD 2")
+ ( "actors"
+   [ "Mike Myers" "Dana Carvey" "Christopher Walken" "Kim Basinger" "Chris Farley" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 533 142 119 436 109 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "L.A. CONFIDENTIAL")
+ ( "actors"
+   [ "Kim Basinger" "Kevin Spacey" "Danny De Vito" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 436 434 145 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE NATURAL")
+ ( "actors"
+   [ "Robert Redford" "Robert Duvall" "Glenn Close" "Kim Basinger" "Wilford Brimley" "Darren McGavin" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 625 260 436 758 148 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MY STEPMOTHER IS AN ALIEN")
+ ( "actors"
+   [ "Dan Aykroyd" "Kim Basinger" "Jon Lovitz" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 140 436 394 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLIND DATE")
+ ( "actors"
+   [ "Kim Basinger" "Bruce Willis" "John Larroquette" "Phil Hartman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 436 80 385 583 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NINE 1/2 WEEKS")
+ ( "actors"
+   [ "Kim Basinger" "Mickey Rourke" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 436 532 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MAN WHO LOVED WOMEN")
+ ( "actors"
+   [ "Burt Reynolds" "Julie Andrews" "Kim Basinger" "Marilu Henner" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 87 405 436 483 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE CANNONBALL RUN")
+ ( "actors"
+   [ "Burt Reynolds" "Roger Moore" "Farrah Fawcett" "Dom De Luise" "Dean Martin" "Sammy Davis Jr." "Peter Fonda" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 87 642 223 179 156 663 576 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SMOKEY AND THE BANDIT")
+ ( "actors"
+   [ "Burt Reynolds" "Jackie Gleason" "Sally Field" "Paul Williams" "Pat McCormick" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 87 308 657 571 559 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SILENT MOVIE")
+ ( "actors"
+   [ "Mel Brooks" "Burt Reynolds" "Dom De Luise" "Bernadette Peters" "Sid Caesar" "Paul Newman" "Liza Minnelli" "James Caan" "Anne Bancroft" "Marty Feldman" ]
+ )
+ ( "actors_index"
+   [ 513 87 179 52 681 569 466 314 32 497 ]
+ )
+)
+(record
+ ( "title" "YOUNG FRANKENSTEIN")
+ ( "actors"
+   [ "Gene Wilder" "Peter Boyle" "Marty Feldman" "Madeline Kahn" "Cloris Leachman" "Gene Hackman" "Teri Garr" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 249 574 497 478 131 247 708 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLAZING SADDLES")
+ ( "actors"
+   [ "Cleavon Little" "Gene Wilder" "Slim Pickens" "Alex Karras" "Mel Brooks" "Harvey Korman" "Madeline Kahn" "Dom De Luise" "" "" ]
+ )
+ ( "actors_index"
+   [ 127 249 685 17 513 280 478 179 0 0 ]
+ )
+)
+(record
+ ( "title" "EYE FOR AN EYE")
+ ( "actors"
+   [ "Sally Field" "Keifer Sutherland" "Ed Harris" "Beverly D\'Angelo" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 657 426 197 55 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FORREST GUMP")
+ ( "actors"
+   [ "Tom Hanks" "Gary Sinise" "Sally Field" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 244 657 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STEEL MAGNOLIAS")
+ ( "actors"
+   [ "Sally Field" "Dolly Parton" "Daryl Hannah" "Olympia Dukakis" "Tom Skerritt" "Shirley MacLaine" "Julia Roberts" "Sam Shepard" "" "" ]
+ )
+ ( "actors_index"
+   [ 657 178 149 554 723 679 404 661 0 0 ]
+ )
+)
+(record
+ ( "title" "PLACES IN THE HEART")
+ ( "actors"
+   [ "Sally Field" "Ed Harris" "John Malkovich" "Danny Glover" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 657 197 388 146 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BEYOND THE POSEIDON ADVENTURE")
+ ( "actors"
+   [ "Michael Caine" "Sally Field" "Telly Savalas" "Peter Boyle" "Jack Warden" "Karl Malden" "Shirley Jones" "Mark Harmon" "" "" ]
+ )
+ ( "actors_index"
+   [ 521 657 707 574 305 416 678 488 0 0 ]
+ )
+)
+(record
+ ( "title" "APOLLO 13")
+ ( "actors"
+   [ "Tom Hanks" "Gary Sinise" "Kevin Bacon" "Ed Harris" "Bill Paxton" "Clint Howard" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 244 430 197 58 130 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SLEEPLESS IN SEATTLE")
+ ( "actors"
+   [ "Tom Hanks" "Meg Ryan" "Bill Pullman" "Rob Reiner" "Rosie O\'Donnell" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 511 59 622 648 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A LEAGUE OF THEIR OWN")
+ ( "actors"
+   [ "Tom Hanks" "Jon Lovitz" "Rosie O\'Donnell" "Geena Davis" "Madonna" "Bill Pullman" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 394 648 246 479 59 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPLASH")
+ ( "actors"
+   [ "Tom Hanks" "Eugene Levy" "Daryl Hannah" "John Candy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 220 149 374 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NOTHING IN COMMON")
+ ( "actors"
+   [ "Tom Hanks" "Jackie Gleason" "Eva Marie Saint" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 308 221 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DRAGNET")
+ ( "actors"
+   [ "Tom Hanks" "Dan Aykroyd" "Harry Morgan" "Christopher Plummer" "Dabney Coleman" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 140 277 117 138 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PHILADELPHIA")
+ ( "actors"
+   [ "Tom Hanks" "Denzel Washington" "Antonio Banderas" "Joanne Woodward" "Jason Robards" "Mary Steenburgen" "Roger Corman" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 721 168 41 364 335 500 641 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SOUND OF MUSIC")
+ ( "actors"
+   [ "Julie Andrews" "Christopher Plummer" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 405 117 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TRADING PLACES")
+ ( "actors"
+   [ "Dan Aykroyd" "Eddie Murphy" "Ralph Bellamy" "Don Ameche" "Jamie Lee Curtis" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 140 199 589 180 327 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "COCOON")
+ ( "actors"
+   [ "Don Ameche" "Wilford Brimley" "Hume Cronyn" "Brian Dennehy" "Steve Guttenberg" "Maureen Stapleton" "Jessica Tandy" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 180 758 292 74 692 509 349 0 0 0 ]
+ )
+)
+(record
+ ( "title" "48 HOURS")
+ ( "actors"
+   [ "Eddie Murphy" "Nick Nolte" "Sonny Landham" "Brion James" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 199 547 687 77 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NORTH DALLAS FORTY")
+ ( "actors"
+   [ "Nick Nolte" "Charles Durning" "Dabney Coleman" "G.D. Spradlin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 547 101 138 240 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE LONG KISS GOODNIGHT")
+ ( "actors"
+   [ "Geena Davis" "G.D. Spradlin" "Samuel L. Jackson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 246 240 664 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PULP FICTION")
+ ( "actors"
+   [ "Samuel L. Jackson" "John Travolta" "Bruce Willis" "Uma Thurman" "Harvey Keitel" "Eric Stoltz" "Rosanna Arquette" "Christopher Walken" "" "" ]
+ )
+ ( "actors_index"
+   [ 664 390 80 732 279 216 647 119 0 0 ]
+ )
+)
+(record
+ ( "title" "GET SHORTY")
+ ( "actors"
+   [ "John Travolta" "Gene Hackman" "Rene Russo" "Danny De Vito" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 247 603 145 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THELMA & LOUISE")
+ ( "actors"
+   [ "Geena Davis" "Susan Sarandon" "Harvey Keitel" "Brad Pitt" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 246 699 279 72 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MEN\'S CLUB")
+ ( "actors"
+   [ "Harvey Keitel" "Roy Scheider" "Stockard Channing" "Cindy Pickett" "Jennifer Jason Leigh" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 279 651 697 121 345 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TERMINATOR")
+ ( "actors"
+   [ "Arnold Schwarzenegger" "Linda Hamilton" "Michael Biehn" "Bill Paxton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 42 465 520 58 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LAST ACTION HERO")
+ ( "actors"
+   [ "Arnold Schwarzenegger" "Art Carney" "Anthony Quinn" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 42 43 40 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ERASER")
+ ( "actors"
+   [ "Arnold Schwarzenegger" "James Caan" "James Coburn" "Vanessa Williams" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 42 314 315 739 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TOTAL RECALL")
+ ( "actors"
+   [ "Arnold Schwarzenegger" "Sharon Stone" "Ronny Cox" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 42 674 645 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PREDATOR")
+ ( "actors"
+   [ "Carl Weathers" "Arnold Schwarzenegger" "Sonny Landham" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 91 42 687 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ROCKY")
+ ( "actors"
+   [ "Sylvester Stallone" "Carl Weathers" "Talia Shire" "Burgess Meredith" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 702 91 703 85 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FIRST BLOOD")
+ ( "actors"
+   [ "Sylvester Stallone" "Richard Crenna" "Brian Dennehy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 702 608 74 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "COP LAND")
+ ( "actors"
+   [ "Robert De Niro" "Sylvester Stallone" "Ray Liotta" "Harvey Keitel" "Cathy Moriarty" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 623 702 597 279 99 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FIELD OF DREAMS")
+ ( "actors"
+   [ "Kevin Costner" "James Earl Jones" "Burt Lancaster" "Ray Liotta" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 431 319 86 597 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TANGO & CASH")
+ ( "actors"
+   [ "Sylvester Stallone" "Kurt Russell" "Teri Hatcher" "Jack Palance" "Brion James" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 702 444 709 304 77 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TEQUILA SUNRISE")
+ ( "actors"
+   [ "Kurt Russell" "Mel Gibson" "Michelle Pfeiffer" "Raul Julia" "J.T. Walsh" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 514 530 595 297 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TOMBSTONE")
+ ( "actors"
+   [ "Kurt Russell" "Val Kilmer" "Michael Biehn" "Bill Paxton" "Sam Elliot" "Charlton Heston" "Robert Mitchum" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 734 520 58 659 105 627 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BACKDRAFT")
+ ( "actors"
+   [ "Kurt Russell" "William Baldwin" "Robert De Niro" "Donald Sutherland" "Jennifer Jason Leigh" "Scott Glenn" "J.T. Walsh" "Clint Howard" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 762 623 183 345 668 297 130 0 0 ]
+ )
+)
+(record
+ ( "title" "SILKWOOD")
+ ( "actors"
+   [ "Kurt Russell" "Cher" "Meryl Streep" "Craig T. Nelson" "Ron Silver" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 107 517 135 644 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE QUEST")
+ ( "actors"
+   [ "Tim Matheson" "Kurt Russell" "Brian Keith" "Keenan Wynn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 713 444 75 425 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "USED CARS")
+ ( "actors"
+   [ "Kurt Russell" "Jack Warden" "Michael McKean" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 444 305 525 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NOTHING TO LOSE")
+ ( "actors"
+   [ "Tim Robbins" "Martin Lawrence" "Michael McKean" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 714 493 525 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THIS IS SPINAL TAP")
+ ( "actors"
+   [ "Michael McKean" "Rob Reiner" "Christopher Guest" "Harry Shearer" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 525 622 114 278 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PLANES, TRAINS, & AUTOMOBILES")
+ ( "actors"
+   [ "Steve Martin" "John Candy" "Kevin Bacon" "William Windom" "Michael McKean" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 374 430 769 525 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE RIVER WILD")
+ ( "actors"
+   [ "Kevin Bacon" "Meryl Streep" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 430 517 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JFK")
+ ( "actors"
+   [ "Kevin Bacon" "Kevin Costner" "Sissy Spacek" "Joe Pesci" "Tommy Lee Jones" "Gary Oldman" "John Candy" "Jack Lemmon" "Walter Matthau" "Donald Sutherland" ]
+ )
+ ( "actors_index"
+   [ 430 431 684 369 725 243 374 301 749 183 ]
+ )
+)
+(record
+ ( "title" "HE SAID, SHE SAID")
+ ( "actors"
+   [ "Kevin Bacon" "Sharon Stone" "Elizabeth Perkins" "Nathan Lane" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 430 674 208 545 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SLEEPERS")
+ ( "actors"
+   [ "Kevin Bacon" "Robert De Niro" "Dustin Hoffman" "Brad Pitt" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 430 623 191 72 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOADED WEAPON")
+ ( "actors"
+   [ "Emilio Estevez" "Samuel L. Jackson" "Jon Lovitz" "Tim Curry" "William Shatner" "Phil Hartman" "Denis Leary" "J.T. Walsh" "Charlie Sheen" "" ]
+ )
+ ( "actors_index"
+   [ 213 664 394 712 768 583 163 297 104 0 ]
+ )
+)
+(record
+ ( "title" "YOUNG GUNS II")
+ ( "actors"
+   [ "Emilio Estevez" "Kiefer Sutherland" "Christian Slater" "James Coburn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 213 435 112 315 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STAKEOUT")
+ ( "actors"
+   [ "Richard Dreyfuss" "Emilio Estevez" "Madeleine Stowe" "Forest Whitaker" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 609 213 477 226 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ST. ELMO\'S FIRE")
+ ( "actors"
+   [ "Emilio Estevez" "Rob Lowe" "Andrew McCarthy" "Demi Moore" "Judd Nelson" "Ally Sheedy" "Andie MacDowell" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 213 621 24 162 400 20 23 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MY FELLOW AMERICANS")
+ ( "actors"
+   [ "Jack Lemmon" "James Garner" "Dan Aykroyd" "Wilford Brimley" "Lauren Bacall" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 301 320 140 758 450 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GRUMPY OLD MEN")
+ ( "actors"
+   [ "Jack Lemmon" "Walter Matthau" "Ann Margret" "Burgess Meredith" "Daryl Hannah" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 301 749 30 85 149 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GREAT RACE")
+ ( "actors"
+   [ "Tony Curtis" "Jack Lemmon" "Natalie Wood" "Peter Falk" "Keenan Wynn" "Larry Storch" "Ross Martin" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 726 301 544 575 425 448 649 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE APARTMENT")
+ ( "actors"
+   [ "Jack Lemmon" "Shirley MacLaine" "Fred MacMurray" "Ray Walston" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 301 679 234 598 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "UP CLOSE AND PERSONAL")
+ ( "actors"
+   [ "Robert Redford" "Michelle Pfeiffer" "Stockard Channing" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 530 697 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INDECENT PROPOSAL")
+ ( "actors"
+   [ "Robert Redford" "Demi Moore" "Woody Harrelson" "Billy Bob Thornton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 162 773 61 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SNEAKERS")
+ ( "actors"
+   [ "Robert Redford" "Sidney Poitier" "Dan Aykroyd" "River Phoenix" "Ben Kingsley" "James Earl Jones" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 682 140 620 50 319 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LEGAL EAGLES")
+ ( "actors"
+   [ "Robert Redford" "Debra Winger" "Daryl Hannah" "Brian Dennehy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 161 149 74 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALL THE PRESIDENT\'S MEN")
+ ( "actors"
+   [ "Dustin Hoffman" "Robert Redford" "Jack Warden" "Martin Balsam" "Hal Holbrook" "Ned Beatty" "Jason Robards" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 628 305 491 272 546 335 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE STING")
+ ( "actors"
+   [ "Robert Redford" "Paul Newman" "Robert Shaw" "Charles Durning" "Ray Walston" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 569 630 101 598 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BUTCH CASSIDY AND THE SUNDANCE KID")
+ ( "actors"
+   [ "Paul Newman" "Robert Redford" "Cloris Leachman" "Strother Martin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 628 131 698 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TWILIGHT")
+ ( "actors"
+   [ "Paul Newman" "Susan Sarandon" "Gene Hackman" "James Garner" "Stockard Channing" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 699 247 320 697 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NOBODY\'S FOOL")
+ ( "actors"
+   [ "Paul Newman" "Jessica Tandy" "Bruce Willis" "Melanie Griffith" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 349 80 515 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FAT MAN AND LITTLE BOY")
+ ( "actors"
+   [ "Paul Newman" "John Cusack" "Laura Dern" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 377 449 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE COLOR OF MONEY")
+ ( "actors"
+   [ "Paul Newman" "Tom Cruise" "Forest Whitaker" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 720 226 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ABSENCE OF MALICE")
+ ( "actors"
+   [ "Paul Newman" "Sally Field" "Wilford Brimley" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 657 758 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TOWERING INFERNO")
+ ( "actors"
+   [ "Steve McQueen" "Paul Newman" "William Holden" "Faye Dunaway" "Fred Astaire" "Richard Chamberlain" "O.J. Simpson" "Robert Wagner" "Dabney Coleman" "" ]
+ )
+ ( "actors_index"
+   [ 694 569 766 224 232 607 551 634 138 0 ]
+ )
+)
+(record
+ ( "title" "COOL HAND LUKE")
+ ( "actors"
+   [ "Paul Newman" "George Kennedy" "Strother Martin" "Dennis Hopper" "Harry Dean Stanton" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 253 698 165 276 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE HUSTLER")
+ ( "actors"
+   [ "Paul Newman" "Jackie Gleason" "George C. Scott" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 308 250 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "EXODUS")
+ ( "actors"
+   [ "Paul Newman" "Eva Marie Saint" "Peter Lawford" "Lee J. Cobb" "Sal Mineo" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 221 578 456 656 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JERRY MAGUIRE")
+ ( "actors"
+   [ "Tom Cruise" "Cuba Gooding, Jr." "Eric Stoltz" "Kelly Preston" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 136 216 428 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "COCKTAIL")
+ ( "actors"
+   [ "Tom Cruise" "Elisabeth Shue" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 205 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALL THE RIGHT MOVES")
+ ( "actors"
+   [ "Tom Cruise" "Craig T. Nelson" "Lea Thompson" "Christopher Penn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 135 455 116 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RISKY BUSINESS")
+ ( "actors"
+   [ "Tom Cruise" "Rebecca De Mornay" "Richard Masur" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 600 614 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LIAR, LIAR")
+ ( "actors"
+   [ "Jim Carrey" "Jennifer Tilly" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 355 346 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ACE VENTURA")
+ ( "actors"
+   [ "Jim Carrey" "Courtney Cox" "Sean Young" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 355 134 671 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PEGGY SUE GOT MARRIED")
+ ( "actors"
+   [ "Kathleen Turner" "Nicolas Cage" "Helen Hunt" "John Carradine" "Jim Carrey" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 421 548 282 375 355 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GAME")
+ ( "actors"
+   [ "Michael Douglas" "Sean Penn" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 670 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE RAINMAKER")
+ ( "actors"
+   [ "Matt Damon" "Danny De Vito" "Jon Voight" "Mickey Rourke" "Danny Glover" "Roy Scheider" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 503 145 395 532 146 651 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE AMERICAN PRESIDENT")
+ ( "actors"
+   [ "Michael Douglas" "Annette Bening" "Martin Sheen" "Michael J. Fox" "Richard Dreyfuss" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 34 495 523 609 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DISCLOSURE")
+ ( "actors"
+   [ "Michael Douglas" "Demi Moore" "Donald Sutherland" "Dennis Miller" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 162 183 166 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BASIC INSTINCT")
+ ( "actors"
+   [ "Michael Douglas" "Sharon Stone" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 674 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE WAR OF THE ROSES")
+ ( "actors"
+   [ "Michael Douglas" "Kathleen Turner" "Danny De Vito" "G.D. Spradlin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 421 145 240 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FATAL ATTRACTION")
+ ( "actors"
+   [ "Michael Douglas" "Glenn Close" "Anne Archer" "Fred Gwynne" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 260 31 233 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WALL STREET")
+ ( "actors"
+   [ "Michael Douglas" "Charlie Sheen" "Sean Young" "Daryl Hannah" "James Spader" "Hal Holbrook" "Martin Sheen" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 104 671 149 322 272 495 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE CHINA SYNDROME")
+ ( "actors"
+   [ "Michael Douglas" "Jack Lemmon" "Jane Fonda" "Wilford Brimley" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 522 301 329 758 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A SIMPLE WISH")
+ ( "actors"
+   [ "Kathleen Turner" "Martin Short" "Teri Garr" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 421 496 708 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A FISH CALLED WANDA")
+ ( "actors"
+   [ "Kevin Kline" "John Cleese" "Michael Palin" "Jamie Lee Curtis" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 432 376 526 327 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SILVERADO")
+ ( "actors"
+   [ "John Cleese" "Kevin Costner" "Scott Glenn" "Rosanna Arquette" "Kevin Kline" "Brian Dennehy" "Danny Glover" "Jeff Goldblum" "" "" ]
+ )
+ ( "actors_index"
+   [ 376 431 668 647 432 74 146 342 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GREAT MUPPET CAPER")
+ ( "actors"
+   [ "John Cleese" "Charles Grodin" "Peter Ustinov" "John Cleese" "Jack Warden" "Diana Rigg" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 376 102 582 376 305 169 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE DEVIL\'S OWN")
+ ( "actors"
+   [ "Brad Pitt" "Harrison Ford" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 72 274 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TWELVE MONKEYS")
+ ( "actors"
+   [ "Brad Pitt" "Madeleine Stowe" "Christopher Plummer" "Bruce Willis" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 72 477 117 80 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INTERVIEW WITH THE VAMPIRE")
+ ( "actors"
+   [ "Tom Cruise" "Brad Pitt" "Antonio Banderas" "Christian Slater" "Kirsten Dunst" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 72 41 112 440 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LEGENDS OF THE FALL")
+ ( "actors"
+   [ "Brad Pitt" "Julia Ormond" "Anthony Hopkins" "Aidan Quinn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 72 403 37 5 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SEVEN")
+ ( "actors"
+   [ "Brad Pitt" "Morgan Freeman" "Gwyneth Paltrow" "Richard Roundtree" "Kevin Spacey" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 72 538 271 616 434 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BENNY & JOON")
+ ( "actors"
+   [ "Aidan Quinn" "Johnny Depp" "Mary Stuart Masterson" "Dan Hedaya" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 5 393 501 141 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SOME KIND OF WONDERFUL")
+ ( "actors"
+   [ "Mary Stuart Masterson" "Eric Stoltz" "Lea Thompson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 501 216 455 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FRIED GREEN TOMATOES")
+ ( "actors"
+   [ "Mary Stuart Masterson" "Jessica Tandy" "Mary-Louise Parker" "Cicely Tyson" "Chris O\'Donnell" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 501 349 502 120 110 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CHANCES ARE")
+ ( "actors"
+   [ "Cybill Shepherd" "Mary Stuart Masterson" "Robert Downey, Jr." "Ryan O\'Neal" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 137 501 624 655 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BAD GIRLS")
+ ( "actors"
+   [ "Mary Stuart Masterson" "Madeleine Stowe" "Drew Barrymore" "Andie MacDowell" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 501 477 189 23 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RADIOLAND MURDERS")
+ ( "actors"
+   [ "Mary Stuart Masterson" "Ned Beatty" "Michael McKean" "Brion James" "Harvey Korman" "Christopher Lloyd" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 501 546 525 77 280 115 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DOC HOLLYWOOD")
+ ( "actors"
+   [ "Michael J. Fox" "Woody Harrelson" "David Ogden Stiers" "George Hamilton" "Bridget Fonda" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 523 773 154 252 76 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE SECRET OF MY SUCCESS")
+ ( "actors"
+   [ "Michael J. Fox" "Fred Gwynne" "Richard Jordan" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 523 233 612 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BACK TO THE FUTURE")
+ ( "actors"
+   [ "Michael J. Fox" "Christopher Lloyd" "Lea Thompson" "Billy Zane" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 523 115 455 64 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DARK CITY")
+ ( "actors"
+   [ "William Hurt" "Kiefer Sutherland" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 435 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOST IN SPACE")
+ ( "actors"
+   [ "William Hurt" "Gary Oldman" "Matt LeBlanc" "June Lockhart" "Mimi Rogers" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 243 505 412 534 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MICHAEL")
+ ( "actors"
+   [ "William Hurt" "John Travolta" "Andie MacDowell" "Jean Stapleton" "Teri Garr" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 390 23 339 708 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "I LOVE YOU TO DEATH")
+ ( "actors"
+   [ "William Hurt" "Kevin Kline" "Tracey Ullman" "River Phoenix" "Keanu Reeves" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 432 729 620 424 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ACCIDENTAL TOURIST")
+ ( "actors"
+   [ "William Hurt" "Kathleen Turner" "Geena Davis" "Bill Pullman" "David Ogden Stiers" "Ed Begley, Jr." "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 421 246 59 154 196 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BROADCAST NEWS")
+ ( "actors"
+   [ "William Hurt" "Albert Brooks" "Holly Hunter" "Joan Cusack" "Jack Nicholson" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 13 290 361 303 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "EYEWITNESS")
+ ( "actors"
+   [ "William Hurt" "Sigourney Weaver" "Christopher Plummer" "James Woods" "Morgan Freeman" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 683 117 325 538 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GORKY PARK")
+ ( "actors"
+   [ "William Hurt" "Lee Marvin" "Brian Dennehy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 767 457 74 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LITTLE BUDDHA")
+ ( "actors"
+   [ "Keanu Reeves" "Bridget Fonda" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 424 76 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MUCH ADO ABOUT NOTHING")
+ ( "actors"
+   [ "Keanu Reeves" "Emma Thompson" "Denzel Washington" "Michael Keaton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 424 214 168 524 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BRAM STOKER\'S DRACULA")
+ ( "actors"
+   [ "Gary Oldman" "Keanu Reeves" "Anthony Hopkins" "Winona Ryder" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 243 424 37 770 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PARENTHOOD")
+ ( "actors"
+   [ "Steve Martin" "Rick Moranis" "Keanu Reeves" "Tom Hulce" "Jason Robards" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 618 424 722 335 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DANGEROUS LIAISONS")
+ ( "actors"
+   [ "Glenn Close" "John Malkovich" "Michelle Pfeiffer" "Keanu Reeves" "Uma Thurman" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 260 388 530 424 732 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SERGEANT BILKO")
+ ( "actors"
+   [ "Steve Martin" "Dan Aykroyd" "Phil Hartman" "Glenne Headly" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 140 583 262 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FATHER OF THE BRIDE")
+ ( "actors"
+   [ "Steve Martin" "Diane Keaton" "Martin Short" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 171 496 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DIRTY ROTTEN SCOUNDRELS")
+ ( "actors"
+   [ "Steve Martin" "Michael Caine" "Glenne Headly" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 521 262 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GRAND CANYON")
+ ( "actors"
+   [ "Danny Glover" "Steve Martin" "Kevin Kline" "Mary-Louise Parker" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 146 693 432 502 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ROXANNE")
+ ( "actors"
+   [ "Steve Martin" "Daryl Hannah" "Shelley Duvall" "Damon Wayans" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 149 675 139 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE THREE AMIGOS")
+ ( "actors"
+   [ "Steve Martin" "Chevy Chase" "Martin Short" "John Lovitz" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 108 496 387 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PENNIES FROM HEAVEN")
+ ( "actors"
+   [ "Steve Martin" "Bernadette Peters" "Christopher Walken" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 693 52 119 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEAD MEN DON\'T WEAR PLAID")
+ ( "actors"
+   [ "Rachel Ward" "Steve Martin" "Carl Reiner" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 588 693 90 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LITTLE SHOP OF HORRORS")
+ ( "actors"
+   [ "Rick Moranis" "Steve Martin" "James Belushi" "John Candy" "Bill Murray" "Christopher Guest" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 618 693 311 374 57 114 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HAUNTED HONEYMOON")
+ ( "actors"
+   [ "Dom De Luise" "Gene Wilder" "Gilda Radner" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 179 249 257 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STIR CRAZY")
+ ( "actors"
+   [ "Gene Wilder" "Richard Pryor" "Craig T. Nelson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 249 615 135 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "EVERYTHING YOU .. ABOUT SEX ")
+ ( "actors"
+   [ "Woody Allen" "John Carradine" "Tony Randall" "Burt Reynolds" "Gene Wilder" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 772 375 727 87 249 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "START THE REVOLUTION WITHOUT ME")
+ ( "actors"
+   [ "Gene Wilder" "Donald Sutherland" "Orson Welles" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 249 183 556 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SILVER STREAK")
+ ( "actors"
+   [ "Gene Wilder" "Jill Clayburgh" "Richard Pryor" "Patrick McGoohan" "Ned Beatty" "Ray Walston" "Richard Kiel" "Fred Willard" "" "" ]
+ )
+ ( "actors_index"
+   [ 249 351 615 563 546 598 613 237 0 0 ]
+ )
+)
+(record
+ ( "title" "ABSOLUTE POWER")
+ ( "actors"
+   [ "Clint Eastwood" "Gene Hackman" "Ed Harris" "Scott Glenn" "E.G. Marshall" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 247 197 668 194 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "IN THE LINE OF FIRE")
+ ( "actors"
+   [ "Clint Eastwood" "John Malkovich" "Rene Russo" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 388 603 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "UNFORGIVEN")
+ ( "actors"
+   [ "Clint Eastwood" "Gene Hackman" "Morgan Freeman" "Richard Harris" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 247 538 611 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CITY HEAT")
+ ( "actors"
+   [ "Clint Eastwood" "Burt Reynolds" "Madeline Kahn" "Richard Roundtree" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 87 478 616 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "EVERY WHICH WAY BUT LOOSE")
+ ( "actors"
+   [ "Clint Eastwood" "Sondra Locke" "Beverly D\'Angelo" "Ruth Gordon" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 686 55 654 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DIRTY HARRY")
+ ( "actors"
+   [ "Clint Eastwood" "John Vernon" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 391 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PLAY MISTY FOR ME")
+ ( "actors"
+   [ "Clint Eastwood" "Jessica Walter" "Donna Mills" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 350 184 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "KELLY\'S HEROES")
+ ( "actors"
+   [ "Clint Eastwood" "Telly Savalas" "Don Rickles" "Donald Sutherland" "Carroll O\'Connor" "Gavin MacLeod" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 707 181 183 95 245 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WHERE EAGLES DARE")
+ ( "actors"
+   [ "Clint Eastwood" "Richard Burton" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 606 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TOOTSIE")
+ ( "actors"
+   [ "Dustin Hoffman" "Jessica Lange" "Teri Garr" "Dabney Coleman" "Charles Durning" "Bill Murray" "Geena Davis" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 348 708 138 101 57 246 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPHERE")
+ ( "actors"
+   [ "Dustin Hoffman" "Sharon Stone" "Samuel L. Jackson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 674 664 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "OUTBREAK")
+ ( "actors"
+   [ "Dustin Hoffman" "Rene Russo" "Morgan Freeman" "Kevin Spacey" "Cuba Gooding, Jr." "Donald Sutherland" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 603 538 434 136 183 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOOK")
+ ( "actors"
+   [ "Dustin Hoffman" "Robin Williams" "Julia Roberts" "Glenn Close" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 635 404 260 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DICK TRACY")
+ ( "actors"
+   [ "Dustin Hoffman" "Warren Beatty" "Glenne Headly" "Madonna" "Al Pacino" "Charles Durning" "Dick Van Dyke" "Kathy Bates" "James Caan" "Catherine O\'Hara" ]
+ )
+ ( "actors_index"
+   [ 191 751 262 479 6 101 176 422 314 98 ]
+ )
+)
+(record
+ ( "title" "KRAMER VS. KRAMER")
+ ( "actors"
+   [ "Dustin Hoffman" "Meryl Streep" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 517 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PAPILLON")
+ ( "actors"
+   [ "Dustin Hoffman" "Steve McQueen" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 694 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GRADUATE")
+ ( "actors"
+   [ "Dustin Hoffman" "Anne Bancroft" "Katharine Ross" "Norman Fell" "Alice Ghostley" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 32 420 550 18 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LITTLE BIG MAN")
+ ( "actors"
+   [ "Dustin Hoffman" "Faye Dunaway" "Martin Balsam" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 191 224 491 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NIGHT FALLS ON MANHATTAN")
+ ( "actors"
+   [ "Andy Garcia" "Richard Dreyfuss" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 25 609 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEAD AGAIN")
+ ( "actors"
+   [ "Andy Garcia" "Emma Thompson" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 25 214 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DESPERATE MEASURES")
+ ( "actors"
+   [ "Andy Garcia" "Michael Keaton" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 25 524 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLACK RAIN")
+ ( "actors"
+   [ "Andy Garcia" "Michael Douglas" "Kate Capshaw" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 25 522 417 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE WIZARD OF OZ")
+ ( "actors"
+   [ "Judy Garland" "Ray Bolger" "Jack Haley" "Billie Burke" "Margaret Hamilton" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 402 596 300 60 480 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A STAR IS BORN (1954)")
+ ( "actors"
+   [ "Judy Garland" "James Mason" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 402 321 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JUDGEMENT AT NUREMBERG")
+ ( "actors"
+   [ "Judy Garland" "Spencer Tracy" "Burt Lancaster" "Richard Widmark" "Marlene Dietrich" "Montgomery Clift" "William Shatner" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 402 688 86 617 489 537 768 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GONE WITH THE WIND")
+ ( "actors"
+   [ "Clark Gable" "Vivien Leigh" "George Reeves" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 124 746 255 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "IT HAPPENED ONE NIGHT")
+ ( "actors"
+   [ "Clark Gable" "Claudette Colbert" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 124 126 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CAPTAIN JANUARY")
+ ( "actors"
+   [ "Shirley Temple" "Buddy Ebsen" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 680 83 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FORT APACHE")
+ ( "actors"
+   [ "Henry Fonda" "John Wayne" "Shirley Temple" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 284 392 680 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CAT BALLOU")
+ ( "actors"
+   [ "Jane Fonda" "Lee Marvin" "Dwayne Hickman" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 457 192 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MORNING AFTER")
+ ( "actors"
+   [ "Jane Fonda" "Jeff Bridges" "Raul Julia" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 340 595 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ON GOLDEN POND")
+ ( "actors"
+   [ "Katharine Hepburn" "Jane Fonda" "Henry Fonda" "Dabney Coleman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 419 329 284 138 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AGNES OF GOD")
+ ( "actors"
+   [ "Jane Fonda" "Anne Bancroft" "Meg Tilly" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 32 512 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "9 TO 5")
+ ( "actors"
+   [ "Jane Fonda" "Lily Tomlin" "Dolly Parton" "Dabney Coleman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 463 178 138 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CALIFORNIA SUITE")
+ ( "actors"
+   [ "Jane Fonda" "Alan Alda" "Michael Caine" "Bill Cosby" "Walter Matthau" "Richard Pryor" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 7 521 56 749 615 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JULIA")
+ ( "actors"
+   [ "Jane Fonda" "Vanessa Redgrave" "Hal Holbrook" "Meryl Streep" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 738 272 517 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PRIMARY COLORS")
+ ( "actors"
+   [ "John Travolta" "Emma Thompson" "Kathy Bates" "Billy Bob Thornton" "Larry Hagman" "Rob Reiner" "Robert Klein" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 214 422 61 447 622 626 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FACE OFF")
+ ( "actors"
+   [ "John Travolta" "Nicolas Cage" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 548 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GREASE")
+ ( "actors"
+   [ "John Travolta" "Olivia Newton-John" "Stockard Channing" "Alice Ghostley" "Sid Caesar" "Frankie Avalon" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 552 697 18 681 231 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CARRIE")
+ ( "actors"
+   [ "John Travolta" "Sissy Spacek" "Amy Irving" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 684 22 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "URBAN COWBOY")
+ ( "actors"
+   [ "John Travolta" "Debra Winger" "Scott Glenn" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 161 668 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLOWOUT")
+ ( "actors"
+   [ "John Travolta" "John Lithgow" "Dennis Franz" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 386 164 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PHENOMENON")
+ ( "actors"
+   [ "John Travolta" "Forest Whitaker" "Robert Duvall" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 226 625 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SHE\'S SO LOVELY")
+ ( "actors"
+   [ "John Travolta" "Sean Penn" "Harry Dean Stanton" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 670 276 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BROKEN ARROW")
+ ( "actors"
+   [ "John Travolta" "Christian Slater" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 112 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MR. SATURDAY NIGHT")
+ ( "actors"
+   [ "Billy Crystal" "Helen Hunt" "Jerry Lewis" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 282 347 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "IT\'S A MAD MAD MAD MAD WORLD")
+ ( "actors"
+   [ "Spencer Tracy" "Sid Caesar" "Buddy Hackett" "Ethel Merman" "Mickey Rooney" "Phil Silvers" "Peter Falk" "Jimmy Durante" "Jonathan Winters" "" ]
+ )
+ ( "actors_index"
+   [ 688 681 84 219 531 584 575 356 397 0 ]
+ )
+)
+(record
+ ( "title" "THE NUTTY PROFESSOR")
+ ( "actors"
+   [ "Jerry Lewis" "Stella Stevens" "Henry Gibson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 347 689 285 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE CADDY")
+ ( "actors"
+   [ "Dean Martin" "Jerry Lewis" "Donna Reed" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 156 347 185 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "VISIT TO A SMALL PLANET")
+ ( "actors"
+   [ "Jerry Lewis" "Earl Holliman" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 347 195 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TRIBES")
+ ( "actors"
+   [ "Darren McGavin" "Jan-Michael Vincent" "Earl Holliman" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 148 328 195 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FATHER\'S DAY")
+ ( "actors"
+   [ "Billy Crystal" "Robin Williams" "Nastassja Kinski" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 635 543 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FORGET PARIS")
+ ( "actors"
+   [ "Billy Crystal" "Debra Winger" "Richard Masur" "Julie Kavner" "William Hickey" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 161 614 407 765 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CITY SLICKERS II")
+ ( "actors"
+   [ "Billy Crystal" "Daniel Stern" "Jon Lovitz" "Jack Palance" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 143 394 304 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WHEN HARRY MET SALLY")
+ ( "actors"
+   [ "Billy Crystal" "Meg Ryan" "Carrie Fisher" "Bruno Kirby" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 511 93 81 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE PRINCESS BRIDE")
+ ( "actors"
+   [ "Cary Elwes" "Chris Sarandon" "Christopher Guest" "Billy Crystal" "Peter Falk" "Wallace Shawn" "Fred Savage" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 96 111 114 62 575 747 235 0 0 0 ]
+ )
+)
+(record
+ ( "title" "RUNNING SCARED")
+ ( "actors"
+   [ "Billy Crystal" "Gregory Hines" "Jimmy Smits" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 62 268 357 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ROAD TO HONG KONG")
+ ( "actors"
+   [ "Bob Hope" "Bing Crosby" "Joan Collins" "Dorothy Lamour" "Peter Sellers" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 69 65 359 187 581 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CASANOVA\'S BIG NIGHT")
+ ( "actors"
+   [ "Bob Hope" "Joan Fontaine" "Basil Rathbone" "Vincent Price" "Raymond Burr" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 69 362 48 745 599 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CANCEL MY RESERVATION")
+ ( "actors"
+   [ "Bob Hope" "Eva Marie Saint" "Ralph Bellamy" "Forrest Tucker" "Anne Archer" "Keenan Wynn" "Ned Beatty" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 69 221 589 227 31 425 546 0 0 0 ]
+ )
+)
+(record
+ ( "title" "VEGA$")
+ ( "actors"
+   [ "Robert Urich" "Tony Curtis" "Red Buttons" "June Allyson" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 632 726 601 411 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GREAT IMPOSTER")
+ ( "actors"
+   [ "Tony Curtis" "Karl Malden" "Edmond O\'Brien" "Frank Gorshin" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 726 416 200 229 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPARTACUS")
+ ( "actors"
+   [ "Kirk Douglas" "Tony Curtis" "Laurence Olivier" "Peter Ustinov" "Herbert Lom" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 439 726 453 582 288 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "OPERATION PETTICOAT")
+ ( "actors"
+   [ "Cary Grant" "Tony Curtis" "Gavin MacLeod" "Marion Ross" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 726 245 485 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TRAPEZE")
+ ( "actors"
+   [ "Tony Curtis" "Burt Lancaster" "Gina Lollobrigida" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 726 86 258 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE DIRTY DOZEN")
+ ( "actors"
+   [ "Lee Marvin" "Ernest Borgnine" "Charles Bronson" "Jim Brown" "George Kennedy" "Telly Savalas" "Donald Sutherland" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 457 217 100 354 253 707 183 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PAINT YOUR WAGON")
+ ( "actors"
+   [ "Lee Marvin" "Clint Eastwood" "Ray Walston" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 457 129 598 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SHIP OF FOOLS")
+ ( "actors"
+   [ "Vivien Leigh" "Jose Ferrer" "Lee Marvin" "Elizabeth Ashley" "George Segal" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 746 398 457 206 256 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE AFRICAN QUEEN")
+ ( "actors"
+   [ "Humphrey Bogart" "Katharine Hepburn" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 293 419 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE CAINE MUTINY")
+ ( "actors"
+   [ "Humphrey Bogart" "Jose Ferrer" "Van Johnson" "Fred MacMurray" "E.G. Marshall" "Lee Marvin" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 293 398 737 234 194 457 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CASABLANCA")
+ ( "actors"
+   [ "Humphrey Bogart" "Ingrid Bergman" "Claude Rains" "Peter Lorre" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 293 295 125 579 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "XANADU")
+ ( "actors"
+   [ "Olivia Newton-John" "Gene Kelly" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 552 248 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SINGIN\' IN THE RAIN")
+ ( "actors"
+   [ "Gene Kelly" "Donald O\'Connor" "Debbie Reynolds" "Rita Moreno" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 248 182 158 619 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TAKE ME OUT TO THE BALL GAME")
+ ( "actors"
+   [ "Gene Kelly" "Frank Sinatra" "Esther Williams" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 248 230 218 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ZIEGFELD FOLLIES")
+ ( "actors"
+   [ "Fred Astaire" "Gene Kelly" "Lucille Ball" "Judy Garland" "Lena Horne" "Esther Williams" "Red Skelton" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 232 248 474 402 459 218 602 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE THREE MUSKETEERS")
+ ( "actors"
+   [ "Gene Kelly" "Lana Turner" "June Allyson" "Van Heflin" "Angela Lansbury" "Vincent Price" "Keenan Wynn" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 248 445 411 736 26 745 425 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GRASS IS GREENER")
+ ( "actors"
+   [ "Cary Grant" "Deborah Kerr" "Robert Mitchum" "Jean Simmons" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 159 627 338 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TO CATCH A THIEF")
+ ( "actors"
+   [ "Cary Grant" "Grace Kelly" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 265 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MONKEY BUSINESS")
+ ( "actors"
+   [ "Cary Grant" "Ginger Rogers" "Marilyn Monroe" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 259 484 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THAT TOUCH OF MINK")
+ ( "actors"
+   [ "Cary Grant" "Doris Day" "John Astin" "Dick Sargent" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 186 372 175 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INDISCREET")
+ ( "actors"
+   [ "Cary Grant" "Ingrid Bergman" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 295 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NIGHT AND DAY")
+ ( "actors"
+   [ "Cary Grant" "Jane Wyman" "Eve Arden" "Alan Hale" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 331 222 10 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HIS GIRL FRIDAY")
+ ( "actors"
+   [ "Cary Grant" "Rosalind Russell" "Ralph Bellamy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 646 589 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE PHILADELPHIA STORY")
+ ( "actors"
+   [ "Cary Grant" "Katharine Hepburn" "James Stewart" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 419 323 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TITANIC")
+ ( "actors"
+   [ "Leonardo DiCaprio" "Kate Winslet" "Billy Zane" "Kathy Bates" "Bill Paxton" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 461 418 64 422 58 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SENSE AND SENSIBILITY")
+ ( "actors"
+   [ "Kate Winslet" "Emma Thompson" "Hugh Grant" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 418 214 291 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "EXTREME MEASURES")
+ ( "actors"
+   [ "Gene Hackman" "Sarah Jessica Parker" "Hugh Grant" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 666 291 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BIRDCAGE")
+ ( "actors"
+   [ "Robin Williams" "Gene Hackman" "Nathan Lane" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 635 247 545 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CRIMSON TIDE")
+ ( "actors"
+   [ "Gene Hackman" "Denzel Washington" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 168 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NO WAY OUT")
+ ( "actors"
+   [ "Gene Hackman" "Kevin Costner" "Sean Young" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 431 671 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MISSISSIPPI BURNING")
+ ( "actors"
+   [ "Gene Hackman" "Willem Dafoe" "Frances McDormand" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 761 228 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOOSIERS")
+ ( "actors"
+   [ "Gene Hackman" "Barbara Hershey" "Dennis Hopper" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 46 165 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SUPERMAN")
+ ( "actors"
+   [ "Gene Hackman" "Marlon Brando" "Christopher Reeve" "Ned Beatty" "Jackie Cooper" "Glenn Ford" "Margot Kidder" "Valerie Perrine" "Larry Hagman" "" ]
+ )
+ ( "actors_index"
+   [ 247 490 118 546 307 261 481 735 447 0 ]
+ )
+)
+(record
+ ( "title" "THE POSEIDON ADVENTURE")
+ ( "actors"
+   [ "Gene Hackman" "Ernest Borgnine" "Red Buttons" "Roddy McDowall" "Stella Stevens" "Shelley Winters" "Jack Albertson" "Leslie Nielsen" "" "" ]
+ )
+ ( "actors_index"
+   [ 247 217 601 639 689 677 298 462 0 0 ]
+ )
+)
+(record
+ ( "title" "A VIEW TO A KILL")
+ ( "actors"
+   [ "Roger Moore" "Christopher Walken" "Grace Jones" "Patrick Macnee" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 642 119 264 562 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HAPPY GILMORE")
+ ( "actors"
+   [ "Adam Sandler" "Bob Barker" "Carl Weathers" "Richard Kiel" "Joe Flaherty" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 2 68 91 613 367 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AIRHEADS")
+ ( "actors"
+   [ "Adam Sandler" "Brendan Fraser" "Steve Buscemi" "Chris Farley" "Judd Nelson" "Michael McKean" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 2 73 691 109 400 525 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GEORGE OF THE JUNGLE")
+ ( "actors"
+   [ "Brendan Fraser" "John Cleese" "Richard Roundtree" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 73 376 616 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FARGO")
+ ( "actors"
+   [ "Frances McDormand" "Steve Buscemi" "William H. Macy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 228 691 764 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AIR FORCE ONE")
+ ( "actors"
+   [ "Harrison Ford" "Gary Oldman" "Glenn Close" "Dean Stockwell" "William H. Macy" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 243 260 157 764 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE FUGITIVE")
+ ( "actors"
+   [ "Harrison Ford" "Tommy Lee Jones" "Sela Ward" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 725 673 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SABRINA")
+ ( "actors"
+   [ "Harrison Ford" "Julia Ormond" "Greg Kinnear" "Angie Dickinson" "Richard Crenna" "Lauren Holly" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 403 267 27 608 451 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AS GOOD AS IT GETS")
+ ( "actors"
+   [ "Jack Nicholson" "Greg Kinnear" "Helen Hunt" "Cuba Gooding, Jr." "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 303 267 282 136 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CLEAR AND PRESENT DANGER")
+ ( "actors"
+   [ "Harrison Ford" "Willem Dafoe" "Anne Archer" "James Earl Jones" "Dean Jones" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 761 31 319 155 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ONE FLEW OVER THE CUCKOO\'S NEST")
+ ( "actors"
+   [ "Jack Nicholson" "Louise Fletcher" "Danny De Vito" "Christopher Lloyd" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 303 473 145 115 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPEED 2: CRUISE CONTROL")
+ ( "actors"
+   [ "Willem Dafoe" "Jason Patric" "Sandra Bullock" "Tim Conway" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 761 334 665 711 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ENGLISH PATIENT")
+ ( "actors"
+   [ "Ralph Fiennes" "Juliette Binoche" "Willem Dafoe" "Kristin Scott-Thomas" "Jurgen Prochnow" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 590 409 761 443 413 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PLATOON")
+ ( "actors"
+   [ "Tom Berenger" "Charlie Sheen" "Willem Dafoe" "Forest Whitaker" "Johnny Depp" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 718 104 761 226 393 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FOUR WEDDINGS AND A FUNERAL")
+ ( "actors"
+   [ "Hugh Grant" "Kristin Scott-Thomas" "Andie MacDowell" "Rowan Atkinson" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 291 443 23 650 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE HUNT FOR RED OCTOBER")
+ ( "actors"
+   [ "Sean Connery" "Alec Baldwin" "Scott Glenn" "James Earl Jones" "Tim Curry" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 669 15 668 319 712 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ROCKY HORROR PICTURE SHOW")
+ ( "actors"
+   [ "Tim Curry" "Susan Sarandon" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 712 699 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ANNIE")
+ ( "actors"
+   [ "Albert Finney" "Carol Burnett" "Bernadette Peters" "Tim Curry" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 14 92 52 712 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOME ALONE 2")
+ ( "actors"
+   [ "Macaulay Culkin" "Joe Pesci" "Daniel Stern" "Catherine O\'Hara" "Tim Curry" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 476 369 143 98 712 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MCHALE\'S NAVY")
+ ( "actors"
+   [ "Tom Arnold" "Dean Stockwell" "David Alan Grier" "Tim Curry" "Ernest Borgnine" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 717 157 150 712 217 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE THREE MUSKETEERS")
+ ( "actors"
+   [ "Charlie Sheen" "Kiefer Sutherland" "Chris O\'Donnell" "Tim Curry" "Rebecca De Mornay" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 104 435 110 712 600 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A TIME TO KILL")
+ ( "actors"
+   [ "Sandra Bullock" "Samuel L. Jackson" "Matthew McConaughey" "Kevin Spacey" "Donald Sutherland" "Kiefer Sutherland" "Patrick McGoohan" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 665 664 507 434 183 435 563 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CONTACT")
+ ( "actors"
+   [ "Jodie Foster" "Matthew McConaughey" "James Woods" "John Hurt" "Tom Skerritt" "Rob Lowe" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 365 507 325 383 723 621 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MAVERICK")
+ ( "actors"
+   [ "James Garner" "Mel Gibson" "Jodie Foster" "James Coburn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 320 514 365 315 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TAXI DRIVER")
+ ( "actors"
+   [ "Robert De Niro" "Cybill Shepherd" "Jodie Foster" "Peter Boyle" "Harvey Keitel" "Albert Brooks" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 623 137 365 574 279 13 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ELEPHANT MAN")
+ ( "actors"
+   [ "Anthony Hopkins" "John Hurt" "Anne Bancroft" "John Gielgud" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 37 383 32 380 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MISSION: IMPOSSIBLE")
+ ( "actors"
+   [ "Tom Cruise" "Jon Voight" "Jean Reno" "Kristin Scott-Thomas" "Vanessa Redgrave" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 720 395 337 443 738 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FRENCH KISS")
+ ( "actors"
+   [ "Meg Ryan" "Kevin Kline" "Timothy Hutton" "Jean Reno" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 511 432 715 337 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CITY OF ANGELS")
+ ( "actors"
+   [ "Meg Ryan" "Nicolas Cage" "Dennis Franz" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 511 548 164 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "I.Q.")
+ ( "actors"
+   [ "Meg Ryan" "Tim Robbins" "Walter Matthau" "Charles Durning" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 511 714 749 101 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INNERSPACE")
+ ( "actors"
+   [ "Dennis Quaid" "Martin Short" "Meg Ryan" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 167 496 511 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE FIFTH ELEMENT")
+ ( "actors"
+   [ "Bruce Willis" "Gary Oldman" "Luke Perry" "Brion James" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 80 243 475 77 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE PROFESSIONAL")
+ ( "actors"
+   [ "Jean Reno" "Gary Oldman" "Danny Aiello" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 337 243 144 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CLUELESS")
+ ( "actors"
+   [ "Alicia Silverstone" "Dan Hedaya" "Wallace Shawn" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 19 141 747 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ADDAMS FAMILY")
+ ( "actors"
+   [ "Raul Julia" "Anjelica Huston" "Christopher Lloyd" "Dan Hedaya" "Christina Ricci" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 595 29 115 141 113 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CASPER")
+ ( "actors"
+   [ "Christina Ricci" "Bill Pullman" "Eric Idle" "Cathy Moriarty" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 113 59 215 99 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SLING BLADE")
+ ( "actors"
+   [ "Billy Bob Thornton" "John Ritter" "J.T. Walsh" "Robert Duvall" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 61 389 297 625 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DON JUAN DEMARCO")
+ ( "actors"
+   [ "Marlon Brando" "Johnny Depp" "Faye Dunaway" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 490 393 224 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BACHELOR AND THE BOBBY-SOXER")
+ ( "actors"
+   [ "Cary Grant" "Myrna Loy" "Shirley Temple" "Rudy Vallee" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 539 680 652 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WESTWORLD")
+ ( "actors"
+   [ "Yul Brynner" "James Brolin" "Richard Benjamin" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 774 312 605 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE KING AND I")
+ ( "actors"
+   [ "Yul Brynner" "Deborah Kerr" "Rita Moreno" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 774 159 619 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CASINO ROYAL")
+ ( "actors"
+   [ "Peter Sellers" "Ursula Andress" "David Niven" "Orson Welles" "Woody Allen" "Deborah Kerr" "William Holden" "John Huston" "" "" ]
+ )
+ ( "actors_index"
+   [ 581 733 153 556 772 159 766 384 0 0 ]
+ )
+)
+(record
+ ( "title" "TRAIL OF THE PINK PANTHER")
+ ( "actors"
+   [ "Peter Sellers" "David Niven" "Robert Wagner" "Herbert Lom" "Harvey Korman" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 581 153 634 288 280 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AROUND THE WORLD IN 80 DAYS")
+ ( "actors"
+   [ "David Niven" "Shirley MacLaine" "Marlene Dietrich" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 153 679 489 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MURDER BY DEATH")
+ ( "actors"
+   [ "Truman Capote" "James Coco" "Peter Falk" "Alec Guinness" "David Niven" "Peter Sellers" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 730 316 575 16 153 581 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DR  STRANGELOVE")
+ ( "actors"
+   [ "Peter Sellers" "George C. Scott" "Keenan Wynn" "James Earl Jones" "Slim Pickens" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 581 250 425 319 685 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NAKED GUN 33 1/3")
+ ( "actors"
+   [ "Leslie Nielsen" "Priscilla Presley" "George Kennedy" "O.J. Simpson" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 462 587 253 551 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MOTHER, JUGS, & SPEED")
+ ( "actors"
+   [ "Raquel Welch" "Bill Cosby" "Harvey Keitel" "Larry Hagman" "Dick Butkus" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 594 56 279 447 174 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FUZZ")
+ ( "actors"
+   [ "Raquel Welch" "Burt Reynolds" "Yul Brynner" "Jack Weston" "Tom Skerritt" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 594 87 774 306 723 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BANDOLERO!")
+ ( "actors"
+   [ "James Stewart" "Dean Martin" "Raquel Welch" "George Kennedy" "Will Geer" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 323 156 594 253 759 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FANTASTIC VOYAGE")
+ ( "actors"
+   [ "Raquel Welch" "Edmond O\'Brien" "James Brolin" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 594 200 312 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "100 RIFLES")
+ ( "actors"
+   [ "Jim Brown" "Raquel Welch" "Burt Reynolds" "Fernando Lamas" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 354 594 87 225 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HANNAH AND HER SISTERS")
+ ( "actors"
+   [ "Woody Allen" "Michael Caine" "Mia Farrow" "Carrie Fisher" "Barbara Hershey" "Daniel Stern" "Max von Sydow" "Dianne Wiest" "Julie Kavner" "J.T. Walsh" ]
+ )
+ ( "actors_index"
+   [ 772 521 518 93 46 143 510 173 407 297 ]
+ )
+)
+(record
+ ( "title" "THE PURPLE ROSE OF CAIRO")
+ ( "actors"
+   [ "Woody Allen" "Mia Farrow" "Danny Aiello" "Jeff Daniels" "Van Johnson" "Glenne Headly" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 772 518 144 341 737 262 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ANNIE HALL")
+ ( "actors"
+   [ "Woody Allen" "Diane Keaton" "Tony Roberts" "Shelley Duvall" "Christopher Walken" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 772 171 728 675 119 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DECONSTRUCTING HARRY")
+ ( "actors"
+   [ "Woody Allen" "Kirstie Alley" "Richard Benjamin" "Billy Crystal" "Amy Irving" "Julie Kavner" "Demi Moore" "Elisabeth Shue" "Robin Williams" "Mariel Hemingway" ]
+ )
+ ( "actors_index"
+   [ 772 441 605 62 22 407 162 205 635 482 ]
+ )
+)
+(record
+ ( "title" "MIGHTY APHRODITE")
+ ( "actors"
+   [ "Woody Allen" "Mira Sorvino" "Claire Bloom" "Olympia Dukakis" "David Ogden Stiers" "Jack Warden" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 772 535 123 554 154 305 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PSYCHO")
+ ( "actors"
+   [ "Anthony Perkins" "Janet Leigh" "Vera Miles" "Martin Balsam" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 39 332 740 491 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BREAKFAST AT TIFFANY\'S")
+ ( "actors"
+   [ "Audrey Hepburn" "George Peppard" "Buddy Ebsen" "Martin Balsam" "Mickey Rooney" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 44 254 83 491 531 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SABRINA (1954)")
+ ( "actors"
+   [ "Humphrey Bogart" "Audrey Hepburn" "William Holden" "Nancy Kulp" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 293 44 766 541 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TWO FOR THE ROAD")
+ ( "actors"
+   [ "Audrey Hepburn" "Albert Finney" "Jacqueline Bisset" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 44 14 309 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE DEEP")
+ ( "actors"
+   [ "Robert Shaw" "Jacqueline Bisset" "Nick Nolte" "Louis Gossett, Jr." "Eli Wallach" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 630 309 547 471 204 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MURDER ON THE ORIENT EXPRESS")
+ ( "actors"
+   [ "Albert Finney" "Lauren Bacall" "Martin Balsam" "Ingrid Bergman" "Jacqueline Bisset" "Sean Connery" "Anthony Perkins" "Vanessa Redgrave" "Michael York" "Richard Widmark" ]
+ )
+ ( "actors_index"
+   [ 14 450 491 295 309 669 39 738 529 617 ]
+ )
+)
+(record
+ ( "title" "AIRPORT")
+ ( "actors"
+   [ "Burt Lancaster" "Dean Martin" "Jacqueline Bisset" "George Kennedy" "Maureen Stapleton" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 86 156 309 253 509 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JAWS")
+ ( "actors"
+   [ "Robert Shaw" "Roy Scheider" "Richard Dreyfuss" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 630 651 609 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALL THAT JAZZ")
+ ( "actors"
+   [ "Roy Scheider" "Jessica Lange" "Ben Vereen" "John Lithgow" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 651 348 51 386 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MARATHON MAN")
+ ( "actors"
+   [ "Roy Scheider" "Dustin Hoffman" "Laurence Olivier" "William Devane" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 651 191 453 763 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "KLUTE")
+ ( "actors"
+   [ "Jane Fonda" "Donald Sutherland" "Roy Scheider" "Jean Stapleton" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 183 651 339 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "M*A*S*H")
+ ( "actors"
+   [ "Donald Sutherland" "Elliott Gould" "Tom Skerritt" "Sally Kellerman" "Robert Duvall" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 183 211 723 658 625 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CAPRICORN ONE")
+ ( "actors"
+   [ "Elliott Gould" "James Brolin" "O.J. Simpson" "Hal Holbrook" "Telly Savalas" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 211 312 551 272 707 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CALIFORNIA SPLIT")
+ ( "actors"
+   [ "George Segal" "Elliott Gould" "Jeff Goldblum" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 256 211 342 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JURASSIC PARK")
+ ( "actors"
+   [ "Sam Neill" "Laura Dern" "Jeff Goldblum" "Samuel L. Jackson" "Wayne Knight" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 660 449 342 664 753 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INTO THE NIGHT")
+ ( "actors"
+   [ "Jeff Goldblum" "Dan Aykroyd" "Michelle Pfeiffer" "David Bowie" "Vera Miles" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 342 140 530 151 740 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DUNE")
+ ( "actors"
+   [ "Jose Ferrer" "Patrick Stewart" "Sting" "Dean Stockwell" "Sean Young" "Max von Sydow" "Jurgen Prochnow" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 398 564 696 157 671 510 413 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INVASION OF THE BODY SNATCHERS")
+ ( "actors"
+   [ "Donald Sutherland" "Leonard Nimoy" "Jeff Goldblum" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 183 460 342 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NINE MONTHS")
+ ( "actors"
+   [ "Hugh Grant" "Jeff Goldblum" "Tom Arnold" "Joan Cusack" "Robin Williams" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 291 342 717 361 635 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INDEPENDENCE DAY")
+ ( "actors"
+   [ "Jeff Goldblum" "Bill Pullman" "Will Smith" "Randy Quaid" "Harry Connick, Jr." "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 342 59 760 593 275 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WAR GAMES")
+ ( "actors"
+   [ "Matthew Broderick" "Dabney Coleman" "Ally Sheedy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 506 138 20 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "YOUNG DOCTORS IN LOVE")
+ ( "actors"
+   [ "Michael McKean" "Sean Young" "Harry Dean Stanton" "Dabney Coleman" "Patrick Macnee" "Michael Richards" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 525 671 276 138 562 528 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PRETTY WOMAN")
+ ( "actors"
+   [ "Richard Gere" "Julia Roberts" "Ralph Bellamy" "Jason Alexander" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 610 404 589 333 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE COTTON CLUB")
+ ( "actors"
+   [ "Richard Gere" "Gregory Hines" "Diane Lane" "Nicolas Cage" "Fred Gwynne" "Bob Hoskins" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 610 268 172 548 233 70 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AN OFFICER AND A GENTLEMAN")
+ ( "actors"
+   [ "Richard Gere" "Debra Winger" "Louis Gossett, Jr." "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 610 161 471 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "INTERSECTION")
+ ( "actors"
+   [ "Richard Gere" "Sharon Stone" "Martin Landau" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 610 674 492 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PRIMAL FEAR")
+ ( "actors"
+   [ "Richard Gere" "Edward Norton" "Frances McDormand" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 610 202 228 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE JACKAL")
+ ( "actors"
+   [ "Bruce Willis" "Richard Gere" "Sidney Poitier" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 80 610 682 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEVIL\'S ADVOCATE")
+ ( "actors"
+   [ "Al Pacino" "Keanu Reeves" "Craig T. Nelson" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 424 135 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DONNIE BRASCO")
+ ( "actors"
+   [ "Al Pacino" "Johnny Depp" "Bruno Kirby" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 393 81 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SCENT OF A WOMAN")
+ ( "actors"
+   [ "Al Pacino" "Chris O\'Donnell" "Gabrielle Anwar" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 110 241 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SCARFACE")
+ ( "actors"
+   [ "Al Pacino" "Michelle Pfeiffer" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 530 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AND JUSTICE FOR ALL")
+ ( "actors"
+   [ "Al Pacino" "Jack Warden" "John Forsythe" "Lee Strasberg" "Craig T. Nelson" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 305 379 458 135 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CITY HALL")
+ ( "actors"
+   [ "Al Pacino" "John Cusack" "Danny Aiello" "Bridget Fonda" "Martin Landau" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 377 144 76 492 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "REBEL WITHOUT A CAUSE")
+ ( "actors"
+   [ "James Dean" "Natalie Wood" "Sal Mineo" "Jim Backus" "Dennis Hopper" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 318 544 656 353 165 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GIANT")
+ ( "actors"
+   [ "James Dean" "Rock Hudson" "Elizabeth Taylor" "Sal Mineo" "Dennis Hopper" "Earl Holliman" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 318 636 209 656 165 195 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE FLINTSTONES")
+ ( "actors"
+   [ "John Goodman" "Elizabeth Perkins" "Rick Moranis" "Rosie O\'Donnell" "Elizabeth Taylor" "Jonathan Winters" "Harvey Korman" "Laraine Newman" "" "" ]
+ )
+ ( "actors_index"
+   [ 381 208 618 648 209 397 280 446 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MIRROR CRACK\'D")
+ ( "actors"
+   [ "Angela Lansbury" "Tony Curtis" "Elizabeth Taylor" "Pierce Brosnan" "Kim Novak" "Rock Hudson" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 26 726 209 586 438 636 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CLEOPATRA")
+ ( "actors"
+   [ "Elizabeth Taylor" "Richard Burton" "Rex Harrison" "Martin Landau" "Roddy McDowall" "Carroll O\'Connor" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 209 606 604 492 639 95 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FATHER OF THE BRIDE (1950)")
+ ( "actors"
+   [ "Spencer Tracy" "Elizabeth Taylor" "Billie Burke" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 688 209 60 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PLANET OF THE APES")
+ ( "actors"
+   [ "Charlton Heston" "Roddy McDowall" "Kim Hunter" "James Whitmore" "James Daly" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 105 639 437 324 317 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GREATEST STORY EVER TOLD")
+ ( "actors"
+   [ "Max von Sydow" "Claude Rains" "Jose Ferrer" "Charlton Heston" "Telly Savalas" "Angela Lansbury" "Roddy McDowall" "Shelley Winters" "John Wayne" "Sidney Poitier" ]
+ )
+ ( "actors_index"
+   [ 510 125 398 105 707 26 639 677 392 682 ]
+ )
+)
+(record
+ ( "title" "LORD LOVE A DUCK")
+ ( "actors"
+   [ "Roddy McDowall" "Tuesday Weld" "Ruth Gordon" "Harvey Korman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 639 731 654 280 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FIVE CARD STUD")
+ ( "actors"
+   [ "Dean Martin" "Robert Mitchum" "Inger Stevens" "Roddy McDowall" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 156 627 294 639 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BEETLEJUICE")
+ ( "actors"
+   [ "Alec Baldwin" "Geena Davis" "Michael Keaton" "Catherine O\'Hara" "Winona Ryder" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 15 246 524 98 770 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JOHNNY DANGEROUSLY")
+ ( "actors"
+   [ "Michael Keaton" "Joe Piscopo" "Marilu Henner" "Maureen Stapleton" "Peter Boyle" "Ray Walston" "Griffin Dunne" "Dom De Luise" "Danny De Vito" "" ]
+ )
+ ( "actors_index"
+   [ 524 370 483 509 574 598 270 179 145 0 ]
+ )
+)
+(record
+ ( "title" "MR. MOM")
+ ( "actors"
+   [ "Michael Keaton" "Teri Garr" "Martin Mull" "Christopher Lloyd" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 524 708 494 115 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MR. MOM")
+ ( "actors"
+   [ "Michael Keaton" "Henry Winkler" "Shelley Long" "Kevin Costner" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 524 287 676 431 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE PAPER")
+ ( "actors"
+   [ "Michael Keaton" "Robert Duvall" "Glenn Close" "Marisa Tomei" "Randy Quaid" "Jason Robards" "Jason Alexander" "Catherine O\'Hara" "Clint Howard" "" ]
+ )
+ ( "actors_index"
+   [ 524 625 260 486 593 335 333 98 130 0 ]
+ )
+)
+(record
+ ( "title" "THE FLAMINGO KID")
+ ( "actors"
+   [ "Matt Dillon" "Richard Crenna" "Jessica Walter" "Marisa Tomei" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 504 608 350 486 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CHAPLIN")
+ ( "actors"
+   [ "Robert Downey, Jr." "Marisa Tomei" "Dan Aykroyd" "Anthony Hopkins" "Kevin Kline" "James Woods" "Diane Lane" "David Duchovny" "" "" ]
+ )
+ ( "actors_index"
+   [ 624 486 140 37 432 325 172 152 0 0 ]
+ )
+)
+(record
+ ( "title" "MY COUSIN VINNY")
+ ( "actors"
+   [ "Joe Pesci" "Ralph Macchio" "Marisa Tomei" "Fred Gwynne" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 369 591 486 233 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FOUR ROOMS")
+ ( "actors"
+   [ "Marisa Tomei" "Madonna" "Jennifer Beals" "Antonio Banderas" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 486 479 344 41 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ROBIN HOOD: PRINCE OF THIEVES")
+ ( "actors"
+   [ "Kevin Costner" "Morgan Freeman" "Mary Elizabeth Mastrantonio" "Christian Slater" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 431 538 498 112 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ABYSS")
+ ( "actors"
+   [ "Ed Harris" "Mary Elizabeth Mastrantonio" "Michael Biehn" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 197 498 520 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TROUBLE WITH ANGELS")
+ ( "actors"
+   [ "Rosalind Russell" "Hayley Mills" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 646 281 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE PARENT TRAP")
+ ( "actors"
+   [ "Hayley Mills" "Brian Keith" "Maureen O\'Hara" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 281 75 508 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MY FAVORITE WIFE")
+ ( "actors"
+   [ "Irene Dunne" "Cary Grant" "Randolf Scott" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 296 97 592 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "REAR WINDOW")
+ ( "actors"
+   [ "James Stewart" "Grace Kelly" "Raymond Burr" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 323 265 599 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "IT\'S A WONDERFUL LIFE")
+ ( "actors"
+   [ "James Stewart" "Donna Reed" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 323 185 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PURE LUCK")
+ ( "actors"
+   [ "Martin Short" "Danny Glover" "Harry Shearer" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 496 146 278 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BRAZIL")
+ ( "actors"
+   [ "Robert De Niro" "Bob Hoskins" "Michael Palin" "Jonathan Pryce" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 623 70 526 396 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TOMORROW NEVER DIES")
+ ( "actors"
+   [ "Pierce Brosnan" "Jonathan Pryce" "Teri Hatcher" "Joe Don Baker" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 586 396 709 366 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CAPE FEAR")
+ ( "actors"
+   [ "Robert De Niro" "Nick Nolte" "Jessica Lange" "Juliette Lewis" "Joe Don Baker" "Robert Mitchum" "Gregory Peck" "Martin Balsam" "" "" ]
+ )
+ ( "actors_index"
+   [ 623 547 348 410 366 627 269 491 0 0 ]
+ )
+)
+(record
+ ( "title" "CAPE FEAR (1962)")
+ ( "actors"
+   [ "Gregory Peck" "Robert Mitchum" "Martin Balsam" "Telly Savalas" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 269 627 491 707 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "AUTHOR! AUTHOR!")
+ ( "actors"
+   [ "Al Pacino" "Dyan Cannon" "Tuesday Weld" "Alan King" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 6 193 731 11 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOOKING FOR MR. GOODBAR")
+ ( "actors"
+   [ "Diane Keaton" "Tuesday Weld" "Richard Gere" "Tom Berenger" "LeVar Burton" "Brian Dennehy" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 171 731 610 718 454 74 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE CINCINNATI KID")
+ ( "actors"
+   [ "Steve McQueen" "Edward G. Robinson" "Ann Margret" "Karl Malden" "Tuesday Weld" "Joan Blondell" "Jack Weston" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 694 201 30 416 731 358 306 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE FIVE PENNIES")
+ ( "actors"
+   [ "Danny Kaye" "Louis Armstrong" "Tuesday Weld" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 147 470 731 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TIME MACHINE")
+ ( "actors"
+   [ "Rod Taylor" "Alan Young" "Yvette Mimieux" "Sebastian Cabot" "Whit Bissell" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 638 12 775 672 755 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE REWARD")
+ ( "actors"
+   [ "Max von Sydow" "Yvette Mimieux" "Efrem Zimbalist, Jr." "Henry Silva" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 510 775 203 286 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE DAY THE EARTH STOOD STILL")
+ ( "actors"
+   [ "Michael Rennie" "Patricia Neal" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 527 561 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE DEVIL\'S BRIGADE")
+ ( "actors"
+   [ "William Holden" "Cliff Robertson" "Michael Rennie" "Carroll O\'Connor" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 766 128 527 95 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GHOST STORY")
+ ( "actors"
+   [ "Fred Astaire" "Melvyn Douglas" "Douglas Fairbanks, Jr." "John Houseman" "Patricia Neal" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 232 516 188 382 561 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HUD")
+ ( "actors"
+   [ "Paul Newman" "Melvyn Douglas" "Patricia Neal" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 569 516 561 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ROBE")
+ ( "actors"
+   [ "Richard Burton" "Jean Simmons" "Victor Mature" "Michael Rennie" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 606 338 744 527 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JOURNEY TO THE CENTER OF THE EARTH")
+ ( "actors"
+   [ "Pat Boone" "James Mason" "Diane Baker" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 558 321 170 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "YELLOWBEARD")
+ ( "actors"
+   [ "Graham Chapman" "Peter Boyle" "Cheech Marin" "Tommy Chong" "Marty Feldman" "James Mason" "Eric Idle" "Madeline Kahn" "John Cleese" "" ]
+ )
+ ( "actors_index"
+   [ 266 574 106 724 497 321 215 478 376 0 ]
+ )
+)
+(record
+ ( "title" "THE BOYS FROM BRAZIL")
+ ( "actors"
+   [ "Gregory Peck" "Laurence Olivier" "James Mason" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 269 453 321 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HEAVEN CAN WAIT")
+ ( "actors"
+   [ "Warren Beatty" "Julie Christie" "James Mason" "Dyan Cannon" "Charles Grodin" "Jack Warden" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 751 406 321 193 102 305 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LORD JIM")
+ ( "actors"
+   [ "Peter O\'Toole" "James Mason" "Eli Wallach" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 580 321 204 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOLITA")
+ ( "actors"
+   [ "Shelley Winters" "James Mason" "Peter Sellers" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 677 321 581 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LETHAL WEAPON")
+ ( "actors"
+   [ "Mel Gibson" "Danny Glover" "Gary Busey" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 514 146 242 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "UNDER SIEGE")
+ ( "actors"
+   [ "Steven Seagal" "Gary Busey" "Tommy Lee Jones" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 695 242 725 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A STAR IS BORN")
+ ( "actors"
+   [ "Barbra Streisand" "Kris Kristofferson" "Gary Busey" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 47 442 242 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THUNDERBOLT AND LIGHTFOOT")
+ ( "actors"
+   [ "Clint Eastwood" "Jeff Bridges" "Gary Busey" "George Kennedy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 340 242 253 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "CARNY")
+ ( "actors"
+   [ "Gary Busey" "Jodie Foster" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 242 365 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TWILIGHT ZONE--THE MOVIE")
+ ( "actors"
+   [ "Vic Morrow" "John Larroquette" "Burgess Meredith" "John Lithgow" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 742 385 85 386 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STRIPES")
+ ( "actors"
+   [ "Bill Murray" "Harold Ramis" "Warren Oates" "Sean Young" "John Candy" "Judge Reinhold" "John Larroquette" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 57 273 752 671 374 401 385 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HOME ALONE")
+ ( "actors"
+   [ "Macaulay Culkin" "Joe Pesci" "Daniel Stern" "Catherine O\'Hara" "John Candy" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 476 369 143 98 374 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SPACEBALLS")
+ ( "actors"
+   [ "Mel Brooks" "John Candy" "Rick Moranis" "Bill Pullman" "Dick Van Patten" "John Hurt" "Dom De Luise" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 513 374 618 59 177 383 179 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BLUES BROTHERS")
+ ( "actors"
+   [ "John Belushi" "Dan Aykroyd" "James Brown" "Carrier Fisher" "Henry Gibson" "John Candy" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 373 140 313 94 285 374 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "1941")
+ ( "actors"
+   [ "Dan Aykroyd" "Ned Beatty" "John Belushi" "Tim Matheson" "Warren Oates" "Robert Stack" "Nancy Allen" "John Candy" "Slim Pickens" "" ]
+ )
+ ( "actors_index"
+   [ 140 546 373 713 752 631 540 374 685 0 ]
+ )
+)
+(record
+ ( "title" "BLOWOUT")
+ ( "actors"
+   [ "John Travolta" "Nancy Allen" "John Lithgow" "Dennis Franz" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 390 540 386 164 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEAL OF THE CENTURY")
+ ( "actors"
+   [ "Chevy Chase" "Sigourney Weaver" "Gregory Hines" "Wallace Shawn" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 108 683 268 747 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WORKING GIRL")
+ ( "actors"
+   [ "Harrison Ford" "Sigourney Weaver" "Melanie Griffith" "Alec Baldwin" "Joan Cusack" "Kevin Spacey" "Olympia Dukakis" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 274 683 515 15 361 434 554 0 0 0 ]
+ )
+)
+(record
+ ( "title" "COPYCAT")
+ ( "actors"
+   [ "Sigourney Weaver" "Holly Hunter" "Harry Connick, Jr." "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 683 290 275 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BUTCHER\'S WIFE")
+ ( "actors"
+   [ "Demi Moore" "Jeff Daniels" "Frances McDormand" "Mary Steenburgen" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 162 341 228 500 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GHOST")
+ ( "actors"
+   [ "Patrick Swayze" "Demi Moore" "Whoopi Goldberg" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 565 162 757 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GHOSTS OF MISSISSIPPI")
+ ( "actors"
+   [ "Alec Baldwin" "Whoopi Goldberg" "James Woods" "Craig T. Nelson" "William H. Macy" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 15 757 325 135 764 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STAR TREK: GENERATIONS")
+ ( "actors"
+   [ "Patrick Stewart" "LeVar Burton" "William Shatner" "Whoopi Goldberg" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 564 454 768 757 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SOAPDISH")
+ ( "actors"
+   [ "Sally Field" "Kevin Kline" "Robert Downey, Jr." "Cathy Moriarty" "Whoopi Goldberg" "Elisabeth Shue" "Carrie Fisher" "Teri Hatcher" "" "" ]
+ )
+ ( "actors_index"
+   [ 657 432 624 99 757 205 93 709 0 0 ]
+ )
+)
+(record
+ ( "title" "SISTER ACT 2")
+ ( "actors"
+   [ "Whoopi Goldberg" "Kathy Najimy" "James Coburn" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 757 423 315 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "COMING TO AMERICA")
+ ( "actors"
+   [ "Eddie Murphy" "James Earl Jones" "Samuel L. Jackson" "Cuba Gooding, Jr." "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 199 319 664 136 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BEST DEFENSE")
+ ( "actors"
+   [ "Dudley Moore" "Eddie Murphy" "Kate Capshaw" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 199 417 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ARTHUR")
+ ( "actors"
+   [ "Dudley Moore" "Liza Minnelli" "John Gielgud" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 466 380 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "UNFAITHFULLY YOURS")
+ ( "actors"
+   [ "Dudley Moore" "Nastassja Kinski" "Albert Brooks" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 543 13 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOVESICK")
+ ( "actors"
+   [ "Dudley Moore" "Elizabeth McGovern" "Alec Guinness" "Ron Silver" "John Huston" "Wallace Shawn" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 207 16 644 384 747 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "10")
+ ( "actors"
+   [ "Dudley Moore" "Julie Andrews" "Bo Derek" "Brian Dennehy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 405 67 74 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WHOLLY MOSES")
+ ( "actors"
+   [ "Dudley Moore" "Laraine Newman" "James Coco" "Dom De Luise" "John Houseman" "Madeline Kahn" "Richard Pryor" "John Ritter" "" "" ]
+ )
+ ( "actors_index"
+   [ 190 446 316 179 382 478 615 389 0 0 ]
+ )
+)
+(record
+ ( "title" "REAL MEN")
+ ( "actors"
+   [ "James Belushi" "John Ritter" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 311 389 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "STAY TUNED")
+ ( "actors"
+   [ "John Ritter" "Pam Dawber" "Jeffrey Jones" "Eugene Levy" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 389 557 343 220 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A VERY BRADY SEQUEL")
+ ( "actors"
+   [ "Shelley Long" "Tim Matheson" "Barbara Eden" "Zsa Zsa Gabor" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 676 713 45 776 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE STEPFORD CHILDREN")
+ ( "actors"
+   [ "Barbara Eden" "Dick Butkus" "James Coco" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 45 174 316 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HARPER VALLEY P.T.A")
+ ( "actors"
+   [ "Barbara Eden" "Ronny Cox" "Nanette Fabray" "Louis Nye" "John Fiedler" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 45 645 542 472 378 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE FEMINIST AND THE FUZZ")
+ ( "actors"
+   [ "Barbara Eden" "Farrah Fawcett" "Harry Morgan" "Julie Newmar" "Penny Marshall" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 45 223 277 408 573 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "7 FACES OF DR. LAO")
+ ( "actors"
+   [ "Tony Randall" "Barbara Eden" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 727 45 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "VOYAGE TO THE BOTTOM OF THE SEA")
+ ( "actors"
+   [ "Walter Pidgeon" "Joan Fontaine" "Barbara Eden" "Peter Lorre" "Michael Ansara" "Frankie Avalon" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 750 362 45 579 519 231 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BEACH BLANKET BINGO")
+ ( "actors"
+   [ "Frankie Avalon" "Annette Funicello" "Deborah Walley" "Linda Evans" "Don Rickles" "Buster Keaton" "Paul Lynde" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 231 35 160 464 181 88 567 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DR. GOLDFOOT AND THE BIKINI MACHINE")
+ ( "actors"
+   [ "Frankie Avalon" "Vincent Price" "Dwayne Hickman" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 231 745 192 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TROUBLE WITH GIRLS")
+ ( "actors"
+   [ "Vincent Price" "Elvis Presley" "John Carradine" "Dabney Coleman" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 745 212 375 138 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE RAVEN")
+ ( "actors"
+   [ "Vincent Price" "Peter Lorre" "Boris Karloff" "Jack Nicholson" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 745 579 71 303 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ABBOTT AND COSTELLO MEET FRANKENSTEIN")
+ ( "actors"
+   [ "Bud Abbott" "Lou Costello" "Lon Chaney, Jr." "Bela Lugosi" "Vincent Price" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 82 468 467 49 745 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE LAS VEGAS STORY")
+ ( "actors"
+   [ "Jane Russell" "Victor Mature" "Vincent Price" "Hoagy Carmichael" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 330 744 745 289 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "GENTLEMEN PREFER BLONDES")
+ ( "actors"
+   [ "Jane Russell" "Marilyn Monroe" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 330 484 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE TALL MEN")
+ ( "actors"
+   [ "Jane Russell" "Clark Gable" "Robert Ryan" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 330 124 629 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FOUR FOR TEXAS")
+ ( "actors"
+   [ "Frank Sinatra" "Dean Martin" "Anita Ekberg" "Ursula Andress" "Charles Bronson" "Victor Buono" "The Three Stooges" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 230 156 28 733 100 743 710 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BODYGUARD")
+ ( "actors"
+   [ "Kevin Costner" "Whitney Houston" "Debbie Reynolds" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 431 756 158 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DIVORCE AMERICAN STYLE")
+ ( "actors"
+   [ "Dick Van Dyke" "Debbie Reynolds" "Van Johnson" "Jean Simmons" "Joe Flynn" "Tom Bosley" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 176 158 737 338 368 719 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "TAMMY AND THE BACHELOR")
+ ( "actors"
+   [ "Leslie Nielsen" "Debbie Reynolds" "Walter Brennan" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 462 158 748 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "OUR MAN FLINT")
+ ( "actors"
+   [ "James Coburn" "Lee J. Cobb" "James Brolin" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 315 456 312 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BALTIMORE BULLET")
+ ( "actors"
+   [ "James Coburn" "Omar Sharif" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 315 555 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "LOVING COUPLES")
+ ( "actors"
+   [ "James Coburn" "Shirley MacLaine" "Susan Sarandon" "Stephen Collins" "Sally Kellerman" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 315 679 699 690 658 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MAGNIFICENT SEVEN")
+ ( "actors"
+   [ "Yul Brynner" "Eli Wallach" "Steve McQueen" "Charles Bronson" "James Coburn" "Robert Vaughn" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 774 204 694 100 315 633 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THEM!")
+ ( "actors"
+   [ "James Whitmore" "James Arness" "Leonard Nimoy" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 324 310 460 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MISTER JERICO")
+ ( "actors"
+   [ "Connie Stevens" "Patrick Macnee" "Herbert Lom" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 132 562 288 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE SEX SYMBOL")
+ ( "actors"
+   [ "Connie Stevens" "Shelley Winters" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 132 677 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "A GUIDE FOR THE MARRIED MAN")
+ ( "actors"
+   [ "Walter Matthau" "Inger Stevens" "Lucille Ball" "Jack Benny" "Joey Bishop" "Sid Caesar" "Art Carney" "Jayne Mansfield" "Carl Reiner" "Phil Silvers" ]
+ )
+ ( "actors_index"
+   [ 749 294 474 299 371 681 43 336 90 584 ]
+ )
+)
+(record
+ ( "title" "MARY SHELLEY\'S FRANKENSTEIN")
+ ( "actors"
+   [ "Robert De Niro" "Kenneth Branagh" "Tom Hulce" "Helena Bonham Carter" "John Cleese" "Aidan Quinn" "Tom Hulce" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 623 429 722 283 376 5 722 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ANY WEDNESDAY")
+ ( "actors"
+   [ "Jane Fonda" "Jason Robards" "Dean Jones" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 329 335 155 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE LAIR OF THE WHITE WORM")
+ ( "actors"
+   [ "Amanda Donohoe" "Hugh Grant" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 21 291 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "MEET THE APPLEGATES")
+ ( "actors"
+   [ "Ed Begley, Jr." "Stockard Channing" "Dabney Coleman" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 196 697 138 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE BIRDS")
+ ( "actors"
+   [ "Rod Taylor" "Jessica Tandy" "Suzanne Pleshette" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 638 349 700 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "VERTIGO")
+ ( "actors"
+   [ "James Stewart" "Kim Novak" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 323 438 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MAN WHO KNEW TOO MUCH")
+ ( "actors"
+   [ "James Stewart" "Doris Day" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 323 186 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MAN WHO KNEW TOO LITTLE")
+ ( "actors"
+   [ "Bill Murray" "Peter Gallagher" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 57 577 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "NOTORIOUS")
+ ( "actors"
+   [ "Cary Grant" "Ingrid Bergman" "Claude Rains" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 97 295 125 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE STEPFORD WIVES")
+ ( "actors"
+   [ "Katharine Ross" "Paula Prentiss" "Tina Louise" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 420 572 716 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "BLACK SUNDAY")
+ ( "actors"
+   [ "Robert Shaw" "Bruce Dern" "Fritz Weaver" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 630 79 239 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "FAMILY PLOT")
+ ( "actors"
+   [ "Karen Black" "Bruce Dern" "William Devane" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 415 79 763 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE GREAT GATSBY")
+ ( "actors"
+   [ "Robert Redford" "Mia Farrow" "Bruce Dern" "Karen Black" "Sam Waterston" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 628 518 79 415 662 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "SUPPORT YOUR LOCAL SHERIFF!")
+ ( "actors"
+   [ "James Garner" "Walter Brennan" "Harry Morgan" "Bruce Dern" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 320 748 277 79 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE ST. VALENTINE\'S DAY MASSACRE")
+ ( "actors"
+   [ "Jason Robards" "George Segal" "Bruce Dern" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 335 256 79 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HUSH...HUSH, SWEET CHARLOTTE")
+ ( "actors"
+   [ "Bette Davis" "Olivia de Havilland" "Joseph Cotten" "Agnes Moorehead" "Victor Buono" "Bruce Dern" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 553 399 4 743 79 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "HANG \'EM HIGH")
+ ( "actors"
+   [ "Clint Eastwood" "Inger Stevens" "Bruce Dern" "Alan Hale" "Dennis Hopper" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 129 294 79 10 165 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "WHAT EVER HAPPENED TO BABY JANE?")
+ ( "actors"
+   [ "Bette Davis" "Joan Crawford" "Victor Buono" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 360 743 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "PHONE CALL FROM A STRANGER")
+ ( "actors"
+   [ "Shelley Winters" "Michael Rennie" "Keenan Wynn" "Bette Davis" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 677 527 425 53 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "ALL ABOUT EVE")
+ ( "actors"
+   [ "Anne Baxter" "Bette Davis" "Marilyn Monroe" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 33 53 484 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "THE MAN WHO CAME TO DINNER")
+ ( "actors"
+   [ "Bette Davis" "Jimmy Durante" "Billie Burke" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 356 60 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "JEZEBEL")
+ ( "actors"
+   [ "Bette Davis" "Henry Fonda" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 284 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DARK SECRET OF HARVEST HOME")
+ ( "actors"
+   [ "Bette Davis" "Rosanna Arquette" "" "" "" "" "" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 647 0 0 0 0 0 0 0 0 ]
+ )
+)
+(record
+ ( "title" "DEATH ON THE NILE")
+ ( "actors"
+   [ "Bette Davis" "Peter Ustinov" "Mia Farrow" "George Kennedy" "Angela Lansbury" "David Niven" "Jack Warden" "" "" "" ]
+ )
+ ( "actors_index"
+   [ 53 582 518 253 26 153 305 0 0 0 ]
+ )
+)

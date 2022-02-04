@@ -1,0 +1,1277 @@
+(saveFormat "7.0")
+(date "Thu 20/Apr/2006 14:17:39 ")
+(veerev "7.52.8524.1")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F2 F1 F0 M)
+(sysconfig
+(iodevice "pwrSupply"
+(type TCPIP)
+(channel 180)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(errorChecking 0)
+(isIncremental 0)
+(ppAddr "TCPIP0::141.121.206.70::inst0::INSTR")
+(ivicomFile "AgilentN67xx")
+(ivicomAddr "TCPIP0::156.140.151.153::inst0::INSTR")
+(model "")
+(VISAddr "TCPIP0::141.121.206.70::inst0::INSTR")))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 35)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 3)
+(context 0
+(properties
+(name "initializeVariables")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1.25))
+(initValue Real
+(data  0))))
+(device 1 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1.5))
+(initValue Real
+(data  0))))
+(device 2 CONSTANT
+(properties
+(name "Real64"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  10))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "UInt8"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  1))
+(initValue UInt8
+(data  0))))
+(device 4 TOGLOBAL
+(properties
+(name "Set VoltSetting")
+(globalName "VoltSetting"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 5 TOGLOBAL
+(properties
+(name "Set CurrSetting")
+(globalName "CurrSetting"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 6 TOGLOBAL
+(properties
+(name "Set overVoltSetting")
+(globalName "overVoltSetting"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 7 TOGLOBAL
+(properties
+(name "Set overCurrOn")
+(globalName "overCurrOn"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 8 DECLVAR
+(properties
+(name "Declare VoltSetting")
+(scope glob)
+(globalName "VoltSetting"))
+(implementation
+(value Real64
+(data  0))))
+(device 9 DECLVAR
+(properties
+(name "Declare CurrSetting")
+(scope glob)
+(globalName "CurrSetting"))
+(implementation
+(value Real64
+(data  0))))
+(device 10 DECLVAR
+(properties
+(name "Declare overVoltSetting")
+(scope glob)
+(globalName "overVoltSetting"))
+(implementation
+(value Real64
+(data  0))))
+(device 11 DECLVAR
+(properties
+(name "Declare overCurrOn")
+(scope glob)
+(globalName "overCurrOn"))
+(implementation
+(value UInt8
+(data  0))))
+(device 12 TOGLOBAL
+(properties
+(name "Set enableOn")
+(globalName "enableOn"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 13 CONSTANT
+(properties
+(name "UInt8"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  1))
+(initValue UInt8
+(data  0))))
+(device 14 DECLVAR
+(properties
+(name "Declare enableOn")
+(scope glob)
+(globalName "enableOn"))
+(implementation
+(value UInt8
+(data  0))))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This function initializes the global variables used in the program.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D4:1)
+(connect D1:1 D5:1)
+(connect D2:1 D6:1)
+(connect D3:1 D7:1)
+(connect D13:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 630)
+(wndRestoredOrigin -244 314)
+(wndRestoredExtent 1105 553)
+(wndState min)
+(active detail)
+(detail
+(extent 960 633)
+(anchorPt 351 74)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 100 180))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 100 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 100 300))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 33 15))
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter 100 370))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 230 180))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 230 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 112 15))
+(open
+(extent 78 51))
+(terminals on)
+(pinCenter 240 300))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 230 370))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 114 15))
+(open
+(extent 195 103))
+(pinCenter -40 180))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 118 15))
+(open
+(extent 195 103))
+(pinCenter -40 240))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 139 15))
+(open
+(extent 195 103))
+(pinCenter -30 300))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 195 103))
+(pinCenter -30 370))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 240 450))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 33 15))
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter 100 450))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 195 103))
+(pinCenter -30 450))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 76)
+(editing enabled))
+(pinCenter 110 70))
+(connect D0:1 D4:1
+(points 2 124 180 184 180))
+(connect D1:1 D5:1
+(points 2 124 240 182 240))
+(connect D2:1 D6:1
+(points 2 124 300 181 300))
+(connect D3:1 D7:1
+(points 2 119 370 181 370))
+(connect D13:1 D12:1
+(points 2 119 450 196 450)))
+(stackingOrder 1 3 13 10 9 11 14 4 5 6 7 12 15 8 0 2))))
+(context 2
+(properties
+(name "ReadOutput")
+(trigMode deg)
+(nextID 39)
+(popupTitleText "Output")
+(popupMoveable 1))
+(deviceList
+(device 0 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(name "Alarm")
+(lock name constraints))))
+(device 1 IODEVICE
+(properties
+(name "pwrSupply ( @TCPIP0::141.121.206.70::inst0::INSTR)")
+(transactions 4 "WRITE TEXT \"MEASURE:VOLTAGE? (@1)\" EOL"
+"READ TEXT Voltage REAL64" "WRITE TEXT \"MEASURE:CURRENT? (@1)\" EOL"
+"READ TEXT Current REAL64"))
+(interface
+(output 1
+(name "Voltage")
+(optional yes))
+(output 2
+(name "Current")
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "pwrSupply")))
+(device 2 TEXTDISPLAY
+(properties
+(name "Actual Voltage Output"))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(properties
+(name "Actual Current Output"))
+(interface
+(input 1
+(name "Data"))))
+(device 4 FROMGLOBAL
+(properties
+(name "Get CurrSetting")
+(globalName "CurrSetting"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 5 FROMGLOBAL
+(properties
+(name "Get overCurrOn")
+(globalName "overCurrOn"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 6 FROMGLOBAL
+(properties
+(name "Get VoltSetting")
+(globalName "VoltSetting"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 7 FROMGLOBAL
+(properties
+(name "Get overVoltSetting")
+(globalName "overVoltSetting"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 8 TEXTDISPLAY
+(properties
+(name "Over Voltage Setting"))
+(interface
+(input 1
+(name "Data"))))
+(device 9 TEXTDISPLAY
+(properties
+(name "Initial Voltage Setting"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Initial Current Setting"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Over Current On"))
+(interface
+(input 1
+(name "Data"))))
+(device 12 IFTHENELSE
+(properties
+(name "If A == B")
+(cases 1 "A==B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 13 CONSTANT
+(properties
+(name "True"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  1))
+(initValue UInt8
+(data  0))))
+(device 14 LITERALCONSTANT
+(properties
+(name "On"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "On"))
+(initValue Text
+(data  ""))))
+(device 15 LITERALCONSTANT
+(properties
+(name "Off"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Off"))
+(initValue Text
+(data  ""))))
+(device 16 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 23 CONFIRM25
+(properties
+(name "Stop Program")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 24 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(name "Alarm")
+(lock name constraints))))
+(device 26 LABEL
+(properties
+(name "N5700 Power Supply Sample Program")
+(labelValue "N5700 Power Supply Sample Program"))
+(interface
+(input 1
+(name "Label")
+(tag "Label")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES)))
+(implementation))
+(device 27 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "N5700 Power Supply Sample Program"))
+(initValue Text
+(data  ""))))
+(device 30 IODEVICE
+(properties
+(name "pwrSupply ( @TCPIP0::141.121.206.70::inst0::INSTR)")
+(transactions 1 "WRITE TEXT \"OUTPUT OFF,(@1)\" EOL"))
+(implementation
+(ioDevType 18)
+(iopath "pwrSupply")))
+(device 31 EXITPROCESS
+(properties
+(code 0)))
+(device 32 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Determine Instrument setup:\\par\r\n1) Read Actual Voltage level.\\par\r\n2) Read Actual Current level.\\par\r\n \\par\r\nLoop continuously until stopped.\\par\r\n}\r\n"
+)))
+(device 33 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Provide interrupt mechanism for user to stop program. Before stopping the program, disable the power supply output.\\par\r\n}\r\n"
+)))
+(device 34 NEXT)
+(device 35 IODEVICE
+(properties
+(name "pwrSupply ( @TCPIP0::141.121.206.70::inst0::INSTR)")
+(transactions 1 "WRITE TEXT \"VOLTAGE \", A EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "pwrSupply")))
+(device 36 SLIDER
+(properties
+(name "Adjust Voltage Output")
+(range 0 10)
+(detents 0.001))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  2.294))
+(initValue Real
+(data  0))))
+(device 37 FROMGLOBAL
+(properties
+(name "Get overVoltSetting")
+(globalName "overVoltSetting"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 38 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(name "Alarm")
+(lock name constraints))))
+(configuration
+(connect D5:0 D0:0)
+(connect D0:1 D1:0)
+(connect D1:1 D2:1)
+(connect D1:2 D3:1)
+(connect D6:0 D4:0)
+(connect D4:0 D5:0)
+(connect D7:0 D6:0)
+(connect D20:0 D7:0)
+(connect D7:1 D8:1)
+(connect D6:1 D9:1)
+(connect D4:1 D10:1)
+(connect D16:1 D11:1)
+(connect D5:1 D12:1)
+(connect D13:1 D12:2)
+(connect D12:1 D14:0)
+(connect D12:2 D15:0)
+(connect D14:1 D16:1)
+(connect D15:1 D16:2)
+(connect D18:1 D17:0)
+(connect D20:1 D19:1)
+(connect D17:1 D21:0)
+(connect D21:0 D22:0)
+(connect D1:0 D25:0)
+(connect D27:1 D26:1)
+(connect D29:1 D27:0)
+(connect D28:1 D27:1))
+(ShowOnExecPanel
+(relativeOrigin 249 36)))
+(contextCarrier
+(wndOrigin 322 630)
+(wndRestoredOrigin 47 7)
+(wndRestoredExtent 694 533)
+(wndState min)
+(active panel)
+(panel
+(extent 694 533)
+(drawGrid "on")
+(widget 8 detail
+(relativeOrigin 20 320)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 136 23))
+(widget 9 detail
+(relativeOrigin 20 180)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 145 23))
+(widget 10 detail
+(relativeOrigin 20 250)
+(PID 2)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 145 23))
+(widget 11 detail
+(relativeOrigin 20 390)
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 136 23))
+(widget 2 detail
+(relativeOrigin 210 100)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 244 36))
+(widget 3 detail
+(relativeOrigin 210 170)
+(PID 5)
+(title on)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 244 36))
+(widget 17 detail
+(relativeOrigin 500 300)
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 150 110))
+(widget 19 detail
+(relativeOrigin 100 10)
+(font "Arial" 14)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 8)
+(borderStyle none)
+(extent 500 60)
+(just c))
+(widget 27 detail
+(relativeOrigin 240 250)
+(PID 9)
+(title on)
+(tabIndex 9)
+(borderStyle flat)
+(extent 176 218)
+(layout vertical)
+(fastmode off)
+(extratics)))
+(detail
+(extent 906 339)
+(anchorPt -529 252)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 89 31))
+(pinCenter 210 90))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 136))
+(terminals on)
+(pinCenter 245 230))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 244 36))
+(pinCenter 710 170))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 244 36))
+(pinCenter 710 260))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 124 46))
+(terminals on)
+(pinCenter 210 -50))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 93 15))
+(open
+(extent 114 56))
+(terminals on)
+(pinCenter 210 -10))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 114 46))
+(terminals on)
+(pinCenter 210 -90))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 124 56))
+(terminals on)
+(pinCenter 210 -140))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 121 15))
+(open
+(extent 157 22))
+(pinCenter 350 -140))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 125 14))
+(open
+(extent 154 16))
+(pinCenter 350 -90))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 125 14))
+(open
+(extent 154 16))
+(pinCenter 350 -50))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 132 22))
+(pinCenter 690 10))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 48 25))
+(open)
+(terminals on)
+(pinCenter 410 0))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 29 15))
+(open
+(extent 69 29)
+(showFormat int))
+(pinCenter 310 50))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 174 29))
+(pinCenter 490 -20))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 174 29))
+(pinCenter 490 30))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 570 0))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 83 0))
+(open
+(extent 124 54))
+(title off)
+(pinCenter 570 460))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 89 31))
+(pinCenter 500 370))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 324 74)
+(just c))
+(title off)
+(pinCenter 490 -220))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 274 26))
+(pinCenter 210 -220))
+(devCarrierFor 30
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 74))
+(terminals on)
+(pinCenter 560 570))
+(devCarrierFor 31
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 560 670))
+(devCarrierFor 32
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 244 146)
+(editing enabled))
+(pinCenter -120 240))
+(devCarrierFor 33
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 150 570))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 260 350))
+(devCarrierFor 35
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 354 86))
+(terminals on)
+(pinCenter 1175 180))
+(devCarrierFor 36
+(active open)
+(icon
+(extent 128 0))
+(open
+(extent 164 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 1050 -40))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 124 56))
+(terminals on)
+(pinCenter 860 -40))
+(devCarrierFor 38
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 89 31))
+(pinCenter 910 -230))
+(connect D5:0 D0:0
+(points 2 210 0 210 62))
+(connect D0:1 D1:0
+(points 3 246 90 260 90 260 141))
+(connect D1:1 D2:1
+(points 4 459 190 480 190 480 170 585 170))
+(connect D1:2 D3:1
+(points 4 459 270 480 270 480 260 585 260))
+(connect D6:0 D4:0
+(points 2 210 -80 210 -60))
+(connect D4:0 D5:0
+(points 2 210 -40 210 -20))
+(connect D7:0 D6:0
+(points 2 210 -130 210 -100))
+(connect D20:0 D7:0
+(points 2 210 -210 210 -150))
+(connect D7:1 D8:1
+(points 2 269 -140 287 -140))
+(connect D6:1 D9:1
+(points 2 256 -90 285 -90))
+(connect D4:1 D10:1
+(points 2 258 -50 285 -50))
+(connect D16:1 D11:1
+(points 4 585 0 600 0 600 10 621 10))
+(connect D5:1 D12:1
+(points 2 259 -10 383 -10))
+(connect D13:1 D12:2
+(points 4 327 50 350 50 350 10 383 10))
+(connect D12:1 D14:0
+(points 5 436 -10 460 -10 460 -50 490 -50 490 -30))
+(connect D12:2 D15:0
+(points 3 436 10 490 10 490 20))
+(connect D14:1 D16:1
+(points 4 504 -20 520 -20 520 -10 554 -10))
+(connect D15:1 D16:2
+(points 4 504 30 520 30 520 10 554 10))
+(connect D18:1 D17:0
+(points 3 536 370 570 370 570 430))
+(connect D20:1 D19:1
+(points 2 225 -220 325 -220))
+(connect D17:1 D21:0
+(points 5 634 460 650 460 650 500 560 500 560 512))
+(connect D21:0 D22:0
+(points 2 560 609 560 634))
+(connect D1:0 D25:0
+(points 2 260 300 260 340))
+(connect D27:1 D26:1
+(points 6 1134 -40 1150 -40 1150 90 950 90 950 180 965 180))
+(connect D29:1 D27:0
+(points 3 957 -230 1050 -230 1050 -172))
+(connect D28:1 D27:1
+(points 2 919 -40 965 -40)))
+(stackingOrder 1 2 3 12 14 13 16 11 5 6 15 0 19 20 8 4 22 21 17 18 24 23 25 26 7
+28 29 9 10 27))))
+(context 1
+(properties
+(name "setupPowerSupply")
+(trigMode deg)
+(nextID 7)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The following procedures are executed here:\\par\r\n1. Reset the Power Supply \\par\r\n2. Read the Identification String\\par\r\n3. Set the Voltage, Current, Over Voltage Protection,\\par\r\n     and the Over Current Protection  \\par\r\n4. Enable the Output for Channel 1\\par\r\n}\r\n"
+)))
+(device 1 IODEVICE
+(properties
+(name "pwrSupply ( @TCPIP0::141.121.206.70::inst0::INSTR)")
+(transactions 3 "WRITE TEXT \"*RST\" EOL" "WRITE TEXT \"*IDN?\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "pwrSupply")))
+(device 2 TEXTDISPLAY
+(properties
+(name "Instrument ID"))
+(interface
+(input 1
+(name "Data"))))
+(device 4 IODEVICE
+(properties
+(name "pwrSupply ( @TCPIP0::141.121.206.70::inst0::INSTR)")
+(transactions 5 "WRITE TEXT \"VOLTAGE \", VoltSetting, \",(@1)\" EOL"
+"WRITE TEXT \"CURRENT\", CurrSetting, \",(@1)\" EOL"
+"WRITE TEXT \"VOLTAGE:PROTECTION\", overVoltSetting, \",(@1)\" EOL"
+"WRITE TEXT \"CURRENT:PROTECTION\", overCurrOn, \",(@1)\" EOL"
+"WRITE TEXT \"OUTPUT \", A, \", (@1)\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(ioDevType 18)
+(iopath "pwrSupply")))
+(device 5 TEXTDISPLAY
+(properties
+(name "Error Message"))
+(interface
+(input 1
+(name "Data"))))
+(device 6 CONSTANT
+(properties
+(name "Enable Output"))
+(interface
+(output 1
+(name "UInt8")
+(lock name constraints)))
+(implementation
+(value UInt8
+(data  1))
+(initValue UInt8
+(data  0))))
+(configuration
+(connect D1:1 D2:1)
+(connect D1:0 D3:0)
+(connect D5:1 D3:1)
+(connect D3:1 D4:1)))
+(contextCarrier
+(wndOrigin 162 630)
+(wndRestoredOrigin 17 41)
+(wndRestoredExtent 915 482)
+(wndState min)
+(active detail)
+(detail
+(extent 960 633)
+(anchorPt -422 217)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 384 156)
+(editing enabled))
+(pinCenter 690 -80))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 304 74))
+(terminals on)
+(pinCenter 680 120))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 404 76))
+(pinCenter 1170 150))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 354 86))
+(terminals on)
+(pinCenter 695 270))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 89 0))
+(open
+(extent 354 46))
+(pinCenter 1150 270))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 121 29)
+(showFormat int))
+(pinCenter 370 270))
+(connect D1:1 D2:1
+(points 4 864 120 880 120 880 150 965 150))
+(connect D1:0 D3:0
+(points 4 680 159 680 180 700 180 700 206))
+(connect D5:1 D3:1
+(points 2 433 270 485 270))
+(connect D3:1 D4:1
+(points 2 914 270 970 270)))
+(stackingOrder 2 0 1 4 5 3)))))
+(device 21 CALL
+(properties
+(name "Call initializeVariables")
+(callFunc "initializeVariables")
+(parmMode rev30)))
+(device 24 CALL
+(properties
+(name "Call setupPowerSupply")
+(callFunc "setupPowerSupply")
+(parmMode rev30)))
+(device 30 CALL
+(properties
+(name "Call ReadOutput")
+(callFunc "ReadOutput")
+(parmMode rev30)))
+(device 32 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.1\\par\r\n   as a minimum.\\par\r\n  \\par\r\nNote that this example is using a LAN interface. The instrument is at the LAN address TCPIP0::156.140.151.153::inst0::INSTR.\\par\r\n}\r\n"
+)))
+(device 33 NOTE
+(properties
+(name "Direct IO Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\fs20 The purpose of this sample is to show how to use VEE and the Direct IO to facility in VEE Pro to set the outputs and retrieve data from a N5700B modular power supply. The program will set the output voltage, output current limit, and output state of the module. The actual output voltage and current will be read back.\\par\r\n\\par\r\nPlease press the Run b in the VEE menu from the Panel or the Detail view to start this sample. And to stop it, if it is not already done, just press the Stop Program button onthe popup panel or the VEE menu toolbar.\\par\r\n\\par\r\nNote that you can double click on the \"Note Pad\" objects in the Detail view to see help in the various steps in the program.\\par\r\n\\par\r\n\\cf0\\b\\f1\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 84 -91)
+(configuration
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 390))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 140 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 460))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 100 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 540))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 370 290))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 221 54)
+(iconImage "notepad.icn"))
+(open
+(extent 694 236)
+(editing enabled))
+(pinCenter 160 290))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 630 280))
+(connect D0:0 D1:0
+(points 2 390 400 390 450))
+(connect D1:0 D2:0
+(points 2 390 470 390 530)))
+(stackingOrder 5 3 0 1 2 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,209 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:12:14 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 37)
+(popupTitleText "Changing Values in an Array 1D")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 15 FORCOUNT
+(properties
+(count 5))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 13 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "10")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 17 NOTE
+(properties
+(name "Information")
+(text2 20 "This example shows how to use the assignment operator"
+"to change several values in a one-dimensional array." ""
+"1. Alloc Real allocates a 1-dimension, ten-element array."
+"2. The array of zeros is input to the JCT (Junction)"
+"   object and propagates to the assignment operator."
+"   The assignment operator is set up with pin A to get the"
+"   array, pin B gets the array index, and pin C gets the" "   new value."
+"3. The For Count repeats 5 times (0-4).  Each count sets"
+"   the array index and generates a new value."
+"4. When the assignment operator receives all three inputs,"
+"   it outputs an array to the display and JCT with the"
+"   current index on pin B set to the value on pin C."
+"5. The JCT pin A receives the new array, passing it"
+"   on to the assignment operator.  The cycle repeats"
+"   with an incremented index from For Count, and new"
+"   value from Random Number."
+"6. The program ends when For Count finishes, and final"
+"   values propagate to the display.")))
+(device 18 FORMULA
+(properties
+(name "A[B] = C")
+(expr 1 "A[B] = C"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "A")
+(optional yes))))
+(device 20 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 25 FORMULA
+(properties
+(name "Random Number")
+(expr 1 "random(0, 1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 36 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D6:1 D3:1)
+(connect D0:1 D3:2)
+(connect D5:1 D3:3)
+(connect D3:1 D4:1)
+(connect D0:1 D5:0)
+(connect D3:1 D6:1)
+(connect D1:1 D6:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 805 558)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 111 30))
+(pinCenter -630 -60))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 175 118))
+(terminals on)
+(pinCenter -565 -170))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 576 230)
+(editing disabled))
+(title off)
+(pinCenter -490 -420))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 57 34))
+(open
+(extent 86 82))
+(terminals on)
+(pinCenter -240 -160))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 150 261))
+(pinCenter -40 -90))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 116 16))
+(open
+(extent 107 44))
+(terminals on)
+(pinCenter -450 -30))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 29 25))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter -380 -200))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -20 -410))
+(connect D6:1 D3:1
+(points 4 -363 -200 -340 -200 -340 -180 -316 -180))
+(connect D0:1 D3:2
+(points 4 -572 -60 -410 -60 -410 -160 -316 -160))
+(connect D5:1 D3:3
+(points 4 -390 -30 -370 -30 -370 -140 -316 -140))
+(connect D3:1 D4:1
+(points 4 -165 -160 -140 -160 -140 -90 -118 -90))
+(connect D0:1 D5:0
+(points 3 -572 -60 -450 -60 -450 -41))
+(connect D3:1 D6:1
+(points 6 -165 -160 -140 -160 -140 -240 -410 -240 -410 -210 -397 -210))
+(connect D1:1 D6:2
+(points 4 -435 -170 -420 -170 -420 -190 -397 -190)))
+(stackingOrder 1 4 5 0 3 6 2 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

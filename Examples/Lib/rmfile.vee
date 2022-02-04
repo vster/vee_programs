@@ -1,0 +1,637 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 22:12:10 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.7 M.7.4 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 21)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 5 LITERALCONSTANT
+(properties
+(name "Pathname of file to create, then remove")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "/tmp/12345678.tmp"))
+(initValue Text
+(data  ""))))
+(device 6 TOFILE
+(properties
+(name "To File (create new file)")
+(variableScope cont)
+(transactions 2 "WRITE TEXT \"test\" EOL" "EXECUTE CLOSE"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/12345678.tmp"
+(readTerm "\n")
+(fs "\n")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 CONTEXT
+(properties
+(name "Press For")
+(description2 10 "This User Object is the outermost \"context\""
+"for the InfoAbout help device.  Within this"
+"device is the pop-up panel containing the info"
+"Notepad.  If all you can see is a device with"
+"\"Press For\", you should double-click the left"
+"mouse button on the Press For to restore the"
+"Panel View of the device.  To see how this device"
+"operates, click on the Info About button first,"
+"then press the Detail button in the \"Press For\"" "title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 6))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 PURPOSE:     To demonstrate the use of the File->Merge rmFile Object.\\par\r\n\\par\r\nUSER INPUT REQUIRED:  Press Run, see that file is created, then click to\\par\r\n                                                       delete the file.\\par\r\n\\par\r\nEXPLANATION: The rmFile library object will allow you to remove a file\\par\r\n                                  from inside of VEE. This examples creates a file and then\\par\r\n             \\fs20                      \\fs20 removes it.  To make sure that an existing file is not\\par\r\n             \\fs20                      \\fs20 accidentally removed, the example first tries to REWIND\\par\r\n             \\fs20                      \\fs20 the specified file.  If this errors with \"file not found\"\\par\r\n             \\fs20                      \\fs20 Error 700 is generated, and the example continues.  If\\par\r\n             \\fs20                      \\fs20 the file was found, an Error is raised asking the user to\\par\r\n             \\fs20                      \\fs20 enter a different filename.\\par\r\n\\par\r\n             \\fs20                      \\fs20 A ToFile object is used to create the requested file,\\par\r\n             \\fs20                      \\fs20 write \"test\" into it, and close the file.  At this point,\\par\r\n             \\fs20                      \\fs20 you can use another window to verify that the file was\\par\r\n             \\fs20                      \\fs20 created.  Click on the \"Click to delete file\" button and\\par\r\n            \\fs20                      \\fs20  the \"Delete File\" will remove the file. (The Delete file\\par\r\n             \\fs20                      \\fs20 is actually a FromFile with an EXECUTE DELETE transaction.\\par\r\n\\par\r\n             \\fs20                      \\fs20 The Show Description selection in the Delete File has more\\par\r\n             \\fs20                      \\fs20 information about it\'s use.\\par\r\n}\r\n"
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 100 213)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active panel)
+(panel
+(extent 759 516)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 760 460)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 330 470)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 244 255)
+(anchorPt 80 46)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 0 1))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 260 78)
+(gridSize 4)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 67 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 516 270)
+(anchorPt 123 74)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 855 523)
+(carbonCopy))
+(pinCenter 220 60))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(connect D1:0 D0:1
+(points 5 220 75 220 100 -80 100 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 155 -10 220 -10 220 45))
+(connect D0:1 D2:1
+(points 2 59 0 104 0)))
+(stackingOrder 0 2 1))))
+(device 9 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+)))
+(device 11 FROMFILE
+(properties
+(name "From File (see if file exists)")
+(variableScope cont)
+(transactions 1 "EXECUTE REWIND"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/12345678.tmp"
+(readTerm "\n")
+(fs "\n")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 13 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "File /tmp/12345678.tmp already exists, select an unused filename."))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(device 14 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "a==700"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 15 FORMULA
+(properties
+(name "Make Error Message")
+(variableScope cont)
+(expr 1 "\"File \"+a+\" already exists, select an unused filename.\""))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FROMFILE
+(properties
+(name "Delete File")
+(description2 17 "Both the From File and To FIle objects can"
+"be used to delete a file.  This \"Delete File\""
+"is a FromFile with it\'s Transaction set to" "\"Execute\" \"Delete\"." ""
+"The file to be deleted can be entered by"
+"clicking on the From File: button bar, and" "selecting the file to be deleted."
+"" "Alternatively, you can add a Control input to"
+"specify the filename to be deleted.  Make sure"
+"that the object supplying the filename is run"
+"before the Delete FIle object.  (Hint: you can"
+"accomplish this by connecting the Sequence"
+"Out of the filename source to the Sequence" "In of the Delete File.)" " ")
+(variableScope cont)
+(transactions 1 "EXECUTE DELETE"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/12345678.tmp"
+(readTerm "\n")
+(fs "\n")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 17 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 19 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Press RUN, verify the file was created and then click the \"Press to Delete File\" to delete the file.  Additional help is in the InfoAbout object.\\par\r\nIf there is VEE Run Time Error with message \"File \'\\\\tmp\\\\12345678.tmp\' was not found\", please create a folder named \'tmp\' at your program root drive, e.g. \"C:\\\\tmp\". \\par\r\n}\r\n"
+)))
+(device 20 CONTEXT
+(properties
+(name "Pop up File Delete Message")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "Press to Delete File")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 The specified file has\\par\r\nbeen created.  You may\\par\r\nwant to look in the /tmp\\par\r\ndir to verify this.\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 341 32)))
+(contextCarrier
+(active panel)
+(panel
+(extent 309 176)
+(gridSize 4)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 64 120)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 170 47))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 310 110)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 350 300)
+(anchorPt 175 190)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 166 43))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 266 112)
+(editing disabled))
+(title off)
+(pinCenter 0 -110)))
+(stackingOrder 0 1))))
+(configuration
+(connect D6:1 D1:0)
+(connect D0:1 D1:1)
+(connect D0:0 D4:0)
+(connect D0:1 D4:1)
+(connect D4:0 D5:0)
+(connect D7:1 D5:1)
+(connect D4:1 D6:1)
+(connect D0:1 D7:1)
+(connect D11:0 D8:0)
+(connect D0:1 D8:1)
+(connect D8:0 D9:0)
+(connect D1:0 D11:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 811 614)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt 319 271)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon
+(extent 223 0))
+(open
+(extent 352 31))
+(pinCenter -90 -20))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 184 31))
+(open
+(extent 311 119))
+(terminals on)
+(pinCenter 420 100))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 260 78)
+(carbonCopy))
+(pinCenter -140 -120))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -110 -210))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 157 25))
+(open
+(extent 286 84))
+(terminals on)
+(pinCenter -75 70))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 79 16))
+(open
+(extent 255 60))
+(pinCenter 20 250))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 68 69))
+(terminals on)
+(pinCenter 225 70))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 164 25))
+(open
+(extent 430 60))
+(terminals on)
+(pinCenter -220 250))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 288 87))
+(terminals on)
+(pinCenter 390 260))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 48 31))
+(open
+(extent 99 28))
+(pinCenter 370 350))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 374 126)
+(editing disabled))
+(pinCenter 260 -150))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 216 31))
+(open
+(extent 350 293)
+(carbonCopy))
+(terminals on)
+(pinCenter 420 150))
+(connect D6:1 D1:0
+(points 3 301 50 420 50 420 82))
+(connect D0:1 D1:1
+(points 4 88 -20 320 -20 320 100 325 100))
+(connect D0:0 D4:0
+(points 2 -90 -2 -90 7))
+(connect D0:1 D4:1
+(points 6 88 -20 140 -20 140 140 -310 140 -310 70 -291 70))
+(connect D4:0 D5:0
+(points 4 -90 114 -90 130 20 130 20 199))
+(connect D7:1 D5:1
+(points 2 -136 250 -110 250))
+(connect D4:1 D6:1
+(points 2 110 70 158 70))
+(connect D0:1 D7:1
+(points 6 88 -20 140 -20 140 140 -310 140 -310 250 -305 250))
+(connect D11:0 D8:0
+(points 4 420 168 420 180 370 180 370 196))
+(connect D0:1 D8:1
+(points 6 88 -20 140 -20 140 130 160 130 160 260 173 260))
+(connect D8:0 D9:0
+(points 2 370 306 370 332))
+(connect D1:0 D11:0
+(points 2 420 118 420 132)))
+(stackingOrder 4 6 1 11 5 8 9 7 0 2 10 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

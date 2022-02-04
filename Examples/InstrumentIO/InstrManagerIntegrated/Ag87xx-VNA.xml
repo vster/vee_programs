@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag87xx-VNA.vee">
+		<Description>Setup multiple traces in a VNA, sweep, download and display data</Description>
+		<LogicalInstrument name="VNA">
+			<SupportedInstruments>
+				<Instrument idn="ag8752"/>
+				<Instrument idn="ag8753D"/>
+				<Instrument idn="ag8753E"/>
+				<Instrument idn="ag8753ES"/>
+				<Instrument idn="ag8753ET"/>
+				<Instrument idn="ag8719D"/>
+				<Instrument idn="ag8719ES"/>
+				<Instrument idn="ag8719ET"/>
+				<Instrument idn="ag8720D"/>
+				<Instrument idn="ag8720ES"/>
+				<Instrument idn="ag8720ET"/>
+				<Instrument idn="ag8722D"/>
+				<Instrument idn="ag8722ES"/>
+				<Instrument idn="ag8722ET"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

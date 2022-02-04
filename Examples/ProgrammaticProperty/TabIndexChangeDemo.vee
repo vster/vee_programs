@@ -1,0 +1,551 @@
+(saveFormat "7.0")
+(date "Fri 15/Dec/2006 16:08:01 ")
+(veerev "8.0.9614.1 Beta3 - Hemi")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "This host")
+(channel 0)
+(subchannel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 31)
+(popupTitleText "Tab Index Change Demo")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 3 NOTE
+(properties
+(variableName notepad1)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 1\\par\r\n}\r\n"
+)))
+(device 4 NOTE
+(properties
+(variableName notepad2)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 2\\par\r\n}\r\n"
+)))
+(device 5 NOTE
+(properties
+(variableName notepad3)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 3\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(variableName notepad4)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 4\\par\r\n}\r\n"
+)))
+(device 7 NOTE
+(properties
+(variableName notepad5)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 5\\par\r\n}\r\n"
+)))
+(device 8 NOTE
+(properties
+(variableName notepad6)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 6\\par\r\n}\r\n"
+)))
+(device 9 NOTE
+(properties
+(variableName notepad7)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 7\\par\r\n}\r\n"
+)))
+(device 10 NOTE
+(properties
+(variableName notepad8)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 8\\par\r\n}\r\n"
+)))
+(device 11 NOTE
+(properties
+(variableName notepad9)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 9\\par\r\n}\r\n"
+)))
+(device 12 NOTE
+(properties
+(variableName notepad10)
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 10\\par\r\n}\r\n"
+)))
+(device 13 CONFIRM25
+(properties
+(name "F8:OK")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey F8)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 14 CONFIRM25
+(properties
+(name "Change Tab Index")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 15 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 16 FORMULA
+(properties
+(name "Build variable name")
+(variableScope cont)
+(expr 2 "temp=a+1;" "\"notepad\"+temp;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "temp")
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "variableName")
+(variableScope cont)
+(expr 1 "notepad10"))
+(interface
+(input 1
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 FORMULA
+(properties
+(name "change tab index")
+(variableScope cont)
+(expr 1 "object.tabindex = index;"))
+(interface
+(input 1
+(name "object")
+(optional yes))
+(input 2
+(name "index")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 LABEL
+(properties
+(name "Please press TAB key to see TAB index assigned for notepad controls.")
+(variableName label)
+(variableScope cont)
+(labelValue
+"Please press TAB key to see TAB index assigned for notepad controls."))
+(implementation))
+(device 23 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 28 LABEL
+(properties
+(name "Change the TAB index at runtime")
+(variableScope cont)
+(labelValue "Change the TAB index at runtime"))
+(implementation))
+(device 29 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red128\\green0\\blue0;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\i\\f0\\fs24 Step 1: Press TAB key to see tab index. You will find that the tab index is not consistent with the notepad\'s content.\\par\r\nStep 2: Press \"Change Tab Index\"\\par\r\nStep 3: Press TAB key to see if the tab index is consistent with its content.\\cf2\\i0\\par\r\n}\r\n"
+)))
+(device 30 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D11:1 D12:0)
+(connect D12:1 D13:1)
+(connect D13:0 D14:0)
+(connect D13:1 D14:1)
+(connect D14:1 D15:1)
+(connect D12:1 D15:2)
+(connect D10:1 D17:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(panel
+(extent 410 409)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 90 90)
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 7 detail
+(relativeOrigin 170 170)
+(PID 2)
+(title off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 8 detail
+(relativeOrigin 250 170)
+(PID 3)
+(title off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 3 detail
+(relativeOrigin 250 90)
+(PID 4)
+(title off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 5 detail
+(relativeOrigin 10 170)
+(PID 5)
+(title off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 0 detail
+(relativeOrigin 10 90)
+(PID 6)
+(title off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 6 detail
+(relativeOrigin 90 170)
+(PID 7)
+(title off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 2 detail
+(relativeOrigin 170 90)
+(PID 8)
+(title off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 4 detail
+(relativeOrigin 330 90)
+(PID 9)
+(title off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 9 detail
+(relativeOrigin 330 170)
+(PID 10)
+(title off)
+(tabIndex 9)
+(borderStyle flat)
+(extent 66 66)
+(editing enabled))
+(widget 10 detail
+(relativeOrigin 350 370)
+(PID 11)
+(title off)
+(tabStop off)
+(tabIndex 10)
+(borderStyle none)
+(extent 49 32))
+(widget 11 detail
+(relativeOrigin 10 370)
+(PID 12)
+(title off)
+(tabStop off)
+(tabIndex 11)
+(borderStyle none)
+(extent 124 34))
+(widget 18 detail
+(relativeOrigin 3 13)
+(bg "Orange")
+(fg "Window")
+(font "Arial" 18)
+(PID 16)
+(title off)
+(tabStop off)
+(tabIndex 13)
+(borderStyle convex)
+(extent 396 46)
+(just c))
+(widget 19 detail
+(relativeOrigin 10 250)
+(PID 17)
+(title off)
+(tabIndex 14)
+(borderStyle flat)
+(extent 386 106)
+(editing disabled)))
+(detail
+(extent 705 609)
+(anchorPt -96 -39)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 150 180))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 230 180))
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 310 180))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 390 180))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 470 180))
+(devCarrierFor 8
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 150 280))
+(devCarrierFor 9
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 230 280))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 310 280))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 390 280))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 64 56)
+(editing enabled))
+(pinCenter 470 280))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 38 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 180 510))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 124 24))
+(title off)
+(pinCenter 180 350))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 300 410))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 119 25))
+(open
+(extent 145 65))
+(terminals on)
+(pinCenter 440 410))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 84 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 620 400))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 102 25))
+(open
+(extent 184 56))
+(terminals on)
+(pinCenter 630 470))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 422 0))
+(open
+(extent 396 27)
+(just l))
+(title off)
+(pinCenter 310 110))
+(devCarrierFor 23
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 250 570))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 196 0))
+(open
+(extent 384 34)
+(just l))
+(title off)
+(pinCenter 300 70))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 414 100)
+(editing enabled))
+(pinCenter 560 190))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 700 80))
+(connect D11:1 D12:0
+(points 3 244 350 300 350 300 374))
+(connect D12:1 D13:1
+(points 2 350 410 378 410))
+(connect D13:0 D14:0
+(points 6 440 425 440 450 520 450 520 370 620 370 620 385))
+(connect D13:1 D14:1
+(points 2 502 400 575 400))
+(connect D14:1 D15:1
+(points 6 664 400 680 400 680 440 570 440 570 460 576 460))
+(connect D12:1 D15:2
+(points 4 350 410 370 410 370 480 576 480))
+(connect D10:1 D17:0
+(points 3 206 510 250 510 250 534)))
+(stackingOrder 2 1 3 4 5 6 7 8 9 11 12 0 13 14 15 10 17 16 19 18 20))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

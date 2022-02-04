@@ -1,0 +1,184 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:19:13 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "DIALOG.VEE")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 INPUTDLG
+(properties
+(position 132 253)
+(prompt "Enter Text:")
+(initialValue "")
+(valueConstraint "strLen(value)>0")
+(vErrorMessage "You must enter text."))
+(interface
+(output 1
+(name "Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "text")))
+(device 1 MESSAGEBOX
+(properties
+(position 313 278)
+(message "STOP!!!")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")
+(messageBGColor "Gray")
+(messageTextColor "Warning Red")
+(messageTextFont "Arial" 36 bold)))
+(device 2 DLISTBOX
+(properties
+(multipleSelection 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints))
+(output 2
+(name "Indices")
+(lock name constraints))
+(output 3
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(itemList
+(numDims 1)
+(size 3)
+(data  [ "Item 1" "Item 2" "Item 3" ]))
+(defaultValue "Item 1")))
+(device 3 FILESELECT
+(properties
+(name "Filename Selection")
+(prompt "Enter Filename:")
+(initialDirectory "C:\\VEE_USER")
+(initialFile "*.*")
+(dialogMode Reading))
+(interface
+(output 1
+(name "Filename")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 4 NOTE
+(properties
+(text2 2 "Click Run to demonstrate" "different pop-up dialog boxes.")))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D2:0 D3:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 678 418)
+(gridSize 2)
+(widget 4 detail
+(relativeOrigin 28 16)
+(font "Courier New" 18 bold)
+(title off)
+(borderStyle flat)
+(extent 358 60)
+(editing disabled))
+(panelBg "Cyan"))
+(detail
+(extent 613 658)
+(anchorPt 431 170)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 75 25))
+(open
+(extent 310 127))
+(terminals on)
+(pinCenter -10 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 256 149))
+(terminals on)
+(pinCenter -10 170))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 212 92))
+(terminals on)
+(pinCenter -15 330))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 298 121))
+(terminals on)
+(pinCenter -20 480))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 69 52)
+(iconImage "notepad.icn"))
+(open
+(extent 255 57)
+(editing enabled))
+(pinCenter -330 -130))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter -80 -120))
+(connect D0:0 D1:0
+(points 2 0 66 0 75))
+(connect D1:0 D2:0
+(points 2 0 247 0 263))
+(connect D2:0 D3:0
+(points 2 0 378 0 399)))
+(stackingOrder 0 2 3 1 5 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

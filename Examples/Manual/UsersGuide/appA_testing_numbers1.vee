@@ -1,0 +1,156 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:11:11 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 6)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SLIDER
+(properties
+(name "Int32 Slider")
+(range 0 100)
+(detents 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  20))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(cases 1 "(A>=50)*A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 MESSAGEBOX
+(properties
+(position 182 291)
+(message "Please enter a number between 50 and 100")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D1:2 D4:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 104 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 90 160))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 285 160))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 460 150))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 260 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 81 25))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 460 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 220 340))
+(connect D0:1 D1:1
+(points 2 144 160 193 160))
+(connect D1:1 D2:1
+(points 2 387 150 442 150))
+(connect D0:1 D3:1
+(points 4 144 160 170 160 170 80 197 80))
+(connect D1:2 D4:0
+(points 5 387 170 410 170 410 180 460 180 460 195)))
+(stackingOrder 0 3 1 2 4 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

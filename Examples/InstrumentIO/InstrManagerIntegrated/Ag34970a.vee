@@ -1,0 +1,2229 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:03:18 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "DataAcquisition"
+(type GPIB)
+(gateway "169.254.58.10")
+(channel 7)
+(subchannel 9)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "hp34970a")
+(ppAddr "GPIB0::9::INSTR")
+(eoiEnabled 1)
+(model "hp34970a"
+(standard 488))))
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Window" bwGrayScale 10)
+(Property "Workspace" "AppWorkspace")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Info" bwGrayScale 0)
+(Property "Tool Tip Text" "InfoText" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "ActiveCaption" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "ActiveCaptionText" bwGrayScale 0)
+(Property "Dialog Box" "Control")
+(Property "Dialog Box Text" "ControlText")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Edit Field" "Window")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Highlight")
+(Property "Highlighted Edit Field Text" "HighlightText")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 116)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Programming sample goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The purpose of this sample is to show how to use VEE Pro to configure and retrieve data from a 34970A. To start the program press the \"Start\" button on the VEE Pro toolbar . Once started, the program will query the 34970A for identification, date, time and module configuration. If a DMM and slot 1 multiplexer module are both found, the program will go on to measure and plot results.The \"Select Function\" box can be used to select the type of measurement and the \"Channel #\" box can be used to select the measurement channel. The selected function will be shown on  the 34970A display and on the graph label once the program is started. Measurements will be collected from the DMM and displayed in the graph along with a running average. To save the numerical averaged data from the graph into Excel, select the \"Save Trace Data to Excel\" box. To stop the acquistion press the \"Stop\" button on the VEE Pro toolbar. \\par\r\n}\r\n"
+)))
+(device 22 TEXTDISPLAY
+(properties
+(name "Slot 3"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 TEXTDISPLAY
+(properties
+(name "Slot 2"))
+(interface
+(input 1
+(name "Data"))))
+(device 25 TEXTDISPLAY
+(properties
+(name "Slot 1"))
+(interface
+(input 1
+(name "Data"))))
+(device 26 TEXTDISPLAY
+(properties
+(name "Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 27 TEXTDISPLAY
+(properties
+(name "Date"))
+(interface
+(input 1
+(name "Data"))))
+(device 29 TEXTDISPLAY
+(properties
+(name "DMM & Mux ?"))
+(interface
+(input 1
+(name "Data"))))
+(device 30 TEXTDISPLAY
+(properties
+(name "Ident 34970A"))
+(interface
+(input 1
+(name "Data"))))
+(device 32 CONTEXT
+(properties
+(name "34970A_Mainframe_Identification")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Ident")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "m_Date")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "m_Hour")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "DataAcquisition (hp34970a @ 709 on 169.254.58.10)")
+(transactions 10 "WRITE TEXT \"*CLS\" EOL" "WRITE TEXT \"*RST\" EOL"
+"WRITE TEXT \"*IDN?\" EOL" "READ TEXT Ident STR"
+"WRITE TEXT \"INST:DMM:INST?\" EOL" "READ TEXT Voltmeter STR"
+"WRITE TEXT \"SYST:DATE?\" EOL" "READ TEXT m_Date STR"
+"WRITE TEXT \"SYST:TIME?\" EOL" "READ TEXT m_Hour STR"))
+(interface
+(output 1
+(name "Ident")
+(optional yes))
+(output 2
+(name "Voltmeter")
+(optional yes))
+(output 3
+(name "m_Date")
+(optional yes))
+(output 4
+(name "m_Hour")
+(optional yes)))
+(implementation
+(iopath "DataAcquisition")))
+(device 1 FORMULA
+(properties
+(name "Build Message String")
+(expr 1 "(A==1 ? \"OK Voltmeter\" : \"No Voltmeter\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This instrument direct I/O object resets the 34970A and reads back the ID, DMM status, date and time.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:2 D1:1)
+(connect D0:1 O1:1)
+(connect D1:1 O2:1)
+(connect D0:3 O3:1)
+(connect D0:4 O4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 619 302)
+(anchorPt -50 163)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 139 51)
+(iconImage "io.icn"))
+(open
+(extent 244 176))
+(terminals on)
+(pinCenter 280 150))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 334 46))
+(terminals on)
+(pinCenter 570 130))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 254 86)
+(editing enabled))
+(pinCenter 290 -20))
+(connect D0:2 D1:1
+(points 4 474 130 488 130 488 130 503 130))
+(connect D0:1 O1:1
+(points 4 474 90 560 90 560 -123 668 -123))
+(connect D1:1 O2:1
+(points 4 636 130 660 130 660 -53 668 -53))
+(connect D0:3 O3:1
+(points 4 474 170 670 170 670 17 668 17))
+(connect D0:4 O4:1
+(points 4 474 210 490 210 490 87 668 87)))
+(stackingOrder 1 2 0))))
+(device 33 CONTEXT
+(properties
+(name "34970A_Card_Identification")
+(trigMode deg)
+(nextID 12)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "DataAcquisition (hp34970a @ 709 on 169.254.58.10)")
+(transactions 6 "WRITE TEXT \"SYST:CTYPE? 100\" EOL" "READ TEXT Slot_1 STR"
+"WRITE TEXT \"SYST:CTYPE? 200\" EOL" "READ TEXT Slot_2 STR"
+"WRITE TEXT \"SYST:CTYPE? 300\" EOL" "READ TEXT Slot_3 STR"))
+(interface
+(output 1
+(name "Slot_1")
+(optional yes))
+(output 2
+(name "Slot_2")
+(optional yes))
+(output 3
+(name "Slot_3")
+(optional yes)))
+(implementation
+(iopath "DataAcquisition")))
+(device 1 FORMULA
+(properties
+(name "Card Id")
+(expr 1
+"\"Slot 1  \"+(strFromLen(A,strPosChar(A,\",\")+1,1) == \"0\" ? \"No recognised board\" : A)"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "Card Id")
+(expr 1
+"\"Slot 2  \"+(strFromLen(A,strPosChar(A,\",\")+1,1) == \"0\" ? \"No recognised board\" : A)"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "Card Id")
+(expr 1
+"\"Slot 3  \"+(strFromLen(A,strPosChar(A,\",\")+1,1) == \"0\" ? \"No recognised board\" : A)"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This instrument direct I/O object queries the 34970A for the module type located in each of the 3 slots.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)
+(connect D0:3 D3:1)
+(connect D1:1 O1:1)
+(connect D2:1 O2:1)
+(connect D3:1 O3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 330 300)
+(anchorPt 85 137)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 139 85)
+(iconImage "io.icn"))
+(open
+(extent 254 146))
+(terminals on)
+(pinCenter 180 210))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 395 50))
+(terminals on)
+(pinCenter 420 160))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 434 56))
+(terminals on)
+(pinCenter 420 210))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 434 56))
+(terminals on)
+(pinCenter 420 260))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 254 76)
+(editing enabled))
+(pinCenter 190 50))
+(connect D0:1 D1:1
+(points 4 359 160 280 160 280 160 395 160))
+(connect D0:2 D2:1
+(points 4 359 210 328 210 328 210 395 210))
+(connect D0:3 D3:1
+(points 4 359 260 280 260 280 260 395 260))
+(connect D1:1 O1:1
+(points 4 444 160 460 160 460 -88 244 -88))
+(connect D2:1 O2:1
+(points 4 444 210 460 210 460 12 244 12))
+(connect D3:1 O3:1
+(points 4 444 260 460 260 460 112 244 112)))
+(stackingOrder 1 2 3 4 0))))
+(device 8 NOTE
+(properties
+(name "Comments")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Reset instrument to factory defaults and indentification of the mainframe. Read date and time.\\par\r\n\\par\r\nIdentification of the \"installed\" card into the 3 slots of the mainframe.\\par\r\n\\par\r\nCheck for both DMM & slot1 Mux. 34970A can not measure without a mux installed.\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\nSelect a function and make coutinous acquisition.\\par\r\n}\r\n"
+)))
+(device 74 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 81 YPLOT
+(properties
+(name "\"VOLTage:DC Meas\""))
+(interface
+(input 1
+(name "RawData")
+(lock constraints))
+(input 2
+(name "Avgv Data")
+(lock constraints)
+(optional yes))
+(input 3
+(type control)
+(name "Title")
+(tag "Title")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 4
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 82 ENUMCONSTANT
+(properties
+(name "Select Function"))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("VOLTage:DC" 0)
+("VOLTage:AC" 1)
+("CURRent:DC" 2)
+("CURRent:AC" 3)
+("FRESistance" 4)
+("RESistance" 5)
+("FREQuency" 6)
+("TEMPerature" 7))
+(data  "VOLTage:DC"))
+(initValue Text
+(data  "VOLTage:DC"))))
+(device 83 CONTEXT
+(properties
+(name "34970A_Data_Acquisition")
+(trigMode deg)
+(nextID 8)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "function")
+(optional yes))
+(input 2
+(name "channel")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "x")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\""))
+(initValue Text
+(data  ""))))
+(device 1 FORMULA
+(properties
+(expr 1 "A+B+\" Meas\"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IODEVICE
+(properties
+(name "DataAcquisition (hp34970a @ 709 on 169.254.58.10)")
+(transactions 2 "WRITE TEXT \"DISPLAY ON\" EOL"
+"WRITE TEXT \"DISPLAY:TEXT \"+A EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(iopath "DataAcquisition")))
+(device 4 IODEVICE
+(properties
+(name "DataAcquisition (hp34970a @ 709 on 169.254.58.10)")
+(transactions 2 "WRITE TEXT \"MEAS:\", A, \"? (@\", B, \")\" EOL"
+"READ TEXT x REAL64"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "DataAcquisition")))
+(device 6 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 A formula object is used to build the message string describing the type of measurement selected. This message string is sent to the 34970A display in the first direct I/O object. The second direct I/O object programs the measurement type, queries for a reading and then reads the data.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)
+(connect D1:1 D2:1)
+(connect D2:0 D3:0)
+(connect I1:1 D3:1)
+(connect I2:1 D3:2)
+(connect D1:1 O1:1)
+(connect D3:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 599 533)
+(anchorPt -56 218)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 26 15))
+(open
+(extent 64 26))
+(pinCenter 150 70))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 50 34))
+(open
+(extent 104 50))
+(terminals on)
+(pinCenter 300 80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 139 51)
+(iconImage "io.icn"))
+(open
+(extent 234 66))
+(terminals on)
+(pinCenter 590 80))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 139 0)
+(iconImage "io.icn"))
+(open
+(extent 254 66))
+(terminals on)
+(pinCenter 590 220))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 126)
+(editing enabled))
+(pinCenter 510 -100))
+(connect D0:1 D1:1
+(points 2 184 70 215 70))
+(connect I1:1 D1:2
+(points 6 56 -92 120 -92 120 10 200 10 200 90 215 90))
+(connect D1:1 D2:1
+(points 2 404 80 440 80))
+(connect D2:0 D3:0
+(points 2 590 115 590 166))
+(connect I1:1 D3:1
+(points 4 56 -92 120 -92 120 200 430 200))
+(connect I2:1 D3:2
+(points 4 56 188 10 188 10 240 430 240))
+(connect D1:1 O1:1
+(points 6 404 80 420 80 420 10 740 10 740 -92 654 -92))
+(connect D3:1 O2:1
+(points 4 749 220 770 220 770 188 654 188)))
+(stackingOrder 4 3 1 0 2))))
+(device 84 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 91 CONTEXT
+(properties
+(name "Analysis")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(requires
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 SLIDINGWINDOW
+(properties
+(vecSize 10)
+(triggerSize 1)
+(clearAtActivate 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 1 FORMULA
+(properties
+(name "mean(A)")
+(expr 1 "mean(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 A running 10 element average is computed using VEE\'s sliding collector object along with mean() math function. The sliding collector acts like a FIFO, outputing a 10 element array each time a new data item is added.\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 312 143)
+(anchorPt 142 231)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 99 15))
+(open
+(extent 139 55))
+(terminals on)
+(pinCenter 130 100))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 51 15))
+(open
+(extent 84 50))
+(terminals on)
+(pinCenter 350 100))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 96)
+(editing enabled))
+(pinCenter 230 -30))
+(connect I1:1 D0:1
+(points 4 -142 -160 -100 -160 -100 100 18 100))
+(connect D0:1 D1:1
+(points 2 242 100 275 100))
+(connect D1:1 O1:1
+(points 4 444 100 460 100 460 -160 169 -160)))
+(stackingOrder 0 1 2))))
+(device 94 CONSTANT
+(properties
+(name "Channel #"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  101))
+(initValue Int32
+(data  0))))
+(device 95 IFTHENELSE
+(properties
+(name "DMM & Multiplexer ?")
+(cases 1
+"(strPosStr(A, \"34901A\")<0 AND strPosStr(A, \"34902A\")<0 AND strPosStr(A, \"34908A\")<0) OR B!=\"OK Voltmeter\""
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 99 LITERALCONSTANT
+(properties
+(name "Found"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "DMM & MUX Found"))
+(initValue Text
+(data  ""))))
+(device 100 LITERALCONSTANT
+(properties
+(name "Not Found"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "DMM or MUX  Not Found"))
+(initValue Text
+(data  ""))))
+(device 101 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 105 NOTE
+(properties
+(name "UserObject input data information")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 \'Data\' Input:  Expects a one-dimensional array.  Data can be any type except the following:\\par\r\n Record (Use Excel menu Send Data -> Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\nExamples are in Help->Examples->ExcelLibrary\\par\r\n\\par\r\n\'Cells\' Input:  Expects a Text value with a starting cell, eg A2, or a range of cells, eg A2:A21, of where to put the data.  Only the starting cell is used.\\par\r\n\\par\r\nNote: to Send your Data in a Loop, first Unpack the UserObject.  Do not connect this UserObject in a loop - you probably do not want to start and stop Excel every iteration of your loop.\\par\r\n\\par\r\nOpen the UserObject for more information.\\par\r\n}\r\n"
+"")))
+(device 106 CONTEXT
+(properties
+(name "Create New Workbook, Send Data, Save - Quick Start UserObject")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f2\\fswiss\\fcharset0 Arial;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 \'Data\' Input:  Expects a one-dimensional array.  Data can be any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\nExamples are in Help->Examples->Excel\\par\r\n\\par\r\n\'Cells\' Input:  Expects a Text value with a range of cells (A1:A10).  The range to which data is sent must match the size of the data.\\f1\\fs17\\par\r\n\\f2\\fs20\\par\r\n}\r\n"
+)
+(trigMode deg)
+(nextID 41)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Label")
+(optional yes))
+(input 2
+(name "LabelCells")
+(optional yes))
+(input 3
+(name "AvgData")
+(optional yes))
+(input 4
+(name "DataCells")
+(optional yes)))
+(deviceList
+(device 6 FILESELECT
+(properties
+(name "File Name Selection")
+(prompt "Enter File Name:")
+(initialDirectory "C:\\vee\\current\\Lib\\Excel")
+(initialFile "*.*")
+(dialogMode Writing))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 7 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 Create a new Excel Workbook, Send a 2D array or a 1-D column of data, and save the data to a filename.\\par\r\n\\cf2\\b0\\f1\\fs24 This Quick Start UserObject consists of seven objects from the Excel menu, and the Data->Dialog->FileNameSelection object.\\par\r\nThese objects from the Excel menu have been simply connected together, like a mini Sample program.  \\par\r\n\\par\r\nMost objects created from the Excel menu have a Notepad with a short description, and a context menu pick \"Excel Help\" with more detailed information on how to use that object.\\par\r\n\\par\r\nFeel free to modify this UserObject, and as you become more comfortable with the Excel Library, use the menu objects directly.  For example, the \'Settings\' is what tells Excel to be Visible; you may not always want this.\\par\r\nOr, you may want to remove the FileNameSelection object and pass in the fileName as a data input.\\par\r\n\\par\r\nNote this UserObject does contain a call to both \"Initialize\" and \"Quit\".  If you use more than one QuickStart object in your program, you probably want to move these calls outside the UserObject so Init and Quit are only called once.\\par\r\n}\r\n"
+)))
+(device 16 CALL
+(properties
+(name "Call xlLib.NewWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'NewWorkbook\'")
+(customHelpMenuHelpLink "Excel_Workbooks")
+(callFunc "xlLib.NewWorkbook")
+(parmMode rev30)))
+(device 18 CONTEXT
+(properties
+(name "SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Orientation for arrays:\\par\r\n\\par\r\nSelect Vertical for a 1D array to\\par\r\nappear in a single Worksheet column,\\par\r\nor horizontal for a single row.\\par\r\n\\par\r\nFor 2D arrays, the first dimension \\par\r\nis oriented the same as for a 1D array.\\par\r\n\\par\r\nFor 3D arrays, the orientation on each\\par\r\nsheet for the first 2 dimensions is the\\par\r\nsame as for 2D arrays.\\par\r\n\\par\r\nZlabel is used to label the 2D data table\\par\r\nthat appears on the worksheets for each\\par\r\nof the 3rd dimension elements. The labeled\\par\r\ncell is immediately above the data.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Three-D arrays:\\par\r\n \\par\r\nSelect CreateNewSheets to add a blank sheet\\par\r\nif needed for each element in the third\\par\r\ndimension. Each sheet contains a two-D array.\\par\r\n\\par\r\nCopyStartingSheet is similar, but more powerful.\\par\r\nThis setting will automatically copy the\\par\r\nstarting sheet when creating a new sheet, so\\par\r\nany formatting (including charts) on that sheet\\par\r\nwill appear on all sheets added.\\par\r\n\\par\r\nUseSingleSheet places all data on a single sheet \\par\r\nwith two-D arrays separated by blank rows. \\par\r\n\\par\r\nFor all settings, each time a two-D array is printed,\\par\r\nit is preceeded by a row containing the value of the\\par\r\ncurrent element in the third dimension. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 14 CALL
+(properties
+(name "Call xlLib.SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(callFunc "xlLib.SendDataSettings")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 RECCONST
+(properties
+(name "SendData Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 3)
+(fieldName "Orientation"
+(type Enum)
+(values
+("Vertical" 0)
+("Horizontal" 1)))
+(fieldName "ThreeDArrays"
+(type Enum)
+(values
+("CreateNewSheets" 0)
+("CopyStartingSheet" 1)
+("UseSingleSheet" 2)))
+(fieldName "Zlabel"
+(type Text)))
+(data 
+(record
+("Orientation" "Vertical")
+("ThreeDArrays" "CreateNewSheets")
+("Zlabel" "Z="))))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 966 890)
+(anchorPt -60 -321)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 297)
+(editing enabled))
+(pinCenter 670 580))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 395 347)
+(editing enabled))
+(pinCenter 700 960))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 720))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 113 15))
+(open
+(extent 263 147)
+(formatters))
+(pinCenter 280 560))
+(connect D3:1 D2:1
+(points 6 414 560 430 560 430 660 210 660 210 720 225 720)))
+(stackingOrder 1 3 0 2))))
+(device 22 CONTEXT
+(properties
+(name "SaveWorkBookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "FileName")
+(optional yes)))
+(deviceList
+(device 0 RECCONST
+(properties
+(name "Workbook Type")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 1)
+(fieldName "WorkbookType"
+(type Enum)
+(values
+("Normal" 0)
+("CSV" 1)
+("CSVMSDOS" 2)
+("CSVWindows" 3)
+("Text" 4)
+("TextPrinter" 5)
+("Excel9795" 6)
+("xlHTML" 7))))
+(data 
+(record
+("WorkbookType" "Normal"))))))
+(device 1 CALL
+(properties
+(name "Call xlLib.SaveWorkbookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(callFunc "xlLib.SaveWorkbookAs")
+(parmMode rev30))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(input 2
+(name "SaveAsFormat")
+(optional yes))))
+(device 2 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Caution: If you set xlLibSetting.DisplayAlerts\\par\r\nto False, and the file you are saving to\\par\r\nexists, you will overwrite it without\\par\r\nwarning. \\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D1:1)
+(connect D0:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 775 532)
+(anchorPt -10 1)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 92 0))
+(open
+(extent 242 93)
+(formatters))
+(pinCenter 190 130))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 167 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 265 270))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 137)
+(editing enabled))
+(pinCenter 580 170))
+(connect I1:1 D1:1
+(points 4 10 264 77 264 77 260 74 260))
+(connect D0:1 D1:2
+(points 6 313 130 330 130 330 200 120 200 120 280 74 280)))
+(stackingOrder 2 0 1))))
+(device 30 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 2 0 1))))
+(device 32 CONTEXT
+(properties
+(name "DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cell")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 DATA\\par\r\nDataToCells can accept data of any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\n Object \\par\r\n \\par\r\nCELL\\par\r\nCell can be a single cell (A1), a range of cells (A1:F4)\\par\r\nor a named range which must be defined in the Excel \\par\r\nworkbook you are sending data to using Excel\'s\\par\r\nInsert/Names menu. Only the upper left cell matters, and the\\par\r\nrange to which data is sent depends only on the size of the\\par\r\ndata and the SendDataSettings.orientation setting. Use the Excel \\par\r\nmenu Send Data -> Send Data Settings to set the orientation.\\par\r\n\\par\r\nNOTES\\par\r\nData can be from scalar up to 3 dimensional arrays. See the Excel \\par\r\nmenu Send Data -> Send Data Settings for options on sending arrays.\\par\r\n\\par\r\nThe output from DataToCells is the resulting data range \\par\r\nwhich can be passed to the FormatText, FormatCells, and \\par\r\nAutoFitColumns objects.\\par\r\n\\par\r\nExamples are installed in \\\\ExcelLibrary under the Vee examples menu.\\par\r\n}\r\n"
+"")))
+(device 3 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 841 657)
+(anchorPt 121 -57)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 476)
+(editing enabled))
+(pinCenter 240 430))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 185 120))
+(connect I1:1 D1:1
+(points 4 -121 215 -100 215 -100 110 54 110))
+(connect I2:1 D1:2
+(points 4 -121 555 -110 555 -110 130 54 130)))
+(stackingOrder 1 0))))
+(device 37 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "RaiseError")
+("DisplayAlerts" "True"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook client windows instead of Excel.  Note this only applies to the single currently-selected Workbook.  Setting this before an AddWorkbook() or OpenWorkbook() call does not affect the new workbook.  However, a SelectWorkbook() call applies the Settings to the selected workbook.\\par\r\n}\r\n"
+"")))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 61 2)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 -10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 246)
+(editing enabled))
+(pinCenter 570 160))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 614 336)
+(editing enabled))
+(pinCenter 290 480))
+(connect D1:1 D0:1
+(points 4 304 120 320 120 320 -10 330 -10)))
+(stackingOrder 1 0 3 2))))
+(device 38 CONTEXT
+(properties
+(name "DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cell")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 DATA\\par\r\nDataToCells can accept data of any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\n Object \\par\r\n \\par\r\nCELL\\par\r\nCell can be a single cell (A1), a range of cells (A1:F4)\\par\r\nor a named range which must be defined in the Excel \\par\r\nworkbook you are sending data to using Excel\'s\\par\r\nInsert/Names menu. Only the upper left cell matters, and the\\par\r\nrange to which data is sent depends only on the size of the\\par\r\ndata and the SendDataSettings.orientation setting. Use the Excel \\par\r\nmenu Send Data -> Send Data Settings to set the orientation.\\par\r\n\\par\r\nNOTES\\par\r\nData can be from scalar up to 3 dimensional arrays. See the Excel \\par\r\nmenu Send Data -> Send Data Settings for options on sending arrays.\\par\r\n\\par\r\nThe output from DataToCells is the resulting data range \\par\r\nwhich can be passed to the FormatText, FormatCells, and \\par\r\nAutoFitColumns objects.\\par\r\n\\par\r\nExamples are installed in \\\\ExcelLibrary under the Vee examples menu.\\par\r\n}\r\n"
+"")))
+(device 3 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 841 657)
+(anchorPt 121 -57)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 476)
+(editing enabled))
+(pinCenter 240 430))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 185 120))
+(connect I1:1 D1:1
+(points 4 -121 215 -100 215 -100 110 54 110))
+(connect I2:1 D1:2
+(points 4 -121 555 -110 555 -110 130 54 130)))
+(stackingOrder 1 0))))
+(device 40 CONTEXT
+(properties
+(name "Quit Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D6:0 D0:0)
+(connect D7:0 D2:0)
+(connect D2:0 D3:0)
+(connect D0:1 D4:1)
+(connect D8:0 D6:0)
+(connect I3:1 D6:1)
+(connect I4:1 D6:2)
+(connect D5:0 D7:0)
+(connect D3:0 D8:0)
+(connect I1:1 D8:1)
+(connect I2:1 D8:2)
+(connect D0:0 D9:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 862 671)
+(anchorPt 182 85)
+(configuration
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 287 106))
+(terminals on)
+(pinCenter 150 300))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 476)
+(editing enabled))
+(pinCenter 600 270))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 150 100))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 150 140))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 300 290))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 150 10))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 94 25))
+(terminals on)
+(pinCenter 150 240))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter 150 50))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 94 25))
+(terminals on)
+(pinCenter 150 190))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 150 350))
+(connect D6:0 D0:0
+(points 2 150 255 150 285))
+(connect D7:0 D2:0
+(points 2 150 59 150 90))
+(connect D2:0 D3:0
+(points 2 150 110 150 130))
+(connect D0:1 D4:1
+(points 2 213 290 235 290))
+(connect D8:0 D6:0
+(points 2 150 205 150 225))
+(connect I3:1 D6:1
+(points 4 -182 330 30 330 30 230 100 230))
+(connect I4:1 D6:2
+(points 4 -182 500 30 500 30 250 100 250))
+(connect D5:0 D7:0
+(points 2 150 20 150 40))
+(connect D3:0 D8:0
+(points 2 150 150 150 175))
+(connect I1:1 D8:1
+(points 4 -182 -10 -170 -10 -170 180 100 180))
+(connect I2:1 D8:2
+(points 4 -182 160 -180 160 -180 200 100 200))
+(connect D0:0 D9:0
+(points 2 150 315 150 340)))
+(stackingOrder 2 3 5 7 0 4 1 8 6 9))))
+(device 107 IFTHENELSE
+(properties
+(name "If Box Checked ?")
+(cases 1 "A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 108 LITERALCONSTANT
+(properties
+(name "A2"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A2"))
+(initValue Text
+(data  ""))))
+(device 110 TOGGLE25
+(properties
+(name "Save Trace Data to Excel ")
+(initializeAtPrerun 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 111 LITERALCONSTANT
+(properties
+(name "A1"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A1"))
+(initValue Text
+(data  ""))))
+(device 112 LITERALCONSTANT
+(properties
+(name "Heading"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Avg Data"))
+(initValue Text
+(data  ""))))
+(device 113 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 115 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE Pro 7.5 and above to run this example.\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A).\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.0 as a minimum.\\par\r\n\\par\r\nNote that this example is using a GPIB interface. But you could also use LAN or USB if you do have those interfaces installed on your PC. For more information go in the VEE Pro Online Help => Contents and Index => Search tab => dial Instrument Manager.\\cf0\\b\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration
+(connect D9:3 D1:1)
+(connect D9:2 D2:1)
+(connect D9:1 D3:1)
+(connect D8:4 D4:1)
+(connect D8:3 D5:1)
+(connect D21:1 D6:1)
+(connect D8:1 D7:1)
+(connect D8:0 D9:0)
+(connect D14:2 D12:1)
+(connect D16:1 D12:2)
+(connect D14:1 D12:3)
+(connect D29:0 D12:4)
+(connect D15:1 D13:0)
+(connect D13:1 D14:1)
+(connect D17:1 D14:2)
+(connect D19:0 D15:0)
+(connect D14:2 D16:1)
+(connect D13:0 D17:0)
+(connect D9:0 D18:0)
+(connect D9:1 D18:1)
+(connect D8:2 D18:2)
+(connect D18:2 D19:0)
+(connect D18:1 D20:0)
+(connect D20:1 D21:1)
+(connect D19:1 D21:2)
+(connect D24:1 D23:0)
+(connect D28:1 D23:1)
+(connect D27:1 D23:2)
+(connect D29:1 D23:3)
+(connect D25:1 D23:4)
+(connect D26:1 D24:1)
+(connect D14:0 D26:0)
+(connect D24:0 D26:1)
+(connect D16:1 D29:1)
+(connect D24:1 D29:2)))
+(contextCarrier
+(wndOrigin -4 1)
+(wndState res)
+(active panel)
+(panel
+(extent 1006 642)
+(gridSize 5)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 16 -4)
+(PID 0)
+(title on)
+(tabIndex 0)
+(borderStyle flat)
+(extent 976 133)
+(editing disabled))
+(widget 7 detail
+(relativeOrigin 200 170)
+(PID 1)
+(title on)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 456 28))
+(widget 6 detail
+(relativeOrigin 350 225)
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 306 28))
+(widget 5 detail
+(relativeOrigin 670 170)
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 146 26))
+(widget 4 detail
+(relativeOrigin 670 225)
+(PID 5)
+(title on)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 146 28))
+(widget 3 detail
+(relativeOrigin 350 285)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 466 26))
+(widget 2 detail
+(relativeOrigin 350 315)
+(PID 7)
+(title off)
+(tabStop off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 466 26))
+(widget 1 detail
+(relativeOrigin 350 345)
+(PID 8)
+(title off)
+(tabStop off)
+(tabIndex 8)
+(borderStyle flat)
+(extent 466 26))
+(widget 12 detail
+(relativeOrigin 290 380)
+(PID 22)
+(title on)
+(titleFont "Arial" 16 bold)
+(tabIndex 9)
+(borderStyle flat)
+(extent 526 180)
+(displayMode 45)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.0003 0.0003 4 linear))
+(domain 0 30 4 linear)
+(trace 0 onScale 0
+(name "RawData")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Avgv Data")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0)))
+(widget 13 detail
+(relativeOrigin 200 225)
+(PID 23)
+(title on)
+(tabIndex 10)
+(borderStyle flat)
+(extent 131 128)
+(format scrollList))
+(widget 17 detail
+(relativeOrigin 200 380)
+(PID 24)
+(title on)
+(tabIndex 11)
+(borderStyle flat)
+(extent 82 29)
+(showFormat int))
+(widget 26 detail
+(relativeOrigin 490 595)
+(PID 25)
+(title off)
+(tabIndex 12)
+(borderStyle none)
+(extent 175 25)
+(scaled on)
+(format check box)))
+(detail
+(extent 814 658)
+(anchorPt -550 -72)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 162 51)
+(iconImage "notepad.icn"))
+(open
+(extent 744 116)
+(editing enabled))
+(pinCenter 860 240))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 324 26))
+(pinCenter 600 310))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 324 26))
+(pinCenter 600 280))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 324 26))
+(pinCenter 600 250))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 32 15))
+(open
+(extent 124 26))
+(pinCenter 600 200))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 30 15))
+(open
+(extent 114 26))
+(pinCenter 600 170))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 194 26))
+(pinCenter 680 410))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 444 26))
+(pinCenter 620 140))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 201 54))
+(terminals on)
+(pinCenter 390 170))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 194 54))
+(terminals on)
+(pinCenter 390 280))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 154 486)
+(editing enabled))
+(pinCenter 190 380))
+(devCarrierFor 74
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 860 160))
+(devCarrierFor 81
+(active icon)
+(icon
+(extent 124 51)
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -0.0003 0.0003 4 linear))
+(domain 0 30 4 linear)
+(trace 0 onScale 0
+(name "RawData")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Avgv Data")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0)))
+(terminals on)
+(pinCenter 1000 540))
+(devCarrierFor 82
+(active icon)
+(icon
+(extent 92 25))
+(open
+(extent 134 146)
+(format scrollList))
+(pinCenter 530 550))
+(devCarrierFor 83
+(active icon)
+(icon
+(extent 156 34))
+(terminals on)
+(pinCenter 680 550))
+(devCarrierFor 84
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 480 490))
+(devCarrierFor 91
+(active icon)
+(icon
+(extent 50 15))
+(terminals on)
+(pinCenter 830 570))
+(devCarrierFor 94
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 98 29)
+(showFormat int))
+(pinCenter 530 620))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 119 34))
+(open
+(extent 648 51))
+(terminals on)
+(pinCenter 390 380))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 39 15))
+(open
+(extent 174 29))
+(pinCenter 480 430))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 174 29))
+(pinCenter 540 400))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 610 410))
+(devCarrierFor 105
+(active open)
+(icon
+(extent 202 0)
+(iconImage "notepad.icn"))
+(open
+(extent 374 356)
+(editing enabled))
+(pinCenter 1250 980))
+(devCarrierFor 106
+(active icon)
+(icon
+(extent 389 54))
+(terminals on)
+(pinCenter 1250 730))
+(devCarrierFor 107
+(active icon)
+(icon
+(extent 100 25))
+(open
+(extent 66 51))
+(terminals on)
+(pinCenter 800 630))
+(devCarrierFor 108
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 174 29))
+(pinCenter 980 750))
+(devCarrierFor 110
+(active open)
+(icon
+(extent 151 0))
+(open
+(extent 82 19)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 680 630))
+(devCarrierFor 111
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 174 29))
+(pinCenter 980 720))
+(devCarrierFor 112
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 174 29))
+(pinCenter 980 690))
+(devCarrierFor 113
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 980 610))
+(devCarrierFor 115
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter 860 320))
+(connect D9:3 D1:1
+(points 4 489 300 510 300 510 310 580 310))
+(connect D9:2 D2:1
+(points 2 489 280 580 280))
+(connect D9:1 D3:1
+(points 4 489 260 530 260 530 250 580 250))
+(connect D8:4 D4:1
+(points 4 493 180 510 180 510 200 581 200))
+(connect D8:3 D5:1
+(points 2 493 170 582 170))
+(connect D21:1 D6:1
+(points 2 625 410 638 410))
+(connect D8:1 D7:1
+(points 4 493 150 510 150 510 140 578 140))
+(connect D8:0 D9:0
+(points 2 390 199 390 250))
+(connect D14:2 D12:1
+(points 4 760 560 780 560 780 520 935 520))
+(connect D16:1 D12:2
+(points 4 857 570 890 570 890 530 935 530))
+(connect D14:1 D12:3
+(points 2 760 540 935 540))
+(connect D29:0 D12:4
+(points 5 980 625 980 640 920 640 920 550 935 550))
+(connect D15:1 D13:0
+(points 3 516 490 530 490 530 535))
+(connect D13:1 D14:1
+(points 2 578 540 599 540))
+(connect D17:1 D14:2
+(points 4 581 620 590 620 590 560 599 560))
+(connect D19:0 D15:0
+(points 2 480 440 480 462))
+(connect D14:2 D16:1
+(points 4 760 560 780 560 780 570 802 570))
+(connect D13:0 D17:0
+(points 2 530 565 530 585))
+(connect D9:0 D18:0
+(points 2 390 309 390 360))
+(connect D9:1 D18:1
+(points 6 489 260 530 260 530 340 320 340 320 370 328 370))
+(connect D8:2 D18:2
+(points 6 493 160 520 160 520 330 310 330 310 390 328 390))
+(connect D18:2 D19:0
+(points 3 452 390 480 390 480 420))
+(connect D18:1 D20:0
+(points 3 452 370 540 370 540 390))
+(connect D20:1 D21:1
+(points 2 573 400 594 400))
+(connect D19:1 D21:2
+(points 4 502 430 570 430 570 420 594 420))
+(connect D24:1 D23:0
+(points 5 852 620 910 620 910 650 1250 650 1250 700))
+(connect D28:1 D23:1
+(points 4 1008 690 1030 690 1030 710 1053 710))
+(connect D27:1 D23:2
+(points 2 994 720 1053 720))
+(connect D29:1 D23:3
+(points 4 1009 610 1040 610 1040 730 1053 730))
+(connect D25:1 D23:4
+(points 4 994 750 1010 750 1010 740 1053 740))
+(connect D26:1 D24:1
+(points 2 723 630 747 630))
+(connect D14:0 D26:0
+(points 2 680 569 680 618))
+(connect D24:0 D26:1
+(points 5 800 645 800 660 630 660 630 630 636 630))
+(connect D16:1 D29:1
+(points 4 857 570 880 570 880 600 951 600))
+(connect D24:1 D29:2
+(points 2 852 620 951 620)))
+(stackingOrder 16 13 1 2 17 15 3 4 5 7 11 20 19 21 6 10 18 14 8 9 26 24 27 25 28
+29 12 22 23 0 30))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

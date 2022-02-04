@@ -1,0 +1,231 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 18:38:44 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M F0)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "UserFunction1")
+(variableName UserFunction1)
+(variableScope glob)
+(trigMode deg)
+(nextID 19)
+(popupMoveable 1))
+(deviceList
+(device 0 DECLVAR
+(properties
+(name "Declare extlibglobal")
+(scope glob)
+(globalName "extlibglobal"))
+(implementation
+(value Real64
+(data  0))))
+(device 5 DECLVAR
+(properties
+(name "Declare extlocaltolib")
+(scope lib)
+(globalName "extlocaltolib"))
+(implementation
+(value Real64
+(data  0))))
+(device 9 DECLVAR
+(properties
+(name "Declare extlocaltocontext")
+(scope con)
+(globalName "extlocaltocontext"))
+(implementation
+(value Real64
+(data  0))))
+(device 11 FROMGLOBAL
+(properties
+(name "Get extlocaltolib")
+(variableScope cont)
+(globalName "extlocaltolib"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 12 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 13 TOGLOBAL
+(properties
+(name "Set extundeclaredglobal")
+(variableScope cont)
+(globalName "extundeclaredglobal"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 14 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  123))
+(initValue Int32
+(data  0))))
+(device 15 FORMULA
+(properties
+(variableScope cont)
+(expr 3 "extlocaltolib = 1.0;" "extlocaltocontext = 3.0;" "extlibglobal = 99;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\par\r\n}\r\n"
+)))
+(device 18 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 This program is not an example. It is a library used by the example program \"globals.vee\".\\par\r\n}\r\n"
+)))
+(configuration
+(connect D7:0 D3:0)
+(connect D3:1 D4:1)
+(connect D6:1 D5:1)
+(connect D4:0 D6:0)))
+(contextCarrier
+(wndRestoredOrigin 88 214)
+(wndRestoredExtent 797 632)
+(wndState max)
+(active detail)
+(detail
+(extent 814 768)
+(anchorPt -32 148)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 118 15))
+(open
+(extent 195 103))
+(pinCenter 930 -70))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 121 15))
+(open
+(extent 195 103))
+(pinCenter 500 -70))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 148 15))
+(open
+(extent 195 103))
+(pinCenter 720 -70))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 103 56))
+(terminals on)
+(pinCenter 525 190))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 144 46))
+(pinCenter 740 190))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 184 106))
+(terminals on)
+(pinCenter 975 270))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 740 270))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 174 86))
+(terminals on)
+(pinCenter 520 70))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 414 76)
+(editing enabled))
+(pinCenter 210 -110))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 324 56)
+(editing disabled))
+(pinCenter 210 -30))
+(connect D7:0 D3:0
+(points 2 530 115 530 141))
+(connect D3:1 D4:1
+(points 2 619 190 665 190))
+(connect D6:1 D5:1
+(points 2 776 270 840 270))
+(connect D4:0 D6:0
+(points 2 740 215 740 235)))
+(stackingOrder 1 2 0 4 6 5 8 9 7 3)))))
+(configuration))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 857 632)
+(anchorPt 1 -1)
+(configuration))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

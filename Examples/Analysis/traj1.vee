@@ -1,0 +1,663 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:48:51 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 19)
+(popupTitleText "Trajectory Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 CONSTANT
+(properties
+(name "Drag"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.02))
+(initValue Real
+(data  0))))
+(device 3 SLIDINGWINDOW
+(properties
+(vecSize 100)
+(triggerSize 100))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar"))
+(lock constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 4 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Wf")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 5)))
+(device 6 CONSTANT
+(properties
+(name "Delta T"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.05))
+(initValue Real
+(data  0))))
+(device 7 CONSTANT
+(properties
+(name "Initial Vel"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  40))
+(initValue Real
+(data  0))))
+(device 8 FORCOUNT
+(properties
+(name "99 iterations")
+(count 99))
+(interface
+(output 1
+(lock name constraints))))
+(device 9 START25
+(properties
+(name "Press to Start")))
+(device 11 YPLOT
+(properties
+(name "A, V, D vs. Time"))
+(interface
+(input 1
+(name "Accel")
+(lock constraints))
+(input 2
+(name "Velocity")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Distance")
+(lock constraints)
+(optional yes))
+(input 4
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(graphMode time)))
+(device 12 FORMULA
+(properties
+(name "distance")
+(description2 3 "This Formula object integrates the entire"
+"array of velocity data to compute the distance" "of the projectile.")
+(expr 1 "integral(velocity)"))
+(interface
+(input 1
+(name "velocity")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 14 FORMULA
+(properties
+(name "compute next Velocity")
+(expr 1 "v-(9.800000000000001+drag*v^2*signof(v))*delta"))
+(interface
+(input 1
+(name "drag")
+(optional yes))
+(input 2
+(name "delta")
+(optional yes))
+(input 3
+(name "v")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "accel")
+(description2 3 "This Formula object takes the derivative of the"
+"entire array of velocity data to compute the "
+"acceleration of the projectile.")
+(expr 1 "deriv(x, 1)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "T * 100")
+(expr 1 "T*100"))
+(interface
+(input 1
+(name "T")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 18 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Overview of Trajectory Example")
+(text2 18 "" "Purpose: To show the Detail and Panel views of a program." ""
+"User Input Required: Press Start to start the program.  "
+"         Press the Detail button to see the program" "         itself." ""
+"Explanation: The panel view usually only contains enough"
+"         information to run the program (such as a Start"
+"         object, input fields, and output display), and"
+"         is useful to keep details of the program\'s "
+"         construction from distracting the user.  Use"
+"         the Detail button to view or modify the actual" "         program."
+"           " "         This example also shows use of several math"
+"         functions, including integration and differ-"
+"         entiation of a waveform.  ")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 301 147)))
+(contextCarrier
+(active panel)
+(panel
+(extent 489 391)
+(gridSize 2)
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 490 338)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 198 342)
+(title off)
+(borderStyle none)
+(extent 76 41)))
+(detail
+(extent 534 456)
+(anchorPt 181 130)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 40 290))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 233 26))
+(open
+(extent 487 360)
+(editing enabled))
+(pinCenter 90 80)))
+(stackingOrder 0 1))))
+(configuration
+(connect D2:0 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 244 80)
+(widget 0 detail
+(relativeOrigin 61 17)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 443 310)
+(anchorPt 123 100)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 603 354)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 190 60))
+(connect D2:0 D0:1
+(points 5 190 75 190 100 -80 100 -80 0 -60 0))
+(connect D0:1 D1:1
+(points 2 59 0 104 0))
+(connect D1:1 D2:0
+(points 3 155 -10 190 -10 190 45)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D10:1 D2:1)
+(connect D2:1 D3:1)
+(connect D13:1 D3:2)
+(connect D7:0 D6:0)
+(connect D12:1 D8:1)
+(connect D3:1 D8:2)
+(connect D9:1 D8:3)
+(connect D3:0 D8:4)
+(connect D3:1 D9:1)
+(connect D5:1 D10:1)
+(connect D11:1 D10:2)
+(connect D6:1 D11:0)
+(connect D1:1 D11:1)
+(connect D4:1 D11:2)
+(connect D10:1 D11:3)
+(connect D3:1 D12:1)
+(connect D4:1 D13:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 634 420)
+(widget 14 panel
+(relativeOrigin 10 250)
+(title on)
+(borderStyle flat)
+(extent 186 78)
+(widget 0 detail
+(relativeOrigin 50 20)
+(title off)
+(borderStyle none)
+(extent 90 30)
+(scaled on)
+(format button)))
+(widget 4 detail
+(relativeOrigin 10 190)
+(title on)
+(borderStyle flat)
+(extent 186 28))
+(widget 1 detail
+(relativeOrigin 10 130)
+(title on)
+(borderStyle flat)
+(extent 186 28))
+(widget 5 detail
+(relativeOrigin 10 70)
+(title on)
+(borderStyle flat)
+(extent 186 28))
+(widget 0 icon
+(relativeOrigin 10 360)
+(title off)
+(borderStyle none)
+(extent 340 50)
+(iconImage "disclaim.gif")
+(label off))
+(widget 8 detail
+(relativeOrigin 220 10)
+(title on)
+(borderStyle convex)
+(extent 406 318)
+(displayMode 7)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -50 40 4 linear))
+(domain 0 5 4 linear)
+(trace 0 onScale 0
+(name "Accel")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Velocity")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Distance")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 1))
+(widget 7 detail
+(relativeOrigin 10 10)
+(bg "Med Green")
+(font "Arial" 20 bold)
+(title off)
+(borderStyle none)
+(extent 190 40)))
+(detail
+(extent 1001 658)
+(anchorPt 651 74)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 382 84)
+(editing disabled))
+(pinCenter -80 -40))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 94 24))
+(open
+(extent 165 30))
+(pinCenter -590 120))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 128 25))
+(open
+(extent 248 63))
+(terminals on)
+(pinCenter -370 200))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "build.icn"))
+(open
+(extent 214 80))
+(terminals on)
+(pinCenter -340 290))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 94 24))
+(open
+(extent 219 28))
+(pinCenter -590 260))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 94 24))
+(open
+(extent 171 30))
+(pinCenter -590 190))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 94 64)
+(iconImage "loop.icn"))
+(open
+(extent 210 34))
+(pinCenter -590 40))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 94 24))
+(open
+(extent 67 37))
+(title off)
+(pinCenter -590 -40))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 154 0)
+(iconImage "display.icn"))
+(open
+(extent 360 326)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -50 40 4 linear))
+(domain 0 5 4 linear)
+(trace 0 onScale 0
+(name "Accel")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Velocity")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Distance")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0))
+(pinCenter 40 250))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 74 24))
+(open
+(extent 184 45))
+(terminals on)
+(pinCenter -200 290))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 41 29))
+(open
+(extent 42 86))
+(terminals on)
+(pinCenter -480 200))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 161 43))
+(open
+(extent 312 140))
+(terminals on)
+(pinCenter -390 130))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 74 24))
+(open
+(extent 124 54))
+(terminals on)
+(pinCenter -200 130))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 65 60))
+(terminals on)
+(pinCenter -470 310))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 242 73)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -390 -10))
+(connect D10:1 D2:1
+(points 2 -457 200 -437 200))
+(connect D2:1 D3:1
+(points 6 -304 200 -280 200 -280 240 -430 240 -430 270 -411 270))
+(connect D13:1 D3:2
+(points 2 -429 310 -411 310))
+(connect D7:0 D6:0
+(points 2 -590 -19 -590 5))
+(connect D12:1 D8:1
+(points 2 -161 130 -143 130))
+(connect D3:1 D8:2
+(points 4 -270 290 -250 290 -250 210 -143 210))
+(connect D9:1 D8:3
+(points 2 -161 290 -143 290))
+(connect D3:0 D8:4
+(points 3 -340 324 -340 370 -143 370))
+(connect D3:1 D9:1
+(points 2 -270 290 -240 290))
+(connect D5:1 D10:1
+(points 2 -541 190 -503 190))
+(connect D11:1 D10:2
+(points 6 -307 130 -290 130 -290 90 -520 90 -520 210 -503 210))
+(connect D6:1 D11:0
+(points 3 -541 40 -390 40 -390 106))
+(connect D1:1 D11:1
+(points 2 -541 120 -473 120))
+(connect D4:1 D11:2
+(points 4 -541 260 -510 260 -510 130 -473 130))
+(connect D10:1 D11:3
+(points 6 -457 200 -440 200 -440 170 -480 170 -480 140 -473 140))
+(connect D3:1 D12:1
+(points 6 -270 290 -250 290 -250 210 -260 210 -260 130 -240 130))
+(connect D4:1 D13:1
+(points 4 -541 260 -520 260 -520 310 -512 310)))
+(stackingOrder 5 4 1 11 10 2 6 14 13 3 9 8 12 7 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

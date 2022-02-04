@@ -1,0 +1,562 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:11:22 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Self-Modifying Choices")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 1 CONTEXT
+(properties
+(name "Test Input")
+(trigMode deg)
+(nextID 21)
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 CONFIRM25
+(properties
+(name "Cancel")
+(enterButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 EXITCONTEXT)
+(device 4 EXITCONTEXT)
+(device 6 ENUMCONSTANT
+(properties
+(name "Select a Product")
+(waitForEvent 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Phantom" 0)
+("Beetle" 1)
+("Viper" 2))
+(data  "Viper"))
+(initValue Text
+(data  "Phantom"))))
+(device 7 ENUMCONSTANT
+(properties
+(name "Select the test to run")
+(waitForEvent 1))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Viper - Test1" 0)
+("Viper - Test2" 1)
+("Viper - Test3" 2))
+(data  "Viper - Test3"))
+(initValue Text
+(data  "Viper - Test1"))))
+(device 10 IFTHENELSE
+(properties
+(cases 2 "A==\"Phantom\"" "A==\"Beetle\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 11 LITERALCONSTANT
+(properties
+(name "Phantom Tests"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 3)
+(data  [ "Phantom - Test1" "Phantom - Test2" "Phantom - Test3" ]))
+(initValue Text
+(data  ""))))
+(device 12 LITERALCONSTANT
+(properties
+(name "Beetle Tests"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 3)
+(data  [ "Beetle - Test1" "Beetle - Test2" "Beetle- Test3" ]))
+(initValue Text
+(data  ""))))
+(device 13 LITERALCONSTANT
+(properties
+(name "Viper Tests"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 3)
+(data  [ "Viper - Test1" "Viper - Test2" "Viper - Test3" ]))
+(initValue Text
+(data  ""))))
+(device 15 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 18 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(configuration
+(connect D1:1 D2:0)
+(connect D11:0 D3:0)
+(connect D10:1 D5:1)
+(connect D4:1 D6:1)
+(connect D6:1 D7:0)
+(connect D6:2 D8:0)
+(connect D6:3 D9:0)
+(connect D7:1 D10:1)
+(connect D8:1 D10:2)
+(connect D9:1 D10:3)
+(connect D0:1 D11:0)
+(connect D5:1 D11:1)
+(connect D11:1 O1:1))
+(ShowOnExecPanel
+(relativeOrigin 340 79)))
+(contextCarrier
+(active panel)
+(panel
+(extent 367 180)
+(widget 5 detail
+(relativeOrigin 170 10)
+(title on)
+(borderStyle flat)
+(extent 185 21)
+(format dropDown))
+(widget 1 detail
+(relativeOrigin 210 150)
+(title off)
+(borderStyle none)
+(extent 56 20))
+(widget 0 detail
+(relativeOrigin 100 150)
+(title off)
+(borderStyle none)
+(extent 60 20))
+(widget 4 detail
+(relativeOrigin 10 10)
+(title on)
+(borderStyle flat)
+(extent 148 79)
+(format buttons)))
+(detail
+(extent 722 352)
+(anchorPt 655 229)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 42 19))
+(title off)
+(pinCenter -20 -10))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 58 22))
+(title off)
+(pinCenter -460 10))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter -410 100))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter -20 100))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 114 25))
+(open
+(extent 150 79)
+(format buttons))
+(pinCenter -530 -90))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 165 0))
+(open
+(extent 201 25)
+(format dropDown))
+(pinCenter -180 50))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 119 62))
+(terminals on)
+(pinCenter -340 -110))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 211 69))
+(pinCenter -140 -150))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 211 69))
+(pinCenter -150 -110))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 211 69))
+(pinCenter -150 -70))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 28 34))
+(open)
+(terminals on)
+(pinCenter -30 -110))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 38 15))
+(open)
+(terminals on)
+(pinCenter -20 40))
+(connect D1:1 D2:0
+(points 3 -429 10 -410 10 -410 90))
+(connect D11:0 D3:0
+(points 2 -20 50 -20 90))
+(connect D10:1 D5:1
+(points 6 -14 -110 10 -110 10 -40 -300 -40 -300 50 -283 50))
+(connect D4:1 D6:1
+(points 2 -453 -110 -432 -110))
+(connect D6:1 D7:0
+(points 5 -228 -130 -220 -130 -220 -180 -140 -180 -140 -160))
+(connect D6:2 D8:0
+(points 5 -228 -110 -210 -110 -210 -130 -150 -130 -150 -120))
+(connect D6:3 D9:0
+(points 3 -228 -90 -150 -90 -150 -80))
+(connect D7:1 D10:1
+(points 4 -81 -150 -70 -150 -70 -120 -47 -120))
+(connect D8:1 D10:2
+(points 2 -102 -110 -47 -110))
+(connect D9:1 D10:3
+(points 4 -105 -70 -80 -70 -80 -100 -47 -100))
+(connect D0:1 D11:0
+(points 5 3 -10 20 -10 20 20 -20 20 -20 30))
+(connect D5:1 D11:1
+(points 2 -77 40 -42 40))
+(connect D11:1 O1:1
+(points 4 1 40 50 40 50 -54 66 -54)))
+(stackingOrder 4 0 11 3 1 2 6 8 7 9 10 5))))
+(device 2 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the"
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "execute Panel."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(text2 24 "" "PURPOSE: To demonstrate a custom dialog "
+"box that modifies the choices available" "based on previous choices." ""
+"USER DATA REQUIRED:  Press Run. Select" "one of the Radio Button choices and"
+"see how the choices in the Drop-Down List" "Box change. " " "
+"EXPLANATION: You may want to offer" "users a set of selections based"
+"on a previous selection. The" "Radio Button object has Wait for Input"
+"set (on its Properties dialog box)." "This allows the Radio Button object to"
+"execute only after the user has selected"
+"a choice. This \"hold off\" lets you "
+"make decisions or present choices based" "on the user\'s choice." ""
+"For more details, see the \"VEE Help\" topic"
+"\"To Build a Self-Modifying Panel\"." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 42 49)))
+(contextCarrier
+(active panel)
+(panel
+(extent 505 512)
+(widget 0 detail
+(relativeOrigin 230 470)
+(title off)
+(borderStyle flat)
+(extent 66 34))
+(widget 1 detail
+(relativeOrigin 20 10)
+(title on)
+(borderStyle flat)
+(extent 466 428)
+(editing disabled)))
+(detail
+(extent 556 523)
+(anchorPt 188 188)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 80 290))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 71 51)
+(iconImage "notepad.icn"))
+(open
+(extent 432 433)
+(editing enabled))
+(pinCenter 80 60)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 357 273)
+(anchorPt 278 62)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 505 488)
+(carbonCopy))
+(pinCenter -100 100))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 -100 115 -100 140 -230 140 -230 0 -190 0))
+(connect D0:1 D2:0
+(points 5 25 -10 50 -10 50 40 -100 40 -100 85)))
+(stackingOrder 0 1 2))))
+(device 3 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(wndOrigin 1 1)
+(wndState res)
+(active detail)
+(detail
+(extent 810 379)
+(anchorPt 983 414)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 162 30))
+(pinCenter -520 -110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 367 180)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter -700 -110))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -780 -320))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -390 -340))
+(connect D1:1 D0:1
+(points 2 -659 -110 -604 -110)))
+(stackingOrder 3 2 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

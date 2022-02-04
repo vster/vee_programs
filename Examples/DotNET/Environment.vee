@@ -1,0 +1,206 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 11:45:23 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 4 NOTE
+(properties
+(name "README")
+(text2 24
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fmodern\\fprq1\\fcharset128 MS Mincho;}{\\f2\\fnil\\fprq2\\fcharset2 Wingdings;}{\\f3\\fmodern\\fprq1\\fcharset0 MS Mincho;}{\\f4\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n\\viewkind4\\uc1\\pard\\sa120\\lang1033\\ul\\b\\f0\\fs24 Environment\\f1\\par\r\n\\ulnone\\b0\\f0 This example shows how trivially easy it is to get information about your program environment, e.g, the current directory, the command line, the machine name and the user name.  It uses the new .NET Framework access capability.\\f1\\par\r\n\\f0 To see how we created this example, go to Device\\f2\\\'e0\\f0  NET Assembly References, under .NET tab, mscorlib should be selected; open Function & Object Browser, select .NET/CLR objects under Type, select mscorlib under Assemblies, select System.Environment under Classes, then select \\b CurrentDirectory\\b0  under Members.  \\f1\\par\r\n\\f0 There are also formula\\rquote s to show how to get the \\b CommandLine\\b0 , \\b MachineName\\b0 , and \\b UserName \\b0 using the same mechanism\\f3 .\\par\r\n\\pard\\b\\f0\\par\r\nAssemblies\\b0 : Mscorlib\\par\r\n\\b Namespaces\\b0 : System\\par\r\n\\pard\\sa120\\b Classes\\b0 : System.Environment\\f4\\fs17\\par\r\n\\pard\\par\r\n}\r\n"
+"and now extremely easy with VEE 7.0 and .NET." ""
+"To see how we created this example, go to Device->.NET"
+"Assembly References, under .NET tab, mscorlib should be"
+"selected; open Function & Object Browser, select .NET "
+"objects under Type, select mscorlib under Assemblies, select "
+"System.Environment under Classes, then select OSVersion"
+"under Members.  Notice that OSVersion is a static property"
+"of the System.Environment class, and the returned value"
+"has the type of System.OperatingSystem.  Go select "
+"System.OperatingSystem under Class, it shows that Version"
+"and Platform are two of the members of the " "System.OperatingSystem class.  "
+"" "" "" "" "" "" "" "" "" "")))
+(device 5 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 6 FORMULA
+(properties
+(name "System.Environment.CurrentDirectory;")
+(expr 1 "System.Environment.CurrentDirectory;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 9 FORMULA
+(properties
+(name "System.Environment.CommandLine;")
+(expr 1 "System.Environment.CommandLine;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(name "System.Environment.MachineName;")
+(expr 1 "System.Environment.MachineName;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(name "System.Environment.UserName;")
+(expr 1 "System.Environment.UserName;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 14 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D2:1 D3:1)
+(connect D4:1 D7:1)
+(connect D5:1 D8:1)
+(connect D6:1 D9:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 789 431)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt -62 -123)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 464 266)
+(editing disabled))
+(pinCenter 310 290))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 740 390))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 228 0))
+(open
+(extent 264 46))
+(terminals on)
+(pinCenter 240 480))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 244 46))
+(pinCenter 580 480))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 222 0))
+(open
+(extent 264 46))
+(terminals on)
+(pinCenter 240 570))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 218 0))
+(open
+(extent 264 46))
+(terminals on)
+(pinCenter 240 660))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 198 0))
+(open
+(extent 254 46))
+(terminals on)
+(pinCenter 240 750))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 544 46))
+(pinCenter 730 570))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 224 46))
+(pinCenter 560 660))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 224 46))
+(pinCenter 560 750))
+(connect D2:1 D3:1
+(points 2 424 480 455 480))
+(connect D4:1 D7:1
+(points 2 424 570 455 570))
+(connect D5:1 D8:1
+(points 2 424 660 445 660))
+(connect D6:1 D9:1
+(points 2 419 750 445 750)))
+(stackingOrder 4 5 6 2 3 7 8 9 1 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

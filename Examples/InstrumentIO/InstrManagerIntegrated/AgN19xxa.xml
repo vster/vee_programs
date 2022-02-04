@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgN19xxa.vee">
+		<Description>Calibrate and zero the power meter before to get active channel(s) power measurement</Description>
+		<LogicalInstrument name="PowerMeter">
+			<SupportedInstruments>
+				<Instrument idn="AgN1911A"/>
+				<Instrument idn="AgN1912A"/>
+				<Instrument idn="AgN1921A"/>
+				<Instrument idn="AgN1922A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

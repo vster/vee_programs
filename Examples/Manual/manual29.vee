@@ -1,0 +1,513 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:15:08 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "Reading  XY Values From A Text File")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 BREAK)
+(device 1 FROMFILE
+(properties
+(transactions 1 "READ TEXT x, y REAL64"))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Manual/manual29.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 2 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 4 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 6 NOTE
+(properties
+(name "Thread #1")
+(text2 4 "This thread reads the file" "and builds two arrays"
+"from the XY pairs" "stored in the data file.")))
+(device 7 START25)
+(device 8 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 10 FROMFILE
+(properties
+(transactions 1 "READ TEXT x, y REAL64"))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Manual/manual29.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 11 NOTE
+(properties
+(name "Thread #2")
+(text2 6 "This thread reads the file" "and plots the data points"
+"as they are read.  Notice" "that there is no need to "
+"build an array or waveform" "in order to plot the data.")))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About...")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Info About")
+(text2 30 "Overview:"
+"  This program illustrates how to read an unknown number of XY values from a text "
+"  file." "" "Details:"
+"  The two threads in this program read data in the same way, but handle it "
+"  differently after it is read.  Refer to the \"Note Pads\" adjacent to each "
+"  thread for additional information." ""
+"  The data file read by each thread is the same; you may wish to view it in a "
+"  text editor outside of VEE.  Note how flexibly VEE interprets various "
+"  notations for numbers including optional signs, decimal points, and exponents."
+"" "This is how to run this program:"
+"  Simply click on \"Start\" for each thread." ""
+"This is how the program works:"
+"  The data in the file consists of X and Y values separated"
+"  by whitespace, one pair per line.  Here are typical "
+"  contents of the data file:" "        1  1.1" "        2  2.2"
+"        3  3.3" "        .  ." "        .  ." "        .  ." ""
+"  The \"From File\" object reads pairs of XY values from the file until the end "
+"  of the file is reached; at that point the \"EOF\" terminal of \"From File\" "
+"  terminates the \"Until Break\" loop.")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 6 32)))
+(contextCarrier
+(active detail)
+(panel
+(extent 845 533)
+(widget 1 detail
+(relativeOrigin 3 4)
+(title off)
+(borderStyle flat)
+(extent 835 463)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 388 482)
+(title off)
+(borderStyle flat)
+(extent 64 34)))
+(detail
+(extent 351 200)
+(anchorPt 184 137)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 15))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 537 234)
+(editing enabled))
+(pinCenter -29 -67)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D0:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 912 591)
+(anchorPt 344 247)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 15))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 102 68))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D0:0 D1:1
+(points 5 0 15 0 38 -208 38 -208 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 102 -10 102 53)))
+(stackingOrder 0 1 2))))
+(device 14 BREAK)
+(device 15 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 16 START25)
+(device 19 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(configuration
+(connect D1:3 D0:0)
+(connect D14:1 D1:0)
+(connect D1:2 D2:1)
+(connect D14:0 D2:2)
+(connect D1:1 D3:1)
+(connect D14:0 D3:2)
+(connect D3:1 D4:1)
+(connect D2:1 D5:1)
+(connect D7:0 D8:0)
+(connect D8:1 D9:0)
+(connect D9:3 D13:0)
+(connect D15:0 D14:0)
+(connect D9:1 D16:1)
+(connect D9:2 D16:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 808 356)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 324 153))
+(terminals on)
+(pinCenter -310 -100))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 60 110))
+(terminals on)
+(pinCenter 20 -90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 60 110))
+(terminals on)
+(pinCenter 20 -140))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 174 109))
+(pinCenter 250 -240))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 174 109))
+(pinCenter 250 -20))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 270 98)
+(editing disabled))
+(pinCenter -660 -130))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 67 37))
+(title off)
+(pinCenter -390 30))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -390 100))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 324 153))
+(terminals on)
+(pinCenter -320 280))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 271 142)
+(editing disabled))
+(pinCenter -660 280))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -100 -290))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -640 -270))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter -100 380))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -380 -260))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 61 34))
+(title off)
+(pinCenter -380 -330))
+(devCarrierFor 19
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 456 301)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range 0 14 4 linear))
+(domain 0 14 4 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 220 250))
+(connect D1:3 D0:0
+(points 3 -106 -50 0 -50 0 -15))
+(connect D14:1 D1:0
+(points 3 -323 -260 -305 -260 -305 -197))
+(connect D1:2 D2:1
+(points 2 -106 -100 -38 -100))
+(connect D14:0 D2:2
+(points 7 -380 -226 -380 -220 -90 -220 -90 -130 -70 -130 -70 -80 -38 -80))
+(connect D1:1 D3:1
+(points 2 -106 -150 -38 -150))
+(connect D14:0 D3:2
+(points 5 -380 -226 -380 -220 -90 -220 -90 -130 -38 -130))
+(connect D3:1 D4:1
+(points 4 77 -140 90 -140 90 -240 160 -240))
+(connect D2:1 D5:1
+(points 4 77 -90 90 -90 90 -20 160 -20))
+(connect D7:0 D8:0
+(points 2 -390 51 -390 65))
+(connect D8:1 D9:0
+(points 3 -333 100 -315 100 -315 183))
+(connect D9:3 D13:0
+(points 3 -116 330 -100 330 -100 365))
+(connect D15:0 D14:0
+(points 2 -380 -311 -380 -295))
+(connect D9:1 D16:1
+(points 4 -116 230 -100 230 -100 170 -11 170))
+(connect D9:2 D16:2
+(points 4 -116 280 -90 280 -90 330 -11 330)))
+(stackingOrder 0 1 2 3 4 5 9 10 12 6 14 15 8 7 16 13 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

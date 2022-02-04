@@ -1,0 +1,463 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:56:50 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 45)
+(popupTitleText "Ordinal of an ASCII character")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 9 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 24
+"PURPOSE:       To illustrate how to convert a keyboard character to its ASCII code and"
+"               how to convert an ASCII code to a character." ""
+"USER INPUT REQUIRED: Press either of the Start buttons to get a dialog box that"
+"               queries you to enter data.  " ""
+"EXPLANATION:   Computers internally represent the ASCII character set as integers"
+"               from 0 to 127.  Occasionally, it is necessary to determine which"
+"               integer a particular character represents.  This example shows a"
+"               technique for obtaining the ASCII value of a character."
+"               "
+"IMPLEMENTATION: The charToInt() and intToChar() functions perform the conversions"
+"               from an ASCII character to it\'s numerical value and from a numerical"
+"               value to it\'s ASCII character representation. " ""
+"               The Real Input and Integer Input dialog boxes ask for input"
+"               and constrain it to ASCII-printable characters. You can change the "
+"               constraints if you\'d like to experiment." ""
+"               Note: If charToInt() is given multiple characters, the first character "
+"               is converted."
+"               Note: intToChar() only converts numbers between 0 and 255 (inclusive)."
+"               If inToChar() is given a value <0 or >255, it interprets it by wrapping"
+"               around (i.e. -1 is interpreted as 255, 256 is interpreted as 0).   "
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 218 75)))
+(contextCarrier
+(active panel)
+(panel
+(extent 789 491)
+(widget 1 detail
+(relativeOrigin 360 450)
+(title off)
+(borderStyle none)
+(extent 80 30))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 780 440)
+(editing disabled)))
+(detail
+(extent 423 289)
+(anchorPt 423 160)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 834 277)
+(editing enabled))
+(pinCenter -230 -100))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -230 -30)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 278 61)
+(widget 1 detail
+(relativeOrigin 80 10)
+(title off)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button)))
+(detail
+(extent 480 234)
+(anchorPt 246 65)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 846 457)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 10 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 11 INPUTDLG
+(properties
+(position 433 265)
+(prompt "Enter an ASCII character:")
+(initialValue "A")
+(valueConstraint "strLen(value)>0 AND StrLen(value)<2")
+(vErrorMessage "Enter only one character")
+(errorMessagePosition 540 267))
+(interface
+(output 1
+(name "Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "text")))
+(device 12 START25
+(properties
+(name "Start: Character to Integer")))
+(device 13 FORMULA
+(properties
+(expr 1 "charToInt(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FORMULA
+(properties
+(expr 1 "intToChar(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 TEXTDISPLAY
+(properties
+(name "ASCII Value"))
+(interface
+(input 1
+(name "Data"))))
+(device 18 INPUTDLG
+(properties
+(popupTitle "Text Input")
+(position 433 497)
+(prompt "Enter an integer value:")
+(initialValue "65")
+(valueConstraint "32<=value AND value<=126")
+(vErrorMessage "Enter an integer between 32 and 126 (inclusive)")
+(errorMessagePosition 540 505))
+(interface
+(output 1
+(name "Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(inputType "integer")))
+(device 19 TEXTDISPLAY
+(properties
+(name "ASCII Character"))
+(interface
+(input 1
+(name "Data"))))
+(device 20 TEXTDISPLAY
+(properties
+(name "ASCII Value (Hex)"))
+(interface
+(input 1
+(name "Data"))))
+(device 22 START25
+(properties
+(name "Start: Integer to Character")))
+(device 23 TEXTDISPLAY
+(properties
+(name "Input Value (Hex)"))
+(interface
+(input 1
+(name "Data"))))
+(device 30 TEXTDISPLAY
+(properties
+(name "Input Character"))
+(interface
+(input 1
+(name "Data"))))
+(device 31 TEXTDISPLAY
+(properties
+(name "Input Value"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D3:0 D2:0)
+(connect D2:1 D4:1)
+(connect D7:1 D5:1)
+(connect D4:1 D6:1)
+(connect D10:0 D7:0)
+(connect D5:1 D8:1)
+(connect D4:1 D9:1)
+(connect D7:1 D11:1)
+(connect D2:1 D12:1)
+(connect D7:1 D13:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 818 619)
+(anchorPt 521 37)
+(configuration
+(devCarrierFor 9
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 278 61)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 0 20))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -340 0))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 364 126))
+(pinCenter -330 200))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 181 0))
+(open
+(extent 201 24))
+(title off)
+(pinCenter -410 60))
+(devCarrierFor 13
+(active open)
+(icon)
+(open
+(extent 104 33))
+(terminals on)
+(pinCenter -30 170))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 108 32))
+(terminals on)
+(pinCenter -20 400))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 90 0))
+(open
+(extent 164 26))
+(pinCenter 200 170))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 364 130))
+(pinCenter -330 430))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 164 26))
+(pinCenter 190 400))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 135 0))
+(open
+(extent 164 26)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 200 250))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 181 0))
+(open
+(extent 201 24))
+(title off)
+(pinCenter -410 300))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 133 0))
+(open
+(extent 170 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter -10 530))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 107 0))
+(open
+(extent 164 23))
+(pinCenter -20 250))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 170 22))
+(pinCenter -10 470))
+(connect D3:0 D2:0
+(points 4 -410 74 -410 90 -330 90 -330 116))
+(connect D2:1 D4:1
+(points 2 -146 170 -115 170))
+(connect D7:1 D5:1
+(points 2 -146 400 -107 400))
+(connect D4:1 D6:1
+(points 2 74 170 115 170))
+(connect D10:0 D7:0
+(points 4 -410 314 -410 320 -330 320 -330 344))
+(connect D5:1 D8:1
+(points 2 86 400 105 400))
+(connect D4:1 D9:1
+(points 4 74 170 90 170 90 250 115 250))
+(connect D7:1 D11:1
+(points 4 -146 400 -130 400 -130 530 -98 530))
+(connect D2:1 D12:1
+(points 4 -146 170 -130 170 -130 250 -105 250))
+(connect D7:1 D13:1
+(points 4 -146 400 -130 400 -130 470 -98 470)))
+(stackingOrder 3 10 0 12 4 6 9 5 13 11 8 7 2 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

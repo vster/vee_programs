@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag332x0a2.vee">
+		<Description>Output a AM modulated signal from the generator</Description>
+		<LogicalInstrument name="FunctionGenerator">
+			<SupportedInstruments>
+				<Instrument idn="Ag33220A"/>
+				<Instrument idn="Ag33250A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,603 @@
+(saveFormat "2.3")
+(date "Thu 05/Feb/2004 21:49:01 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 9.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL9.OLB")
+(verMajor 1)
+(verMinor 3)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 33)
+(popupTitleText "ExcelAsDatabase")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "CreateObject & load Excel file")
+(expr 8 "Set p_Xl=CreateObject(\"Excel.Application\");"
+"p_Xl.Visible=TRUE;         // TRUE during Debug"
+"p_Xl.WindowState=xlMinimized;" ""
+"Set p_Database=p_Xl.Workbooks.Open(XlFile).Worksheets(\"Query\");"
+"p_Xl.Windows(1).WindowState=xlMaximized; // Maximize the workbook window" "" ""
+))
+(interface
+(input 1
+(name "XlFile")
+(optional yes))
+(output 1
+(name "p_Xl")
+(optional yes))))
+(device 2 DECLVAR
+(properties
+(name "Declare p_Database")
+(scope glob)
+(globalName "p_Database"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 3 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 4 ENUMCONSTANT
+(properties
+(name "Select ID for Query:")
+(waitForEvent 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("X1" 0)
+("X2" 1)
+("X3" 2)
+("Y1" 3)
+("Y2" 4)
+("XX" 5))
+(data  "Y2"))
+(initValue Text
+(data  "X1"))))
+(device 5 FORMULA
+(properties
+(name "Run Query")
+(expr 5 "p_Database.Range(\"QueryCriteria\").Value=asText(a);"
+"Code=p_Database.Range(\"Queryresult_Code\").Value;"
+"Project=p_Database.Range(\"Queryresult_Project\").Value;"
+"Date=p_Database.Range(\"Queryresult_Date\").Value;"
+"Comment=p_Database.Range(\"Queryresult_Comment\").Value;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Code")
+(optional yes))
+(output 2
+(name "Project")
+(optional yes))
+(output 3
+(name "Date")
+(optional yes))
+(output 4
+(name "Comment")
+(optional yes))))
+(device 6 TEXTDISPLAY
+(properties
+(name "Code"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 TEXTDISPLAY
+(properties
+(name "Project"))
+(interface
+(input 1
+(name "Data"))))
+(device 8 MESSAGEBOX
+(properties
+(position 171 149)
+(message "Projektkod not found !")
+(symbol Exclamation))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 0)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 9 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT \"Query for ID \", a, \" failed !\" EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 10 CONFIRM25
+(properties
+(name "Exit"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 11 FORMULA
+(properties
+(name "Quit Excel")
+(expr 3 "p_Database.Application.DisplayAlerts=FALSE; "
+"p_Database.Application.Quit();" "")))
+(device 12 EXITPROCESS
+(properties
+(code 0)))
+(device 14 FORMULA
+(properties
+(name "programName()")
+(expr 1 "programName()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "dirName(pathStr)")
+(expr 1 "dirName(pathStr)"))
+(interface
+(input 1
+(name "pathStr")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name "Excel file")
+(expr 1 "a+\"\\\\data\\\\Database.xls\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 NOTE
+(properties
+(text2 26 "This example program uses Excel as a "
+"\'database\' for table lookup.  " ""
+"The Excel workbook consist of five fields " "(columns) in the Table worksheet;"
+"" "ID, Code, Project, Date and Comment. " ""
+"The Query worksheet use Excel\'s DGET "
+"functions to lookup data in the table."
+"The lookup value for the query is sent in " "from VEE and the query result is "
+"read back and presented in VEE. " ""
+"Note that names are used to reference cells "
+"within worksheets (instead of \"A1\" syntax)" "" "Requires:" "Excel 2000" ""
+"VEE features used:" "programName() - Finding location of VEE "
+"program (this file) dirName() - Extract "
+"directory name of VEE program file path"
+"isVariantError() -  Check if Excel returns " "#VALUE error (query failed)")))
+(device 18 TEXTDISPLAY
+(properties
+(name "Date"))
+(interface
+(input 1
+(name "Data"))))
+(device 19 TEXTDISPLAY
+(properties
+(name "Comment"))
+(interface
+(input 1
+(name "Data"))))
+(device 22 IFTHENELSE
+(properties
+(name "Not found?")
+(cases 1 "isVariantError(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 28 FORMULA
+(properties
+(expr 1 "(isVariantError(a)?\"#VALUE (Not found)\":a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 FORMULA
+(properties
+(expr 1 "(isVariantError(a)?\"#VALUE (Not found)\":a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 30 FORMULA
+(properties
+(expr 1 "(isVariantError(a)?\"#VALUE (Not found)\":a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(expr 1 "(isVariantError(a)?\"#VALUE (Not found)\":a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D14:1 D0:1)
+(connect D12:0 D2:0)
+(connect D2:1 D3:0)
+(connect D3:1 D4:1)
+(connect D20:1 D5:1)
+(connect D21:1 D6:1)
+(connect D8:1 D7:1)
+(connect D18:1 D8:0)
+(connect D3:1 D8:1)
+(connect D9:1 D10:0)
+(connect D9:0 D11:0)
+(connect D12:1 D13:1)
+(connect D13:1 D14:1)
+(connect D22:1 D16:1)
+(connect D19:1 D17:1)
+(connect D4:1 D18:1)
+(connect D4:4 D19:1)
+(connect D4:1 D20:1)
+(connect D4:2 D21:1)
+(connect D4:3 D22:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 3)
+(wndState res)
+(active detail)
+(panel
+(extent 372 292)
+(widget 5 detail
+(relativeOrigin 180 10)
+(title on)
+(borderStyle flat)
+(extent 177 29))
+(widget 6 detail
+(relativeOrigin 180 70)
+(title on)
+(borderStyle flat)
+(extent 177 29))
+(widget 16 detail
+(relativeOrigin 180 130)
+(title on)
+(borderStyle flat)
+(extent 177 29))
+(widget 17 detail
+(relativeOrigin 180 190)
+(title on)
+(borderStyle flat)
+(extent 177 29))
+(widget 9 detail
+(relativeOrigin 150 260)
+(title off)
+(borderStyle none)
+(extent 47 22))
+(widget 3 detail
+(relativeOrigin 10 10)
+(title on)
+(borderStyle flat)
+(extent 157 209)
+(format buttons)))
+(detail
+(extent 1055 537)
+(anchorPt 631 -44)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 177 15))
+(open
+(extent 521 140))
+(terminals on)
+(pinCenter 190 110))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 125 15))
+(open
+(extent 344 121))
+(pinCenter -200 60))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -210 220))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 150 151)
+(format buttons))
+(pinCenter -110 350))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 63 45))
+(open
+(extent 403 112))
+(terminals on)
+(pinCenter 40 310))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 34 0))
+(open
+(extent 175 27))
+(pinCenter 320 290))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 42 0))
+(open
+(extent 175 27))
+(pinCenter 320 350))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 350 200))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 250 200))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 23 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter -110 460))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 314 67))
+(terminals on)
+(pinCenter -10 530))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -110 530))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 97 15))
+(open
+(extent 120 32))
+(terminals on)
+(pinCenter -210 110))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 104 15))
+(open
+(extent 126 32))
+(terminals on)
+(pinCenter -80 110))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 52 15))
+(open
+(extent 187 31))
+(terminals on)
+(pinCenter 40 110))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 345 427)
+(editing enabled))
+(titleBg "Teal")
+(pinCenter -450 350))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 30 0))
+(open
+(extent 175 27))
+(pinCenter 320 410))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 175 27))
+(pinCenter 320 470))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 66 25))
+(open
+(extent 129 82))
+(terminals on)
+(pinCenter 170 170))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 371 59))
+(terminals on)
+(pinCenter 150 470))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 371 59))
+(terminals on)
+(pinCenter 150 290))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 371 59))
+(terminals on)
+(pinCenter 150 350))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 371 59))
+(terminals on)
+(pinCenter 150 410))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter -450 80))
+(connect D14:1 D0:1
+(points 2 68 110 99 110))
+(connect D12:0 D2:0
+(points 2 -210 120 -210 192))
+(connect D2:1 D3:0
+(points 3 -174 220 -110 220 -110 254))
+(connect D3:1 D4:1
+(points 2 -33 310 6 310))
+(connect D20:1 D5:1
+(points 2 177 290 230 290))
+(connect D21:1 D6:1
+(points 2 177 350 230 350))
+(connect D8:1 D7:1
+(points 2 279 200 307 200))
+(connect D18:1 D8:0
+(points 3 205 160 250 160 250 190))
+(connect D3:1 D8:1
+(points 4 -33 310 -10 310 -10 200 221 200))
+(connect D9:1 D10:0
+(points 3 -84 460 -10 460 -10 520))
+(connect D9:0 D11:0
+(points 2 -110 473 -110 502))
+(connect D12:1 D13:1
+(points 2 -159 110 -135 110))
+(connect D13:1 D14:1
+(points 2 -26 110 11 110))
+(connect D22:1 D16:1
+(points 2 177 410 230 410))
+(connect D19:1 D17:1
+(points 2 177 470 230 470))
+(connect D4:1 D18:1
+(points 4 74 290 100 290 100 170 134 170))
+(connect D4:4 D19:1
+(points 4 74 320 90 320 90 470 122 470))
+(connect D4:1 D20:1
+(points 2 74 290 122 290))
+(connect D4:2 D21:1
+(points 4 74 300 100 300 100 350 122 350))
+(connect D4:3 D22:1
+(points 4 74 310 80 310 80 410 122 410)))
+(stackingOrder 11 12 13 2 22 21 8 7 3 9 10 0 4 20 1 23 5 6 16 17 19 18 14 15))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

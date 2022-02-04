@@ -1,0 +1,2268 @@
+(saveFormat "7.0")
+(date "Wed 03/Mar/2004 11:04:31 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00000201-0000-0010-8000-00AA006D2EA4}")
+(desc "Microsoft ActiveX Data Objects 2.1 Library")
+(filename "C:\\PROGRAM FILES\\COMMON FILES\\SYSTEM\\ADO\\msado15.dll")
+(verMajor 2)
+(verMinor 1)
+(lcid 0)))
+(properties
+(trigMode deg)
+(nextID 135)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 10)
+(context 9
+(properties
+(name "ADOerrors")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Errors.Count")
+(expr 1 "con.Errors.Count"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 MESSAGEBOX
+(properties
+(popupTitle "ADO Error")
+(position 373 207)
+(message "User Message")
+(symbol Exclamation))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 4 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT con.Errors(I).Description EOL"))
+(interface
+(input 1
+(name "I")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect D0:1 D1:1)
+(connect D4:1 D2:1)
+(connect D1:0 D2:2)
+(connect D2:1 D3:1)
+(connect D1:1 D4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 432 348)
+(anchorPt 2 141)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 77 15))
+(open
+(extent 172 37))
+(terminals on)
+(pinCenter 160 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 250 60))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 410 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 500 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 282 75))
+(terminals on)
+(pinCenter 330 60))
+(connect D0:1 D1:1
+(points 2 201 60 213 60))
+(connect D4:1 D2:1
+(points 4 359 60 370 60 370 80 381 80))
+(connect D1:0 D2:2
+(points 5 250 88 250 110 310 110 310 100 381 100))
+(connect D2:1 D3:1
+(points 2 439 90 457 90))
+(connect D1:1 D4:1
+(points 2 286 60 301 60)))
+(stackingOrder 1 2 3 0 4))))
+(context 3
+(properties
+(name "RecordSetView")
+(trigMode deg)
+(nextID 39)
+(popupTitleText "View RecordSet")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Rs")
+(optional yes)))
+(deviceList
+(device 3 BREAK)
+(device 5 IFTHENELSE
+(properties
+(name "EOF?")
+(cases 1 "rs_local.EOF==TRUE"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 12 DECLVAR
+(properties
+(name "Declare Rs_local")
+(scope con)
+(globalName "Rs_local"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 13 TOGLOBAL
+(properties
+(name "Rs_local")
+(globalName "Rs_local"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 14 CONFIRM25
+(properties
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 20 FORMULA
+(properties
+(name "N Fields")
+(expr 1 "totSize(a[*].Name)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 23 TEXTDISPLAY
+(properties
+(isIndexingEnabled 0))
+(interface
+(input 1
+(name "Data"))))
+(device 24 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 25 FORMULA
+(properties
+(name "Source")
+(expr 1 "a.Source"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 TEXTDISPLAY
+(properties
+(name "N Rows"))
+(interface
+(input 1
+(name "Data"))))
+(device 32 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 34 CONTEXT
+(properties
+(name "Field names")
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(count 6))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 TOSTRING
+(properties
+(name "Fields(I).Name")
+(transactions 2 "WRITE TEXT rs_local.Fields(I).Name"
+"WRITE TEXT \"(\"+rs_local.Fields(I).Type+\")\" EOL"))
+(interface
+(input 1
+(name "I")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 398 179)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 100 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 90 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 200 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 300 100))
+(connect I1:1 D0:1
+(points 4 0 89 31 89 31 90 63 90))
+(connect D0:1 D1:1
+(points 2 136 90 152 90))
+(connect D1:1 D2:1
+(points 2 247 90 271 90))
+(connect D0:0 D2:2
+(points 5 100 118 100 140 250 140 250 110 271 110))
+(connect D2:1 O1:1
+(points 4 329 100 350 100 350 89 397 89)))
+(stackingOrder 0 2 1))))
+(device 35 CONTEXT
+(properties
+(name "Field data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORCOUNT
+(properties
+(count 6))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 1 TOSTRING
+(properties
+(name "Fields(I).Value")
+(transactions 2 "WRITE TEXT rs_local.Fields(I).Value EOL"
+"/NOP/ WRITE TEXT \"(\"+rs_local.Fields(I).Type+\")\" EOL"))
+(interface
+(input 1
+(name "I")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 2 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 3 FORMULA
+(properties
+(name "MoveNext")
+(expr 2 "rs_local.MoveNext();" "")))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D0:0 D2:2)
+(connect D2:0 D3:0)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 402 211)
+(anchorPt 210 126)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 100 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 86 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 200 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 300 100))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 306 61))
+(terminals on)
+(pinCenter 300 140))
+(connect I1:1 D0:1
+(points 4 -210 -21 10 -21 10 90 63 90))
+(connect D0:1 D1:1
+(points 2 136 90 154 90))
+(connect D1:1 D2:1
+(points 2 245 90 271 90))
+(connect D0:0 D2:2
+(points 5 100 118 100 140 250 140 250 110 271 110))
+(connect D2:0 D3:0
+(points 2 300 115 300 130))
+(connect D2:1 O1:1
+(points 4 329 100 350 100 350 -21 191 -21)))
+(stackingOrder 0 3 2 1))))
+(device 36 TEXTDISPLAY
+(properties
+(name "N Cols"))
+(interface
+(input 1
+(name "Data"))))
+(device 38 CONTEXT
+(properties
+(name "RecordSetInfo")
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "N Rows")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 TEXTDISPLAY
+(properties
+(name "Record Count"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 FORMULA
+(properties
+(name "Record count")
+(expr 3 "// rs_local.MoveFirst();" "rs_local.RecordCount" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 12 FORMULA
+(properties
+(name "Field names")
+(expr 2 "Name=rs_local.Fields(a).Name;" "Type=rs_local.Fields(a).Type;"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Name")
+(optional yes))
+(output 2
+(name "Type")
+(optional yes))))
+(device 9 FORCOUNT
+(properties
+(count 6))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 11 FORMULA
+(properties
+(name "Field count")
+(expr 2 "rs_local.Fields.Count" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 TORECORD
+(properties
+(outputType scalar))
+(interface
+(input 1
+(name "Name")
+(optional yes))
+(input 2
+(name "Type")
+(optional yes))
+(output 1
+(name "Record"))))
+(configuration
+(connect D1:1 D0:1)
+(connect D6:1 D2:1)
+(connect D4:0 D2:2)
+(connect D4:1 D3:1)
+(connect D5:1 D4:1)
+(connect D1:0 D5:0)
+(connect D3:1 D6:1)
+(connect D3:2 D6:2)
+(connect D1:1 O1:1)
+(connect D2:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 647 454)
+(anchorPt 94 106)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 83 15))
+(open
+(extent 121 22))
+(pinCenter 210 90))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 227 61))
+(terminals on)
+(pinCenter 70 90))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 56 25))
+(open)
+(terminals on)
+(pinCenter 520 160))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 227 62))
+(terminals on)
+(pinCenter 300 150))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 190 150))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 227 61))
+(terminals on)
+(pinCenter 70 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 51)
+(iconImage "build.icn"))
+(open
+(extent 97 54))
+(terminals on)
+(pinCenter 420 150))
+(connect D1:1 D0:1
+(points 4 112 90 139 90 139 90 147 90))
+(connect D6:1 D2:1
+(points 2 461 150 489 150))
+(connect D4:0 D2:2
+(points 5 190 178 190 200 480 200 480 170 489 170))
+(connect D4:1 D3:1
+(points 2 226 150 260 150))
+(connect D5:1 D4:1
+(points 2 106 150 153 150))
+(connect D1:0 D5:0
+(points 2 70 100 70 140))
+(connect D3:1 D6:1
+(points 2 339 140 378 140))
+(connect D3:2 D6:2
+(points 2 339 160 378 160))
+(connect D1:1 O1:1
+(points 4 112 90 130 90 130 0 552 0))
+(connect D2:1 O2:1
+(points 4 550 160 570 160 570 240 552 240)))
+(stackingOrder 4 3 2 6 1 0 5))))
+(configuration
+(connect D1:1 D0:0)
+(connect D2:1 D1:0)
+(connect D16:0 D2:0)
+(connect D10:0 D4:0)
+(connect I1:1 D4:1)
+(connect D7:0 D5:0)
+(connect D16:2 D6:1)
+(connect D12:1 D7:1)
+(connect D2:0 D7:2)
+(connect D7:1 D8:1)
+(connect D10:1 D9:1)
+(connect I1:1 D10:1)
+(connect D16:1 D11:1)
+(connect D13:1 D12:1)
+(connect D14:1 D12:2)
+(connect D6:1 D13:1)
+(connect D1:2 D14:0)
+(connect D6:1 D14:1)
+(connect D6:1 D15:1)
+(connect D4:0 D16:0))
+(ShowOnExecPanel
+(relativeOrigin 230 73)))
+(contextCarrier
+(active detail)
+(panel
+(extent 554 401)
+(drawGrid "off")
+(widget 9 detail
+(relativeOrigin 10 10)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 529 22))
+(widget 8 detail
+(relativeOrigin 10 50)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabStop off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 531 277))
+(widget 5 detail
+(relativeOrigin 250 350)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 80 35))
+(widget 11 detail
+(relativeOrigin 10 340)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title on)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 74 22))
+(widget 15 detail
+(relativeOrigin 90 340)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 4)
+(title on)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 73 22))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 724 533)
+(anchorPt 32 0)
+(configuration
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 38 15))
+(open)
+(terminals on)
+(pinCenter 360 370))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 33 25))
+(open
+(extent 148 51))
+(terminals on)
+(pinCenter 260 340))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 190 310))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 104 15))
+(open
+(extent 344 121))
+(pinCenter 440 130))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 81 51))
+(terminals on)
+(pinCenter 190 190))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 520 450))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 181 39))
+(terminals on)
+(pinCenter 300 260))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 520 400))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 333 109))
+(pinCenter 610 400))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 121 22))
+(pinCenter 280 150))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 43 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 190 150))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 121 22))
+(pinCenter 300 230))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 460 390))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 75 15))
+(terminals on)
+(pinCenter 400 260))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 57 14))
+(terminals on)
+(pinCenter 310 400))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 42 15))
+(open
+(extent 121 22))
+(pinCenter 390 230))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 85 25))
+(pinCenter 190 240))
+(connect D1:1 D0:0
+(points 3 279 330 360 330 360 360))
+(connect D2:1 D1:0
+(points 3 226 310 260 310 260 325))
+(connect D16:0 D2:0
+(points 2 190 255 190 282))
+(connect D10:0 D4:0
+(points 2 190 160 190 180))
+(connect I1:1 D4:1
+(points 4 -32 266 110 266 110 190 161 190))
+(connect D7:0 D5:0
+(points 2 520 415 520 436))
+(connect D16:2 D6:1
+(points 4 235 250 250 250 250 260 272 260))
+(connect D12:1 D7:1
+(points 2 475 390 491 390))
+(connect D2:0 D7:2
+(points 5 190 338 190 430 480 430 480 410 491 410))
+(connect D7:1 D8:1
+(points 2 549 400 568 400))
+(connect D10:1 D9:1
+(points 2 214 150 235 150))
+(connect I1:1 D10:1
+(points 4 -32 266 110 266 110 150 166 150))
+(connect D16:1 D11:1
+(points 2 235 230 273 230))
+(connect D13:1 D12:1
+(points 6 440 260 460 260 460 290 430 290 430 380 444 380))
+(connect D14:1 D12:2
+(points 2 341 400 444 400))
+(connect D6:1 D13:1
+(points 2 327 260 360 260))
+(connect D1:2 D14:0
+(points 3 279 350 310 350 310 390))
+(connect D6:1 D14:1
+(points 8 327 260 340 260 340 290 320 290 320 370 270 370 270 400 279 400))
+(connect D6:1 D15:1
+(points 4 327 260 340 260 340 230 366 230))
+(connect D4:0 D16:0
+(points 2 190 200 190 225)))
+(stackingOrder 3 9 6 4 13 2 11 10 15 1 0 12 7 5 8 14 16)))))
+(device 8 DECLVAR
+(properties
+(name "Declare rs")
+(scope glob)
+(globalName "rs"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 47 DECLVAR
+(properties
+(name "Declare con")
+(scope glob)
+(globalName "con"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 72 CONTEXT
+(properties
+(name "Execute SQL string")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "SQLstring")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Open RecordSet (Query)")
+(expr 3 "rs.Open(SQLstring,con,adOpenKeyset,adLockReadOnly,adCmdText);" "" ""))
+(interface
+(input 1
+(name "SQLstring")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 CALL
+(properties
+(name "Call RecordSetView")
+(callFunc "RecordSetView")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rs")
+(optional yes))))
+(device 2 FROMGLOBAL
+(properties
+(name "rs")
+(globalName "rs"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "rs.Close")
+(expr 1 "rs.Close( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call ADOerrors")
+(callFunc "ADOerrors")
+(parmMode rev30)))
+(device 5 EXITCONTEXT)
+(configuration
+(connect I1:1 D0:1)
+(connect D2:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D0:1 D4:0)
+(connect D4:0 D5:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 465 261)
+(anchorPt 76 6)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 151 16))
+(open
+(extent 574 76))
+(terminals on)
+(pinCenter 240 180))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 340 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 56 51))
+(terminals on)
+(pinCenter 240 240))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 138 32))
+(terminals on)
+(pinCenter 240 310))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 480 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 480 240))
+(connect I1:1 D0:1
+(points 4 -76 124 -70 124 -70 180 162 180))
+(connect D2:1 D1:1
+(points 2 254 240 278 240))
+(connect D0:0 D2:0
+(points 2 240 190 240 230))
+(connect D2:0 D3:0
+(points 2 240 250 240 300))
+(connect D0:1 D4:0
+(points 3 318 180 480 180 480 200))
+(connect D4:0 D5:0
+(points 2 480 220 480 230)))
+(stackingOrder 2 4 5 0 3 1))))
+(device 73 CONTEXT
+(properties
+(name "View Table")
+(trigMode deg)
+(nextID 6)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Table")
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Open RecordSet (Table)")
+(expr 3 "rs.Open(asText(Table),con,adOpenKeyset,adLockReadOnly,adCmdTable);" ""
+""))
+(interface
+(input 1
+(name "Table")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 1 CALL
+(properties
+(name "Call RecordSetView")
+(callFunc "RecordSetView")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rs")
+(optional yes))))
+(device 2 FROMGLOBAL
+(properties
+(name "rs")
+(globalName "rs"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "rs.Close")
+(expr 1 "rs.Close( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 CALL
+(properties
+(name "Call ADOerrors")
+(callFunc "ADOerrors")
+(parmMode rev30)))
+(device 5 EXITCONTEXT)
+(configuration
+(connect I1:1 D0:1)
+(connect D2:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D0:1 D4:0)
+(connect D4:0 D5:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 679 305)
+(anchorPt 207 12)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 146 16))
+(open
+(extent 574 76))
+(terminals on)
+(pinCenter 130 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 230 190))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 56 51))
+(terminals on)
+(pinCenter 130 190))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 138 32))
+(terminals on)
+(pinCenter 130 230))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 310 130))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 310 160))
+(connect I1:1 D0:1
+(points 4 -207 140 -200 140 -200 70 54 70))
+(connect D2:1 D1:1
+(points 2 144 190 168 190))
+(connect D0:0 D2:0
+(points 2 130 80 130 180))
+(connect D2:0 D3:0
+(points 2 130 200 130 220))
+(connect D0:1 D4:0
+(points 3 205 70 310 70 310 120))
+(connect D4:0 D5:0
+(points 2 310 140 310 150)))
+(stackingOrder 2 4 5 1 3 0))))
+(device 83 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 84 BREAK)
+(device 96 FORMULA
+(properties
+(name "CreateConnection object")
+(expr 1 "Set con=CreateObject(\"ADODB.Connection\")")))
+(device 100 FORMULA
+(properties
+(name "con.Version")
+(expr 1 "con.Version"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 101 TEXTDISPLAY
+(properties
+(name "ADO Version"))
+(interface
+(input 1
+(name "Data"))))
+(device 102 FORMULA
+(properties
+(name "con.Open")
+(expr 2 "con.Open(ConnectionString);" ""))
+(interface
+(input 1
+(name "ConnectionString")
+(optional yes))
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 103 TOSTRING
+(properties
+(name "Connection String")
+(transactions 5 "WRITE TEXT \"Provider=SQLOLEDB.1;\""
+"WRITE TEXT \"User ID=\", User, \";\""
+"WRITE TEXT \"Password=\", Password, \";\""
+"WRITE TEXT \"Data Source=\", Server, \";\""
+"WRITE TEXT \"Initial Catalog=\", Database EOL"))
+(interface
+(input 1
+(name "User")
+(optional yes))
+(input 2
+(name "Password")
+(optional yes))
+(input 3
+(name "Server")
+(optional yes))
+(input 4
+(name "Database")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 104 LITERALCONSTANT
+(properties
+(name "User"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "sa"))
+(initValue Text
+(data  "sa"))))
+(device 105 LITERALCONSTANT
+(properties
+(name "Password"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 106 LITERALCONSTANT
+(properties
+(name "Server"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "(local)"))
+(initValue Text
+(data  "(local)"))))
+(device 107 LITERALCONSTANT
+(properties
+(name "Database"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "pubs"))
+(initValue Text
+(data  "pubs"))))
+(device 108 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This simple example program illustrates \\par\r\nhow VEE can use Microsoft ADO (rev 2.1) Automation\\par\r\nServer for integration with SQL Server 7.0 databases.\\par\r\n\\par\r\nSQL Server 7.0 must be available on a remote server\\par\r\nor on this system as specified in the Server field.\\par\r\nSpecify (local) as server if VEE and SQL Server is \\par\r\nrunning on same PC.\\par\r\n\\par\r\nThe program use SQL\'s pubs example database by default and:\\par\r\n* Lists all databases on SQL server by reading the Catalog Schema\\par\r\n* Finds all tables in one database (pubs) by reading the Tables Schema\\par\r\n* Allow execution of SQL querys\\par\r\n* Allow view\\\'edng of tables \\par\r\n* Traps ADO errors from SQL Server\\par\r\n}\r\n"
+)))
+(device 109 CALL
+(properties
+(name "Call ADOerrors")
+(callFunc "ADOerrors")
+(parmMode rev30)))
+(device 110 CONFIRM25
+(properties
+(name "Execute")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 111 LITERALCONSTANT
+(properties
+(name "Execute SQL Command")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "select * from [authors]"))
+(initValue Text
+(data  "select * from [authors]"))))
+(device 113 CONFIRM25
+(properties
+(name "View")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 114 NEXT)
+(device 115 NEXT)
+(device 116 CONFIRM25
+(properties
+(name "Exit")
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 117 FORMULA
+(properties
+(name "con.Close")
+(expr 1 "Con.Close( );")))
+(device 118 EXITPROCESS
+(properties
+(code 0)))
+(device 125 CONTEXT
+(properties
+(name "Schema Tables")
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Tables")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 IFTHENELSE
+(properties
+(name "EOF ?")
+(cases 1 "Rs_Schema.EOF==TRUE"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 BREAK)
+(device 5 FORMULA
+(properties
+(name "Table name")
+(expr 3 "Rs_Schema.Fields(\"TABLE_NAME\").Value;" "" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 7 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 8 FORMULA
+(properties
+(name "Con.OpenSchema(Tables);")
+(expr 1 "Set Rs_Schema=Con.OpenSchema(adSchemaTables);")))
+(device 9 DECLVAR
+(properties
+(name "Declare Rs_Schema")
+(scope con)
+(globalName "Rs_Schema"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 10 IFTHENELSE
+(properties
+(name "TABLE ?")
+(cases 1 "Rs_Schema.Fields(\"TABLE_TYPE\").Value==\"TABLE\""))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 12 FORMULA
+(properties
+(name "MoveNext")
+(expr 1 "Rs_Schema.MoveNext();")))
+(device 13 FORMULA
+(properties
+(name "Rs_Schema.Close( );")
+(expr 1 "Rs_Schema.Close( );")))
+(configuration
+(connect D6:0 D0:0)
+(connect D0:1 D1:0)
+(connect D10:0 D2:0)
+(connect D8:1 D3:0)
+(connect D3:1 D4:1)
+(connect D3:1 D5:1)
+(connect D0:0 D5:2)
+(connect D1:2 D8:0)
+(connect D8:0 D9:0)
+(connect D1:1 D10:0)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -12 35)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 150 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 38 25))
+(open
+(extent 173 51))
+(terminals on)
+(pinCenter 220 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 360 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 79 14))
+(open
+(extent 284 63))
+(terminals on)
+(pinCenter 310 270))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 136 221)
+(noformatter))
+(pinCenter 550 150))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 430 280))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 166 15))
+(open
+(extent 366 82))
+(terminals on)
+(pinCenter 150 70))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 126 15))
+(open
+(extent 344 121))
+(pinCenter 360 10))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 51 25))
+(open
+(extent 319 51))
+(terminals on)
+(pinCenter 250 220))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 179 36))
+(terminals on)
+(pinCenter 250 300))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 138 32))
+(terminals on)
+(pinCenter 360 180))
+(connect D6:0 D0:0
+(points 2 150 80 150 112))
+(connect D0:1 D1:0
+(points 3 186 140 220 140 220 145))
+(connect D10:0 D2:0
+(points 2 360 190 360 200))
+(connect D8:1 D3:0
+(points 3 278 210 310 210 310 260))
+(connect D3:1 D4:1
+(points 6 352 270 370 270 370 250 450 250 450 150 479 150))
+(connect D3:1 D5:1
+(points 2 352 270 401 270))
+(connect D0:0 D5:2
+(points 5 150 168 150 330 380 330 380 290 401 290))
+(connect D1:2 D8:0
+(points 3 241 170 250 170 250 205))
+(connect D8:0 D9:0
+(points 2 250 235 250 290))
+(connect D1:1 D10:0
+(points 3 241 150 360 150 360 170))
+(connect D5:1 O1:1
+(points 4 459 280 480 280 480 114 361 114)))
+(stackingOrder 0 1 9 10 2 5 4 3 8 7 6))))
+(device 127 ENUMCONSTANT
+(properties
+(name "View Table")
+(initializeAtPrerun 1))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("authors" 0)
+("discounts" 1)
+("employee" 2)
+("jobs" 3)
+("pub_info" 4)
+("publishers" 5)
+("roysched" 6)
+("sales" 7)
+("stores" 8)
+("titleauthor" 9)
+("titles" 10))
+(data  "authors"))
+(initValue Text
+(data  "authors"))))
+(device 130 FORMULA
+(properties
+(name "Create Recordset object")
+(expr 1 "Set rs=CreateObject(\"ADODB.Recordset\")")))
+(device 132 CONTEXT
+(properties
+(name "Schema Catalog")
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Catalogs")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 2 IFTHENELSE
+(properties
+(name "EOF ?")
+(cases 1 "Rs_Schema.EOF==TRUE"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 BREAK)
+(device 5 FORMULA
+(properties
+(name "Catalog name")
+(expr 3 "Rs_Schema.Fields(\"CATALOG_NAME\").Value;" "" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 7 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 8 FORMULA
+(properties
+(name "Con.OpenSchema(Catalogs);")
+(expr 1 "Set Rs_Schema=Con.OpenSchema(adSchemaCatalogs);")))
+(device 9 DECLVAR
+(properties
+(name "Declare Rs_Schema")
+(scope con)
+(globalName "Rs_Schema"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 12 FORMULA
+(properties
+(name "MoveNext")
+(expr 1 "Rs_Schema.MoveNext();")))
+(device 13 FORMULA
+(properties
+(name "Rs_Schema.Close( );")
+(expr 1 "Rs_Schema.Close( );")))
+(configuration
+(connect D6:0 D0:0)
+(connect D0:1 D1:0)
+(connect D9:0 D2:0)
+(connect D1:2 D3:0)
+(connect D3:1 D4:1)
+(connect D3:1 D5:1)
+(connect D0:0 D5:2)
+(connect D3:0 D8:0)
+(connect D1:1 D9:0)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -39 39)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 150 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 38 25))
+(open
+(extent 173 51))
+(terminals on)
+(pinCenter 220 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 360 210))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 85 14))
+(open
+(extent 284 63))
+(terminals on)
+(pinCenter 250 250))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 136 221)
+(noformatter))
+(pinCenter 550 150))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 430 280))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 179 15))
+(open
+(extent 366 82))
+(terminals on)
+(pinCenter 150 70))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 126 15))
+(open
+(extent 344 121))
+(pinCenter 330 70))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 179 36))
+(terminals on)
+(pinCenter 250 300))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 138 32))
+(terminals on)
+(pinCenter 360 180))
+(connect D6:0 D0:0
+(points 2 150 80 150 112))
+(connect D0:1 D1:0
+(points 3 186 140 220 140 220 145))
+(connect D9:0 D2:0
+(points 2 360 190 360 200))
+(connect D1:2 D3:0
+(points 3 241 170 250 170 250 240))
+(connect D3:1 D4:1
+(points 4 295 250 450 250 450 150 479 150))
+(connect D3:1 D5:1
+(points 4 295 250 320 250 320 270 401 270))
+(connect D0:0 D5:2
+(points 5 150 168 150 330 380 330 380 290 401 290))
+(connect D3:0 D8:0
+(points 2 250 259 250 290))
+(connect D1:1 D9:0
+(points 3 241 150 360 150 360 170))
+(connect D5:1 O1:1
+(points 4 459 280 480 280 480 110 388 110)))
+(stackingOrder 0 1 8 9 2 5 4 6 3 7))))
+(device 133 MESSAGEBOX
+(properties
+(popupTitle "Database Catalog")
+(position 485 410)
+(message "User Message")
+(symbol Information))
+(interface
+(input 1
+(name "Message")
+(tag "Message")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 134 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D18:1 D2:1)
+(connect D26:1 D3:1)
+(connect D25:0 D4:0)
+(connect D22:1 D5:0)
+(connect D27:0 D7:0)
+(connect D7:1 D8:1)
+(connect D10:1 D9:1)
+(connect D7:0 D10:0)
+(connect D11:1 D10:1)
+(connect D12:1 D10:2)
+(connect D13:1 D10:3)
+(connect D14:1 D10:4)
+(connect D9:1 D16:0)
+(connect D4:1 D17:0)
+(connect D17:1 D18:0)
+(connect D4:1 D19:0)
+(connect D17:0 D20:0)
+(connect D19:0 D21:0)
+(connect D4:1 D22:0)
+(connect D4:0 D23:0)
+(connect D16:0 D24:0)
+(connect D28:0 D25:0)
+(connect D19:1 D26:0)
+(connect D25:1 D26:1)
+(connect D6:0 D27:0)
+(connect D10:0 D28:0)
+(connect D28:1 D29:1)))
+(contextCarrier
+(wndRestoredOrigin 2 1)
+(wndRestoredExtent 819 570)
+(wndState max)
+(active detail)
+(detail
+(extent 829 633)
+(anchorPt 76 -193)
+(configuration
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 344 121))
+(pinCenter 480 270))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 344 121))
+(pinCenter 480 300))
+(devCarrierFor 72
+(active icon)
+(icon
+(extent 115 15))
+(terminals on)
+(pinCenter 590 780))
+(devCarrierFor 73
+(active icon)
+(icon
+(extent 66 15))
+(terminals on)
+(pinCenter 630 690))
+(devCarrierFor 83
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 12 30))
+(terminals on)
+(pinCenter 230 580))
+(devCarrierFor 84
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 650 640))
+(devCarrierFor 96
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 329 40))
+(terminals on)
+(pinCenter 230 280))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 71 15))
+(open
+(extent 139 32))
+(terminals on)
+(pinCenter 230 380))
+(devCarrierFor 101
+(active open)
+(icon
+(extent 77 15))
+(open
+(extent 180 30))
+(pinCenter 420 380))
+(devCarrierFor 102
+(active icon)
+(icon
+(extent 65 15))
+(open
+(extent 223 87))
+(terminals on)
+(pinCenter 360 450))
+(devCarrierFor 103
+(active icon)
+(icon
+(extent 107 45))
+(open
+(extent 312 104))
+(terminals on)
+(pinCenter 230 450))
+(devCarrierFor 104
+(active open)
+(icon
+(extent 31 0))
+(open
+(extent 174 29))
+(pinCenter 30 370))
+(devCarrierFor 105
+(active open)
+(icon
+(extent 61 0))
+(open
+(extent 174 29))
+(pinCenter 30 440))
+(devCarrierFor 106
+(active open)
+(icon
+(extent 39 0))
+(open
+(extent 174 29))
+(pinCenter 30 510))
+(devCarrierFor 107
+(active open)
+(icon
+(extent 59 0))
+(open
+(extent 174 29))
+(pinCenter 30 580))
+(devCarrierFor 108
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 524 254)
+(editing disabled))
+(pinCenter 800 350))
+(devCarrierFor 109
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 460 480))
+(devCarrierFor 110
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 310 610))
+(devCarrierFor 111
+(active open)
+(icon
+(extent 145 0))
+(open
+(extent 278 34))
+(pinCenter 370 780))
+(devCarrierFor 113
+(active open)
+(icon
+(extent 30 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 440 610))
+(devCarrierFor 114
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 310 650))
+(devCarrierFor 115
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 440 650))
+(devCarrierFor 116
+(active open)
+(icon
+(extent 23 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 580 610))
+(devCarrierFor 117
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 144 32))
+(terminals on)
+(pinCenter 230 680))
+(devCarrierFor 118
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 460 530))
+(devCarrierFor 125
+(active icon)
+(icon
+(extent 105 15))
+(terminals on)
+(pinCenter 230 520))
+(devCarrierFor 127
+(active open)
+(icon
+(extent 66 0))
+(open
+(extent 130 25)
+(format dropDown))
+(pinCenter 510 700))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 146 15))
+(open
+(extent 329 40))
+(terminals on)
+(pinCenter 230 320))
+(devCarrierFor 132
+(active icon)
+(icon
+(extent 105 15))
+(terminals on)
+(pinCenter 230 490))
+(devCarrierFor 133
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 340 490))
+(devCarrierFor 134
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 291 99)
+(editing disabled))
+(pinCenter 110 230))
+(connect D18:1 D2:1
+(points 2 511 780 530 780))
+(connect D26:1 D3:1
+(points 2 577 690 594 690))
+(connect D25:0 D4:0
+(points 2 230 530 230 552))
+(connect D22:1 D5:0
+(points 3 606 610 650 610 650 630))
+(connect D27:0 D7:0
+(points 2 230 330 230 370))
+(connect D7:1 D8:1
+(points 2 268 380 327 380))
+(connect D10:1 D9:1
+(points 2 286 450 325 450))
+(connect D7:0 D10:0
+(points 2 230 390 230 425))
+(connect D11:1 D10:1
+(points 4 119 370 140 370 140 430 174 430))
+(connect D12:1 D10:2
+(points 2 119 440 174 440))
+(connect D13:1 D10:3
+(points 4 119 510 130 510 130 450 174 450))
+(connect D14:1 D10:4
+(points 4 119 580 140 580 140 460 174 460))
+(connect D9:1 D16:0
+(points 3 395 450 460 450 460 470))
+(connect D4:1 D17:0
+(points 3 266 580 310 580 310 596))
+(connect D17:1 D18:0
+(points 3 336 610 370 610 370 742))
+(connect D4:1 D19:0
+(points 3 266 580 440 580 440 596))
+(connect D17:0 D20:0
+(points 2 310 623 310 640))
+(connect D19:0 D21:0
+(points 2 440 623 440 640))
+(connect D4:1 D22:0
+(points 3 266 580 580 580 580 596))
+(connect D4:0 D23:0
+(points 2 230 608 230 670))
+(connect D16:0 D24:0
+(points 2 460 490 460 502))
+(connect D28:0 D25:0
+(points 2 230 500 230 510))
+(connect D19:1 D26:0
+(points 3 466 610 510 610 510 667))
+(connect D25:1 D26:1
+(points 4 285 520 380 520 380 700 442 700))
+(connect D6:0 D27:0
+(points 2 230 290 230 310))
+(connect D10:0 D28:0
+(points 2 230 475 230 480))
+(connect D28:1 D29:1
+(points 2 285 490 297 490)))
+(stackingOrder 4 22 5 24 16 11 12 13 14 8 21 26 17 20 18 7 10 23 3 29 19 30 1 0
+28 25 9 2 15 6 27))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

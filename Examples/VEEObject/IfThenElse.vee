@@ -1,0 +1,401 @@
+(saveFormat "7.0")
+(date "Fri 03/May/2013 09:31:19 ")
+(veerev "9.31.16125.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.42 M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 51)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 42 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Information About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}{\\f1\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\fs20 Purpose:\\ulnone\\par\r\nThis example illustrates the use of If Then Else object. If Then Else is an object that branches execution flow based on the values of its input(s).\\lang1033\\par\r\n\\lang2057\\par\r\n\\ul Description:\\par\r\n\\ulnone Toggle on the Execution Flow and Data Flow (under Debug menu). Press Run. \\par\r\nThis example pops up the dialog box based on the values of If Then Else object input.\\f1\\fs20\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 30 37)))
+(contextCarrier
+(active detail)
+(panel
+(extent 496 267)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 210 200)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 30))
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 480 160)
+(editing disabled))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 415 261)
+(anchorPt 399 339)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -290 100))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 53 16))
+(open
+(extent 494 196)
+(editing enabled))
+(pinCenter -110 -180)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(wndOrigin 22 22)
+(wndState res)
+(active panel)
+(panel
+(extent 176 70)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 24 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 120 40)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 550 263)
+(anchorPt 240 54)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 249 25))
+(open
+(extent 812 455)
+(carbonCopy))
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 43 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "0<A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 44 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  5))
+(initValue Int32
+(data  0))))
+(device 47 MESSAGEBOX
+(properties
+(name "A is more than zero")
+(variableScope cont)
+(message "A is more than zero.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 48 IFTHENELSE
+(properties
+(variableScope cont)
+(cases 1 "0<B"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 49 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  -5))
+(initValue Int32
+(data  0))))
+(device 50 MESSAGEBOX
+(properties
+(name "B is less than zero")
+(variableScope cont)
+(message "B is less than zero.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK  Cancel")
+(buttonLabel1 "OK")
+(buttonLabel2 "Cancel")
+(buttonLabel3 "")
+(bdefault "OK")))
+(configuration
+(connect D3:1 D2:1)
+(connect D2:1 D4:0)
+(connect D2:0 D5:0)
+(connect D6:1 D5:1)
+(connect D5:2 D7:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 637)
+(anchorPt -181 73)
+(configuration
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 374 76)
+(editing disabled))
+(pinCenter 370 20))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 164 66)
+(carbonCopy))
+(pinCenter 640 40))
+(devCarrierFor 43
+(active open)
+(icon)
+(open
+(extent 50 51))
+(terminals on)
+(pinCenter 455 120))
+(devCarrierFor 44
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 320 120))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 115 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 610 160))
+(devCarrierFor 48
+(active open)
+(icon)
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 455 240))
+(devCarrierFor 49
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 320 240))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 111 25))
+(open
+(extent 223 134))
+(terminals on)
+(pinCenter 610 280))
+(connect D3:1 D2:1
+(points 2 356 120 397 120))
+(connect D2:1 D4:0
+(points 3 522 110 610 110 610 145))
+(connect D2:0 D5:0
+(points 2 460 148 460 194))
+(connect D6:1 D5:1
+(points 2 356 240 395 240))
+(connect D5:2 D7:0
+(points 3 524 250 610 250 610 265)))
+(stackingOrder 3 5 6 2 4 7 1 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

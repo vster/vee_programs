@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="AgE44xxCdma2000.vee">
+		<Description>Measure occupied bandwidth on CDMA2000, save to Excel</Description>
+		<LogicalInstrument name="e44xx">
+			<SupportedInstruments>
+				<Instrument idn="agE4406A"/>
+				<Instrument idn="agE4440A"/>
+				<Instrument idn="agE4443A"/>
+				<Instrument idn="agE4445A"/>
+				<Instrument idn="hpE4406A"/>
+				<Instrument idn="ag E4406A"/>
+				<Instrument idn="ag E4440A"/>
+				<Instrument idn="ag E4443A"/>
+				<Instrument idn="ag E4445A"/>
+				<Instrument idn="hp E4406A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

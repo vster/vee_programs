@@ -1,0 +1,6805 @@
+(saveFormat "7.0")
+(date "Thu 30/Mar/2006 15:47:20 ")
+(veerev "7.51.7801.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "VNA"
+(type GPIB)
+(gateway "vortex-13")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 171)
+(popupTitleText "PNA Data Acquisition & Display")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 4 TIMER
+(properties
+(name "Data Read Time (sec)"))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 7 DO
+(interface
+(output 1
+(name "Do"))))
+(device 9 CONTEXT
+(properties
+(name "(4b) Get_All_param")
+(trigMode deg)
+(nextID 54)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 12 FORMULA
+(properties
+(name "Turn array into complex")
+(expr 1 "a[*,0]+j(a[*,1])"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 22 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 6 "WRITE TEXT \"calc\"+chan+\":data? sdata\" EOL"
+"READ TEXT hdr CHAR:1" "READ TEXT digits INT16 MAXFW:1"
+"READ TEXT bytes INT32 MAXFW:digits" "READ BINARY sdata REAL32 ARRAY:bytes/8, 2"
+"READ BINARY ending BYTE"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "hdr")
+(optional yes))
+(output 2
+(name "digits")
+(optional yes))
+(output 3
+(name "bytes")
+(optional yes))
+(output 4
+(name "sdata")
+(optional yes))
+(output 5
+(name "ending")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 23 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 1 "WRITE TEXT \"calc\"+chan+\":par:sel \"+tracename+\";\" EOL"))
+(interface
+(input 1
+(name "tracename")
+(optional yes))
+(input 2
+(name "chan")
+(requires
+(datatype Text))
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 39 FROMSTRING
+(properties
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\",\" ARRAY:*,2"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 40 FORMULA
+(properties
+(name "tracename(i)")
+(expr 2 "A[i,0]" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "I")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 41 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 42 FORMULA
+(properties
+(name "size/2")
+(expr 1 "totsize(a)/2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 43 IFTHENELSE
+(properties
+(name "No catalog")
+(cases 1 "a==\"NO CATALOG\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 45 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 2 "WRITE TEXT \"calc\"+chan+\":par:cat?\" EOL" "READ TEXT x STR"))
+(interface
+(input 1
+(name "chan")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 46 EXITPROCESS
+(properties
+(code 0)))
+(device 47 MESSAGEBOX
+(properties
+(name "Nothing to read")
+(message "Nothing to read")
+(symbol Information))
+(interface
+(output 1
+(name "Stop")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 3)
+(buttons "<Custom...>")
+(buttonLabel1 "Stop")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "Stop")))
+(device 48 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First do a catalog of all the traces.  If there aren\'t any traces, then stop\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We sort the the catalog, making a 2-D array of trace names and parameters.  We use the Read by Token, selecting to exclude \",\" to sort through the comma separated list. \\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 50 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The array size divided by 2 is the number of traces.\\par\r\nWe loop through and select them by trace name.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 51 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Above is the best way to read data.  We query the data, read the header (\"A\"), next is a 1 character text number representing the number of digits in the following number.  We read the following number, which is the number of bytes to transfer.  Then we use binary reads to read the bytes into a 2-D array, representing real and imaginary values\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 52 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This little trick turns the 2-d array into a 1-D array of complex numbers.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 53 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 And we collect all these arrays of data arrays into a multi-dimension array of parameter data.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:4 D0:1)
+(connect D0:1 D1:1)
+(connect D6:0 D1:2)
+(connect D3:0 D2:0)
+(connect I1:1 D2:1)
+(connect D5:1 D3:1)
+(connect I1:1 D3:2)
+(connect D8:2 D4:0)
+(connect D9:1 D4:1)
+(connect D4:1 D5:1)
+(connect D6:1 D5:2)
+(connect D7:1 D6:1)
+(connect D4:1 D7:1)
+(connect D9:1 D8:1)
+(connect I1:1 D9:1)
+(connect D11:0 D10:0)
+(connect D8:1 D11:0)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1790 1126)
+(anchorPt -263 -185)
+(configuration
+(devCarrierFor 12
+(active open)
+(icon
+(extent 139 0))
+(open
+(extent 144 56))
+(terminals on)
+(pinCenter 1300 970))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 1280 1150))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 365 137))
+(terminals on)
+(pinCenter 925 970))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 375 57))
+(terminals on)
+(pinCenter 965 820))
+(devCarrierFor 39
+(active open)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 530 590))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 77 25))
+(open
+(extent 95 65))
+(terminals on)
+(pinCenter 620 780))
+(devCarrierFor 41
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 720 710))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 620 710))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 135 51))
+(terminals on)
+(pinCenter 750 370))
+(devCarrierFor 45
+(active open)
+(icon
+(extent 157 51)
+(iconImage "io.icn"))
+(open
+(extent 245 67))
+(terminals on)
+(pinCenter 505 360))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 880 470))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 880 390))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 490 240))
+(devCarrierFor 49
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 950 590))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1020 720))
+(devCarrierFor 51
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 196)
+(editing enabled))
+(pinCenter 940 1180))
+(devCarrierFor 52
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1540 870))
+(devCarrierFor 53
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1560 1250))
+(connect D2:4 D0:1
+(points 4 1160 990 1180 990 1180 970 1195 970))
+(connect D0:1 D1:1
+(points 6 1424 970 1440 970 1440 1060 1170 1060 1170 1130 1189 1130))
+(connect D6:0 D1:2
+(points 7 720 728 720 740 690 740 690 810 680 810 680 1170 1189 1170))
+(connect D3:0 D2:0
+(points 4 940 851 940 860 930 860 930 881))
+(connect I1:1 D2:1
+(points 4 263 747 480 747 480 970 700 970))
+(connect D5:1 D3:1
+(points 4 661 780 680 780 680 800 695 800))
+(connect I1:1 D3:2
+(points 4 263 747 480 747 480 840 695 840))
+(connect D8:2 D4:0
+(points 5 784 380 800 380 800 430 520 430 520 532))
+(connect D9:1 D4:1
+(points 6 660 360 680 360 680 420 340 420 340 590 363 590))
+(connect D4:1 D5:1
+(points 8 677 590 700 590 700 650 580 650 580 710 570 710 570 770 579 770))
+(connect D6:1 D5:2
+(points 6 770 710 790 710 790 750 560 750 560 790 579 790))
+(connect D7:1 D6:1
+(points 2 640 710 670 710))
+(connect D4:1 D7:1
+(points 6 677 590 700 590 700 650 580 650 580 710 599 710))
+(connect D9:1 D8:1
+(points 4 660 360 680 360 680 370 715 370))
+(connect I1:1 D9:1
+(points 4 263 747 310 747 310 360 340 360))
+(connect D11:0 D10:0
+(points 2 880 400 880 434))
+(connect D8:1 D11:0
+(points 3 784 360 880 360 880 380))
+(connect D1:1 O1:1
+(points 4 1370 1150 1506 1150 1506 747 2052 747)))
+(stackingOrder 3 6 9 4 10 1 2 12 13 14 15 16 0 17 8 7 5 11))))
+(device 38 CONTEXT
+(properties
+(name "(4a) GetFreqList")
+(trigMode deg)
+(nextID 39)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "Type")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Freq")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 2 "WRITE TEXT \"sens\"+chan+\":swe:type?;\" EOL" "READ TEXT x STR"
+))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 IFTHENELSE
+(properties
+(cases 3 "a==\"SEGM\"" "a==\"LIN\"" "a==\"LOG\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":swe:poin?;\" EOL"
+"READ TEXT points INT16" "WRITE TEXT \"sens\"+chan+\":freq:star?;\" EOL"
+"READ TEXT star REAL64" "WRITE TEXT \"sens\"+chan+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 4 TEXTDISPLAY
+(properties
+(name "Sweep type"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(ramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":swe:poin?;\" EOL"
+"READ TEXT points INT16" "WRITE TEXT \"sens\"+chan+\":freq:star?;\" EOL"
+"READ TEXT star REAL64" "WRITE TEXT \"sens\"+chan+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 7 MESSAGEBOX
+(properties
+(name "Not Lin, log or seg")
+(message "Sweep Type Must be LIN, LOG, or SEGMENT.")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 8 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(logramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 EXITPROCESS
+(properties
+(code 0)))
+(device 13 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "B")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 28 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 32 FORMULA
+(properties
+(name "ramp(numElem,start,stop)")
+(expr 1 "round(ramp(numElem,start,stop))"))
+(interface
+(input 1
+(name "numElem")
+(optional yes))
+(input 2
+(name "start")
+(optional yes))
+(input 3
+(name "stop")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 6 "WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":swe:poin?;\" EOL"
+"READ TEXT points INT16"
+"WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":freq:star?;\" EOL"
+"READ TEXT star REAL64"
+"WRITE TEXT \"sens\"+chan+\":segm\"+segm+\":freq:stop?;\" EOL"
+"READ TEXT stop REAL64"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(input 2
+(name "segm")
+(optional yes))
+(output 1
+(name "points")
+(optional yes))
+(output 2
+(name "star")
+(optional yes))
+(output 3
+(name "stop")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 27 FORMULA
+(properties
+(name "a+1")
+(expr 1 "a+1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 2 "WRITE TEXT \"sens\"+chan+\":segm:coun?;\" EOL"
+"READ TEXT x INT16"))
+(interface
+(input 1
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 25 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 34 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First, find out the sweep type\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 35 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s a segment sweep, loop through each segment and get the start, stop and points, then collect them all into one array.  Theres a maximum of 8000 segments, so we can read this into an integer.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 36 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s a log or lin sweep, get the start, stop and points.  For a lin sweep create a ramp array, if it\'s a log sweep, creat a log ramp array of frequencies. Be sure to use 64 bit reals to read frequencies.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 37 NOTE
+(properties
+(name "Why do we need to do this?")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Sorry, there\'s no way in SCPI to get the frequency list directly, so we need to create it from stimulus values\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 38 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 If it\'s not a lin, log or seg sweep, just stop\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:2 D2:0)
+(connect I1:1 D2:1)
+(connect D0:1 D3:1)
+(connect D2:1 D4:1)
+(connect D2:2 D4:2)
+(connect D2:3 D4:3)
+(connect D1:3 D5:0)
+(connect I1:1 D5:1)
+(connect D1:4 D6:0)
+(connect D5:1 D7:1)
+(connect D5:2 D7:2)
+(connect D5:3 D7:3)
+(connect D6:1 D8:0)
+(connect D10:1 D9:1)
+(connect D4:1 D9:2)
+(connect D7:1 D9:3)
+(connect D11:1 D10:1)
+(connect D15:0 D10:2)
+(connect D12:1 D11:1)
+(connect D12:2 D11:2)
+(connect D12:3 D11:3)
+(connect I1:1 D12:1)
+(connect D13:1 D12:2)
+(connect D15:1 D13:1)
+(connect D1:1 D14:0)
+(connect I1:1 D14:1)
+(connect D14:1 D15:0)
+(connect D14:1 D15:1)
+(connect D0:1 O1:1)
+(connect D9:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 648 907)
+(anchorPt 350 -221)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 354 66))
+(terminals on)
+(pinCenter 215 100))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 119 82))
+(terminals on)
+(pinCenter 160 240))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 135 720))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 69 0))
+(open
+(extent 121 22))
+(pinCenter 550 70))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 560 730))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 145 890))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter 520 280))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 580 880))
+(devCarrierFor 11
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 680 340))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 26 34))
+(open
+(extent 12 70))
+(terminals on)
+(pinCenter 775 730))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 1160 510))
+(devCarrierFor 32
+(active open)
+(icon
+(extent 159 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 960 520))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 385 107))
+(terminals on)
+(pinCenter 530 520))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 71 50))
+(terminals on)
+(pinCenter 250 530))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 125 51)
+(iconImage "io.icn"))
+(open
+(extent 364 56))
+(terminals on)
+(pinCenter 165 380))
+(devCarrierFor 25
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 550 380))
+(devCarrierFor 34
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 264 56)
+(editing enabled))
+(pinCenter -220 100))
+(devCarrierFor 35
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 156)
+(editing enabled))
+(pinCenter -250 330))
+(devCarrierFor 36
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 186)
+(editing enabled))
+(pinCenter -300 710))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 165 0)
+(iconImage "notepad.icn"))
+(open
+(extent 404 116)
+(editing enabled))
+(pinCenter 100 -50))
+(devCarrierFor 38
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 194 76)
+(editing enabled))
+(pinCenter 660 210))
+(connect I1:1 D0:1
+(points 6 -350 674 -60 674 -60 430 -70 430 -70 100 -5 100))
+(connect D0:1 D1:1
+(points 6 424 100 440 100 440 160 50 160 50 240 68 240))
+(connect D1:2 D2:0
+(points 5 272 230 410 230 410 440 140 440 140 646))
+(connect I1:1 D2:1
+(points 4 -350 674 -190 674 -190 720 -100 720))
+(connect D0:1 D3:1
+(points 4 424 100 450 100 450 70 487 70))
+(connect D2:1 D4:1
+(points 4 380 690 390 690 390 710 399 710))
+(connect D2:2 D4:2
+(points 4 380 720 390 720 390 730 399 730))
+(connect D2:3 D4:3
+(points 2 380 750 399 750))
+(connect D1:3 D5:0
+(points 11 272 250 400 250 400 430 270 430 270 500 -120 500 -120 710 -110 710
+-110 800 150 800 150 816))
+(connect I1:1 D5:1
+(points 6 -350 674 -190 674 -190 720 -120 720 -120 890 -90 890))
+(connect D1:4 D6:0
+(points 5 272 270 290 270 290 240 520 240 520 270))
+(connect D5:1 D7:1
+(points 2 390 860 419 860))
+(connect D5:2 D7:2
+(points 4 390 890 400 890 400 880 419 880))
+(connect D5:3 D7:3
+(points 4 390 920 400 920 400 900 419 900))
+(connect D6:1 D8:0
+(points 3 577 280 680 280 680 304))
+(connect D10:1 D9:1
+(points 6 1189 510 1210 510 1210 600 720 600 720 710 736 710))
+(connect D4:1 D9:2
+(points 2 700 730 736 730))
+(connect D7:1 D9:3
+(points 6 720 880 740 880 740 800 720 800 720 750 736 750))
+(connect D11:1 D10:1
+(points 4 1100 520 1110 520 1110 500 1131 500))
+(connect D15:0 D10:2
+(points 5 550 398 550 420 1120 420 1120 520 1131 520))
+(connect D12:1 D11:1
+(points 4 775 490 790 490 790 500 799 500))
+(connect D12:2 D11:2
+(points 2 775 520 799 520))
+(connect D12:3 D11:3
+(points 4 775 550 790 550 790 540 799 540))
+(connect I1:1 D12:1
+(points 4 -350 674 42 674 42 490 285 490))
+(connect D13:1 D12:2
+(points 4 265 530 280 530 280 550 285 550))
+(connect D15:1 D13:1
+(points 10 600 380 620 380 620 320 480 320 480 420 260 420 260 430 220 430 220
+530 235 530))
+(connect D1:1 D14:0
+(points 5 272 210 300 210 300 300 160 300 160 331))
+(connect I1:1 D14:1
+(points 6 -350 674 -60 674 -60 430 -70 430 -70 380 -60 380))
+(connect D14:1 D15:0
+(points 5 379 380 470 380 470 310 550 310 550 344))
+(connect D14:1 D15:1
+(points 2 379 380 500 380))
+(connect D0:1 O1:1
+(points 4 424 100 700 100 700 444 297 444))
+(connect D9:1 O2:1
+(points 2 823 730 297 904)))
+(stackingOrder 5 2 7 4 9 0 1 15 14 13 12 11 19 3 6 10 16 18 17 20 8))))
+(device 63 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 2 "WRITE TEXT \"*idn?\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 64 TEXTDISPLAY
+(properties
+(name "Intsrument ID"))
+(interface
+(input 1
+(name "Data"))))
+(device 65 CONTEXT
+(properties
+(name "(3) PNA_sing_and_wait_opc")
+(trigMode deg)
+(nextID 67)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(optional yes)))
+(deviceList
+(device 5 EXITCONTEXT)
+(device 7 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 5 "WRITE TEXT \"*cls;*ese 1\" EOL"
+"WRITE TEXT \"TRIG:SOUR IMM\" EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:gro:coun 1;\" EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:mode gro;\" EOL" "WRITE TEXT \"*opc\" EOL"))
+(interface
+(input 1
+(name "chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 50 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 48 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 2 "WRITE TEXT \"*stb?\" EOL" "READ TEXT x BYTE"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 47 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 41 NEXT)
+(device 39 BREAK)
+(device 55 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 53 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 44 CONSTANT
+(properties
+(name "Poll Time"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.06))
+(initValue Real
+(data  0))))
+(device 54 FORMULA
+(properties
+(name "A/B")
+(expr 1 "A/B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 38 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 45 MESSAGEBOX
+(properties
+(autoTimeout 1)
+(timeout 3)
+(position 201 201)
+(message "Waiting for VNA, Press \"Stop\" to Stop")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints))
+(output 2
+(name "Stop")
+(lock name constraints))
+(output 3
+(name "Timeout")
+(lock name constraints)))
+(implementation
+(customButtons 1)
+(displayMode 0)
+(buttons "<Custom...>")
+(buttonLabel1 "OK")
+(buttonLabel2 "Stop")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 43 CONSTANT
+(properties
+(name "Total Wait"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  3))
+(initValue Int32
+(data  0))))
+(device 37 DELAY
+(properties
+(delay 0.06))
+(interface
+(input 1
+(name "Delay")
+(tag "Delay")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Done"))))
+(device 36 FORCOUNT
+(properties
+(count 50))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 35 BREAK)
+(device 34 IFTHENELSE
+(properties
+(cases 1 "A==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 46 FORMULA
+(properties
+(name "bit(x,n)")
+(expr 1 "bit(x, 5)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 56 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This takes one sweep.  VNA sweep times can range from a few milliseconds to tens of seconds.  To avoid a Direct I/O time-out, we will use polling of the status byte to see when the sweep is finished.  After a time specified in the \"Total Wait\" box, a message pops up to say we\'re waiting.  It will disappear by itself, or you can OK it.  If you hit Stop, the program will terminate (without creating an I/O timeout error.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 52 SERIALPOLL
+(properties
+(name "Spoll: VNA ( @ 716 on vortex-13)")
+(iopath "VNA")
+(busType 1)
+(event spoll)
+(sense nowait)
+(mask 0x20))
+(interface
+(output 1
+(name "status")
+(lock name constraints)))
+(implementation))
+(device 58 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 For each loop, we use the \"For Count\" to poll the status byte. After the total wait time, we pop the message block to give a choice of stopping\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 59 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We divide the total wait time by the polling time, to get the number of polls that we should make.  We don\'t poll really fast because each time the PNA response to the poll, it slows it down a little bit\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 60 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 You can read the status byte directly, which we do here.  Then we look for the bit corresponding to the OPC finished.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 61 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Or you can Spoll the status byte, but Spoll on the PNA doesn\'t work using \"SCPI-over-LAN\" in firmware versions earlier than 5.0, so we just show it for reference.  Note: it works fine using a GP-IB card or USB-to-GPIB adapter. #H20 is a mask (32 in decimal) that corresponds to a 1 in the OPC bit position.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 62 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Here we clear the status byte, then enable the status register to receive the OPC (operation complete).  We take a single sweep (Set the groups sweep to one, and take a group;  in the PNA there is no \"single sweep\" SCPI command).  Then send the OPC command and start waiting.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 63 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This IF/Then tests for the OPC bit on the status byte.  IF it returns true, we can break out and exit.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 64 NOTE
+(properties
+(name "Whodunit")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq1\\fcharset128 MS Mincho;}{\\f2\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Joel Dunsmore  \\par\r\nand Dara Sariaslani \\cf0\\f1\\par\r\n\\cf1\\b\\f2\\fs28\\par\r\n}\r\n"
+)))
+(device 66 EXITPROCESS
+(properties
+(code 0)))
+(configuration
+(connect D8:0 D0:0)
+(connect I1:1 D1:1)
+(connect D3:1 D2:1)
+(connect D14:1 D3:0)
+(connect D15:1 D4:1)
+(connect D11:1 D5:0)
+(connect D7:1 D6:0)
+(connect D15:0 D7:0)
+(connect D18:1 D7:1)
+(connect D1:0 D8:0)
+(connect D13:1 D10:1)
+(connect D9:1 D10:2)
+(connect D12:1 D11:1)
+(connect D12:3 D11:2)
+(connect D7:2 D12:0)
+(connect D15:1 D14:0)
+(connect D9:1 D14:1)
+(connect D8:1 D15:0)
+(connect D10:1 D15:1)
+(connect D17:1 D16:0)
+(connect D18:1 D17:1)
+(connect D20:0 D18:0)
+(connect D3:1 D18:1)
+(connect D2:0 D20:0)
+(connect D21:1 D20:1)
+(connect D14:1 D21:0)
+(connect D12:2 D29:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 350 300)
+(anchorPt -201 269)
+(configuration
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 270 950))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 157 52)
+(iconImage "io.icn"))
+(open
+(extent 374 146))
+(terminals on)
+(pinCenter 265 100))
+(devCarrierFor 50
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 192 172)
+(formatter
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 1070 710))
+(devCarrierFor 48
+(active open)
+(icon
+(extent 157 0)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 690 480))
+(devCarrierFor 47
+(active open)
+(icon
+(extent 85 15))
+(open
+(extent 131 28))
+(pinCenter 440 370))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 31 16))
+(open)
+(terminals on)
+(pinCenter 550 780))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 410 600))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 82 25))
+(open
+(extent 65 53))
+(terminals on)
+(pinCenter 280 560))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 260 280))
+(devCarrierFor 44
+(active open)
+(icon
+(extent 63 0))
+(open
+(extent 99 30)
+(showFormat real))
+(pinCenter 50 500))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 72 50))
+(terminals on)
+(pinCenter 160 450))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 490 780))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 92 34))
+(open
+(extent 236 129))
+(terminals on)
+(pinCenter 290 780))
+(devCarrierFor 43
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 106 30)
+(showFormat int))
+(pinCenter 50 430))
+(devCarrierFor 37
+(active open)
+(icon)
+(open
+(extent 76 32))
+(pinCenter 420 450))
+(devCarrierFor 36
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 280 450))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 1190 540))
+(devCarrierFor 34
+(active open)
+(icon)
+(open
+(extent 61 53))
+(terminals on)
+(pinCenter 1165 480))
+(devCarrierFor 46
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 81 50))
+(terminals on)
+(pinCenter 980 480))
+(devCarrierFor 56
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 714 196)
+(editing enabled))
+(pinCenter 400 -110))
+(devCarrierFor 49
+(active open)
+(icon
+(extent 156 16))
+(open
+(extent 192 172)
+(formatter
+(realFormat standard)
+(realSigDigits 8)
+(realRadixSpec 4)
+(integerBase binary)))
+(pinCenter 1070 950))
+(devCarrierFor 52
+(active open)
+(icon
+(extent 125 52)
+(iconImage "io.icn"))
+(open
+(extent 180 106))
+(terminals on)
+(pinCenter 630 900))
+(devCarrierFor 58
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -20 270))
+(devCarrierFor 59
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 126)
+(editing enabled))
+(pinCenter -230 490))
+(devCarrierFor 60
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 750 350))
+(devCarrierFor 61
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 186)
+(editing enabled))
+(pinCenter 720 1090))
+(devCarrierFor 62
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 384 156)
+(editing enabled))
+(pinCenter 710 120))
+(devCarrierFor 63
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -10 640))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 294 76)
+(editing enabled))
+(pinCenter 590 -290))
+(devCarrierFor 66
+(active open)
+(icon
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter 410 850))
+(connect D8:0 D0:0
+(points 10 260 308 260 330 200 330 200 500 210 500 210 570 220 570 220 820 270
+820 270 939))
+(connect I1:1 D1:1
+(points 6 201 -120 -240 -120 -240 40 0 40 0 100 35 100))
+(connect D3:1 D2:1
+(points 6 837 480 860 480 860 550 840 550 840 710 971 710))
+(connect D14:1 D3:0
+(points 5 460 450 520 450 520 400 690 400 690 422))
+(connect D15:1 D4:1
+(points 8 335 450 350 450 350 440 360 440 360 390 350 390 350 370 372 370))
+(connect D11:1 D5:0
+(points 5 507 780 520 780 520 750 550 750 550 769))
+(connect D7:1 D6:0
+(points 5 323 550 350 550 350 570 410 570 410 589))
+(connect D15:0 D7:0
+(points 2 280 468 280 545))
+(connect D18:1 D7:1
+(points 8 1073 480 1060 480 1060 560 380 560 380 530 220 530 220 560 236 560))
+(connect D1:0 D8:0
+(points 2 260 175 260 251))
+(connect D13:1 D10:1
+(points 4 105 430 130 430 130 440 145 440))
+(connect D9:1 D10:2
+(points 6 102 500 120 500 120 490 130 490 130 460 145 460))
+(connect D12:1 D11:1
+(points 2 338 770 473 770))
+(connect D12:3 D11:2
+(points 2 338 790 473 790))
+(connect D7:2 D12:0
+(points 5 323 570 340 570 340 600 290 600 290 760))
+(connect D15:1 D14:0
+(points 7 335 450 350 450 350 440 360 440 360 390 420 390 420 413))
+(connect D9:1 D14:1
+(points 6 102 500 120 500 120 490 360 490 360 450 379 450))
+(connect D8:1 D15:0
+(points 5 299 280 320 280 320 330 280 330 280 413))
+(connect D10:1 D15:1
+(points 2 174 450 224 450))
+(connect D17:1 D16:0
+(points 5 1238 470 1260 470 1260 520 1190 520 1190 529))
+(connect D18:1 D17:1
+(points 2 1073 480 1102 480))
+(connect D20:0 D18:0
+(points 8 1070 1038 1070 1060 1190 1060 1190 580 1090 580 1090 410 990 410 990
+434))
+(connect D3:1 D18:1
+(points 2 837 480 907 480))
+(connect D2:0 D20:0
+(points 2 1070 798 1070 843))
+(connect D21:1 D20:1
+(points 4 772 900 790 900 790 950 971 950))
+(connect D14:1 D21:0
+(points 5 460 450 520 450 520 540 640 540 640 826))
+(connect D12:2 D29:0
+(points 3 338 780 410 780 410 814)))
+(stackingOrder 1 17 16 15 14 13 9 18 2 19 20 3 4 23 10 8 26 7 6 22 11 5 27 0 25
+29 12 21 24 28))))
+(device 78 CONTEXT
+(properties
+(name "(1) SetUpNewTraces")
+(trigMode deg)
+(nextID 128)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Chan")
+(optional yes))
+(input 2
+(name "Params")
+(optional yes)))
+(deviceList
+(device 9 FORMULA
+(properties
+(name "A+i+1")
+(expr 1 "a+(i+1)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "i")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "S2P"))
+(initValue Text
+(data  ""))))
+(device 16 FORMULA
+(properties
+(name "4 traces to a window")
+(expr 2 "A = A +1;" "ceil(A/4);"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 FORMULA
+(properties
+(name "4 traces to a window")
+(expr 1 "ceil(A/4) "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 21 FORMULA
+(properties
+(name "size")
+(expr 3 "totsize(a)" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 22 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 23 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 1 "WRITE TEXT \"disp:wind\"+(window+1)+\":state on\" EOL"))
+(interface
+(input 1
+(name "window")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 42 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 5
+"WRITE TEXT \"calc\"+chan+\":par:def \"+(tracename)+\",\"+param[i]+\";\" EOL"
+"WRITE TEXT \"disp:wind\"+window+\":trace\"+((i MOD 4)+1)+\":feed \"+tracename EOL"
+"WRITE TEXT \"calc\"+chan+\":par:sel \"+tracename+\";\" EOL"
+"WRITE TEXT \"calc\"+chan+\":par:cat?\" EOL" "READ TEXT x STR"))
+(interface
+(input 1
+(name "tracename")
+(optional yes))
+(input 2
+(name "chan")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "i")
+(optional yes))
+(input 4
+(name "param")
+(optional yes))
+(input 5
+(name "window")
+(optional yes))
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 44 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 78 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 4 "EXECUTE CLEAR" "WRITE TEXT \"Syst:FPR\" EOL"
+"WRITE TEXT \"Form:data real,32\" EOL" "WRITE TEXT \"sens:swe:mode hold;\" EOL")
+)
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 84 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 First, send the command \"SYST:FPR\", which does a preset and deletes the default trace, but then you lose any settings like calibration, power, etc.  We set the the data form to 32 bit real (the VNA doesn\'t have more resolution than that).  This can be done anytime before you read data.  Then we hold the analyzer sweep, so we don\'t have to compete with data taking.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 126 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Create a trace for each parameter, using the \"Calc:par:def\" command.  After creating at trace, you need to \"Feed\" it to a window so it will be displayed.  We then catalog the traces.  We do this each time, as a way to make sure the one trace is finished being created before we start another one.  The catalog command won\'t return a value until the trace is finished being created.  You may also use \"*OPC\" and read the status byte.  In the \"Disp:wind:trace:FEED\" command, we use (i MOD 4)+1 above to change window numbers when there more than 4 traces in a window.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 127 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 You can have 4 traces per window, so divide the number of parameters by 4 (take the next biggest integer), and creat that many windows\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)
+(connect D4:1 D0:2)
+(connect D4:1 D2:1)
+(connect D5:1 D3:1)
+(connect D6:0 D4:0)
+(connect D5:1 D4:1)
+(connect I2:1 D5:1)
+(connect D10:0 D6:0)
+(connect D3:1 D6:1)
+(connect D6:1 D7:1)
+(connect D4:1 D8:0)
+(connect D0:1 D8:1)
+(connect I1:1 D8:2)
+(connect D4:1 D8:3)
+(connect I2:1 D8:4)
+(connect D2:1 D8:5)
+(connect D8:1 D9:1)
+(connect I1:1 D10:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1372 818)
+(anchorPt -521 -102)
+(configuration
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 35 25))
+(open
+(extent 75 42))
+(terminals on)
+(pinCenter 360 470))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 85 27))
+(pinCenter 230 460))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 123 15))
+(open
+(extent 79 65))
+(terminals on)
+(pinCenter 340 620))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 123 15))
+(open
+(extent 79 50))
+(terminals on)
+(pinCenter 180 300))
+(devCarrierFor 20
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 360 390))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 75 37))
+(terminals on)
+(pinCenter 270 390))
+(devCarrierFor 22
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 360 300))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 315 67))
+(terminals on)
+(pinCenter 685 300))
+(devCarrierFor 42
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 465 107))
+(terminals on)
+(pinCenter 785 510))
+(devCarrierFor 44
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 1130 510))
+(devCarrierFor 78
+(active open)
+(icon
+(extent 88 51)
+(iconImage "io.icn"))
+(open
+(extent 335 117))
+(terminals on)
+(pinCenter 360 150))
+(devCarrierFor 84
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 226)
+(editing enabled))
+(pinCenter 830 130))
+(devCarrierFor 126
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 574 206)
+(editing enabled))
+(pinCenter 840 700))
+(devCarrierFor 127
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 1080 310))
+(connect D1:1 D0:1
+(points 2 275 460 340 460))
+(connect D4:1 D0:2
+(points 6 410 390 420 390 420 440 320 440 320 480 340 480))
+(connect D4:1 D2:1
+(points 6 410 390 420 390 420 510 250 510 250 620 268 620))
+(connect D5:1 D3:1
+(points 6 285 390 300 390 300 360 90 360 90 300 108 300))
+(connect D6:0 D4:0
+(points 2 360 318 360 354))
+(connect D5:1 D4:1
+(points 2 285 390 310 390))
+(connect I2:1 D5:1
+(points 6 521 720 40 720 40 770 150 770 150 390 254 390))
+(connect D10:0 D6:0
+(points 2 360 211 360 264))
+(connect D3:1 D6:1
+(points 2 272 300 310 300))
+(connect D6:1 D7:1
+(points 2 410 300 465 300))
+(connect D4:1 D8:0
+(points 3 410 390 760 390 760 436))
+(connect D0:1 D8:1
+(points 2 380 470 470 470))
+(connect I1:1 D8:2
+(points 4 521 300 60 300 60 490 470 490))
+(connect D4:1 D8:3
+(points 4 410 390 420 390 420 510 470 510))
+(connect I2:1 D8:4
+(points 6 521 720 40 720 40 770 150 770 150 530 470 530))
+(connect D2:1 D8:5
+(points 4 432 620 450 620 450 550 470 550))
+(connect D8:1 D9:1
+(points 2 1050 510 1067 510))
+(connect I1:1 D10:1
+(points 4 521 300 50 300 50 150 160 150)))
+(stackingOrder 10 4 5 11 6 7 13 8 0 1 3 9 2 12))))
+(device 79 TEXTDISPLAY
+(properties
+(name "SweepType"))
+(interface
+(input 1
+(name "Data"))))
+(device 84 CONTEXT
+(properties
+(name "(2) SetUp Channel")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Fstart")
+(optional yes))
+(input 2
+(name "Fstop")
+(optional yes))
+(input 3
+(name "Points")
+(optional yes))
+(input 4
+(name "IFBW")
+(optional yes))
+(input 5
+(name "Chan")
+(optional yes)))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716 on vortex-13)")
+(transactions 4 "WRITE TEXT \"sens\"+chan+\":freq:star \"+Fstart EOL"
+"WRITE TEXT \"sens\"+chan+\":freq:stop \"+Fstop EOL"
+"WRITE TEXT \"sens\"+chan+\":swe:poin \"+Points EOL"
+"WRITE TEXT \"sens\"+chan+\":band \"+IFBw EOL"))
+(interface
+(input 1
+(name "Fstart")
+(optional yes))
+(input 2
+(name "Fstop")
+(optional yes))
+(input 3
+(name "Points")
+(optional yes))
+(input 4
+(name "IFBw")
+(optional yes))
+(input 5
+(name "Chan")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Setting up the channel is easy.  Just send that start, stop frequencies, the number of points, and the IF bandwidth.  You could also set the power, choose a calibration Calset, and do many other setup functions here.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect I3:1 D0:3)
+(connect I4:1 D0:4)
+(connect I5:1 D0:5)))
+(contextCarrier
+(active detail)
+(detail
+(extent 400 383)
+(anchorPt 60 -88)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 88 0)
+(iconImage "io.icn"))
+(open
+(extent 344 136))
+(terminals on)
+(pinCenter 330 570))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 136)
+(editing enabled))
+(pinCenter 320 400))
+(connect I1:1 D0:1
+(points 4 -60 139 -40 139 -40 530 105 530))
+(connect I2:1 D0:2
+(points 4 -60 209 -50 209 -50 550 105 550))
+(connect I3:1 D0:3
+(points 4 -60 279 -30 279 -30 570 105 570))
+(connect I4:1 D0:4
+(points 4 -60 349 -40 349 -40 590 105 590))
+(connect I5:1 D0:5
+(points 4 -60 419 -50 419 -50 610 105 610)))
+(stackingOrder 0 1))))
+(device 91 TIMER
+(properties
+(name " Data Taking Time (sec)"))
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 92 CONTEXT
+(properties
+(name "(5) Analysis")
+(trigMode deg)
+(nextID 51)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(expr 4 "First=a[0,*];" "Second=a[1,*];" "Third=a[2,*];" "Fourth=a[3,*]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "First")
+(optional yes))
+(output 2
+(name "Second")
+(optional yes))
+(output 3
+(name "Third")
+(optional yes))
+(output 4
+(name "Fourth")
+(optional yes))
+(output 5
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "S11")
+(lock constraints))
+(input 3
+(name "S21")
+(lock constraints)
+(optional yes))
+(input 4
+(name "S12")
+(lock constraints)
+(optional yes))
+(input 5
+(name "S22")
+(lock constraints)
+(optional yes))
+(input 6
+(type control)
+(name "Scales")
+(tag "ScalesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(input 7
+(type control)
+(name "Traces")
+(tag "TracesRecord")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(tracePin 5)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 8 ENUMCONSTANT
+(properties
+(name "ChooseFormat")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("dB" 0)
+("Phase" 1)
+("Lin Mag" 2))
+(data  "dB"))
+(initValue Text
+(data  "dB"))))
+(device 10 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "Scale"
+(type Text))
+(fieldName "Name"
+(type Text)))
+(data 
+(record
+("Scale" "Y")
+("Name" "yscale"))))))
+(device 11 FORMULA
+(properties
+(name "rec.field = b")
+(expr 1 "rec.Name = b"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "b")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 12 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt 49 42)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 80))
+(terminals on)
+(pinCenter 280 270))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 270 320))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 270 380))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 385 330))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 240 280 240 280 260))
+(connect I1:1 D0:1
+(points 8 -49 68 -40 68 -40 230 10 230 10 120 240 120 240 270 259 270))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 300 270 300 270 310))
+(connect I1:1 D1:1
+(points 6 -49 68 10 68 10 120 240 120 240 320 247 320))
+(connect I2:1 D2:1
+(points 4 -49 288 10 288 10 340 57 340))
+(connect D2:3 D3:0
+(points 3 202 350 270 350 270 370))
+(connect I1:1 D3:1
+(points 8 -49 68 10 68 10 120 240 120 240 340 230 340 230 380 245 380))
+(connect D0:1 D4:1
+(points 4 301 270 320 270 320 310 346 310))
+(connect D1:1 D4:2
+(points 4 292 320 310 320 310 330 346 330))
+(connect D3:1 D4:3
+(points 4 294 380 310 380 310 350 346 350))
+(connect D4:1 O1:1
+(points 4 433 330 450 330 450 178 628 178)))
+(stackingOrder 2 4 1 3 0))))
+(device 13 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 14 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 15 CONTEXT
+(properties
+(name "SetFormat")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 3 "a==0" "a==1" "a==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "LinMag")
+(expr 1 "Abs(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(configuration
+(connect D2:1 D0:0)
+(connect I1:1 D0:1)
+(connect D2:2 D1:0)
+(connect I1:1 D1:1)
+(connect I2:1 D2:1)
+(connect D2:3 D3:0)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D3:1 D4:3)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 678 442)
+(anchorPt -3 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 37))
+(terminals on)
+(pinCenter 290 130))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 290 230))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 60 82))
+(terminals on)
+(pinCenter 120 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 44 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 300 300))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 26 25))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 415 140))
+(connect D2:1 D0:0
+(points 5 202 310 220 310 220 100 290 100 290 120))
+(connect I1:1 D0:1
+(points 6 3 110 10 110 10 120 240 120 240 130 269 130))
+(connect D2:2 D1:0
+(points 5 202 330 230 330 230 200 290 200 290 220))
+(connect I1:1 D1:1
+(points 6 3 110 10 110 10 120 240 120 240 230 267 230))
+(connect I2:1 D2:1
+(points 4 3 330 10 330 10 340 57 340))
+(connect D2:3 D3:0
+(points 5 202 350 250 350 250 270 300 270 300 290))
+(connect I1:1 D3:1
+(points 6 3 110 10 110 10 120 240 120 240 300 275 300))
+(connect D0:1 D4:1
+(points 4 311 130 330 130 330 120 376 120))
+(connect D1:1 D4:2
+(points 4 312 230 330 230 330 140 376 140))
+(connect D3:1 D4:3
+(points 4 324 300 340 300 340 160 376 160))
+(connect D4:1 O1:1
+(points 4 463 140 480 140 480 220 680 220)))
+(stackingOrder 2 0 1 3 4))))
+(device 16 FROMGLOBAL
+(properties
+(name "Get Freq")
+(globalName "Freq"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 25 FROMGLOBAL
+(properties
+(name "Get Params")
+(globalName "Params"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 26 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "TraceNum"
+(type Int32))
+(fieldName "Name"
+(type Text)))
+(data 
+(record
+("TraceNum" 1)
+("Name" "TraceName"))))))
+(device 27 FORMULA
+(properties
+(name "rec.field = b")
+(expr 2 "rec.Name = b[i];" "rec.TraceNum=i+1"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "i")
+(optional yes))
+(input 3
+(name "b")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 28 FORCOUNT
+(properties
+(count 4))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 40 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 39 EXITPROCESS
+(properties
+(code 0)))
+(device 38 EXITPROCESS
+(properties
+(code 0)))
+(device 44 MESSAGEBOX
+(properties
+(message "Need At Least 4 Parameters measured")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 43 MESSAGEBOX
+(properties
+(message "No Data Found")
+(symbol Information))
+(interface
+(output 1
+(name "OK")
+(lock name constraints)))
+(implementation
+(customButtons 0)
+(displayMode 3)
+(buttons "OK")
+(buttonLabel1 "OK")
+(buttonLabel2 "")
+(buttonLabel3 "")
+(bdefault "OK")))
+(device 42 IFTHENELSE
+(properties
+(cases 1 "A>2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 41 FROMFUNCTION
+(interface
+(input 1
+(name "Function")
+(tag "Function"))
+(output 1
+(name "Array")
+(tag "Array")
+(lock name constraints))
+(output 2
+(name "Dim 1 Map")
+(tag "Dim 1 Map")
+(lock name constraints))
+(output 3
+(name "Dim 1 From")
+(tag "Dim 1 From")
+(lock name constraints))
+(output 4
+(name "Dim 1 To")
+(tag "Dim 1 To")
+(lock name constraints))
+(output 5
+(name "Dim 2 Map")
+(tag "Dim 2 Map"))
+(output 6
+(name "Dim 2 From")
+(tag "Dim 2 From"))
+(output 7
+(name "Dim 2 To")
+(tag "Dim 2 To")))
+(implementation
+(numDims 2)))
+(device 37 FROMGLOBAL
+(properties
+(name "Get Data")
+(globalName "Data"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 45 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Here we get the data from the global, and do some checks to make sure it\'s valid for our display\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 46 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 \"SetFormat\" is a user object repeated 4 times that formats the data based on the choosen format index\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 47 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 These controls are a cool way of setting up a custom graph or XY chart.  A record with the attributes Scale and Name let you set the y scale to \"dB\" or \"phase\";  A record with the attributes TraceNum and Name let you rename the traces (we set them to the parameter names).\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 48 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We placed this xy plot on the panel view\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 49 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 We placed this list box on the panel view\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 50 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fscript\\fprq2\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This is a user object that has a panel view.  The panel view of a user object can in turn be placed in the panel view of the parent object.  In this case the panel view of this object is placed in the main panel.  This approach helps with organization and grouping of related panel objects and creates a cleaner detail view for the parent object.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D9:0 D0:0)
+(connect D14:1 D0:1)
+(connect D9:1 D1:1)
+(connect D5:1 D1:2)
+(connect D6:1 D1:3)
+(connect D7:1 D1:4)
+(connect D8:1 D1:5)
+(connect D4:1 D1:6)
+(connect D12:1 D1:7)
+(connect D2:0 D3:0)
+(connect D3:1 D4:1)
+(connect D2:1 D4:2)
+(connect D0:1 D5:1)
+(connect D2:2 D5:2)
+(connect D0:2 D6:1)
+(connect D2:2 D6:2)
+(connect D0:3 D7:1)
+(connect D2:2 D7:2)
+(connect D0:4 D8:1)
+(connect D2:2 D8:2)
+(connect D13:1 D11:0)
+(connect D11:1 D12:1)
+(connect D13:1 D12:2)
+(connect D10:1 D12:3)
+(connect D14:1 D13:0)
+(connect D19:1 D14:0)
+(connect D21:1 D14:1)
+(connect D18:1 D15:0)
+(connect D17:1 D16:0)
+(connect D19:2 D17:0)
+(connect D21:2 D18:0)
+(connect D20:4 D19:1)
+(connect D21:1 D20:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 835 358)
+(drawGrid "on")
+(widget 1 detail
+(relativeOrigin 0 50)
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 756 350)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "dB")
+(domainName "Freq")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -100 10 4 linear))
+(domain 0 3000000000 4 linear)
+(trace 0 onScale 0
+(name "S11")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "S21")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "S12")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "S22")
+(traceColor "Green")
+(lineType 12)
+(pointType 0))
+(marker 0 onTrace 0)
+(marker 1 onTrace 1)
+(markerInterpolate 1))
+(widget 2 detail
+(relativeOrigin 0 0)
+(PID 1)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 130 25)
+(format dropDown)))
+(detail
+(extent 1247 482)
+(anchorPt 135 102)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 155 102))
+(terminals on)
+(pinCenter 115 220))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 655 297)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "dB")
+(domainName "Freq")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -100 10 4 linear))
+(domain 0 3000000000 4 linear)
+(trace 0 onScale 0
+(name "S11")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "S21")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "S12")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(trace 3 onScale 0
+(name "S22")
+(traceColor "Green")
+(lineType 12)
+(pointType 0)))
+(pinCenter 970 230))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 91 0))
+(open
+(extent 130 25)
+(format dropDown))
+(pinCenter 120 330))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 171 120)
+(formatters))
+(pinCenter 120 450))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 113 50))
+(terminals on)
+(pinCenter 350 450))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 190))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 240))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 74 25))
+(terminals on)
+(pinCenter 330 280))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 51 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 125 100))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 72 0))
+(open
+(extent 76 51))
+(terminals on)
+(pinCenter 345 550))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 171 120)
+(formatters))
+(pinCenter 130 630))
+(devCarrierFor 27
+(active open)
+(icon)
+(open
+(extent 113 65))
+(terminals on)
+(pinCenter 360 670))
+(devCarrierFor 28
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -30 550))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter -160 260))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -620 450))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "stop.icn"))
+(open
+(extent 65 31))
+(pinCenter -320 410))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter -400 350))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 219 126))
+(terminals on)
+(pinCenter -720 400))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter -460 300))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 83 74)
+(iconImage "unbuild.icn"))
+(open
+(extent 74 142))
+(terminals on)
+(pinCenter -590 300))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 52 25))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -770 310))
+(devCarrierFor 45
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter -600 170))
+(devCarrierFor 46
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 240 10))
+(devCarrierFor 47
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 206)
+(editing enabled))
+(pinCenter 700 590))
+(devCarrierFor 48
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 404 86)
+(editing enabled))
+(pinCenter 790 10))
+(devCarrierFor 49
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 244 66)
+(editing enabled))
+(pinCenter 370 350))
+(devCarrierFor 50
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 196)
+(editing enabled))
+(pinCenter -440 660))
+(connect D9:0 D0:0
+(points 2 130 128 130 148))
+(connect D14:1 D0:1
+(points 4 -143 260 -30 260 -30 220 5 220))
+(connect D9:1 D1:1
+(points 4 204 100 220 100 220 110 640 110))
+(connect D5:1 D1:2
+(points 2 369 150 640 150))
+(connect D6:1 D1:3
+(points 2 369 190 640 190))
+(connect D7:1 D1:4
+(points 4 369 240 390 240 390 230 640 230))
+(connect D8:1 D1:5
+(points 4 369 280 390 280 390 270 640 270))
+(connect D4:1 D1:6
+(points 4 439 450 510 450 510 310 640 310))
+(connect D12:1 D1:7
+(points 4 449 670 470 670 470 350 640 350))
+(connect D2:0 D3:0
+(points 2 120 345 120 369))
+(connect D3:1 D4:1
+(points 4 208 450 240 450 240 440 261 440))
+(connect D2:1 D4:2
+(points 4 187 320 230 320 230 460 261 460))
+(connect D0:1 D5:1
+(points 6 255 180 270 180 270 170 280 170 280 140 290 140))
+(connect D2:2 D5:2
+(points 6 187 340 210 340 210 290 270 290 270 160 290 160))
+(connect D0:2 D6:1
+(points 4 255 200 280 200 280 180 290 180))
+(connect D2:2 D6:2
+(points 6 187 340 210 340 210 290 270 290 270 200 290 200))
+(connect D0:3 D7:1
+(points 4 255 220 280 220 280 230 290 230))
+(connect D2:2 D7:2
+(points 6 187 340 210 340 210 290 270 290 270 250 290 250))
+(connect D0:4 D8:1
+(points 4 255 240 280 240 280 270 290 270))
+(connect D2:2 D8:2
+(points 4 187 340 210 340 210 290 290 290))
+(connect D13:1 D11:0
+(points 5 20 550 30 550 30 530 130 530 130 549))
+(connect D11:1 D12:1
+(points 4 218 630 230 630 230 650 271 650))
+(connect D13:1 D12:2
+(points 6 20 550 30 550 30 530 240 530 240 670 271 670))
+(connect D10:1 D12:3
+(points 6 425 550 450 550 450 600 250 600 250 690 271 690))
+(connect D14:1 D13:0
+(points 3 -143 260 -30 260 -30 514))
+(connect D19:1 D14:0
+(points 5 -421 290 -380 290 -380 230 -160 230 -160 250))
+(connect D21:1 D14:1
+(points 6 -742 300 -650 300 -650 240 -530 240 -530 260 -178 260))
+(connect D18:1 D15:0
+(points 3 -677 400 -620 400 -620 422))
+(connect D17:1 D16:0
+(points 3 -357 350 -320 350 -320 382))
+(connect D19:2 D17:0
+(points 3 -421 310 -400 310 -400 340))
+(connect D21:2 D18:0
+(points 3 -742 320 -720 320 -720 390))
+(connect D20:4 D19:1
+(points 2 -546 300 -500 300))
+(connect D21:1 D20:1
+(points 2 -742 300 -634 300)))
+(stackingOrder 6 7 8 2 3 11 13 10 12 1 0 24 23 25 26 4 27 21 18 15 14 22 17 16 9
+20 19 5))))
+(device 93 DO
+(interface
+(output 1
+(name "Do"))))
+(device 95 TOGLOBAL
+(properties
+(name "Set Data")
+(globalName "Data"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 96 TOGLOBAL
+(properties
+(name "Set Freq")
+(globalName "Freq"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 99 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 100 NOTE
+(properties
+(name "Requirements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE Pro 7.5 and above to run this example.\\par\r\n - Need to have a PNA (all model numbers and firmware versions above \\par\r\n   A.03.01 are suported)\\par\r\n - Need to have installed a IO interface type: GPIB (ex: Keysight 82350B), \\par\r\n   LAN/GPIB(ex: Keysight E5810A) or USB/GPIB (ex: Keysight 82357A) or SICL/LAN connection to the instrument.\\par\r\n - Need to have installed some IO software: Keysight IO libraries version Suite 14.0 \\par\r\n   as a minimum.\\par\r\n- Change the VNA \"Direct I/O\" under the I/O manager to point to your PNA\\par\r\n\\par\r\nNote that this example is using a GPIB interface. The instrument is at the address 716 on the GPIB bus.\\par\r\n}\r\n"
+)))
+(device 101 NOTE
+(properties
+(name "Programming Sample Goal")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs17 The goal in this application is to setup multiple s-parameter measurements in a channel selected by the user.  Each of the program blocks were written using the best practices in controlling and reading data on a PNA.  Read the notes inside of each block to get details on why each command is sent. On most PNAs running various versions of the firmware, up to 64 measurements can be created in a single channel.  In this example at least 4 parameters must be chose, and only the first 4 can be displayed in the VEE Pro trace display window.  However, any number of parameters can be added to the list,  the measurements created, and the data transfered to the VEE Pro program.\\par\r\n\\par\r\nThe \\ldblquote Driving Data\\rdblquote  block can be used to select the channel, start and stop frequencies of the sweep, the IF Bandwidth of the channel, and the number of points used in the channel.  In addition to these the \\ldblquote Parameters to Measure\\rdblquote  text array entry can be used to enter the name of the parameters that are to be measured.  These can be standard S-Parameters of the form Sxy (ex. S11, S23 \\\'85), where x and y can be integers between 1 and n, where n is the total number of physical ports available on the PNA.  In addition to S-Parameters, the text array entry can be used to specify ratio and non-ratio receiver measurements (ex. A, B, R1, R2, AR1, BR2 \\\'85).  Note that non-ratio measurements are simply specified by the name of the receiver.  In the PNA, measurement receivers are named A, B, C, D (C is available on boxes with 3 or more ports and D is only available on 4 port boxes) and reference receivers are named R1, R2, R3, and R4, where the number proceeding R is the physical port number.  Ratio parameters are specified by putting the name of two receivers together, where first name on the left is the numerator of the ratio and the second name is the denominator (ex. AB = A/B, AR1 = A/R1 \\\'85)\\par\r\n\\par\r\nAfter all the setup information is entered, the user can initiate a measurement by pressing the \\ldblquote Begin Measurement\\rdblquote  button.  The application will setup the PNA channel as prescribed, and measure the parameters that are specified.  The data is transferred between the PNA and the application in Real/Imaginary format, but it is displayed in the trace window in the format selected by the user in the \\ldblquote Choose Format\\rdblquote  drop-down selection list.  The formatting of the data takes place in the analysis block of the example code.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 124 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 125 CONFIRM25
+(properties
+(name "New Measurement")
+(enterButton 1)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 126 CONFIRM25
+(properties
+(name "Finished")
+(enterButton 0)
+(escapeButton 1)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 127 BREAK)
+(device 128 NEXT)
+(device 129 CONTEXT
+(properties
+(name "Driving Data")
+(trigMode deg)
+(nextID 15)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "StartFreq")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "StopFreq")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Points")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "IFBw")
+(lock constraints)
+(optional yes))
+(output 5
+(type data)
+(name "ChanNo")
+(lock constraints)
+(optional yes))
+(output 6
+(type data)
+(name "ParameterList")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 All these parameters will be\\par\r\nset-up in the Network Analyzer.  We place them all on the panel view of the user object\\par\r\n\\par\r\n}\r\n"
+)))
+(device 1 LITERALCONSTANT
+(properties
+(name "Parameters to Measure"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 4)
+(data  [ "S11" "S21" "S12" "S22" ]))
+(initValue Text
+(data  ""))))
+(device 2 CONSTANT
+(properties
+(name "Start Freq (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  50000000))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Stop Freq (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  3000000000))
+(initValue Real
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "IF BW (Hz)"))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  35000))
+(initValue Real
+(data  0))))
+(device 6 TOGLOBAL
+(properties
+(name "Set Params")
+(globalName "Params"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 7 ENUMCONSTANT
+(properties
+(name "Channel"))
+(interface
+(input 1
+(type control)
+(name "Enum Values")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")
+(lock name constraints)))
+(implementation
+(value Enum
+(values
+("Channel 1" 0)
+("Channel 2" 1)
+("Channel 3" 2)
+("Channel 4" 3)
+("Channel 5" 4)
+("Channel 6" 5)
+("Channel 7" 6)
+("Channel 8" 7)
+("Channel 9" 8)
+("Channel 10" 9)
+("Channel 11" 10)
+("Channel 12" 11)
+("Channel 13" 12)
+("Channel 14" 13)
+("Channel 15" 14)
+("Channel 16" 15)
+("Channel 17" 16)
+("Channel 18" 17)
+("Channel 19" 18)
+("Channel 20" 19)
+("Channel 21" 20)
+("Channel 22" 21)
+("Channel 23" 22)
+("Channel 24" 23)
+("Channel 25" 24)
+("Channel 26" 25)
+("Channel 27" 26)
+("Channel 28" 27)
+("Channel 29" 28)
+("Channel 30" 29)
+("Channel 31" 30)
+("Channel 32" 31))
+(data  "Channel 4"))
+(initValue Text
+(data  "Channel 1"))))
+(device 8 FORMULA
+(properties
+(name "convert ordinal to chan. no.")
+(expr 1 "A + 1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 CONSTANT
+(properties
+(name "PNA Max Channel"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  32))
+(initValue Int32
+(data  0))))
+(device 10 FORMULA
+(properties
+(name "build channel list")
+(expr 1 "\"Channel \" + asText(ramp(A,1,A))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 CONSTANT
+(properties
+(name "Points"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  201))
+(initValue Int32
+(data  0))))
+(device 13 LABEL
+(properties
+(name "Measurement Setup Information")
+(labelValue "Measurement Setup Information"))
+(implementation))
+(device 14 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fscript\\fprq2\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This is a user object that has a panel view.  The panel view of a user object can in turn be placed in the panel view of the parent object.  In this case the panel view of this object is placed in the main panel.  This approach helps with organization and grouping of related panel objects and creates a cleaner detail view for the parent object.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D5:1)
+(connect D9:0 D6:0)
+(connect D9:1 D6:1)
+(connect D6:2 D7:1)
+(connect D8:1 D9:1)
+(connect D2:1 O1:1)
+(connect D3:1 O2:1)
+(connect D10:1 O3:1)
+(connect D4:1 O4:1)
+(connect D7:1 O5:1)
+(connect D1:1 O6:1)))
+(contextCarrier
+(active detail)
+(panel
+(extent 443 210)
+(drawGrid "on")
+(widget 2 detail
+(relativeOrigin 0 90)
+(PID 0)
+(title on)
+(tabIndex 0)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 3 detail
+(relativeOrigin 130 90)
+(PID 1)
+(title on)
+(tabIndex 1)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 10 detail
+(relativeOrigin 0 150)
+(PID 2)
+(title on)
+(tabIndex 2)
+(borderStyle flat)
+(extent 121 29)
+(showFormat int))
+(widget 4 detail
+(relativeOrigin 130 150)
+(PID 3)
+(title on)
+(tabIndex 3)
+(borderStyle flat)
+(extent 121 29)
+(showFormat real))
+(widget 6 detail
+(relativeOrigin 0 30)
+(PID 4)
+(title on)
+(tabIndex 4)
+(borderStyle flat)
+(extent 121 29)
+(format dropDown))
+(widget 1 detail
+(relativeOrigin 260 30)
+(PID 5)
+(title on)
+(tabIndex 5)
+(borderStyle flat)
+(extent 166 148))
+(widget 11 detail
+(relativeOrigin -10 0)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle none)
+(extent 400 30)
+(just c)))
+(detail
+(extent 628 718)
+(anchorPt -21 -294)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 222 102)
+(editing enabled))
+(pinCenter 170 210))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 141 0))
+(open
+(extent 195 237))
+(pinCenter 180 440))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 100))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 85 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 160))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 62 0))
+(open
+(extent 121 29)
+(showFormat real))
+(pinCenter 430 280))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 71 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 425 550))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 51 25))
+(open
+(extent 130 25)
+(format dropDown))
+(pinCenter 450 380))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 160 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 480 450))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 107 0))
+(open
+(extent 143 29)
+(showFormat int))
+(pinCenter 160 610))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 254 186))
+(terminals on)
+(pinCenter 160 650))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 39 0))
+(open
+(extent 104 26)
+(showFormat int))
+(pinCenter 430 220))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 193 0))
+(open
+(extent 254 34)
+(just c))
+(title off)
+(bg "Control")
+(pinCenter 180 80))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 196)
+(editing enabled))
+(pinCenter 250 840))
+(connect D1:1 D5:1
+(points 4 280 440 300 440 300 550 346 550))
+(connect D9:0 D6:0
+(points 6 160 660 160 690 320 690 320 320 450 320 450 347))
+(connect D9:1 D6:1
+(points 6 213 650 290 650 290 540 310 540 310 380 382 380))
+(connect D6:2 D7:1
+(points 6 517 390 540 390 540 420 380 420 380 450 397 450))
+(connect D8:1 D9:1
+(points 6 234 610 250 610 250 680 90 680 90 650 106 650))
+(connect D2:1 O1:1
+(points 4 493 100 510 100 510 352 648 352))
+(connect D3:1 O2:1
+(points 4 493 160 510 160 510 472 648 472))
+(connect D10:1 O3:1
+(points 4 484 220 520 220 520 592 648 592))
+(connect D4:1 O4:1
+(points 6 493 280 510 280 510 290 550 290 550 712 648 712))
+(connect D7:1 O5:1
+(points 6 562 450 580 450 580 940 1680 940 1680 832 648 832))
+(connect D1:1 O6:1
+(points 4 280 440 300 440 300 952 648 952)))
+(stackingOrder 0 1 3 5 8 9 10 4 7 6 11 2 12))))
+(device 130 NOTE
+(properties
+(name "Notes on VNA measurements")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 First: Don\'t Panic!\\par\r\n\\cf2\\b0\\f1\\fs26 Making measurements with a VNA is easy and fun!\\par\r\nThere are 5 basic steps:\\par\r\n1) Setting up which parameters to measure\\par\r\n2) Setting up the sweep parameters (freq, points)\\par\r\n3) Taking a sweep, waiting for the sweep to finish\\par\r\n4) Reading the data\\par\r\n5) Formating and displaying the results.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 131 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Set up the parameters to measure\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 132 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Set up channel with freq, points, etc\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 133 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Just for fun, we\'re going to time how long the sweep takes.  Use a \"Do\" and a \"timer\" to get accurate results.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 134 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Take 1 sweep, and wait for it to finish\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 135 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Also, just for fun, we\'re going to time how long the sweep takes.  Use a \"Do\" and a \"timer\" to get accurate results.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 136 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Now we get the Frequency list, and read out all the data, and place them into globals\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 137 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 Finally, we put the first four parameters into a display.  We also allow re-formatting of the data display\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 138 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The first time through, one sweep happens.\\par\r\nTo sweep again, hit \"New Measurement\".\\par\r\nTo stop, hit \"Finished\".  If you want to save your data as a table to an Excel file, hit the \"Save to Excel\" button.  the \"Until Break\" loop allows the user to hit the button multiple times without haveing to repeat the measurements.\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 139 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This keeps it running so you can change things\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 140 DO
+(interface
+(output 1
+(name "Do"))))
+(device 142 CONTEXT
+(properties
+(name
+"Create New Workbook, Send Table, Save - Quick Start UserObject (modified)")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 \'HeaderArray\' Input: a one or two-dimensional array of values that represent the heading for the columns of the table.  The first dimension is treated as the number of columns in the table and the second dimension is used if the column headings require multiple rows.  A NULL string (\"\") would indicate that there is no heading.\\par\r\n\'Data\' Input:  Expects a one or two-dimensional array.  Data can be any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\nExamples are in Help->Examples->Excel\\par\r\n\\par\r\n}\r\n"
+)
+(trigMode deg)
+(nextID 74)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "HeaderArray")
+(optional yes))
+(input 2
+(name "Data")
+(optional yes)))
+(deviceList
+(device 6 FILESELECT
+(properties
+(name "File Name Selection")
+(prompt "Enter File Name:")
+(initialDirectory
+"C:\\Documents and Settings\\daras\\My Documents\\VEE NA Examples\\Final")
+(initialFile "*.*")
+(dialogMode Writing))
+(interface
+(input 1
+(name "Initial Directory")
+(tag "Initial Directory")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 7 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs28 Create a new Excel Workbook, Send a 2D array or a 1-D column of data, and save the data to a filename.\\par\r\n\\cf2\\b0\\f1\\fs24 This Quick Start UserObject consists of seven objects from the Excel menu, and the Data->Dialog->FileNameSelection object.\\par\r\nThese objects from the Excel menu have been simply connected together, like a mini Sample program.  \\par\r\n\\par\r\nMost objects created from the Excel menu have a Notepad with a short description, and a context menu pick \"Excel Help\" with more detailed information on how to use that object.\\par\r\n\\par\r\nFeel free to modify this UserObject, and as you become more comfortable with the Excel Library, use the menu objects directly.  For example, the \'Settings\' is what tells Excel to be Visible; you may not always want this.\\par\r\nOr, you may want to remove the FileNameSelection object and pass in the fileName as a data input.\\par\r\n\\par\r\nNote this UserObject does contain a call to both \"Initialize\" and \"Quit\".  If you use more than one QuickStart object in your program, you probably want to move these calls outside the UserObject so Init and Quit are only called once.\\par\r\n}\r\n"
+)))
+(device 16 CALL
+(properties
+(name "Call xlLib.NewWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'NewWorkbook\'")
+(customHelpMenuHelpLink "Excel_Workbooks")
+(callFunc "xlLib.NewWorkbook")
+(parmMode rev30)))
+(device 18 CONTEXT
+(properties
+(name "SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Orientation for arrays:\\par\r\n\\par\r\nSelect Vertical for a 1D array to\\par\r\nappear in a single Worksheet column,\\par\r\nor horizontal for a single row.\\par\r\n\\par\r\nFor 2D arrays, the first dimension \\par\r\nis oriented the same as for a 1D array.\\par\r\n\\par\r\nFor 3D arrays, the orientation on each\\par\r\nsheet for the first 2 dimensions is the\\par\r\nsame as for 2D arrays.\\par\r\n\\par\r\nZlabel is used to label the 2D data table\\par\r\nthat appears on the worksheets for each\\par\r\nof the 3rd dimension elements. The labeled\\par\r\ncell is immediately above the data.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Three-D arrays:\\par\r\n \\par\r\nSelect CreateNewSheets to add a blank sheet\\par\r\nif needed for each element in the third\\par\r\ndimension. Each sheet contains a two-D array.\\par\r\n\\par\r\nCopyStartingSheet is similar, but more powerful.\\par\r\nThis setting will automatically copy the\\par\r\nstarting sheet when creating a new sheet, so\\par\r\nany formatting (including charts) on that sheet\\par\r\nwill appear on all sheets added.\\par\r\n\\par\r\nUseSingleSheet places all data on a single sheet \\par\r\nwith two-D arrays separated by blank rows. \\par\r\n\\par\r\nFor all settings, each time a two-D array is printed,\\par\r\nit is preceeded by a row containing the value of the\\par\r\ncurrent element in the third dimension. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 14 CALL
+(properties
+(name "Call xlLib.SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(callFunc "xlLib.SendDataSettings")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 RECCONST
+(properties
+(name "SendData Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 3)
+(fieldName "Orientation"
+(type Enum)
+(values
+("Vertical" 0)
+("Horizontal" 1)))
+(fieldName "ThreeDArrays"
+(type Enum)
+(values
+("CreateNewSheets" 0)
+("CopyStartingSheet" 1)
+("UseSingleSheet" 2)))
+(fieldName "Zlabel"
+(type Text)))
+(data 
+(record
+("Orientation" "Vertical")
+("ThreeDArrays" "CreateNewSheets")
+("Zlabel" "Z="))))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 966 890)
+(anchorPt 14 -309)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 297)
+(editing enabled))
+(pinCenter 670 580))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 395 347)
+(editing enabled))
+(pinCenter 700 960))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 720))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 113 15))
+(open
+(extent 263 147)
+(formatters))
+(pinCenter 280 560))
+(connect D3:1 D2:1
+(points 6 339 560 360 560 360 590 210 590 210 720 225 720)))
+(stackingOrder 1 0 2 3))))
+(device 22 CONTEXT
+(properties
+(name "SaveWorkBookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "FileName")
+(optional yes)))
+(deviceList
+(device 0 RECCONST
+(properties
+(name "Workbook Type")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 1)
+(fieldName "WorkbookType"
+(type Enum)
+(values
+("Normal" 0)
+("CSV" 1)
+("CSVMSDOS" 2)
+("CSVWindows" 3)
+("Text" 4)
+("TextPrinter" 5)
+("Excel9795" 6)
+("xlHTML" 7))))
+(data 
+(record
+("WorkbookType" "Normal"))))))
+(device 1 CALL
+(properties
+(name "Call xlLib.SaveWorkbookAs")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(callFunc "xlLib.SaveWorkbookAs")
+(parmMode rev30))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(input 2
+(name "SaveAsFormat")
+(optional yes))))
+(device 2 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SaveWorkbookAs\'")
+(customHelpMenuHelpLink "To_Save_a_Workbook_to_a_New_Name")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Caution: If you set xlLibSetting.DisplayAlerts\\par\r\nto False, and the file you are saving to\\par\r\nexists, you will overwrite it without\\par\r\nwarning. \\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D1:1)
+(connect D0:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 775 532)
+(anchorPt -15 62)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 92 0))
+(open
+(extent 242 93)
+(formatters))
+(pinCenter 190 130))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 167 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 315 270))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 137)
+(editing enabled))
+(pinCenter 580 170))
+(connect I1:1 D1:1
+(points 4 15 203 67 203 67 260 124 260))
+(connect D0:1 D1:2
+(points 6 313 130 330 130 330 200 100 200 100 280 124 280)))
+(stackingOrder 2 0 1))))
+(device 30 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 2 0 1))))
+(device 32 CONTEXT
+(properties
+(name "DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cell")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 DATA\\par\r\nDataToCells can accept data of any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\n Object \\par\r\n \\par\r\nCELL\\par\r\nCell can be a single cell (A1), a range of cells (A1:F4)\\par\r\nor a named range which must be defined in the Excel \\par\r\nworkbook you are sending data to using Excel\'s\\par\r\nInsert/Names menu. Only the upper left cell matters, and the\\par\r\nrange to which data is sent depends only on the size of the\\par\r\ndata and the SendDataSettings.orientation setting. Use the Excel \\par\r\nmenu Send Data -> Send Data Settings to set the orientation.\\par\r\n\\par\r\nNOTES\\par\r\nData can be from scalar up to 3 dimensional arrays. See the Excel \\par\r\nmenu Send Data -> Send Data Settings for options on sending arrays.\\par\r\n\\par\r\nThe output from DataToCells is the resulting data range \\par\r\nwhich can be passed to the FormatText, FormatCells, and \\par\r\nAutoFitColumns objects.\\par\r\n\\par\r\nExamples are installed in \\\\ExcelLibrary under the Vee examples menu.\\par\r\n}\r\n"
+"")))
+(device 3 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 841 657)
+(anchorPt 121 -57)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 476)
+(editing enabled))
+(pinCenter 240 430))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 185 120))
+(connect I1:1 D1:1
+(points 4 -121 215 -100 215 -100 110 54 110))
+(connect I2:1 D1:2
+(points 4 -121 555 -110 555 -110 130 54 130)))
+(stackingOrder 1 0))))
+(device 37 CONTEXT
+(properties
+(name "Excel Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 CALL
+(properties
+(name "Call xlLib.Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(callFunc "xlLib.Settings")
+(parmMode rev30))
+(interface
+(input 1
+(name "Rec")
+(optional yes))))
+(device 10 RECCONST
+(properties
+(name "Record")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "Visible"
+(type Enum)
+(values
+("False" 0)
+("True" 1)))
+(fieldName "WindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "BookWindowMode"
+(type Enum)
+(values
+("Normal" 0)
+("Maximized" 1)
+("Minimized" 2)))
+(fieldName "ArrangeWindows"
+(type Enum)
+(values
+("Cascade" 0)
+("Horizontal" 1)
+("Tiled" 2)
+("Vertical" 3)))
+(fieldName "ErrorAction"
+(type Enum)
+(values
+("Quit" 0)
+("OKCancel" 1)
+("Ignore" 2)
+("RaiseError" 3)))
+(fieldName "DisplayAlerts"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("Visible" "True")
+("WindowMode" "Normal")
+("BookWindowMode" "Maximized")
+("ArrangeWindows" "Cascade")
+("ErrorAction" "Ignore")
+("DisplayAlerts" "False"))))))
+(device 14 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'Settings\'")
+(customHelpMenuHelpLink "Vxl_Settings")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 VISIBLE: \\par\r\n  Causes Excel to appear or disappear. Set it to False to focus the user\'s attention on the VEE program.\\par\r\n\\par\r\nWINDOW MODE: \\par\r\n  Applies to Excel. These are the same as the icons at the upper right corner of every application window. \\par\r\n\\par\r\nBOOK WINDOW MODE:\\par\r\n  Same as WindowMode except this applies to the Workbook client windows instead of Excel.  Note this only applies to the single currently-selected Workbook.  Setting this before an AddWorkbook() or OpenWorkbook() call does not affect the new workbook.  However, a SelectWorkbook() call applies the Settings to the selected workbook.\\par\r\n}\r\n"
+"")))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 ARRANGE WINDOWS: \\par\r\n              Applies to multiple Workbooks and is ignored unless \\par\r\n              BookWindowMode is Normal.\\par\r\n\\par\r\nERROR ACTION: \\par\r\n RaiseError:  Excel Library will raise error inside its error handler.\\par\r\n Quit:        Excel Library error handler function will call \\par\r\n              xlLib.QuitExcelLibrary and Excel will be unloaded.\\par\r\n OKCancel:    A message box with a 30 second timeout will appear. \\par\r\n              If the user presses OK, the error is ignored, Cancel will \\par\r\n              raise the error, and the timeout will raise the error also.\\par\r\n Ignore:      Excel will continue, and the error may be recirculated so only\\par\r\n              use this when a user can intervene.\\par\r\n\\par\r\nDISPLAY ALERTS:\\par\r\n              Set to False to reduce the number of Excel message box \\par\r\n              dialogs. Default startup setting for DisplayAlerts is True. \\par\r\n              You can change this setting in a formula box without calling\\par\r\n              ExcelSettings using: xlApp.DisplayAlerts=False|True; CAUTION:\\par\r\n              Setting this to False may cause Excel to hang! For overwriting\\par\r\n              prompts only, see the Excel / \'Save Workbook As\' object.\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 970 662)
+(anchorPt 47 205)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 390 -10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 44 15))
+(open
+(extent 304 216)
+(formatters))
+(pinCenter 150 120))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 444 246)
+(editing enabled))
+(pinCenter 570 160))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 614 336)
+(editing enabled))
+(pinCenter 290 480))
+(connect D1:1 D0:1
+(points 4 304 120 320 120 320 -10 330 -10)))
+(stackingOrder 0 3 2 1))))
+(device 38 CONTEXT
+(properties
+(name "HeaderToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cell")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(text2 2
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 DATA\\par\r\nDataToCells can accept data of any type except the following:\\par\r\n Record (Use Excel menu Send Data / Record to Named Ranges)\\par\r\n Spectrum (See examples)\\par\r\n Complex (See examples)\\par\r\n PComplex (See examples)\\par\r\n Coordinate (See examples)\\par\r\n Waveforms are sent as real arrays. See examples.\\par\r\n Object \\par\r\n \\par\r\nCELL\\par\r\nCell can be a single cell (A1), a range of cells (A1:F4)\\par\r\nor a named range which must be defined in the Excel \\par\r\nworkbook you are sending data to using Excel\'s\\par\r\nInsert/Names menu. Only the upper left cell matters, and the\\par\r\nrange to which data is sent depends only on the size of the\\par\r\ndata and the SendDataSettings.orientation setting. Use the Excel \\par\r\nmenu Send Data -> Send Data Settings to set the orientation.\\par\r\n\\par\r\nNOTES\\par\r\nData can be from scalar up to 3 dimensional arrays. See the Excel \\par\r\nmenu Send Data -> Send Data Settings for options on sending arrays.\\par\r\n\\par\r\nThe output from DataToCells is the resulting data range \\par\r\nwhich can be passed to the FormatText, FormatCells, and \\par\r\nAutoFitColumns objects.\\par\r\n\\par\r\nExamples are installed in \\\\ExcelLibrary under the Vee examples menu.\\par\r\n}\r\n"
+"")))
+(device 3 CALL
+(properties
+(name "Call xlLib.DataToCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'DataToCells\'")
+(customHelpMenuHelpLink "Managing_Data")
+(callFunc "xlLib.DataToCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "Cells")
+(optional yes))
+(output 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)
+(connect I2:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 841 657)
+(anchorPt 121 -57)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 474 476)
+(editing enabled))
+(pinCenter 240 430))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 129 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 185 120))
+(connect I1:1 D1:1
+(points 4 -121 215 -100 215 -100 110 54 110))
+(connect I2:1 D1:2
+(points 4 -121 555 -110 555 -110 130 54 130)))
+(stackingOrder 0 1))))
+(device 39 CONTEXT
+(properties
+(name "SendHeaderSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 3 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Orientation for arrays:\\par\r\n\\par\r\nSelect Vertical for a 1D array to\\par\r\nappear in a single Worksheet column,\\par\r\nor horizontal for a single row.\\par\r\n\\par\r\nFor 2D arrays, the first dimension \\par\r\nis oriented the same as for a 1D array.\\par\r\n\\par\r\nFor 3D arrays, the orientation on each\\par\r\nsheet for the first 2 dimensions is the\\par\r\nsame as for 2D arrays.\\par\r\n\\par\r\nZlabel is used to label the 2D data table\\par\r\nthat appears on the worksheets for each\\par\r\nof the 3rd dimension elements. The labeled\\par\r\ncell is immediately above the data.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 6 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 Three-D arrays:\\par\r\n \\par\r\nSelect CreateNewSheets to add a blank sheet\\par\r\nif needed for each element in the third\\par\r\ndimension. Each sheet contains a two-D array.\\par\r\n\\par\r\nCopyStartingSheet is similar, but more powerful.\\par\r\nThis setting will automatically copy the\\par\r\nstarting sheet when creating a new sheet, so\\par\r\nany formatting (including charts) on that sheet\\par\r\nwill appear on all sheets added.\\par\r\n\\par\r\nUseSingleSheet places all data on a single sheet \\par\r\nwith two-D arrays separated by blank rows. \\par\r\n\\par\r\nFor all settings, each time a two-D array is printed,\\par\r\nit is preceeded by a row containing the value of the\\par\r\ncurrent element in the third dimension. \\par\r\n\\par\r\n}\r\n"
+)))
+(device 14 CALL
+(properties
+(name "Call xlLib.SendDataSettings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings")
+(callFunc "xlLib.SendDataSettings")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 16 RECCONST
+(properties
+(name "SendData Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'SendDataSettings\'")
+(customHelpMenuHelpLink "To_Send_Data_Settings"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 3)
+(fieldName "Orientation"
+(type Enum)
+(values
+("Vertical" 0)
+("Horizontal" 1)))
+(fieldName "ThreeDArrays"
+(type Enum)
+(values
+("CreateNewSheets" 0)
+("CopyStartingSheet" 1)
+("UseSingleSheet" 2)))
+(fieldName "Zlabel"
+(type Text)))
+(data 
+(record
+("Orientation" "Horizontal")
+("ThreeDArrays" "CreateNewSheets")
+("Zlabel" "Z="))))))
+(configuration
+(connect D3:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 966 890)
+(anchorPt 15 -308)
+(configuration
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 345 297)
+(editing enabled))
+(pinCenter 670 580))
+(devCarrierFor 6
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 395 347)
+(editing enabled))
+(pinCenter 700 960))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 720))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 113 15))
+(open
+(extent 263 147)
+(formatters))
+(pinCenter 280 560))
+(connect D3:1 D2:1
+(points 6 414 560 360 560 360 590 210 590 210 720 225 720)))
+(stackingOrder 1 0 2 3))))
+(device 52 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary"))
+(output 1
+(name "SubAry")
+(tag "Result"))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 54 CONTEXT
+(properties
+(name "cellRelative")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'cellAddressRelative\'")
+(customHelpMenuHelpLink "Navigating_a_Worksheet")
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "cell")
+(optional yes))
+(input 2
+(name "Right")
+(optional yes))
+(input 3
+(name "Down")
+(optional yes))
+(output 1
+(type data)
+(name "cellRelative")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 4 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'cellAddressRelative\'")
+(customHelpMenuHelpLink "Navigating_a_Worksheet")
+(text2 2
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 cellRelative returns the address of a cell\\par\r\nto the right and down from a given cell. \\par\r\n\\par\r\nThe resulting column can be from A (1) to \\par\r\nIV (256). \\par\r\nThe resulting row can be from 1 to 65536.\\par\r\nRight and Down can be positive or negative.\\par\r\nAn error will occur if the results are \\par\r\noutside the above limits.\\par\r\n\\par\r\n}\r\n"
+"")))
+(device 5 TEXTDISPLAY
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'cellAddressRelative\'")
+(customHelpMenuHelpLink "Navigating_a_Worksheet"))
+(interface
+(input 1
+(name "Data"))))
+(device 8 CALL
+(properties
+(name "Call xlLib.cellAddressRelative")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'cellAddressRelative\'")
+(customHelpMenuHelpLink "Navigating_a_Worksheet")
+(callFunc "xlLib.cellAddressRelative")
+(parmMode rev30))
+(interface
+(input 1
+(name "cell")
+(optional yes))
+(input 2
+(name "Right")
+(optional yes))
+(input 3
+(name "Down")
+(optional yes))
+(output 1
+(name "Result")
+(optional yes))))
+(configuration
+(connect D2:1 D1:1)
+(connect I1:1 D2:1)
+(connect I2:1 D2:2)
+(connect I3:1 D2:3)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 781 358)
+(anchorPt -53 91)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 335 167)
+(editing enabled))
+(pinCenter 640 40))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 145 37))
+(pinCenter 630 210))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 181 0))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 280 110))
+(connect D2:1 D1:1
+(points 6 420 110 440 110 440 150 530 150 530 210 555 210))
+(connect I1:1 D2:1
+(points 4 53 -33 80 -33 80 90 139 90))
+(connect I2:1 D2:2
+(points 4 53 87 70 87 70 110 139 110))
+(connect I3:1 D2:3
+(points 4 53 207 70 207 70 130 139 130))
+(connect D2:1 O1:1
+(points 6 420 110 440 110 440 150 820 150 820 87 833 87)))
+(stackingOrder 1 0 2))))
+(device 55 CONSTANT
+(properties
+(name "Int32"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 56 IFTHENELSE
+(properties
+(name "Need Heading?")
+(cases 1 "A!=\"\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 57 IFTHENELSE
+(properties
+(name "Number of Heading Rows")
+(cases 2 "(A==1)*1" "(A==2)*B[0]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 58 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 59 DECLVAR
+(properties
+(name "Declare startCell")
+(scope con)
+(globalName "startCell"))
+(implementation
+(value Text
+(data  ""))))
+(device 60 FORMULA
+(properties
+(name "startCell = \"A1\"")
+(expr 1 "startCell = \"A1\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 61 FROMGLOBAL
+(properties
+(name "Get startCell")
+(globalName "startCell"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 62 TOGLOBAL
+(properties
+(name "Set startCell")
+(globalName "startCell"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 63 FROMGLOBAL
+(properties
+(name "Get startCell")
+(globalName "startCell"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 64 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 65 FORMULA
+(properties
+(name "transpose(x)")
+(expr 1 "transpose(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 66 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 67 FORMULA
+(properties
+(name "Directory.GetCurrentDirectory( )")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\b\\f0\\fs24 System.IO.Directory.GetCurrentDirectory\\par\r\n\\cf0\\ulnone\\b0\\f1 This function returns the \"current directory\" from where you ran the VEE program.  It is a .NET Framework call and can be found in the Function and Object Browser here: \\f2\\fs17\\par\r\n\\b\\f1\\fs24\\par\r\nAssembly\\b0 : Mscorlib\\par\r\n\\b Namespace\\b0 : System.IO\\par\r\n\\b Type\\b0 : System.IO.Directory\\cf1\\ul\\b\\f0\\par\r\n}\r\n"
+)
+(expr 2 "// See object description for more information"
+"System.IO.Directory.GetCurrentDirectory( );"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 73 CONTEXT
+(properties
+(name "Quit Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D6:0 D0:0)
+(connect D24:1 D0:1)
+(connect D7:0 D2:0)
+(connect D13:0 D3:0)
+(connect D0:1 D4:1)
+(connect D20:0 D6:0)
+(connect I2:1 D6:1)
+(connect D20:1 D6:2)
+(connect D5:0 D7:0)
+(connect D18:0 D8:0)
+(connect D23:1 D8:1)
+(connect D18:1 D8:2)
+(connect D10:0 D9:0)
+(connect D13:1 D10:0)
+(connect I1:1 D10:1)
+(connect D8:0 D11:0)
+(connect D18:1 D11:1)
+(connect D12:1 D11:2)
+(connect D15:1 D11:3)
+(connect D17:0 D13:0)
+(connect I1:1 D13:1)
+(connect D10:3 D14:1)
+(connect D10:4 D14:2)
+(connect D14:1 D15:1)
+(connect D14:2 D15:2)
+(connect D2:0 D17:0)
+(connect D9:0 D18:0)
+(connect D11:1 D19:1)
+(connect D3:0 D20:0)
+(connect D14:1 D21:0)
+(connect I1:1 D21:1)
+(connect D14:2 D22:0)
+(connect I1:1 D22:1)
+(connect D21:1 D23:1)
+(connect D22:1 D23:2)
+(connect D0:0 D25:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 812 671)
+(anchorPt 382 286)
+(configuration
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 287 106))
+(terminals on)
+(pinCenter -80 480))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 476)
+(editing enabled))
+(pinCenter 740 20))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter -80 -180))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter -80 320))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 125 15))
+(terminals on)
+(pinCenter 70 470))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter -80 -270))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 94 25))
+(terminals on)
+(pinCenter -80 420))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 94 14))
+(terminals on)
+(pinCenter -80 -230))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 92 25))
+(terminals on)
+(pinCenter 150 220))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 126 15))
+(terminals on)
+(pinCenter 150 140))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 68 54)
+(iconImage "unbuild.icn"))
+(open
+(extent 93 110))
+(terminals on)
+(pinCenter 150 0))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 69 34))
+(terminals on)
+(pinCenter 150 290))
+(devCarrierFor 55
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 30 290))
+(devCarrierFor 56
+(active open)
+(icon
+(extent 95 25))
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter -85 -60))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 157 34))
+(open
+(extent 113 62))
+(terminals on)
+(pinCenter 300 10))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 440 0))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 195 103))
+(pinCenter 210 -260))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 116 50))
+(terminals on)
+(pinCenter -80 -140))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 78 51))
+(terminals on)
+(pinCenter 150 180))
+(devCarrierFor 62
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 78 51))
+(terminals on)
+(pinCenter 260 290))
+(devCarrierFor 63
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 78 51))
+(terminals on)
+(pinCenter -80 360))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 400 90))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 119 50))
+(terminals on)
+(pinCenter 370 140))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 460 130))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 187 15))
+(open
+(extent 282 65))
+(terminals on)
+(pinCenter -280 480))
+(devCarrierFor 73
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter -80 520))
+(connect D6:0 D0:0
+(points 2 -80 435 -80 465))
+(connect D24:1 D0:1
+(points 2 -184 480 -144 480))
+(connect D7:0 D2:0
+(points 2 -80 -221 -80 -190))
+(connect D13:0 D3:0
+(points 2 -80 -32 -80 310))
+(connect D0:1 D4:1
+(points 2 -17 470 5 470))
+(connect D20:0 D6:0
+(points 2 -80 370 -80 405))
+(connect I2:1 D6:1
+(points 4 -382 219 -280 219 -280 410 -130 410))
+(connect D20:1 D6:2
+(points 6 -41 360 -20 360 -20 390 -150 390 -150 430 -130 430))
+(connect D5:0 D7:0
+(points 2 -80 -260 -80 -240))
+(connect D18:0 D8:0
+(points 2 150 190 150 205))
+(connect D23:1 D8:1
+(points 8 475 130 500 130 500 170 290 170 290 110 60 110 60 210 101 210))
+(connect D18:1 D8:2
+(points 6 189 180 200 180 200 200 80 200 80 230 101 230))
+(connect D10:0 D9:0
+(points 2 150 29 150 130))
+(connect D13:1 D10:0
+(points 3 -12 -70 150 -70 150 -30))
+(connect I1:1 D10:1
+(points 6 -382 -121 -180 -121 -180 -80 -170 -80 -170 0 113 0))
+(connect D8:0 D11:0
+(points 2 150 235 150 270))
+(connect D18:1 D11:1
+(points 8 189 180 200 180 200 200 80 200 80 230 90 230 90 280 113 280))
+(connect D12:1 D11:2
+(points 2 66 290 113 290))
+(connect D15:1 D11:3
+(points 6 455 0 480 0 480 330 90 330 90 300 113 300))
+(connect D17:0 D13:0
+(points 2 -80 -130 -80 -106))
+(connect I1:1 D13:1
+(points 6 -382 -121 -180 -121 -180 -80 -170 -80 -170 -60 -148 -60))
+(connect D10:3 D14:1
+(points 2 186 0 219 0))
+(connect D10:4 D14:2
+(points 4 186 10 200 10 200 20 219 20))
+(connect D14:1 D15:1
+(points 4 381 0 410 0 410 -10 424 -10))
+(connect D14:2 D15:2
+(points 2 381 10 424 10))
+(connect D2:0 D17:0
+(points 2 -80 -170 -80 -150))
+(connect D9:0 D18:0
+(points 2 150 150 150 170))
+(connect D11:1 D19:1
+(points 2 187 290 221 290))
+(connect D3:0 D20:0
+(points 2 -80 330 -80 350))
+(connect D14:1 D21:0
+(points 5 381 0 410 0 410 60 400 60 400 80))
+(connect I1:1 D21:1
+(points 8 -382 -121 -180 -121 -180 -80 -170 -80 -170 0 90 0 90 90 382 90))
+(connect D14:2 D22:0
+(points 7 381 10 400 10 400 50 360 50 360 110 370 110 370 130))
+(connect I1:1 D22:1
+(points 10 -382 -121 -180 -121 -180 -80 -170 -80 -170 0 90 0 90 90 300 90 300
+140 330 140))
+(connect D21:1 D23:1
+(points 4 417 90 430 90 430 120 444 120))
+(connect D22:1 D23:2
+(points 2 410 140 444 140))
+(connect D0:0 D25:0
+(points 2 -80 495 -80 510)))
+(stackingOrder 2 5 4 6 9 10 1 16 18 11 12 19 3 20 13 15 21 22 23 14 24 17 8 0 7
+25))))
+(device 158 CONFIRM25
+(properties
+(name "Save to Excel")
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 161 CONTEXT
+(properties
+(name "Package Data for Excel")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 This object packages the data along side the parameter names, formats and units to form two 2-dimensional arrays.  The first is a text array that holds two rows of headings for the table and the second is a the data table, where the first column is the frequency list for the measurements and the subsequent columns are magnitude (in dB) and phase (in degrees) of each of the parameters measured.\\par\r\n}\r\n"
+)
+(trigMode deg)
+(nextID 34)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "Headings")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Data")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 2 FORMULA
+(properties
+(name "Phase")
+(expr 1 "Phase(a)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "V->dB")
+(expr 3 "20*log10(clipLower(mag(A),1e-10))" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 FROMGLOBAL
+(properties
+(name "Get Data")
+(globalName "Data"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 5 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary"))
+(output 1
+(name "SubAry")
+(tag "Result"))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 6 FORMULA
+(properties
+(name "num rows")
+(expr 1 "A[0]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 8 FORMULA
+(properties
+(name "data column")
+(expr 1 "A[B, *]"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "C")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "B")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 10 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 12 FORMULA
+(properties
+(name "transpose(x)")
+(expr 1 "transpose(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 FROMGLOBAL
+(properties
+(name "Get Freq")
+(globalName "Freq"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 15 FROMGLOBAL
+(properties
+(name "Get Params")
+(globalName "Params"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 16 LITERALCONSTANT
+(properties
+(name "Frequency"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Frequency"))
+(initValue Text
+(data  ""))))
+(device 17 FOREACH
+(properties
+(name "For Each Element In"))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(lock name)
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 18 FORMULA
+(properties
+(name "A + \" Mag\"")
+(expr 1 "A + \" Mag\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "A + \" Phase\"")
+(expr 1 "A + \" Phase\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 21 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 23 LITERALCONSTANT
+(properties
+(name "(Hz)"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "(Hz)"))
+(initValue Text
+(data  ""))))
+(device 24 LITERALCONSTANT
+(properties
+(name "(dB)"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "(dB)"))
+(initValue Text
+(data  ""))))
+(device 25 LITERALCONSTANT
+(properties
+(name "(Deg)"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "(Deg)"))
+(initValue Text
+(data  ""))))
+(device 26 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 27 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 28 DO
+(interface
+(output 1
+(name "Do"))))
+(device 30 FORMULA
+(properties
+(name "Build Two Rows")
+(expr 1 "[A,B]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This construct creates the two rows used as heading for each of the data column.  The first column is always frequency.  The other headings are built from the names of the parameters stored in the \"Params\" global.\\par\r\n}\r\n"
+)))
+(device 33 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This construct creates the 2-dimensional table of data where the first column is always frequency and the rest are magnitude and phase of each parameter measured.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D1:0 D0:0)
+(connect D6:1 D0:1)
+(connect D6:1 D1:1)
+(connect D10:0 D3:0)
+(connect D2:1 D3:1)
+(connect D3:4 D4:1)
+(connect D4:1 D5:1)
+(connect D5:1 D6:1)
+(connect D2:1 D6:2)
+(connect D10:1 D7:1)
+(connect D1:1 D7:2)
+(connect D0:1 D7:3)
+(connect D7:1 D8:1)
+(connect D5:0 D8:2)
+(connect D8:1 D9:1)
+(connect D23:0 D10:0)
+(connect D18:0 D11:0)
+(connect D11:1 D13:1)
+(connect D13:1 D14:1)
+(connect D14:0 D15:0)
+(connect D13:1 D15:1)
+(connect D12:1 D16:1)
+(connect D14:1 D16:2)
+(connect D15:1 D16:3)
+(connect D16:1 D17:1)
+(connect D23:1 D17:2)
+(connect D12:0 D18:0)
+(connect D15:0 D19:0)
+(connect D19:0 D20:0)
+(connect D18:1 D21:1)
+(connect D19:1 D21:2)
+(connect D20:1 D21:3)
+(connect D21:1 D22:1)
+(connect D23:1 D22:2)
+(connect D13:0 D23:0)
+(connect D17:1 D24:1)
+(connect D22:1 D24:2)
+(connect D24:1 O1:1)
+(connect D9:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 449 684)
+(anchorPt -112 98)
+(configuration
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 40 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 730 480))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 37 15))
+(open
+(extent 245 80))
+(terminals on)
+(pinCenter 730 430))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 52 15))
+(open
+(extent 58 51))
+(terminals on)
+(pinCenter 200 410))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 68 54)
+(iconImage "unbuild.icn"))
+(open
+(extent 93 110))
+(terminals on)
+(pinCenter 310 410))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 400 420))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 490 420))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 430))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 810 430))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 920 480))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 119 50))
+(terminals on)
+(pinCenter 1020 480))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 57 51))
+(terminals on)
+(pinCenter 310 360))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 76 51))
+(terminals on)
+(pinCenter 180 150))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 62 15))
+(open
+(extent 174 29))
+(pinCenter 180 80))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 122 51)
+(iconImage "loop.icn"))
+(open)
+(pinCenter 310 150))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 59 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 430 150))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 73 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 430 190))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 530 180))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 600 190))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 180 110))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 27 15))
+(open
+(extent 174 29))
+(pinCenter 430 290))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 174 29))
+(pinCenter 430 320))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 530 280))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 53 25))
+(open
+(extent 96 54))
+(terminals on)
+(pinCenter 600 290))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 310 250))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 97 25))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 710 250))
+(devCarrierFor 32
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 136)
+(editing enabled))
+(pinCenter 530 -10))
+(devCarrierFor 33
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 424 136)
+(editing enabled))
+(pinCenter 260 560))
+(connect D1:0 D0:0
+(points 2 730 440 730 470))
+(connect D6:1 D0:1
+(points 4 649 430 680 430 680 480 707 480))
+(connect D6:1 D1:1
+(points 2 649 430 709 430))
+(connect D10:0 D3:0
+(points 2 310 370 310 380))
+(connect D2:1 D3:1
+(points 2 228 410 273 410))
+(connect D3:4 D4:1
+(points 2 346 420 367 420))
+(connect D4:1 D5:1
+(points 2 432 420 453 420))
+(connect D5:1 D6:1
+(points 2 526 420 570 420))
+(connect D2:1 D6:2
+(points 6 228 410 250 410 250 470 550 470 550 440 570 440))
+(connect D10:1 D7:1
+(points 4 338 360 770 360 770 420 794 420))
+(connect D1:1 D7:2
+(points 2 751 430 794 430))
+(connect D0:1 D7:3
+(points 4 752 480 770 480 770 440 794 440))
+(connect D7:1 D8:1
+(points 4 825 430 850 430 850 470 891 470))
+(connect D5:0 D8:2
+(points 5 490 448 490 510 860 510 860 490 891 490))
+(connect D8:1 D9:1
+(points 2 949 480 980 480))
+(connect D23:0 D10:0
+(points 2 310 260 310 350))
+(connect D18:0 D11:0
+(points 2 180 120 180 140))
+(connect D11:1 D13:1
+(points 2 218 150 246 150))
+(connect D13:1 D14:1
+(points 2 373 150 398 150))
+(connect D14:0 D15:0
+(points 2 430 160 430 180))
+(connect D13:1 D15:1
+(points 4 373 150 380 150 380 190 391 190))
+(connect D12:1 D16:1
+(points 4 213 80 490 80 490 170 514 170))
+(connect D14:1 D16:2
+(points 4 462 150 500 150 500 180 514 180))
+(connect D15:1 D16:3
+(points 2 469 190 514 190))
+(connect D16:1 D17:1
+(points 2 545 180 571 180))
+(connect D23:1 D17:2
+(points 6 324 250 470 250 470 240 560 240 560 200 571 200))
+(connect D12:0 D18:0
+(points 2 180 90 180 100))
+(connect D15:0 D19:0
+(points 2 430 200 430 280))
+(connect D19:0 D20:0
+(points 2 430 300 430 310))
+(connect D18:1 D21:1
+(points 8 195 110 230 110 230 100 480 100 480 180 490 180 490 270 514 270))
+(connect D19:1 D21:2
+(points 4 446 290 480 290 480 280 514 280))
+(connect D20:1 D21:3
+(points 6 450 320 460 320 460 310 490 310 490 290 514 290))
+(connect D21:1 D22:1
+(points 2 545 280 571 280))
+(connect D23:1 D22:2
+(points 6 324 250 470 250 470 320 560 320 560 300 571 300))
+(connect D13:0 D23:0
+(points 2 310 178 310 240))
+(connect D17:1 D24:1
+(points 4 629 190 650 190 650 240 659 240))
+(connect D22:1 D24:2
+(points 4 629 290 640 290 640 260 659 260))
+(connect D24:1 O1:1
+(points 4 761 250 780 250 780 73 560 73))
+(connect D9:1 O2:1
+(points 4 1060 480 1080 480 1080 413 560 413)))
+(stackingOrder 2 3 4 5 6 1 0 8 10 7 9 13 15 14 16 17 12 18 21 19 20 23 22 24 25
+26 11))))
+(device 162 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 163 NEXT)
+(configuration
+(connect D1:1 D0:1)
+(connect D34:1 D0:2)
+(connect D6:0 D1:0)
+(connect D3:2 D2:0)
+(connect D23:5 D2:1)
+(connect D1:0 D3:0)
+(connect D23:5 D3:1)
+(connect D4:1 D5:1)
+(connect D12:0 D6:0)
+(connect D23:5 D6:1)
+(connect D23:0 D7:0)
+(connect D23:5 D7:1)
+(connect D23:6 D7:2)
+(connect D3:1 D8:1)
+(connect D7:0 D9:0)
+(connect D23:1 D9:1)
+(connect D23:2 D9:2)
+(connect D23:3 D9:3)
+(connect D23:4 D9:4)
+(connect D23:5 D9:5)
+(connect D12:1 D10:1)
+(connect D6:0 D10:2)
+(connect D13:0 D11:0)
+(connect D9:0 D12:0)
+(connect D34:0 D13:0)
+(connect D2:1 D13:1)
+(connect D3:2 D14:1)
+(connect D4:0 D18:0)
+(connect D11:0 D19:0)
+(connect D11:0 D20:0)
+(connect D20:1 D21:0)
+(connect D19:1 D22:0)
+(connect D18:1 D23:0)
+(connect D2:0 D34:0)
+(connect D37:1 D35:1)
+(connect D37:2 D35:2)
+(connect D38:1 D36:0)
+(connect D36:1 D37:0)
+(connect D11:0 D38:0)
+(connect D35:0 D39:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 797 706)
+(gridSize 5)
+(drawGrid "on")
+(widget 5 detail
+(relativeOrigin 370 10)
+(PID 0)
+(title on)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 415 28))
+(widget 11 panel
+(relativeOrigin 10 290)
+(bg "Light Blue Gray")
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 776 406)
+(carbonCopy))
+(widget 0 detail
+(relativeOrigin 335 295)
+(PID 8)
+(title on)
+(tabIndex 8)
+(borderStyle flat)
+(extent 164 23))
+(widget 10 detail
+(relativeOrigin 155 295)
+(PID 9)
+(title on)
+(tabIndex 9)
+(borderStyle flat)
+(extent 164 23))
+(widget 15 icon
+(relativeOrigin 10 10)
+(PID 11)
+(title off)
+(tabStop off)
+(tabIndex 11)
+(borderStyle flat)
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(widget 19 detail
+(relativeOrigin 515 305)
+(PID 13)
+(title off)
+(tabIndex 13)
+(borderStyle none)
+(extent 125 30))
+(widget 20 detail
+(relativeOrigin 645 305)
+(PID 14)
+(title off)
+(tabIndex 14)
+(borderStyle none)
+(extent 125 30))
+(widget 23 panel
+(relativeOrigin 10 70)
+(bg "Light Blue Gray")
+(PID 15)
+(title off)
+(tabIndex 15)
+(borderStyle flat)
+(extent 436 211)
+(carbonCopy))
+(widget 17 detail
+(relativeOrigin 455 70)
+(PID 16)
+(title off)
+(tabIndex 16)
+(borderStyle flat)
+(extent 331 211)
+(editing enabled))
+(widget 36 detail
+(relativeOrigin 645 615)
+(PID 17)
+(title off)
+(tabIndex 17)
+(borderStyle none)
+(extent 114 24)))
+(detail
+(extent 1499 994)
+(anchorPt 371 484)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 133 0)
+(iconImage "timer.icn"))
+(open
+(extent 169 31))
+(pinCenter 750 300))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 240 260))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 117 45))
+(terminals on)
+(pinCenter 310 360))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 97 25))
+(terminals on)
+(pinCenter 240 300))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 80 51)
+(iconImage "io.icn"))
+(open
+(extent 295 67))
+(terminals on)
+(pinCenter -300 -210))
+(devCarrierFor 64
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 415 37))
+(pinCenter 130 -210))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 172 16))
+(terminals on)
+(pinCenter 240 160))
+(devCarrierFor 78
+(active icon)
+(icon
+(extent 126 25))
+(terminals on)
+(pinCenter 240 -30))
+(devCarrierFor 79
+(active open)
+(icon
+(extent 70 0))
+(open
+(extent 121 22))
+(pinCenter 360 240))
+(devCarrierFor 84
+(active icon)
+(icon
+(extent 112 65))
+(terminals on)
+(pinCenter 240 40))
+(devCarrierFor 91
+(active open)
+(icon
+(extent 144 0)
+(iconImage "timer.icn"))
+(open
+(extent 180 31))
+(pinCenter 770 110))
+(devCarrierFor 92
+(active open)
+(icon
+(extent 70 25))
+(open
+(extent 754 416)
+(carbonCopy))
+(terminals on)
+(pinCenter 440 690))
+(devCarrierFor 93
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 240 120))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 51 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 310 440))
+(devCarrierFor 96
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 380 310))
+(devCarrierFor 99
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter -20 -320))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing enabled))
+(pinCenter -260 -320))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 166 51)
+(iconImage "notepad.icn"))
+(open
+(extent 644 316)
+(editing enabled))
+(titleFont "Arial" 12 bold)
+(pinCenter -450 -320))
+(devCarrierFor 124
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -300 -100))
+(devCarrierFor 125
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 114 24))
+(title off)
+(pinCenter 340 970))
+(devCarrierFor 126
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 114 24))
+(title off)
+(pinCenter 610 970))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 770 1020))
+(devCarrierFor 128
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 450 1020))
+(devCarrierFor 129
+(active open)
+(icon
+(extent 73 105))
+(open
+(extent 499 210)
+(carbonCopy))
+(pinCenter -220 80))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 180 51)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 290 -310))
+(devCarrierFor 131
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 294 46)
+(editing enabled))
+(pinCenter 480 0))
+(devCarrierFor 132
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 294 46)
+(editing enabled))
+(pinCenter 480 80))
+(devCarrierFor 133
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 86)
+(editing enabled))
+(pinCenter 850 20))
+(devCarrierFor 134
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 46)
+(editing enabled))
+(pinCenter 540 180))
+(devCarrierFor 135
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 334 86)
+(editing enabled))
+(pinCenter 890 210))
+(devCarrierFor 136
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 96)
+(editing enabled))
+(pinCenter -50 370))
+(devCarrierFor 137
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 106)
+(editing enabled))
+(pinCenter 1040 560))
+(devCarrierFor 138
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 344 236)
+(editing enabled))
+(pinCenter 280 1330))
+(devCarrierFor 139
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 214 66)
+(editing enabled))
+(pinCenter -100 -100))
+(devCarrierFor 140
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 310 410))
+(devCarrierFor 142
+(active icon)
+(icon
+(extent 459 34))
+(terminals on)
+(pinCenter 540 1130))
+(devCarrierFor 158
+(active open)
+(icon
+(extent 79 0))
+(open
+(extent 114 24))
+(title off)
+(pinCenter 120 1070))
+(devCarrierFor 161
+(active icon)
+(icon
+(extent 138 34))
+(terminals on)
+(pinCenter 190 1130))
+(devCarrierFor 162
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 180 970))
+(devCarrierFor 163
+(active icon)
+(icon
+(extent 28 15))
+(open)
+(terminals on)
+(pinCenter 540 1190))
+(connect D1:1 D0:1
+(points 6 254 260 270 260 270 270 430 270 430 290 663 290))
+(connect D34:1 D0:2
+(points 4 324 410 430 410 430 310 663 310))
+(connect D6:0 D1:0
+(points 2 240 170 240 250))
+(connect D3:2 D2:0
+(points 3 291 310 310 310 310 335))
+(connect D23:5 D2:1
+(points 10 32 120 70 120 70 160 130 160 130 190 140 190 140 300 170 300 170 360
+249 360))
+(connect D1:0 D3:0
+(points 2 240 270 240 285))
+(connect D23:5 D3:1
+(points 8 32 120 70 120 70 160 130 160 130 190 140 190 140 300 189 300))
+(connect D4:1 D5:1
+(points 2 -120 -210 -80 -210))
+(connect D12:0 D6:0
+(points 2 240 130 240 149))
+(connect D23:5 D6:1
+(points 4 32 120 70 120 70 160 151 160))
+(connect D23:0 D7:0
+(points 6 -220 187 -220 210 80 210 80 -60 240 -60 240 -45))
+(connect D23:5 D7:1
+(points 6 32 120 60 120 60 60 140 60 140 -40 174 -40))
+(connect D23:6 D7:2
+(points 6 32 150 50 150 50 130 150 130 150 -20 174 -20))
+(connect D3:1 D8:1
+(points 6 291 290 300 290 300 280 290 280 290 240 297 240))
+(connect D7:0 D9:0
+(points 2 240 -15 240 5))
+(connect D23:1 D9:1
+(points 4 32 0 50 0 50 20 181 20))
+(connect D23:2 D9:2
+(points 2 32 30 181 30))
+(connect D23:3 D9:3
+(points 4 32 60 40 60 40 40 181 40))
+(connect D23:4 D9:4
+(points 4 32 90 50 90 50 50 181 50))
+(connect D23:5 D9:5
+(points 4 32 120 60 120 60 60 181 60))
+(connect D12:1 D10:1
+(points 6 254 120 270 120 270 130 650 130 650 100 677 100))
+(connect D6:0 D10:2
+(points 5 240 170 240 190 360 190 360 120 677 120))
+(connect D13:0 D11:0
+(points 6 310 450 310 460 350 460 350 440 440 440 440 461))
+(connect D9:0 D12:0
+(points 2 240 75 240 110))
+(connect D34:0 D13:0
+(points 2 310 420 310 430))
+(connect D2:1 D13:1
+(points 6 371 360 380 360 380 330 230 330 230 440 282 440))
+(connect D3:2 D14:1
+(points 2 291 310 352 310))
+(connect D4:0 D18:0
+(points 2 -300 -174 -300 -128))
+(connect D11:0 D19:0
+(points 4 440 900 440 920 340 920 340 955))
+(connect D11:0 D20:0
+(points 4 440 900 440 930 610 930 610 955))
+(connect D20:1 D21:0
+(points 3 669 970 770 970 770 1010))
+(connect D19:1 D22:0
+(points 3 399 970 450 970 450 1010))
+(connect D18:1 D23:0
+(points 5 -264 -100 -240 -100 -240 -70 -220 -70 -220 -46))
+(connect D2:0 D34:0
+(points 2 310 385 310 400))
+(connect D37:1 D35:1
+(points 2 261 1120 308 1120))
+(connect D37:2 D35:2
+(points 2 261 1140 308 1140))
+(connect D38:1 D36:0
+(points 5 216 970 240 970 240 1020 120 1020 120 1055))
+(connect D36:1 D37:0
+(points 3 179 1070 190 1070 190 1110))
+(connect D11:0 D38:0
+(points 4 440 900 440 920 180 920 180 942))
+(connect D35:0 D39:0
+(points 2 540 1149 540 1180)))
+(stackingOrder 21 23 20 19 22 18 15 17 10 27 0 29 28 31 26 25 11 30 24 4 5 33 8
+12 1 14 34 7 9 6 3 13 2 39 36 32 38 37 35 16))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

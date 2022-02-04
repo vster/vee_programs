@@ -1,0 +1,478 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:01:54 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode rad)
+(nextID 15)
+(popupTitleText "Text Strings Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 2 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "One, "))
+(initValue Text
+(data  ""))))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Three."))
+(initValue Text
+(data  ""))))
+(device 6 LITERALCONSTANT
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Two, "))
+(initValue Text
+(data  ""))))
+(device 7 ACCUMULATOR
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 8 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 9 FORMULA
+(properties
+(expr 1 "A+B+C"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 11 VECTORCONCATENATOR
+(interface
+(input 1
+(name "Data1")
+(optional yes))
+(input 2
+(name "Data2")
+(optional yes))
+(input 3
+(name "Data3")
+(optional yes))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 12 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 14 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(text2 17 "PURPOSE: To illustrate several ways to combine text strings." ""
+"USER INPUT REQUIRED: Press RUN to see the results displayed." ""
+"EXPLANATION:  Three string constants are supplied as \"One, \", \"Two, \", and \"Three.\""
+"         Using the JCT to send each string in turn to the \"Accumulator\" allows the"
+"         strings to be collected into one string.  This is useful when you don\'t"
+"         know how many strings will be combined.  An alternate way to create the"
+"         combined sting is to use a formula box to \"add\" the strings.  You need to"
+"         have as many inputs as you have strings to be combined." ""
+"\t\t If you wish to create an array of strings instead of one string, you can"
+"         use a JCT and a Collector.  The XEQ pin on the Collector must be pinged"
+"         when all of the inputs have arrived.  This is done by connecting the"
+"         sequence pins of the text constants in order and connecting the sequence"
+"         out pin of the third constant to the XEQ pin.  An alternate way to collect"
+"         an array when you know the number of strings is to use a Concatenator."
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 232 77)))
+(contextCarrier
+(active panel)
+(panel
+(extent 739 394)
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 740 340)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 310 350)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 280 281)
+(anchorPt 105 80)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -1 67)))
+(stackingOrder 1 0))))
+(configuration
+(connect D2:0 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 266 72)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 72 12)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 468 280)
+(anchorPt 120 72)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 862 514)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 250 80))
+(connect D2:0 D0:1
+(points 5 250 95 250 120 -80 120 -80 0 -60 0))
+(connect D0:1 D1:1
+(points 2 59 0 104 0))
+(connect D1:1 D2:0
+(points 3 155 -10 250 -10 250 65)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D6:1 D2:1)
+(connect D7:1 D3:1)
+(connect D5:0 D4:0)
+(connect D1:0 D5:0)
+(connect D12:1 D6:1)
+(connect D12:1 D7:1)
+(connect D4:0 D7:2)
+(connect D1:1 D8:1)
+(connect D5:1 D8:2)
+(connect D4:1 D8:3)
+(connect D8:1 D9:1)
+(connect D1:1 D10:1)
+(connect D5:1 D10:2)
+(connect D4:1 D10:3)
+(connect D10:1 D11:1)
+(connect D1:1 D12:1)
+(connect D5:1 D12:2)
+(connect D4:1 D12:3)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 478 42)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 164 31))
+(pinCenter -380 150))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 217 43))
+(pinCenter 210 80))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 215 73))
+(pinCenter 210 180))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 164 31))
+(pinCenter -380 340))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 164 31))
+(pinCenter -380 240))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 183 38))
+(pinCenter -40 80))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 114 76))
+(terminals on)
+(pinCenter -40 180))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 78 64)
+(iconImage "formula.icn"))
+(open
+(extent 113 76))
+(terminals on)
+(pinCenter -50 320))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 217 43))
+(pinCenter 210 320))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 104 76))
+(terminals on)
+(pinCenter -35 440))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 212 66))
+(pinCenter 210 440))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 46 34))
+(open)
+(terminals on)
+(pinCenter -200 160))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 266 72)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -330 30))
+(connect D6:1 D2:1
+(points 2 17 80 99 80))
+(connect D7:1 D3:1
+(points 2 59 180 100 180))
+(connect D5:0 D4:0
+(points 2 -380 258 -380 304))
+(connect D1:0 D5:0
+(points 2 -380 168 -380 204))
+(connect D12:1 D6:1
+(points 4 -175 160 -160 160 -160 80 -98 80))
+(connect D12:1 D7:1
+(points 2 -175 160 -140 160))
+(connect D4:0 D7:2
+(points 5 -380 358 -380 380 -280 380 -280 200 -140 200))
+(connect D1:1 D8:1
+(points 4 -296 150 -270 150 -270 300 -139 300))
+(connect D5:1 D8:2
+(points 6 -296 240 -290 240 -290 310 -270 310 -270 320 -139 320))
+(connect D4:1 D8:3
+(points 2 -296 340 -139 340))
+(connect D8:1 D9:1
+(points 2 59 320 99 320))
+(connect D1:1 D10:1
+(points 6 -296 150 -270 150 -270 300 -170 300 -170 420 -140 420))
+(connect D5:1 D10:2
+(points 6 -296 240 -290 240 -290 310 -270 310 -270 440 -140 440))
+(connect D4:1 D10:3
+(points 4 -296 340 -190 340 -190 460 -140 460))
+(connect D10:1 D11:1
+(points 2 59 440 101 440))
+(connect D1:1 D12:1
+(points 2 -296 150 -226 150))
+(connect D5:1 D12:2
+(points 6 -296 240 -290 240 -290 190 -280 190 -280 160 -226 160))
+(connect D4:1 D12:3
+(points 4 -296 340 -260 340 -260 170 -226 170)))
+(stackingOrder 1 4 13 8 10 7 6 12 3 2 11 9 5 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,857 @@
+(saveFormat "7.0")
+(date "Thu 07/Apr/2005 18:48:05 ")
+(veerev "7.5.7607.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 30)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(UserFunctions
+(nextID 2)
+(context 1
+(properties
+(name "Dealing")
+(trigMode deg)
+(nextID 36)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "CardCount")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "TotalScore")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 4 FORMULA
+(properties
+(name "Cards - Ace to King")
+(expr 1 "random(1,13)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "Set Face Card Value")
+(expr 3 "(CardValue<=13 AND  " "CardValue >= 10 ? 10 " ": CardValue)"))
+(interface
+(input 1
+(name "CardValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 ACCUMULATOR
+(properties
+(name "Total Card Value"))
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 13 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 16 IFTHENELSE
+(properties
+(name "If Total Card Value > 21 Break")
+(cases 1 "TotalCardValue>=17 OR 21<=TotalCardValue"))
+(interface
+(input 1
+(name "TotalCardValue")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 18 BREAK)
+(device 21 COUNTER
+(properties
+(name "Card Counter"))
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 24 FORMULA
+(properties
+(name "Adjust the Total Card Value for the Ace")
+(expr 4 "(CardValue == 1 AND ScoreToNow ==10 ? 11 "
+": (CardValue==1 AND ScoreToNow <= 9 " "AND ScoreToNow >= 6 ? 11 "
+": CardValue))"))
+(interface
+(input 1
+(name "CardValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 DECLVAR
+(properties
+(name "Declare ScoreToNow")
+(scope con)
+(globalName "ScoreToNow"))
+(implementation
+(value Int32
+(data  0))))
+(device 31 TOGLOBAL
+(properties
+(name "Set ScoreToNow")
+(globalName "ScoreToNow"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 32 FORMULA
+(properties
+(name "Round Card Value")
+(expr 1 "round(CardValue)"))
+(interface
+(input 1
+(name "CardValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 FORMULA
+(properties
+(name "Set Value for Ace")
+(expr 3 "(CardValue == 1 AND " "ScoreToNow == 1? 11 " ": CardValue)"))
+(interface
+(input 1
+(name "CardValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 FORMULA
+(properties
+(name "Round Value")
+(expr 1 "round(CardValue)"))
+(interface
+(input 1
+(name "CardValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 35 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 The \\b Dealing UserFunction \\b0 is called by the \\b Scoring UserFunction\\b0 .\\par\r\n}\r\n"
+)))
+(configuration
+(connect D3:1 D0:0)
+(connect D6:0 D1:0)
+(connect D0:1 D1:1)
+(connect D7:1 D2:1)
+(connect D2:1 D4:1)
+(connect D4:1 D5:0)
+(connect D3:1 D6:1)
+(connect D11:1 D7:1)
+(connect D12:1 D9:1)
+(connect D1:1 D10:1)
+(connect D9:0 D11:0)
+(connect D10:1 D11:1)
+(connect D1:1 D12:1)
+(connect D6:1 O1:1)
+(connect D2:1 O2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 373 197)
+(anchorPt -46 10)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 115 0))
+(open
+(extent 147 50))
+(terminals on)
+(pinCenter 130 130))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 123 0))
+(open
+(extent 174 80))
+(terminals on)
+(pinCenter 440 140))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 136 31))
+(pinCenter 210 530))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 70 40))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 178 25))
+(open
+(extent 280 56))
+(terminals on)
+(pinCenter 410 500))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 560 520))
+(devCarrierFor 21
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 117 31))
+(pinCenter 430 40))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 228 0))
+(open
+(extent 274 96))
+(terminals on)
+(pinCenter 380 420))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 128 15))
+(open
+(extent 195 103))
+(pinCenter 750 50))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 101 15))
+(open
+(extent 134 56))
+(terminals on)
+(pinCenter 800 190))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 111 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 50 240))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 164 80))
+(terminals on)
+(pinCenter 280 270))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 680 160))
+(devCarrierFor 35
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 304 66)
+(editing enabled))
+(pinCenter 690 280))
+(connect D3:1 D0:0
+(points 3 106 40 140 40 140 84))
+(connect D6:0 D1:0
+(points 2 430 58 430 79))
+(connect D0:1 D1:1
+(points 4 256 130 270 130 270 140 280 140))
+(connect D7:1 D2:1
+(points 6 569 420 590 420 590 330 120 330 120 530 139 530))
+(connect D2:1 D4:1
+(points 4 280 530 300 530 300 500 318 500))
+(connect D4:1 D5:0
+(points 3 501 490 560 490 560 510))
+(connect D3:1 D6:1
+(points 2 106 40 369 40))
+(connect D11:1 D7:1
+(points 6 414 270 430 270 430 320 150 320 150 420 170 420))
+(connect D12:1 D9:1
+(points 4 721 160 730 160 730 190 747 190))
+(connect D1:1 D10:1
+(points 10 579 140 590 140 590 160 600 160 600 200 480 200 480 190 -30 190 -30
+240 -8 240))
+(connect D9:0 D11:0
+(points 6 800 200 800 210 470 210 470 200 270 200 270 209))
+(connect D10:1 D11:1
+(points 4 108 240 120 240 120 270 125 270))
+(connect D1:1 D12:1
+(points 8 579 140 590 140 590 160 600 160 600 170 630 170 630 160 638 160))
+(connect D6:1 O1:1
+(points 4 491 40 600 40 600 38 418 38))
+(connect D2:1 O2:1
+(points 10 280 530 300 530 300 560 510 560 510 500 570 500 570 490 600 490 600
+138 418 138)))
+(stackingOrder 3 8 1 6 12 9 2 10 11 0 13 5 7 4))))
+(context 0
+(properties
+(name "Scoring")
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "BlackJack")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "TotalScore")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Bust")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 4 DECLVAR
+(properties
+(name "Declare TotalScore")
+(scope con)
+(globalName "TotalScore"))
+(implementation
+(value Int32
+(data  0))))
+(device 5 TOGLOBAL
+(properties
+(name "Set TotalScore")
+(globalName "TotalScore"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 11 CALL
+(properties
+(name "Call Dealing")
+(callFunc "Dealing")
+(parmMode rev30))
+(interface
+(output 1
+(name "CardCount")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "TotalScore")
+(lock name constraints)
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "Calculate Point Total")
+(expr 2 "(TotalValueOfTheCards <=21 ? " "TotalScore : \"So Sad Too Bad\")"))
+(interface
+(input 1
+(name "TotalValueOfTheCards")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 FORMULA
+(properties
+(name "Calculate a Bust")
+(expr 1 "(GreaterThan21> 21 ? \"BUST\" : \"Play It\")"))
+(interface
+(input 1
+(name "GreaterThan21")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 FORMULA
+(properties
+(name "Calculate BlackJack")
+(expr 2 "(BlackJackValue==2 AND TotalScore==21 ? "
+"\"BLACKJACK\" : \"No BlackJack\")"))
+(interface
+(input 1
+(name "BlackJackValue")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This is the \\b Scoring UserFunction\\b0 . The \\b Dealing UserFunction \\b0 is nested within Scoring.\\par\r\n}\r\n"
+)))
+(configuration
+(connect D2:2 D1:1)
+(connect D2:2 D3:1)
+(connect D2:2 D4:1)
+(connect D1:0 D5:0)
+(connect D2:1 D5:1)
+(connect D5:1 O1:1)
+(connect D3:1 O2:1)
+(connect D4:1 O3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 247 177)
+(anchorPt 84 64)
+(configuration
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 195 103))
+(pinCenter 60 -40))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 104 56))
+(terminals on)
+(pinCenter 110 0))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 74 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter -30 270))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 214 66))
+(terminals on)
+(pinCenter 340 280))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 99 0))
+(open
+(extent 275 56))
+(terminals on)
+(pinCenter 315 420))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 284 66))
+(terminals on)
+(pinCenter 300 110))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 56)
+(editing enabled))
+(pinCenter 340 -10))
+(connect D2:2 D1:1
+(points 4 9 280 30 280 30 0 63 0))
+(connect D2:2 D3:1
+(points 2 9 280 80 280))
+(connect D2:2 D4:1
+(points 4 9 280 30 280 30 420 75 420))
+(connect D1:0 D5:0
+(points 4 110 10 110 40 270 40 270 56))
+(connect D2:1 D5:1
+(points 4 9 260 20 260 20 110 45 110))
+(connect D5:1 O1:1
+(points 4 494 110 510 110 510 -36 162 -36))
+(connect D3:1 O2:1
+(points 4 499 280 520 280 520 24 162 24))
+(connect D4:1 O3:1
+(points 4 505 420 531 420 531 84 162 84)))
+(stackingOrder 6 4 0 3 5 1 2)))))
+(device 8 CALL
+(properties
+(name "Tom")
+(callFunc "Scoring")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "Z")
+(optional yes))))
+(device 9 TEXTDISPLAY
+(properties
+(name "BlackJack"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Tom\'s Score"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 TEXTDISPLAY
+(properties
+(name "Comments"))
+(interface
+(input 1
+(name "Data"))))
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 17 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example demonstrates UserFunctions. There is one UserFunction (Scoring) which calls another UserFuction (Dealing). Run the program and each player calls the same UserFunctions. The UserFunctions are shared by all of the different players in the game. Note too, that each player gets a different result. That\'s because the UserFunctions run independently, which is another example that they are shared. \\par\r\n\\par\r\nWhenever you have a task that is performed multiple times in your program, take a long look at UserFunctions. Their real strength is that you can use them over and over again within your program without changing them, and they will perform the same way every time.\\par\r\n}\r\n"
+)))
+(device 18 TEXTDISPLAY
+(properties
+(name "Comments"))
+(interface
+(input 1
+(name "Data"))))
+(device 19 TEXTDISPLAY
+(properties
+(name "Bill\'s Score"))
+(interface
+(input 1
+(name "Data"))))
+(device 20 TEXTDISPLAY
+(properties
+(name "BlackJack"))
+(interface
+(input 1
+(name "Data"))))
+(device 21 CALL
+(properties
+(name "Bill")
+(callFunc "Scoring")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "Z")
+(optional yes))))
+(device 22 TEXTDISPLAY
+(properties
+(name "Comments"))
+(interface
+(input 1
+(name "Data"))))
+(device 23 TEXTDISPLAY
+(properties
+(name "Sue\'s Score"))
+(interface
+(input 1
+(name "Data"))))
+(device 24 TEXTDISPLAY
+(properties
+(name "BlackJack"))
+(interface
+(input 1
+(name "Data"))))
+(device 25 CALL
+(properties
+(name "Sue")
+(callFunc "Scoring")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "Z")
+(optional yes))))
+(device 26 TEXTDISPLAY
+(properties
+(name "Comments"))
+(interface
+(input 1
+(name "Data"))))
+(device 27 TEXTDISPLAY
+(properties
+(name "Ken\'s Score"))
+(interface
+(input 1
+(name "Data"))))
+(device 28 TEXTDISPLAY
+(properties
+(name "BlackJack"))
+(interface
+(input 1
+(name "Data"))))
+(device 29 CALL
+(properties
+(name "Ken")
+(callFunc "Scoring")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "Z")
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:2 D2:1)
+(connect D0:3 D3:1)
+(connect D9:3 D6:1)
+(connect D9:2 D7:1)
+(connect D9:1 D8:1)
+(connect D13:3 D10:1)
+(connect D13:2 D11:1)
+(connect D13:1 D12:1)
+(connect D17:3 D14:1)
+(connect D17:2 D15:1)
+(connect D17:1 D16:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 512 361)
+(wndState max)
+(active detail)
+(detail
+(extent 853 691)
+(anchorPt -182 19)
+(configuration
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 29 34))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 550 220))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 121 22))
+(pinCenter 690 150))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 75 0))
+(open
+(extent 121 22))
+(pinCenter 690 220))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 121 22))
+(pinCenter 690 290))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 396 84)
+(editing enabled))
+(pinCenter 580 50))
+(devCarrierFor 17
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 314 346)
+(editing enabled))
+(pinCenter 360 310))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 121 22))
+(pinCenter 690 520))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 67 0))
+(open
+(extent 121 22))
+(pinCenter 690 450))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 121 22))
+(pinCenter 690 380))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 24 34))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 560 450))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 121 22))
+(pinCenter 950 290))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 72 0))
+(open
+(extent 121 22))
+(pinCenter 950 220))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 121 22))
+(pinCenter 950 150))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 810 220))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 68 0))
+(open
+(extent 121 22))
+(pinCenter 950 520))
+(devCarrierFor 27
+(active open)
+(icon
+(extent 72 0))
+(open
+(extent 121 22))
+(pinCenter 950 450))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 60 0))
+(open
+(extent 121 22))
+(pinCenter 950 380))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 26 34))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 810 450))
+(connect D0:1 D1:1
+(points 4 567 210 590 210 590 150 627 150))
+(connect D0:2 D2:1
+(points 2 567 220 627 220))
+(connect D0:3 D3:1
+(points 4 567 230 590 230 590 290 627 290))
+(connect D9:3 D6:1
+(points 4 574 460 590 460 590 520 627 520))
+(connect D9:2 D7:1
+(points 2 574 450 627 450))
+(connect D9:1 D8:1
+(points 4 574 440 590 440 590 380 627 380))
+(connect D13:3 D10:1
+(points 4 825 230 850 230 850 290 887 290))
+(connect D13:2 D11:1
+(points 2 825 220 887 220))
+(connect D13:1 D12:1
+(points 4 825 210 850 210 850 150 887 150))
+(connect D17:3 D14:1
+(points 4 825 460 850 460 850 520 887 520))
+(connect D17:2 D15:1
+(points 2 825 450 887 450))
+(connect D17:1 D16:1
+(points 4 825 440 850 440 850 380 887 380)))
+(stackingOrder 4 2 1 3 8 7 6 13 9 11 10 12 17 15 14 16 5 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

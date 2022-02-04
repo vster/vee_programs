@@ -1,0 +1,608 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 22:16:14 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 26)
+(popupTitleText "Read/Write File Example")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 TEXTDISPLAY
+(properties
+(name "Data From The File")
+(variableScope cont)
+(clearAtPrerun 0))
+(interface
+(input 1
+(name "Data"))))
+(device 2 EXITPROCESS
+(properties
+(variableScope cont)
+(code 0)))
+(device 3 DELAY
+(properties
+(name "0.5 Sec")
+(variableScope cont)
+(delay 0.5)))
+(device 4 TOFILE
+(properties
+(name "Write New Data To The File")
+(description2 10 "This To File object first rewinds the file (sets"
+"the output file pointer back to beginning of file),"
+"then writes the new value to the file." ""
+"The Write Mode, as set via the Clear File At "
+"PreRun & Open box, must Overwrite (box checked), "
+"since rewinding is not allowed in Append mode.  "
+"Remember that all To File objects that write to "
+"the same file name will SHARE a common Write Mode "
+"selection; changing it for one changes it for all.")
+(variableScope cont)
+(transactions 2 "EXECUTE REWIND" "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 5 TOFILE
+(properties
+(name "Create The File With \"200\"")
+(description2 13 "If the file errors during rewind, we will assume"
+"that it doesn\'t exist.  (To be extremely robust,"
+"the error number should indicate \"file not found\","
+"since a few other errors could cause the rewind to" "fail.)" ""
+"This To File object writes an initial value to the file."
+"Although it doesn\'t matter whether the Write Mode"
+"is Append or Overwrite when the file is first"
+"created, remember that ALL To File objects with"
+"the same file name will SHARE a common Write Mode!"
+"(The file is in Overwrite mode when the \"Clear File"
+"At PreRun & Open box\" is checked.)")
+(variableScope cont)
+(transactions 1 "WRITE TEXT \"200\" EOL"))
+(interface
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 6 FORMULA
+(properties
+(name " - ")
+(variableScope cont)
+(expr 1 "X-Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 IFTHENELSE
+(properties
+(name "A >= 0")
+(variableScope cont)
+(cases 1 "a>=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 FROMFILE
+(properties
+(name "Does The File Exist?")
+(description2 12 "The recommended way to determine if a file exists"
+"is to REWIND it in a From File object.  If the"
+"file does not exist, an error is generated. " ""
+"Note you shouldn\'t use a REWIND in a To File object"
+"to test for file existence.  A file"
+"opened for Write can be in Append or Overwrite"
+"mode, and Rewind is illegal in append.  (The file"
+"is in Overwrite mode when the Clear File At PreRun"
+"& Open box is checked.)  Also, opening a To File "
+"will create an empty file if one does not exist." "")
+(variableScope cont)
+(transactions 1 "EXECUTE REWIND"))
+(interface
+(output 1
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 9 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 10 FROMFILE
+(properties
+(name "Read Data From The File")
+(description2 17 "Each time through the loop,  the program  reads "
+"the data that was last written to the file.  "
+"The file  must always be sent a REWIND command" "before reading to insure the"
+"READ transaction will not hit an EOF." ""
+"IMPORTANT:  Rewinding the \"read\" file pointer will"
+"rewind all From File objects with the same data"
+"file name, since all share a common File pointer." ""
+"However, this has no effect on a To File object"
+"write file pointer for the same file name.  The"
+"existence of two file pointers, one for reading"
+"and one for writing, allows one thread to write "
+"ahead of another thread that is reading and " "processing the data." "")
+(variableScope cont)
+(transactions 2 "EXECUTE REWIND" "READ TEXT x REAL64"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 11 CONSTANT
+(properties
+(name "Amt To Deduct Each Time")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  25))
+(initValue Real
+(data  0))))
+(device 14 CONTEXT
+(properties
+(name "Press For")
+(variableScope cont)
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "If != 0")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\f0\\fs20 Purpose:\\par\r\n\\ulnone\\fs20 Illustrate how to save data between successive executions of a program by writing the latest data to a file after reading and modifying data previously written to the same file.\\par\r\n\\par\r\n\\ul\\fs20 User Input Required:\\par\r\n\\ulnone\\fs20 Press RUN several times, watching the program deduct a constant value from the data value in the file.  You may want to enable \"Show Execution Flow\" before running so you can see the operation of the program.\\par\r\n\\par\r\n\\ul\\fs20 Explanation:\\par\r\n\\ulnone\\fs20 Most objects have a \"Show Description\" dialog box that can be viewed by selecting this from the device\'s Object Menu.  Detailed explanation for each device is found there.\\par\r\n\\par\r\nSeveral techniques are illustrated in this example: \\par\r\n1. How to determine if a file exists, and if not how to create it.\\par\r\n 2. How to read and write data to and from the same file (possible because  there are two file pointers -- one to retain the current position for writing data and another to retain the position for reading data.\\par\r\n3. How to continually \"overwrite\" data in a file instead of appending each new data to the end of existing data. \\par\r\n\\par\r\nThese techniques are useful in cases where calibration data must be read and updated from a file or where \"global\" data must be saved between subsequent executions of a VEE program.\\par\r\n}\r\n"
+)))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 234 59)))
+(contextCarrier
+(active panel)
+(panel
+(extent 627 446)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 610 390)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 250 390)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 824 611)
+(anchorPt 222 354)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 615 437)
+(editing disabled))
+(pinCenter 160 -40)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 285 75)
+(gridSize 4)
+(drawGrid "off")
+(widget 1 detail
+(relativeOrigin 72 12)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 525 289)
+(anchorPt 245 75)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(pinCenter 100 86))
+(connect D1:1 D0:1
+(points 2 -71 0 -42 0))
+(connect D2:0 D1:1
+(points 5 100 101 100 120 -210 120 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 41 -10 100 -10 100 71)))
+(stackingOrder 0 1 2))))
+(device 20 FROMFILE
+(properties
+(name "Delete The File When Done")
+(description2 10 "The recommended way to delete a file is to"
+"execute a DELETE command in a From File"
+"object.  If the file does not exist, an error is" "not generated. " ""
+"However, do no use DELETE in a To File object."
+"A file opened for Write will create the file if it "
+"doesn\'t exist.  A From File, on the other hand, "
+"simply ignores the command if the file doesn\'t exist." "")
+(variableScope cont)
+(transactions 1 "EXECUTE DELETE"))
+(implementation
+(attr iopath file read "/tmp/example.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 21 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 1)
+(message "Cannot create File")))
+(device 23 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 2)
+(message "File Not Found")))
+(device 24 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Press RUN, Most objects have a Show Description info box.Additional help is in the InfoAbout object\\par\r\n\\par\r\nIf there is VEE Run Time Error with message \"File \'\\\\tmp\\\\example.dat\' was not found\", please create a folder named \'tmp\' at your program root drive, e.g. \"C:\\\\tmp\". \\par\r\n}\r\n"
+)))
+(device 25 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(configuration
+(connect D9:1 D0:1)
+(connect D12:0 D1:0)
+(connect D3:0 D2:0)
+(connect D6:1 D3:0)
+(connect D5:1 D3:1)
+(connect D9:1 D5:1)
+(connect D10:1 D5:2)
+(connect D5:1 D6:1)
+(connect D4:0 D7:0)
+(connect D7:0 D8:0)
+(connect D8:1 D9:0)
+(connect D6:2 D12:0)
+(connect D4:1 D13:0)
+(connect D7:1 D14:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 809 614)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt 496 503)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 149 25))
+(open
+(extent 184 39))
+(pinCenter -70 20))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 129 34))
+(pinCenter 60 260))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 147 34))
+(pinCenter 210 100))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 214 25))
+(open
+(extent 234 124))
+(terminals on)
+(pinCenter 210 10))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 206 25))
+(open
+(extent 224 101))
+(terminals on)
+(pinCenter -345 -240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 33 26))
+(open
+(extent 71 106))
+(terminals on)
+(pinCenter -150 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 69 25))
+(open
+(extent 73 104))
+(terminals on)
+(pinCenter -70 100))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 150 25))
+(open
+(extent 224 83))
+(terminals on)
+(pinCenter -345 -110))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -430 -10))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 191 25))
+(open
+(extent 234 97))
+(terminals on)
+(pinCenter -340 100))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 200 25))
+(open
+(extent 247 37))
+(pinCenter -340 220))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 285 75)
+(carbonCopy))
+(pinCenter -330 -380))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 205 25))
+(open
+(extent 234 76))
+(terminals on)
+(pinCenter 60 190))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 79 16))
+(open
+(extent 192 62))
+(pinCenter -100 -200))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 79 16))
+(open
+(extent 194 59))
+(pinCenter -100 -80))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 414 136)
+(editing disabled))
+(pinCenter 80 -410))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 344 66)
+(editing disabled))
+(pinCenter -310 -470))
+(connect D9:1 D0:1
+(points 6 -191 100 -180 100 -180 70 -170 70 -170 20 -165 20))
+(connect D12:0 D1:0
+(points 2 60 230 60 245))
+(connect D3:0 D2:0
+(points 2 210 74 210 85))
+(connect D6:1 D3:0
+(points 7 -33 90 30 90 30 0 40 0 40 -90 210 -90 210 -73))
+(connect D5:1 D3:1
+(points 6 -131 100 -120 100 -120 70 40 70 40 10 60 10))
+(connect D9:1 D5:1
+(points 4 -191 100 -180 100 -180 90 -169 90))
+(connect D10:1 D5:2
+(points 4 -214 220 -180 220 -180 110 -169 110))
+(connect D5:1 D6:1
+(points 2 -131 100 -107 100))
+(connect D4:0 D7:0
+(points 2 -340 -187 -340 -172))
+(connect D7:0 D8:0
+(points 4 -340 -66 -340 -50 -430 -50 -430 -45))
+(connect D8:1 D9:0
+(points 3 -373 -10 -340 -10 -340 31))
+(connect D6:2 D12:0
+(points 3 -33 110 60 110 60 131))
+(connect D4:1 D13:0
+(points 3 -191 -240 -100 -240 -100 -211))
+(connect D7:1 D14:0
+(points 3 -191 -110 -100 -110 -100 -91)))
+(stackingOrder 4 13 14 12 1 6 7 11 16 8 9 10 5 3 0 2 15))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

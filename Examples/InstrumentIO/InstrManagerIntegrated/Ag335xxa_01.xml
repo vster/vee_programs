@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag335xxa_01.vee">
+		<Description>Configure modulation, sweep and burst settings, and output waveform.</Description>
+		<LogicalInstrument name="FunctionGen">
+			<SupportedInstruments>
+				<Instrument idn="Ag33521A"/>
+				<Instrument idn="Ag33522A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

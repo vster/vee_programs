@@ -1,0 +1,471 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:00:19 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 15)
+(popupTitleText "Loop Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 START25)
+(device 2 RANDOMNUMBER
+(properties
+(lowerLimit 1)
+(upperLimit 10))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(name "intPart(x)")
+(expr 1 "intPart(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 ACCUMULATOR
+(interface
+(input 1
+(name "Data")
+(tag "InData")
+(requires
+(shape "Scalar"))
+(lock name constraints))
+(output 1
+(name "Data")
+(tag "accumData")
+(lock name constraints))))
+(device 5 IFTHENELSE
+(properties
+(name "A<=100")
+(cases 1 "A<=100"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 6 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X")
+(tag "OutData")
+(lock name constraints))))
+(device 7 DO
+(interface
+(output 1
+(name "Do")
+(lock name constraints))))
+(device 8 BREAK)
+(device 9 COLLECTOR
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 10 FORMULA
+(properties
+(name "sum(x)")
+(expr 1 "sum(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 12 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 14 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(text2 29
+"PURPOSE:     To generate a series of random integers, each between 1 and 10, and find out"
+"             how many of them, sum up to be less than or equal to 100." ""
+"USER INPUT REQUIRED: Press Run or Start." ""
+"EXPLANATION: The main structure of this program is the \"Until Break\""
+"             object, since the number of iterations necessary to complete the task is"
+"             unknown.  This looping structure is akin to the while() in \'C\' or the"
+"             WHILE/END WHILE in Rocky Mountain Basic. The Until Break drives the \"Random Number\""
+"             object; the \"intPart(x)\" object truncates the generated real number "
+"             to an integer; and the \"Accumulator\" object keeps a running total. "
+""
+"             The \"If/Then/Else\" object tests the current iteration\'s total, and "
+"             if the total is less than or equal to 100, the loop continues. If the"
+"             total is greater than 100, the If/Then test fails and the \"Break\" object"
+"             is activated, causing the loop to stop. Since the current"
+"             iteration may add a value to the total that will cause it to be over 100,"
+"             and since that value should not be included in the final array of numbers,"
+"             a \"Gate\" object is used to allow the current random number to be entered"
+"             into the collector if the test in the If/Then passes. When the test fails "
+"             (total is over 100) the Gate is never \"opened\" so that value is never added"
+"  \t\t\t to the collection of random numbers.  " ""
+"             When the test fails, the \"Do\" object forces the output of the collected "
+"             array before the \"Break\" object is activated.  Because of the "
+"             indeterminate behavior of propagation, there is no guarantee that the"
+"             Break would be activated after the Collector object\'s XEQ pin is activated."
+"             The \"Do\" object enforces the correct sequence; if the Break were to be "
+"             activated first the array of numbers would never be output.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 207 41)))
+(contextCarrier
+(active detail)
+(panel
+(extent 789 582)
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 790 530)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 360 540)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 686 575)
+(anchorPt 129 82)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 130 180))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -30 420)))
+(stackingOrder 1 0))))
+(configuration
+(connect D2:0 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 96 16)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 513 258)
+(anchorPt 134 89)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 167 25))
+(open
+(extent 865 567)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 190 40))
+(connect D2:0 D0:1
+(points 5 190 55 190 80 -80 80 -80 0 -60 0))
+(connect D0:1 D1:1
+(points 2 59 0 104 0))
+(connect D1:1 D2:0
+(points 3 155 -10 190 -10 190 25)))
+(stackingOrder 0 1 2))))
+(configuration
+(connect D1:0 D0:0)
+(connect D0:1 D2:0)
+(connect D2:1 D3:1)
+(connect D3:1 D4:1)
+(connect D4:1 D5:1)
+(connect D5:1 D6:0)
+(connect D3:1 D6:1)
+(connect D5:2 D7:0)
+(connect D7:0 D8:0)
+(connect D6:1 D9:1)
+(connect D7:1 D9:2)
+(connect D9:1 D10:1)
+(connect D10:1 D11:1)
+(connect D9:1 D12:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 811 598)
+(anchorPt 66 145)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 82 62)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 0 10))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 42 24))
+(open
+(extent 69 39))
+(title off)
+(pinCenter 0 -70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 126 24))
+(open
+(extent 226 64))
+(terminals on)
+(pinCenter 60 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 87 24))
+(open
+(extent 91 32))
+(terminals on)
+(pinCenter 190 90))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 106 26))
+(open
+(extent 183 38))
+(pinCenter 20 220))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 82 68))
+(terminals on)
+(pinCenter 140 220))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 310 240))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 210 280))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 210 330))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 85 26))
+(open)
+(terminals on)
+(pinCenter 400 250))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 520 250))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 134 36))
+(pinCenter 650 250))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 134 161))
+(pinCenter 650 100))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 560 -110))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 220 -80))
+(connect D1:0 D0:0
+(points 2 0 -48 0 -24))
+(connect D0:1 D2:0
+(points 3 43 10 60 10 60 75))
+(connect D2:1 D3:1
+(points 2 125 90 144 90))
+(connect D3:1 D4:1
+(points 6 236 90 260 90 260 180 -60 180 -60 220 -36 220))
+(connect D4:1 D5:1
+(points 2 75 220 98 220))
+(connect D5:1 D6:0
+(points 3 181 210 310 210 310 225))
+(connect D3:1 D6:1
+(points 4 236 90 260 90 260 240 284 240))
+(connect D5:2 D7:0
+(points 3 181 230 210 230 210 265))
+(connect D7:0 D8:0
+(points 2 210 295 210 315))
+(connect D6:1 D9:1
+(points 2 335 240 355 240))
+(connect D7:1 D9:2
+(points 4 235 280 350 280 350 260 355 260))
+(connect D9:1 D10:1
+(points 2 445 250 478 250))
+(connect D10:1 D11:1
+(points 2 561 250 580 250))
+(connect D9:1 D12:1
+(points 4 445 250 470 250 470 100 580 100)))
+(stackingOrder 1 8 5 7 9 10 4 0 2 14 6 3 11 12 13))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

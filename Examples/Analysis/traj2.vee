@@ -1,0 +1,789 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:48:54 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "Trajectory Example 2")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 1 FORCOUNT
+(properties
+(name "100 iterations")
+(count 100))
+(interface
+(output 1
+(lock name constraints))))
+(device 3 CONSTANT
+(properties
+(name "initial velocity"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  20))
+(initValue Real
+(data  0))))
+(device 4 CONSTANT
+(properties
+(name "drag"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.02))
+(initValue Real
+(data  0))))
+(device 5 CONSTANT
+(properties
+(name "time/iteration"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 6 FORMULA
+(properties
+(name "compute next Velocity")
+(expr 1 "v-(9.8+drag*v^2*signof(v))*delta"))
+(interface
+(input 1
+(name "drag")
+(optional yes))
+(input 2
+(name "delta")
+(optional yes))
+(input 3
+(name "v")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 SLIDINGWINDOW
+(properties
+(name "Collect Velocity")
+(vecSize 100)
+(triggerSize 100))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(requires
+(shape "Scalar")))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 8 ENUMCONSTANT
+(properties
+(name "Select Values to View")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Show Acceleration Values" 0)
+("Show Velocity Values" 1)
+("Show Distance Values" 2))
+(data  "Show Distance Values"))
+(initValue Text
+(data  "Show Acceleration Values"))))
+(device 9 IFTHENELSE
+(properties
+(name "If/Then")
+(cases 2 "ordinal(A)==0" "ordinal(A)==1"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 10 FORMULA
+(properties
+(name "compute accel")
+(expr 1 "deriv(velocity, 1)"))
+(interface
+(input 1
+(name "velocity")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(name "compute distance")
+(expr 1 "integral(velocity)"))
+(interface
+(input 1
+(name "velocity")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 13 CONTEXT
+(properties
+(name "Acceleration Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name " OK "))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 TEXTDISPLAY
+(properties
+(name "Acceleration"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect I1:1 D1:1))
+(ShowOnExecPanel
+(relativeOrigin 443 192)))
+(contextCarrier
+(active panel)
+(panel
+(extent 235 304)
+(gridSize 2)
+(widget 1 detail
+(relativeOrigin 4 6)
+(title off)
+(borderStyle concave)
+(extent 222 236))
+(widget 0 detail
+(relativeOrigin 84 256)
+(title off)
+(borderStyle none)
+(extent 62 41)))
+(detail
+(extent 386 317)
+(anchorPt 293 178)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 34 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 192 207))
+(pinCenter -150 -20))
+(connect I1:1 D1:1
+(points 2 -293 -20 -249 -20)))
+(stackingOrder 0 1))))
+(device 14 CONTEXT
+(properties
+(name "Velocity Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name " OK "))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 TEXTDISPLAY
+(properties
+(name "Velocity"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect I1:1 D1:1))
+(ShowOnExecPanel
+(relativeOrigin 436 193)))
+(contextCarrier
+(active panel)
+(panel
+(extent 217 311)
+(widget 0 detail
+(relativeOrigin 72 262)
+(title off)
+(borderStyle none)
+(extent 62 41))
+(widget 1 detail
+(relativeOrigin 3 4)
+(title off)
+(borderStyle concave)
+(extent 208 241)))
+(detail
+(extent 386 317)
+(anchorPt 289 198)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 34 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 20 -40))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 199 230))
+(pinCenter -140 -40))
+(connect I1:1 D1:1
+(points 2 -289 -40 -242 -40)))
+(stackingOrder 1 0))))
+(device 15 CONTEXT
+(properties
+(name "Distance Values")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "Data")
+(optional yes)))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name " OK "))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 TEXTDISPLAY
+(properties
+(name "Distance"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect I1:1 D1:1))
+(ShowOnExecPanel
+(relativeOrigin 446 225)))
+(contextCarrier
+(active panel)
+(panel
+(extent 215 313)
+(widget 1 detail
+(relativeOrigin 3 3)
+(title off)
+(borderStyle concave)
+(extent 201 246))
+(widget 0 detail
+(relativeOrigin 71 263)
+(title off)
+(borderStyle none)
+(extent 62 41)))
+(detail
+(extent 386 317)
+(anchorPt 289 198)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 34 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 20 -30))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 200 231))
+(pinCenter -150 -40))
+(connect I1:1 D1:1
+(points 2 -289 -40 -253 -40)))
+(stackingOrder 1 0))))
+(device 17 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 4)
+(popupMoveable 1))
+(deviceList
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 3 NOTE
+(properties
+(name "Overview of \"pop up\" Example")
+(text2 16 "" "PURPOSE: To demonstrate the use of the Show Panel on Execute"
+"        mode for UserObjects to display data as requested." ""
+"USER INPUT REQUIRED: Press Run. Then select the values to "
+"        view by clicking on a button on the \"Select Values"
+"        to View\" Radio Buttons object." ""
+"EXPLANATION: This program calculates a trajectory velocity"
+"        and then integrates to get the acceleration and"
+"        differentiates to get the distance traveled." ""
+"        By setting the ordinal value of the Radio Buttons,"
+"        you have selected a propagation path.  Each path"
+"        contains a different \"UserObject\" that displays"
+"        different values.")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 260 85)))
+(contextCarrier
+(active detail)
+(panel
+(extent 508 354)
+(gridSize 2)
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 510 300)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 220 306)
+(title off)
+(borderStyle none)
+(extent 76 41)))
+(detail
+(extent 574 418)
+(anchorPt 284 235)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter -40 140))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 172 25))
+(open
+(extent 516 305)
+(editing enabled))
+(pinCenter -10 -50)))
+(stackingOrder 1 0))))
+(configuration
+(connect D2:0 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 244 80)
+(widget 0 detail
+(relativeOrigin 72 18)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 445 258)
+(anchorPt 118 55)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 512 355)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 180 70))
+(connect D2:0 D0:1
+(points 5 180 85 180 110 -80 110 -80 0 -60 0))
+(connect D0:1 D1:1
+(points 2 59 0 104 0))
+(connect D1:1 D2:0
+(points 3 155 -10 180 -10 180 55)))
+(stackingOrder 0 1 2))))
+(device 18 NOTE
+(properties
+(text2 5 "To start the " "program, press Run." "" "Press \"Info About\""
+"for details.")))
+(device 19 START25)
+(configuration
+(connect D2:1 D0:1)
+(connect D5:1 D0:2)
+(connect D7:1 D1:0)
+(connect D1:1 D5:0)
+(connect D3:1 D5:1)
+(connect D4:1 D5:2)
+(connect D0:1 D5:3)
+(connect D0:1 D6:1)
+(connect D17:0 D7:0)
+(connect D7:1 D8:1)
+(connect D6:1 D9:1)
+(connect D6:1 D10:1)
+(connect D8:1 D12:0)
+(connect D9:1 D12:1)
+(connect D8:2 D13:0)
+(connect D6:1 D13:1)
+(connect D8:3 D14:0)
+(connect D10:1 D14:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 621 362)
+(widget 11 icon
+(relativeOrigin 131 301)
+(title off)
+(borderStyle none)
+(extent 340 50)
+(iconImage "disclaim.gif")
+(label off))
+(widget 7 detail
+(relativeOrigin 20 160)
+(title on)
+(borderStyle flat)
+(extent 276 78)
+(format buttons))
+(widget 16 detail
+(relativeOrigin 310 30)
+(title off)
+(borderStyle flat)
+(extent 206 106)
+(editing disabled))
+(widget 15 panel
+(relativeOrigin 20 30)
+(title on)
+(borderStyle flat)
+(extent 276 88)
+(widget 0 detail
+(relativeOrigin 75 17)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))))
+(detail
+(extent 1001 658)
+(anchorPt 580 193)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 41 29))
+(open
+(extent 42 86))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open
+(extent 210 34))
+(pinCenter -450 -40))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 154 29))
+(open
+(extent 228 28))
+(pinCenter -120 -20))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 165 30))
+(pinCenter -430 20))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 149 29))
+(open
+(extent 219 28))
+(pinCenter -450 60))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 203 45))
+(open
+(extent 312 140))
+(terminals on)
+(pinCenter -220 50))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 154 29))
+(open
+(extent 248 56))
+(terminals on)
+(pinCenter -440 170))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 199 0))
+(open
+(extent 277 82)
+(format buttons))
+(pinCenter -400 315))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 154 104))
+(terminals on)
+(pinCenter -115 320))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 196 60))
+(terminals on)
+(pinCenter -220 120))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 154 25))
+(open
+(extent 196 60))
+(terminals on)
+(pinCenter -220 170))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 382 84)
+(editing disabled))
+(pinCenter 90 -150))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 181 25))
+(open
+(extent 243 309)
+(carbonCopy))
+(terminals on)
+(pinCenter 10 115))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 145 25))
+(open
+(extent 217 311)
+(carbonCopy))
+(terminals on)
+(pinCenter 0 220))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 145 25))
+(open
+(extent 215 313)
+(carbonCopy))
+(terminals on)
+(pinCenter 0 170))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 244 80)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -220 -105))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 188 94)
+(editing disabled))
+(title off)
+(pinCenter 200 -35))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 42 24))
+(open
+(extent 69 39))
+(title off)
+(pinCenter -450 -155))
+(connect D2:1 D0:1
+(points 4 -41 -20 -30 -20 -30 -10 -23 -10))
+(connect D5:1 D0:2
+(points 4 -116 50 -100 50 -100 10 -23 10))
+(connect D7:1 D1:0
+(points 7 -259 295 -240 315 -240 235 -560 235 -560 -95 -450 -95 -450 -75))
+(connect D1:1 D5:0
+(points 3 -393 -40 -220 -40 -220 25))
+(connect D3:1 D5:1
+(points 4 -405 20 -360 20 -360 40 -324 40))
+(connect D4:1 D5:2
+(points 4 -373 60 -350 60 -350 50 -324 50))
+(connect D0:1 D5:3
+(points 6 23 0 40 0 40 90 -340 90 -340 60 -324 60))
+(connect D0:1 D6:1
+(points 6 23 0 40 0 40 90 -540 90 -540 170 -520 170))
+(connect D17:0 D7:0
+(points 6 -450 -133 -450 -115 -550 -115 -550 205 -400 205 -400 253))
+(connect D7:1 D8:1
+(points 4 -259 295 -240 315 -240 320 -225 320))
+(connect D6:1 D9:1
+(points 4 -361 170 -340 170 -340 120 -286 120))
+(connect D6:1 D10:1
+(points 2 -361 170 -300 170))
+(connect D8:1 D12:0
+(points 5 14 290 120 290 120 85 10 85 10 100))
+(connect D9:1 D12:1
+(points 4 -154 120 -130 120 -130 115 -83 115))
+(connect D8:2 D13:0
+(points 5 14 320 90 320 90 195 0 195 0 205))
+(connect D6:1 D13:1
+(points 4 -361 170 -320 170 -320 220 -75 220))
+(connect D8:3 D14:0
+(points 5 14 350 100 350 100 145 0 145 0 155))
+(connect D10:1 D14:1
+(points 2 -141 170 -75 170)))
+(stackingOrder 0 2 3 5 1 9 10 6 8 14 13 4 7 17 12 16 15 11))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag34980a_IVI-COM.vee">
+		<Description>Identifies cards in frame and plots data via the use of the instrument IVI-COM driver</Description>
+		<LogicalInstrument name="DataAcqUnit">
+			<SupportedInstruments>
+				<Instrument idn="ag34980A"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

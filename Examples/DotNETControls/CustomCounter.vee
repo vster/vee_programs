@@ -1,0 +1,708 @@
+(saveFormat "7.0")
+(date "Wed 06/Apr/2005 08:02:56 ")
+(veerev "7.5.7605.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Window" bwGrayScale 10)
+(Property "Workspace" "AppWorkspace")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Info" bwGrayScale 0)
+(Property "Tool Tip Text" "InfoText" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "ActiveCaption" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "ActiveCaptionText" bwGrayScale 0)
+(Property "Dialog Box" "Control")
+(Property "Dialog Box Text" "ControlText")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Edit Field" "Window")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Highlight")
+(Property "Highlighted Edit Field Text" "HighlightText")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 18)
+(Property "Object Text" "Arial" 18)
+(Property "Terminal Text" "Arial" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"CounterLib, Version=1.0.1726.24059, Culture=neutral, PublicKeyToken=null")
+(filename "C:\\vee\\current\\Examples\\DotNetControls\\CounterLib.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 50)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 DOTNETCONTROL
+(properties
+(name "Counter")
+(variableName Counter)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 391 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F070000000A0A0B000000090200000009030000001002000000070000000604000000084C6F6361
+74696F6E060500000008546162496E64657806060000000453697A65060700000007456E61626C65
+64060800000007546F56616C756506090000000556616C7565060A000000044E616D651003000000
+07000000060B00000004302C2030060C0000000130060D0000000637352C203230060E0000000454
+727565060F000000013006100000000130061100000007436F756E7465720B
+)))
+(device 1 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 7 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 9 DOTNETCONTROL
+(properties
+(name "Counter2")
+(variableName Counter2)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 446 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0A0000000A0A170000000902000000090300000010020000000900000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000C4E756D62657273546865
+6D65060800000007546F56616C756506090000000D54696D6572496E74657276616C060A00000004
+4E616D65060B000000084C6F636174696F6E060C00000008546162496E6465781003000000090000
+00060D0000000638302C203234060E0000000130060F00000004547275650610000000036E303906
+110000000130061200000003313030061300000007436F756E746572061400000004302C20300615
+00000001300B
+)))
+(device 10 DOTNETCONTROL
+(properties
+(name "Counter3")
+(variableName Counter3)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 418 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F090000000A0A170000000902000000090300000010020000000800000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000C4E756D62657273546865
+6D65060800000007546F56616C75650609000000044E616D65060A000000084C6F636174696F6E06
+0B00000008546162496E646578100300000008000000060C0000000638302C203231060D00000001
+30060E0000000454727565060F000000036E303706100000000130061100000007436F756E746572
+061200000004302C2030061300000001300B
+)))
+(device 11 DOTNETCONTROL
+(properties
+(name "Counter4")
+(variableName Counter4)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 449 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0A0000000A0A170000000902000000090300000010020000000900000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000E416E696D6174696F6E53
+70656564060800000007546F56616C756506090000000D54696D6572496E74657276616C060A0000
+00044E616D65060B000000084C6F636174696F6E060C00000008546162496E646578100300000009
+000000060D0000000637352C203230060E0000000130060F00000004547275650610000000044661
+737406110000000130061200000003313030061300000007436F756E746572061400000004302C20
+30061500000001300B
+)))
+(device 12 DOTNETCONTROL
+(properties
+(name "Counter5")
+(variableName Counter5)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 475 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0B0000000A0A170000000902000000090300000010020000000A00000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000E416E696D6174696F6E53
+7065656406080000000C4E756D626572735468656D65060900000007546F56616C7565060A000000
+0D54696D6572496E74657276616C060B000000044E616D65060C000000084C6F636174696F6E060D
+00000008546162496E64657810030000000A000000060E0000000637352C203230060F0000000130
+06100000000454727565061100000004536C6F770612000000036E30360613000000013006140000
+00023130061500000007436F756E746572061600000004302C2030061700000001300B
+)))
+(device 13 DOTNETCONTROL
+(properties
+(name "Counter6")
+(variableName Counter6)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 448 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0A0000000A0A170000000902000000090300000010020000000900000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000E416E696D6174696F6E53
+7065656406080000000C4E756D626572735468656D65060900000007546F56616C7565060A000000
+044E616D65060B000000084C6F636174696F6E060C00000008546162496E64657810030000000900
+0000060D0000000637352C203230060E0000000130060F0000000454727565061000000004466173
+740611000000036E303406120000000130061300000007436F756E746572061400000004302C2030
+061500000001300B
+)))
+(device 14 FROMGLOBAL
+(properties
+(name "Get counter")
+(globalName "counter"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 30 DOTNETCONTROL
+(properties
+(name "Counter7")
+(variableName Counter7)
+(assemblyName "CounterLib")
+(objectType "CounterLib.Counter"))
+(implementation
+(state 447 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0A0000000A0A170000000902000000090300000010020000000900000006040000000453697A65
+06050000000556616C7565060600000007456E61626C656406070000000C4E756D62657273546865
+6D65060800000007546F56616C756506090000000D54696D6572496E74657276616C060A00000004
+4E616D65060B000000084C6F636174696F6E060C00000008546162496E6465781003000000090000
+00060D000000073130302C203236060E0000000130060F00000004547275650610000000036E3130
+06110000000130061200000003323030061300000007436F756E746572061400000004302C203006
+1500000001300B
+)))
+(device 8 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red0\\green0\\blue128;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Things to demo:\\b0\\par\r\n1. open the control properties dialog, change the NumbersTheme. Watch the control to change at design time\\par\r\n2. notice some controls moves faster than the others.  That\'s because the TimeInterval is set differently.\\par\r\n\\par\r\n\\b URL:\\par\r\n\\b0 http://www.codeproject.com/cs/miscctrl/CsCounterArticle1.asp\\par\r\n\\par\r\n\\par\r\n\\cf2\\b\\f1\\fs28\\par\r\n}\r\n"
+)))
+(device 36 FROMGLOBAL
+(properties
+(name "Get counter2")
+(globalName "counter2"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 37 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 38 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 39 FROMGLOBAL
+(properties
+(name "Get counter3")
+(globalName "counter3"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 40 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 41 FROMGLOBAL
+(properties
+(name "Get counter4")
+(globalName "counter4"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 42 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 43 FROMGLOBAL
+(properties
+(name "Get counter5")
+(globalName "counter5"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 44 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 45 FROMGLOBAL
+(properties
+(name "Get counter6")
+(globalName "counter6"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 46 DOTNETBUILDER
+(properties
+(name "CounterLib.Counter")
+(transactions 1 "counter.ToValue = 1000")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int64 ToValue")
+(statics 1 "0")
+(assemblyQualifiedName
+"CounterLib.Counter, CounterLib, Version=1.0.1714.27584, Culture=neutral, PublicKeyToken=null"
+)
+(objectName "Counter"))
+(interface
+(input 1
+(name "counter")
+(optional yes)))
+(implementation))
+(device 47 FROMGLOBAL
+(properties
+(name "Get counter7")
+(globalName "counter7"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 49 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D8:1 D2:1)
+(connect D11:1 D12:1)
+(connect D14:1 D13:1)
+(connect D16:1 D15:1)
+(connect D18:1 D17:1)
+(connect D20:1 D19:1)
+(connect D22:1 D21:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndRestoredOrigin 20 22)
+(wndRestoredExtent 558 391)
+(wndState max)
+(active detail)
+(panel
+(extent 558 391)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 20 90)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 76 26))
+(widget 1 detail
+(relativeOrigin 210 290)
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 70 50))
+(widget 3 detail
+(relativeOrigin 130 90)
+(PID 2)
+(title off)
+(tabStop off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 106 26))
+(widget 4 detail
+(relativeOrigin 280 90)
+(PID 3)
+(title off)
+(tabStop off)
+(tabIndex 3)
+(borderStyle flat)
+(extent 96 26))
+(widget 5 detail
+(relativeOrigin 430 90)
+(PID 4)
+(title off)
+(tabStop off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 76 26))
+(widget 7 detail
+(relativeOrigin 140 160)
+(PID 5)
+(title off)
+(tabStop off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 86 26))
+(widget 6 detail
+(relativeOrigin 20 160)
+(PID 6)
+(title off)
+(tabStop off)
+(tabIndex 6)
+(borderStyle flat)
+(extent 86 26))
+(widget 9 detail
+(relativeOrigin 280 160)
+(PID 7)
+(title off)
+(tabStop off)
+(tabIndex 7)
+(borderStyle flat)
+(extent 124 26)))
+(detail
+(extent 829 593)
+(anchorPt 55 229)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 174 65))
+(pinCenter 60 -20))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 54 34))
+(title off)
+(pinCenter 40 60))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 200))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 164 65))
+(pinCenter 250 -20))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 164 65))
+(pinCenter 430 -20))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 174 65))
+(pinCenter 610 -20))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 184 71))
+(pinCenter 230 87))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 174 65))
+(pinCenter 430 90))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 139 34))
+(open
+(extent 134 85))
+(terminals on)
+(pinCenter 200 200))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 174 65))
+(pinCenter 620 90))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 124 114)
+(iconImage "notepad.icn"))
+(open
+(extent 410 180)
+(editing enabled))
+(pinCenter 80 -160))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 250))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 260))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 330))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 300))
+(devCarrierFor 40
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 400))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 350))
+(devCarrierFor 42
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 460))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 400))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 530))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 450))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 224 44))
+(open
+(extent 284 106))
+(terminals on)
+(pinCenter 580 590))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 142 85))
+(terminals on)
+(pinCenter 210 500))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 540 -150))
+(connect D8:1 D2:1
+(points 2 272 200 465 200))
+(connect D11:1 D12:1
+(points 4 289 250 310 250 310 260 465 260))
+(connect D14:1 D13:1
+(points 4 289 300 310 300 310 330 465 330))
+(connect D16:1 D15:1
+(points 4 289 350 310 350 310 400 465 400))
+(connect D18:1 D17:1
+(points 6 289 400 300 400 300 410 310 410 310 460 465 460))
+(connect D20:1 D19:1
+(points 6 289 450 300 450 300 470 310 470 310 530 465 530))
+(connect D22:1 D21:1
+(points 4 289 500 300 500 300 590 465 590)))
+(stackingOrder 1 10 5 9 7 3 4 0 6 17 19 21 12 13 15 11 14 16 18 20 22 8 2 23))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

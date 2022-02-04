@@ -1,0 +1,421 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:11:53 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dmm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp34401a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 27)
+(popupTitleText "Taking a Reading Every Second")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(name "Alarm")
+(lock name constraints))))
+(device 6 BREAK)
+(device 7 TEXTDISPLAY
+(properties
+(name "AlphaNumeric (Time Stamp Format)"))
+(interface
+(input 1
+(name "Data"))))
+(device 17 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 20 IFTHENELSE
+(properties
+(cases 1 "A>=7"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 23 HPIDSTATE
+(properties
+(name "dmm ( @ 714)"))
+(interface
+(output 1
+(name "READING")
+(tag "READING")
+(optional yes)))
+(implementation
+(filename "hp34401a.cid")
+(driver "dmm")
+(state
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "BEEPSTATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DISPLAY_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FUNCTION")
+(typeStr "Enum")
+(state "Valid")
+(value "DCV"))
+(idComp
+(name "MATH")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DBM_REF")
+(typeStr "Enum")
+(state "Valid")
+(value "R600"))
+(idComp
+(name "LIM_LOWER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "LIM_UPPER")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "BAND_DET")
+(typeStr "Enum")
+(state "Valid")
+(value "MED"))
+(idComp
+(name "INP_IMP")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "AZERO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "MAX_TRIG")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "TRIG_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "MAX_SAMP")
+(typeStr "Int16")
+(state "Valid")
+(value 512))
+(idComp
+(name "SAMP_COUNT")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRIG")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "ENTRY_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "FETCH_IMM"))
+(idComp
+(name "FREQ_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "VOLT_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "FRES_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "CURR_APER")
+(typeStr "Enum")
+(state "Valid")
+(value "D5"))
+(idComp
+(name "DCV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "FREQ_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACV_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "ACI_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "RES_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DCV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "FREQ_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "DCI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "ACV_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 10))
+(idComp
+(name "ACI_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1))
+(idComp
+(name "RES_RANGE")
+(typeStr "Real")
+(state "Invalid")
+(value 1000))
+(idComp
+(name "DELAY_AUTO")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DELAY")
+(typeStr "Real")
+(state "Invalid")
+(value 0))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "NORM")))))
+(device 25 NOTE
+(properties
+(name "Information")
+(text2 6 "This example shows how to loop a VEE"
+"program to take an instrument reading every"
+"second.  For further information, see the " "\"VEE Help\" topic,"
+"\"To Loop Part of a VEE Program\"." "")))
+(device 26 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D4:1 D1:0)
+(connect D0:1 D2:1)
+(connect D5:1 D3:1)
+(connect D3:0 D4:0)
+(connect D5:1 D4:1)
+(connect D0:1 D5:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 968 566)
+(anchorPt 150 206)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 105 14))
+(pinCenter 0 0))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 46 24))
+(open)
+(terminals on)
+(pinCenter 650 320))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 247 0))
+(open
+(extent 385 22)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 6)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HMS H24)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter 350 -20))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 202 159)
+(noformatter))
+(pinCenter 580 120))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 65 70))
+(terminals on)
+(pinCenter 515 300))
+(devCarrierFor 23
+(active open)
+(icon
+(extent 222 0)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 8 "SET_UP" "DCV_ITEMS" "MAIN_SET" "IMPEDANCE" "AUTO_ZERO"
+"MULTIMETER" "MIDI_SGL" "MIDS_SIMU"))
+(terminals on)
+(pinCenter 120 170))
+(devCarrierFor 25
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 454 126)
+(editing disabled))
+(title off)
+(pinCenter 100 -130))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 550 -130))
+(connect D4:1 D1:0
+(points 3 590 280 650 280 650 305))
+(connect D0:1 D2:1
+(points 4 55 0 140 0 140 -20 155 -20))
+(connect D5:1 D3:1
+(points 4 406 170 440 170 440 120 476 120))
+(connect D3:0 D4:0
+(points 4 580 202 580 220 520 220 520 244))
+(connect D5:1 D4:1
+(points 4 406 170 430 170 430 300 450 300))
+(connect D0:1 D5:0
+(points 3 55 0 140 0 140 43)))
+(stackingOrder 0 2 4 1 6 5 3 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

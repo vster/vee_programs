@@ -1,0 +1,199 @@
+(saveFormat "2.3")
+(date "Tue 27/Jan/2004 13:33:59 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 23)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 1 START25)
+(device 2 IODEVICE
+(properties
+(name "SpecAna ( @ 701 on eng-dhcp-15)")
+(transactions 1 "WRITE TEXT \"PLOT 250,596,10250,7796\" EOL"))
+(implementation
+(iopath "SpecAna")))
+(device 5 TOFILE
+(properties
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation
+(attr iopath file write "c:\\temp.plt"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 13 IODEVICE
+(properties
+(name "Read HPGL data over HPIB")
+(transactions 1 "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(iopath "SpecAna")))
+(device 14 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 15 BREAK)
+(device 16 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 17 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 21 NOTE
+(properties
+(text2 3 "The values of 250,596,10250,7796 are required"
+"for scaling of the plot file." "")))
+(device 22 NOTE
+(properties
+(name "General Program Overview")
+(text2 7
+"Within the output strings of the HPGL file are multiple carriage returns. The \'Read HPGL data "
+"over HPIB\' object will acquire HPGL ASCII control strings up to detection of a "
+"CARRIAGE RETURN - LINE FEED (CR-LF). The \'UNTIL BREAK\' object will capture all the HPGL data up "
+"to the last CR-LF. This process is REPEATED until the device provides the last CR-LF in "
+"the final HPGL output string. At this point the error terminal in the \'Read HPGL data over HPIB\'"
+"object will force a break based upon an HPIB Time Out." "")))
+(configuration
+(connect D0:0 D1:0)
+(connect D3:1 D2:1)
+(connect D4:1 D3:0)
+(connect D1:0 D4:0)
+(connect D7:0 D5:0)
+(connect D4:1 D6:1)
+(connect D3:2 D7:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 640 418)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 272 13)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 62 28))
+(title off)
+(pinCenter -40 10))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 232 52)
+(iconImage "io.icn"))
+(open
+(extent 386 67))
+(terminals on)
+(pinCenter -40 90))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 48 16))
+(open
+(extent 220 115))
+(terminals on)
+(pinCenter 430 260))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 190 52)
+(iconImage "io.icn"))
+(open
+(extent 208 63))
+(terminals on)
+(pinCenter 55 280))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -40 180))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 360 400))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 56 16))
+(open
+(extent 92 32))
+(pinCenter 150 180))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 145 27))
+(pinCenter 360 360))
+(devCarrierFor 21
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 402 68)
+(editing enabled))
+(pinCenter 410 90))
+(devCarrierFor 22
+(active open)
+(icon
+(extent 188 0)
+(iconImage "notepad.icn"))
+(open
+(extent 755 107)
+(editing enabled))
+(font "Courier New" 12)
+(titleFont "Arial" 12)
+(pinCenter 200 500))
+(connect D0:0 D1:0
+(points 4 -40 26 -40 43 -40 43 -40 36))
+(connect D3:1 D2:1
+(points 2 201 260 287 260))
+(connect D4:1 D3:0
+(points 3 -1 180 60 180 60 228))
+(connect D1:0 D4:0
+(points 2 -40 126 -40 151))
+(connect D7:0 D5:0
+(points 2 360 376 360 389))
+(connect D4:1 D6:1
+(points 2 -1 180 101 180))
+(connect D3:2 D7:1
+(points 4 201 300 220 300 220 360 285 360)))
+(stackingOrder 0 6 4 8 1 2 3 7 5 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

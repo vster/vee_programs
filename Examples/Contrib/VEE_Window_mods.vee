@@ -1,0 +1,4546 @@
+(saveFormat "7.0")
+(date "Thu 13/Sep/2007 15:44:16 ")
+(veerev "8.01.10010.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 98)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 6)
+(context 5
+(properties
+(name "ChangeWindowStyle")
+(description2 9 "ChangeWindowStyle(..):OldStyle" ""
+"hWnd:  Handle on window to change its style"
+"Style: Bitmask of style bits to be set or cleared"
+"State: 0: clear those bits, 1: set them" "Ex:    1: use extended window stles"
+"" "Return Value: the style the window had before" "")
+(variableName ChangeWindowStyle)
+(variableScope glob)
+(trigMode deg)
+(nextID 36)
+(popupTitleText "UserFunction2")
+(popupMoveable 1))
+(interface
+(input 1
+(name "hWnd")
+(optional yes))
+(input 2
+(name "Style")
+(optional yes))
+(input 3
+(name "State")
+(optional yes))
+(input 4
+(name "Ex")
+(optional yes))
+(output 1
+(type data)
+(name "OldStyle")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call User.GetWindowLongA")
+(variableScope cont)
+(callFunc "User.GetWindowLongA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "nIndex")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Clear ")
+(variableScope cont)
+(expr 2 "bitAND(A,bitcmpl(B))" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 CALL
+(properties
+(name "Call User.SetWindowLongA")
+(variableScope cont)
+(callFunc "User.SetWindowLongA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "nIndex")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "dwNewLong")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 11 FORMULA
+(properties
+(name "Set")
+(variableScope cont)
+(expr 2 "BitOR(A,B)" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 20 IFTHENELSE
+(properties
+(name "false?")
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 21 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 31 FORMULA
+(properties
+(name "Repaint")
+(variableScope cont)
+(expr 1
+"User.SetWindowPos(A,0,0,0,0,0,SWP_FrameChanged+SWP_NoSize+SWP_Nomove+SWP_NoZOrder)"
+))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 34 FORMULA
+(properties
+(name "get Style Constant")
+(variableScope cont)
+(expr 1 "(A==1?GWL_ExStyle:GWL_Style)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D7:1 D0:2)
+(connect D4:1 D1:0)
+(connect D0:1 D1:1)
+(connect I2:1 D1:2)
+(connect I1:1 D2:1)
+(connect D7:1 D2:2)
+(connect D5:1 D2:3)
+(connect D4:2 D3:0)
+(connect D0:1 D3:1)
+(connect I2:1 D3:2)
+(connect I3:1 D4:1)
+(connect D1:1 D5:1)
+(connect D3:1 D5:2)
+(connect D2:0 D6:0)
+(connect I1:1 D6:1)
+(connect I4:1 D7:1)
+(connect D0:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 709 499)
+(anchorPt 265 -40)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 168 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 80 140))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 37 25))
+(open
+(extent 202 53))
+(terminals on)
+(pinCenter 220 150))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 167 34))
+(open
+(extent 176 62))
+(terminals on)
+(pinCenter 440 170))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 39 25))
+(open
+(extent 202 61))
+(terminals on)
+(pinCenter 220 230))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 38 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 100 200))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 290 190))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 47 15))
+(open
+(extent 575 45))
+(terminals on)
+(pinCenter 430 340))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 108 15))
+(open
+(extent 232 37))
+(terminals on)
+(pinCenter -100 150))
+(connect I1:1 D0:1
+(points 4 -265 109 -30 109 -30 130 -7 130))
+(connect D7:1 D0:2
+(points 2 -44 150 -7 150))
+(connect D4:1 D1:0
+(points 9 121 190 140 190 140 180 200 180 200 190 260 190 260 120 220 120 220
+135))
+(connect D0:1 D1:1
+(points 2 166 140 199 140))
+(connect I2:1 D1:2
+(points 8 -265 229 -250 229 -250 240 170 240 170 190 190 190 190 160 199 160))
+(connect I1:1 D2:1
+(points 6 -265 109 60 109 60 60 340 60 340 160 354 160))
+(connect D7:1 D2:2
+(points 8 -44 150 -30 150 -30 140 -40 140 -40 70 330 70 330 170 354 170))
+(connect D5:1 D2:3
+(points 4 305 190 340 190 340 180 354 180))
+(connect D4:2 D3:0
+(points 5 121 210 140 210 140 200 220 200 220 215))
+(connect D0:1 D3:1
+(points 4 166 140 180 140 180 220 198 220))
+(connect I2:1 D3:2
+(points 4 -265 229 -250 229 -250 240 198 240))
+(connect I3:1 D4:1
+(points 4 -265 349 60 349 60 200 78 200))
+(connect D1:1 D5:1
+(points 4 241 150 250 150 250 180 274 180))
+(connect D3:1 D5:2
+(points 4 242 230 250 230 250 200 274 200))
+(connect D2:0 D6:0
+(points 2 440 189 440 297))
+(connect I1:1 D6:1
+(points 6 -265 109 50 109 50 240 70 240 70 340 110 340))
+(connect I4:1 D7:1
+(points 4 -265 469 -240 469 -240 150 -157 150))
+(connect D0:1 O1:1
+(points 10 166 140 180 140 180 100 270 100 270 150 320 150 320 180 480 180 480
+289 443 289)))
+(stackingOrder 5 0 7 6 2 4 3 1))))
+(context 2
+(properties
+(name "CheckAPIResult")
+(variableName CheckAPIResult)
+(variableScope glob)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "Error?")
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 CALL
+(properties
+(name "Call Kernel.GetLastError")
+(variableScope cont)
+(callFunc "Kernel.GetLastError")
+(parmMode rev30))
+(interface
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 2 ESCAPE
+(properties
+(variableScope cont)
+(errorCode 87)
+(message "WIN API Error"))
+(interface
+(input 1
+(name "Code")
+(tag "Code")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:0)
+(connect D1:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 376 138)
+(anchorPt 65 -15)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 38 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 50 60))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 147 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 110 120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 69 15))
+(open
+(extent 211 55))
+(pinCenter 240 120))
+(connect I1:1 D0:1
+(points 4 -65 83 -60 83 -60 60 28 60))
+(connect D0:1 D1:0
+(points 3 71 50 110 50 110 110))
+(connect D1:1 D2:1
+(points 2 186 120 203 120)))
+(stackingOrder 1 0 2))))
+(context 4
+(properties
+(name "CleanUp")
+(variableName CleanUp)
+(variableScope glob)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "Make VEE resizable again")
+(variableScope cont)
+(expr 1 "ChangeWindowStyle(VEE_hWnd, A, 1, 0);"))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "Dont\'t stay on top")
+(variableScope cont)
+(expr 1 "SetTopmost(VEE_hWnd, 0)")))
+(device 3 FORMULA
+(properties
+(name "set the style bits")
+(variableScope cont)
+(expr 6 "bitor(ws_sizebox," "bitor(ws_sysmenu," "bitor(ws_minimizebox,"
+"bitor(ws_maximizebox," "0))))" ""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D1:0 D0:0)
+(connect D2:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 745 417)
+(anchorPt 223 88)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 160 14))
+(open
+(extent 338 49))
+(pinCenter 280 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 172 42))
+(pinCenter 280 0))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 198 109))
+(terminals on)
+(pinCenter -80 90))
+(connect D1:0 D0:0
+(points 2 280 10 280 45))
+(connect D2:1 D0:1
+(points 2 71 90 108 90)))
+(stackingOrder 0 1 2))))
+(context 1
+(properties
+(name "CreateGlobals")
+(description2 11 "Input: String or array of strings" ""
+"each line of the form \'[anything,...] VarName = Value\'"
+"The last word preceeding the \'=\' will assumed to be the name"
+"of the constant. This way you can directly copy and paste constant"
+"declarations from Visual Basic. " ""
+"For each VarName a global var will be created and preset with the Value."
+"The type of the var is depending on the Value: "
+"\'A=5\' will create an integer var, \'A=5.0\' will create a real"
+"Empty lines or lines starting with a \' will be ignored.")
+(variableName CreateGlobals)
+(variableScope glob)
+(trigMode deg)
+(nextID 133)
+(popupTitleText "UserFunction4")
+(popupMoveable 1))
+(interface
+(input 1
+(name "VarDef")
+(optional yes)))
+(deviceList
+(device 30 FORMULA
+(properties
+(name "A[i]")
+(variableScope cont)
+(expr 1 "a[i]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "i")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 FORMULA
+(properties
+(name "all")
+(variableScope cont)
+(expr 1 "Totsize(A)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 32 FORCOUNT
+(properties
+(name "For All")
+(variableScope cont)
+(count 9))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 64 FROMSTRING
+(properties
+(name "As Array")
+(variableScope cont)
+(transactions 1 "READ TEXT x STR ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 66 FROMSTRING
+(properties
+(name "strip comments")
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\"\\\'\\n\\r\""))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 67 FORMULA
+(properties
+(name "strTrim(str)")
+(variableScope cont)
+(expr 1 "strTrim(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 68 FROMSTRING
+(properties
+(name "as pairs")
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\"=\\r\\n\" ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 71 IFTHENELSE
+(properties
+(name "is pair?")
+(variableScope cont)
+(cases 1 "totsize(a)==2"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 73 FORMULA
+(properties
+(name "split")
+(variableScope cont)
+(expr 3 "VarName=A[0];" "Value=a[1]" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "VarName")
+(optional yes))
+(output 2
+(name "Value")
+(optional yes))))
+(device 127 CONTEXT
+(properties
+(name "As Value")
+(variableScope cont)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "is Text?")
+(variableScope cont)
+(cases 1 "strFromLen(A, 0, 1)==\"\\\"\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 FROMSTRING
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x QSTR"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 2 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "0x400"))
+(interface
+(input 1
+(type control)
+(name "Formula")
+(tag "Formula")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "strDown(str)")
+(variableScope cont)
+(expr 1 "strDown(str)"))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 CONTEXT
+(properties
+(name "replace \'&h\' by \'0x\'")
+(variableScope cont)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "s")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "pos of \'&h\'")
+(variableScope cont)
+(expr 1 "strPosStr(str1,\"&h\")"))
+(interface
+(input 1
+(name "str1")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 IFTHENELSE
+(properties
+(name "found?")
+(variableScope cont)
+(cases 2 "A==0" "A>0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "StrFromThru(s,0,a-1)+\"0x\"+strFromThru(s,A+2,strlen(s))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "s")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 4 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "\"0x\"+strFromThru(s,2,strlen(s))"))
+(interface
+(input 1
+(name "s")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 6 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 7 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 8 BREAK
+(properties
+(variableScope cont)))
+(configuration
+(connect D6:1 D0:0)
+(connect D7:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:2 D2:0)
+(connect D0:1 D2:1)
+(connect D7:1 D2:2)
+(connect D1:3 D3:0)
+(connect D7:1 D3:1)
+(connect D1:1 D4:0)
+(connect D7:1 D4:1)
+(connect D4:1 D5:1)
+(connect D2:1 D5:2)
+(connect D3:1 D5:3)
+(connect I1:1 D7:1)
+(connect D5:1 D7:2)
+(connect D3:0 D8:0)
+(connect D5:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 669 379)
+(anchorPt 95 85)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 135 42))
+(terminals on)
+(pinCenter 90 80))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 42 34))
+(open
+(extent 54 62))
+(terminals on)
+(pinCenter 170 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 185 52))
+(terminals on)
+(pinCenter 250 110))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 210 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 50 15))
+(open
+(extent 98 42))
+(terminals on)
+(pinCenter 340 90))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 25 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 400 110))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 20 -10))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 10 80))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 210 200))
+(connect D6:1 D0:0
+(points 3 56 -10 90 -10 90 70))
+(connect D7:1 D0:1
+(points 2 25 80 57 80))
+(connect D0:1 D1:1
+(points 2 123 80 146 80))
+(connect D1:2 D2:0
+(points 3 193 80 250 80 250 95))
+(connect D0:1 D2:1
+(points 6 123 80 130 80 130 120 200 120 200 100 222 100))
+(connect D7:1 D2:2
+(points 6 25 80 40 80 40 130 210 130 210 120 222 120))
+(connect D1:3 D3:0
+(points 5 193 90 230 90 230 140 210 140 210 150))
+(connect D7:1 D3:1
+(points 6 25 80 40 80 40 130 160 130 160 160 192 160))
+(connect D1:1 D4:0
+(points 5 193 70 210 70 210 60 340 60 340 80))
+(connect D7:1 D4:1
+(points 6 25 80 40 80 40 40 290 40 290 90 312 90))
+(connect D4:1 D5:1
+(points 4 367 90 380 90 380 100 385 100))
+(connect D2:1 D5:2
+(points 6 277 110 290 110 290 120 370 120 370 110 385 110))
+(connect D3:1 D5:3
+(points 6 227 160 300 160 300 130 380 130 380 120 385 120))
+(connect I1:1 D7:1
+(points 4 -95 104 -60 104 -60 70 -6 70))
+(connect D5:1 D7:2
+(points 6 415 110 440 110 440 190 -30 190 -30 90 -6 90))
+(connect D3:0 D8:0
+(points 2 210 170 210 190))
+(connect D5:1 O1:1
+(points 4 415 110 440 110 440 104 573 104)))
+(stackingOrder 1 2 0 4 7 6 5 3 8))))
+(device 7 CONTEXT
+(properties
+(name "strip brackets")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "AString")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FROMSTRING
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\"()\\n\\r\" ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 1 TOSTRING
+(properties
+(variableScope cont)
+(transactions 1 "WRITE TEXT a EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs "")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 269 143)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 100 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 53 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 170 70))
+(connect I1:1 D0:1
+(points 4 0 71 31 71 31 70 62 70))
+(connect D0:1 D1:1
+(points 2 137 70 141 70))
+(connect D1:1 O1:1
+(points 4 199 70 233 70 233 71 268 71)))
+(stackingOrder 0 1))))
+(device 9 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 15 CONTEXT
+(properties
+(name "Change OR To BitOR")
+(variableScope cont)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name "pos of \'or\'")
+(variableScope cont)
+(expr 1 "strposStr(a,\" or \")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(name "found \'or\' ?")
+(variableScope cont)
+(cases 1 "A>=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 3 FORMULA
+(properties
+(variableScope cont)
+(expr 4 "N=p+6;" "(b==0?\"\":strFromThru(a,0,b))+"
+"\"BitOR(\"+strFromThru(a,(b==0?0:b+1),p-1)+\",\"+strfromThru(a,p+4,strlen(a))+\")\";"
+""))
+(interface
+(input 1
+(name "p")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(input 3
+(name "b")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "N")
+(optional yes))))
+(device 4 BREAK
+(properties
+(variableScope cont)))
+(device 5 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 7 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 9 CONSTANT
+(properties
+(name "Integer")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 10 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(configuration
+(connect D5:1 D1:1)
+(connect D0:1 D2:0)
+(connect D1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D1:1 D3:1)
+(connect D5:1 D3:2)
+(connect D8:1 D3:3)
+(connect D2:2 D4:0)
+(connect I1:1 D5:1)
+(connect D3:1 D5:2)
+(connect I1:1 D6:1)
+(connect D3:1 D6:2)
+(connect D7:1 D8:1)
+(connect D3:2 D8:2)
+(connect D6:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 643 351)
+(anchorPt -53 -15)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 110 90))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 57 15))
+(open
+(extent 164 40))
+(terminals on)
+(pinCenter 90 150))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 64 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 170 150))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 50 34))
+(open
+(extent 263 68))
+(terminals on)
+(pinCenter 290 200))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 220 180))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 30 150))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 440 200))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 78 29)
+(showFormat int))
+(pinCenter -60 230))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 110 240))
+(connect D5:1 D1:1
+(points 2 45 150 59 150))
+(connect D0:1 D2:0
+(points 3 146 90 170 90 170 135))
+(connect D1:1 D2:1
+(points 2 121 150 135 150))
+(connect D2:1 D3:0
+(points 3 204 140 290 140 290 180))
+(connect D1:1 D3:1
+(points 8 121 150 130 150 130 130 160 130 160 120 250 120 250 190 262 190))
+(connect D5:1 D3:2
+(points 4 45 150 70 150 70 200 262 200))
+(connect D8:1 D3:3
+(points 4 125 240 150 240 150 210 262 210))
+(connect D2:2 D4:0
+(points 3 204 160 220 160 220 170))
+(connect I1:1 D5:1
+(points 4 53 190 -20 190 -20 140 14 140))
+(connect D3:1 D5:2
+(points 6 317 190 340 190 340 40 -10 40 -10 160 14 160))
+(connect I1:1 D6:1
+(points 6 53 190 -20 190 -20 30 350 30 350 190 424 190))
+(connect D3:1 D6:2
+(points 6 317 190 340 190 340 200 350 200 350 210 424 210))
+(connect D7:1 D8:1
+(points 2 -19 230 94 230))
+(connect D3:2 D8:2
+(points 6 317 210 340 210 340 280 70 280 70 250 94 250))
+(connect D6:1 O1:1
+(points 4 455 200 480 200 480 190 695 190)))
+(stackingOrder 0 1 2 4 5 7 8 6 3))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:1 D1:0)
+(connect I1:1 D1:1)
+(connect D1:1 D2:1)
+(connect D9:1 D3:1)
+(connect D3:0 D4:0)
+(connect D9:1 D4:1)
+(connect D0:2 D5:0)
+(connect I1:1 D5:1)
+(connect D7:1 D6:1)
+(connect D5:1 D7:1)
+(connect D1:1 D8:1)
+(connect D4:1 D8:2)
+(connect D6:1 D9:1)
+(connect D8:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 842 417)
+(anchorPt 46 50)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 164 51))
+(terminals on)
+(pinCenter 90 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 200 110))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 189 27))
+(pinCenter 420 100))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 520 31))
+(pinCenter 820 90))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 665 180))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 99 32))
+(terminals on)
+(pinCenter 130 160))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 106 15))
+(terminals on)
+(pinCenter 330 160))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 81 15))
+(terminals on)
+(pinCenter 220 160))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 26 25))
+(open)
+(terminals on)
+(pinCenter 990 170))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 128 15))
+(terminals on)
+(pinCenter 470 160))
+(connect I1:1 D0:1
+(points 4 -46 158 10 158 10 100 64 100))
+(connect D0:1 D1:0
+(points 5 115 90 140 90 140 80 200 80 200 100))
+(connect I1:1 D1:1
+(points 6 -46 158 20 158 20 140 140 140 140 110 162 110))
+(connect D1:1 D2:1
+(points 4 237 110 260 110 260 100 323 100))
+(connect D9:1 D3:1
+(points 6 536 160 550 160 550 130 540 130 540 90 557 90))
+(connect D3:0 D4:0
+(points 4 820 108 820 130 660 130 660 144))
+(connect D9:1 D4:1
+(points 4 536 160 550 160 550 180 567 180))
+(connect D0:2 D5:0
+(points 3 115 110 130 110 130 150))
+(connect I1:1 D5:1
+(points 6 -46 158 20 158 20 140 60 140 60 160 90 160))
+(connect D7:1 D6:1
+(points 2 263 160 274 160))
+(connect D5:1 D7:1
+(points 2 169 160 177 160))
+(connect D1:1 D8:1
+(points 8 237 110 260 110 260 100 300 100 300 40 770 40 770 160 974 160))
+(connect D4:1 D8:2
+(points 2 753 180 974 180))
+(connect D6:1 D9:1
+(points 2 385 160 403 160))
+(connect D8:1 O1:1
+(points 4 1005 170 1030 170 1030 158 795 158)))
+(stackingOrder 0 1 2 5 7 8 3 4 6 9))))
+(device 128 TOGLOBAL
+(properties
+(name "Set WS_EX_CONTEXTHELP")
+(variableScope cont)
+(globalName "WS_EX_CONTEXTHELP"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type control)
+(name "Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))))
+(device 129 FROMSTRING
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x TOKEN ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(tag "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 130 FORMULA
+(properties
+(name "Last Value")
+(variableScope cont)
+(expr 1 "a[totsize(a)-1]"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D3:1 D0:1)
+(connect D2:1 D0:2)
+(connect D3:1 D1:1)
+(connect D1:1 D2:1)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D6:1 D5:1)
+(connect D4:1 D6:1)
+(connect D5:1 D7:1)
+(connect D7:1 D8:0)
+(connect D5:1 D8:1)
+(connect D8:2 D9:1)
+(connect D9:1 D10:1)
+(connect D12:1 D10:2)
+(connect D8:1 D11:1)
+(connect D11:1 D12:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 963 507)
+(anchorPt 119 518)
+(configuration
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 71 42))
+(terminals on)
+(pinCenter -20 -270))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter -160 -260))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter -90 -260))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 48 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -240 -260))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 94 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 60 -270))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 67 15))
+(open
+(extent 92 32))
+(terminals on)
+(pinCenter 230 -270))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 49 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 150 -270))
+(devCarrierFor 71
+(active icon)
+(icon
+(extent 45 25))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 320 -310))
+(devCarrierFor 73
+(active icon)
+(icon
+(extent 42 25))
+(open
+(extent 71 62))
+(terminals on)
+(pinCenter 380 -280))
+(devCarrierFor 127
+(active icon)
+(icon
+(extent 52 15))
+(terminals on)
+(pinCenter 450 -270))
+(devCarrierFor 128
+(active open)
+(icon
+(extent 97 25))
+(open
+(extent 128 49))
+(title off)
+(pinCenter 690 -300))
+(devCarrierFor 129
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 460 -310))
+(devCarrierFor 130
+(active icon)
+(icon
+(extent 63 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 550 -310))
+(connect D3:1 D0:1
+(points 6 -214 -260 -190 -260 -190 -310 -40 -310 -40 -280 -35 -280))
+(connect D2:1 D0:2
+(points 2 -54 -260 -35 -260))
+(connect D3:1 D1:1
+(points 2 -214 -260 -175 -260))
+(connect D1:1 D2:1
+(points 2 -146 -260 -127 -260))
+(connect I1:1 D3:1
+(points 4 -119 -265 -400 -265 -400 -260 -267 -260))
+(connect D0:1 D4:1
+(points 2 -6 -270 10 -270))
+(connect D6:1 D5:1
+(points 2 177 -270 194 -270))
+(connect D4:1 D6:1
+(points 2 109 -270 123 -270))
+(connect D5:1 D7:1
+(points 4 266 -270 280 -270 280 -310 295 -310))
+(connect D7:1 D8:0
+(points 3 345 -320 380 -320 380 -295))
+(connect D5:1 D8:1
+(points 4 266 -270 340 -270 340 -280 356 -280))
+(connect D8:2 D9:1
+(points 2 403 -270 421 -270))
+(connect D9:1 D10:1
+(points 6 478 -270 500 -270 500 -280 610 -280 610 -310 623 -310))
+(connect D12:1 D10:2
+(points 4 584 -310 600 -310 600 -290 623 -290))
+(connect D8:1 D11:1
+(points 4 403 -290 410 -290 410 -310 422 -310))
+(connect D11:1 D12:1
+(points 2 497 -310 516 -310)))
+(stackingOrder 1 4 6 5 7 2 9 8 11 12 10 3 0))))
+(context 0
+(properties
+(name "ImportLib")
+(variableName ImportLib)
+(variableScope glob)
+(trigMode deg)
+(nextID 8)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "LibName")
+(optional yes))
+(input 2
+(name "DLL")
+(optional yes))
+(input 3
+(name "Def")
+(optional yes)))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "header file name")
+(variableScope cont)
+(expr 1 "getEnv(\"Tmp\")+\"\\\\\"+\"VeeTmp.h\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TOFILE
+(properties
+(variableScope cont)
+(transactions 2 "WRITE TEXT a EOL" "EXECUTE CLOSE"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "C:\\DOCUME~1\\tehiteoh\\LOCALS~1\\Temp\\VeeTmp.h"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 TOFILE
+(properties
+(name "delete")
+(variableScope cont)
+(transactions 1 "/NOP/ EXECUTE DELETE"))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file write "C:\\DOCUME~1\\tehiteoh\\LOCALS~1\\Temp\\VeeTmp.h"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType DLL)
+(libName "User")
+(fileName "User32.dll")
+(defnFileName "C:\\DOCUME~1\\tehiteoh\\LOCALS~1\\Temp\\VeeTmp.h"))
+(interface
+(input 1
+(type control)
+(name "Definition File")
+(tag "Definition File")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(type control)
+(name "Library Name")
+(tag "Library Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(configuration
+(connect D0:0 D1:0)
+(connect I3:1 D1:1)
+(connect D0:1 D1:2)
+(connect D3:0 D2:0)
+(connect D0:1 D2:1)
+(connect D1:0 D3:0)
+(connect D0:1 D3:1)
+(connect I1:1 D3:2)
+(connect I2:1 D3:3)))
+(contextCarrier
+(active detail)
+(detail
+(extent 280 262)
+(anchorPt -526 -44)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 102 15))
+(open
+(extent 331 36))
+(terminals on)
+(pinCenter 690 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 41 25))
+(open
+(extent 231 127))
+(terminals on)
+(pinCenter 690 140))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 38 14))
+(open
+(extent 231 127))
+(terminals on)
+(pinCenter 690 250))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 82 34))
+(open
+(extent 225 109))
+(pinCenter 690 200))
+(connect D0:0 D1:0
+(points 2 690 100 690 125))
+(connect I3:1 D1:1
+(points 4 526 264 610 264 610 130 667 130))
+(connect D0:1 D1:2
+(points 6 743 90 760 90 760 60 620 60 620 150 667 150))
+(connect D3:0 D2:0
+(points 4 690 219 690 222 690 222 690 240))
+(connect D0:1 D2:1
+(points 8 743 90 760 90 760 60 620 60 620 150 640 150 640 250 668 250))
+(connect D1:0 D3:0
+(points 4 690 155 690 165 690 165 690 180))
+(connect D0:1 D3:1
+(points 8 743 90 760 90 760 60 620 60 620 150 640 150 640 190 646 190))
+(connect I1:1 D3:2
+(points 4 526 84 520 84 520 200 646 200))
+(connect I2:1 D3:3
+(points 4 526 174 430 174 430 210 646 210)))
+(stackingOrder 0 1 2 3))))
+(context 3
+(properties
+(name "SetTopmost")
+(variableName SetTopmost)
+(variableScope glob)
+(trigMode deg)
+(nextID 18)
+(popupTitleText "UserFunction4")
+(popupMoveable 1))
+(interface
+(input 1
+(name "hWnd")
+(optional yes))
+(input 2
+(name "State")
+(optional yes)))
+(deviceList
+(device 15 FORMULA
+(properties
+(name "Repaint")
+(variableScope cont)
+(expr 1 "User.SetWindowPos(A,B,0,0,0,0,bitor(SWP_NoSize,SWP_Nomove))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "(A==1?HWND_Topmost:HWND_NoTopmost)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 CALL
+(properties
+(name "Call CheckAPIResult")
+(variableScope cont)
+(callFunc "CheckAPIResult")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)
+(connect I2:1 D1:1)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 780 248)
+(anchorPt 427 -149)
+(configuration
+(devCarrierFor 15
+(active open)
+(icon
+(extent 47 0))
+(open
+(extent 398 37))
+(terminals on)
+(pinCenter 0 240))
+(devCarrierFor 16
+(active open)
+(icon)
+(open
+(extent 235 37))
+(terminals on)
+(pinCenter -430 250))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 125 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 330 240))
+(connect I1:1 D0:1
+(points 4 -427 212 -250 212 -250 230 -232 230))
+(connect D1:1 D0:2
+(points 2 -260 250 -232 250))
+(connect I2:1 D1:1
+(points 4 -427 332 -640 332 -640 250 -580 250))
+(connect D0:1 D2:1
+(points 2 251 240 265 240)))
+(stackingOrder 0 1 2)))))
+(device 11 START25
+(properties
+(variableScope cont)))
+(device 41 CONTEXT
+(properties
+(name "Load API Libraries")
+(variableScope cont)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 1 LITERALCONSTANT
+(properties
+(name "Header definition")
+(variableScope cont)
+(isIndexingEnabled 0)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 11)
+(data  [
+"long __stdcall FindWindowExA (long hWnd1, long hWnd2, char* lpsz1, char* lpsz2)"
+"long __stdcall GetClassNameA (long hwnd, char* lpClassName, long nMaxCount)"
+"long __stdcall GetDesktopWindow ()"
+"long __stdcall GetWindow (long hwnd, long wCmd)"
+"long __stdcall GetWindowLongA (long hwnd, long nIndex)"
+"long __stdcall GetWindowThreadProcessId (long hwnd, long *lpdwProcessId)"
+"long __stdcall SetWindowLongA (long hwnd, long nIndex, long dwNewLong)"
+"long __stdcall SetWindowPos (long hwnd, long hWndInsertAfter, long x, long y, long cx, long cy, long wFlags)"
+"long __stdcall ShowWindow (long hwnd, long nCmdShow)"
+"long __stdcall ShowWindowAsync (long hWnd, long nCmdShow)" "" ]))
+(initValue Text
+(data  ""))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Header definition")
+(variableScope cont)
+(isIndexingEnabled 0)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 6)
+(data  [ "long __stdcall GetCurrentProcess()"
+"long __stdcall GetCurrentProcessId()" "long __stdcall GetCurrentThreadId ()"
+"long __stdcall GetLastError ()" "long __stdcall Sleep (long dwMilliseconds)" ""
+]))
+(initValue Text
+(data  ""))))
+(device 8 FORMULA
+(properties
+(name "ImportLib(LibName, DLL, Def)")
+(variableScope cont)
+(expr 1 "ImportLib(\"User\", \"User32.dll\", Def)"))
+(interface
+(input 1
+(name "Def")
+(optional yes))))
+(device 9 FORMULA
+(properties
+(name "ImportLib(LibName, DLL, Def)")
+(variableScope cont)
+(expr 1 "ImportLib(\"Kernel\", \"Kernel32.dll\", Def)"))
+(interface
+(input 1
+(name "Def")
+(optional yes))))
+(configuration
+(connect D0:1 D2:1)
+(connect D1:1 D3:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 974 737)
+(anchorPt -38 154)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 565 197))
+(pinCenter 340 -10))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 103 0))
+(open
+(extent 335 117))
+(pinCenter 230 190))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 181 0))
+(open
+(extent 235 47))
+(pinCenter 770 -10))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 181 0))
+(open
+(extent 262 42))
+(pinCenter 580 190))
+(connect D0:1 D2:1
+(points 2 625 -10 650 -10))
+(connect D1:1 D3:1
+(points 2 400 190 446 190)))
+(stackingOrder 0 2 1 3))))
+(device 44 CONTEXT
+(properties
+(name "API constants")
+(variableScope cont)
+(trigMode deg)
+(nextID 75)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 44 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 45 LITERALCONSTANT
+(properties
+(name "extended Window Style Constants")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 9)
+(data  [ "WS_EX_DLGMODALFRAME = &H1" "WS_EX_NOPARENTNOTIFY = &H4"
+"WS_EX_TOPMOST = &H8" "WS_EX_ACCEPTFILES = &H10" "WS_EX_TRANSPARENT = &H20"
+"WS_EX_TOOLWINDOW = &H80" "WS_EX_WINDOWEDGE = &H100" "WS_EX_CLIENTEDGE = &H200"
+"WS_EX_CONTEXTHELP = &H400" ]))
+(initValue Text
+(data  ""))))
+(device 46 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 47 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 49 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 50 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 51 FORMULA
+(properties
+(name "more Window Style Constants ")
+(variableScope cont)
+(expr 6 "WS_TILED = WS_OVERLAPPED;" "WS_ICONIC = WS_MINIMIZE;"
+"WS_SIZEBOX = WS_THICKFRAME;"
+"WS_OVERLAPPEDWINDOW = bitor(WS_OVERLAPPED, bitor(WS_CAPTION, bitor(WS_SYSMENU, bitor(WS_THICKFRAME, bitor(WS_MINIMIZEBOX, WS_MAXIMIZEBOX)))));"
+"WS_TILEDWINDOW = WS_OVERLAPPEDWINDOW;" "")))
+(device 52 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 53 CALL
+(properties
+(name "Call CreateGlobals")
+(variableScope cont)
+(callFunc "CreateGlobals")
+(parmMode rev30))
+(interface
+(input 1
+(name "VarDef")
+(optional yes))))
+(device 54 LITERALCONSTANT
+(properties
+(name "Window Style constants")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 26)
+(data  [ "WS_OVERLAPPED = &H0" "WS_POPUP = &H80000000" "WS_CHILD = &H40000000"
+"WS_MINIMIZE = &H20000000" "WS_VISIBLE = &H10000000" "WS_DISABLED = &H8000000"
+"WS_CLIPSIBLINGS = &H4000000" "WS_CLIPCHILDREN = &H2000000"
+"WS_MAXIMIZE = &H1000000" "WS_CAPTION = &HC00000" "WS_BORDER = &H800000"
+"WS_DLGFRAME = &H400000" "WS_VSCROLL = &H200000" "WS_HSCROLL = &H100000"
+"WS_SYSMENU = &H80000" "WS_THICKFRAME = &H40000" "WS_GROUP = &H20000"
+"WS_TABSTOP = &H10000" "WS_MINIMIZEBOX = &H20000" "WS_MAXIMIZEBOX = &H10000"
+"WS_TILED = 0" "WS_ICONIC = &H20000000" "WS_SIZEBOX = &H40000"
+"WS_OVERLAPPEDWINDOW = 0" "WS_TILEDWINDOW = 0" "WS_POPUPWINDOW = 0" ]))
+(initValue Text
+(data  ""))))
+(device 56 LITERALCONSTANT
+(properties
+(name "HWND Flags for Set Window Pos")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 6)
+(data  [ "HWND_Topmost = -1" "HWND_NoTopmost = -2" "HWND_Top = 0"
+"HWND_Desktop = 0" "HWND_Bottom =1" "HWND_Broadcast = &HFFFF" ]))
+(initValue Text
+(data  ""))))
+(device 57 LITERALCONSTANT
+(properties
+(name "Set Window Pos Constants")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 12)
+(data  [ "SWP_DrawFrame = &H20" "SWP_FrameChanged = &H20"
+"SWP_HideWindow = &H80" "SWP_NoActivate = &H10" "SWP_NoCopyBits = &H100"
+"SWP_NoMove = &H2" "SWP_NoOwnerZOrder = &H200" "SWP_NORedraw = &H8"
+"SWP_NoReposition = &H200" "SWP_NoSize = &H1" "SWP_NoZOrder = &H4"
+"SWP_ShowWindow = &H40" ]))
+(initValue Text
+(data  ""))))
+(device 58 LITERALCONSTANT
+(properties
+(name "Show Window Commands")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 14)
+(data  [ "SW_HIDE = 0" "SW_SHOWNORMAL = 1" "SW_NORMAL = 1"
+"SW_SHOWMINIMIZED = 2" "SW_SHOWMAXIMIZED = 3" "SW_MAXIMIZE = 3"
+"SW_SHOWNOACTIVATE = 4" "SW_SHOW = 5" "SW_MINIMIZE = 6" "SW_SHOWMINNOACTIVE = 7"
+"SW_SHOWNA = 8" "SW_RESTORE = 9" "SW_SHOWDEFAULT = 10" "SW_MAX = 10" ]))
+(initValue Text
+(data  ""))))
+(device 59 LITERALCONSTANT
+(properties
+(name "Get Window Commands")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 7)
+(data  [ "GW_HWNDFIRST = 0" "GW_HWNDLAST = 1" "GW_HWNDNEXT = 2"
+"GW_HWNDPREV = 3" "GW_OWNER = 4" "GW_CHILD = 5" "GW_MAX = 5" ]))
+(initValue Text
+(data  ""))))
+(device 60 LITERALCONSTANT
+(properties
+(name "Get Window Long Constants")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 7)
+(data  [ "GWL_WndProc = -4" "GWL_Hinstance = -6" "GWL_HwndParent = -8"
+"GWL_Style = -16" "GWL_ExStyle = -20" "GWL_UserData = -21" "GWL_ID = -12" ]))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D1:1 D0:1)
+(connect D9:1 D2:1)
+(connect D10:1 D3:1)
+(connect D11:1 D4:1)
+(connect D14:1 D5:1)
+(connect D2:0 D6:0)
+(connect D13:1 D7:1)
+(connect D12:1 D8:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 790 447)
+(anchorPt -603 -53)
+(configuration
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 950 400))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 204 15))
+(open
+(extent 289 146))
+(pinCenter 770 400))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 920 330))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 930 250))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 930 210))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 930 170))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 184 15))
+(open
+(extent 509 133))
+(terminals on)
+(pinCenter 920 360))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 900 130))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 900 100))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 143 15))
+(open
+(extent 282 213))
+(pinCenter 770 330))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 200 15))
+(open
+(extent 238 108))
+(pinCenter 740 250))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 165 15))
+(open
+(extent 237 164))
+(pinCenter 750 210))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 161 15))
+(open
+(extent 237 164))
+(pinCenter 740 100))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 148 15))
+(open
+(extent 237 164))
+(pinCenter 740 130))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 172 15))
+(open
+(extent 237 164))
+(pinCenter 730 170))
+(connect D1:1 D0:1
+(points 2 874 400 890 400))
+(connect D9:1 D2:1
+(points 2 844 330 860 330))
+(connect D10:1 D3:1
+(points 2 842 250 870 250))
+(connect D11:1 D4:1
+(points 2 835 210 870 210))
+(connect D14:1 D5:1
+(points 2 818 170 870 170))
+(connect D2:0 D6:0
+(points 2 920 340 920 350))
+(connect D13:1 D7:1
+(points 2 816 130 840 130))
+(connect D12:1 D8:1
+(points 2 823 100 840 100)))
+(stackingOrder 0 1 3 4 5 7 8 10 11 14 2 12 13 9 6))))
+(device 45 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 46 EXITCONTEXT
+(properties
+(variableScope cont)))
+(device 47 CONFIRM25
+(properties
+(name "Exit")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 51 TOGGLE25
+(properties
+(name "stay on top")
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 53 TOGGLE25
+(properties
+(name "resizable")
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  1))))
+(device 54 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 55 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 56 CALL
+(properties
+(name "Call CleanUp")
+(variableScope cont)
+(callFunc "CleanUp")
+(parmMode rev30)))
+(device 57 CALL
+(properties
+(name "Call CleanUp")
+(variableScope cont)
+(callFunc "CleanUp")
+(parmMode rev30)))
+(device 58 CONTEXT
+(properties
+(name "Get hWnds")
+(variableScope cont)
+(trigMode deg)
+(nextID 172)
+(popupTitleText "UserFunction3")
+(popupMoveable 1))
+(deviceList
+(device 4 TEXTDISPLAY
+(properties
+(name "hWnd")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 11 FORMULA
+(properties
+(name "get first Child Window")
+(variableScope cont)
+(expr 1 "User.GetWindow(A,GW_CHILD)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 TOGLOBAL
+(properties
+(name "Set VEE_hWnd")
+(variableScope cont)
+(globalName "VEE_hWnd"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 14 TOGLOBAL
+(properties
+(name "Set VEE_Main_hWnd")
+(variableScope cont)
+(globalName "VEE_Main_hWnd"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 15 TOGLOBAL
+(properties
+(name "Set VEE_Main_Client_hWnd")
+(variableScope cont)
+(globalName "VEE_Main_Client_hWnd"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 18 TEXTDISPLAY
+(properties
+(name "hWnd")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 20 TEXTDISPLAY
+(properties
+(name "hWnd")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 21 TOGLOBAL
+(properties
+(name "Set VEE_hWnd1")
+(variableScope cont)
+(globalName "VEE_hWnd1"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 22 TOGLOBAL
+(properties
+(name "Set VEE_hWnd2")
+(variableScope cont)
+(globalName "VEE_hWnd2"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 28 FORMULA
+(properties
+(name "get first Child Window")
+(variableScope cont)
+(expr 1 "User.GetWindow(A,GW_CHILD)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 CALL
+(properties
+(name "Call User.FindWindowExA")
+(variableScope cont)
+(callFunc "User.FindWindowExA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hWndParent")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "hWndChildAfter")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "lpClassname")
+(requires
+(datatype Text))
+(optional yes))
+(input 4
+(name "lpWindowName")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassname")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "lpWindowName")
+(lock name constraints)
+(optional yes))))
+(device 30 CONSTANT
+(properties
+(name "0")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 33 CALL
+(properties
+(name "Call User.FindWindowExA")
+(variableScope cont)
+(callFunc "User.FindWindowExA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hWndParent")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "hWndChildAfter")
+(requires
+(datatype Int32))
+(optional yes))
+(input 3
+(name "lpClassname")
+(requires
+(datatype Text))
+(optional yes))
+(input 4
+(name "lpWindowName")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassname")
+(lock name constraints)
+(optional yes))
+(output 3
+(name "lpWindowName")
+(lock name constraints)
+(optional yes))))
+(device 35 CALL
+(properties
+(name "Call User.GetClassNameA")
+(variableScope cont)
+(callFunc "User.GetClassNameA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "lpClassName")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "nMaxCount")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassName")
+(lock name constraints)
+(optional yes))))
+(device 36 LITERALCONSTANT
+(properties
+(name "empty Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 37 CONSTANT
+(properties
+(name "255")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  255))
+(initValue Int32
+(data  0))))
+(device 39 FORMULA
+(properties
+(name "create Child Class Name")
+(variableScope cont)
+(expr 1 "A+\"_CHILD2\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 40 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 41 TEXTDISPLAY
+(properties
+(name "hWnd")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 79 START25
+(properties
+(variableScope cont)))
+(device 135 FORMULA
+(properties
+(name "empty String")
+(variableScope cont)
+(expr 1 "A*\" \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 137 CONTEXT
+(properties
+(name "Get hWnd of this Thread")
+(variableScope cont)
+(trigMode deg)
+(nextID 73)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "hWnd")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call User.GetDesktopWindow")
+(variableScope cont)
+(callFunc "User.GetDesktopWindow")
+(parmMode rev30))
+(interface
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 1 FROMGLOBAL
+(properties
+(name "GW_CHILD")
+(variableScope cont)
+(globalName "GW_CHILD"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 2 CALL
+(properties
+(name "Call Kernel.GetCurrentProcessId")
+(variableScope cont)
+(callFunc "Kernel.GetCurrentProcessId")
+(parmMode rev30))
+(interface
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 3 CALL
+(properties
+(name "Call User.GetWindow")
+(variableScope cont)
+(callFunc "User.GetWindow")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "wCmd")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))))
+(device 4 START25
+(properties
+(variableScope cont)))
+(device 5 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 13 CONSTANT
+(properties
+(name "0")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 14 CALL
+(properties
+(name "Call User.GetWindowThreadProcessId")
+(variableScope cont)
+(callFunc "User.GetWindowThreadProcessId")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "lpdwProcessId")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpdwProcessId")
+(lock name constraints)
+(optional yes))))
+(device 15 IFTHENELSE
+(properties
+(name "not found?")
+(variableScope cont)
+(cases 1 "A==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 16 BREAK
+(properties
+(variableScope cont)))
+(device 17 IFTHENELSE
+(properties
+(name "This Process?")
+(variableScope cont)
+(cases 1 "A==B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 33 DECLVAR
+(properties
+(name "Declare hWnd")
+(scope con)
+(globalName "hWnd"))
+(implementation
+(value Int32
+(data  0))))
+(device 34 TOGLOBAL
+(properties
+(name "Set hWnd")
+(variableScope cont)
+(globalName "hWnd"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 36 FORMULA
+(properties
+(name "User.GetWindow(hwnd, wCmd)")
+(variableScope cont)
+(expr 1 "hWnd=User.GetWindow(hwnd, GW_HWNDNext)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 39 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 58 CONSTANT
+(properties
+(name "Integer")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  256))
+(initValue Int32
+(data  0))))
+(device 59 FORMULA
+(properties
+(name "empty String")
+(variableScope cont)
+(expr 1 "A*\" \""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 60 CALL
+(properties
+(name "Call User.GetClassNameA")
+(variableScope cont)
+(callFunc "User.GetClassNameA")
+(parmMode rev30))
+(interface
+(input 1
+(name "hwnd")
+(requires
+(datatype Int32))
+(optional yes))
+(input 2
+(name "lpClassName")
+(requires
+(datatype Text))
+(optional yes))
+(input 3
+(name "nMaxCount")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Ret Value")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lpClassName")
+(lock name constraints)
+(optional yes))))
+(device 62 FORMULA
+(properties
+(name "create ClassName")
+(variableScope cont)
+(expr 1 "(whichVersion()>6?\"Keysight\":\"HP\")+\"VEE\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 64 IFTHENELSE
+(properties
+(name "This Class?")
+(variableScope cont)
+(cases 1 "strPosStr(Str2, Str1)==0"))
+(interface
+(input 1
+(name "Str1")
+(optional yes))
+(input 2
+(name "Str2")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 65 BREAK
+(properties
+(variableScope cont)))
+(device 66 IFTHENELSE
+(properties
+(name "Version 8.5 ?")
+(variableScope cont)
+(cases 1 "Version>8.5"))
+(interface
+(input 1
+(name "Version")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 67 FORMULA
+(properties
+(name "whichVersion()")
+(variableScope cont)
+(expr 1 "whichVersion()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 69 LITERALCONSTANT
+(properties
+(name "Windows Forms Default Name")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "WindowsForms10.Window.8"))
+(initValue Text
+(data  ""))))
+(device 70 JUNCTION
+(properties
+(name "JCT")
+(variableScope cont))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 71 GATE
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D4:0 D2:0)
+(connect D21:0 D3:0)
+(connect D0:1 D3:1)
+(connect D1:1 D3:2)
+(connect D3:0 D5:0)
+(connect D8:2 D7:0)
+(connect D13:1 D7:1)
+(connect D6:1 D7:2)
+(connect D13:1 D8:1)
+(connect D8:1 D9:0)
+(connect D2:1 D10:1)
+(connect D7:2 D10:2)
+(connect D3:1 D12:1)
+(connect D5:1 D13:0)
+(connect D25:0 D14:0)
+(connect D13:1 D14:1)
+(connect D15:1 D16:1)
+(connect D10:1 D17:0)
+(connect D13:1 D17:1)
+(connect D16:1 D17:2)
+(connect D15:1 D17:3)
+(connect D21:2 D18:0)
+(connect D24:1 D19:1)
+(connect D17:2 D19:2)
+(connect D14:0 D20:0)
+(connect D2:0 D21:0)
+(connect D22:1 D21:1)
+(connect D21:1 D23:0)
+(connect D23:1 D24:1)
+(connect D18:1 D24:2)
+(connect D19:1 D25:0)
+(connect D17:2 D25:1)
+(connect D14:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 935 671)
+(anchorPt -734 59)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 180 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 110 110))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 96 51))
+(terminals on)
+(pinCenter 160 140))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 198 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 330 20))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 129 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 330 120))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 45 25))
+(title off)
+(pinCenter 330 -40))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 330 180))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 78 29)
+(showFormat int))
+(pinCenter 460 320))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 234 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 620 310))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 63 25))
+(open
+(extent 54 51))
+(terminals on)
+(pinCenter 570 240))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 680 260))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 88 25))
+(open
+(extent 55 51))
+(terminals on)
+(pinCenter 820 310))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 85 15))
+(open
+(extent 195 103))
+(pinCenter 420 -30))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 58 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 450 120))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 190 15))
+(open
+(extent 204 50))
+(terminals on)
+(pinCenter 390 240))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 1350 420))
+(devCarrierFor 58
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 78 29)
+(showFormat int))
+(pinCenter 620 390))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter 740 380))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 162 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter 920 380))
+(devCarrierFor 62
+(active icon)
+(icon
+(extent 114 15))
+(open
+(extent 275 50))
+(terminals on)
+(pinCenter 620 120))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 73 25))
+(open
+(extent 204 116))
+(terminals on)
+(pinCenter 1240 270))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 1350 480))
+(devCarrierFor 66
+(active icon)
+(icon
+(extent 79 25))
+(open
+(extent 119 51))
+(terminals on)
+(pinCenter 330 70))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 90 15))
+(open
+(extent 117 50))
+(terminals on)
+(pinCenter 120 70))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 185 15))
+(open
+(extent 221 29))
+(pinCenter 740 90))
+(devCarrierFor 70
+(active icon)
+(icon
+(extent 26 25))
+(open
+(extent 12 50))
+(terminals on)
+(pinCenter 970 120))
+(devCarrierFor 71
+(active icon)
+(icon
+(extent 30 15))
+(open)
+(terminals on)
+(pinCenter 1350 370))
+(connect D4:0 D2:0
+(points 2 330 -25 330 10))
+(connect D21:0 D3:0
+(points 2 330 85 330 105))
+(connect D0:1 D3:1
+(points 2 202 110 263 110))
+(connect D1:1 D3:2
+(points 4 197 140 220 140 220 130 263 130))
+(connect D3:0 D5:0
+(points 2 330 135 330 152))
+(connect D8:2 D7:0
+(points 3 604 250 620 250 620 295))
+(connect D13:1 D7:1
+(points 6 487 240 510 240 510 270 490 270 490 300 500 300))
+(connect D6:1 D7:2
+(points 2 474 320 500 320))
+(connect D13:1 D8:1
+(points 2 487 240 536 240))
+(connect D8:1 D9:0
+(points 3 604 230 680 230 680 250))
+(connect D2:1 D10:1
+(points 6 431 20 500 20 500 150 760 150 760 300 773 300))
+(connect D7:2 D10:2
+(points 2 739 320 773 320))
+(connect D3:1 D12:1
+(points 2 397 120 418 120))
+(connect D5:1 D13:0
+(points 3 366 180 390 180 390 230))
+(connect D25:0 D14:0
+(points 2 1350 380 1350 410))
+(connect D13:1 D14:1
+(points 8 487 240 510 240 510 210 750 210 750 270 1030 270 1030 420 1332 420))
+(connect D15:1 D16:1
+(points 4 661 390 680 390 680 380 700 380))
+(connect D10:1 D17:0
+(points 3 866 300 920 300 920 360))
+(connect D13:1 D17:1
+(points 8 487 240 510 240 510 210 750 210 750 350 800 350 800 370 836 370))
+(connect D16:1 D17:2
+(points 2 779 380 836 380))
+(connect D15:1 D17:3
+(points 6 661 390 680 390 680 410 800 410 800 390 836 390))
+(connect D21:2 D18:0
+(points 3 372 80 620 80 620 110))
+(connect D24:1 D19:1
+(points 4 985 120 1010 120 1010 260 1201 260))
+(connect D17:2 D19:2
+(points 4 1003 390 1020 390 1020 280 1201 280))
+(connect D14:0 D20:0
+(points 2 1350 430 1350 470))
+(connect D2:0 D21:0
+(points 2 330 30 330 55))
+(connect D22:1 D21:1
+(points 2 167 70 288 70))
+(connect D21:1 D23:0
+(points 3 372 60 740 60 740 80))
+(connect D23:1 D24:1
+(points 4 835 90 860 90 860 110 954 110))
+(connect D18:1 D24:2
+(points 4 679 120 700 120 700 130 954 130))
+(connect D19:1 D25:0
+(points 3 1279 260 1350 260 1350 360))
+(connect D17:2 D25:1
+(points 4 1003 390 1020 390 1020 370 1332 370))
+(connect D14:1 O1:1
+(points 4 1367 420 1390 420 1390 276 1668 276)))
+(stackingOrder 3 0 7 6 15 16 4 5 8 9 11 1 12 10 13 21 22 25 20 24 2 17 14 23 18
+19))))
+(device 145 FORMULA
+(properties
+(name "get next Child Window")
+(variableScope cont)
+(expr 1 "User.GetWindow(A,GW_HWNDNEXT)"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 146 TEXTDISPLAY
+(properties
+(name "hWnd")
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D21:1 D0:1)
+(connect D9:1 D1:1)
+(connect D21:1 D2:1)
+(connect D9:1 D3:1)
+(connect D1:1 D4:1)
+(connect D12:1 D5:1)
+(connect D1:1 D6:1)
+(connect D10:1 D7:1)
+(connect D12:1 D8:1)
+(connect D12:1 D9:1)
+(connect D21:1 D10:1)
+(connect D11:1 D10:2)
+(connect D16:1 D10:3)
+(connect D14:1 D10:4)
+(connect D10:1 D12:1)
+(connect D11:1 D12:2)
+(connect D16:1 D12:3)
+(connect D14:1 D12:4)
+(connect D21:1 D13:1)
+(connect D20:1 D13:2)
+(connect D15:1 D13:3)
+(connect D13:2 D16:1)
+(connect D13:2 D17:1)
+(connect D10:1 D18:1)
+(connect D15:1 D20:1)
+(connect D19:0 D21:0)
+(connect D1:1 D22:1)
+(connect D22:1 D23:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1114 680)
+(anchorPt 670 897)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 36 0))
+(open
+(extent 121 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter -290 -720))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 220 32))
+(terminals on)
+(pinCenter 310 -360))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 91 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -300 -690))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 127 15))
+(open
+(extent 93 51))
+(terminals on)
+(pinCenter 320 -430))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 170 15))
+(open
+(extent 136 51))
+(terminals on)
+(pinCenter 490 -360))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 36 0))
+(open
+(extent 121 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 140 -470))
+(devCarrierFor 20
+(active open)
+(icon
+(extent 36 0))
+(open
+(extent 121 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 460 -390))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter -10 -520))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 99 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 130 -440))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 130 15))
+(open
+(extent 220 32))
+(terminals on)
+(pinCenter 150 -400))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 157 45))
+(open
+(extent 176 82))
+(terminals on)
+(pinCenter -270 -510))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 78 29)
+(showFormat int))
+(pinCenter -460 -520))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 157 45))
+(open
+(extent 176 82))
+(terminals on)
+(pinCenter -60 -460))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 162 34))
+(open
+(extent 176 70))
+(terminals on)
+(pinCenter -270 -620))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 63 15))
+(open
+(extent 174 29))
+(pinCenter -540 -480))
+(devCarrierFor 37
+(active icon)
+(icon
+(extent 25 15))
+(open
+(extent 75 29)
+(showFormat int))
+(pinCenter -530 -620))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 152 15))
+(open
+(extent 108 31))
+(terminals on)
+(pinCenter -90 -610))
+(devCarrierFor 40
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter -100 -670))
+(devCarrierFor 41
+(active open)
+(icon
+(extent 36 0))
+(open
+(extent 121 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 100 -560))
+(devCarrierFor 79
+(active open)
+(icon
+(extent 29 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 240 -760))
+(devCarrierFor 135
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 71 31))
+(terminals on)
+(pinCenter -450 -620))
+(devCarrierFor 137
+(active icon)
+(icon
+(extent 145 15))
+(terminals on)
+(pinCenter -500 -720))
+(devCarrierFor 145
+(active icon)
+(icon
+(extent 133 15))
+(open
+(extent 220 32))
+(terminals on)
+(pinCenter 480 -280))
+(devCarrierFor 146
+(active open)
+(icon
+(extent 36 0))
+(open
+(extent 121 22)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase hexadecimal)))
+(pinCenter 640 -280))
+(connect D21:1 D0:1
+(points 2 -425 -720 -353 -720))
+(connect D9:1 D1:1
+(points 4 217 -400 230 -400 230 -360 242 -360))
+(connect D21:1 D2:1
+(points 4 -425 -720 -390 -720 -390 -690 -348 -690))
+(connect D9:1 D3:1
+(points 4 217 -400 230 -400 230 -430 254 -430))
+(connect D1:1 D4:1
+(points 2 377 -360 402 -360))
+(connect D12:1 D5:1
+(points 2 21 -470 77 -470))
+(connect D1:1 D6:1
+(points 4 377 -360 390 -360 390 -390 397 -390))
+(connect D10:1 D7:1
+(points 2 -189 -520 -62 -520))
+(connect D12:1 D8:1
+(points 4 21 -470 60 -470 60 -440 78 -440))
+(connect D12:1 D9:1
+(points 4 21 -470 60 -470 60 -400 82 -400))
+(connect D21:1 D10:1
+(points 4 -425 -720 -390 -720 -390 -530 -351 -530))
+(connect D11:1 D10:2
+(points 2 -446 -520 -351 -520))
+(connect D16:1 D10:3
+(points 6 -12 -610 10 -610 10 -580 -370 -580 -370 -510 -351 -510))
+(connect D14:1 D10:4
+(points 4 -506 -480 -420 -480 -420 -500 -351 -500))
+(connect D10:1 D12:1
+(points 4 -189 -520 -170 -520 -170 -480 -141 -480))
+(connect D11:1 D12:2
+(points 6 -446 -520 -430 -520 -430 -460 -170 -460 -170 -470 -141 -470))
+(connect D16:1 D12:3
+(points 6 -12 -610 10 -610 10 -580 -150 -580 -150 -460 -141 -460))
+(connect D14:1 D12:4
+(points 4 -506 -480 -490 -480 -490 -450 -141 -450))
+(connect D21:1 D13:1
+(points 4 -425 -720 -390 -720 -390 -630 -354 -630))
+(connect D20:1 D13:2
+(points 2 -411 -620 -354 -620))
+(connect D15:1 D13:3
+(points 6 -515 -620 -500 -620 -500 -590 -380 -590 -380 -610 -354 -610))
+(connect D13:2 D16:1
+(points 2 -187 -610 -169 -610))
+(connect D13:2 D17:1
+(points 4 -187 -610 -180 -610 -180 -670 -163 -670))
+(connect D10:1 D18:1
+(points 4 -189 -520 -80 -520 -80 -560 37 -560))
+(connect D15:1 D20:1
+(points 2 -515 -620 -490 -620))
+(connect D19:0 D21:0
+(points 6 240 -747 240 -730 190 -730 190 -770 -500 -770 -500 -730))
+(connect D1:1 D22:1
+(points 4 377 -360 390 -360 390 -280 411 -280))
+(connect D22:1 D23:1
+(points 2 549 -280 577 -280)))
+(stackingOrder 4 6 7 12 5 8 16 13 15 10 2 0 20 11 14 18 17 9 3 19 1 22 23 21))))
+(device 60 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 61 FORMULA
+(properties
+(name "ChangeWindowStyle(hWnd, Style, State, Ex)")
+(variableScope cont)
+(expr 1 "ChangeWindowStyle(VEE_hWnd, WS_SYSMENU, State, 0);"))
+(interface
+(input 1
+(name "State")
+(optional yes))))
+(device 62 TOGGLE25
+(properties
+(name "Show system menu")
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  1))))
+(device 64 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 65 TOGGLE25
+(properties
+(name "minimize box enabled")
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  1))))
+(device 66 FORMULA
+(properties
+(name "ChangeWindowStyle(hWnd, Style, State, Ex)")
+(variableScope cont)
+(expr 1 "ChangeWindowStyle(VEE_hWnd, WS_MINIMIZEBOX, State, 0);"))
+(interface
+(input 1
+(name "State")
+(optional yes))))
+(device 67 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 68 TOGGLE25
+(properties
+(name "maximize box enabled")
+(variableScope cont)
+(waitForEvent 1)
+(initializeAtPrerun 1)
+(enableEditing 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  1))))
+(device 69 FORMULA
+(properties
+(name "ChangeWindowStyle(hWnd, Style, State, Ex)")
+(variableScope cont)
+(expr 1 "ChangeWindowStyle(VEE_hWnd, WS_MAXIMIZEBOX, State, 0);"))
+(interface
+(input 1
+(name "State")
+(optional yes))))
+(device 70 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 76 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 78 CONFIRM25
+(properties
+(name "Minimize")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 80 CONFIRM25
+(properties
+(name "hide for 3 sec")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 81 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 82 DELAY
+(properties
+(variableScope cont)
+(delay 3))
+(interface
+(output 1
+(name "Done"))))
+(device 88 FORMULA
+(properties
+(name "ShowWindow")
+(variableScope cont)
+(expr 1 "User.ShowWindow(Vee_hWnd,SW_Minimize)")))
+(device 89 FORMULA
+(properties
+(name "ShowWindow")
+(variableScope cont)
+(expr 1 "User.ShowWindow(Vee_hWnd,SW_Show)")))
+(device 91 FORMULA
+(properties
+(name "ShowWindow")
+(variableScope cont)
+(expr 1 "User.ShowWindow(Vee_hWnd,SW_Hide)")))
+(device 92 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 This example shows how you can change attributes of the VEE window.\\par\r\n\\par\r\n- the import of API functions (Function ImportLib)\\par\r\n- the creation of global constants on runtime from a string array (Function CreateGlobals)\\par\r\n- the way to find the Window handle of the current vee application\\par\r\n- the possibilities to play around with some window flags\\par\r\n\\par\r\nContributed by Georg Nied  eMail:info@gn-software.de\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 93 FORMULA
+(properties
+(name "ShowWindow")
+(variableScope cont)
+(expr 1 "User.ShowWindow(Vee_hWnd,SW_Maximize)")))
+(device 94 CONFIRM25
+(properties
+(name "Maximize")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 95 REPEATUNTILBREAK
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 96 FORMULA
+(properties
+(name "ChangeWindowStyle(hWnd, Style, State, Ex)")
+(variableScope cont)
+(expr 1 "ChangeWindowStyle(VEE_hWnd, WS_Sizebox, State, 0);"))
+(interface
+(input 1
+(name "State")
+(optional yes))))
+(device 97 FORMULA
+(properties
+(name "SetTopmost(hWnd, State)")
+(variableScope cont)
+(expr 1 "SetTopmost(VEE_hWnd, State)"))
+(interface
+(input 1
+(name "State")
+(optional yes))))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D13:0 D3:0)
+(connect D10:0 D4:0)
+(connect D3:1 D5:0)
+(connect D9:1 D6:0)
+(connect D8:1 D7:0)
+(connect D13:0 D8:0)
+(connect D13:0 D9:0)
+(connect D5:0 D10:0)
+(connect D12:0 D11:0)
+(connect D2:0 D12:0)
+(connect D11:0 D13:0)
+(connect D15:1 D14:1)
+(connect D16:1 D15:0)
+(connect D13:0 D16:0)
+(connect D19:1 D17:0)
+(connect D17:1 D18:1)
+(connect D13:0 D19:0)
+(connect D22:1 D20:0)
+(connect D20:1 D21:1)
+(connect D13:0 D22:0)
+(connect D13:0 D23:0)
+(connect D23:1 D24:0)
+(connect D26:1 D25:0)
+(connect D13:0 D26:0)
+(connect D30:0 D27:0)
+(connect D24:1 D28:0)
+(connect D27:0 D29:0)
+(connect D25:1 D30:0)
+(connect D33:1 D32:0)
+(connect D34:1 D33:0)
+(connect D13:0 D34:0)
+(connect D7:1 D35:1)
+(connect D6:1 D36:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 624 234)
+(drawGrid "off")
+(widget 6 detail
+(relativeOrigin 20 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 104 20)
+(scaled off)
+(format check box))
+(widget 5 detail
+(relativeOrigin 470 170)
+(bg "Gray")
+(fg "Black")
+(font "Arial" 18)
+(PID 1)
+(title off)
+(tabIndex 8)
+(borderStyle none)
+(extent 130 40))
+(widget 7 detail
+(relativeOrigin 20 40)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 2)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 104 20)
+(scaled off)
+(format check box))
+(widget 15 detail
+(relativeOrigin 20 60)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 3)
+(title off)
+(tabIndex 3)
+(borderStyle none)
+(extent 146 21)
+(scaled off)
+(format check box))
+(widget 17 detail
+(relativeOrigin 20 80)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 4)
+(title off)
+(tabIndex 5)
+(borderStyle none)
+(extent 146 21)
+(scaled off)
+(format check box))
+(widget 20 detail
+(relativeOrigin 20 100)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 5)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 146 21)
+(scaled off)
+(format check box))
+(widget 24 detail
+(relativeOrigin 210 20)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 6)
+(title off)
+(tabIndex 2)
+(borderStyle none)
+(extent 90 20))
+(widget 25 detail
+(relativeOrigin 210 100)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 90 20))
+(widget 33 detail
+(relativeOrigin 210 50)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 8)
+(title off)
+(tabIndex 4)
+(borderStyle none)
+(extent 90 20))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 941 647)
+(anchorPt 252 80)
+(configuration
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -200 -10))
+(devCarrierFor 41
+(active icon)
+(icon
+(extent 111 15))
+(terminals on)
+(pinCenter -200 30))
+(devCarrierFor 44
+(active icon)
+(icon
+(extent 82 15))
+(terminals on)
+(pinCenter -200 60))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 100 80))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 92 15))
+(open)
+(terminals on)
+(pinCenter 170 240))
+(devCarrierFor 47
+(active open)
+(icon
+(extent 23 0))
+(open
+(extent 174 44))
+(title off)
+(bg "Gray")
+(font "Arial" 18)
+(pinCenter 170 160))
+(devCarrierFor 51
+(active open)
+(icon
+(extent 64 0))
+(open
+(extent 104 20)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 100 330))
+(devCarrierFor 53
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 104 20)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 100 460))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 0 420))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -10 290))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 170 210))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter -200 120))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 67 15))
+(pinCenter -200 90))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter -200 150))
+(devCarrierFor 61
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 369 50))
+(terminals on)
+(pinCenter 415 640))
+(devCarrierFor 62
+(active open)
+(icon
+(extent 119 0))
+(open
+(extent 146 21)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 80 640))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 0 580))
+(devCarrierFor 65
+(active open)
+(icon
+(extent 132 0))
+(open
+(extent 146 21)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 70 800))
+(devCarrierFor 66
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 369 50))
+(terminals on)
+(pinCenter 405 800))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -10 740))
+(devCarrierFor 68
+(active open)
+(icon
+(extent 134 0))
+(open
+(extent 146 21)
+(scaled off)
+(format check box))
+(title off)
+(pinCenter 60 910))
+(devCarrierFor 69
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 369 50))
+(terminals on)
+(pinCenter 395 910))
+(devCarrierFor 70
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -20 850))
+(devCarrierFor 76
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -20 990))
+(devCarrierFor 78
+(active open)
+(icon
+(extent 52 0))
+(open
+(extent 64 22))
+(title off)
+(pinCenter 70 1040))
+(devCarrierFor 80
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 87 31))
+(title off)
+(pinCenter 60 1360))
+(devCarrierFor 81
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -40 1310))
+(devCarrierFor 82
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 300 1450))
+(devCarrierFor 88
+(active open)
+(icon
+(extent 82 0))
+(open
+(extent 265 50))
+(pinCenter 250 1120))
+(devCarrierFor 89
+(active open)
+(icon
+(extent 82 0))
+(open
+(extent 265 50))
+(pinCenter 300 1530))
+(devCarrierFor 91
+(active open)
+(icon
+(extent 82 0))
+(open
+(extent 265 50))
+(pinCenter 290 1380))
+(devCarrierFor 92
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 550 167)
+(editing enabled))
+(pinCenter 330 10))
+(devCarrierFor 93
+(active open)
+(icon
+(extent 82 0))
+(open
+(extent 265 50))
+(pinCenter 260 1270))
+(devCarrierFor 94
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 64 22))
+(title off)
+(pinCenter 80 1190))
+(devCarrierFor 95
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter -10 1140))
+(devCarrierFor 96
+(active open)
+(icon
+(extent 262 25))
+(open
+(extent 369 50))
+(terminals on)
+(pinCenter 405 460))
+(devCarrierFor 97
+(active open)
+(icon
+(extent 155 15))
+(open
+(extent 351 50))
+(terminals on)
+(pinCenter 395 330))
+(connect D0:0 D1:0
+(points 2 -200 3 -200 20))
+(connect D1:0 D2:0
+(points 2 -200 40 -200 50))
+(connect D13:0 D3:0
+(points 6 -200 160 -200 180 -120 180 -120 30 100 30 100 52))
+(connect D10:0 D4:0
+(points 2 170 220 170 230))
+(connect D3:1 D5:0
+(points 3 136 80 170 80 170 135))
+(connect D9:1 D6:0
+(points 3 26 290 100 290 100 317))
+(connect D8:1 D7:0
+(points 3 36 420 100 420 100 447))
+(connect D13:0 D8:0
+(points 4 -200 160 -200 360 0 360 0 392))
+(connect D13:0 D9:0
+(points 4 -200 160 -200 230 -10 230 -10 262))
+(connect D5:0 D10:0
+(points 2 170 184 170 200))
+(connect D12:0 D11:0
+(points 2 -200 100 -200 110))
+(connect D2:0 D12:0
+(points 2 -200 70 -200 80))
+(connect D11:0 D13:0
+(points 2 -200 130 -200 140))
+(connect D15:1 D14:1
+(points 2 155 640 188 640))
+(connect D16:1 D15:0
+(points 3 36 580 80 580 80 627))
+(connect D13:0 D16:0
+(points 4 -200 160 -200 520 0 520 0 552))
+(connect D19:1 D17:0
+(points 3 26 740 70 740 70 787))
+(connect D17:1 D18:1
+(points 2 145 800 178 800))
+(connect D13:0 D19:0
+(points 4 -200 160 -200 680 -10 680 -10 712))
+(connect D22:1 D20:0
+(points 3 16 850 60 850 60 897))
+(connect D20:1 D21:1
+(points 2 135 910 168 910))
+(connect D13:0 D22:0
+(points 4 -200 160 -200 800 -20 800 -20 822))
+(connect D13:0 D23:0
+(points 4 -200 160 -200 940 -20 940 -20 962))
+(connect D23:1 D24:0
+(points 3 16 990 70 990 70 1026))
+(connect D26:1 D25:0
+(points 3 -4 1310 60 1310 60 1342))
+(connect D13:0 D26:0
+(points 6 -200 160 -200 1040 -70 1040 -70 1190 -40 1190 -40 1282))
+(connect D30:0 D27:0
+(points 4 290 1407 290 1400 300 1400 300 1414))
+(connect D24:1 D28:0
+(points 3 104 1040 250 1040 250 1074))
+(connect D27:0 D29:0
+(points 4 300 1468 300 1475 300 1475 300 1484))
+(connect D25:1 D30:0
+(points 5 106 1360 130 1360 130 1310 290 1310 290 1334))
+(connect D33:1 D32:0
+(points 3 114 1190 260 1190 260 1224))
+(connect D34:1 D33:0
+(points 3 26 1140 80 1140 80 1176))
+(connect D13:0 D34:0
+(points 4 -200 160 -200 1040 -10 1040 -10 1112))
+(connect D7:1 D35:1
+(points 2 154 460 178 460))
+(connect D6:1 D36:1
+(points 2 154 330 177 330)))
+(stackingOrder 2 1 3 5 9 4 0 8 10 11 16 14 15 18 19 17 20 22 23 24 26 25 28 30
+27 29 21 32 34 33 13 7 35 6 31 36 12))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

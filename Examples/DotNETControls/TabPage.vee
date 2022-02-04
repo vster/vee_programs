@@ -1,0 +1,702 @@
+(saveFormat "7.0")
+(date "Tue 10/May/2005 18:01:35 ")
+(veerev "7.5.7710.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F2 F0 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename ""))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename ""))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 35)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 3)
+(context 0
+(properties
+(name "button_Click")
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 2 FORMULA
+(properties
+(name "Change Label Text")
+(expr 1 "label.Text = \"Button Clicked\";"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I2:1 D0:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 438 391)
+(anchorPt -1 -4)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 264 66))
+(terminals on)
+(pinCenter 260 380))
+(connect I2:1 D0:0
+(points 5 1 299 10 299 10 310 270 310 270 326))))))
+(context 2
+(properties
+(name "TabControl_SelectedIndexChanged")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(interface
+(input 1
+(name "sender")
+(optional yes))
+(input 2
+(name "e")
+(optional yes)))
+(deviceList
+(device 0 DOTNETBUILDER
+(properties
+(name "Get selected tab")
+(transactions 1 "selectedIndex = tabControl.SelectedIndex")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Int32 SelectedIndex")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabControl, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "tabControl"))
+(interface
+(output 1
+(name "selectedIndex")
+(optional yes)))
+(implementation))
+(device 1 FORMULA
+(properties
+(name "Change Label Text")
+(expr 1 "label.Text = \"Tab \" + a + \" selected\"; "))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I2:1 D0:0)
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndOrigin 42 42)
+(wndState res)
+(active detail)
+(detail
+(extent 438 391)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 274 56))
+(terminals on)
+(pinCenter 320 220))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 234 56))
+(terminals on)
+(pinCenter 300 330))
+(connect I2:1 D0:0
+(points 5 0 295 10 295 10 150 350 150 350 171))
+(connect D0:1 D1:1
+(points 6 549 220 570 220 570 380 130 380 130 330 150 330)))
+(stackingOrder 0 1)))))
+(device 1 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 2 DOTNETCONTROL
+(properties
+(name "TabControl")
+(variableName TabControl)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.TabControl"))
+(implementation
+(state 366 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F050000000A0A0B0000000902000000090300000010020000000500000006040000000854616249
+6E64657806050000000453697A650606000000084C6F636174696F6E060700000004466F6E740608
+000000044E616D6510030000000500000006090000000130060A000000083333342C20313634060B
+00000004302C2030060C00000019417269616C2C20382E323570742C207374796C653D426F6C6406
+0D000000000B
+)))
+(device 3 DOTNETBUILDER
+(properties
+(name "Add the TabPages to TabControl")
+(transactions 3 "TabControl.TabPages.Add(page0)"
+"TabControl.TabPages.Add(page1)" "TabControl.TabPages.Add(page2)")
+(parmInfo 6 "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Void Add(System.Windows.Forms.TabPage)"
+"Void Add(System.Windows.Forms.TabPage)"
+"Void Add(System.Windows.Forms.TabPage)")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabControl, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "TabControl"))
+(interface
+(input 1
+(name "page0")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "page1")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "page2")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 4 DOTNETBUILDER
+(properties
+(name "Create 3 TabPages")
+(transactions 3
+"tabPage0 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.TabPage\", \"Tab 0\")"
+"tabPage1 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.TabPage\", \"Tab 1\")"
+"tabPage2 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.TabPage\", \"Tab 2\")"
+)
+(parmInfo 15 "4" "T 0" "T 0" "T 0" "T 0" "4" "T 0" "T 0" "T 0" "T 0" "4" "T 0"
+"T 0" "T 0" "T 0")
+(memberInfos 3 "Void .ctor(System.String)" "Void .ctor(System.String)"
+"Void .ctor(System.String)")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabPage, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "tabPage"))
+(interface
+(output 1
+(name "tabPage0")
+(optional yes))
+(output 2
+(name "tabPage1")
+(optional yes))
+(output 3
+(name "tabPage2")
+(optional yes)))
+(implementation))
+(device 10 DOTNETBUILDER
+(properties
+(name "Create button and set its location")
+(transactions 3
+"button = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.Button\")"
+"button.Text = \"Click Me\"" "button.Location = location")
+(parmInfo 8 "3" "T 0" "T 0" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Void .ctor()" "System.String Text"
+"System.Drawing.Point Location")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.Button, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "button"))
+(interface
+(input 1
+(name "location")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 12 DOTNETBUILDER
+(properties
+(name "Add button to Tab0")
+(transactions 1 "tabPage.Controls.Add(button)")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "Void Add(System.Windows.Forms.Control)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabPage, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "tabPage"))
+(interface
+(input 1
+(name "tabPage")
+(optional yes)))
+(implementation))
+(device 13 DOTNETBUILDER
+(properties
+(name "Point")
+(transactions 1
+"point = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 50, 50)")
+(parmInfo 6 "5" "T 0" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(Int32, Int32)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Drawing.Point, System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(objectName "point"))
+(interface
+(output 1
+(name "point")
+(optional yes)))
+(implementation))
+(device 15 DOTNETBUILDER
+(properties
+(name "Create CheckBoxes")
+(transactions 3
+"checkBox1 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+"checkBox2 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+"checkBox3 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.CheckBox\")"
+)
+(parmInfo 12 "3" "T 0" "T 0" "T 0" "3" "T 0" "T 0" "T 0" "3" "T 0" "T 0" "T 0")
+(memberInfos 3 "Void .ctor()" "Void .ctor()" "Void .ctor()")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.CheckBox, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "checkBox3"))
+(interface
+(output 1
+(name "checkBox1")
+(optional yes))
+(output 2
+(name "checkBox2")
+(optional yes))
+(output 3
+(name "checkBox3")
+(optional yes)))
+(implementation))
+(device 16 DOTNETBUILDER
+(properties
+(name "Add checkboxs to Tab1")
+(transactions 3 "tabPage.Controls.Add(ckbox1)" "tabPage.Controls.Add(ckbox2)"
+"tabPage.Controls.Add(ckbox3)")
+(parmInfo 6 "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Void Add(System.Windows.Forms.Control)"
+"Void Add(System.Windows.Forms.Control)"
+"Void Add(System.Windows.Forms.Control)")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabPage, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "tabPage"))
+(interface
+(input 1
+(name "tabPage")
+(optional yes))
+(input 2
+(name "ckbox1")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "ckbox2")
+(optional yes))
+(input 4
+(name "ckbox3")
+(optional yes)))
+(implementation))
+(device 24 FORMULA
+(properties
+(name "Set CheckBox text and location")
+(expr 6 "checkbox1.Text = \"Choice 1\"; "
+"checkbox1.Location = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 10);"
+"checkbox2.Text = \"Choice 2\"; "
+"checkbox2.Location = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 40);"
+"checkbox3.Text = \"Choice 3\"; "
+"checkbox3.Location = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 70);"
+))
+(interface
+(input 1
+(name "checkBox1")
+(optional yes))
+(input 2
+(name "checkBox2")
+(optional yes))
+(input 3
+(name "checkBox3")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 25 DOTNETBUILDER
+(properties
+(name "Create RadioButtons")
+(transactions 2
+"radioButton1 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.RadioButton\")"
+"radioButton2 = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.RadioButton\")"
+)
+(parmInfo 8 "3" "T 0" "T 0" "T 0" "3" "T 0" "T 0" "T 0")
+(memberInfos 2 "Void .ctor()" "Void .ctor()")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.RadioButton, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "radioButton"))
+(interface
+(output 1
+(name "radioButton1")
+(optional yes))
+(output 2
+(name "radioButton2")
+(optional yes)))
+(implementation))
+(device 26 DOTNETBUILDER
+(properties
+(name "Add RadioButtons to Tab2")
+(transactions 2 "tabPage.Controls.Add(radioButton1)"
+"tabPage.Controls.Add(radioButton2)")
+(parmInfo 4 "1" "T 0" "1" "T 0")
+(memberInfos 2 "Void Add(System.Windows.Forms.Control)"
+"Void Add(System.Windows.Forms.Control)")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.TabPage, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "tabPage"))
+(interface
+(input 1
+(name "tabPage")
+(optional yes))
+(input 2
+(name "radioButton1")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "radioButton2")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 27 FORMULA
+(properties
+(name "Set CheckBox text and location")
+(expr 4 "radioButton1.Text = \"Radio Button 1\"; "
+"radioButton1.Location = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 10);"
+"radioButton2.Text = \"Radio Button 2\"; "
+"radioButton2.Location = CreateInstance(\"System.Drawing\", \"System.Drawing.Point\", 10, 40);"
+))
+(interface
+(input 1
+(name "radioButton1")
+(optional yes))
+(input 2
+(name "radioButton2")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 29 DECLVAR
+(properties
+(name "Declare button")
+(scope glob)
+(globalName "button"))
+(implementation
+(value Object
+(data  ".NET ON System.Windows.Forms,System.Windows.Forms.Button"))))
+(device 31 DOTNETCONTROL
+(properties
+(name "Label")
+(variableName Label)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.Label"))
+(implementation
+(state 395 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F060000000A0A0B0000000902000000090300000010020000000600000006040000000954657874
+416C69676E060500000008546162496E6465780606000000044E616D650607000000084C6F636174
+696F6E060800000004466F6E7406090000000453697A65100300000006000000060A0000000C4D69
+64646C6543656E746572060B0000000130060C00000000060D00000004302C2030060E0000001641
+7269616C2C203970742C207374796C653D426F6C64060F000000073333342C2035340B
+)))
+(device 33 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary\\par\r\n\\b0 This example demontrates the use of a Windows Forms control, TabControl. This example also demonstrates how to build a composite control using other controls, for example, our TabControl contains TabPages, and our TabPages contain a Button, CheckBoxes, RadioButtons, etc.  \\par\r\n\\par\r\nWhen building a composite control, only place the container (parent) directly on the VEE workspace.  Add the child controls programmatically to the parent as we did here in code.   \\par\r\n\\par\r\nWe changed the text of Label control by handling the events from TabControl and from the Button.  We created event handler for TabControl by using its Create Event Handler context menu.  We created event handler for the Button by declaring the Button and then using its Create Event Handler context menu.\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\b Tip\\par\r\n\\b0 To get a .NET Op Builder to build TabPage operations, go to Device->.NET Operation Builder, then click on Find toolbar button and type in \"tabpage\".  You can quickly find any .NET type in your referenced assemblies using this handy tool.\\par\r\n\\par\r\n\\b Concepts Illustrated\\par\r\n\\b0 Design time property change\\par\r\nRun time property change\\par\r\nEvent handling\\par\r\nUsing .NET Operation Builder\\par\r\n\\par\r\n\\b Where\\b0\\par\r\nDevice->Windows Forms Controls.  \\par\r\n\\par\r\n\\b Control Details\\b0\\par\r\nAssembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: TabControl, TabPage, Button, RadioButton, CheckBox\\par\r\n\\par\r\n\\par\r\n\\par\r\n\\par\r\n}\r\n"
+)))
+(device 34 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D3:1 D2:1)
+(connect D3:2 D2:2)
+(connect D3:3 D2:3)
+(connect D6:1 D4:1)
+(connect D4:0 D5:0)
+(connect D3:1 D5:1)
+(connect D3:2 D8:1)
+(connect D7:1 D8:2)
+(connect D7:2 D8:3)
+(connect D7:3 D8:4)
+(connect D7:1 D9:1)
+(connect D7:2 D9:2)
+(connect D7:3 D9:3)
+(connect D3:3 D11:1)
+(connect D10:1 D11:2)
+(connect D10:2 D11:3)
+(connect D10:1 D12:1)
+(connect D10:2 D12:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 391)
+(wndState max)
+(active detail)
+(detail
+(extent 846 623)
+(anchorPt 275 21)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -180 40))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 67 0))
+(open
+(extent 334 164))
+(title off)
+(pinCenter 30 160))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 195 34))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 220 310))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 134 34))
+(open
+(extent 274 82))
+(terminals on)
+(pinCenter -90 300))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 198 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 20 400))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 112 34))
+(open
+(extent 274 82))
+(terminals on)
+(pinCenter 260 410))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 32 15))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -130 400))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 119 34))
+(open
+(extent 214 86))
+(terminals on)
+(pinCenter -150 530))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 138 45))
+(open
+(extent 274 82))
+(terminals on)
+(pinCenter 270 530))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 183 34))
+(open
+(extent 514 136))
+(terminals on)
+(pinCenter 50 530))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 126 25))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -150 680))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 157 45))
+(open
+(extent 274 82))
+(terminals on)
+(pinCenter 270 680))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 183 34))
+(open
+(extent 544 116))
+(terminals on)
+(pinCenter 50 680))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 88 15))
+(open
+(extent 345 124))
+(pinCenter 260 260))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 35 0))
+(open
+(extent 334 54))
+(title off)
+(pinCenter 30 40))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 344 466)
+(editing disabled))
+(pinCenter 550 340))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 540 40))
+(connect D3:1 D2:1
+(points 4 -21 290 20 290 20 300 120 300))
+(connect D3:2 D2:2
+(points 4 -21 300 10 300 10 310 120 310))
+(connect D3:3 D2:3
+(points 4 -21 310 0 310 0 320 120 320))
+(connect D6:1 D4:1
+(points 2 -112 400 -82 400))
+(connect D4:0 D5:0
+(points 6 20 410 20 430 140 430 140 370 260 370 260 390))
+(connect D3:1 D5:1
+(points 6 -21 290 20 290 20 340 180 340 180 410 201 410))
+(connect D3:2 D8:1
+(points 8 -21 300 -10 300 -10 360 150 360 150 450 190 450 190 510 198 510))
+(connect D7:1 D8:2
+(points 6 -88 520 -70 520 -70 480 180 480 180 520 198 520))
+(connect D7:2 D8:3
+(points 6 -88 530 -60 530 -60 490 160 490 160 530 198 530))
+(connect D7:3 D8:4
+(points 6 -88 540 -60 540 -60 570 160 570 160 540 198 540))
+(connect D7:1 D9:1
+(points 2 -88 520 -44 520))
+(connect D7:2 D9:2
+(points 2 -88 530 -44 530))
+(connect D7:3 D9:3
+(points 2 -88 540 -44 540))
+(connect D3:3 D11:1
+(points 6 -21 310 0 310 0 350 170 350 170 670 189 670))
+(connect D10:1 D11:2
+(points 6 -85 670 -60 670 -60 640 160 640 160 680 189 680))
+(connect D10:2 D11:3
+(points 6 -85 690 -60 690 -60 720 160 720 160 690 189 690))
+(connect D10:1 D12:1
+(points 2 -85 670 -44 670))
+(connect D10:2 D12:2
+(points 2 -85 690 -44 690)))
+(stackingOrder 0 1 13 5 6 4 7 9 8 10 12 11 16 2 3 14 15))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

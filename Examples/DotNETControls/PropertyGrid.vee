@@ -1,0 +1,265 @@
+(saveFormat "7.0")
+(date "Tue 26/Apr/2005 14:52:20 ")
+(veerev "7.5.7621.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Magenta" bwGrayScale 100)
+(Property "Print ID Number BG Color" "Lightest Gray" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Step Highlight" "Yellow")
+(Property "Object Execute Highlight" "Light Green")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Med Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 50)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 0)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "Arial" 14)
+(Property "Object Title Text" "Arial" 12)
+(Property "Object Text" "Arial" 12)
+(Property "Terminal Text" "Arial" 12)
+(Property "Logging AlphaNumeric Text" "Courier New" 12)
+(Property "AlphaNumeric Scalar Text" "Arial" 14)
+(Property "AlphaNumeric Array Text" "Arial" 12)
+(Property "Bus Monitor Text" "Courier New" 12)
+(Property "Dialog Box Title Bar Text" "Arial" 14)
+(Property "Dialog Box Text" "Arial" 12)
+(Property "Printout Page Header Text" "Arial" 14)
+(Property "Printout Object Title Text" "Arial" 14)
+(Property "Printout Object Description Text" "Courier New" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "Courier New" 14)
+(Property "Tool Tip Text" "Arial" 12)
+(Property "Graph Scale Label Text" "Arial" 10 bold))
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\drawing.dll"))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 DOTNETBUILDER
+(properties
+(name "System.IO.FileInfo")
+(transactions 1
+"fileInfo = CreateInstance(\"mscorlib\", \"System.IO.FileInfo\", fileName)")
+(parmInfo 5 "4" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor(System.String)")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.IO.FileInfo, mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "fileInfo"))
+(interface
+(input 1
+(name "fileName")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "fileInfo")
+(optional yes)))
+(implementation))
+(device 2 DOTNETCONTROL
+(properties
+(name "PropertyGrid")
+(variableName PropertyGrid)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.PropertyGrid"))
+(implementation
+(state 596 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F0D0000000A0A170000000902000000090300000010020000000C00000006040000000454657874
+06050000000453697A65060600000011436F6D6D616E6473466F7265436F6C6F7206070000001A43
+6F6D6D616E647356697369626C654966417661696C61626C6506080000000D566965774261636B43
+6F6C6F720609000000094C696E65436F6C6F72060A0000000D56696577466F7265436F6C6F72060B
+000000044E616D65060C000000084C6F636174696F6E060D0000000C4C61726765427574746F6E73
+060E00000011436F6D6D616E64734261636B436F6C6F72060F00000008546162496E646578100300
+00000C00000006100000000C50726F7065727479477269640611000000083236342C203332360612
+00000005426C61636B0613000000045472756506140000000657696E646F77061500000009536372
+6F6C6C42617206160000000A57696E646F7754657874061700000000061800000004302C20300619
+0000000546616C7365061A0000000D3139352C203231312C20323139061B00000001300B
+)))
+(device 3 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.PropertyGrid")
+(transactions 1 "PropertyGrid.SelectedObject = selectedObject")
+(parmInfo 2 "1" "T 0")
+(memberInfos 1 "System.Object SelectedObject")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "PropertyGrid"))
+(interface
+(input 1
+(name "selectedObject")
+(requires
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 4 CONFIRM25
+(properties
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 5 FORMULA
+(properties
+(name "file path")
+(expr 1 "installdir()+\"\\\\vee.exe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\b\\f0\\fs24 Summary:\\b0\\par\r\nThis example demonstrates the use of a Windows Forms control, PropertyGrid. \\par\r\nOne use of the PropertyGrid is to show the properties of a .NET object during run time.\\par\r\n\\par\r\n\\b Concept Illustrated:\\par\r\n\\b0 Using .NET Operation Builder\\par\r\n\\par\r\n\\b Where:\\b0\\par\r\nDevice -> Windows Forms Controls\\par\r\n\\par\r\n\\b Control Details:\\par\r\n\\b0 Assembly: System.Windows.Forms\\par\r\nNamespace: System.Windows.Forms\\par\r\nType: PropertyGrid\\par\r\n}\r\n"
+)))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(configuration
+(connect D4:1 D0:1)
+(connect D0:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 701 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 619)
+(anchorPt 12 -29)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 234 86))
+(terminals on)
+(pinCenter 170 240))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 264 326))
+(pinCenter 500 270))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter 195 360))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 30 70))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 47 15))
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 30 140))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 354 446)
+(editing disabled))
+(pinCenter 830 380))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 58)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 820 80))
+(connect D4:1 D0:1
+(points 8 56 140 80 140 80 110 -20 110 -20 160 -30 160 -30 240 -20 240))
+(connect D0:1 D2:1
+(points 6 339 240 360 240 360 420 -30 420 -30 360 -22 360)))
+(stackingOrder 4 3 0 2 1 6 5))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

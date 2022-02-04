@@ -1,0 +1,117 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:16:29 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 27)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 15 DO
+(interface
+(output 1
+(name "Do"))))
+(device 23 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 24 TIMER
+(interface
+(input 1
+(name "Time1")
+(lock name constraints))
+(input 2
+(name "Time2")
+(lock name constraints))
+(output 1
+(name "T2 - T1")
+(tag "dTime")
+(lock name constraints))))
+(device 25 FORMULA
+(properties
+(expr 1 " randomize(ramp(1024,0,1023),0,1023)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 26 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D3:1 D1:1)
+(connect D0:1 D2:1)
+(connect D1:0 D2:2)
+(connect D0:0 D3:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 539 348)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 566 90)
+(configuration
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter -300 30))
+(devCarrierFor 23
+(active open)
+(icon)
+(open
+(extent 142 126))
+(pinCenter -300 280))
+(devCarrierFor 24
+(active open)
+(icon
+(iconImage "timer.icn"))
+(open
+(extent 72 34))
+(pinCenter -30 220))
+(devCarrierFor 25
+(active open)
+(icon)
+(open
+(extent 265 55))
+(terminals on)
+(pinCenter -310 120))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter -320 -30))
+(connect D3:1 D1:1
+(points 6 -125 120 -100 120 -100 170 -390 170 -390 280 -374 280))
+(connect D0:1 D2:1
+(points 4 -286 30 -90 30 -90 210 -69 210))
+(connect D1:0 D2:2
+(points 5 -300 345 -300 370 -210 370 -210 230 -69 230))
+(connect D0:0 D3:0
+(points 2 -300 40 -300 72)))
+(stackingOrder 3 2 1 0 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

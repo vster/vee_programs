@@ -1,0 +1,412 @@
+(saveFormat "2.3")
+(date "Wed 04/Feb/2004 16:15:39 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "ESASPECAN"
+(type GPIB)
+(gateway "tsstkl24en")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument"
+(type GPIB)
+(gateway "comptest1e2050a")
+(channel 7)
+(subchannel 8)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument3"
+(type GPIB)
+(gateway "d2476cc26")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 60)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "newInstrument5"
+(type GPIB)
+(gateway "comptest3e2050a")
+(channel 7)
+(subchannel 14)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "VNA"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 16)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 22)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 3 "WRITE TEXT \"CLES;\" EOL" "WRITE TEXT \"*IDN?;\" EOL"
+"READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 2 START25)
+(device 3 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 3 "WRITE TEXT \"INTM;\" EOL" "WRITE TEXT \"OPC?;\", A EOL"
+"READ TEXT done INT16"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "done")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 4 TEXTDISPLAY
+(properties
+(name "done"))
+(interface
+(input 1
+(name "Data"))))
+(device 7 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count"))))
+(device 9 FORMULA
+(properties
+(expr 4 "(A<=9 ? \"RECAREG0\" : \"RECAREG\")" "" "" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 FORMULA
+(properties
+(expr 1 "A+B"))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 13 FORRANGE
+(properties
+(from 1)
+(thru 31)
+(step 1))
+(interface
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 16 IODEVICE
+(properties
+(name "VNA ( @ 716)")
+(transactions 2 "WRITE TEXT \"OUTPERRO\" EOL" "READ TEXT x STR"))
+(interface
+(output 1
+(name "x")
+(optional yes)))
+(implementation
+(iopath "VNA")))
+(device 17 IFTHENELSE
+(properties
+(cases 1 "A==55"))
+(interface
+(input 1
+(name "A")
+(requires
+(datatype Int32))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 18 BREAK)
+(device 19 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 20 NOTE
+(properties
+(name "ABOUT: 8753ES_registerRecall.vee")
+(text2 18 "A Keysight Vee program that outlines a process for recalling "
+"instrument states from internal memory on the 8753/8720 family"
+"vector network analyzers. The program also provides for a few subtle "
+"Keysight Vee programming tips that can save development time and code."
+"First, the use of a triadic equation as indicated by the formula"
+"\"(A<=9 ? \"RECAREG0\" : \"RECAREG\")\". The register access within the"
+"analyzer is 00,01.02.03.04..09,10,11,...31. Via the triadic"
+"equation IF A <=9 then the RESULT pin is RECAREG0 + the concatenation "
+"of the for loop values from 0 to 9. However (also via the triadic)"
+"equation IF A greater than 9 then the RESULT pin is RECAREG + the "
+"concatenation of the for loop values from 10 to 31. Another Vee"
+"trick that is VERY subtle occurs in the If/Then/Else object. The"
+"A INPUT variable has been FORCED by the programmer to a \"REQUIRED TYPE\""
+"of INT32. The If/Then/Else A input terminal will force the data on its"
+"input terminal to a type INT. Since the error query reads a string "
+"reporting \'55, \"CAUTION:..REGISTER\"\' the leading 55 is processed as an "
+"integer and all data beyond the space (after the 55) is discarded. " "")))
+(configuration
+(connect D2:0 D0:0)
+(connect D0:1 D1:1)
+(connect D9:1 D3:0)
+(connect D7:1 D3:1)
+(connect D3:1 D4:1)
+(connect D3:1 D5:1)
+(connect D9:1 D6:1)
+(connect D9:1 D7:1)
+(connect D6:1 D7:2)
+(connect D7:1 D8:1)
+(connect D0:0 D9:0)
+(connect D3:0 D10:0)
+(connect D13:0 D11:0)
+(connect D10:1 D11:1)
+(connect D11:1 D12:0)
+(connect D10:1 D13:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 920 476)
+(wndState max)
+(active detail)
+(detail
+(extent 1020 633)
+(anchorPt 262 33)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 80 51)
+(iconImage "io.icn"))
+(open
+(extent 229 74))
+(terminals on)
+(pinCenter -120 40))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 465 37))
+(pinCenter 280 40))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter -120 -10))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 195 77))
+(terminals on)
+(pinCenter 375 260))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 32 0))
+(open
+(extent 75 27))
+(pinCenter 570 110))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 84 31))
+(pinCenter 620 180))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 135 25))
+(open
+(extent 215 57))
+(terminals on)
+(pinCenter -90 270))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 45 47))
+(terminals on)
+(pinCenter 150 260))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 174 187)
+(noformatter))
+(pinCenter 110 430))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 99 79))
+(pinCenter -120 150))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "io.icn"))
+(open
+(extent 185 67))
+(terminals on)
+(pinCenter 380 370))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 61 51))
+(terminals on)
+(pinCenter 385 540))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 500 550))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 174 187)
+(formatter
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal)))
+(font "Courier New" 11)
+(titleFont "Arial" 11)
+(pinCenter 620 400))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 215 51)
+(iconImage "notepad.icn"))
+(open
+(extent 645 337)
+(editing enabled))
+(bg "Med Light Gray")
+(titleBg "Light Teal")
+(titleFont "Arial" 12)
+(pinCenter 270 100))
+(connect D2:0 D0:0
+(points 2 -120 3 -120 12))
+(connect D0:1 D1:1
+(points 2 -78 40 45 40))
+(connect D9:1 D3:0
+(points 3 -68 150 380 150 380 201))
+(connect D7:1 D3:1
+(points 2 225 260 245 260))
+(connect D3:1 D4:1
+(points 6 515 260 540 260 540 180 510 180 510 110 530 110))
+(connect D3:1 D5:1
+(points 4 515 260 540 260 540 180 575 180))
+(connect D9:1 D6:1
+(points 6 -68 150 -50 150 -50 200 -250 200 -250 270 -230 270))
+(connect D9:1 D7:1
+(points 4 -68 150 90 150 90 250 95 250))
+(connect D6:1 D7:2
+(points 2 70 270 95 270))
+(connect D7:1 D8:1
+(points 6 225 260 240 260 240 550 0 550 0 430 20 430))
+(connect D0:0 D9:0
+(points 2 -120 68 -120 90))
+(connect D3:0 D10:0
+(points 2 380 301 380 316))
+(connect D13:0 D11:0
+(points 6 620 496 620 520 510 520 510 470 390 470 390 494))
+(connect D10:1 D11:1
+(points 6 505 370 520 370 520 430 300 430 300 540 322 540))
+(connect D11:1 D12:0
+(points 3 458 530 500 530 500 540))
+(connect D10:1 D13:1
+(points 4 505 370 520 370 520 400 530 400)))
+(stackingOrder 2 1 9 7 0 12 4 5 3 13 6 8 10 11 14))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

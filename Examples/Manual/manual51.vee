@@ -1,0 +1,272 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:17:32 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 33)
+(popupTitleText "Calling a UserFunction")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "RandomArray")
+(trigMode deg)
+(nextID 5))
+(interface
+(output 1
+(type data)
+(name "Array")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "9")
+(type "Real64")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 2 FORCOUNT
+(properties
+(count 9))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 4 FORMULA
+(properties
+(name "randomize(x,low,high)")
+(expr 1 "randomize(x, 0, 1)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:0)
+(connect D0:1 D2:1)
+(connect D2:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 596 236)
+(anchorPt 165 130)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 157 120))
+(terminals on)
+(pinCenter -35 0))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 111 30))
+(pinCenter 200 -50))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 149 0))
+(open
+(extent 138 49))
+(terminals on)
+(pinCenter 270 30))
+(connect D0:0 D1:0
+(points 6 -30 62 -30 80 120 80 120 -110 200 -110 200 -86))
+(connect D1:1 D2:0
+(points 3 258 -50 280 -50 280 -15))
+(connect D0:1 D2:1
+(points 4 86 0 110 0 110 30 168 30))
+(connect D2:1 O1:1
+(points 4 391 30 410 30 410 -13 430 -13)))
+(stackingOrder 0 1 2)))))
+(device 5 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 19 CALL
+(properties
+(name "Call RandomArray")
+(callFunc "RandomArray")
+(parmMode rev2x_22rules))
+(interface
+(output 1
+(name "Array")
+(lock name constraints)
+(optional yes))))
+(device 20 FORMULA
+(properties
+(expr 1 "1+RandomArray()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 TOFILE
+(properties
+(transactions 1 "WRITE CONTAINER RandomArray()"))
+(implementation
+(attr iopath file write "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 26 FROMFILE
+(properties
+(transactions 1 "READ CONTAINER x"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "myFile"
+(readTerm "\n")
+(fs "\r\n")
+(eol "\r\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 28 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 29 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 31 NOTE
+(properties
+(name "Information")
+(text2 5 "This example shows three ways to call "
+"a UserFunction.  For further information," "see the \"VEE Help\" topic"
+"\"To Call a UserFunction in a Program\"." "")))
+(device 32 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D1:1 D0:1)
+(connect D3:0 D4:0)
+(connect D4:1 D5:1)
+(connect D2:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 531)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 379 223)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 142 187))
+(pinCenter -60 20))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 123 54))
+(terminals on)
+(pinCenter -265 20))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 152 42))
+(terminals on)
+(pinCenter 190 0))
+(devCarrierFor 24
+(active open)
+(icon)
+(open
+(extent 281 105))
+(terminals on)
+(pinCenter -190 200))
+(devCarrierFor 26
+(active open)
+(icon)
+(open
+(extent 188 87))
+(terminals on)
+(pinCenter -190 340))
+(devCarrierFor 28
+(active open)
+(icon)
+(open
+(extent 157 187))
+(pinCenter 120 280))
+(devCarrierFor 29
+(active open)
+(icon)
+(open
+(extent 149 186))
+(pinCenter 420 0))
+(devCarrierFor 31
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 444 108)
+(editing disabled))
+(title off)
+(pinCenter -120 -160))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 300 -170))
+(connect D1:1 D0:1
+(points 2 -161 20 -134 20))
+(connect D3:0 D4:0
+(points 2 -190 255 -190 276))
+(connect D4:1 D5:1
+(points 4 -64 340 -40 340 -40 280 39 280))
+(connect D2:1 D6:1
+(points 2 318 0 343 0)))
+(stackingOrder 4 5 6 2 1 7 3 0 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

@@ -1,0 +1,187 @@
+(saveFormat "7.0")
+(date "Wed 03/Mar/2004 23:09:27 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"TemperatureService, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null")
+(filename "C:\\vee\\current\\examples\\DotNET\\TemperatureService.dll"))
+(selectedNamespaces ""))
+(properties
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name
+"Set temperatureService = CreateInstance(\"TemperatureService\", \"TemperatureService\" );"
+)
+(expr 1
+"Set temperatureService = CreateInstance(\"TemperatureService\", \"TemperatureService\" );"
+))
+(interface
+(output 1
+(name "temperatureService")
+(optional yes))
+(output 2
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "temperatureService.getTemp(zipcode);")
+(expr 1 "temperatureService.getTemp(zipcode);"))
+(interface
+(input 1
+(name "temperatureService")
+(optional yes))
+(input 2
+(name "zipcode")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Zip Code"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "94928"))
+(initValue Text
+(data  ""))))
+(device 4 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 5 NOTE
+(properties
+(name "README")
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 Using the Temperature Web Service\\par\r\n\\par\r\nThis example demonstrates how to use a Web Service from VEE.  The following steps are manual steps that must be done before VEE can use the web service (we have included the necessary files in the examples\\\\dotnet directory, but these are the steps that you need if you are creating a web service client from scratch).  \\par\r\n\\par\r\n1. Obtain the WSDL file for the web service.  For the Temperature service this can be obtained at http://www.xmethods.net/sd/2001/TemperatureService.wsdl.  Save this file as TemperatureService.wsdl.\\par\r\n\\par\r\n2. Obtain WSDL.EXE.   This tool comes with the .NET 1.1 Framework SDK which can be downloaded for free from http://www.msdn.microsoft.com/netframework/technologyinfo/howtoget .  NOTE: If you have Visual Studio .NET 2003 installed then you already have this tool and you don\'t need to install the SDK. \\par\r\n\\par\r\n3. In order to create an assembly that VEE can use from the WSDL file, execute the following from the command prompt:\\par\r\n\\par\r\nwsdl.exe TemperatureService.wsdl\\par\r\n\\par\r\n4. This produces a C# file called TemperatureService.cs which we need to compile into a .NET assembly.  Do this by executing the following from a command prompt:\\par\r\n\\par\r\ncsc /target:library TemperatureService.cs\\par\r\n\\par\r\n5. Now copy the resulting TemperatureService.dll into the same directory as your VEE program and then reference the assembly from the Devices | .NET References dialog box.  Note: You will have to browse to the diretory containing TemperatureService.dll to select it. \\par\r\n\\par\r\n6. In the Function & Object browser, under .NET/CLR object, you should see the assembly TemperatureService.dll.  Select it and then you should see all the types used to program against the TemperatureService web service.\\par\r\n\\par\r\n\\par\r\nAssemblies: TemperatureService\\par\r\nNamespaces: \\par\r\nClasses: TemperatureService\\par\r\n}\r\n"
+)))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 8 FORMULA
+(properties
+(expr 2 "\"The current temperature at Zip Code \" + "
+"zipcode +\" is \" + temp + \"F\""))
+(interface
+(input 1
+(name "zipcode")
+(optional yes))
+(input 2
+(name "temp")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D6:1 D3:1)
+(connect D2:1 D6:1)
+(connect D1:1 D6:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 492 348)
+(wndState max)
+(active detail)
+(detail
+(extent 891 717)
+(anchorPt -23 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 531 0))
+(open
+(extent 534 50))
+(terminals on)
+(pinCenter 390 340))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 233 0))
+(open
+(extent 296 51))
+(terminals on)
+(pinCenter 590 470))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 194 30))
+(pinCenter 140 480))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 334 116))
+(pinCenter 550 640))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 246)
+(editing disabled))
+(pinCenter 320 160))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 780 170))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 50 25))
+(open
+(extent 304 67))
+(terminals on)
+(pinCenter 310 640))
+(connect D0:1 D1:1
+(points 6 789 330 810 330 810 390 290 390 290 460 309 460))
+(connect D2:1 D1:2
+(points 2 239 480 309 480))
+(connect D6:1 D3:1
+(points 2 337 640 380 640))
+(connect D2:1 D6:1
+(points 4 239 480 260 480 260 630 282 630))
+(connect D1:1 D6:2
+(points 8 790 470 810 470 810 520 360 520 360 680 260 680 260 650 282 650)))
+(stackingOrder 5 1 4 2 3 6 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

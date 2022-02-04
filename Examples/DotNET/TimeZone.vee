@@ -1,0 +1,361 @@
+(saveFormat "7.0")
+(date "Sun 29/Feb/2004 12:03:51 ")
+(veerev "7.0.6227.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename "C:\\WINDOWS\\Microsoft.NET\\Framework\\v1.1.4322\\mscorlib.dll"))
+(selectedNamespaces "System,System.Globalization,"))
+(properties
+(trigMode deg)
+(nextID 18)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 1 NOTE
+(properties
+(name "README")
+(text2 13
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}{\\f1\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f2\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\ul\\b\\f0\\fs24 System.TimeZone Operations\\par\r\n\\cf0\\ulnone\\b0\\f1\\par\r\nDemonstrates how to use the System.TimeZone object.   \\par\r\n\\par\r\n* Getting the UTC offset of the current time\\par\r\n* Determining if a time is in Daylight Savings\\par\r\n* Getting the name of the Daylight Savings time period\\par\r\n* Getting the name of the standard time period\\par\r\n* Getting the start and end times of Daylight Savings\\par\r\n\\par\r\nNote that System namespace is imported.  \\b\\par\r\n\\par\r\nAssemblies\\b0 : Mscorlib\\par\r\n\\b Namespaces\\b0 : System, System.Globalization\\par\r\n\\b Classes\\b0 : System.TimeZone, System.Globalization.DaylightTime\\f2\\fs17\\par\r\n}\r\n"
+)))
+(device 4 TEXTDISPLAY
+(properties
+(name "Current time in Daylight Savings?"))
+(interface
+(input 1
+(name "Data"))))
+(device 5 FORMULA
+(properties
+(name "TimeZone.CurrentTimeZone;")
+(expr 1 "timeZone.IsDaylightSavingTime(DateTime.Now);"))
+(interface
+(input 1
+(name "timeZone")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "TimeZone.CurrentTimeZone;")
+(expr 1 "TimeZone.CurrentTimeZone;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "timeZone.DaylightName;")
+(expr 1 "timeZone.DaylightName;"))
+(interface
+(input 1
+(name "timeZone")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 FORMULA
+(properties
+(name "timeZone.StandardName;")
+(expr 1 "timeZone.StandardName;"))
+(interface
+(input 1
+(name "timeZone")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 TEXTDISPLAY
+(properties
+(name "Name of Daylight Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Name of Standard Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 FORMULA
+(properties
+(name "timeZone.GetDaylightChanges(year);")
+(expr 1 "timeZone.GetDaylightChanges(DateTime.Now.Year);"))
+(interface
+(input 1
+(name "timeZone")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "daylightTime.Start;")
+(expr 1 "daylightTime.Start.ToString();"))
+(interface
+(input 1
+(name "daylightTime")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 TEXTDISPLAY
+(properties
+(name "Start of Daylight Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 14 FORMULA
+(properties
+(name "daylightTime.End;")
+(expr 1 "daylightTime.End.ToString();"))
+(interface
+(input 1
+(name "daylightTime")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 TEXTDISPLAY
+(properties
+(name "End of Daylight Time"))
+(interface
+(input 1
+(name "Data"))))
+(device 16 FORMULA
+(properties
+(name "timeZone.GetUtcOffset(time);")
+(expr 1 "timeZone.GetUtcOffset(DateTime.Now).ToString();"))
+(interface
+(input 1
+(name "timeZone")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 TEXTDISPLAY
+(properties
+(name "UTC Offset of current time in this timezone"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D3:1 D2:1)
+(connect D4:1 D3:1)
+(connect D4:1 D5:1)
+(connect D4:1 D6:1)
+(connect D5:1 D7:1)
+(connect D6:1 D8:1)
+(connect D4:1 D9:1)
+(connect D9:1 D10:1)
+(connect D10:1 D11:1)
+(connect D9:1 D12:1)
+(connect D12:1 D13:1)
+(connect D4:1 D14:1)
+(connect D14:1 D15:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 896 526)
+(wndState max)
+(active detail)
+(detail
+(extent 1145 927)
+(anchorPt 126 -110)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 510 310))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 414 206)
+(editing disabled))
+(pinCenter 110 240))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 200 0))
+(open
+(extent 254 36))
+(pinCenter 740 490))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 174 0))
+(open
+(extent 354 46))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 350 490))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 174 15))
+(open
+(extent 204 36))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter -30 400))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 149 0))
+(open
+(extent 354 46))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 350 580))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 156 0))
+(open
+(extent 354 46))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 350 670))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 137 0))
+(open
+(extent 254 36))
+(pinCenter 740 580))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 144 0))
+(open
+(extent 254 36))
+(pinCenter 740 670))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 223 0))
+(open
+(extent 354 46))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 350 760))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 254 47))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 360 880))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 254 36))
+(pinCenter 740 880))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 107 0))
+(open
+(extent 254 47))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 360 960))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 124 0))
+(open
+(extent 254 36))
+(pinCenter 740 960))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 174 0))
+(open
+(extent 354 47))
+(terminals on)
+(font "Lucida Console" 12)
+(pinCenter 350 400))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 253 0))
+(open
+(extent 308 36))
+(pinCenter 760 400))
+(connect D3:1 D2:1
+(points 2 579 490 610 490))
+(connect D4:1 D3:1
+(points 4 59 400 80 400 80 490 100 490))
+(connect D4:1 D5:1
+(points 4 59 400 80 400 80 580 100 580))
+(connect D4:1 D6:1
+(points 4 59 400 80 400 80 670 100 670))
+(connect D5:1 D7:1
+(points 2 579 580 610 580))
+(connect D6:1 D8:1
+(points 2 579 670 610 670))
+(connect D4:1 D9:1
+(points 4 59 400 80 400 80 760 100 760))
+(connect D9:1 D10:1
+(points 6 579 760 600 760 600 810 120 810 120 880 140 880))
+(connect D10:1 D11:1
+(points 2 539 880 610 880))
+(connect D9:1 D12:1
+(points 6 579 760 600 760 600 810 120 810 120 960 140 960))
+(connect D12:1 D13:1
+(points 2 539 960 610 960))
+(connect D4:1 D14:1
+(points 2 59 400 100 400))
+(connect D14:1 D15:1
+(points 2 579 400 603 400)))
+(stackingOrder 15 12 4 2 7 8 11 13 14 1 0 3 5 6 9 10))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

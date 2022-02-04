@@ -1,0 +1,2119 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:08:09 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F2 F3 M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 17)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 5)
+(context 2
+(properties
+(name "NewMailMessage")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "New Mail Message")
+(popupMoveable 1)
+(popupTitleTextColor "White")
+(popupTitleBackgroundColor "Dark Blue"))
+(interface
+(input 1
+(name "LocalHostname")
+(optional yes))
+(input 2
+(name "ServerHostname")
+(optional yes))
+(output 1
+(type data)
+(name "Result")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Cancel")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 LITERALCONSTANT
+(properties
+(name "From:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "someone@domainname"))
+(initValue Text
+(data  ""))))
+(device 1 LITERALCONSTANT
+(properties
+(name "To:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "someone@domainname"))
+(initValue Text
+(data  ""))))
+(device 2 LITERALCONSTANT
+(properties
+(name "Cc:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Subject:"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "!!!! Test Failed !!!!"))
+(initValue Text
+(data  ""))))
+(device 5 LITERALCONSTANT
+(properties
+(name "Message Body"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 1)
+(data  [ "The test failed." ]))
+(initValue Text
+(data  ""))))
+(device 6 CALL
+(properties
+(name "Call smtpSendmail")
+(callFunc "smtpSendmail")
+(parmMode rev30))
+(interface
+(input 1
+(name "LocalHostname")
+(optional yes))
+(input 2
+(name "From:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "To:")
+(requires
+(datatype Text))
+(optional yes))
+(input 4
+(name "Cc:")
+(requires
+(datatype Text))
+(optional yes))
+(input 5
+(name "Subject:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 6
+(name "Body:")
+(optional yes))
+(input 7
+(name "ServerHostname:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Success")
+(lock name constraints)
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes))))
+(device 7 LABEL
+(properties
+(name "From:")
+(labelValue "From:"))
+(implementation))
+(device 8 LABEL
+(properties
+(name "To:")
+(labelValue "To:"))
+(implementation))
+(device 9 LABEL
+(properties
+(name "Subject:")
+(labelValue "Subject:"))
+(implementation))
+(device 10 LABEL
+(properties
+(name "Cc:")
+(labelValue "Cc:"))
+(implementation))
+(device 11 CONFIRM25
+(properties
+(name "Send"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 12 CONFIRM25
+(properties
+(name "Cancel")
+(enterButton 0)
+(escapeButton 0))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 13 EXITCONTEXT)
+(device 14 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 15 CONSTANT
+(properties
+(name "0"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 16 EXITCONTEXT)
+(configuration
+(connect D10:0 D0:0)
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D2:0 D3:0)
+(connect D3:0 D4:0)
+(connect I1:1 D5:1)
+(connect D0:1 D5:2)
+(connect D1:1 D5:3)
+(connect D2:1 D5:4)
+(connect D3:1 D5:5)
+(connect D4:1 D5:6)
+(connect I2:1 D5:7)
+(connect D11:0 D12:0)
+(connect D14:1 D13:1)
+(connect D5:1 D13:2)
+(connect D5:0 D15:0)
+(connect D13:1 O1:1)
+(connect D11:1 O2:1))
+(ShowOnExecPanel
+(relativeOrigin 296 94)))
+(contextCarrier
+(wndOrigin 2 647)
+(wndRestoredOrigin 22 22)
+(wndRestoredExtent 632 518)
+(wndState min)
+(active detail)
+(panel
+(extent 447 464)
+(gridSize 4)
+(widget 0 detail
+(relativeOrigin 71 8)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 376 36))
+(widget 6 detail
+(relativeOrigin 0 12)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 72 28)
+(just r))
+(widget 2 detail
+(relativeOrigin 71 80)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 376 36))
+(widget 1 detail
+(relativeOrigin 71 44)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 376 36))
+(widget 7 detail
+(relativeOrigin 0 48)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 72 28)
+(just r))
+(widget 9 detail
+(relativeOrigin 0 84)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 72 28)
+(just r))
+(widget 3 detail
+(relativeOrigin 71 116)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 376 36))
+(widget 8 detail
+(relativeOrigin 0 120)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 72 28)
+(just r))
+(widget 4 detail
+(relativeOrigin 0 164)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 448 252))
+(widget 10 detail
+(relativeOrigin 128 428)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 80 24))
+(widget 11 detail
+(relativeOrigin 220 428)
+(bg "Gray")
+(title off)
+(borderStyle none)
+(extent 80 24))
+(panelBg "Gray"))
+(detail
+(extent 632 518)
+(anchorPt -80 -122)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 41 16))
+(open
+(extent 194 31))
+(pinCenter 160 280))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 25 16))
+(open
+(extent 194 31))
+(pinCenter 160 310))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 25 16))
+(open
+(extent 193 31))
+(pinCenter 160 340))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 56 16))
+(open
+(extent 194 31))
+(pinCenter 160 370))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 102 16))
+(open
+(extent 263 60))
+(pinCenter 160 400))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 127 0))
+(open
+(extent 196 229))
+(terminals on)
+(pinCenter 460 340))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 41 0))
+(open
+(extent 49 28)
+(just l))
+(title off)
+(pinCenter 220 550))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 25 0))
+(open
+(extent 33 28)
+(just l))
+(title off)
+(pinCenter 270 550))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 56 0))
+(open
+(extent 63 28)
+(just l))
+(title off)
+(pinCenter 370 550))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 25 0))
+(open
+(extent 33 28)
+(just l))
+(title off)
+(pinCenter 310 550))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 37 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 160 220))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 48 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 560 510))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 560 550))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 670 260))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 24 16))
+(open
+(extent 84 30)
+(showFormat int))
+(pinCenter 660 200))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 105 16))
+(open)
+(terminals on)
+(pinCenter 430 480))
+(connect D10:0 D0:0
+(points 2 160 233 160 269))
+(connect D0:0 D1:0
+(points 2 160 290 160 299))
+(connect D1:0 D2:0
+(points 2 160 320 160 329))
+(connect D2:0 D3:0
+(points 2 160 350 160 359))
+(connect D3:0 D4:0
+(points 2 160 380 160 389))
+(connect I1:1 D5:1
+(points 4 80 250 159 250 159 250 239 250))
+(connect D0:1 D5:2
+(points 2 183 280 239 280))
+(connect D1:1 D5:3
+(points 2 175 310 239 310))
+(connect D2:1 D5:4
+(points 2 175 340 239 340))
+(connect D3:1 D5:5
+(points 2 190 370 239 370))
+(connect D4:1 D5:6
+(points 2 213 400 239 400))
+(connect I2:1 D5:7
+(points 4 80 510 90 510 90 430 239 430))
+(connect D11:0 D12:0
+(points 2 560 523 560 539))
+(connect D14:1 D13:1
+(points 6 674 200 690 200 690 230 640 230 640 250 653 250))
+(connect D5:1 D13:2
+(points 4 620 280 630 280 630 270 653 270))
+(connect D5:0 D15:0
+(points 2 430 457 430 469))
+(connect D13:1 O1:1
+(points 4 687 260 700 260 700 250 711 250))
+(connect D11:1 O2:1
+(points 4 586 510 648 510 648 510 711 510)))
+(stackingOrder 7 11 13 14 12 6 9 8 15 5 4 3 2 1 0 10))))
+(context 3
+(properties
+(name "ParseAddressString")
+(trigMode deg)
+(nextID 17)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "String")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(type data)
+(name "StringArray")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "numDims")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 1 FROMARRAY
+(properties
+(expr 1 ""))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary"))
+(output 1
+(name "SubAry")
+(tag "Result"))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 2 IFTHENELSE
+(properties
+(name "If numDims == 1 pass thru address")
+(cases 2 "numDims==1" "numDims==0"))
+(interface
+(input 1
+(name "numDims")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else")
+(lock name constraints))))
+(device 3 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(device 4 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A"))
+(input 2
+(name "B"))
+(output 1
+(name "Data"))))
+(device 5 FROMSTRING
+(properties
+(name "Parse Comma delimited scalar text")
+(transactions 1 "READ TEXT x TOKEN EXCLUDE:\", \\t\\n\" ARRAY:*"))
+(interface
+(input 1
+(name "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 9 FORMULA
+(properties
+(name "Trim Lead/Trail Whitespace & Append \\n")
+(expr 1 "strTrim(a)+\"\\n\""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 ESCAPE
+(properties
+(errorCode 1)
+(message "Address can\'t be an array with > 1 dimensions")))
+(device 16 FORMULA
+(properties
+(name "size of array")
+(expr 1 "totSize(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect I1:1 D0:1)
+(connect D0:3 D1:1)
+(connect D1:1 D2:0)
+(connect I1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D4:1 D3:2)
+(connect D1:2 D4:0)
+(connect D5:1 D4:1)
+(connect I1:1 D5:1)
+(connect D1:3 D6:0)
+(connect D3:1 D7:1)
+(connect D3:1 O1:1)
+(connect D7:1 O2:1)))
+(contextCarrier
+(wndOrigin 162 647)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 862 457)
+(wndState min)
+(active detail)
+(detail
+(extent 862 457)
+(anchorPt -66 -92)
+(configuration
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 77 54)
+(iconImage "unbuild.icn"))
+(open
+(extent 111 110))
+(terminals on)
+(pinCenter 180 170))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 240 34))
+(open
+(extent 156 62))
+(terminals on)
+(pinCenter 380 170))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 720 190))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 29 25))
+(open)
+(terminals on)
+(pinCenter 870 200))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 238 16))
+(open
+(extent 338 74))
+(terminals on)
+(pinCenter 580 320))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 281 16))
+(open
+(extent 237 32))
+(terminals on)
+(pinCenter 280 320))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 79 16))
+(open
+(extent 238 57))
+(pinCenter 510 230))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 84 16))
+(open
+(extent 92 31))
+(terminals on)
+(pinCenter 850 440))
+(connect I1:1 D0:1
+(points 4 66 320 80 320 80 170 139 170))
+(connect D0:3 D1:1
+(points 2 221 170 257 170))
+(connect D1:1 D2:0
+(points 3 502 160 720 160 720 179))
+(connect I1:1 D2:1
+(points 6 66 320 80 320 80 260 570 260 570 190 700 190))
+(connect D2:1 D3:1
+(points 2 740 190 853 190))
+(connect D4:1 D3:2
+(points 4 701 320 760 320 760 210 853 210))
+(connect D1:2 D4:0
+(points 3 502 170 580 170 580 309))
+(connect D5:1 D4:1
+(points 2 423 320 458 320))
+(connect I1:1 D5:1
+(points 4 66 320 101 320 101 320 137 320))
+(connect D1:3 D6:0
+(points 3 502 180 510 180 510 219))
+(connect D3:1 D7:1
+(points 6 887 200 910 200 910 240 790 240 790 440 805 440))
+(connect D3:1 O1:1
+(points 4 887 200 907 200 907 200 927 200))
+(connect D7:1 O2:1
+(points 4 894 440 910 440 910 440 927 440)))
+(stackingOrder 4 6 3 2 0 1 5 7))))
+(context 4
+(properties
+(name "SMTPSendMail")
+(trigMode deg)
+(nextID 62)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "LocalHostname")
+(optional yes))
+(input 2
+(name "From:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "To:")
+(requires
+(datatype Text))
+(optional yes))
+(input 4
+(name "Cc:")
+(requires
+(datatype Text))
+(optional yes))
+(input 5
+(name "Subject:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(input 6
+(name "Body:")
+(optional yes))
+(input 7
+(name "ServerHostname:")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(type data)
+(name "Success")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 TOFROMSOCKET
+(properties
+(name "SEND Rest of Header and Msg")
+(transactions 5 "WRITE TEXT \"X-Mailer: Keysight VEE \"+Version EOL"
+"WRITE TEXT Body EOL" "WRITE TEXT \".\" EOL" "WRITE TEXT \"QUIT\" EOL"
+"READ TEXT response STR"))
+(interface
+(input 1
+(name "Version")
+(optional yes))
+(input 2
+(name "Body")
+(optional yes))
+(input 3
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "response")
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs "\n")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 60)
+(byteOrder 0))))
+(device 1 FORMULA
+(properties
+(name "whichVersion()")
+(expr 1 "whichVersion()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 CONTEXT
+(properties
+(name "Generate Date: string")
+(trigMode deg)
+(nextID 14)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "date string")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 6 FORMULA
+(properties
+(name "now()")
+(expr 1 "now()"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(expr 1 "\"Date: \"+wday+\", \"+day+\" \"+mon+\" \"+year+\" \"+time"))
+(interface
+(input 1
+(name "wday")
+(optional yes))
+(input 2
+(name "day")
+(optional yes))
+(input 3
+(name "mon")
+(optional yes))
+(input 4
+(name "year")
+(optional yes))
+(input 5
+(name "time")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 TOSTRING
+(properties
+(transactions 1 "WRITE TEXT a DATE:WDMY TIME:HMS:H24 EOL"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 12 FROMSTRING
+(properties
+(transactions 7 "READ TEXT wday TOKEN" "READ TEXT day TOKEN EXCLUDE:\"/\""
+"/NOP/ READ TEXT x TOKEN INCLUDE:\"/\"" "READ TEXT month TOKEN EXCLUDE:\"/\""
+"/NOP/ READ TEXT x TOKEN INCLUDE:\"/\"" "READ TEXT year TOKEN"
+"READ TEXT theTime STR"))
+(interface
+(input 1
+(name "AString")
+(requires
+(datatype Text))
+(lock name constraints))
+(output 1
+(name "wday")
+(optional yes))
+(output 2
+(name "day")
+(optional yes))
+(output 3
+(name "month")
+(optional yes))
+(output 4
+(name "year")
+(optional yes))
+(output 5
+(name "theTime")
+(optional yes))
+(output 6
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath string read "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(configuration
+(connect D3:1 D1:1)
+(connect D3:2 D1:2)
+(connect D3:3 D1:3)
+(connect D3:4 D1:4)
+(connect D3:5 D1:5)
+(connect D0:1 D2:1)
+(connect D2:1 D3:1)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 714 400)
+(anchorPt 128 -41)
+(configuration
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 69 31))
+(terminals on)
+(pinCenter -70 130))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 350 119))
+(terminals on)
+(pinCenter 335 240))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 70 17))
+(open
+(extent 254 78))
+(terminals on)
+(pinCenter 10 130))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 99 117))
+(open
+(extent 271 193))
+(terminals on)
+(pinCenter 10 250))
+(connect D3:1 D1:1
+(points 2 62 200 117 200))
+(connect D3:2 D1:2
+(points 2 62 220 117 220))
+(connect D3:3 D1:3
+(points 2 62 240 117 240))
+(connect D3:4 D1:4
+(points 2 62 260 117 260))
+(connect D3:5 D1:5
+(points 2 62 280 117 280))
+(connect D0:1 D2:1
+(points 2 -44 130 -28 130))
+(connect D2:1 D3:1
+(points 6 47 130 70 130 70 160 -60 160 -60 250 -42 250))
+(connect D1:1 O1:1
+(points 4 562 240 570 240 570 240 585 240)))
+(stackingOrder 2 0 1 3))))
+(device 9 TOFROMSOCKET
+(properties
+(name "SEND HELO / MAIL FROM")
+(transactions 5 "READ TEXT response1 STR"
+"WRITE TEXT \"HELO \"+LocalHostname EOL" "READ TEXT response2 STR"
+"WRITE TEXT \"MAIL FROM:<\"+From+\">\" EOL" "READ TEXT response3 STR"))
+(interface
+(input 1
+(name "LocalHostname")
+(optional yes))
+(input 2
+(name "From")
+(optional yes))
+(input 3
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "response1")
+(optional yes))
+(output 2
+(name "response2")
+(optional yes))
+(output 3
+(name "response3")
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 10 TOFROMSOCKET
+(properties
+(name "SEND RECPT TO / To:")
+(transactions 2 "WRITE TEXT \"RCPT TO:<\"+To+\">\" EOL" "READ TEXT response STR"
+))
+(interface
+(input 1
+(name "To")
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "response")
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 11 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 16 CALL
+(properties
+(name "Call ParseAddressString")
+(callFunc "ParseAddressString")
+(parmMode rev30))
+(interface
+(input 1
+(name "String")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "StringArray")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "numDims")
+(lock name constraints)
+(optional yes))))
+(device 19 IFTHENELSE
+(properties
+(name "Get Each Recipient / Test for (null)")
+(cases 1 "(strlen(TextArray[i])>0)*TextArray[i]"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(input 2
+(name "TextArray")
+(requires
+(datatype Text)
+(shape "Array 1D"))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 22 IFTHENELSE
+(properties
+(name "Get Each Recipient / Test for (null)")
+(cases 1 "(strlen(TextArray[i])>0)*TextArray[i]"))
+(interface
+(input 1
+(name "i")
+(optional yes))
+(input 2
+(name "TextArray")
+(requires
+(datatype Text)
+(shape "Array 1D"))
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 23 FORCOUNT
+(properties
+(count 1))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 24 CALL
+(properties
+(name "Call ParseAddressString")
+(callFunc "ParseAddressString")
+(parmMode rev30))
+(interface
+(input 1
+(name "String")
+(requires
+(datatype Text))
+(optional yes))
+(output 1
+(name "StringArray")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "numDims")
+(lock name constraints)
+(optional yes))))
+(device 25 TOFROMSOCKET
+(properties
+(name "SEND RECPT TO / Cc:")
+(transactions 2 "WRITE TEXT \"RCPT TO:<\"+To+\">\" EOL" "READ TEXT response STR"
+))
+(interface
+(input 1
+(name "To")
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "response")
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 27 TOFROMSOCKET
+(properties
+(name "SEND 1st part of Header")
+(transactions 4 "WRITE TEXT DateString EOL"
+"WRITE TEXT \"Subject: \"+Subject EOL" "WRITE TEXT \"From: \"+From EOL"
+"WRITE TEXT \"To: \", To EOL"))
+(interface
+(input 1
+(name "DateString")
+(optional yes))
+(input 2
+(name "Subject")
+(optional yes))
+(input 3
+(name "From")
+(optional yes))
+(input 4
+(name "To")
+(optional yes))
+(input 5
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 30 TOFROMSOCKET
+(properties
+(name "SEND Cc: part of Header")
+(transactions 1 "WRITE TEXT \"Cc: \", Cc EOL"))
+(interface
+(input 1
+(name "Cc")
+(optional yes))
+(input 2
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 31 IFTHENELSE
+(properties
+(name "If Cc: Not Empty")
+(cases 1 "strlen(A)!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 33 IFTHENELSE
+(properties
+(name "Mail IFF To: is not empty")
+(cases 1 "strlen(a)!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 41 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 43 NEXT)
+(device 45 NEXT)
+(device 47 TOFROMSOCKET
+(properties
+(name "SEND \"DATA\" Command")
+(transactions 1 "WRITE TEXT \"DATA\" EOL"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 48 TOFROMSOCKET
+(properties
+(name " Wait for 354 repsonse")
+(transactions 1 "READ TEXT response STR"))
+(interface
+(input 1
+(type control)
+(name "Host Name")
+(tag "Host Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "response")
+(optional yes))
+(output 2
+(type exception)
+(name "Error")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath socket "connect" "machine.domainname" 25
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block)
+(timeout 30)
+(byteOrder 0))))
+(device 49 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 51 IFTHENELSE
+(properties
+(name "354 Response?")
+(cases 1 "strFromThru(str, 0, 2)==\"354\""))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 52 BREAK)
+(device 53 IFTHENELSE
+(properties
+(name "Success?")
+(cases 1 "strFromThru(str, 0, 2)==\"250\""))
+(interface
+(input 1
+(name "str")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 54 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Data"))))
+(device 59 EXITCONTEXT
+(properties
+(name "Exit")))
+(device 60 GATE
+(interface
+(input 1
+(name "A")
+(tag "InData"))
+(output 1
+(name "X"))))
+(configuration
+(connect D14:0 D0:0)
+(connect D1:1 D0:1)
+(connect I6:1 D0:2)
+(connect I7:1 D0:3)
+(connect D15:1 D3:0)
+(connect I1:1 D3:1)
+(connect I2:1 D3:2)
+(connect I7:1 D3:3)
+(connect D3:0 D4:0)
+(connect D7:1 D4:1)
+(connect I7:1 D4:2)
+(connect D6:2 D5:1)
+(connect I3:1 D6:1)
+(connect D5:1 D7:1)
+(connect D6:1 D7:2)
+(connect D9:1 D8:1)
+(connect D10:1 D8:2)
+(connect D5:0 D9:0)
+(connect D10:2 D9:1)
+(connect I4:1 D10:1)
+(connect D8:1 D11:1)
+(connect I7:1 D11:2)
+(connect D21:0 D12:0)
+(connect D2:1 D12:1)
+(connect I5:1 D12:2)
+(connect I2:1 D12:3)
+(connect D6:1 D12:4)
+(connect I7:1 D12:5)
+(connect D14:1 D13:0)
+(connect D10:1 D13:1)
+(connect I7:1 D13:2)
+(connect D12:0 D14:0)
+(connect D10:1 D14:1)
+(connect I3:1 D15:1)
+(connect D0:1 D16:1)
+(connect D7:2 D17:0)
+(connect D8:2 D18:0)
+(connect D9:0 D19:0)
+(connect I7:1 D19:1)
+(connect D21:1 D20:0)
+(connect I7:1 D20:1)
+(connect D19:0 D21:0)
+(connect D20:1 D22:1)
+(connect D22:1 D23:0)
+(connect D0:1 D24:1)
+(connect D15:2 D25:1)
+(connect D24:1 D25:2)
+(connect D24:2 D25:3)
+(connect D27:0 D26:0)
+(connect D25:1 D27:1)
+(connect D27:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 1063 810)
+(anchorPt -264 -156)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 213 34))
+(open
+(extent 344 191))
+(terminals on)
+(pinCenter 860 850))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 102 16))
+(open
+(extent 127 31))
+(terminals on)
+(pinCenter 660 820))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 150 16))
+(terminals on)
+(pinCenter 660 610))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 182 45))
+(open
+(extent 304 196))
+(terminals on)
+(pinCenter 860 280))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 159 25))
+(open
+(extent 344 151))
+(terminals on)
+(pinCenter 860 340))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 450 260))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 169 25))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 300 250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 240 25))
+(open
+(extent 286 63))
+(terminals on)
+(pinCenter 380 340))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 240 25))
+(open
+(extent 286 63))
+(terminals on)
+(pinCenter 380 550))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 70 52)
+(iconImage "loop.icn"))
+(open
+(extent 106 32))
+(pinCenter 450 480))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 169 25))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 300 470))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 159 25))
+(open
+(extent 344 151))
+(terminals on)
+(pinCenter 860 410))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 170 54))
+(open
+(extent 384 186))
+(terminals on)
+(pinCenter 860 650))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 172 25))
+(open
+(extent 344 136))
+(terminals on)
+(pinCenter 860 770))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 114 53))
+(terminals on)
+(pinCenter 700 730))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 170 25))
+(open
+(extent 145 53))
+(terminals on)
+(pinCenter 730 190))
+(devCarrierFor 41
+(active open)
+(icon)
+(open
+(extent 172 26))
+(title off)
+(pinCenter 1100 900))
+(devCarrierFor 43
+(active icon)
+(icon
+(extent 31 16))
+(open)
+(terminals on)
+(pinCenter 510 380))
+(devCarrierFor 45
+(active icon)
+(icon
+(extent 31 16))
+(open)
+(terminals on)
+(pinCenter 510 590))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 171 22))
+(open
+(extent 344 141))
+(terminals on)
+(pinCenter 860 470))
+(devCarrierFor 48
+(active icon)
+(icon
+(extent 158 25))
+(open
+(extent 344 141))
+(terminals on)
+(pinCenter 860 580))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 74 52)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 710 550))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 219 53))
+(terminals on)
+(pinCenter 1020 580))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 41 16))
+(open)
+(terminals on)
+(pinCenter 1070 630))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 67 25))
+(open
+(extent 219 53))
+(terminals on)
+(pinCenter 1050 850))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 29 34))
+(open
+(extent 12 62))
+(terminals on)
+(pinCenter 1140 540))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 26 16))
+(open)
+(terminals on)
+(pinCenter 1190 580))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 35 16))
+(open)
+(terminals on)
+(pinCenter 1190 540))
+(connect D14:0 D0:0
+(points 6 700 745 700 770 730 770 730 810 860 810 860 830))
+(connect D1:1 D0:1
+(points 4 713 820 730 820 730 840 751 840))
+(connect I6:1 D0:2
+(points 4 264 780 270 780 270 850 751 850))
+(connect I7:1 D0:3
+(points 4 264 890 550 890 550 860 751 860))
+(connect D15:1 D3:0
+(points 3 817 180 860 180 860 255))
+(connect I1:1 D3:1
+(points 4 264 230 520 230 520 270 766 270))
+(connect I2:1 D3:2
+(points 4 264 340 520 340 520 280 766 280))
+(connect I7:1 D3:3
+(points 6 264 890 550 890 550 470 750 470 750 290 766 290))
+(connect D3:0 D4:0
+(points 2 860 305 860 325))
+(connect D7:1 D4:1
+(points 2 502 330 778 330))
+(connect I7:1 D4:2
+(points 6 264 890 550 890 550 470 750 470 750 350 778 350))
+(connect D6:2 D5:1
+(points 2 387 260 412 260))
+(connect I3:1 D6:1
+(points 4 264 450 190 450 190 250 213 250))
+(connect D5:1 D7:1
+(points 6 487 260 510 260 510 310 250 310 250 330 257 330))
+(connect D6:1 D7:2
+(points 6 387 240 400 240 400 290 240 290 240 350 257 350))
+(connect D9:1 D8:1
+(points 8 487 480 520 480 520 530 440 530 440 520 250 520 250 540 257 540))
+(connect D10:1 D8:2
+(points 6 387 460 400 460 400 440 190 440 190 560 257 560))
+(connect D5:0 D9:0
+(points 2 450 288 450 451))
+(connect D10:2 D9:1
+(points 2 387 480 412 480))
+(connect I4:1 D10:1
+(points 4 264 560 198 560 198 470 213 470))
+(connect D8:1 D11:1
+(points 6 502 540 530 540 530 460 550 460 550 400 778 400))
+(connect I7:1 D11:2
+(points 6 264 890 550 890 550 470 750 470 750 420 778 420))
+(connect D21:0 D12:0
+(points 6 710 578 710 590 760 590 760 610 860 610 860 620))
+(connect D2:1 D12:1
+(points 4 737 610 750 610 750 630 772 630))
+(connect I5:1 D12:2
+(points 4 264 670 190 670 190 640 772 640))
+(connect I2:1 D12:3
+(points 6 264 340 520 340 520 280 560 280 560 650 772 650))
+(connect D6:1 D12:4
+(points 6 387 240 400 240 400 200 570 200 570 660 772 660))
+(connect I7:1 D12:5
+(points 4 264 890 550 890 550 670 772 670))
+(connect D14:1 D13:0
+(points 3 757 720 860 720 860 755))
+(connect D10:1 D13:1
+(points 8 387 460 400 460 400 430 540 430 540 780 750 780 750 760 771 760))
+(connect I7:1 D13:2
+(points 6 264 890 550 890 550 790 760 790 760 780 771 780))
+(connect D12:0 D14:0
+(points 4 860 679 860 700 700 700 700 715))
+(connect D10:1 D14:1
+(points 6 387 460 400 460 400 430 540 430 540 730 642 730))
+(connect I3:1 D15:1
+(points 6 264 450 190 450 190 240 170 240 170 190 642 190))
+(connect D0:1 D16:1
+(points 4 969 850 990 850 990 900 1011 900))
+(connect D7:2 D17:0
+(points 3 502 350 510 350 510 369))
+(connect D8:2 D18:0
+(points 3 502 560 510 560 510 579))
+(connect D9:0 D19:0
+(points 6 450 508 450 520 510 520 510 450 860 450 860 456))
+(connect I7:1 D19:1
+(points 4 264 890 550 890 550 470 772 470))
+(connect D21:1 D20:0
+(points 3 749 550 860 550 860 565))
+(connect I7:1 D20:1
+(points 8 264 890 550 890 550 470 750 470 750 490 770 490 770 580 778 580))
+(connect D19:0 D21:0
+(points 4 860 483 860 500 710 500 710 521))
+(connect D20:1 D22:1
+(points 4 941 570 950 570 950 580 962 580))
+(connect D22:1 D23:0
+(points 5 1077 570 1090 570 1090 610 1070 610 1070 619))
+(connect D0:1 D24:1
+(points 2 969 850 1014 850))
+(connect D15:2 D25:1
+(points 4 817 200 970 200 970 530 1123 530))
+(connect D24:1 D25:2
+(points 6 1086 840 1110 840 1110 600 1100 600 1100 540 1123 540))
+(connect D24:2 D25:3
+(points 6 1086 860 1120 860 1120 590 1110 590 1110 550 1123 550))
+(connect D27:0 D26:0
+(points 2 1190 550 1190 569))
+(connect D25:1 D27:1
+(points 2 1157 540 1170 540))
+(connect D27:1 O1:1
+(points 4 1210 540 1227 540 1227 560 1326 560)))
+(stackingOrder 5 9 8 10 7 17 18 14 25 27 26 21 15 6 20 19 11 4 3 12 13 2 1 16 24
+22 23 0)))))
+(device 7 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 8 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 18
+"PURPOSE:      Illustrates use of the To/From Socket object to implement send-only"
+"              Simple Mail Transfer Protocol (SMTP) functionality."
+"                            "
+"USER INPUT REQUIRED: FROM, TO, LOCAL HOSTNAME and SERVER HOSTNAME are required.  "
+"              CC, SUBJECT, and MESSAGE are optional.  Press Run to send message."
+""
+"EXPLANATION:  Performing a \"Merge Library\" or dynamically loading the library"
+"              lib/SMTPMail.vee into your program provides you with an easy way to"
+"              sent SMTP mail whenever certain conditions occur within your program."
+"              For instance, when a test fails you might want to have mail sent"
+"              to any interested parties.  This has been tested using ESMTP on HP-UX."
+"" "              "
+"IMPLEMENTATION:  The SMTP functionality is implemented primarily in SMTPSendMail."
+"             It uses To/From Socket objects to send commands and receive responses"
+"             from a SMTP port (25) on a host machine running the SMTP daemon.  "
+"             By sending a basic set of commands it is relatively easy to send"
+"             mail.")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 195 67)))
+(contextCarrier
+(active detail)
+(panel
+(extent 780 434)
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 780 380)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 340 390)
+(title off)
+(borderStyle none)
+(extent 80 30)))
+(detail
+(extent 250 234)
+(anchorPt 97 131)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 -80)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 309 72)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 94 14)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 469 272)
+(anchorPt 256 99)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 853 473)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 40))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 60 55 60 70 -210 70 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 60 -10 60 25)))
+(stackingOrder 0 1 2))))
+(device 11 CALL
+(properties
+(name "Call NewMailMessage")
+(callFunc "NewMailMessage")
+(parmMode rev30))
+(interface
+(input 1
+(name "LocalHostname")
+(optional yes))
+(input 2
+(name "ServerHostname")
+(optional yes))
+(output 1
+(name "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Cancel")
+(lock name constraints)
+(optional yes))))
+(device 12 LITERALCONSTANT
+(properties
+(name "Server Hostname"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "machine.domainname"))
+(initValue Text
+(data  ""))))
+(device 13 FORMULA
+(properties
+(name "Succeded?")
+(expr 1 "(A ? \"Mail sent\" : \"Mail not sent\")"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 14 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(name "Instructions")
+(text2 4 "Enter your local hostname and then enter"
+"your SMTP server hostname and press Run."
+"NOTE: use fully qualified hostnames of" "the form machine.domainname")))
+(device 16 LITERALCONSTANT
+(properties
+(name "Local Hostname"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "machine.domainname"))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D7:1 D2:1)
+(connect D3:1 D2:2)
+(connect D2:1 D4:1)
+(connect D4:1 D5:1)))
+(contextCarrier
+(wndOrigin 2 0)
+(wndState res)
+(active detail)
+(detail
+(extent 779 445)
+(anchorPt 0 119)
+(configuration
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 190 270))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 308 73)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 180 -50))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 149 16))
+(open
+(extent 196 53))
+(terminals on)
+(pinCenter 450 90))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 119 0))
+(open
+(extent 186 30))
+(pinCenter 110 120))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 16))
+(open
+(extent 289 42))
+(terminals on)
+(pinCenter 660 80))
+(devCarrierFor 14
+(active open)
+(icon)
+(open
+(extent 203 34))
+(pinCenter 620 200))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 79 0)
+(iconImage "notepad.icn"))
+(open
+(extent 382 108)
+(editing enabled))
+(pinCenter 560 -30))
+(devCarrierFor 16
+(active open)
+(icon
+(extent 111 0))
+(open
+(extent 186 30))
+(pinCenter 110 60))
+(connect D7:1 D2:1
+(points 4 205 60 220 60 220 80 239 80))
+(connect D3:1 D2:2
+(points 4 205 120 220 120 220 100 239 100))
+(connect D2:1 D4:1
+(points 2 600 80 618 80))
+(connect D4:1 D5:1
+(points 6 701 80 720 80 720 140 500 140 500 200 516 200)))
+(stackingOrder 1 0 5 4 2 7 3 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

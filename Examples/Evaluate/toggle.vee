@@ -1,0 +1,699 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:20:35 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 32)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Button")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 1 TOGGLE25
+(properties
+(name "Check Box")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 TOGGLE25
+(properties
+(name "Switch")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 TOGGLE25
+(properties
+(name "Rocker")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 TOGGLE25
+(properties
+(name "Slider Switch")
+(autoTrigger 1))
+(interface
+(output 1
+(name "Toggle")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 6 KNOB
+(properties
+(autoTrigger 1)
+(range 0 100)
+(detents 1))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  82))
+(initValue Int32
+(data  0))))
+(device 8 LABEL
+(properties
+(name "Toggle Controls")
+(labelValue "Toggle Controls"))
+(implementation))
+(device 10 LABEL
+(properties
+(name "Continuous Controls")
+(labelValue "Continuous Controls"))
+(implementation))
+(device 15 METER
+(properties
+(range 0 10)
+(redRange 9 10)
+(yellowRange 7 9)
+(greenRange 0 7))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))
+(input 2
+(type control)
+(name "Max Value")
+(tag "Max Value")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(type control)
+(name "Min Value")
+(tag "Min Value")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))))
+(device 17 TANK
+(properties
+(split 70)
+(split2 75)
+(range 0 100))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))
+(input 2
+(type control)
+(name "Max Value")
+(tag "Max Value")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 3
+(type control)
+(name "Min Value")
+(tag "Min Value")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))))
+(device 18 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "High")
+(midlabel "Mid")
+(lowlabel "Low"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 19 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "High")
+(midlabel "Mid")
+(lowlabel "Low"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 20 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "High")
+(midlabel "Mid")
+(lowlabel "Low"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 21 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "High")
+(midlabel "Mid")
+(lowlabel "Low"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 22 COLORALARM
+(properties
+(name "C.A.")
+(split 0.33)
+(split2 0.66)
+(hilabel "High")
+(midlabel "Mid")
+(lowlabel "Low"))
+(interface
+(input 1
+(name "Data")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints))))
+(device 24 LABEL
+(properties
+(name "Indicators")
+(labelValue "Indicators"))
+(implementation))
+(device 25 NOTE
+(properties
+(text2 2 "Make control selections.  Watch the " "indicators change.")))
+(device 29 SLIDER
+(properties
+(autoTrigger 1)
+(range 0 10)
+(detents 0.1))
+(interface
+(input 1
+(type control)
+(name "MaxValue")
+(tag "MaxValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(type control)
+(name "MinValue")
+(tag "MinValue")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  4.100000000000001))
+(initValue Real
+(data  0))))
+(device 31 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D17:1 D8:1)
+(connect D5:1 D9:1)
+(connect D4:1 D10:1)
+(connect D1:1 D11:1)
+(connect D0:1 D12:1)
+(connect D3:1 D13:1)
+(connect D2:1 D14:1)))
+(contextCarrier
+(wndOrigin 2 4)
+(wndState res)
+(active panel)
+(panel
+(extent 844 560)
+(gridSize 2)
+(widget 7 detail
+(relativeOrigin 24 248)
+(font "times" 36 bold)
+(title off)
+(borderStyle none)
+(extent 386 44)
+(just l))
+(widget 3 detail
+(relativeOrigin 32 68)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle convex)
+(extent 86 58)
+(scaled on)
+(showTitle on)
+(format hrocker))
+(widget 15 detail
+(relativeOrigin 448 244)
+(font "times" 36 bold)
+(title off)
+(borderStyle none)
+(extent 268 52)
+(just c))
+(widget 1 detail
+(relativeOrigin 154 160)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle convex)
+(extent 164 60)
+(scaled on)
+(format check box))
+(widget 6 detail
+(relativeOrigin 20 10)
+(font "times" 36 bold)
+(title off)
+(borderStyle none)
+(extent 260 52)
+(just l))
+(widget 16 detail
+(relativeOrigin 342 16)
+(title off)
+(borderStyle flat)
+(extent 456 32)
+(editing disabled))
+(widget 0 detail
+(relativeOrigin 28 164)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle convex)
+(extent 90 58)
+(scaled on)
+(format button))
+(widget 4 detail
+(relativeOrigin 156 66)
+(font "helvetica" 20 bold)
+(title off)
+(borderStyle convex)
+(extent 162 60)
+(scaled on)
+(showTitle on)
+(format hslide))
+(widget 9 detail
+(relativeOrigin 618 303)
+(font "helvetica" 20 bold)
+(title on)
+(titleFont "helvetica" 20 bold)
+(borderStyle convex)
+(extent 180 212)
+(layout vertical)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Blue")
+(midcolor "Med Light Blue")
+(lowcolor "Light Blue"))
+(widget 17 detail
+(relativeOrigin 34 300)
+(font "Arial" 20 bold)
+(title on)
+(titleFont "Arial" 20 bold)
+(borderStyle flat)
+(extent 112 218)
+(layout vertical)
+(fastmode off)
+(extratics))
+(widget 2 detail
+(relativeOrigin 340 72)
+(title off)
+(borderStyle convex)
+(extent 46 148)
+(scaled on)
+(showTitle on)
+(format vpaddle))
+(widget 14 detail
+(relativeOrigin 644 160)
+(title off)
+(borderStyle none)
+(extent 64 60)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Red")
+(lowcolor "Light Green")
+(layout round))
+(widget 13 detail
+(relativeOrigin 646 60)
+(title off)
+(borderStyle none)
+(extent 60 70)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Red")
+(lowcolor "Light Green")
+(layout round))
+(widget 12 detail
+(relativeOrigin 550 64)
+(title off)
+(borderStyle none)
+(extent 64 60)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Red")
+(lowcolor "Light Green")
+(layout round))
+(widget 10 detail
+(relativeOrigin 460 64)
+(title off)
+(borderStyle none)
+(extent 68 60)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Red")
+(lowcolor "Light Green")
+(layout round))
+(widget 11 detail
+(relativeOrigin 456 160)
+(title off)
+(borderStyle none)
+(extent 70 60)
+(labelSpacing 2)
+(fastmode on)
+(hicolor "Red")
+(lowcolor "Light Green")
+(layout round))
+(widget 5 detail
+(relativeOrigin 152 328)
+(font "helvetica" 20 bold)
+(title on)
+(titleFont "helvetica" 20 bold)
+(borderStyle flat)
+(extent 164 172)
+(layout horizontal)
+(fastmode off))
+(widget 8 detail
+(relativeOrigin 354 330)
+(font "helvetica" 20 bold)
+(title on)
+(titleFont "helvetica" 20 bold)
+(borderStyle convex)
+(extent 258 156)
+(layout horizontal)
+(extratics)
+(labelSpacing 2)
+(fastmode off)))
+(detail
+(extent 929 647)
+(anchorPt 71 175)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 95 33)
+(scaled on)
+(format button))
+(title off)
+(font "helvetica" 20 bold)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 138 31)
+(scaled on)
+(format check box))
+(title off)
+(font "helvetica" 20 bold)
+(pinCenter 340 60))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 50 0))
+(open
+(extent 57 137)
+(scaled on)
+(showTitle on)
+(format vpaddle))
+(title off)
+(pinCenter 620 -20))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 89 60)
+(scaled on)
+(showTitle on)
+(format hrocker))
+(title off)
+(font "helvetica" 20 bold)
+(titleFont "helvetica" 20 bold)
+(pinCenter 0 70))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 150 61)
+(scaled on)
+(showTitle on)
+(format hslide))
+(title off)
+(font "helvetica" 20 bold)
+(pinCenter 340 -20))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 53 0))
+(open
+(extent 186 195)
+(layout horizontal)
+(fastmode off))
+(font "helvetica" 20 bold)
+(titleFont "helvetica" 20 bold)
+(pinCenter 420 340))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 123 0))
+(open
+(extent 124 29)
+(just l))
+(title off)
+(pinCenter 0 -60))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 161 0))
+(open
+(extent 253 41)
+(just c))
+(title off)
+(font "helvetica" 24 bold)
+(pinCenter 100 160))
+(devCarrierFor 15
+(active open)
+(icon)
+(open
+(extent 182 125)
+(layout horizontal)
+(extratics)
+(labelSpacing 2)
+(fastmode off))
+(pinCenter 210 350))
+(devCarrierFor 17
+(active open)
+(icon)
+(open
+(extent 196 251)
+(layout vertical)
+(labelSpacing 2)
+(fastmode off))
+(pinCenter 640 330))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 75 75)
+(labelSpacing 2)
+(fastmode on)
+(layout round))
+(pinCenter 480 -20))
+(devCarrierFor 19
+(active open)
+(icon)
+(open
+(extent 75 75)
+(labelSpacing 2)
+(fastmode on)
+(layout round))
+(pinCenter 540 90))
+(devCarrierFor 20
+(active open)
+(icon)
+(open
+(extent 75 75)
+(labelSpacing 2)
+(fastmode on)
+(layout round))
+(pinCenter 120 0))
+(devCarrierFor 21
+(active open)
+(icon)
+(open
+(extent 75 75)
+(labelSpacing 2)
+(fastmode on)
+(layout round))
+(pinCenter 210 70))
+(devCarrierFor 22
+(active open)
+(icon)
+(open
+(extent 75 75)
+(labelSpacing 2)
+(fastmode on)
+(layout round))
+(pinCenter 710 -20))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 129 41)
+(just c))
+(title off)
+(font "helvetica" 24 bold)
+(pinCenter 360 160))
+(devCarrierFor 25
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 375 57)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 260 -120))
+(devCarrierFor 29
+(active open)
+(icon
+(extent 55 0))
+(open
+(extent 111 214)
+(layout vertical)
+(fastmode off)
+(extratics))
+(font "Arial" 20 bold)
+(titleFont "Arial" 20 bold)
+(pinCenter 20 340))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter 640 -130))
+(connect D17:1 D8:1
+(points 4 78 340 100 340 100 310 116 310))
+(connect D5:1 D9:1
+(points 4 515 340 530 340 530 250 539 250))
+(connect D4:1 D10:1
+(points 2 417 -20 440 -20))
+(connect D1:1 D11:1
+(points 4 411 60 430 60 430 90 500 90))
+(connect D0:1 D12:1
+(points 2 50 0 80 0))
+(connect D3:1 D13:1
+(points 2 47 70 170 70))
+(connect D2:1 D14:1
+(points 2 651 -20 670 -20)))
+(stackingOrder 7 12 13 3 0 4 10 1 11 2 14 5 9 15 8 17 18 6 16))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

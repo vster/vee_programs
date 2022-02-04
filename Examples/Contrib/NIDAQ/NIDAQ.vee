@@ -1,0 +1,74 @@
+(saveFormat "2.3")
+(date "Mon 09/Feb/2004 15:34:28 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 3)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 IMPORT
+(properties
+(name "Import Library")
+(libType DLL)
+(fileName "\\WINDOWS\\system32\\nidaq32.dll")
+(defnFileName "~installDir\\examples\\contrib\\nidaq\\nidaq.h"))
+(implementation))
+(device 1 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 " This example is provided as an"
+" illustration \"as is\", and Keysight Technologies"
+" makes no warranty of any kind" " with regard to this example.")))
+(device 2 NOTE
+(properties
+(text2 5 "Use this Import Library object" "to include the entry points from"
+"the NI DAQ library in order to " "call them from VEE" "")))
+(configuration))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 521 390)
+(wndState max)
+(active detail)
+(detail
+(extent 749 618)
+(anchorPt 4 3)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 355 117))
+(pinCenter 210 240))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 395 89)
+(editing disabled))
+(pinCenter 520 80))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 255 107)
+(editing enabled))
+(pinCenter 170 90)))
+(stackingOrder 0 1 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

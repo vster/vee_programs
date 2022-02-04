@@ -1,0 +1,1878 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:37:25 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "hpe1488"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 904)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1488a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "hpe1431"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 902)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hpe1431a.cid")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 91)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 HPIDSTATE
+(properties
+(name "hpe1431"))
+(interface
+(input 1
+(name "SWEEP_POINTS")
+(tag "SWEEP_POINTS")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1431a.cid")
+(driver "hpe1431")
+(state
+(idComp
+(name "MENU")
+(typeStr "Enum")
+(state "Valid")
+(value "MEAS"))
+(idComp
+(name "MODULE")
+(typeStr "Enum")
+(state "Valid")
+(value "M1"))
+(idComp
+(name "MAXCHANNUMBER")
+(typeStr "Int16")
+(state "Valid")
+(value 8))
+(idComp
+(name "INCREMENTALSET")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "INP_STATES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( -255 -1 -1 -1 -1 -1)))
+(idComp
+(name "INP_FILTERS")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( -1 -1 -1 -1 -1 -1)))
+(idComp
+(name "BIASES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( 0 0 0 0 0 0)))
+(idComp
+(name "COUPLINGS")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 12)
+(values ( 21845 21845 21845 21845 21845 21845 21845 21845 21845 21845 21845
+21845)))
+(idComp
+(name "SHIELDS")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( -1 -1 -1 -1 -1 -1)))
+(idComp
+(name "INP_RANGES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 48)
+(values ( 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570
+2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570
+2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570 2570
+2570 2570)))
+(idComp
+(name "TRIG_STATES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( 0 0 0 0 0 0)))
+(idComp
+(name "TRIG_MODES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( 0 0 0 0 0 0)))
+(idComp
+(name "TRIG_SLOPES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( -1 -1 -1 -1 -1 -1)))
+(idComp
+(name "TRIG_LEVELS")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 96)
+(values ( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)))
+(idComp
+(name "TRIG_HYSTS")
+(typeStr "Real Array")
+(state "Valid")
+(numRows 1)
+(numCols 96)
+(values ( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)))
+(idComp
+(name "CAL_STATES")
+(typeStr "Int16 Array")
+(state "Valid")
+(numRows 1)
+(numCols 6)
+(values ( -1 -1 -1 -1 -1 -1)))
+(idComp
+(name "HPIB_FORMAT")
+(typeStr "Enum")
+(state "Valid")
+(value "REAL32"))
+(idComp
+(name "TRACE_LABEL1")
+(typeStr "Text")
+(state "Valid")
+(value "Ch 1"))
+(idComp
+(name "TRACE_LABEL2")
+(typeStr "Text")
+(state "Valid")
+(value "Off2"))
+(idComp
+(name "TRACE_LABEL3")
+(typeStr "Text")
+(state "Valid")
+(value "Off3"))
+(idComp
+(name "TRACE_LABEL4")
+(typeStr "Text")
+(state "Valid")
+(value "Off4"))
+(idComp
+(name "TRACE_LABEL5")
+(typeStr "Text")
+(state "Valid")
+(value "Off5"))
+(idComp
+(name "TRACE_LABEL6")
+(typeStr "Text")
+(state "Valid")
+(value "Off6"))
+(idComp
+(name "TRACE_LABEL7")
+(typeStr "Text")
+(state "Valid")
+(value "Off7"))
+(idComp
+(name "TRACE_LABEL8")
+(typeStr "Text")
+(state "Valid")
+(value "Off8"))
+(idComp
+(name "DIRECTORY")
+(typeStr "Text")
+(state "Valid")
+(value ""))
+(idComp
+(name "FILE_EXTENSION")
+(typeStr "Text")
+(state "Valid")
+(value "DAT"))
+(idComp
+(name "FILE_BASE")
+(typeStr "Text")
+(state "Valid")
+(value "E1431A"))
+(idComp
+(name "INP1")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP8")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "INP_FILTER1")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER2")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER3")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER4")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER5")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER6")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER7")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "INP_FILTER8")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "DSP_FILTER")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "BIAS1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "BIAS8")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "COUPLING1")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING2")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING3")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING4")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING5")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING6")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING7")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "COUPLING8")
+(typeStr "Enum")
+(state "Valid")
+(value "DC"))
+(idComp
+(name "DSP_BPASS")
+(typeStr "Enum")
+(state "Valid")
+(value "SING"))
+(idComp
+(name "SHIELD1")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD2")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD3")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD4")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD5")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD6")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD7")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "SHIELD8")
+(typeStr "Enum")
+(state "Valid")
+(value "FLO"))
+(idComp
+(name "AUTO_RANGE_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 1))
+(idComp
+(name "MVOLT_RANGE1")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE2")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE3")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE4")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE5")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE6")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE7")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "MVOLT_RANGE8")
+(typeStr "Real")
+(state "Valid")
+(value -10))
+(idComp
+(name "PVOLT_RANGE1")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE2")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE3")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE4")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE5")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE6")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE7")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "PVOLT_RANGE8")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE1")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE2")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE3")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE4")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE5")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE6")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE7")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "VOLT_RANGE8")
+(typeStr "Real")
+(state "Valid")
+(value 10))
+(idComp
+(name "TRIG1")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG2")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG3")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG4")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG5")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG6")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG7")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG8")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "TRIG_MODE1")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE2")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE3")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE4")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE5")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE6")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE7")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_MODE8")
+(typeStr "Enum")
+(state "Valid")
+(value "LEV"))
+(idComp
+(name "TRIG_SLOPE1")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE2")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE3")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE4")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE5")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE6")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE7")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_SLOPE8")
+(typeStr "Enum")
+(state "Valid")
+(value "POS_EXIT"))
+(idComp
+(name "TRIG_LEVEL1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_LEVEL8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST1")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST2")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST3")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST4")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST5")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST6")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST7")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_HYST8")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "CAL_STATE1")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE2")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE3")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE4")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE5")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE6")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE7")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "CAL_STATE8")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "TRACE1")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "TRACE2")
+(typeStr "Int16")
+(state "Valid")
+(value 2))
+(idComp
+(name "TRACE3")
+(typeStr "Int16")
+(state "Valid")
+(value 3))
+(idComp
+(name "TRACE4")
+(typeStr "Int16")
+(state "Valid")
+(value 4))
+(idComp
+(name "TRACE5")
+(typeStr "Int16")
+(state "Valid")
+(value 5))
+(idComp
+(name "TRACE6")
+(typeStr "Int16")
+(state "Valid")
+(value 6))
+(idComp
+(name "TRACE7")
+(typeStr "Int16")
+(state "Valid")
+(value 7))
+(idComp
+(name "TRACE8")
+(typeStr "Int16")
+(state "Valid")
+(value 8))
+(idComp
+(name "VINS_PORT")
+(typeStr "Enum")
+(state "Valid")
+(value "LBUS"))
+(idComp
+(name "VINS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "GEN"))
+(idComp
+(name "TTL_TRIGGER")
+(typeStr "Enum")
+(state "Valid")
+(value "T01"))
+(idComp
+(name "STAT_SRE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "STAT_EVNT_ENR")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "STAT_OP_ENR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "STAT_DQ_ENR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "FAST_CONTROLLER")
+(typeStr "Enum")
+(state "Valid")
+(value "YES"))
+(idComp
+(name "SPAN")
+(typeStr "Real")
+(state "Valid")
+(value 25600))
+(idComp
+(name "SRATE")
+(typeStr "Real")
+(state "Valid")
+(value 65536))
+(idComp
+(name "FILTER_PNTS")
+(typeStr "Int16")
+(state "Valid")
+(value 64))
+(idComp
+(name "FILTER_TIME")
+(typeStr "Real")
+(state "Valid")
+(value 0.0009765625))
+(idComp
+(name "DATA_TRAILER")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DATA_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "SCALE_CHANNEL")
+(typeStr "Int16")
+(state "Valid")
+(value 1))
+(idComp
+(name "ARM_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "MAN"))
+(idComp
+(name "TRIG_SOURCE")
+(typeStr "Enum")
+(state "Valid")
+(value "IMM"))
+(idComp
+(name "TRIG_DELAY_PNTS")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "TRIG_DELAY")
+(typeStr "Real")
+(state "Valid")
+(value 0))
+(idComp
+(name "DATA_SIZE")
+(typeStr "Enum")
+(state "Valid")
+(value "INT16"))
+(idComp
+(name "SWEEP_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "BLOCK"))
+(idComp
+(name "RTRACE_POINTS")
+(typeStr "Int16")
+(state "Valid")
+(value 1000))
+(idComp
+(name "SWEEP_POINTS")
+(typeStr "Int16")
+(state "Valid")
+(value 1000))
+(idComp
+(name "DISP_POINTS")
+(typeStr "Int16")
+(state "Valid")
+(value 10))
+(idComp
+(name "XTIC")
+(typeStr "Int16")
+(state "Valid")
+(value 100))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON")))))
+(device 1 HPIDSTATE
+(properties
+(name "hpe1488"))
+(interface
+(input 1
+(name "TRACE_LENGTH")
+(tag "TRACE_LENGTH")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "DATA_SIZE")
+(tag "DATA_SIZE")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488")
+(state
+(idComp
+(name "FORMAT_")
+(typeStr "Enum")
+(state "Valid")
+(value "INT16"))
+(idComp
+(name "LBUS_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "CONS"))
+(idComp
+(name "TRACE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "FRED"))
+(idComp
+(name "MEM_TOTAL")
+(typeStr "Real")
+(state "Valid")
+(value 16777216))
+(idComp
+(name "MAX_DATA_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1000))
+(idComp
+(name "TRACE_LENGTH")
+(typeStr "Real")
+(state "Valid")
+(value 2000))
+(idComp
+(name "MAX_VALUE")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "MIN_VALUE")
+(typeStr "Int16")
+(state "Valid")
+(value -32768))
+(idComp
+(name "STATUS_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "EVENT_ENABLE")
+(typeStr "Int16")
+(state "Invalid")
+(value 0))
+(idComp
+(name "OPER_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPER_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "OPER_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_ENABLE")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "QUESTIONABLE_PTR")
+(typeStr "Int16")
+(state "Valid")
+(value 32767))
+(idComp
+(name "QUESTIONABLE_NTR")
+(typeStr "Int16")
+(state "Valid")
+(value 0))
+(idComp
+(name "OPC_STATE")
+(typeStr "Enum")
+(state "Valid")
+(value "ON"))
+(idComp
+(name "OPC_MODE")
+(typeStr "Enum")
+(state "Valid")
+(value "OFF"))
+(idComp
+(name "DESTINATION")
+(typeStr "Enum")
+(state "Valid")
+(value "XY_TRACE"))
+(idComp
+(name "FILE_NAME")
+(typeStr "Text")
+(state "Valid")
+(value "HPE1488A.DAT"))
+(idComp
+(name "DATA_SIZE")
+(typeStr "Int16")
+(state "Valid")
+(value 1000)))))
+(device 3 START25)
+(device 34 CONSTANT
+(properties
+(name "Number Of Points"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1000))
+(initValue Int32
+(data  0))))
+(device 35 FORMULA
+(properties
+(name " * ")
+(expr 1 "X*Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 36 CONSTANT
+(properties
+(name "Bytes Per Point"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  2))
+(initValue Int32
+(data  0))))
+(device 61 YPLOT
+(properties
+(name "Waveform (Time)"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode time)))
+(device 62 CONTEXT
+(properties
+(name "Initialize")
+(trigMode deg)
+(nextID 3))
+(interface
+(input 1
+(name "Seq In")
+(optional yes))
+(output 1
+(type data)
+(name "Seq Out")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Reset"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 HPIDINCR
+(properties
+(name "hpe1431"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1431a.cid")
+(driver "hpe1431")))
+(device 2 HPIDINCR
+(properties
+(name "hpe1488"))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488")))
+(configuration
+(connect I1:1 D1:0)
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)
+(connect D0:1 D2:1)
+(connect D2:0 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 256 224)
+(anchorPt 73 102)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 117 30)
+(showFormat int))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 38 54))
+(terminals on)
+(pinCenter 100 -30))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 41 54))
+(terminals on)
+(pinCenter 100 40))
+(connect I1:1 D1:0
+(points 5 -73 9 -60 9 -60 -80 100 -80 100 -65))
+(connect D0:1 D1:1
+(points 4 41 0 50 0 50 -30 58 -30))
+(connect D1:0 D2:0
+(points 2 100 4 100 5))
+(connect D0:1 D2:1
+(points 4 41 0 50 0 50 40 58 40))
+(connect D2:0 O1:1
+(points 5 100 74 100 90 160 90 160 9 182 9)))
+(stackingOrder 0 1 2))))
+(device 63 NOTE
+(properties
+(text2 13 "This example takes readings on the HP E1431A,"
+"transfers them over the local bus to the"
+"HP E1488A, then reads the data over the GPIB"
+"to display it on a Waveform Display.  The"
+"Number of Points can be increased up to 16384." ""
+"The sample rate, currently set at 65536 per"
+"second, can be increased by openning the"
+"hpe1431 State driver and changing Sample Rate" "on the Measure Panel." ""
+"User Object \"Get Data\" performs the actual" "data transfer.")))
+(device 90 CONTEXT
+(properties
+(name "Get Data")
+(trigMode deg)
+(nextID 17))
+(interface
+(input 1
+(name "NumPoints")
+(optional yes))
+(input 2
+(name "InputTerm")
+(optional yes))
+(output 1
+(type data)
+(name "Waveform")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 HPIDINCR
+(properties
+(name "hpe1431"))
+(interface
+(input 1
+(name "LBUS_RESET")
+(tag "LBUS_RESET")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1431a.cid")
+(driver "hpe1431")))
+(device 1 CONSTANT
+(properties
+(name "LBUS Reset"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 2 HPIDINCR
+(properties
+(name "hpe1488"))
+(interface
+(input 1
+(name "LBUS_RESET")
+(tag "LBUS_RESET")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488")))
+(device 3 HPIDINCR
+(properties
+(name "hpe1488"))
+(interface
+(input 1
+(name "INIT")
+(tag "INIT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488")))
+(device 4 CONSTANT
+(properties
+(name "Init"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 5 HPIDINCR
+(properties
+(name "hpe1431"))
+(interface
+(input 1
+(name "INIT")
+(tag "INIT")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(input 2
+(name "ARM")
+(tag "ARM")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)))
+(implementation
+(filename "hpe1431a.cid")
+(driver "hpe1431")))
+(device 6 HPIDINCR
+(properties
+(name "hpe1488"))
+(interface
+(output 1
+(name "TRACE_DATA_BYTES")
+(tag "TRACE_DATA_BYTES")
+(optional yes)))
+(implementation
+(filename "hpe1488a.cid")
+(driver "hpe1488")))
+(device 7 FROMWAVEFORM
+(interface
+(input 1
+(name "Wf Data")
+(requires
+(datatype Waveform))
+(lock name constraints))
+(output 1
+(name "Real Ary")
+(lock name constraints))
+(output 2
+(name "Time Span")
+(lock name constraints))))
+(device 8 FORMULA
+(properties
+(name " * ")
+(expr 1 "X*Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 9 HPIDINCR
+(properties
+(name "hpe1431"))
+(interface
+(input 1
+(name "SCALE_CHANNEL")
+(tag "SCALE_CHANNEL")
+(requires
+(datatype Int16)
+(shape "Scalar"))
+(lock constraints)
+(optional yes))
+(output 1
+(name "SCALE_FACTOR")
+(tag "SCALE_FACTOR")
+(optional yes))
+(output 2
+(name "SRATE")
+(tag "SRATE")
+(optional yes)))
+(implementation
+(filename "hpe1431a.cid")
+(driver "hpe1431")))
+(device 10 CONSTANT
+(properties
+(name "Chan 1"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 11 FORMULA
+(properties
+(name " / ")
+(expr 1 "X/Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 TOWAVEFORM
+(interface
+(input 1
+(name "Array")
+(tag "Array")
+(requires
+(datatype Real64))
+(lock name constraints))
+(input 2
+(name "Time Span")
+(tag "Time Span")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Waveform")
+(tag "Wf")
+(lock name constraints)))
+(implementation
+(interval 0.0152587890625)))
+(device 13 NOTE
+(properties
+(text2 4 "First, Reset" "the Local Bus" "to sync the" "hardware.")))
+(device 14 NOTE
+(properties
+(text2 2 "Start the" "measurements.")))
+(device 15 NOTE
+(properties
+(text2 3 "Get the data and unbuild it" "as the hpe1488a does not have"
+"the time span data.")))
+(device 16 NOTE
+(properties
+(text2 4 "Get the Scale Factor and" "Time Span data from the"
+"hpe1431a and rebuild the" "waveform.")))
+(configuration
+(connect I2:1 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)
+(connect D1:1 D2:1)
+(connect D2:0 D3:0)
+(connect D4:1 D3:1)
+(connect D3:0 D5:0)
+(connect D4:1 D5:1)
+(connect D4:1 D5:2)
+(connect D5:0 D6:0)
+(connect D6:1 D7:1)
+(connect D7:1 D8:1)
+(connect D9:1 D8:2)
+(connect D7:0 D9:0)
+(connect D10:1 D9:1)
+(connect I1:1 D11:1)
+(connect D9:2 D11:2)
+(connect D8:1 D12:1)
+(connect D11:1 D12:2)
+(connect D12:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 700 607)
+(anchorPt 265 153)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 45 54))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 120 30)
+(showFormat int))
+(pinCenter -135 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 43 54))
+(terminals on)
+(pinCenter 0 80))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 84 65)
+(iconImage "io.icn"))
+(open
+(extent 38 54))
+(terminals on)
+(pinCenter 0 160))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 108 30)
+(showFormat int))
+(pinCenter -100 160))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 35 104))
+(terminals on)
+(pinCenter 0 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 47 54))
+(terminals on)
+(pinCenter 120 0))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 154 64)
+(iconImage "unbuild.icn"))
+(open)
+(terminals on)
+(pinCenter 250 0))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 380 40))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "io.icn"))
+(open
+(extent 35 104))
+(terminals on)
+(pinCenter 250 90))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 50 16))
+(open
+(extent 86 30)
+(showFormat int))
+(pinCenter 170 90))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 200 180))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "build.icn"))
+(open
+(extent 152 104))
+(terminals on)
+(pinCenter 350 220))
+(devCarrierFor 13
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 129 86)
+(editing enabled))
+(pinCenter -140 90))
+(devCarrierFor 14
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 132 70)
+(editing enabled))
+(pinCenter -140 240))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 284 73)
+(editing enabled))
+(pinCenter 250 -90))
+(devCarrierFor 16
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 225 87)
+(editing enabled))
+(pinCenter 230 330))
+(connect I2:1 D0:0
+(points 5 -265 300 -230 300 -230 -50 0 -50 0 -35))
+(connect D1:1 D0:1
+(points 2 -78 0 -42 0))
+(connect D0:0 D2:0
+(points 2 0 34 0 45))
+(connect D1:1 D2:1
+(points 4 -78 0 -60 0 -60 80 -42 80))
+(connect D2:0 D3:0
+(points 2 0 114 0 125))
+(connect D4:1 D3:1
+(points 2 -75 160 -45 160))
+(connect D3:0 D5:0
+(points 2 0 195 0 205))
+(connect D4:1 D5:1
+(points 4 -75 160 -60 160 -60 220 -42 220))
+(connect D4:1 D5:2
+(points 4 -75 160 -60 160 -60 260 -42 260))
+(connect D5:0 D6:0
+(points 6 0 274 0 290 60 290 60 -50 120 -50 120 -35))
+(connect D6:1 D7:1
+(points 2 161 0 170 0))
+(connect D7:1 D8:1
+(points 4 329 -20 340 -20 340 30 354 30))
+(connect D9:1 D8:2
+(points 4 291 70 310 70 310 50 354 50))
+(connect D7:0 D9:0
+(points 2 250 34 250 55))
+(connect D10:1 D9:1
+(points 2 197 90 208 90))
+(connect I1:1 D11:1
+(points 6 -265 0 -240 0 -240 300 70 300 70 170 174 170))
+(connect D9:2 D11:2
+(points 6 291 110 310 110 310 140 150 140 150 190 174 190))
+(connect D8:1 D12:1
+(points 8 405 40 430 40 430 80 420 80 420 150 260 150 260 200 279 200))
+(connect D11:1 D12:2
+(points 4 225 180 250 180 250 240 279 240))
+(connect D12:1 O1:1
+(points 4 420 220 430 220 430 150 434 150)))
+(stackingOrder 1 5 3 11 12 6 7 8 10 13 0 2 4 14 15 9 16))))
+(configuration
+(connect D7:1 D0:0)
+(connect D3:1 D0:1)
+(connect D0:0 D1:0)
+(connect D4:1 D1:1)
+(connect D3:1 D1:2)
+(connect D3:1 D4:1)
+(connect D5:1 D4:2)
+(connect D9:1 D6:1)
+(connect D6:0 D6:2)
+(connect D2:0 D7:1)
+(connect D3:1 D9:1)
+(connect D1:0 D9:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 936 625)
+(anchorPt 480 176)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 5 "E1431" "CRT" "MEASURE" "FLOAT" "ARM_BUTTON"))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 78 64)
+(iconImage "inst.icn"))
+(open
+(extent 428 213)
+(visiblePanels 5 "DSM" "TRACE_" "INT16_VALUE" "INITIMM" "TRACES"))
+(terminals on)
+(pinCenter 0 90))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 34 16))
+(open
+(extent 73 35))
+(title off)
+(pinCenter -140 -110))
+(devCarrierFor 34
+(active open)
+(icon
+(extent 154 0))
+(open
+(extent 216 34)
+(showFormat int))
+(pinCenter -310 -50))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter -100 70))
+(devCarrierFor 36
+(active icon)
+(icon
+(extent 145 25))
+(open
+(extent 207 34)
+(showFormat int))
+(pinCenter -210 80))
+(devCarrierFor 61
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 281)
+(displayMode 63)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range -2.5 2 4 linear))
+(domain 0 0.016 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 250 60))
+(devCarrierFor 62
+(active icon)
+(icon
+(extent 110 25))
+(terminals on)
+(pinCenter -70 -70))
+(devCarrierFor 63
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 393 238)
+(editing enabled))
+(pinCenter -270 260))
+(devCarrierFor 90
+(active icon)
+(icon
+(extent 62 25))
+(terminals on)
+(pinCenter 20 160))
+(connect D7:1 D0:0
+(points 3 -13 -70 0 -70 0 -35))
+(connect D3:1 D0:1
+(points 4 -200 -50 -180 -50 -180 0 -42 0))
+(connect D0:0 D1:0
+(points 2 0 34 0 55))
+(connect D4:1 D1:1
+(points 2 -75 70 -42 70))
+(connect D3:1 D1:2
+(points 6 -200 -50 -180 -50 -180 0 -60 0 -60 110 -42 110))
+(connect D3:1 D4:1
+(points 6 -200 -50 -180 -50 -180 0 -150 0 -150 60 -126 60))
+(connect D5:1 D4:2
+(points 2 -135 80 -126 80))
+(connect D9:1 D6:1
+(points 4 53 160 70 160 70 -10 89 -10))
+(connect D6:0 D6:2
+(points 7 250 203 250 220 70 220 70 170 80 170 80 130 89 130))
+(connect D2:0 D7:1
+(points 3 -140 -90 -140 -70 -128 -70))
+(connect D3:1 D9:1
+(points 8 -200 -50 -180 -50 -180 0 -60 0 -60 110 -50 110 -50 150 -14 150))
+(connect D1:0 D9:2
+(points 5 0 124 0 130 -30 130 -30 170 -14 170)))
+(stackingOrder 2 7 3 1 4 5 6 0 8 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

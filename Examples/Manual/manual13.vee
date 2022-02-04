@@ -1,0 +1,223 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:13:22 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Using Set Field")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 2)
+(fieldName "Name"
+(type Text))
+(fieldName "Empl_no"
+(type Real64)))
+(data 
+(record
+("Name" "Text field")
+("Empl_no" 1.25))))))
+(device 1 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "John Doe"))
+(initValue Text
+(data  ""))))
+(device 5 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  111222))
+(initValue Int32
+(data  0))))
+(device 6 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 8 NOTE
+(properties
+(name "Information")
+(text2 7 "This example shows how to use an assignment operator"
+"from the menu Data ==> Access Record ==> Set Field"
+"to change fields in a record." ""
+"For more information, see the \"VEE Help\" topic"
+"\"To Change a Field in a Record\"." "")))
+(device 11 FORMULA
+(properties
+(name "Set Name Field")
+(expr 1 "Rec.Name = A"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 12 FORMULA
+(properties
+(name "Set Empl_no Field")
+(expr 1 "Rec.Empl_no = A"))
+(interface
+(input 1
+(name "rec")
+(optional yes))
+(input 2
+(name "A")
+(optional yes))
+(output 1
+(name "rec")
+(optional yes))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D7:1 D4:1)
+(connect D0:1 D6:1)
+(connect D2:1 D6:2)
+(connect D6:1 D7:1)
+(connect D3:1 D7:2)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 911 515)
+(anchorPt 143 268)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 200 110)
+(formatters))
+(pinCenter -10 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 192 33))
+(pinCenter 240 -40))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 140 29))
+(pinCenter 30 140))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 96 30)
+(showFormat int)
+(formatter
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal)))
+(pinCenter 280 140))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 222 31)
+(formatter
+(realFormat fixed)
+(realSigDigits 6)
+(realRadixSpec 0)
+(integerBase decimal)))
+(pinCenter 520 160))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 77 0)
+(iconImage "notepad.icn"))
+(open
+(extent 499 141)
+(editing disabled))
+(title off)
+(pinCenter 140 -170))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 105 0))
+(open
+(extent 124 50))
+(terminals on)
+(pinCenter 240 50))
+(devCarrierFor 12
+(active open)
+(icon
+(extent 126 0))
+(open
+(extent 143 50))
+(terminals on)
+(pinCenter 470 50))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 580 -170))
+(connect D0:1 D1:1
+(points 4 92 0 110 0 110 -40 141 -40))
+(connect D7:1 D4:1
+(points 6 574 50 590 50 590 100 390 100 390 160 406 160))
+(connect D0:1 D6:1
+(points 4 92 0 110 0 110 40 145 40))
+(connect D2:1 D6:2
+(points 4 102 140 120 140 120 60 145 60))
+(connect D6:1 D7:1
+(points 4 334 50 350 50 350 40 366 40))
+(connect D3:1 D7:2
+(points 4 330 140 350 140 350 60 366 60)))
+(stackingOrder 1 6 3 2 0 5 7 4 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 6)
+(realRadixSpec 4)
+(integerBase decimal))))

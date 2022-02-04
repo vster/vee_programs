@@ -1,0 +1,519 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>856xTDFB</title>
+</head>
+
+<body>
+
+<table border="1" cellpadding="0" cellspacing="1" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="141"><a href="ExcelAsDatabase.vee">ExcelAsDatabase.vee</a></td>
+    <td width="84%"><b>Use Excel as a 'database' for table lookup. </b><br>
+    <br>
+    The Excel workbook consist of five fields (columns) in the Table worksheet: 
+    ID, Code, Project, Date and Comment. <br>
+    <br>
+    The Query worksheet use Excel's DGET functions to lookup data in the table.&nbsp; 
+    The lookup value for the query is sent in from VEE and the query result is 
+    read back and presented in VEE. </td>
+  </tr>
+  <tr>
+    <td width="141"><a href="InstrumentAssistant.vee">InstrumentAssistant.vee</a></td>
+    <td width="84%"><b>Instrument Assistant example program</b><br>
+    <br>
+    This program can be used to find all connected instruments on all configured 
+    GPIB and VXI interfaces. The program can also be used to communicate with a 
+    selected instrument (only GPIB instruments are supported). Standard 
+    IEEE488.1/488.2<br>
+    commands can be sent in addition to userdefined commands.&nbsp; A history 
+    buffer that keep track of sent commands is included. Data can be read from 
+    the instrument using ASCII or binary block formats.<br>
+    <br>
+    This example program use these features of VEE:<br>
+    * The Dynamic I/O Automation Server<br>
+    * Programmable Instrument Properties<br>
+    * I/O configuration saved with the program file</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="SQLServerUsingADO.vee">SQLServerUsingADO.vee</a></td>
+    <td width="84%"><b>VEE-Database access</b><p>This simple example program 
+    illustrates how VEE can use Microsoft ADO (rev 2.1) Automation Server for 
+    integration with SQL Server 7.0 databases.&nbsp;
+    SQL Server 7.0 must be available on a remote server or on this system as 
+    specified in the Server field.&nbsp; Specify (local) as server if VEE and 
+    SQL Server is running on same PC.<p>The program use SQL's pubs example database by default and:<ul>
+      <li>Lists all databases on SQL server by reading the Catalog Schema</li>
+      <li>Finds all tables in one database (pubs) by reading the Tables Schema</li>
+      <li>Allow execution of SQL querys</li>
+      <li>Allow viewíng of tables </li>
+      <li>Traps ADO errors from SQL Server</li>
+      </ul>
+      </td>
+  </tr>
+  <tr>
+    <td width="141"><a href="MakeSelections.vee">MakeSelection.vee</a></td>
+    <td width="84%"><b>Make a multiple selection popup object</b><p>This example 
+    program contains a Multiple Selection object allowing the user to make one 
+    or more selections from an input<br>
+    list. VEE's standard selection object only allow single item selection.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="VEE_Window_mods.vee">VEE_Window_mods.vee</a></td>
+    <td width="84%">This example shows how you can change attributes of the VEE 
+    window.&nbsp; It demonstrates:<ol>
+      <li>The import of API functions (Function ImportLib)</li>
+      <li>The creation of global constants on runtime from a string array 
+      (Function CreateGlobals)</li>
+      <li>The way to find the Window handle of the current VEE application and 
+      to change the attributes of the window:<ol>
+        <li>Stay on top</li>
+        <li>Allow resizing</li>
+        <li>Show system menu</li>
+        <li>minimize box enabled/disabled</li>
+        <li>maximize box enabled/disabled</li>
+        <li>Hide the entire VEE program for a specified amount of time</li>
+      </ol>
+      </li>
+    </ol>
+    <p>Contributed by Georg Nied eMail:info@gn-software.de</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Change%20character%20in%20string.vee">Change 
+    character in string.vee</a></td>
+    <td width="84%">This function changes one character in a string into a 
+    different character.<p>Submitted by Juan Carlos Martín Castillejos </td>
+  </tr>
+  <tr>
+    <td width="141">&nbsp;</td>
+    <td width="84%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141">&nbsp;</td>
+    <td width="84%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="NIDAQ/nidaq.h">nidaq.h</a></td>
+    <td width="84%"><b>Call NI-DAQ library entry points.</b><p>This include file 
+    has been modified to work the Keysight VEE Import Library object to support 
+    the NIDAQ32.DLL.<br>
+    <br>
+    This modified version is based on the 6.6 version of NI-DAQ.</td>
+  </tr>
+  <tr>
+    <td width="141" bgcolor="#C0C0C0">&nbsp;</td>
+    <td width="84%" bgcolor="#C0C0C0"><b>All Instrument programs below were submitted by Tom Silchia</b></td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/856xTDFB.vee">856xTDFB.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8560E-Series 
+    Spectrum Analyzers.TDF 
+    B (B-Format): </b>
+    <p>Return Binary Numbers in Measurement7.0
+    7.0
+    The binary (B) format transmits data in measurement units, as binary 
+    numbers. This format provides the fastest data transfer and requires the 
+    least amount of memory to store data. Each data point is transferred in 
+    binary as two 8-bit bytes; the most significant byte is sent first, followed 
+    by the least significant byte. Binary data can also be easily converted into 
+    measurement data. If speed and memory are important considerations, you may 
+    prefer B-format to P-format.&nbsp; Unlike A-block and I-block formats, the 
+    B-format does not send a header. The data is sent immediately, and the 
+    end-or-identify message (EOI) is sent with the last byte.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/856xTDFI.vee">856xTDFI.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8560E-Series 
+    Spectrum Analyzers. TDF 
+    I (I-block format): </b>
+    <p>Return Indefinite Block-Data Fields in Measurement 
+    Units.&nbsp; Very similar to A-block format, the I-block format transmits 
+    data in measurement units as binary numbers in an indefinite block-data 
+    field of unknown size. Each data point is sent as two 8-bit bytes; the most7.0
+    significant byte is sent first, followed by the least significant byte. The 
+    I-block format also transfers a header before the trace data. The header is 
+    comprised of ASCII characters &quot;#&quot;, and &quot;I&quot;.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/856xTDFM.vee">856xTDFM.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8560E-Series 
+    Spectrum Analyzers. TDF 
+    M (M-format): </b>
+    <p>Return Decimal Numbers in Measurement Units (output only).&nbsp;
+    The measurement units (M) format transfers trace data as ASCII integer 
+    values in measurement units, which is the internal format used by the 
+    spectrum analyzer. See Figure 5-8 on page 305. The displayed amplitude of 
+    each element falls on one of 601 vertical points (with the 601st equal to 
+    the reference level). For example, the peak of the signal in Figure 5-8 on 
+    page 305 is equal to -10 dBm, or one division below the reference level. 
+    This is equal to 540 measurement units (600 measurement units at the 
+    reference level, less 60 measurement units for one division down, equals 540 
+    measurement units). There are also ten additional points of overrange. 
+    Measurement units range from 0 to 610.&nbsp; A line feed (ASCII code 10) 
+    follows data output. The end-or-identify message (EOI) is sent with a line 
+    feed.&nbsp; The M-format is faster than the P-format, but most applications 
+    will require computer conversion to parameter units. Also, because the 
+    M-format transfers data as ASCII characters, the data can be viewed 
+    directly.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/856xTDFP.vee">856xTDFP.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8560E-Series 
+    Spectrum Analyzers</b>. 
+    <p>TDF 
+    P: Return7.0
+    Decimal Numbers in Parameter Units The real number, or &quot;P&quot; format allows you 
+    to receive or send data as7.0
+    ASCII decimal values in real-number (parameter) units. This is the7.0
+    default format when the instrument is turned on, and when instrument7.0
+    preset (IP) is activated. Numbers are in dBm, dBmV, dBmV, volts, or7.0
+    watts, as determined using the amplitude units (AUNITS) command.7.0
+    Default units are volts for linear trace information, and dBm for7.0
+    logarithmic trace information.7.0
+    A line feed (ASCII code 10) follows data output. The end-or-identify7.0
+    message (EOI) is sent with a line feed.7.0
+    NOTE When using the P-format, be sure to include amplitude units with the7.0
+    trace data using the AUNITS command.7.0
+    Real-number data can be an advantage if you wish to use the data later7.0
+    in a program. However, data transfers using P-format tend to be slow7.0
+    and require more storage memory (approximately 1200 bytes for binary7.0
+    and 4800 bytes for real numbers). In some cases, P-format can take up7.0
+    to four times the amount of controller memory compared to binary7.0
+    format.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/859xTDFBB.vee">859xTDFBB.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8590E-Series 
+    Spectrum Analyzers.</b><p>7.0 TDF B enables the binary format. With the binary 
+    format, the marker or trace data is transferred as bytes. Of all the trace 
+    data formats, TDF B transfers trace data the fastest. The setting of the MDS 
+    command determines whether the trace data is transferred as one or two 8-bit 
+    bytes.7.0 NOTE : This example utilizes the MDS B (Measurement Data Size) as 
+    BYTE. Transferring a single byte (8-bits) per data point. When transferring 
+    trace data, MDS B transfers trace data the faster than MDS W because only 
+    401 bytes are transferred. Because MDS B combines two bytes into one byte, 
+    some resolution is lost.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/859xTDFBW.vee">859xTDFBW.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8590E-Series 
+    Spectrum Analyzers.</b><p>TDF 
+    B enables the binary format. With the binary format, the marker or trace 
+    data is transferred as bytes. Of all the trace data formats, TDF B transfers 
+    trace data the fastest. The setting of the MDS command determines whether 
+    the trace data is transferred as one or two 8-bit bytes.7.0
+    NOTE : This example utilizes the MDS W (Measurement Data Size) as WORD. 
+    Transferring a&nbsp; word of 2 bytes (8 bits each).per data point. MDS W 
+    transfers&nbsp; trace data with no loss of resolution.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/859xTDFI.vee">859xTDFI.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8590E-Series 
+    Spectrum Analyzers.</b><p>7.0
+    TDF I is the I-block data format. With the I-block data format, trace data 
+    must7.0
+    be preceded by “#,” and “I.” The setting of the MDS command determines 
+    whether the trace7.0
+    data is transferred as one or two g-bit bytes. Unlike using the A-block 
+    format, you do not7.0
+    provide the number of data bytes when sending trace data back to the 
+    spectrum analyzer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/859xTDFM.vee">859xTDFM.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8590E-Series 
+    Spectrum Analyzers</b>.<p>7.0
+    TDF M is the measurement data format. The measurement data format transfers7.0
+    trace data in measurement units, and the measurement data can range from 
+    -32768 to7.0
+    + 32767.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/859xTDFA.vee">859xTDFA.vee</a></td>
+    <td width="84%"><b>Extracts trace data from the Keysight 8590E-Series 
+    Spectrum Analyzers.
+    </b> <br>
+    The A-block format is similar to binary format in that each data 
+    point is sent as two 8-bit bytes (this, too, is in the internal 
+    representation of measurement data). A-block format also transfers a 
+    four-byte header before the 401 points of trace data. These bytes are the 
+    ASCII character “f’, “A”, and two-byte number representing the length of the 
+    trace data, followed by the data bytes.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8510C_pass_thru.vee">8510C_pass_thru.vee</a></td>
+    <td width="84%">
+    <p style="white-space: normal"><b>Provides an outline for a method to 
+    use the 8510 Pass Thru functionality.</b></td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8510_hpgl_Acq.vee">8510_hpgl_Acq.vee</a></td>
+    <td width="84%">Programming sample for acquiring and dumping 
+    the HPGL graphics from the 8510 family network analyzers.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/856xPlot2File.vee">856xPlot2File.vee</a></td>
+    <td width="84%"><b>Acquires an HPGL plotter dump from an 8560E-Series 
+    Spectrum Analyzer to a file. </b>
+    <p>Once acquired the temp.plt file can be viewed via 
+    any compatible HPGL file viewer. Note newer versions of Microsoft Office 
+    products by default do not include the HPGL viewer. Visit Microsoft's 
+    website and search on hpgl 32 bit for downloads that can enable HPGL file 
+    imports into Microsoft Word and/or Microsoft Excel.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/871xLearn_String.vee">871xLearn_String.vee</a></td>
+    <td width="84%"><b>Acquire and send the 871x learn string from and to the 
+    instrument.</b> 
+    <p>The application is 
+    intended to be executed on 8711C, 8712C, 8713C, 8714C and the entire 
+    871xET/ES vector network analyzer families. The program is broken into a 
+    main, two user objects, and one user function. The user object &quot;getLearnString&quot; 
+    acquires the learnstring and stores the data to text file, 'C:\learnData.txt&quot;. 
+    This object has it's own notes detailing operation and execution.&nbsp; The user 
+    object &quot;sendLearnStringOut&quot; queries the learn string data from the file 'C:\learnData.txt&quot; 
+    and then writes the bytes into the analyzer thus recalling the learnString 
+    State. This object has it's own notes detailing operation and execution.&nbsp; The 
+    &quot;err_check&quot; user function provides a means of confirming that no errors are 
+    caused during the program execution. The OK buttons allow the user to 
+    configure the analyzer, acquire the learnstring, reset analyzer (to a 
+    preset) and then resend the acquired learnstring, confirming proper 
+    operation.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_freq_data.vee">8753_freq_data.vee</a></td>
+    <td width="84%"><b>Extract the trace frequency point data 
+    from an 8753/8720 family network&nbsp; analyzer.</b> 
+    <p>Use the OUTPLIML command to 
+    extract the&nbsp; stimulus and marker data. NOTE the LIMIT test&nbsp; FUNCTION is NOT 
+    on! The command provides a means to extract the frequency points.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_marker.vee">8753_marker.vee</a></td>
+    <td width="84%"><b>Reading the 
+    marker data out of the 8753/8720 family VNAs with several methodologies.&nbsp;
+    </b>
+    <p>Note that marker data and the 
+    validity of the data is a&nbsp; function of the analyzers DISPLAY FORMAT. The 
+    first value is the marker reading; the second value may or may not be valid 
+    as a function of the DISPLAY FORMAT; the third value is the STIMULUS 
+    (frequency or time). For full details refer to the 8753/8720 Programmer's 
+    Guide Marker Data&nbsp; section. For this example the FORMAT is LOG MAG, per the 
+    manual the second marker value is &quot;insignificant&quot;, a.k.a. a place holder, or 
+    equivalently JUNK</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4395A_Extract_State.vee">
+    4395A_Extract_State.vee</a></td>
+    <td width="84%"><b>Extract the state from a 4395A combination analyzer</b><p>
+    This application has been tested with the 4395A combination analyzers. The 
+    application will catalog the INTERNAL MEMORY&nbsp; and parse all saved files of 
+    type state (as indicated by &quot;*.STA&quot; file type). Once the file list has been 
+    created, the&nbsp; Keysight VEE application will extract all the *.STA files to 
+    the external controller. The *.STA files are binary files which can be sent 
+    BACK to the 4395A (either via the PC and&nbsp; VEE, or via 3.5&quot; floppy).</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4396b_ascii_out.vee">
+    4396b_ascii_out.vee</a></td>
+    <td width="84%"><b>Extract a FORMATTED data trace from a 4395A, 4396A, or 
+    4396B combination analyzers. </b>
+    <p>The program queries the instrument(s) for the FORMATTED data trace as a 
+    &quot;FORM4&quot;(ascii) data transfer.&nbsp; The data trace array size is 
+    automatically determined from the queried number of points (a.k.a. &quot;no_poin&quot;) 
+    and then passed to the real_32 array variable. The program outlines some 
+    other Keysight VEE features such as querying the trace START Frequency, STOP 
+    frequency and NUMBER of POINTS, and then passing these to a linRamp function 
+    (embedded in Keysight VEE) in order to AUTOMATICALLY create the frequency 
+    points for each data value.&nbsp; Another feature is the capability to 
+    create X-vs-Y plots for displaying the frequency/amplitude data extracted 
+    from the analyzer. As a final note the minimum and maximum data values are 
+    easily extracted and displayed via Keysight VEE.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4194a_gain_delay.vee">
+    4194a_gain_delay.vee</a></td>
+    <td width="84%"><b>Extract the GAIN and GROUP delay data from the Keysight 
+    4194A impedance analyzer</b>.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4294A_ascii_out.vee">
+    4294A_ascii_out.vee</a></td>
+    <td width="84%"><b>Example for the Keysight 4294A Impedance Analyzer.</b>
+    <p>Outlines methods to acquire Impedance, Phase, Parallel Capacitance, 
+    Parallel Conductance, in both FORMATTED display trace data and REAL and 
+    IMAGINARY data trace formats.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="8753_Limit_test.vee">8753_Limit_test.vee</a></td>
+    <td width="84%">A method for reporting a limit line failure on the <b>8753/8720</b> 
+    family of vector network analyzers</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753ES_registerRecall.vee">8753ES_registerRecall.vee</a></td>
+    <td width="84%">Outlines a process for recalling instrument states from 
+    internal memory on the <b>8753/8720 </b>family vector network analyzers.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753ES_NumGroup_OPC.vee">8753ES_NumGroup_OPC.vee</a></td>
+    <td width="84%">Demonstrates the use of use of *OPC? and NUMG (or number of&nbsp; 
+    groups) for the <b>8753/8720 </b>family of vector network analyzers to coordinate and 
+    synchronize end of sweep when averaging is activated within the analyzer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753ES_NumGroup_SPOLL.vee">8753ES_NumGroup_SPOLL.vee</a></td>
+    <td width="84%">Demonstrates the use of SPOLL and NUMG (or number of groups) 
+    for the <b>8753/8720</b> family of vector network analyzers to coordinate and 
+    synchronize end of sweep when averaging is activated within the analyzer</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753Grahpics.vee">8753Grahpics.vee</a></td>
+    <td width="84%">Write <b>HPGL</b> TEXT to the 8753/8720 family network analyzers 
+    display.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753LearnStr.vee">8753LearnStr.vee</a></td>
+    <td width="84%">Program for reading and writing the binary learn string from 
+    and to the 8753 and 8720 family of vector network analyers.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8757_PassThru.vee">8757_PassThru.vee</a></td>
+    <td width="84%">Program for the 8757 Scalar Network Analyzer and compatible 
+    signal source. The program outlines a method for using the PassThru mode to 
+    access and communicate with the signal source connected to the analyzers 
+    &quot;8757 System Interconnect&quot; GPIB buss. This is a dedicated GPIB for 
+    controlling the source directly from the 8757 scalar analyzer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8757_E8257C_ScpiPassThru.vee">8757_E8257C_ScpiPassThru</a></td>
+    <td width="84%">Program&nbsp; for the 8757 Scalar Network Analyzer and 
+    compatible signal source. The program outlines a method for using the 
+    PassThru mode to access and communicate with the signal source connected to 
+    the analyzers &quot;8757 System Interconnect&quot; GPIB buss. This is a dedicated GPIB 
+    for controlling the source directly from the 8757 scalar analyzer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4284A_BIN_ASCII.vee">4284A_BIN_ASCII.vee</a></td>
+    <td width="84%">Program for outlining how to extract either ASCII or BINARY 
+    data transfers from the 4284A Impedance Analyzer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/4263B_BIN_ASCII.vee">4263B_BIN_ASCII.vee</a></td>
+    <td width="84%">Program for the 4263B LCR meter. Outlines how to acquire 
+    either a BINARY or ASCII data transfers from LCR meter.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="e5100a.vee">e5100a.vee</a></td>
+    <td width="84%">Program for the E5100A low frequency network analyzer. 
+    Provides an outline of using the E5100As built in waveform analysis to 
+    acquire the statistics for Channel 1 (as GAIN) and Channel 2 (as phase).&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/E5100A_Resp_Cal_Array.vee">E5100A_RespCalArray.vee</a></td>
+    <td width="84%">Program&nbsp; for the E5100A low frequency network analyzer 
+    outlining how to extract a transmission thru response calibration array (as 
+    a FORM4 - ASCII transfer) from the analyzer. The extracted array is saved to 
+    a file on the controlling PC.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_form2.vee">8753_form2.vee</a></td>
+    <td width="84%">Program&nbsp; for the 8753 and 8720 family of vector network 
+    analyzers. The program provides a tutorial for both synchronizing sweep 
+    complete via an SRQ mask and extracting the trace data array as a FORM 2 - 
+    REAL 32 binary block transfer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_form3.vee">8753_form3.vee</a></td>
+    <td width="84%">VEE Sample program for the 8753 and 8720 family of vector 
+    network analyzers. The program provides a tutorial for both synchronizing 
+    sweep complete via an SRQ mask and extracting the trace data array as a FORM 
+    3 - REAL 64 binary block transfer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_form3_COMPLEX.vee">8753_form3_COMPLEX.vee</a></td>
+    <td width="84%">Program for the 8753 and 8720 family of vector network 
+    analyzers. The program provides samples of: synchronizing sweep complete via 
+    an&nbsp; SRQ mask; extracting Real and Imaginary trace data array as a FORM 3 - 
+    REAL 64 binary block transfer;&nbsp; and how read the array into a variable 
+    defined as a COMPLEX&nbsp; array.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_form4.vee">8753_form4.vee</a></td>
+    <td width="84%">Program&nbsp; for the 8753 and 8720 family of vector network 
+    analyzers. The program provides a tutorial for both synchronizing sweep 
+    complete via an SRQ mask and extracting the trace data array as a FORM 4 - 
+    ASCII data array transfer.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/8753_hpgl_Acq.vee">8753_hpgl_Acq.vee</a></td>
+    <td width="84%">Program for acquiring and dumping the HPGL graphics from the 
+    8753 and 8720 family network analyzers.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/EPM_Sensor_Status.vee">EPM_Sensor_Status.vee</a></td>
+    <td width="84%">Program&nbsp; for the EPM E-Series of average sensing RF 
+    power meters. The program uses the &quot;STATUS:DEVICE:CONDITION? bit response to 
+    determine which channels have sensors connected and if they are connected to 
+    either the front or rear panel connections.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/EPM_Averages_SPOLL.vee">EPM_Averages_SPOLL.vee</a></td>
+    <td width="84%">Program for the EPM E-Series of average sensing RF power 
+    meters. The program uses the manual filter mode which allows the user to set 
+    the filter length (a.k.a. averages). The program also utilizes an SPOLL to 
+    determine when the measurement data is available.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/EPM_LoUpLimit_Test.vee">EPM_LoUpLimit_Test.vee</a></td>
+    <td width="84%">Program for the EPM E-Series of average 
+    sensing RF power meters that shows the use of the &quot;STAT:OPER:LLF:SUMM:COND?&quot; 
+    (lower limit failure reporting) and the &quot;STAT:OPER:ULF:SUMM:COND?&quot; (upper 
+    limit failure reporting) status queries.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/EPM_LoadCalTable.vee">EPM_LoadCalTable.vee</a></td>
+    <td width="84%">Program for the EPM E-Series of average 
+    sensing RF power meters. The program outlines how to catalog the list of 
+    internal sensor calibration tables, select a table, and then write user 
+    calibration factors, at user defined frequencies, to the selected 
+    calibration table.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/EPM_Meas_SPOLL.vee">EPM_Meas_SPOLL.vee</a></td>
+    <td width="84%">Program for the EPM E-Series of average 
+    sensing RF power meters. The program uses the MEASURE command which allows 
+    the power meter to control the instrument setup. The program also utilizes 
+    an SPOLL to determine when the measurement data is available.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/Ena_StateRdWrt.vee">ENA_StateRdWrt.vee</a></td>
+    <td width="84%">Program for the ENA (E5070/E5071) 
+    family of&nbsp; network analyzers. Provides examples of cataloging the memory,&nbsp; 
+    extracting a state file as a binary block to the PC, and then&nbsp; recalling the 
+    binary state file (from the PC) and writing back&nbsp; the binary block to the 
+    ENA memory.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="141">
+    <p align="left"><a href="Instruments/ENA_Average_SPOLL.vee">ENA_Average_SPOLL.vee</a></td>
+    <td width="84%">Program for the ENA (E5070/E5071) 
+    family of&nbsp; network analyzers. The program is intended to provide a guide for 
+    ONE method of detecting an AVERAGE COMPLETE CONDITION on the ENA Series 
+    Vector Network Analyzers. An E5071A was tested.</td>
+  </tr>
+  <tr>
+    <td width="141"><a href="Instruments/ENA_Average_SPOLL.vee">ENA_Fast_SPOLL</a></td>
+    <td width="84%">Program for the ENA (E5070/E5071) 
+    family of&nbsp; network analyzers. The program can be utilized as a launching 
+    point in understanding typical trace sweep speeds and data acquisition and 
+    transfer speeds as a function of various bandwidths on the network 
+    analyzer.&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

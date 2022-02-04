@@ -1,0 +1,544 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 21:06:16 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "dvm"
+(type GPIB)
+(gateway "This host")
+(channel 7)
+(subchannel 23)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3478a.cid")
+(eoiEnabled 0)
+(model "hp3478a"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 12)
+(popupTitleText "Simple Simulated Data Logger")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 RANDOMNUMBER
+(properties
+(name "Random Number 2-3")
+(variableScope cont)
+(lowerLimit 2)
+(upperLimit 3))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 1 RANDOMNUMBER
+(properties
+(name "Random Number 0-1")
+(variableScope cont)
+(lowerLimit 0)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 2 RANDOMNUMBER
+(properties
+(name "Random Number 1-2")
+(variableScope cont)
+(lowerLimit 1)
+(upperLimit 2))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 3 TIMESTAMP
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "TimeStamp")
+(lock name constraints))))
+(device 4 ONCYCLE
+(properties
+(variableScope cont)
+(cycle 0))
+(interface
+(output 1
+(lock name constraints))))
+(device 5 START25
+(properties
+(variableScope cont)))
+(device 6 TOFILE
+(properties
+(variableScope cont)
+(transactions 2 "WRITE TEXT a, \"\\t\" DATE:WDMY TIME:HMS:H24"
+"WRITE TEXT b, \"\\t\", c, \"\\t\", d REAL64 SCI:3 EOL"))
+(interface
+(input 1
+(name "A")
+(tag "A")
+(optional yes))
+(input 2
+(name "B")
+(tag "B")
+(optional yes))
+(input 3
+(name "C")
+(tag "C")
+(optional yes))
+(input 4
+(name "D")
+(tag "D")
+(optional yes)))
+(implementation
+(attr iopath file write "/tmp/myData"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 YPLOT
+(properties
+(name "Strip Chart")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Trace3")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(graphMode strip)))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 10 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 Press Start. Additional help is in the InfoAbout object.\\par\r\nIf there is VEE Run Time Error with message \"File \'\\\\tmp\\\\myData\" was not found\", please create a folder named \'tmp\' at your program root drive, e.g. \"C:\\\\tmp\". \\par\r\n}\r\n"
+)))
+(device 11 CONTEXT
+(properties
+(name "Press For")
+(description2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This User Object is the outermost \"context\"\\par\r\nfor the InfoAbout help device.  Within this\\par\r\ndevice is the pop-up panel containing the info\\par\r\nNotepad.  If all you can see is a device with\\par\r\n\"Press For\", you should double-click the left\\par\r\nmouse button on the Press For to restore the\\par\r\nPanel View of the device.  To see how this device\\par\r\noperates, click on the Info About button first,\\par\r\nthen press the Detail button in the \"Press For\"\\par\r\ntitle bar.\\par\r\n}\r\n"
+)
+(variableScope cont)
+(trigMode deg)
+(nextID 6))
+(deviceList
+(device 0 TOGGLE25
+(properties
+(name "Info About")
+(description2 24 "This is a toggle device with the name changed to"
+"reflect it\'s function.  The output of the device"
+"is \"0\" when the button is up, and \"1\" when the" "button is down.  " ""
+"A Reset Control Input terminal has been added to"
+"to always pop the button back out after showing"
+"the pop-up help (Info About This Example) User" "Object." ""
+"The Toggle has set the \"AutoExecute\" option to let"
+"it operate even when the RUN button in the title"
+"bar has not been pressed.  Note, however, that"
+"AutoExecute only works when no other threads are"
+"operating, either from their Start buttons or from" "the RUN button." ""
+"To allow the Toggle to operate when other threads"
+"are running, an Until Break device repeatedly lets"
+"the Toggle device output it\'s current value (based"
+"on the button state) to the If/Then.  Thus, when"
+"RUN is pressed, the InfoAbout toggle output is" "still monitored for \"1\"." ""
+)
+(variableScope cont)
+(autoTrigger 1)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 4 CONTEXT
+(properties
+(name "Info About This Example")
+(description2 10 "This is a User Object that has both a detail view"
+"and a Panel view.  If this device is visible as"
+"an icon, you must double-click the left mouse"
+"button to \"open up\" the non-iconic view." ""
+"Since the User Object has both a Panel and Detail"
+"view, when you double-click on the icon, you will"
+"first see the Panel view.  To see the components"
+"of the User Object, press the Detail button in"
+"the \"Info About This Example\" title bar.")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 11 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader." ""
+"It has been \"Added to Panel\" of the \"Info About"
+"This Example\" user object, thus it is not "
+"necessary to keep it as an open device inside the"
+"Detail view; you can edit the notepad from the"
+"Panel view of this User Object.  You can also"
+"set/clear the \"Enable Edit\" flag in this Notepad\'s"
+"Object Menu to keep the pop-up notepad from being" "altered by the user.")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\ul\\f0\\fs20 Overview:\\ulnone\\par\r\nThis models illustrates how to construct a simple multi-channel data logger.\\par\r\n\\par\r\n\\ul Details:\\ulnone\\par\r\nTo run the model, set the cycle interval in seconds in the \"On Cycle\" object and click on \"Start\".\\par\r\n\\par\r\nYou can modify this model to log real data by simply replacing the \"Random Number\" objects with instrument objects, such as \"Panel Drivers\" or \"Direct I/O\".\\par\r\n\\par\r\n\\ul Notes:\\ulnone\\par\r\n- When using a \"Timestamp\" object, you must activate its sequence input pin (top pin) each time you want a new timestamp value; if you don\'t connect the top pin, the value remains constant.  The number generated by the timestamp is a large real number that is the number of seconds since the beginning of the Epoch (which is defined as beginning at 0000 hours UTC, January 1, 0001 AD).\\par\r\n\\par\r\n- The DATE formatted transaction in \"To File\" is required to convert it to a meaningful value.\\par\r\n\\par\r\n}\r\n"
+)))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display.")
+(variableScope cont)
+(enterButton 1)
+(escapeButton 1)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 100 213)))
+(contextCarrier
+(active panel)
+(panel
+(extent 544 433)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Blue Gray")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 510 340)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 230 350)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 80 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 244 255)
+(anchorPt 462 260)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 454 386)
+(editing disabled))
+(pinCenter -200 -20))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 1 0))))
+(device 5 IFTHENELSE
+(properties
+(name "!= 0")
+(description2 10 "This device tests the value of the data input"
+"and either executes the \"Info About This Device\""
+"User object when the input is \"1\", or terminates"
+"the current iteration of the Until Break device." ""
+"If no threads are running, the Toggle can generate"
+"it\'s output data whenever the button is changed"
+"(using the Toggle\'s AutoExecute mode).  In this"
+"case, either the User Object is executed or the"
+"Autoexecute sequence terminates.")
+(variableScope cont)
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D1:0 D0:1)
+(connect D2:1 D1:0)
+(connect D0:1 D2:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 260 78)
+(gridSize 4)
+(drawGrid "off")
+(widget 0 detail
+(relativeOrigin 67 16)
+(bg "Light Blue Gray")
+(fg "Black")
+(PID 0)
+(title off)
+(tabIndex 0)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 516 270)
+(anchorPt 123 74)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 855 523)
+(carbonCopy))
+(pinCenter 220 60))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 130 0))
+(connect D1:0 D0:1
+(points 5 220 75 220 100 -80 100 -80 0 -60 0))
+(connect D2:1 D1:0
+(points 3 155 -10 220 -10 220 45))
+(connect D0:1 D2:1
+(points 2 59 0 104 0)))
+(stackingOrder 0 2 1))))
+(configuration
+(connect D2:0 D0:0)
+(connect D3:0 D1:0)
+(connect D1:0 D2:0)
+(connect D4:1 D3:0)
+(connect D5:0 D4:0)
+(connect D3:1 D6:1)
+(connect D1:1 D6:2)
+(connect D2:1 D6:3)
+(connect D0:1 D6:4)
+(connect D1:1 D7:1)
+(connect D2:1 D7:2)
+(connect D0:1 D7:3)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 447)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt 189 543)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 163 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 60 -20))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 163 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 60 -120))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 163 25))
+(open
+(extent 222 60))
+(terminals on)
+(pinCenter 60 -70))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter 60 -180))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open
+(extent 160 34))
+(pinCenter -100 -220))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 67 37))
+(title off)
+(pinCenter -100 -310))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 78 25))
+(open
+(extent 414 126))
+(terminals on)
+(pinCenter 450 -220))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 482 154)
+(displayMode 0)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "Time (units vary)")
+(Yspacing 10000)
+(Xspacing 10000)
+(scaleColor "Dark Gray")
+(show 1)
+(range 0 3 3 linear))
+(domain 0 10 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(traceColor "Cyan")
+(lineType 12)
+(pointType 0))
+(trace 2 onScale 0
+(name "Trace3")
+(traceColor "Magenta")
+(lineType 12)
+(pointType 0))
+(stepSize 1)
+(trackingEnabled 1))
+(pinCenter 450 -30))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 10 -510))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 374 106)
+(editing disabled))
+(pinCenter 390 -460))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 260 78)
+(carbonCopy))
+(pinCenter 0 -420))
+(connect D2:0 D0:0
+(points 2 60 -55 60 -35))
+(connect D3:0 D1:0
+(points 2 60 -165 60 -135))
+(connect D1:0 D2:0
+(points 2 60 -105 60 -85))
+(connect D4:1 D3:0
+(points 3 -18 -220 60 -220 60 -195))
+(connect D5:0 D4:0
+(points 2 -100 -289 -100 -258))
+(connect D3:1 D6:1
+(points 4 117 -180 140 -180 140 -270 210 -270))
+(connect D1:1 D6:2
+(points 4 144 -120 170 -120 170 -240 210 -240))
+(connect D2:1 D6:3
+(points 4 144 -70 180 -70 180 -210 210 -210))
+(connect D0:1 D6:4
+(points 4 144 -20 190 -20 190 -180 210 -180))
+(connect D1:1 D7:1
+(points 4 144 -120 160 -120 160 -80 206 -80))
+(connect D2:1 D7:2
+(points 4 144 -70 160 -70 160 -30 206 -30))
+(connect D0:1 D7:3
+(points 4 144 -20 160 -20 160 20 206 20)))
+(stackingOrder 0 1 2 8 9 10 5 4 3 7 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

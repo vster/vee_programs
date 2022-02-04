@@ -1,0 +1,188 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:20:17 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "SEQ1.VEE")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "Rand")
+(trigMode deg)
+(nextID 2))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 RANDOMNUMBER
+(properties
+(lowerLimit 0)
+(upperLimit 1))
+(interface
+(output 1
+(name "Rand Val")
+(lock name constraints))))
+(device 1 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)
+(connect D1:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 335 300)
+(anchorPt 117 120)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 129 28))
+(open)
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 48 28))
+(open)
+(terminals on)
+(pinCenter 150 30))
+(connect D0:1 D1:1
+(points 4 67 0 80 0 80 20 123 20))
+(connect I1:1 D1:2
+(points 4 -117 29 4 29 4 40 123 40))
+(connect D1:1 O1:1
+(points 4 176 30 190 30 190 29 217 29)))
+(stackingOrder 1 0)))))
+(device 2 SEQUENCER
+(properties
+(transactions 3 "test1 LOGEN TESTEX:rand(a) \tRANGEEX: 0 LE .5 LE 1 \t"
+"test2 LOGEN TESTEX:rand(a) \tRANGEEX: 0 LE .5 LE 1 \t"
+"test3 LOGEN TESTEX:rand(a) \tRANGEEX: 0 LE .5 LE 1 \t"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Return")
+(tag "Return")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "Log")
+(tag "Log")
+(lock name constraints)
+(optional yes)))
+(implementation
+(logfields "name" "pass" "result")))
+(device 3 TEXTDISPLAY
+(interface
+(input 1
+(name "Data"))))
+(device 12 SLIDER
+(properties
+(name "Real Slider")
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0))
+(initValue Real
+(data  0))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 5 "This example is provided as an" "illustration \"as is\", and "
+"Keysight Technologies makes " "no warranty of any kind"
+"with regard to this example.")))
+(configuration
+(connect D2:1 D0:1)
+(connect D0:2 D1:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 915 365)
+(anchorPt 386 233)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 155 117))
+(terminals on)
+(pinCenter -90 -10))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 435 67))
+(pinCenter 280 20))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 111 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter -300 -10))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 430 66)
+(editing enabled))
+(titleBg "Blue Gray")
+(pinCenter -40 -170))
+(connect D2:1 D0:1
+(points 2 -242 -10 -200 -10))
+(connect D0:2 D1:1
+(points 2 40 20 60 20)))
+(stackingOrder 2 3 0 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

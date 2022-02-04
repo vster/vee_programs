@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Samples xmlns="http://www.agilent.com/schemas/VEE/SampleSnippet/2005" version="1.0">
+	<Sample filename="Ag34410a_LXI.vee">
+		<Description>Retrieves measurement data from a LXI-compliant Keysight DMM.</Description>
+		<LogicalInstrument name="DMM">
+			<SupportedInstruments>
+				<Instrument idn="ag34410a"/>
+			</SupportedInstruments>
+		</LogicalInstrument>
+	</Sample>
+</Samples>

@@ -1,0 +1,463 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:15:41 ")
+(veerev "6.2")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 16)
+(popupTitleText "Importing a Waveform Text File Example 2")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 REPEATUNTILBREAK
+(properties
+(name "Until Break #1"))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 1 START25)
+(device 2 FROMFILE
+(properties
+(name "From File #2")
+(transactions 1 "READ TEXT x, y REAL64"))
+(interface
+(output 1
+(name "X")
+(optional yes))
+(output 2
+(name "Y")
+(optional yes))
+(output 3
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Manual/manual31.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 3 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 4 REPEATUNTILBREAK
+(properties
+(name "Until Break #2"))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 5 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FROMFILE
+(properties
+(name "From File #1")
+(transactions 1 "READ TEXT x TOKEN"))
+(interface
+(output 1
+(name "X")
+(requires
+(datatype Text))
+(optional yes)))
+(implementation
+(attr iopath file read "~installDir/examples/Manual/manual31.dat"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 IFTHENELSE
+(properties
+(name "If A == B")
+(cases 1 "A==B"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 8 BREAK)
+(device 9 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About...")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "Info About")
+(text2 32 "Overview:"
+"  This program illustrates how to read a data file created by another software "
+"  package. In this case, the data file contains a sampled waveform with a "
+"  variable-length file header.  The position of the waveform data points is "
+"  marked by a special text marker." "" "Details:"
+"  The data file contains an unknown amount of information followed by a token"
+"  that marks the beginning of the data section.  The data section consists of"
+"  an unknown number of XY pairs separated by whitespace." ""
+"  Here are the contents of a typical data file:" "" "<MARKER1>Some Text"
+"<MARKER2>1 2 3 4" "<DATA>" "1\t1.1" "2\t2.2" "3\t3.3" ".\t." ".\t." ".\t." ""
+"This is how the program works:" ""
+"  The subthread attached to \"Until Break #1\"  strips away tokens one at a "
+"  time as it searches for <DATA>.  The transaction in \"From File #1\" uses "
+"  the TOKEN format to automatically parse  the input into tokens.  By default,"
+"  a token is any string of non-whitespace characters delimited by whitespace."
+"" "  The subthread attached to \"Until Break #2\" reads the numeric data that "
+"  follows until it reaches the end of the file.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE"))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 4 32)))
+(contextCarrier
+(active detail)
+(panel
+(extent 837 509)
+(widget 0 detail
+(relativeOrigin 7 4)
+(title off)
+(borderStyle flat)
+(extent 819 452)
+(editing disabled))
+(widget 1 detail
+(relativeOrigin 383 463)
+(title off)
+(borderStyle flat)
+(extent 66 37)))
+(detail
+(extent 351 200)
+(anchorPt 135 30)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 452 282)
+(editing enabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 45 15))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 10 70)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D0:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 319 77)
+(widget 1 detail
+(relativeOrigin 100 11)
+(title off)
+(borderStyle flat)
+(extent 114 39)
+(scaled on)
+(format button)))
+(detail
+(extent 912 591)
+(anchorPt 366 245)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 15))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 127 25))
+(open
+(extent 837 509)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 100 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D0:0 D1:1
+(points 5 0 15 0 40 -210 40 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 100 -10 100 45)))
+(stackingOrder 0 1 2))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Text
+(data  "<DATA>"))
+(initValue Text
+(data  ""))))
+(device 13 BREAK)
+(device 15 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(configuration
+(connect D1:0 D0:0)
+(connect D4:1 D2:0)
+(connect D0:0 D4:0)
+(connect D6:1 D5:1)
+(connect D0:1 D6:0)
+(connect D10:1 D7:1)
+(connect D6:1 D7:2)
+(connect D7:1 D8:0)
+(connect D2:3 D11:0)
+(connect D2:1 D12:1)
+(connect D2:2 D12:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 900 571)
+(wndState max)
+(active detail)
+(detail
+(extent 974 758)
+(anchorPt 78 233)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "loop.icn"))
+(open
+(extent 70 40))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 42 15))
+(open
+(extent 69 39))
+(title off)
+(pinCenter 0 -80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 327 114))
+(terminals on)
+(pinCenter 315 270))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter 440 -200))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 136 64)
+(iconImage "loop.icn"))
+(open
+(extent 70 40))
+(terminals on)
+(pinCenter 0 170))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 264 133)
+(noformatter))
+(pinCenter 740 80))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 118 25))
+(open
+(extent 328 100))
+(terminals on)
+(pinCenter 320 100))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 110 25))
+(open
+(extent 78 104))
+(terminals on)
+(pinCenter 620 -70))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 760 -50))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 90 -160))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 120 32))
+(pinCenter 450 -80))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 78 25))
+(open)
+(terminals on)
+(pinCenter 510 380))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 345 217)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range 0 14 4 linear))
+(domain 0 14 4 linear)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 760 290))
+(connect D1:0 D0:0
+(points 2 0 -58 0 -35))
+(connect D4:1 D2:0
+(points 3 70 170 320 170 320 192))
+(connect D0:0 D4:0
+(points 2 0 34 0 135))
+(connect D6:1 D5:1
+(points 4 516 100 540 100 540 80 605 80))
+(connect D0:1 D6:0
+(points 3 70 0 320 0 320 29))
+(connect D10:1 D7:1
+(points 2 512 -80 562 -80))
+(connect D6:1 D7:2
+(points 4 516 100 540 100 540 -60 562 -60))
+(connect D7:1 D8:0
+(points 3 677 -80 760 -80 760 -65))
+(connect D2:3 D11:0
+(points 5 521 310 540 310 540 350 510 350 510 365))
+(connect D2:1 D12:1
+(points 2 521 230 585 230))
+(connect D2:2 D12:2
+(points 4 521 270 570 270 570 350 585 350)))
+(stackingOrder 1 5 8 9 0 6 2 4 7 10 12 11 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

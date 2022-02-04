@@ -1,0 +1,317 @@
+(saveFormat "7.0")
+(date "Thu 07/Apr/2005 18:46:24 ")
+(veerev "7.5.7607.0 Beta - A")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 62)
+(popupTitleText "Untitled")
+(popupMoveable 1))
+(deviceList
+(device 5 FOREACH
+(properties
+(name "For Each Element In"))
+(interface
+(input 1
+(name "Collection")
+(tag "Collection")
+(optional yes))
+(output 1
+(name "Element")
+(lock name constraints))))
+(device 9 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 15 NOTE
+(properties
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24 This example illustrates two methods for iterating through a two dimensional array. In the VEE 7.5 example above, the array is fed into the For Each object and iterated there. Just one object.\\par\r\n\\par\r\nNote how much more complex it is to handle a two dimensional array in the VEE 7.0 method below. Even though it is a relatively efficient approach, it still requires many more objects to accomplish the same task as the For Each object does with one.\\par\r\n\\par\r\nThe For Each object is capable of handling up to 10 dimensions; an incredibly complex task previously.\\par\r\n}\r\n"
+)))
+(device 27 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 53 SCROLLINGTEXTDISPLAY
+(properties
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 54 FORCOUNT
+(properties
+(count 3))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 55 FORMULA
+(properties
+(expr 1 "array[ndx1, ndx2]"))
+(interface
+(input 1
+(name "Array")
+(optional yes))
+(input 2
+(name "ndx1")
+(optional yes))
+(input 3
+(name "ndx2")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 56 FORMULA
+(properties
+(expr 1 "dimSizes[1]"))
+(interface
+(input 1
+(name "dimSizes")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 57 FORCOUNT
+(properties
+(count 4))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 58 FORMULA
+(properties
+(expr 1 "dimSizes[0]"))
+(interface
+(input 1
+(name "dimSizes")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 59 FROMARRAY
+(properties
+(expr 1 "Ary"))
+(interface
+(input 1
+(name "Ary")
+(tag "Ary"))
+(output 1
+(name "SubAry")
+(tag "Result"))
+(output 2
+(name "Type")
+(tag "Type"))
+(output 3
+(name "NumDims")
+(tag "NumDims"))
+(output 4
+(name "DimSizes")
+(tag "DimSizes"))
+(output 5
+(name "TotSize")
+(tag "TotSize"))))
+(device 60 FORMULA
+(properties
+(name "Create 2D Array")
+(expr 5 "[ [ 1, 2, 3]," "  [4, 5, 6]," "  [7, 8, 9]," "  [10, 11, 12]" "]"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 61 FORMULA
+(properties
+(name "Create 2D Array")
+(expr 5 "[ [ 1, 2, 3]," "  [4, 5, 6]," "  [7, 8, 9]," "  [10, 11, 12]" "]"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D11:1 D0:1)
+(connect D0:1 D1:1)
+(connect D6:1 D4:1)
+(connect D8:1 D5:0)
+(connect D7:1 D5:1)
+(connect D12:1 D6:1)
+(connect D8:1 D6:2)
+(connect D5:1 D6:3)
+(connect D10:4 D7:1)
+(connect D9:1 D8:1)
+(connect D10:4 D9:1)
+(connect D12:1 D10:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 512 361)
+(wndState max)
+(active detail)
+(detail
+(extent 853 691)
+(anchorPt -33 -2)
+(configuration
+(devCarrierFor 5
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 158 31))
+(pinCenter 530 100))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 174 186)
+(noformatter))
+(pinCenter 750 100))
+(devCarrierFor 15
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 434 226)
+(editing enabled))
+(pinCenter 550 350))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing enabled))
+(pinCenter 510 -90))
+(devCarrierFor 53
+(active open)
+(icon)
+(open
+(extent 174 196)
+(noformatter))
+(pinCenter 1190 530))
+(devCarrierFor 54
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 930 820))
+(devCarrierFor 55
+(active open)
+(icon)
+(open
+(extent 145 62))
+(terminals on)
+(pinCenter 945 530))
+(devCarrierFor 56
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 610 820))
+(devCarrierFor 57
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 800 760))
+(devCarrierFor 58
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 670 630))
+(devCarrierFor 59
+(active open)
+(icon
+(extent 68 54)
+(iconImage "unbuild.icn"))
+(open
+(extent 93 110))
+(terminals on)
+(pinCenter 360 610))
+(devCarrierFor 60
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 104 116))
+(terminals on)
+(pinCenter 310 100))
+(devCarrierFor 61
+(active open)
+(icon
+(extent 94 0))
+(open
+(extent 104 116))
+(terminals on)
+(pinCenter 100 510))
+(connect D11:1 D0:1
+(points 2 414 100 448 100))
+(connect D0:1 D1:1
+(points 2 611 100 660 100))
+(connect D6:1 D4:1
+(points 2 1070 530 1100 530))
+(connect D8:1 D5:0
+(points 3 850 760 930 760 930 784))
+(connect D7:1 D5:1
+(points 6 735 820 750 820 750 800 870 800 870 820 880 820))
+(connect D12:1 D6:1
+(points 2 204 510 830 510))
+(connect D8:1 D6:2
+(points 6 850 760 870 760 870 580 810 580 810 530 830 530))
+(connect D5:1 D6:3
+(points 8 980 820 1000 820 1000 760 980 760 980 700 820 700 820 550 830 550))
+(connect D10:4 D7:1
+(points 6 479 630 500 630 500 690 460 690 460 820 465 820))
+(connect D9:1 D8:1
+(points 6 795 630 810 630 810 680 730 680 730 760 750 760))
+(connect D10:4 D9:1
+(points 2 479 630 525 630))
+(connect D12:1 D10:1
+(points 4 204 510 250 510 250 610 281 610)))
+(stackingOrder 6 7 8 10 9 5 4 12 1 0 11 3 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

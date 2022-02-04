@@ -1,0 +1,895 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 19:49:02 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 25)
+(popupTitleText "Beam Deflection Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Elastic Modulus "))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  28000000))
+(initValue Real
+(data  0))))
+(device 1 CONSTANT
+(properties
+(name "Length, ft."))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  14))
+(initValue Real
+(data  0))))
+(device 2 CONSTANT
+(properties
+(name "Beam Dia, in.")
+(autoTrigger 1))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  6))
+(initValue Real
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Wall Thickness"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0.1))
+(initValue Real
+(data  0))))
+(device 4 FORMULA
+(properties
+(name "Deflection")
+(expr 1 "load*xbeam^2/(24*E*I)*(xbeam^2+6*L^2-4*L*xbeam)"))
+(interface
+(input 1
+(name "xbeam")
+(optional yes))
+(input 2
+(name "E")
+(optional yes))
+(input 3
+(name "I")
+(optional yes))
+(input 4
+(name "L")
+(optional yes))
+(input 5
+(name "Load")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "Deflection")
+(expr 1 "load*xbeam^2/(120*L*E*I)*(10*L^3-10*L^2*xbeam+5*L*xbeam^2-xbeam^3)"))
+(interface
+(input 1
+(name "xbeam")
+(optional yes))
+(input 2
+(name "E")
+(optional yes))
+(input 3
+(name "I")
+(optional yes))
+(input 4
+(name "L")
+(optional yes))
+(input 5
+(name "Load")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "load/12")
+(expr 1 "a/12"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "Mmnt of Inertia")
+(expr 1 "3.141592653589793/64*(dia^4-(dia-2*thk)^4)"))
+(interface
+(input 1
+(name "dia")
+(optional yes))
+(input 2
+(name "thk")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 CONSTANT
+(properties
+(name "Nx"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  168))
+(initValue Real
+(data  0))))
+(device 9 CONSTANT
+(properties
+(name "BL:0"))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 10 TEXTDISPLAY
+(properties
+(name "Mmnt of Inertia"))
+(interface
+(input 1
+(name "Data"))))
+(device 11 FORMULA
+(properties
+(name "length (numElem,from,thru)")
+(description2 4 "This \"ramp(numElem,from,thru)\" object is used to"
+"easily generate a series of uniformly spaced"
+"\"X values\" used to represent the beam length in" "inches.")
+(expr 1 "ramp(numElem, from, thru)"))
+(interface
+(input 1
+(name "numElem")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(optional yes))
+(input 2
+(name "from")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(input 3
+(name "thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 FORMULA
+(properties
+(name "L*12")
+(expr 1 "a*12"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 NOTE
+(properties
+(name "To Operate")
+(text2 3 "Click \"Run\" to view example" "results. Click \"Info About\" "
+"for more details.")))
+(device 16 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(device 17 CONSTANT
+(properties
+(name "Load lb/ft")
+(description2 7 "This is a \"Data -> Constant -> Real\" object."
+"It is used to enter the uniform load in pounds per"
+"foot acting on the beam, as well as the maximum "
+"value for the ramp load.  The initial load of 20"
+"lb./ft. represents a value consistent with a full"
+"flow of water in a 6 inch pipe." ""))
+(interface
+(output 1
+(lock name constraints)))
+(implementation
+(value Real
+(data  20))
+(initValue Real
+(data  0))))
+(device 18 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 3))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the"
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "execute Panel."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 1 NOTE
+(properties
+(description2 1 "This is a \"Display, Note Pad\" object")
+(text2 34
+"PURPOSE:     To demonstrate the use of VEE in a cantilever beam deflection "
+"             problem. This program uses an \"XY Trace\" display to show the "
+"             deflection of a beam under uniform, ramp, and combined load "
+"             situations. " ""
+"USER DATA REQUIRED: You may change any of the displayed values; click on the "
+"             value and type over it to enter a new value.  Note the use of \"M\" "
+"             for E6 (10^6) and \"m\" for E-3 (10^-3), which you can use instead of"
+"             typing zeros.  You may also use other abbreviations, such as \"K\" "
+"             for E3 (10^3)." ""
+"EXPLANATION: The example values are consistent with a 6\" dia. pipe (cantilever"
+"             supported at one end) loaded with a full flow of water (uniform "
+"             load), and an additional ramp force acting either as a load or a "
+"             support.  VEE allows the results of an equation (in array form) "
+"             to be handled with the ease of a simple number.  As may be seen on "
+"             the display, the two basic deflection equation results can be both "
+"             summed and differenced.  By positioning a triangular marker (click "
+"             spot on graph), precise values may be read at the bottom of the "
+"             graph\'s display.  Click on a colored line button to change the "
+"             color of a line to which a marker is attached." ""
+"             The program is built using the panel approach, which simplifies data "
+"             entry and viewing.  Click on the \"Detail\" button (left on the title"
+"             bar) to see the individual objects which make up the program.  Since "
+"             several objects have been iconized, double click on any of these to"
+"             change to the open view." ""
+"             Additional information for some of the objects may be provided with"
+"             the object menu \"Edit Description\" feature.  From the object menu,"
+"             \"Help\" may also be  directly accessed for the object." ""
+"             Click \"DONE\" to exit this information panel." "")))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 239 77)))
+(contextCarrier
+(active detail)
+(panel
+(extent 719 533)
+(widget 0 detail
+(relativeOrigin 320 480)
+(title off)
+(borderStyle none)
+(extent 70 38))
+(widget 1 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 720 470)
+(editing disabled)))
+(detail
+(extent 866 520)
+(anchorPt 393 530)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 45 24))
+(open
+(extent 58 37))
+(title off)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 585 410)
+(editing disabled))
+(pinCenter -50 -280)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active detail)
+(panel
+(extent 217 84)
+(widget 1 detail
+(relativeOrigin 50 20)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 488 277)
+(anchorPt 245 55)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 81 24))
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 846 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 50 60))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 50 75 50 100 -210 100 -210 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 50 -10 50 45)))
+(stackingOrder 0 1 2))))
+(device 20 FORMULA
+(properties
+(name " + ")
+(expr 1 "X+Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 21 FORMULA
+(properties
+(name " - ")
+(expr 1 "X-Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 24 XYPLOT
+(properties
+(name "Beam Deflection (inches)"))
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "Uniform")
+(lock constraints))
+(input 3
+(name "Sum")
+(lock constraints)
+(optional yes))
+(input 4
+(name "Difference")
+(lock constraints)
+(optional yes))
+(input 5
+(name "Ramp")
+(lock constraints)
+(optional yes))
+(input 6
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(tracePin 5)
+(graphMode rectangular)))
+(configuration
+(connect D11:1 D4:1)
+(connect D0:1 D4:2)
+(connect D7:1 D4:3)
+(connect D12:1 D4:4)
+(connect D6:1 D4:5)
+(connect D11:1 D5:1)
+(connect D0:1 D5:2)
+(connect D7:1 D5:3)
+(connect D12:1 D5:4)
+(connect D6:1 D5:5)
+(connect D15:1 D6:1)
+(connect D2:1 D7:1)
+(connect D3:1 D7:2)
+(connect D7:1 D10:1)
+(connect D8:1 D11:1)
+(connect D9:1 D11:2)
+(connect D12:1 D11:3)
+(connect D1:1 D12:1)
+(connect D4:1 D17:1)
+(connect D5:1 D17:2)
+(connect D4:1 D18:1)
+(connect D5:1 D18:2)
+(connect D11:1 D19:1)
+(connect D4:1 D19:2)
+(connect D17:1 D19:3)
+(connect D18:1 D19:4)
+(connect D5:1 D19:5)
+(connect D19:0 D19:6)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active panel)
+(panel
+(extent 811 618)
+(widget 1 detail
+(relativeOrigin 10 140)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 15 detail
+(relativeOrigin 10 210)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 0 detail
+(relativeOrigin 10 280)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 3 detail
+(relativeOrigin 10 350)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 2 detail
+(relativeOrigin 10 420)
+(title on)
+(borderStyle flat)
+(extent 156 28))
+(widget 10 detail
+(relativeOrigin 10 490)
+(title on)
+(borderStyle flat)
+(extent 156 38)
+(formatter
+(realFormat engineering)
+(realSigDigits 16)
+(realRadixSpec 5)
+(integerBase decimal)))
+(widget 14 icon
+(relativeOrigin 10 560)
+(title off)
+(borderStyle none)
+(extent 342 52)
+(iconImage "disclaim.gif")
+(label off))
+(widget 16 panel
+(relativeOrigin 10 10)
+(title on)
+(borderStyle flat)
+(extent 156 88)
+(widget 1 detail
+(relativeOrigin 20 20)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(widget 13 detail
+(relativeOrigin 190 10)
+(title on)
+(borderStyle flat)
+(extent 266 88)
+(editing disabled))
+(widget 4 icon
+(relativeOrigin 470 10)
+(title off)
+(borderStyle convex)
+(extent 156 106)
+(iconImage "uniform.icn"))
+(widget 5 icon
+(relativeOrigin 640 10)
+(title off)
+(borderStyle convex)
+(extent 156 106)
+(iconImage "rampld.icn"))
+(widget 19 detail
+(relativeOrigin 190 140)
+(title on)
+(borderStyle flat)
+(extent 606 388)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Deflection")
+(domainName "Distance from Support (inches)")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1 4 linear))
+(domain 0 180 4 linear)
+(trace 0 onScale 0
+(name "Uniform")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Sum")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Difference")
+(pen 6)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Ramp")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 1)))
+(detail
+(extent 984 623)
+(anchorPt 110 339)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 154 25))
+(open
+(extent 187 30))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 165 33))
+(pinCenter -10 -80))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 184 34))
+(pinCenter 0 160))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 127 25))
+(open
+(extent 183 33))
+(pinCenter 0 240))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 164 103)
+(iconImage "uniform.icn"))
+(open
+(extent 457 254))
+(terminals on)
+(pinCenter 340 -60))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 164 103)
+(iconImage "rampld.icn"))
+(open
+(extent 655 254))
+(terminals on)
+(pinCenter 340 80))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 80 25))
+(open
+(extent 79 54))
+(terminals on)
+(pinCenter 150 80))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 121 25))
+(open
+(extent 269 79))
+(terminals on)
+(pinCenter 180 200))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 102 35))
+(pinCenter 120 -180))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 129 35))
+(pinCenter 120 -130))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 116 0))
+(open
+(extent 242 36)
+(formatter
+(realFormat engineering)
+(realSigDigits 16)
+(realRadixSpec 5)
+(integerBase decimal)))
+(pinCenter 390 200))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 210 34))
+(open
+(extent 266 160))
+(terminals on)
+(pinCenter 360 -170))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 48 25))
+(open
+(extent 79 54))
+(terminals on)
+(pinCenter 120 -80))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 289 81)
+(editing disabled))
+(pinCenter 380 -260))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 700 -280))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 181 33))
+(pinCenter 0 80))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 319 77)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 60 -260))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 500 0))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter 500 50))
+(devCarrierFor 24
+(active open)
+(icon
+(extent 149 0)
+(iconImage "display.icn"))
+(open
+(extent 267 288)
+(displayMode 7)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Deflection")
+(domainName "Distance from Support (inches)")
+(Yspacing 10000)
+(Xspacing 10000)
+(pen 9)
+(show 1)
+(range 0 1 4 linear))
+(domain 0 180 4 linear)
+(trace 0 onScale 0
+(name "Uniform")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Sum")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Difference")
+(pen 6)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Ramp")
+(pen 3)
+(lineType 1)
+(pointType 0))
+(marker 0 onTrace 0))
+(pinCenter 700 30))
+(connect D11:1 D4:1
+(points 6 467 -170 480 -170 480 -130 240 -130 240 -100 255 -100))
+(connect D0:1 D4:2
+(points 6 96 0 200 0 200 -70 240 -70 240 -80 255 -80))
+(connect D7:1 D4:3
+(points 6 243 200 250 200 250 170 240 170 240 -60 255 -60))
+(connect D12:1 D4:4
+(points 4 146 -80 230 -80 230 -40 255 -40))
+(connect D6:1 D4:5
+(points 4 192 80 210 80 210 -20 255 -20))
+(connect D11:1 D5:1
+(points 10 467 -170 480 -170 480 -130 450 -130 450 -20 430 -20 430 10 250 10 250
+40 255 40))
+(connect D0:1 D5:2
+(points 4 96 0 220 0 220 60 255 60))
+(connect D7:1 D5:3
+(points 6 243 200 250 200 250 170 240 170 240 80 255 80))
+(connect D12:1 D5:4
+(points 4 146 -80 230 -80 230 100 255 100))
+(connect D6:1 D5:5
+(points 4 192 80 220 80 220 120 255 120))
+(connect D15:1 D6:1
+(points 2 93 80 107 80))
+(connect D2:1 D7:1
+(points 4 94 160 110 160 110 190 117 190))
+(connect D3:1 D7:2
+(points 4 94 240 110 240 110 210 117 210))
+(connect D7:1 D10:1
+(points 2 243 200 266 200))
+(connect D8:1 D11:1
+(points 2 146 -180 252 -180))
+(connect D9:1 D11:2
+(points 4 146 -130 160 -130 160 -170 252 -170))
+(connect D12:1 D11:3
+(points 4 146 -80 170 -80 170 -160 252 -160))
+(connect D1:1 D12:1
+(points 2 75 -80 93 -80))
+(connect D4:1 D17:1
+(points 6 424 -60 440 -60 440 -30 460 -30 460 -10 474 -10))
+(connect D5:1 D17:2
+(points 4 424 80 440 80 440 10 474 10))
+(connect D4:1 D18:1
+(points 8 424 -60 440 -60 440 -30 460 -30 460 -10 450 -10 450 40 474 40))
+(connect D5:1 D18:2
+(points 4 424 80 440 80 440 60 474 60))
+(connect D11:1 D19:1
+(points 6 467 -170 480 -170 480 -130 490 -130 490 -70 564 -70))
+(connect D4:1 D19:2
+(points 4 424 -60 440 -60 440 -30 564 -30))
+(connect D17:1 D19:3
+(points 4 525 0 540 0 540 10 564 10))
+(connect D18:1 D19:4
+(points 2 525 50 564 50))
+(connect D5:1 D19:5
+(points 4 424 80 440 80 440 90 564 90))
+(connect D19:0 D19:6
+(points 5 700 176 700 200 540 200 540 130 564 130)))
+(stackingOrder 2 13 11 8 9 12 1 0 15 6 3 7 10 5 19 18 17 16 4 14))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

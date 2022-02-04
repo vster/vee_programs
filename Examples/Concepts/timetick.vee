@@ -1,0 +1,618 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 20:02:07 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 20)
+(popupTitleText "On-Cycle clock tick Example")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 0 TEXTDISPLAY
+(properties
+(name "Day Number"))
+(interface
+(input 1
+(name "Data"))))
+(device 1 TEXTDISPLAY
+(properties
+(name "Month Number"))
+(interface
+(input 1
+(name "Data"))))
+(device 2 FORMULA
+(properties
+(name "month(aDate)")
+(expr 1 "month(aDate)"))
+(interface
+(input 1
+(name "aDate")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(name "Year"))
+(interface
+(input 1
+(name "Data"))))
+(device 4 FORMULA
+(properties
+(name "year(aDate)")
+(expr 1 "year(aDate)"))
+(interface
+(input 1
+(name "aDate")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 FORMULA
+(properties
+(name "mday(aDate)")
+(expr 1 "mday(aDate)"))
+(interface
+(input 1
+(name "aDate")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 ONCYCLE
+(properties
+(cycle 1))
+(interface
+(output 1
+(lock name constraints))))
+(device 7 FORMULA
+(properties
+(name "dmyToDate(d,m,y)")
+(expr 1 "dmyToDate(d, m, y)"))
+(interface
+(input 1
+(name "D")
+(optional yes))
+(input 2
+(name "M")
+(optional yes))
+(input 3
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 CONTEXT
+(properties
+(name "Press For")
+(trigMode deg)
+(nextID 4))
+(deviceList
+(device 0 IFTHENELSE
+(properties
+(name "!= 0")
+(cases 1 "a!=0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 1 TOGGLE25
+(properties
+(name "Info About")
+(autoTrigger 1))
+(interface
+(input 1
+(type control)
+(name "Reset")
+(lock name constraints)
+(optional yes))
+(output 1
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 2 CONTEXT
+(properties
+(name "Info About This Example")
+(trigMode deg)
+(nextID 2)
+(popupMoveable 1))
+(deviceList
+(device 0 NOTE
+(properties
+(name "NotePad")
+(description2 2 "This notepad is displayed as a Show on Execute"
+"panel to present the information to the reader.")
+(text2 29
+"PURPOSE:      Use the Repeat \"On Cycle\" device to generate a 1-second"
+"              Time-Of-Day clock." ""
+"USER INPUT REQUIRED:  Press RUN to start the clock." ""
+"EXPLANATION:  The On Cycle object repeatedly executes the sub-thread attached"
+"              to its output pin every NNN seconds,  allowing objects in the"
+"              sub-thread to be executed at regular intervals.  Here \"NNN\" is"
+"              set in the \"On Cycle\" object." ""
+"              Unlike the \"Repeat Until Break\" device that outputs an \"empty\""
+"              container to the devices on its sub-thread, the \"On Cycle\""
+"              outputs the current \"timestamp\" value.  An \"AlphaNumeric\""
+"              display, with the number format changed to \"Date/Time\", is used"
+"              to display the timestamp each time the On Cycle executes." ""
+"              \"On Cycle\" does not restart its sub-thread unless the thread"
+"              has completed the previous execution;  thus, if the thread took"
+"              1.5 seconds to execute, a 1 second On Cycle would wait for the"
+"              next occurrence of the time interval, running every 2 seconds"
+"              instead of the 1 second specified.  " ""
+"              Also illustrated in this example is the use of \"Number Format\""
+"              for the \"AlphaNumeric Display\" to display a time/date number as"
+"              a formatted Time and/or Date.  Delta Time format is useful when"
+"              two time/date numbers are subtracted." ""
+"              The time/date can be \"disected\" using devices from the Math"
+"              Menu.")))
+(device 1 CONFIRM25
+(properties
+(name "DONE")
+(description2 7 "This tiny \"thread\" begins running when the "
+"enclosing UserObject is executed.  When the user"
+"acknowledges the OK/DONE button, there is nothing"
+"left to execute, so the thread ends.  Since there"
+"are not other threads running, the User Object"
+"is completed and will exit, removing the Show on" "Execute pop-up display."))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(configuration)
+(ShowOnExecPanel
+(relativeOrigin 263 49)))
+(contextCarrier
+(active panel)
+(panel
+(extent 710 584)
+(widget 1 detail
+(relativeOrigin 300 540)
+(title off)
+(borderStyle flat)
+(extent 76 26))
+(widget 0 detail
+(relativeOrigin 0 0)
+(title off)
+(borderStyle none)
+(extent 710 530)
+(editing disabled)))
+(detail
+(extent 280 266)
+(anchorPt 118 75)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 848 437)
+(editing disabled))
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 58 37))
+(title off)
+(pinCenter 1 73)))
+(stackingOrder 0 1))))
+(configuration
+(connect D1:1 D0:1)
+(connect D2:0 D1:1)
+(connect D0:1 D2:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 256 63)
+(gridSize 4)
+(widget 1 detail
+(relativeOrigin 68 8)
+(title off)
+(borderStyle none)
+(extent 118 43)
+(scaled on)
+(format button)))
+(detail
+(extent 504 275)
+(anchorPt 236 79)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 46 25))
+(open
+(extent 73 64))
+(terminals on)
+(pinCenter 0 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 114 39)
+(scaled on)
+(format button))
+(title off)
+(pinCenter -130 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 217 25))
+(open
+(extent 845 533)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter 72 68))
+(connect D1:1 D0:1
+(points 2 -71 0 -26 0))
+(connect D2:0 D1:1
+(points 5 72 83 72 98 -208 98 -208 0 -190 0))
+(connect D0:1 D2:0
+(points 3 25 -10 72 -10 72 53)))
+(stackingOrder 0 1 2))))
+(device 9 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 10 NOTE
+(properties
+(name "To Operate:")
+(text2 3 "Press RUN and look" "at the various" "displays.")))
+(device 11 TEXTDISPLAY
+(properties
+(name "Day of Week"))
+(interface
+(input 1
+(name "Data"))))
+(device 12 FORMULA
+(properties
+(name "wday(aDate)")
+(expr 1 "wday(aDate)"))
+(interface
+(input 1
+(name "aDate")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 13 TEXTDISPLAY
+(properties
+(name "AlphaNumeric (Time/Date)"))
+(interface
+(input 1
+(name "Data"))))
+(device 14 TEXTDISPLAY
+(properties
+(name "Midnight (Time/Date)"))
+(interface
+(input 1
+(name "Data"))))
+(device 15 FORMULA
+(properties
+(name "Formula to compute Midnight")
+(expr 1 "dmyToDate(mday(a), month(a), year(a))"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 16 FORMULA
+(properties
+(name " - ")
+(expr 1 "X-Y"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(input 2
+(name "Y")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 TEXTDISPLAY
+(properties
+(name "HH:MM:SS (delta time)"))
+(interface
+(input 1
+(name "Data"))))
+(device 18 NOTE
+(properties
+(text2 5 "To obtain just the HH:MM:SS" "for today, subtract Midnight"
+"from the current time.   |" "                         |"
+"                         V")))
+(device 19 TEXTDISPLAY
+(properties
+(name "Midnight (Time/Date)"))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D5:1 D0:1)
+(connect D2:1 D1:1)
+(connect D6:1 D2:1)
+(connect D4:1 D3:1)
+(connect D6:1 D4:1)
+(connect D6:1 D5:1)
+(connect D5:1 D7:1)
+(connect D2:1 D7:2)
+(connect D4:1 D7:3)
+(connect D12:1 D11:1)
+(connect D6:1 D12:1)
+(connect D6:1 D13:1)
+(connect D7:1 D14:1)
+(connect D6:1 D15:1)
+(connect D6:1 D16:1)
+(connect D15:1 D16:2)
+(connect D16:1 D17:1)
+(connect D15:1 D19:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 812 615)
+(anchorPt 548 329)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 194 31))
+(pinCenter -210 -30))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 118 0))
+(open
+(extent 194 32))
+(pinCenter -210 40))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 118 25))
+(open)
+(terminals on)
+(pinCenter -450 40))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 46 0))
+(open
+(extent 194 31))
+(pinCenter -210 110))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter -450 110))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter -450 -30))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 68 52)
+(iconImage "loop.icn"))
+(open
+(extent 115 30))
+(pinCenter -480 -150))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 154 34))
+(open
+(extent 178 160))
+(terminals on)
+(pinCenter -210 -100))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 110 25))
+(open
+(extent 256 63)
+(carbonCopy))
+(bg "Light Blue Gray")
+(pinCenter -410 -270))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 397 82)
+(editing disabled))
+(pinCenter -320 240))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 110 0)
+(iconImage "notepad.icn"))
+(open
+(extent 195 75)
+(editing disabled))
+(pinCenter -170 -260))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 110 0))
+(open
+(extent 169 31))
+(pinCenter 130 -190))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 110 25))
+(open)
+(terminals on)
+(pinCenter -30 -190))
+(devCarrierFor 13
+(active open)
+(icon
+(extent 226 0))
+(open
+(extent 244 31)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 4)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HMS H24)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter -250 -150))
+(devCarrierFor 14
+(active open)
+(icon
+(extent 190 0))
+(open
+(extent 275 31)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 4)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HMS H24)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter 80 -100))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 253 25))
+(open
+(extent 320 36))
+(terminals on)
+(pinCenter -320 180))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 46 25))
+(open)
+(terminals on)
+(pinCenter -20 120))
+(devCarrierFor 17
+(active open)
+(icon
+(extent 199 0))
+(open
+(extent 219 31)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 4)
+(realRadixSpec 4)
+(timeStamp deltaTime)
+(timeFormat HMS H24)
+(dateFormat DMY)
+(integerBase decimal)))
+(pinCenter 130 120))
+(devCarrierFor 18
+(active open)
+(icon)
+(open
+(extent 294 115)
+(editing disabled))
+(pinCenter 90 10))
+(devCarrierFor 19
+(active open)
+(icon
+(extent 190 0))
+(open
+(extent 281 31)
+(formatter
+(realFormat timeStamp)
+(realSigDigits 4)
+(realRadixSpec 4)
+(timeStamp dateTime)
+(timeFormat HMS H24)
+(dateFormat WDMY)
+(integerBase decimal)))
+(pinCenter 100 210))
+(connect D5:1 D0:1
+(points 2 -393 -30 -310 -30))
+(connect D2:1 D1:1
+(points 2 -389 40 -310 40))
+(connect D6:1 D2:1
+(points 6 -420 -150 -400 -150 -400 -110 -530 -110 -530 40 -512 40))
+(connect D4:1 D3:1
+(points 2 -393 110 -310 110))
+(connect D6:1 D4:1
+(points 6 -420 -150 -400 -150 -400 -110 -530 -110 -530 110 -508 110))
+(connect D6:1 D5:1
+(points 6 -420 -150 -400 -150 -400 -110 -530 -110 -530 -30 -508 -30))
+(connect D5:1 D7:1
+(points 4 -393 -30 -330 -30 -330 -110 -290 -110))
+(connect D2:1 D7:2
+(points 4 -389 40 -370 40 -370 -100 -290 -100))
+(connect D4:1 D7:3
+(points 4 -393 110 -340 110 -340 -90 -290 -90))
+(connect D12:1 D11:1
+(points 2 27 -190 43 -190))
+(connect D6:1 D12:1
+(points 6 -420 -150 -390 -150 -390 -210 -110 -210 -110 -190 -88 -190))
+(connect D6:1 D13:1
+(points 2 -420 -150 -375 -150))
+(connect D7:1 D14:1
+(points 2 -131 -100 -60 -100))
+(connect D6:1 D15:1
+(points 6 -420 -150 -400 -150 -400 -110 -530 -110 -530 180 -513 180))
+(connect D6:1 D16:1
+(points 8 -420 -150 -390 -150 -390 -210 -110 -210 -110 -150 -90 -150 -90 110 -46
+110))
+(connect D15:1 D16:2
+(points 4 -108 180 -80 180 -80 130 -46 130))
+(connect D16:1 D17:1
+(points 2 5 120 18 120))
+(connect D15:1 D19:1
+(points 4 -108 180 -90 180 -90 210 -43 210)))
+(stackingOrder 6 0 7 3 1 8 10 13 12 16 17 19 18 14 11 4 2 5 15 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

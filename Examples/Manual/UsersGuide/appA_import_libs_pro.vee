@@ -1,0 +1,236 @@
+(saveFormat "7.0")
+(date "Sat 06/Feb/2010 19:44:47 ")
+(veerev "9.01.12316.0")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 SLIDER
+(properties
+(name "Real64 Slider")
+(variableScope cont)
+(enableEditing 1)
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0.855))
+(initValue Real
+(data  0))))
+(device 1 IMPORT
+(properties
+(name "Import Library")
+(variableScope cont)
+(libType userFunction)
+(fileName "uflab.vee"))
+(implementation))
+(device 2 CALL
+(properties
+(name "Call myLib.AddNoise")
+(variableScope cont)
+(callFunc "myLib.AddNoise")
+(parmMode rev30))
+(interface
+(input 1
+(name "B")
+(optional yes))
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 3 DELETE
+(properties
+(variableScope cont)
+(libName "myLib"))
+(implementation))
+(device 5 TOGLOBAL
+(properties
+(name "Set Amplitude")
+(variableScope cont)
+(globalName "Amplitude"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 6 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 7 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)
+(autoAutoX)
+(autoAutoY)))
+(device 8 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}{\\f1\\fnil\\fcharset0 Courier New;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1033\\f0\\fs20 This example is provided as an illustration \"as is\", and Keysight Technologies makes no warranty of any kind with regard to this example.\\cf0\\f1\\fs18\\par\r\n}\r\n"
+)))
+(device 9 NOTE
+(properties
+(name "Read Me")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs20 If the program failed, please update the library File Name to \\{VeeInstallDirectory\\}\\\\Keysight\\\\VEE Pro 9.3\\\\examples\\\\Manual\\\\UsersGuide\\\\uflab.vee\\par\r\n}\r\n"
+)))
+(configuration
+(connect D4:0 D1:0)
+(connect D1:0 D2:0)
+(connect D5:1 D2:1)
+(connect D2:0 D3:0)
+(connect D0:1 D4:1)
+(connect D2:1 D6:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 851 609)
+(wndState max)
+(active detail)
+(detail
+(extent 874 768)
+(anchorPt 261 141)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 118 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 130 0))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 224 82))
+(pinCenter 320 110))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 126 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 230))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 320 320))
+(devCarrierFor 5
+(active open)
+(icon
+(extent 83 0))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 325 0))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 115 51)
+(iconImage "virtual.icn"))
+(open
+(extent 186 175))
+(terminals on)
+(pinCenter 110 230))
+(devCarrierFor 7
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -2 2 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 630 230))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 274 64)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing disabled))
+(pinCenter -110 -100))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 68 0)
+(iconImage "notepad.icn"))
+(open
+(extent 284 136)
+(editing disabled))
+(pinCenter -110 30))
+(connect D4:0 D1:0
+(points 2 320 28 320 48))
+(connect D1:0 D2:0
+(points 2 320 153 320 184))
+(connect D5:1 D2:1
+(points 2 170 230 199 230))
+(connect D2:0 D3:0
+(points 2 320 258 320 284))
+(connect D0:1 D4:1
+(points 2 191 0 246 0))
+(connect D2:1 D6:1
+(points 2 440 230 469 230)))
+(stackingOrder 1 4 2 3 5 6 7 8 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

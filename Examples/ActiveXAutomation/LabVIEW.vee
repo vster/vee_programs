@@ -1,0 +1,249 @@
+(saveFormat "2.3")
+(date "Fri 25/Jun/2004 11:49:52 ")
+(veerev "6.03")
+(platform "PC")
+(execMode ole)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{9A872073-0A06-11D1-90B7-00A024CE2744}")
+(desc "LabVIEW 5.0 Type Library")
+(filename
+"D:\\Programs\\National Instruments\\LabVIEW 5.0\\resource\\labview50.tlb")
+(verMajor 5)
+(verMinor 0)
+(lcid 0x409)))
+(properties
+(trigMode deg)
+(nextID 13)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 2 FORMULA
+(properties
+(expr 8 "Set lvapp = CreateObject(\"LabVIEW.Application\");"
+"viPath = lvapp.ApplicationDirectory +path;"
+"Set vi = lvapp.GetVIReference(viPath);" "vi.FPWinOpen = True;"
+"vi.Call(names, byRef values);" "x=values.a4.a0;" "y=values.a4.a1;" ""))
+(interface
+(input 1
+(name "path")
+(optional yes))
+(input 2
+(name "names")
+(optional yes))
+(input 3
+(name "values")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))
+(output 2
+(name "lvapp")
+(optional yes))
+(output 3
+(name "viPath")
+(optional yes))
+(output 4
+(name "vi")
+(optional yes))
+(output 5
+(name "values")
+(optional yes))
+(output 6
+(name "x")
+(optional yes))
+(output 7
+(name "y")
+(optional yes))))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text")
+(sizeFixed 1)
+(isSizeFixed 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(numDims 1)
+(size 5)
+(data  [ "Amplitude" "Number of Steps" "Low Frequency" "High Frequency"
+"Response Graph" ]))
+(initValue Text
+(data  ""))))
+(device 8 RECCONST
+(properties
+(name "Record"))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 5)
+(fieldName "Amplitude"
+(type Real))
+(fieldName "NumberOfSteps"
+(type Real))
+(fieldName "LowFrequency"
+(type Real))
+(fieldName "HighFrequency"
+(type Real))
+(fieldName "ResponseGraph"
+(type Real)))
+(data 
+(record
+("Amplitude" 1)
+("NumberOfSteps" 100)
+("LowFrequency" 1)
+("HighFrequency" 1000)
+("ResponseGraph" 0))))))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\\examples\\apps\\freqresp.llb\\Frequency Response.vi"))
+(initValue Text
+(data  ""))))
+(device 10 XYPLOT
+(interface
+(input 1
+(name "XData")
+(lock constraints))
+(input 2
+(name "YData1")
+(lock constraints)))
+(implementation
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 11 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an"
+"illustration \"as is\", and Keysight Technologies"
+"makes no warranty of any kind" "with regard to this example.")))
+(device 12 NOTE
+(properties
+(text2 6 "Requirements: National Instruments LabView installed along with"
+"              the Frequency Response.vi example." ""
+"This example starts LabView and instructs it to load the Frequency"
+"Response VI and execute it.  The data from the VI is returned to "
+"HP VEE and is displayed in the X vs Y Plot.")))
+(configuration
+(connect D3:1 D0:1)
+(connect D1:1 D0:2)
+(connect D2:1 D0:3)
+(connect D0:6 D4:1)
+(connect D0:7 D4:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 503 367)
+(wndState max)
+(active detail)
+(detail
+(extent 1191 864)
+(anchorPt 60 165)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 339 142))
+(terminals on)
+(pinCenter 520 130))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 235 99))
+(pinCenter 100 130))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 225 197)
+(formatters))
+(pinCenter 80 330))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 303 32))
+(pinCenter 100 30))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 513 290)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range -60 20 4 linear))
+(domain 1 1000 3 log)
+(trace 0 onScale 0
+(name "YData1")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 510 430))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 670 -130))
+(devCarrierFor 12
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 515 117)
+(editing disabled))
+(titleBg "Teal")
+(pinCenter 210 -80))
+(connect D3:1 D0:1
+(points 4 254 30 270 30 270 90 298 90))
+(connect D1:1 D0:2
+(points 2 220 130 298 130))
+(connect D2:1 D0:3
+(points 6 195 330 210 330 210 220 240 220 240 170 298 170))
+(connect D0:6 D4:1
+(points 8 742 170 760 170 760 220 250 220 250 250 230 250 230 360 251 360))
+(connect D0:7 D4:2
+(points 6 742 190 750 190 750 230 220 230 220 500 251 500)))
+(stackingOrder 0 4 1 3 5 2 6))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

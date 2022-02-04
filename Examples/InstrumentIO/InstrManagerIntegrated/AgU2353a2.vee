@@ -1,0 +1,1379 @@
+(saveFormat "7.0")
+(date "Thu 20/Sep/2007 18:25:15 ")
+(veerev "8.5.10519.1 Beta2 - Botticelli")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M.11 M)
+(sysconfig
+(iodevice "DAQ"
+(type USB)
+(channel 170)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idn "agu2353a")
+(isPresent 1)
+(ppAddr "USB0::2391::4376::TW46401006::0::INSTR")
+(model "agu2353a")
+(eoiEnabled 1)
+(VISAddr "USB0::2391::4376::TW46401006::0::INSTR")
+(model "agu2353a"
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(libid "{B1EC1C84-6FCF-4E7D-AC84-F55E457DA905}")
+(desc "IVI AgilentU235x 1.0 Type Library")
+(filename "C:\\PROGRA~1\\IVI\\Bin\\agu235x.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:\\Program Files\\IVI\\Bin\\Primary Interop Assemblies\\Agilent.AgilentU235x.Interop.dll"
+))
+(assemblyRef 2
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(desc "mscorlib.dll")
+(filename ""))
+(assemblyRef 3
+(displayName
+"Ivi.Driver.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1"
+)
+(libid "{47ed5120-a398-11d4-ba58-000064657374}")
+(desc "IviDriver 1.0 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\IviDriverTypeLib.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:/Program Files/IVI/Bin/Primary Interop Assemblies/Ivi.Driver.Interop.dll"))
+(assemblyRef 4
+(displayName
+"Ivi.Visa.Interop, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1"
+)
+(libid "{db8cbf00-d6d3-11d4-aa51-00a024ee30bd}")
+(desc "VISA COM 3.0 Type Library")
+(filename "C:\\Program Files\\Agilent\\Agilent Upgrade Tool\\GlobMgr.dll")
+(verMajor 3)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:/Program Files/VISA/VisaCom/Primary Interop Assemblies/Ivi.Visa.Interop.dll")
+)
+(assemblyRef 5
+(displayName
+"Ivi.SessionFactory.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1"
+)
+(libid "{2730edc0-8db0-445b-9bd2-b031416475c3}")
+(desc "IviSessionFactory 1.0 Type Library")
+(filename "C:\\Program Files\\IVI\\Bin\\IviSessionFactory.dll")
+(verMajor 1)
+(verMinor 0)
+(lcid 0)
+(isPIA 1)
+(IAFilename
+"C:/Program Files/IVI/Bin/Primary Interop Assemblies/Ivi.SessionFactory.Interop.dll"
+))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 30)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 3)
+(context 1
+(properties
+(name "GenerateSineWave")
+(variableName GenerateSineWave)
+(variableScope glob)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes)))
+(deviceList
+(device 0 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 4 "agilentU235xClass.AnalogOut.Generation.Stop()"
+"agilentU235xClass.AnalogOut.Enabled(\"AOut1\") = True"
+"agilentU235xClass.AnalogOut.Waveform.Configure(\"AOut1\", Agilent.AgilentU235x.Interop.AgilentU235xWaveformEnum.AgilentU235xWaveformSine, Frequency, 1, Offset)"
+"agilentU235xClass.AnalogOut.Generation.Start()")
+(parmInfo 11 "0" "2" "T 0" "T 0" "5" "T 0" "T 0" "T 0" "T 0" "T 0" "0")
+(memberInfos 4 "Void Stop()" "Boolean Enabled [System.String]"
+"Void Configure(System.String, Agilent.AgilentU235x.Interop.AgilentU235xWaveformEnum, Double, Double, Double)"
+"Void Start()")
+(statics 4 "0" "0" "0" "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(interface
+(input 1
+(name "Offset")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "Frequency")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 3 CALL
+(properties
+(name "Call GetErr")
+(variableScope cont)
+(callFunc "GetErr")
+(parmMode rev30)))
+(device 4 NOTE
+(properties
+(name "Readme")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 generate a 100 Hz sine, amp 1 volt.\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect I2:1 D0:2)
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 823 441)
+(anchorPt 186 -56)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 94 15))
+(open
+(extent 604 106))
+(terminals on)
+(pinCenter 290 310))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 66 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 280 400))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "notepad.icn"))
+(open
+(extent 454 236)
+(editing enabled))
+(pinCenter 250 110))
+(connect I1:1 D0:1
+(points 4 -186 166 -170 166 -170 280 -85 280))
+(connect I2:1 D0:2
+(points 4 -186 386 -170 386 -170 340 -85 340))
+(connect D0:0 D1:0
+(points 4 270 365 270 380 280 380 280 390)))
+(stackingOrder 1 2 0))))
+(context 0
+(properties
+(name "GetErr")
+(variableName GetErr)
+(variableScope glob)
+(trigMode deg)
+(nextID 16)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 1 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 1
+"agilentU235xClass.Utility.ErrorQuery(ByRef ErrorCode, ByRef ErrorMessage)")
+(parmInfo 3 "2" "T 0" "T 0")
+(memberInfos 1 "Void ErrorQuery(Int32 ByRef, System.String ByRef)")
+(statics 1 "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(interface
+(input 1
+(name "ErrorCode")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "ErrorMessage")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "ErrorCode")
+(optional yes))
+(output 2
+(name "ErrorMessage")
+(optional yes)))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 2 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  ""))
+(initValue Text
+(data  ""))))
+(device 3 TOSTRING
+(properties
+(name "fmt")
+(variableScope cont)
+(transactions 1 "WRITE TEXT a, \" : \", b EOL"))
+(interface
+(input 1
+(name "a")
+(optional yes))
+(input 2
+(name "b")
+(optional yes))
+(output 1
+(name "result")
+(lock name constraints)))
+(implementation
+(attr iopath string write "string"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 4 IFTHENELSE
+(properties
+(name "0?")
+(variableScope cont)
+(cases 1 "a==0"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 5 SCROLLINGTEXTDISPLAY
+(properties
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes))))
+(device 6 DO
+(properties
+(variableScope cont))
+(interface
+(output 1
+(name "Do"))))
+(device 7 REPEATUNTILBREAK
+(properties
+(name "Loop")
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 8 BREAK
+(properties
+(variableScope cont)))
+(device 9 CONFIRM25
+(properties
+(name "Close Window")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 10 COUNTER
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))
+(input 2
+(type control)
+(name "Clear")
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Count"))))
+(device 11 DECLVAR
+(properties
+(name "Declare cnt")
+(scope con)
+(globalName "cnt"))
+(implementation
+(value Int32
+(data  0))))
+(device 12 TOGLOBAL
+(properties
+(name "Set cnt")
+(variableScope cont)
+(globalName "cnt"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(device 13 IFTHENELSE
+(properties
+(name "0?")
+(variableScope cont)
+(cases 1 "cnt==1"))
+(interface
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 14 FORMULA
+(properties
+(name "ShowPanel(\"GetErr\")")
+(variableScope cont)
+(expr 1 "ShowPanel(\"GetErr\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 15 FORMULA
+(properties
+(name "HidePanel(\"GetErr\")")
+(variableScope cont)
+(expr 1 "HidePanel(\"GetErr\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D10:0 D1:0)
+(connect D0:1 D1:1)
+(connect D2:1 D1:2)
+(connect D1:1 D3:1)
+(connect D1:2 D3:2)
+(connect D3:0 D4:0)
+(connect D1:1 D4:1)
+(connect D3:1 D5:1)
+(connect D6:1 D5:2)
+(connect D6:0 D7:0)
+(connect D4:1 D8:0)
+(connect D14:0 D9:0)
+(connect D7:1 D10:1)
+(connect D6:1 D10:2)
+(connect D10:1 D12:1)
+(connect D7:0 D13:0)
+(connect D13:2 D14:0)
+(connect D9:1 D15:0)))
+(contextCarrier
+(active panel)
+(panel
+(extent 501 348)
+(drawGrid "on")
+(widget 5 detail
+(relativeOrigin 10 10)
+(PID 0)
+(title off)
+(tabStop off)
+(tabIndex 0)
+(borderStyle flat)
+(extent 476 266)
+(noformatter))
+(widget 9 detail
+(relativeOrigin 190 300)
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle none)
+(extent 110 30))
+(panelBg "Warning Red"))
+(detail
+(extent 741 413)
+(anchorPt 209 89)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 31 15))
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 80 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 94 25))
+(open
+(extent 404 106))
+(terminals on)
+(pinCenter 170 80))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 26 15))
+(open
+(extent 174 29))
+(pinCenter 80 90))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 300 80))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 85 51))
+(terminals on)
+(pinCenter 300 130))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 214 249)
+(noformatter))
+(pinCenter 520 140))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 24 15))
+(open)
+(terminals on)
+(pinCenter 20 -30))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 32 19))
+(open
+(extent 12 30))
+(terminals on)
+(titleBg "Light Yellow")
+(pinCenter 20 10))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 36 15))
+(open)
+(terminals on)
+(pinCenter 350 160))
+(devCarrierFor 9
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 47 22))
+(title off)
+(pinCenter 100 220))
+(devCarrierFor 10
+(active open)
+(icon)
+(open
+(extent 84 31))
+(pinCenter 170 20))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 68 15))
+(open
+(extent 195 103))
+(pinCenter 30 -70))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 41 15))
+(open
+(extent 73 51))
+(terminals on)
+(pinCenter 250 20))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 24 25))
+(open
+(extent 67 51))
+(terminals on)
+(pinCenter 20 140))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 125 15))
+(open
+(extent 149 50))
+(terminals on)
+(pinCenter 100 180))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 119 15))
+(open
+(extent 144 50))
+(terminals on)
+(pinCenter 140 250))
+(connect D10:0 D1:0
+(points 2 170 38 170 65))
+(connect D0:1 D1:1
+(points 2 98 70 120 70))
+(connect D2:1 D1:2
+(points 2 95 90 120 90))
+(connect D1:1 D3:1
+(points 2 219 70 285 70))
+(connect D1:2 D3:2
+(points 2 219 90 285 90))
+(connect D3:0 D4:0
+(points 2 300 95 300 115))
+(connect D1:1 D4:1
+(points 4 219 70 240 70 240 130 285 130))
+(connect D3:1 D5:1
+(points 2 314 80 410 80))
+(connect D6:1 D5:2
+(points 6 34 -30 100 -30 100 -40 390 -40 390 200 410 200))
+(connect D6:0 D7:0
+(points 2 20 -20 20 -2))
+(connect D4:1 D8:0
+(points 3 314 120 350 120 350 150))
+(connect D14:0 D9:0
+(points 2 100 190 100 206))
+(connect D7:1 D10:1
+(points 2 38 10 125 10))
+(connect D6:1 D10:2
+(points 4 34 -30 100 -30 100 30 125 30))
+(connect D10:1 D12:1
+(points 2 214 20 227 20))
+(connect D7:0 D13:0
+(points 2 20 22 20 125))
+(connect D13:2 D14:0
+(points 3 34 150 100 150 100 170))
+(connect D9:1 D15:0
+(points 3 126 220 140 220 140 240)))
+(stackingOrder 0 2 6 7 10 12 13 9 3 4 5 8 11 14 15 1))))
+(context 2
+(properties
+(name "GetWave")
+(variableName GetWave)
+(variableScope glob)
+(trigMode deg)
+(nextID 8)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 3
+"agilentU235xClass.AnalogIn.Configure(\"AIn1\", Agilent.AgilentU235x.Interop.AgilentU235xInputSignalTypeEnum.AgilentU235xInputSignalTypeDifferential, Agilent.AgilentU235x.Interop.AgilentU235xAnalogPolarityEnum.AgilentU235xAnalogPolarityBipolar, 10)"
+"agilentU235xClass.AnalogIn.MultiScan.SampleRate = 10000"
+"agilentU235xClass.AnalogIn.Acquisition.Start()")
+(parmInfo 8 "4" "T 0" "T 0" "T 0" "T 0" "1" "T 0" "0")
+(memberInfos 3
+"Void Configure(System.String, Agilent.AgilentU235x.Interop.AgilentU235xInputSignalTypeEnum, Agilent.AgilentU235x.Interop.AgilentU235xAnalogPolarityEnum, Double)"
+"Int32 SampleRate" "Void Start()")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 1 ALLOCATEARRAY
+(properties
+(name "Alloc Int64")
+(variableScope cont))
+(interface
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "10")
+(type "Int64")
+(initEnum "Lin Ramp")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 2 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 2 "agilentU235xClass.AnalogIn.Acquisition.Stop()"
+"agilentU235xClass.AnalogIn.Acquisition.Fetch(ByRef Results)")
+(parmInfo 3 "0" "1" "T 0")
+(memberInfos 2 "Void Stop()" "Void Fetch(Int16[] ByRef)")
+(statics 2 "0" "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(interface
+(input 1
+(name "Results")
+(requires
+(datatype Int16)
+(shape "Array 1D"))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Results")
+(optional yes)))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 3 DELAY
+(properties
+(variableScope cont)
+(delay 0.05))
+(interface
+(output 1
+(name "Done"))))
+(device 6 FORMULA
+(properties
+(name "Bipolar Data/32768*Rng")
+(variableScope cont)
+(expr 1 "(asReal64(Data)/32768)*rng"))
+(interface
+(input 1
+(name "Data")
+(optional yes))
+(input 2
+(name "rng")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 CONSTANT
+(properties
+(name "10")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(data  10))
+(initValue Real
+(data  0))))
+(configuration
+(connect D3:1 D2:0)
+(connect D1:1 D2:1)
+(connect D0:0 D3:0)
+(connect D2:1 D4:1)
+(connect D5:1 D4:2)
+(connect D4:1 O1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 903 400)
+(anchorPt -49 7)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 624 86))
+(terminals on)
+(pinCenter 390 100))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 61 15))
+(open
+(extent 190 113))
+(terminals on)
+(pinCenter 250 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 94 15))
+(open
+(extent 584 136))
+(terminals on)
+(pinCenter 430 240))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 35 15))
+(open
+(extent 71 31))
+(pinCenter 390 190))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 154 25))
+(open
+(extent 244 66))
+(terminals on)
+(pinCenter 620 250))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 24 15))
+(open
+(extent 80 29)
+(showFormat real))
+(pinCenter 470 280))
+(connect D3:1 D2:0
+(points 3 410 190 430 190 430 230))
+(connect D1:1 D2:1
+(points 2 283 240 380 240))
+(connect D0:0 D3:0
+(points 2 390 110 390 180))
+(connect D2:1 D4:1
+(points 2 479 240 540 240))
+(connect D5:1 D4:2
+(points 4 484 280 500 280 500 260 540 260))
+(connect D4:1 O1:1
+(points 4 699 250 720 250 720 192 951 192)))
+(stackingOrder 3 5 4 1 2 0)))))
+(device 10 CALL
+(properties
+(name "Call GetErr")
+(variableScope cont)
+(callFunc "GetErr")
+(parmMode rev30)))
+(device 11 CONTEXT
+(properties
+(name "Init DAQ")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 1
+"agilentU235xClass.Initialize(\"USB0::2391::4376::TW46401006::0::INSTR\", False, False, \"\")"
+)
+(parmInfo 5 "4" "T 0" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void Initialize(System.String, Boolean, Boolean, System.String)"
+)
+(statics 1 "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(interface
+(input 1
+(name "agilentU235xClass")
+(optional yes)))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 1 IVICOMBUILDER
+(properties
+(name "To/From DAQ")
+(variableScope cont)
+(transactions 1
+"agilentU235xClass = CreateInstance(\"Agilent.AgilentU235x.Interop\", \"Agilent.AgilentU235x.Interop.AgilentU235xClass\")"
+)
+(parmInfo 4 "3" "T 0" "T 0" "T 0")
+(memberInfos 1 "Void .ctor()")
+(statics 1 "0")
+(assemblyQualifiedName
+"Agilent.AgilentU235x.Interop.AgilentU235xClass, Agilent.AgilentU235x.Interop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ced78d295d1e0f2b"
+)
+(objectName "agilentU235xClass")
+(addrString "USB0::2391::4376::TW47071012::0::INSTR")
+(performQuery 0)
+(performReset 0)
+(sessionFactory 0)
+(classCompliant 0))
+(interface
+(output 1
+(name "agilentU235xClass")
+(optional yes)))
+(implementation
+(prefix "")
+(ioDev "DAQ")))
+(device 2 TOGLOBAL
+(properties
+(name "Set agilentU235xClass")
+(variableScope cont)
+(globalName "agilentU235xClass"))
+(interface
+(input 1
+(name "Data")
+(tag "Data")
+(lock name))))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D1:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 847)
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 536 252)
+(wndState min)
+(active detail)
+(detail
+(extent 536 252)
+(anchorPt 47 -4)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 94 15))
+(open
+(extent 454 76))
+(terminals on)
+(pinCenter 270 260))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 94 15))
+(open
+(extent 424 66))
+(terminals on)
+(pinCenter 150 70))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 138 15))
+(open
+(extent 154 46))
+(terminals on)
+(pinCenter 390 70))
+(connect D1:0 D0:0
+(points 4 200 105 200 130 220 130 220 201))
+(connect D1:1 D0:1
+(points 8 494 70 500 70 500 120 490 120 490 140 -110 140 -110 260 -90 260))
+(connect D1:1 D2:1
+(points 4 494 70 283 70 283 70 318 70)))
+(stackingOrder 2 0 1))))
+(device 12 CALL
+(properties
+(name "Call GenerateSineWave")
+(variableScope cont)
+(callFunc "GenerateSineWave")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))))
+(device 14 NOTE
+(properties
+(name "Programming the AgU2353A DAQ with IVI-COM")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}{\\f1\\fnil\\fcharset0 Times New Roman;}{\\f2\\fscript\\fprq2\\fcharset0 Comic Sans MS;}}\r\n{\\colortbl ;\\red255\\green0\\blue0;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\b\\f0\\fs24 Simple IVI-COM USB DAQ example.\\par\r\n\\fs20\\par\r\n\\cf1\\ul\\f1\\fs24 Note\\cf2\\ulnone\\b0 :  Make sure the U2353A is connected. If the address string differs from: USB0::2391::4376::TW46401006::0::INSTR, then correct it in Instrument Manager (used in \"Init DAQ\").\\par\r\n\\par\r\nThe purpose of this sample is to show how to use VEE and the IVI COM driver to generate and retrieve data from a AgU2353A DAQ.\\par\r\n\\par\r\nThe UserFunction GenerateSineWave will set AgU2353A DAQ to generate a user defined wave. The UserFunction GetWave gets data from DAQ with sample rate is 10000.\\cf0\\f2\\par\r\n}\r\n"
+)))
+(device 15 CALL
+(properties
+(name "Call GetWave")
+(variableScope cont)
+(callFunc "GetWave")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 16 CALL
+(properties
+(name "Call GetErr")
+(variableScope cont)
+(callFunc "GetErr")
+(parmMode rev30)))
+(device 18 YPLOT
+(properties
+(name "XY Trace")
+(variableScope cont))
+(interface
+(input 1
+(name "AIn1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)
+(autoAutoX)))
+(device 20 NOTE
+(properties
+(name "Warranty Disclaimer")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example is provided as an\\par\r\nillustration \"as is\", and Keysight Technologies\\par\r\nmakes no warranty of any kind\\par\r\nwith regard to this example.\\par\r\n}\r\n"
+)))
+(device 21 NOTE
+(properties
+(name "Requirements")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\f0\\fs24  - Need to have VEE 8.5 and above to run this example.\\par\r\n - Need to have installed an IO interface type: USB.\\par\r\n - Need to have installed some IO softwares: Keysight IO libraries version Suite 15.0\\par\r\n   is a minimum.\\par\r\n - Need to install the AgilentU235x IVI-COM driver.\\par\r\n\\par\r\nNote that this example is using a USB interface. The instrument is at the USB address USB0::2391::4376::TW46401006::0::INSTR.\\par\r\n}\r\n"
+)))
+(device 22 NOTE
+(properties
+(name "IVI-COM README")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 This example demonstrates the use of IVI-COM drivers in VEE 8.5.  \\par\r\n\\par\r\nTo use this example, \\par\r\n1. Install AgilentU235x IVI-COM driver Version 1.0.8.0 or later.  You can install the driver from CD, or download it from http://www.keysight.com/find/adnivicomdrivers.  \\par\r\n2. This example assumes a certain resource string for your instrument.  To change the resource string to match yours, double click on the operation agilentU235xClass.Initialize.  \\par\r\n3. Connect the pin 1 to pin 10 and 35 to 11 in order to see the sinewave in the graph\\par\r\n\\par\r\nFor details on VEE and IVI-COM, see online help under \"To/From IVI-COM\".\\par\r\n\\par\r\n}\r\n"
+)))
+(device 24 SLIDER
+(properties
+(name "Frequency, Hz")
+(variableScope cont)
+(enableEditing 1)
+(range 10 10000)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  194.147))
+(initValue Real
+(data  0))))
+(device 25 SLIDER
+(properties
+(name "Amplitude, Volt")
+(variableScope cont)
+(enableEditing 1)
+(range 0 1.8)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  1.039))
+(initValue Real
+(data  0))))
+(device 26 CONFIRM25
+(properties
+(name "Set Freq/Amp")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 27 REPEATUNTILBREAK
+(properties
+(name "Loop")
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 28 CONFIRM25
+(properties
+(name "Get Wave")
+(variableScope cont)
+(enterButton 0)
+(escapeButton 0)
+(isAssigned2FKey None)
+(okDisabled 1))
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 29 REPEATUNTILBREAK
+(properties
+(name "Loop")
+(variableScope cont))
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(configuration
+(connect D14:0 D0:0)
+(connect D11:1 D2:1)
+(connect D10:1 D2:2)
+(connect D0:0 D4:0)
+(connect D4:0 D5:0)
+(connect D4:1 D6:1)
+(connect D11:0 D10:0)
+(connect D12:1 D11:0)
+(connect D13:1 D12:0)
+(connect D15:1 D14:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 21 17)
+(wndState res)
+(active panel)
+(panel
+(extent 842 396)
+(drawGrid "on")
+(widget 6 detail
+(relativeOrigin 340 70)
+(bg "Light Blue Gray")
+(PID 1)
+(title off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 466 306)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Volt")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1.5 1.5 4 linear))
+(domain 0 500 4 linear)
+(trace 0 onScale 0
+(name "AIn1")
+(traceColor "Green")
+(lineType 12)
+(pointType 0))
+(displayBg "Lightest Gray")
+(markerColor "White"))
+(widget 11 detail
+(relativeOrigin 30 70)
+(bg "Light Blue Gray")
+(PID 4)
+(title off)
+(tabIndex 4)
+(borderStyle flat)
+(extent 276 86)
+(layout horizontal)
+(fastmode off)
+(extratics))
+(widget 10 detail
+(relativeOrigin 30 210)
+(bg "Light Blue Gray")
+(PID 5)
+(title off)
+(tabIndex 5)
+(borderStyle flat)
+(extent 276 86)
+(layout horizontal)
+(fastmode off)
+(extratics))
+(widget 12 detail
+(relativeOrigin 110 10)
+(bg "Light Blue Gray")
+(PID 6)
+(title off)
+(tabIndex 6)
+(borderStyle none)
+(extent 110 30))
+(widget 14 detail
+(relativeOrigin 510 10)
+(bg "Light Blue Gray")
+(PID 7)
+(title off)
+(tabIndex 7)
+(borderStyle none)
+(extent 110 30))
+(panelBg "Light Blue Gray"))
+(detail
+(extent 910 641)
+(anchorPt 7 318)
+(configuration
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 66 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 460 60))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 48 15))
+(terminals on)
+(pinCenter 130 -30))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 144 25))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 300 150))
+(devCarrierFor 14
+(active icon)
+(icon
+(extent 282 51)
+(iconImage "notepad.icn"))
+(open
+(extent 444 286)
+(editing disabled))
+(pinCenter 260 -130))
+(devCarrierFor 15
+(active icon)
+(icon
+(extent 81 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 450 100))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 66 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 450 140))
+(devCarrierFor 18
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1.266497461928936 1.233502538071064 4 linear))
+(domain 0 500 4 linear)
+(trace 0 onScale 0
+(name "AIn1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 750 230))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 419 127)
+(editing disabled))
+(pinCenter 840 -130))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 86 51)
+(iconImage "notepad.icn"))
+(open
+(extent 544 186)
+(editing disabled))
+(pinCenter 600 -130))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 106 51)
+(iconImage "notepad.icn"))
+(open
+(extent 454 236)
+(editing disabled))
+(pinCenter 480 -130))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 84 15))
+(open
+(extent 120 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 150 170))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 89 15))
+(open
+(extent 125 222)
+(layout vertical)
+(fastmode off)
+(extratics))
+(pinCenter 160 130))
+(devCarrierFor 26
+(active open)
+(icon
+(extent 81 0))
+(open
+(extent 104 24))
+(title off)
+(pinCenter 160 60))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 44 14))
+(open
+(extent 12 30))
+(terminals on)
+(titleBg "Yellow")
+(pinCenter 120 20))
+(devCarrierFor 28
+(active open)
+(icon
+(extent 57 0))
+(open
+(extent 104 24))
+(title off)
+(pinCenter 440 10))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 44 14))
+(open
+(extent 12 30))
+(terminals on)
+(titleBg "Yellow")
+(pinCenter 380 -30))
+(connect D14:0 D0:0
+(points 4 440 24 440 30 460 30 460 50))
+(connect D11:1 D2:1
+(points 4 207 130 220 130 220 140 225 140))
+(connect D10:1 D2:2
+(points 4 194 170 210 170 210 160 225 160))
+(connect D0:0 D4:0
+(points 4 460 70 460 80 450 80 450 90))
+(connect D4:0 D5:0
+(points 2 450 110 450 130))
+(connect D4:1 D6:1
+(points 4 493 100 510 100 510 230 589 230))
+(connect D11:0 D10:0
+(points 4 160 140 160 150 150 150 150 160))
+(connect D12:1 D11:0
+(points 5 214 60 230 60 230 90 160 90 160 120))
+(connect D13:1 D12:0
+(points 3 144 20 160 20 160 45))
+(connect D15:1 D14:0
+(points 3 404 -30 440 -30 440 -5)))
+(stackingOrder 13 15 11 10 2 0 6 5 14 1 12 4 3 9 8 7))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

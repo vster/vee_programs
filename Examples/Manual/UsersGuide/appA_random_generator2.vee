@@ -1,0 +1,291 @@
+(saveFormat "2.3")
+(date "Thu 26/Feb/2004 21:09:34 ")
+(veerev "6.03")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 14)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 4 SLIDER
+(properties
+(name "# of Random Numbers")
+(range 0 100)
+(detents 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  45))
+(initValue Int32
+(data  0))))
+(device 5 FORCOUNT
+(properties
+(count 45))
+(interface
+(input 1
+(name "Count")
+(tag "Count")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 7 SLIDER
+(properties
+(name "Min")
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0.9320000000000001))
+(initValue Real
+(data  0))))
+(device 8 SLIDER
+(properties
+(name "Max")
+(range 0 1)
+(detents 0.001))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real64
+(data  0.743))
+(initValue Real
+(data  0))))
+(device 9 FORMULA
+(properties
+(name "random(low,high)")
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 10 YPLOT
+(properties
+(name "XY Trace"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(graphMode rectangular)
+(autoAutoX)
+(autoAutoY)))
+(device 11 FORMULA
+(properties
+(name "movingAvg(x,numPts)")
+(expr 1 "movingAvg(x,numPts)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(input 2
+(name "numPts")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 12 COLLECTOR
+(properties
+(output1D 0))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))
+(input 2
+(type trigger)
+(name "XEQ")
+(lock name constraints))
+(output 1
+(name "Array")
+(tag "Array"))))
+(device 13 NOTE
+(properties
+(name "Warranty Disclaimer")
+(text2 4 "This example is provided as an illustration"
+"\"as is\", and Keysight Technologies makes"
+"no warranty of any kind with regard to this" "example.")))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D4:0)
+(connect D2:1 D4:1)
+(connect D3:1 D4:2)
+(connect D4:1 D5:1)
+(connect D6:1 D5:2)
+(connect D7:1 D6:1)
+(connect D0:1 D6:2)
+(connect D4:1 D7:1)
+(connect D1:0 D7:2)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 792 405)
+(wndState max)
+(active detail)
+(detail
+(extent 1061 864)
+(anchorPt 0 -1)
+(configuration
+(devCarrierFor 4
+(active open)
+(icon
+(extent 138 0))
+(open
+(extent 222 83)
+(layout horizontal)
+(fastmode off)
+(extratics))
+(pinCenter 190 100))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 400 100))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 23 0))
+(open
+(extent 222 83)
+(layout horizontal)
+(fastmode off)
+(extratics))
+(pinCenter 180 230))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 25 0))
+(open
+(extent 222 83)
+(layout horizontal)
+(fastmode off)
+(extratics))
+(pinCenter 180 360))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 106 25))
+(open
+(extent 128 42))
+(terminals on)
+(pinCenter 390 280))
+(devCarrierFor 10
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Y name")
+(domainName "X name")
+(Yspacing 1)
+(Xspacing 2)
+(pen 9)
+(show 1)
+(range 0.7400000000000001 0.8600000000000002 4 linear))
+(domain 0 45 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(markerPenColor 1))
+(pinCenter 670 240))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 129 25))
+(open
+(extent 149 42))
+(terminals on)
+(pinCenter 400 420))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 53 25))
+(open)
+(terminals on)
+(pinCenter 440 190))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 338 48)
+(iconImage "disclaim.gif")
+(label off))
+(open
+(extent 410 78)
+(editing enabled))
+(pinCenter 530 30))
+(connect D0:1 D1:1
+(points 2 303 100 363 100))
+(connect D1:1 D4:0
+(points 5 436 100 460 100 460 150 390 150 390 265))
+(connect D2:1 D4:1
+(points 4 293 230 310 230 310 270 334 270))
+(connect D3:1 D4:2
+(points 4 293 360 310 360 310 290 334 290))
+(connect D4:1 D5:1
+(points 6 445 280 470 280 470 240 490 240 490 170 509 170))
+(connect D6:1 D5:2
+(points 4 467 420 490 420 490 310 509 310))
+(connect D7:1 D6:1
+(points 8 469 190 480 190 480 290 470 290 470 380 320 380 320 410 333 410))
+(connect D0:1 D6:2
+(points 6 303 100 320 100 320 370 310 370 310 430 333 430))
+(connect D4:1 D7:1
+(points 6 445 280 470 280 470 240 380 240 380 180 411 180))
+(connect D1:0 D7:2
+(points 3 400 128 400 200 411 200)))
+(stackingOrder 0 2 3 4 1 7 6 5 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
