@@ -1,5 +1,5 @@
 (saveFormat "7.0")
-(date "Mon 07/Feb/2022 11:09:29 ")
+(date "Mon 07/Feb/2022 11:36:57 ")
 (veerev "9.33.1811.0201")
 (platform "PC")
 (execMode v6)
@@ -81,7 +81,7 @@
 (variableName Main)
 (variableScope glob)
 (trigMode deg)
-(nextID 17)
+(nextID 28)
 (popupTitleText "Untitled")
 (popupMoveable 1)
 (deleteGlobals 0))
@@ -143,61 +143,61 @@
 (optional yes))
 (output 1
 (name "Record"))))
-(device 11 FORMULA
+(device 22 FROMRECORD
 (properties
-(name "rec.field")
-(variableScope cont)
-(expr 1 "rec.testname"))
+(variableScope cont))
 (interface
 (input 1
-(name "rec")
-(optional yes))
+(name "Record Data")
+(requires
+(datatype Record))
+(lock name constraints))
 (output 1
-(name "Result")
-(tag "Result")
+(name "Name List")
+(tag "Name List")
 (lock name constraints)
-(optional yes))))
-(device 12 FORMULA
-(properties
-(name "rec.field")
-(variableScope cont)
-(expr 1 "rec.time"))
-(interface
-(input 1
-(name "rec")
 (optional yes))
-(output 1
-(name "Result")
-(tag "Result")
+(output 2
+(name "Type List")
+(tag "Type List")
 (lock name constraints)
-(optional yes))))
-(device 13 FORMULA
-(properties
-(name "rec.field")
-(variableScope cont)
-(expr 1 "rec.data"))
-(interface
-(input 1
-(name "rec")
 (optional yes))
-(output 1
-(name "Result")
-(tag "Result")
-(lock name constraints)
+(output 3
+(name "testname")
+(tag "A")
+(optional yes))
+(output 4
+(name "time")
+(tag "B")
+(optional yes))
+(output 5
+(name "data")
 (optional yes))))
-(device 14 TEXTDISPLAY
+(device 23 TEXTDISPLAY
 (properties
 (variableScope cont))
 (interface
 (input 1
 (name "Data"))))
-(device 15 TEXTDISPLAY
+(device 24 TEXTDISPLAY
 (properties
 (variableScope cont))
 (interface
 (input 1
 (name "Data"))))
-(device 16 TEXTDISPLAY
+(device 25 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 26 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 27 TEXTDISPLAY
 (properties
 (variableScope cont))
 (interface
@@ -208,11 +208,11 @@
 (connect D1:1 D3:2)
 (connect D2:1 D3:3)
 (connect D3:1 D4:1)
-(connect D3:1 D5:1)
-(connect D3:1 D6:1)
-(connect D4:1 D7:1)
-(connect D5:1 D8:1)
-(connect D6:1 D9:1)))
+(connect D4:1 D5:1)
+(connect D4:2 D6:1)
+(connect D4:3 D7:1)
+(connect D4:4 D8:1)
+(connect D4:5 D9:1)))
 (contextCarrier
 (wndRestoredOrigin 2 2)
 (wndRestoredExtent 1083 641)
@@ -220,7 +220,7 @@
 (active detail)
 (detail
 (extent 1311 869)
-(anchorPt -43 -177)
+(anchorPt -274 -128)
 (configuration
 (devCarrierFor 0
 (active icon)
@@ -248,77 +248,78 @@
 (devCarrierFor 3
 (active open)
 (icon
+(extent 78 51)
 (iconImage "build.icn"))
 (open
 (extent 97 62))
 (terminals on)
-(pinCenter 645 310))
-(devCarrierFor 11
+(pinCenter 585 310))
+(devCarrierFor 22
 (active open)
-(icon)
+(icon
+(extent 95 51)
+(iconImage "unbuild.icn"))
 (open
-(extent 104 56))
+(extent 17 102))
 (terminals on)
-(pinCenter 630 530))
-(devCarrierFor 12
+(pinCenter 628 500))
+(devCarrierFor 23
 (active open)
 (icon)
 (open
-(extent 104 56))
-(terminals on)
-(pinCenter 630 650))
-(devCarrierFor 13
+(extent 124 56))
+(pinCenter 920 280))
+(devCarrierFor 24
 (active open)
 (icon)
 (open
-(extent 104 46))
-(terminals on)
-(pinCenter 630 790))
-(devCarrierFor 14
+(extent 144 66))
+(pinCenter 930 400))
+(devCarrierFor 25
 (active open)
 (icon)
 (open
-(extent 121 22))
-(pinCenter 920 530))
-(devCarrierFor 15
+(extent 114 36))
+(pinCenter 920 520))
+(devCarrierFor 26
 (active open)
 (icon)
 (open
-(extent 224 26)
+(extent 214 36)
 (formatter
 (realFormat timeStamp)
 (realSigDigits 4)
 (realRadixSpec 4)
 (timeStamp dateTime)
 (timeFormat HMS H12)
-(dateFormat MDY)
+(dateFormat WDMY)
 (integerBase decimal)))
-(pinCenter 960 650))
-(devCarrierFor 16
+(pinCenter 960 620))
+(devCarrierFor 27
 (active open)
 (icon)
 (open
-(extent 114 106))
-(pinCenter 940 830))
+(extent 121 22))
+(pinCenter 910 710))
 (connect D0:1 D3:1
-(points 4 404 240 420 240 420 290 524 290))
+(points 4 404 240 420 240 420 290 464 290))
 (connect D1:1 D3:2
-(points 4 400 300 420 300 420 310 524 310))
+(points 4 400 300 420 300 420 310 464 310))
 (connect D2:1 D3:3
-(points 4 404 360 420 360 420 330 524 330))
+(points 4 404 360 420 360 420 330 464 330))
 (connect D3:1 D4:1
-(points 6 756 310 780 310 780 360 530 360 530 530 545 530))
-(connect D3:1 D5:1
-(points 6 756 310 780 310 780 360 530 360 530 650 545 650))
-(connect D3:1 D6:1
-(points 6 756 310 780 310 780 360 530 360 530 790 545 790))
-(connect D4:1 D7:1
-(points 2 734 530 857 530))
-(connect D5:1 D8:1
-(points 2 734 650 845 650))
-(connect D6:1 D9:1
-(points 4 734 790 750 790 750 830 880 830)))
-(stackingOrder 0 1 6 2 7 8 3 4 5 9))
+(points 6 696 310 720 310 720 360 510 360 510 500 530 500))
+(connect D4:1 D5:1
+(points 6 709 460 720 460 720 380 730 380 730 280 855 280))
+(connect D4:2 D6:1
+(points 4 709 480 730 480 730 400 855 400))
+(connect D4:3 D7:1
+(points 4 709 500 740 500 740 520 860 520))
+(connect D4:4 D8:1
+(points 4 709 520 730 520 730 620 850 620))
+(connect D4:5 D9:1
+(points 4 709 540 720 540 720 710 847 710)))
+(stackingOrder 0 1 2 3 4 5 6 7 8 9))
 (numberFormats
 (realFormat standard)
 (realSigDigits 4)
