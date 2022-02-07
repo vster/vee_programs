@@ -1,0 +1,350 @@
+(saveFormat "7.0")
+(date "Mon 07/Feb/2022 15:19:42 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 9)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 START25
+(properties
+(variableScope cont)))
+(device 1 FORCOUNT
+(properties
+(variableScope cont)
+(count 10))
+(interface
+(output 1
+(name "Count")
+(lock name constraints))))
+(device 2 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "\"test\"+A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TORECORD
+(properties
+(variableScope cont)
+(outputType scalar))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(input 2
+(name "B")
+(optional yes))
+(input 3
+(name "C")
+(optional yes))
+(output 1
+(name "Record"))))
+(device 4 FORMULA
+(properties
+(name "Random Number")
+(variableScope cont)
+(expr 1 "random(0,1)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 CONSTANT
+(properties
+(name "Real Array")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Real64")
+(lock name constraints)))
+(implementation
+(value Real
+(numDims 1)
+(size 3)
+(data  [ 1 2 3 ]))
+(initValue Real
+(data  0))))
+(device 6 TODATASET
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "input")
+(tag "inRecord")
+(requires
+(datatype Record))
+(lock constraints)))
+(implementation
+(attr iopath file write "D:\\vst\\VEE_Programs\\Labs\\myFile.txt"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 7 FROMDATASET
+(properties
+(variableScope cont)
+(readRecs all)
+(expr 1 "Rec.B>=0.5"))
+(interface
+(output 1
+(name "Rec")
+(tag "records"))
+(output 2
+(name "EOF")
+(tag "EOF")
+(lock name constraints)
+(optional yes)))
+(implementation
+(attr iopath file read "D:\\vst\\VEE_Programs\\Labs\\myFile.txt"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 8 RECCONST
+(properties
+(name "Record")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(numDims 1)
+(size 4)
+(schema
+(numFields 3)
+(fieldName "A"
+(type Text))
+(fieldName "B"
+(type Real64))
+(fieldName "C"
+(type Real64)
+(numDims 1)
+(size 3)))
+(data 
+(record
+("A" "test0")
+("B" 0.79815673828125)
+("C" [ 1 2 3 ]))
+(record
+("A" "test1")
+("B" 0.90057373046875)
+("C" [ 1 2 3 ]))
+(record
+("A" "test3")
+("B" 0.630157470703125)
+("C" [ 1 2 3 ]))
+(record
+("A" "test7")
+("B" 0.85516357421875)
+("C" [ 1 2 3 ]))))))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)
+(connect D2:1 D3:1)
+(connect D4:1 D3:2)
+(connect D5:1 D3:3)
+(connect D2:0 D4:0)
+(connect D3:1 D6:1)
+(connect D1:0 D7:0)
+(connect D7:1 D8:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1311 869)
+(anchorPt 96 -65)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 47 22))
+(title off)
+(pinCenter 300 180))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 95 31))
+(pinCenter 300 290))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 520 260))
+(devCarrierFor 3
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 97 62))
+(terminals on)
+(pinCenter 845 280))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 105 15))
+(open
+(extent 131 50))
+(terminals on)
+(pinCenter 510 350))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 60 15))
+(open
+(extent 117 60)
+(showFormat real))
+(pinCenter 540 410))
+(devCarrierFor 6
+(active open)
+(icon)
+(open
+(extent 204 66))
+(terminals on)
+(pinCenter 915 450))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 256 106))
+(terminals on)
+(pinCenter 395 590))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 225 236)
+(formatters))
+(terminals on)
+(pinCenter 915 690))
+(connect D0:0 D1:0
+(points 2 300 193 300 254))
+(connect D1:1 D2:1
+(points 4 350 290 370 290 370 260 415 260))
+(connect D2:1 D3:1
+(points 2 645 260 764 260))
+(connect D4:1 D3:2
+(points 4 565 350 670 350 670 280 764 280))
+(connect D5:1 D3:3
+(points 4 572 410 680 410 680 300 764 300))
+(connect D2:0 D4:0
+(points 4 530 287 530 310 510 310 510 340))
+(connect D3:1 D6:1
+(points 6 956 280 980 280 980 330 750 330 750 450 770 450))
+(connect D1:0 D7:0
+(points 4 300 308 300 330 400 330 400 516))
+(connect D7:1 D8:1
+(points 4 565 560 590 560 590 690 710 690)))
+(stackingOrder 0 1 2 3 6 4 5 7 8))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
