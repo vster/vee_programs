@@ -1,0 +1,277 @@
+(saveFormat "7.0")
+(date "Tue 08/Feb/2022 16:59:17 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(assemblyRef 2
+(displayName
+"System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\drawing.dll"))
+(assemblyRef 3
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 6)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 DOTNETCONTROL
+(properties
+(name "ProgressBar")
+(description2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\froman\\fprq2\\fcharset0 Times New Roman;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs24 Go to file:///C:/Program%20Files%20(x86)/Keysight/VEE%20Pro%209.3/Examples/DotNetControls/ProgressBar.vee for an example.\\par\r\n}\r\n"
+)
+(variableName ProgressBar)
+(variableScope cont)
+(assemblyName "System.Windows.Forms")
+(objectType "System.Windows.Forms.ProgressBar"))
+(implementation
+(state 324 #H
+0001000000FFFFFFFF010000000000000004010000001C53797374656D2E436F6C6C656374696F6E
+732E486173687461626C65070000000A4C6F6164466163746F720756657273696F6E08436F6D7061
+7265721048617368436F646550726F7669646572084861736853697A65044B6579730656616C7565
+73000003030005050B081C53797374656D2E436F6C6C656374696F6E732E49436F6D706172657224
+53797374656D2E436F6C6C656374696F6E732E4948617368436F646550726F766964657208EC5138
+3F040000000A0A0B0000000902000000090300000010020000000400000006040000000453697A65
+0605000000084C6F636174696F6E060600000008546162496E6465780607000000044E616D651003
+000000040000000608000000073139342C203236060900000004302C2030060A0000000130060B00
+0000000B
+)))
+(device 1 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ProgressBar")
+(variableScope cont)
+(transactions 3 "min = ProgressBar.Minimum" "max = ProgressBar.Maximum"
+"step = ProgressBar.Step")
+(parmInfo 6 "1" "T 0" "1" "T 0" "1" "T 0")
+(memberInfos 3 "Int32 Minimum" "Int32 Maximum" "Int32 Step")
+(statics 3 "0" "0" "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "ProgressBar"))
+(interface
+(output 1
+(name "min")
+(optional yes))
+(output 2
+(name "max")
+(optional yes))
+(output 3
+(name "step")
+(optional yes)))
+(implementation))
+(device 2 FORRANGE
+(properties
+(variableScope cont)
+(from 0)
+(thru 100)
+(step 10))
+(interface
+(input 1
+(name "From")
+(tag "From")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 2
+(name "Thru")
+(tag "Thru")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Step")
+(tag "Step")
+(requires
+(datatype Real64)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 4 DOTNETBUILDER
+(properties
+(name "System.Windows.Forms.ProgressBar")
+(variableScope cont)
+(transactions 1 "progressBar.PerformStep()")
+(parmInfo 1 "0")
+(memberInfos 1 "Void PerformStep()")
+(statics 1 "0")
+(assemblyQualifiedName
+"System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(objectName "progressBar"))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(implementation))
+(device 5 DELAY
+(properties
+(variableScope cont)
+(delay 1))
+(interface
+(output 1
+(name "Done"))))
+(configuration
+(connect D1:1 D2:1)
+(connect D1:2 D2:2)
+(connect D1:3 D2:3)
+(connect D2:1 D3:1)
+(connect D3:0 D4:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1311 869)
+(anchorPt 1 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 194 26))
+(pinCenter 600 230))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 284 86))
+(terminals on)
+(pinCenter 625 370))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "loop.icn"))
+(open
+(extent 104 86))
+(pinCenter 980 370))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 221 74))
+(terminals on)
+(pinCenter 640 560))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 71 31))
+(pinCenter 630 690))
+(connect D1:1 D2:1
+(points 2 809 340 925 340))
+(connect D1:2 D2:2
+(points 2 809 370 925 370))
+(connect D1:3 D2:3
+(points 2 809 400 925 400))
+(connect D2:1 D3:1
+(points 6 1034 370 1050 370 1050 440 480 440 480 560 497 560))
+(connect D3:0 D4:0
+(points 4 640 599 640 620 630 620 630 654)))
+(stackingOrder 2 0 3 4 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
