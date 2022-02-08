@@ -1,0 +1,426 @@
+(saveFormat "7.0")
+(date "Tue 08/Feb/2022 16:18:00 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "M.19")
+(input 0)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020905-0000-0000-C000-000000000046}")
+(desc "Microsoft Word 16.0 Object Library")
+(filename "C:\\Program Files (x86)\\Microsoft Office\\Office16\\MSWORD.OLB")
+(verMajor 8)
+(verMinor 7)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 34)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 8)
+(context 7
+(properties
+(name "Graph")
+(variableName Graph)
+(variableScope glob)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserFunction")
+(popupMoveable 1))
+(deviceList
+(device 0 VFUNCTIONGENERATOR
+(properties
+(variableScope cont)
+(function Cosine)
+(frequency 200)
+(amplitude 1)
+(dcOffset 0)
+(degRad Deg)
+(phaseShift 0)
+(interval 0.02)
+(numPoints 256))
+(interface
+(output 1
+(name "Func")
+(lock name constraints))))
+(device 1 YPLOT
+(properties
+(name "Waveform (Time)")
+(variableScope cont))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints)))
+(implementation
+(tracePin 1)
+(graphMode time)
+(autoAutoX)
+(autoAutoY)))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(active panel)
+(panel
+(extent 732 349)
+(drawGrid "on")
+(widget 0 detail
+(relativeOrigin 60 70)
+(PID 2)
+(title off)
+(tabIndex 1)
+(borderStyle flat)
+(extent 196 183))
+(widget 1 detail
+(relativeOrigin 330 30)
+(PID 3)
+(title off)
+(tabIndex 2)
+(borderStyle flat)
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White")))
+(detail
+(extent 876 425)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "virtual.icn"))
+(open
+(extent 190 183))
+(terminals on)
+(pinCenter 185 220))
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "display.icn"))
+(open
+(extent 317 279)
+(displayMode 47)
+(graphType cartesian)
+(gridType axis)
+(scale 0
+(name "Mag")
+(domainName "Time")
+(Yspacing 1)
+(Xspacing 2)
+(scaleColor "Dark Gray")
+(show 1)
+(range -1 1 4 linear))
+(domain 0 0.02 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(traceColor "Yellow")
+(lineType 12)
+(pointType 0))
+(markerColor "White"))
+(pinCenter 590 220))
+(connect D0:1 D1:1
+(points 2 322 220 429 220)))
+(stackingOrder 1 0)))))
+(device 0 DECLVAR
+(properties
+(name "Declare App")
+(scope glob)
+(globalName "App"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 1 DECLVAR
+(properties
+(name "Declare Doc")
+(scope glob)
+(globalName "Doc"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 2 DECLVAR
+(properties
+(name "Declare Wnd")
+(scope glob)
+(globalName "Wnd"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 3 DECLVAR
+(properties
+(name "Declare Bmp")
+(scope glob)
+(globalName "Bmp"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 6 DECLVAR
+(properties
+(name "Declare Sel")
+(scope glob)
+(globalName "Sel"))
+(implementation
+(value Object
+(data  "ANY "))))
+(device 18 FORMULA
+(properties
+(name "Image Filename")
+(variableScope cont)
+(expr 1 "\"d:\\\\work\\\\vee\\\\panel.bmp\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 19 FORMULA
+(properties
+(name "Save Panel Image")
+(variableScope cont)
+(expr 1 "savePanelImage(\"Graph\",fileName,256)"))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 31 CALL
+(properties
+(name "Call Graph")
+(variableScope cont)
+(callFunc "Graph")
+(parmMode rev30)))
+(device 32 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "SET App=CreateObject(\"Word.Application\")"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 FORMULA
+(properties
+(variableScope cont)
+(expr 12 "App.Visible=1;" "SET Doc=App.Documents.Add();" "Doc.Activate();"
+"SET Wnd=App.ActiveWindow;" "SET Sel=App.Selection;" "Wnd.View.Type=3;"
+"Sel.TypeText(\"***Test Results***\");" "Sel.TypeParagraph();"
+"SET Bmp=Doc.Shapes.AddPicture(FileName);" "Sel.TypeParagraph();"
+"Sel.InsertDateTime(\"M/d/yy h:mm:ss am/pm\",0);" ""))
+(interface
+(input 1
+(name "FileName")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D7:0 D6:0)
+(connect D5:1 D6:1)
+(connect D6:0 D8:0)
+(connect D8:0 D9:0)
+(connect D5:1 D9:1))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(panel
+(extent 1194 843)
+(drawGrid "on"))
+(detail
+(extent 1194 843)
+(anchorPt 371 -3)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 72 15))
+(open
+(extent 314 115))
+(pinCenter 480 210))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 74 15))
+(open
+(extent 314 115))
+(pinCenter 480 270))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 78 15))
+(open
+(extent 314 115))
+(pinCenter 480 350))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 79 15))
+(open
+(extent 314 115))
+(pinCenter 620 240))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 70 15))
+(open
+(extent 314 115))
+(pinCenter 630 320))
+(devCarrierFor 18
+(active open)
+(icon
+(extent 99 15))
+(open
+(extent 174 86))
+(terminals on)
+(pinCenter -170 250))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 110 15))
+(open
+(extent 324 126))
+(terminals on)
+(pinCenter 200 280))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 64 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 200 200))
+(devCarrierFor 32
+(active open)
+(icon)
+(open
+(extent 294 106))
+(terminals on)
+(pinCenter 180 450))
+(devCarrierFor 33
+(active open)
+(icon)
+(open
+(extent 354 186))
+(terminals on)
+(pinCenter 180 670))
+(connect D7:0 D6:0
+(points 2 200 210 200 270))
+(connect D5:1 D6:1
+(points 4 -31 250 -10 250 -10 280 142 280))
+(connect D6:0 D8:0
+(points 4 200 290 200 310 190 310 190 376))
+(connect D8:0 D9:0
+(points 4 190 505 190 530 170 530 170 556))
+(connect D5:1 D9:1
+(points 6 -31 250 -10 250 -10 320 -90 320 -90 670 -70 670)))
+(stackingOrder 0 1 2 4 3 7 6 8 5 9))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
