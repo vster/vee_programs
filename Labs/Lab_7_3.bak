@@ -1,0 +1,184 @@
+(saveFormat "7.0")
+(date "Tue 08/Feb/2022 17:39:58 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+)
+(filename
+"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll"))
+(selectedNamespaces ""))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 7)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "UserFunction1")
+(variableName UserFunction1)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupMoveable 1))
+(deviceList
+(configuration))
+(contextCarrier
+(active detail)
+(detail
+(extent 937 641)
+(anchorPt 0 0)
+(configuration)))))
+(device 1 FORMULA
+(properties
+(name "Open File Dialog")
+(variableScope cont)
+(expr 6
+"openfiledialog = CreateInstance(\"System.Windows.Forms\", \"System.Windows.Forms.OpenFileDialog\" );"
+"openfiledialog.InitialDirectory=\"d:\\\\work\\\\vee\";"
+"openfiledialog.Multiselect=asVariantBool(1);"
+"openfiledialog.Filter=\"DLLs(*dll)|* dll\";" "openfiledialog.ShowDialog();"
+"openfiledialog.FileNames;"))
+(interface
+(output 1
+(name "openfiledialog")
+(optional yes))))
+(device 3 SCROLLINGTEXTDISPLAY
+(properties
+(variableScope cont)
+(logSize 256))
+(interface
+(input 1
+(name "Data"))))
+(device 6 DECLVAR
+(properties
+(name "Declare openFileDialog")
+(scope glob)
+(globalName "openFileDialog"))
+(implementation
+(value Object
+(data  "ANY "))))
+(configuration
+(connect D0:1 D1:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1083 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1225 869)
+(anchorPt 2 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 101 0))
+(open
+(extent 614 126))
+(terminals on)
+(pinCenter 555 320))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 274 166)
+(noformatter))
+(pinCenter 890 580))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 143 0))
+(open
+(extent 314 115))
+(pinCenter 420 540))
+(connect D0:1 D1:1
+(points 6 964 320 980 320 980 410 730 410 730 580 750 580)))
+(stackingOrder 0 2 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
