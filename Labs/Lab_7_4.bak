@@ -1,0 +1,209 @@
+(saveFormat "7.0")
+(date "Wed 09/Feb/2022 13:25:13 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(selectedNamespaces "System,"))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 1 FORMULA
+(properties
+(name "DateTime.Now;")
+(variableScope cont)
+(expr 1 "DateTime.Now;"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 6 FORMULA
+(properties
+(name "dateTime.ToString( );")
+(variableScope cont)
+(expr 1 "dateTime.ToString( );"))
+(interface
+(input 1
+(name "dateTime")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 FORMULA
+(properties
+(name "dateTime.DayOfWeek;")
+(variableScope cont)
+(expr 1 "dateTime.DayOfWeek.ToString();"))
+(interface
+(input 1
+(name "dateTime")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 8 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 9 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:1 D1:1)
+(connect D0:1 D2:1)
+(connect D2:1 D3:1)
+(connect D1:1 D4:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 997 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1225 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(extent 93 0))
+(open
+(extent 120 50))
+(terminals on)
+(pinCenter 520 280))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 125 0))
+(open
+(extent 149 50))
+(terminals on)
+(pinCenter 570 410))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 134 0))
+(open
+(extent 194 56))
+(terminals on)
+(pinCenter 600 530))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 234 36))
+(pinCenter 970 530))
+(devCarrierFor 9
+(active open)
+(icon)
+(open
+(extent 154 36))
+(pinCenter 930 420))
+(connect D0:1 D1:1
+(points 6 632 280 650 280 650 330 400 330 400 410 423 410))
+(connect D0:1 D2:1
+(points 6 632 280 650 280 650 330 400 330 400 530 430 530))
+(connect D2:1 D3:1
+(points 2 749 530 850 530))
+(connect D1:1 D4:1
+(points 4 697 410 720 410 720 420 850 420)))
+(stackingOrder 0 1 2 4 3))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
