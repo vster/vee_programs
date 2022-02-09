@@ -1,5 +1,5 @@
 (saveFormat "7.0")
-(date "Wed 09/Feb/2022 17:52:26 ")
+(date "Wed 09/Feb/2022 17:57:33 ")
 (veerev "9.33.1811.0201")
 (platform "PC")
 (execMode v6)
@@ -585,7 +585,7 @@
 (formatters))
 (pinCenter 210 300))
 (devCarrierFor 14
-(active icon)
+(active open)
 (icon
 (extent 165 15))
 (open
@@ -602,8 +602,8 @@
 (editing enabled))
 (pinCenter 300 590))
 (connect D0:1 D1:1
-(points 2 395 300 485 300)))
-(stackingOrder 0 1 2))))
+(points 4 395 300 440 300 440 300 449 300)))
+(stackingOrder 0 2 1))))
 (device 15 CALL
 (properties
 (name "Call xlLib.PanelImageToPicture")
@@ -768,7 +768,7 @@
 (wndState res)
 (active detail)
 (detail
-(extent 1059 730)
+(extent 1012 666)
 (anchorPt 96 -70)
 (configuration
 (devCarrierFor 0
@@ -883,7 +883,7 @@
 (points 2 480 463 480 500))
 (connect D11:0 D12:0
 (points 2 480 520 480 560)))
-(stackingOrder 0 7 10 2 1 4 5 6 3 11 8 9 12))
+(stackingOrder 0 7 10 2 1 4 6 3 11 8 9 12 5))
 (numberFormats
 (realFormat standard)
 (realSigDigits 4)
