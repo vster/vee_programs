@@ -1,0 +1,279 @@
+(saveFormat "7.0")
+(date "Wed 09/Feb/2022 14:21:08 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(assemblyRefs
+(assemblyRef 1
+(displayName
+"mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089")
+(filename "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\mscorlib.dll"))
+(selectedNamespaces "System,"))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 8)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 FORMULA
+(properties
+(name
+"fileinfo = CreateInstance(\"mscorlib\", \"System.IO.FileInfo\", fileName);")
+(variableScope cont)
+(expr 1
+"fileinfo = CreateInstance(\"mscorlib\", \"System.IO.FileInfo\", fileName);"))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(output 1
+(name "fileinfo")
+(optional yes))))
+(device 1 FILESELECT
+(properties
+(name "File Name Selection")
+(variableScope cont)
+(prompt "Enter File Name:")
+(initialDirectory "C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3")
+(initialFile "*.*")
+(dialogMode Reading))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 2 FORMULA
+(properties
+(name "fileInfo.CreationTime;")
+(variableScope cont)
+(expr 1 "fileInfo.CreationTime.ToString();"))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 4 FORMULA
+(properties
+(name "fileInfo.LastAccessTime;")
+(variableScope cont)
+(expr 1 "fileInfo.LastAccessTime;"))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 5 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(device 6 FORMULA
+(properties
+(name "fileInfo.Length;")
+(variableScope cont)
+(expr 1 "fileInfo.Length;"))
+(interface
+(input 1
+(name "fileInfo")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 7 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D1:1 D0:1)
+(connect D0:1 D2:1)
+(connect D2:1 D3:1)
+(connect D0:1 D4:1)
+(connect D4:1 D5:1)
+(connect D0:1 D6:1)
+(connect D6:1 D7:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 997 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1225 869)
+(anchorPt -136 -204)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 405 0))
+(open
+(extent 464 116))
+(terminals on)
+(pinCenter 870 370))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 324 96))
+(terminals on)
+(pinCenter 390 380))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 128 0))
+(open
+(extent 284 56))
+(terminals on)
+(pinCenter 590 590))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 144 46))
+(pinCenter 990 590))
+(devCarrierFor 4
+(active open)
+(icon
+(extent 147 0))
+(open
+(extent 274 36))
+(terminals on)
+(pinCenter 590 710))
+(devCarrierFor 5
+(active open)
+(icon)
+(open
+(extent 184 46))
+(pinCenter 1010 710))
+(devCarrierFor 6
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 244 56))
+(terminals on)
+(pinCenter 600 830))
+(devCarrierFor 7
+(active open)
+(icon)
+(open
+(extent 174 46))
+(pinCenter 1010 830))
+(connect D1:1 D0:1
+(points 2 453 370 565 370))
+(connect D0:1 D2:1
+(points 6 1154 370 1170 370 1170 460 380 460 380 590 395 590))
+(connect D2:1 D3:1
+(points 2 784 590 915 590))
+(connect D0:1 D4:1
+(points 6 1154 370 1170 370 1170 460 380 460 380 710 400 710))
+(connect D4:1 D5:1
+(points 2 779 710 915 710))
+(connect D0:1 D6:1
+(points 6 1154 370 1170 370 1170 460 380 460 380 830 425 830))
+(connect D6:1 D7:1
+(points 2 774 830 920 830)))
+(stackingOrder 0 2 3 4 5 6 7 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
