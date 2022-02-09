@@ -1,0 +1,793 @@
+(saveFormat "7.0")
+(date "Wed 09/Feb/2022 17:03:21 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(watchterminalslist
+(terminal 0
+(deviceIdNumberStr "M.3.8")
+(input 1)
+(index 1)
+(isimport 0)))
+(device 0 ROOTCONTEXT
+(automationRefs
+(automationRef 1
+(libid "{00020813-0000-0000-C000-000000000046}")
+(desc "Microsoft Excel 8.0 Object Library")
+(filename "C:\\Program Files\\Microsoft Office\\Office\\EXCEL8.OLB")
+(verMajor 1)
+(verMinor 2)
+(lcid 0)))
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 11)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 CONTEXT
+(properties
+(name "Initialize Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(trigMode deg)
+(nextID 43)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 29 IMPORT
+(properties
+(name "Import Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(libType userFunction)
+(libName "xlLib")
+(fileName
+"C:\\Program Files (x86)\\Keysight\\VEE Pro 9.3\\Lib\\ExcelLibrary\\ExcelLibrary.vxe"
+))
+(interface
+(input 1
+(type control)
+(name "File Name")
+(tag "File Name")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock name constraints)
+(optional yes)))
+(implementation))
+(device 30 FORMULA
+(properties
+(name "Excel Runtime Library File Specifier")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(expr 1 "installDir() + \"\\\\Lib\\\\ExcelLibrary\\\\ExcelLibrary.vxe\""))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 33 CALL
+(properties
+(name "Call xlLib.Initialize")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on loading the Excel Library, and calling its function \'Initialize\'")
+(customHelpMenuHelpLink "Initialize")
+(variableScope cont)
+(callFunc "xlLib.Initialize")
+(parmMode rev30)))
+(configuration
+(connect D1:0 D0:0)
+(connect D1:1 D0:1)
+(connect D0:0 D2:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 749 382)
+(anchorPt -327 -349)
+(configuration
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 224 82))
+(pinCenter 890 420))
+(devCarrierFor 30
+(active open)
+(icon
+(extent 196 15))
+(open
+(extent 295 50))
+(terminals on)
+(pinCenter 550 440))
+(devCarrierFor 33
+(active icon)
+(icon
+(extent 115 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 890 460))
+(connect D1:0 D0:0
+(points 6 560 467 560 490 780 490 780 390 890 390 890 410))
+(connect D1:1 D0:1
+(points 4 750 440 770 440 770 420 846 420))
+(connect D0:0 D2:0
+(points 2 890 430 890 450)))
+(stackingOrder 0 1 2))))
+(device 1 CONTEXT
+(properties
+(name "OpenWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "fileName")
+(optional yes)))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.OpenWorkbookRW")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(callFunc "xlLib.OpenWorkbookRW")
+(parmMode rev30))
+(interface
+(input 1
+(name "fileName")
+(optional yes))
+(input 2
+(name "OpenMode")
+(optional yes))))
+(device 1 RECCONST
+(properties
+(name "Open Workbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 1)
+(fieldName "ReadOnly"
+(type Enum)
+(values
+("True" 0)
+("False" 1))))
+(data 
+(record
+("ReadOnly" "False"))))))
+(device 2 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 OpenWorkbookRW can open a workbook\\par\r\nfor Read-Only or Read-Write\\par\r\naccess by changing the ReadOnly\\par\r\nmode in the Open Workbook settings.\\par\r\n\\par\r\n}\r\n"
+)))
+(configuration
+(connect I1:1 D0:1)
+(connect D1:1 D0:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 692 402)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 505 110))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 96 0))
+(open
+(extent 245 87)
+(formatters))
+(pinCenter 160 190))
+(devCarrierFor 2
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 272 127)
+(editing enabled))
+(pinCenter 460 280))
+(connect I1:1 D0:1
+(points 4 0 200 10 200 10 100 334 100))
+(connect D1:1 D0:2
+(points 4 285 190 310 190 310 120 334 120)))
+(stackingOrder 0 1 2))))
+(device 2 FILESELECT
+(properties
+(name "File Name Selection")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'OpenWorkbookRW\'")
+(customHelpMenuHelpLink "To_Open_an_Existing_Workbook")
+(variableScope cont)
+(prompt "Enter File Name:")
+(initialDirectory "d:\\work\\vee")
+(initialFile "*.xls")
+(dialogMode Reading))
+(interface
+(output 1
+(name "File Name")
+(lock name constraints))
+(output 2
+(name "Cancel")
+(lock name constraints)))
+(implementation))
+(device 3 CONTEXT
+(properties
+(name "Format Cells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'FormatCells\'")
+(customHelpMenuHelpLink "To_Format_Cells")
+(variableScope cont)
+(trigMode deg)
+(nextID 10)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "CellRange")
+(optional yes)))
+(deviceList
+(device 0 RECCONST
+(properties
+(name "Cell Settings")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'FormatCells\'")
+(customHelpMenuHelpLink "To_Format_Cells")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 6)
+(fieldName "BackColor"
+(type Enum)
+(values
+("Black" 0)
+("DarkRed" 1)
+("Red" 2)
+("Pink" 3)
+("Coral" 4)
+("Rose" 5)
+("Brown" 6)
+("Orange" 7)
+("LightOrange" 8)
+("Gold" 9)
+("Tan" 10)
+("OliveGreen" 11)
+("DarkYellow" 12)
+("Lime" 13)
+("Yellow" 14)
+("LightYellow" 15)
+("DarkGreen" 16)
+("Green" 17)
+("SeaGreen" 18)
+("BrightGreen" 19)
+("LightGreen" 20)
+("DarkTeal" 21)
+("Teal" 22)
+("Aqua" 23)
+("Turquoise" 24)
+("LightTurquoise" 25)
+("DarlBlue" 26)
+("Blue" 27)
+("LightBlue" 28)
+("OceanBlue" 29)
+("SkyBlue" 30)
+("IceBlue" 31)
+("PaleBlue" 32)
+("Indigo" 33)
+("DarkPurple" 34)
+("BlueGray" 35)
+("Violet" 36)
+("Plum" 37)
+("Lavender" 38)
+("Gray80" 39)
+("Gray50" 40)
+("Gray40" 41)
+("Gray25" 42)
+("Periwinkle" 43)
+("Ivory" 44)
+("White" 45)))
+(fieldName "NumberFormat"
+(type Enum)
+(values
+("0.0E+0" 0)
+("0.00E+0" 1)
+("0.000E+00" 2)
+("#,##0.0" 3)
+("#,##0.00" 4)
+("#,##0.000" 5)
+("0.0" 6)
+("0.00" 7)
+("0.000" 8)
+("0.0%" 9)
+("0.00%" 10)
+("0.000%" 11)
+("$#,##0.00" 12)
+("General" 13)
+("Custom" 14)))
+(fieldName "CustomNumberFormat"
+(type Text))
+(fieldName "BorderEdges"
+(type Enum)
+(values
+("Grid" 0)
+("GridThickThin" 1)
+("Outline" 2)
+("LeftRight" 3)
+("TopBottom" 4)
+("Top" 5)
+("Bottom" 6)
+("Right" 7)
+("Left" 8)))
+(fieldName "BorderThickness"
+(type Enum)
+(values
+("Thin" 0)
+("Medium" 1)
+("Thick" 2)))
+(fieldName "Pattern"
+(type Enum)
+(values
+("Solid" 0)
+("LightDots" 1)
+("MediumDots" 2)
+("Checkered" 3)
+("Grid" 4)
+("VerticalBars" 5)
+("HorizontalBars" 6)
+("CrissCross" 7))))
+(data 
+(record
+("BackColor" "Gray25")
+("NumberFormat" "General")
+("CustomNumberFormat" "0.000000")
+("BorderEdges" "Outline")
+("BorderThickness" "Thick")
+("Pattern" "Solid"))))))
+(device 8 CALL
+(properties
+(name "Call xlLib.FormatCells")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'FormatCells\'")
+(customHelpMenuHelpLink "To_Format_Cells")
+(variableScope cont)
+(callFunc "xlLib.FormatCells")
+(parmMode rev30))
+(interface
+(input 1
+(name "CellSettings")
+(optional yes))
+(input 2
+(name "Range")
+(optional yes))))
+(device 9 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'FormatCells\'")
+(customHelpMenuHelpLink "To_Format_Cells")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\f0\\fs18 BACK COLOR\\par\r\nUse None for no color. Otherwise be sure to pick a color that contrasts well with the text forecolor. For example, a black cell BackColor and a Cyan Text forecolor simulates certain instrument LCD displays.\\par\r\n\\par\r\nNUMBER FORMAT\\par\r\n  0         A digit or 0 appears in that position\\par\r\n  #         A digit or nothing appears in that position\\par\r\n  ,         Thousands separator\\par\r\n  E         Scientific Notation is used\\par\r\n  $         Currrency symbol\\par\r\n  General   No specific number format is used.\\par\r\n  Custom   CustomNumberFormat is used instead of NumberFormat\\par\r\n\\cf1\\b Some \\cf2 non-English versions of Office\\cf1 , specifically \\cf2 Russian\\cf1 , will only accept NumberFormat \'General\'.  See this object\'s context menu -> Excel Help -> Notes  for more information.\\cf0\\b0\\par\r\n\\par\r\nCUSTOM NUMBER FORMAT\\par\r\nEnter any number format and select \'Custom\' for NumberFormat to use a format not already listed. Create a custom format by modifying one listed in NumberFormat, or see Excel\'s Format / Cells / Number / Custom menu dialog. For example, to get Fixed formnat with five decimal digits, set NumberFormat to Custom and for CustomNumberFormat enter 0.00000 or #,##0.00000.\\par\r\n\\par\r\nBORDER EDGES\\par\r\nSelect specific edges or Outline for only the exterior edges, Grid for all edges including the interior edges, or GridThickThin which uses a thinner border for interior edges when possible. Diagonal edges are not supported. Any edge not selected will have no border.\\par\r\n\\par\r\nBORDER THICKNESS\\par\r\nSelect the width of border used. Applies only to the edges selected in BorderEdges.\\par\r\n\\par\r\nPATTERN\\par\r\nUse Solid for no pattern. LightDots and MediumDots are the only patterns that allow text in the same cell to be easily read. The default cell has a Solid pattern and no color.\\par\r\n\\cf1\\f1\\fs24\\par\r\n}\r\n"
+)))
+(configuration
+(connect D0:1 D1:1)
+(connect I1:1 D1:2)))
+(contextCarrier
+(active detail)
+(detail
+(extent 853 635)
+(anchorPt 132 12)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 77 0))
+(open
+(extent 292 228)
+(formatters))
+(pinCenter 210 190))
+(devCarrierFor 8
+(active open)
+(icon
+(extent 136 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 235 400))
+(devCarrierFor 9
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 414 636)
+(editing enabled))
+(pinCenter 610 380))
+(connect D0:1 D1:1
+(points 6 358 190 380 190 380 330 40 330 40 390 64 390))
+(connect I1:1 D1:2
+(points 6 -132 305 60 305 60 450 40 450 40 410 64 410)))
+(stackingOrder 0 2 1))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A1:A4"))
+(initValue Text
+(data  ""))))
+(device 5 CONTEXT
+(properties
+(name "AutoFitColumns")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'AutoFitColumns\'")
+(customHelpMenuHelpLink "To_Auto_Fit_Columns")
+(variableScope cont)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(interface
+(input 1
+(name "Range")
+(optional yes)))
+(deviceList
+(device 1 NOTE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'AutoFitColumns\'")
+(customHelpMenuHelpLink "To_Auto_Fit_Columns")
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Courier New;}}\r\n\\viewkind4\\uc1\\pard\\lang1033\\f0\\fs18 Input a range of cells like \"A1:F2\".\\par\r\nAutoFit will be performed on all columns \\par\r\nin the range making their entire contents \\par\r\nvisible and printable. It is best to do this only on columns containing numeric data or short text, not titles or lengthy \\par\r\ndescriptions.\\par\r\n}\r\n"
+)))
+(device 3 CALL
+(properties
+(name "Call xlLib.AutoFitColumns")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'AutoFitColumns\'")
+(customHelpMenuHelpLink "To_Auto_Fit_Columns")
+(variableScope cont)
+(callFunc "xlLib.AutoFitColumns")
+(parmMode rev30))
+(interface
+(input 1
+(name "Range")
+(optional yes))))
+(configuration
+(connect I1:1 D1:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 485 393)
+(anchorPt -89 -392)
+(configuration
+(devCarrierFor 1
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 324 156)
+(editing enabled))
+(pinCenter 300 620))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 158 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 330 470))
+(connect I1:1 D1:1
+(points 4 89 588 100 588 100 470 189 470)))
+(stackingOrder 0 1))))
+(device 8 LITERALCONSTANT
+(properties
+(name "Text")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "A1"))
+(initValue Text
+(data  ""))))
+(device 9 CALL
+(properties
+(name "Call xlLib.SaveWorkbook")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription "Help on the Excel Library function \'SaveWorkbook\'"
+)
+(customHelpMenuHelpLink "To_Save_a_WorkBook")
+(variableScope cont)
+(callFunc "xlLib.SaveWorkbook")
+(parmMode rev30)))
+(device 10 CONTEXT
+(properties
+(name "Quit Excel Library")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(trigMode deg)
+(nextID 2)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 CALL
+(properties
+(name "Call xlLib.QuitExcelLibrary")
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(callFunc "xlLib.QuitExcelLibrary")
+(parmMode rev30)))
+(device 1 DELETE
+(properties
+(customHelpMenuName "Excel Help")
+(customHelpMenuDescription
+"Help on the Excel Library function \'QuitExcelLibrary\'")
+(customHelpMenuHelpLink "To_Quit_Vxl")
+(variableScope cont)
+(libName "xlLib"))
+(implementation))
+(configuration
+(connect D0:0 D1:0)))
+(contextCarrier
+(active detail)
+(detail
+(extent 288 221)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 145 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 140 70))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 151 31))
+(pinCenter 140 140))
+(connect D0:0 D1:0
+(points 2 140 80 140 104)))
+(stackingOrder 0 1))))
+(configuration
+(connect D2:1 D1:1)
+(connect D0:0 D2:0)
+(connect D2:0 D3:0)
+(connect D4:1 D3:1)
+(connect D3:0 D5:0)
+(connect D6:1 D5:1)
+(connect D5:0 D7:0)
+(connect D7:0 D8:0)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 997 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1225 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 127 15))
+(terminals on)
+(pinCenter 480 180))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 93 15))
+(terminals on)
+(pinCenter 640 240))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 122 25))
+(open
+(extent 415 106))
+(terminals on)
+(pinCenter 480 250))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 105 15))
+(terminals on)
+(pinCenter 480 320))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 270 320))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 96 15))
+(terminals on)
+(pinCenter 480 410))
+(devCarrierFor 8
+(active open)
+(icon)
+(open
+(extent 174 29))
+(pinCenter 270 410))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 175 15))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 480 500))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 103 15))
+(terminals on)
+(pinCenter 480 580))
+(connect D2:1 D1:1
+(points 2 543 240 591 240))
+(connect D0:0 D2:0
+(points 2 480 190 480 235))
+(connect D2:0 D3:0
+(points 2 480 265 480 310))
+(connect D4:1 D3:1
+(points 2 359 320 425 320))
+(connect D3:0 D5:0
+(points 2 480 330 480 400))
+(connect D6:1 D5:1
+(points 2 359 410 429 410))
+(connect D5:0 D7:0
+(points 2 480 420 480 490))
+(connect D7:0 D8:0
+(points 2 480 510 480 570)))
+(stackingOrder 7 0 4 6 8 5 2 3 1))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
