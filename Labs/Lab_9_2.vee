@@ -1,0 +1,273 @@
+(saveFormat "7.0")
+(date "Thu 10/Feb/2022 17:41:20 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F3 F2 F1 F0 M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 4)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 4)
+(context 0
+(properties
+(name "BuildRecAry")
+(variableName BuildRecAry)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(output 1
+(type data)
+(name "X")
+(lock constraints)
+(optional yes)))
+(deviceList
+(configuration))
+(contextCarrier
+(wndOrigin 2 866)
+(wndRestoredOrigin 189 162)
+(wndRestoredExtent 298 240)
+(wndState min)
+(active detail)
+(detail
+(extent 298 240)
+(anchorPt 0 0)
+(configuration))))
+(context 2
+(properties
+(name "ReportBody")
+(variableName ReportBody)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes)))
+(deviceList
+(configuration))
+(contextCarrier
+(wndOrigin 322 866)
+(wndRestoredOrigin 140 83)
+(wndRestoredExtent 681 372)
+(wndState min)
+(active detail)
+(detail
+(extent 681 372)
+(anchorPt 0 0)
+(configuration))))
+(context 3
+(properties
+(name "ReportDisplay")
+(variableName ReportDisplay)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(configuration))
+(contextCarrier
+(wndOrigin 482 866)
+(wndRestoredOrigin 82 82)
+(wndRestoredExtent 617 326)
+(wndState min)
+(active detail)
+(detail
+(extent 617 326)
+(anchorPt 0 0)
+(configuration))))
+(context 1
+(properties
+(name "ReportHeader")
+(variableName ReportHeader)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(deviceList
+(configuration))
+(contextCarrier
+(wndOrigin 162 866)
+(wndRestoredOrigin 163 124)
+(wndRestoredExtent 538 289)
+(wndState min)
+(active detail)
+(detail
+(extent 538 289)
+(anchorPt 0 0)
+(configuration)))))
+(device 0 CALL
+(properties
+(name "Call BuildRecAry")
+(variableScope cont)
+(callFunc "BuildRecAry")
+(parmMode rev30))
+(interface
+(output 1
+(name "X")
+(lock name constraints)
+(optional yes))))
+(device 1 CALL
+(properties
+(name "Call ReportBody")
+(variableScope cont)
+(callFunc "ReportBody")
+(parmMode rev30))
+(interface
+(input 1
+(name "A")
+(optional yes))))
+(device 2 CALL
+(properties
+(name "Call ReportDisplay")
+(variableScope cont)
+(callFunc "ReportDisplay")
+(parmMode rev30)))
+(device 3 CALL
+(properties
+(name "Call ReportHeader")
+(variableScope cont)
+(callFunc "ReportHeader")
+(parmMode rev30)))
+(configuration
+(connect D3:0 D1:0)
+(connect D0:1 D1:1)
+(connect D1:0 D2:0)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1060 641)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 100 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 320 280))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 97 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 650 280))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 650 440))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 113 0))
+(open
+(extent 176 51))
+(terminals on)
+(pinCenter 650 130))
+(connect D3:0 D1:0
+(points 2 650 158 650 234))
+(connect D0:1 D1:1
+(points 2 440 280 529 280))
+(connect D1:0 D2:0
+(points 2 650 308 650 394)))
+(stackingOrder 0 1 3 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
