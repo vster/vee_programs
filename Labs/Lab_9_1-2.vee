@@ -1,0 +1,363 @@
+(saveFormat "7.0")
+(date "Thu 10/Feb/2022 17:15:12 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder F0 M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 13)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ArrayStats")
+(variableName ArrayStats)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "x")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 0 FORMULA
+(properties
+(name "max(x)")
+(variableScope cont)
+(expr 1 "max(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 1 FORMULA
+(properties
+(name "min(x)")
+(variableScope cont)
+(expr 1 "min(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 FORMULA
+(properties
+(name "mean(x)")
+(variableScope cont)
+(expr 1 "mean(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 3 FORMULA
+(properties
+(name "sdev(x)")
+(variableScope cont)
+(expr 1 "sdev(x)"))
+(interface
+(input 1
+(name "x")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 4 TORECORD
+(properties
+(variableScope cont)
+(outputType scalar))
+(interface
+(input 1
+(name "max")
+(optional yes))
+(input 2
+(name "min")
+(optional yes))
+(input 3
+(name "mean")
+(optional yes))
+(input 4
+(name "sdev")
+(optional yes))
+(output 1
+(name "Record"))))
+(configuration
+(connect I1:1 D0:1)
+(connect I1:1 D1:1)
+(connect I1:1 D2:1)
+(connect I1:1 D3:1)
+(connect D0:1 D4:1)
+(connect D1:1 D4:2)
+(connect D2:1 D4:3)
+(connect D3:1 D4:4)
+(connect D4:1 O1:1)))
+(contextCarrier
+(wndOrigin 2 866)
+(wndRestoredOrigin 201 32)
+(wndRestoredExtent 684 571)
+(wndState min)
+(active detail)
+(detail
+(extent 684 571)
+(anchorPt -11 19)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 40 0))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 170 80))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 38 0))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 180 210))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 49 0))
+(open
+(extent 80 50))
+(terminals on)
+(pinCenter 190 340))
+(devCarrierFor 3
+(active open)
+(icon
+(extent 43 0))
+(open
+(extent 75 50))
+(terminals on)
+(pinCenter 200 470))
+(devCarrierFor 4
+(active open)
+(icon
+(iconImage "build.icn"))
+(open
+(extent 104 126))
+(terminals on)
+(pinCenter 515 280))
+(connect I1:1 D0:1
+(points 5 11 266 11 240 70 240 70 80 100 80))
+(connect I1:1 D1:1
+(points 5 11 266 11 240 70 240 70 210 110 210))
+(connect I1:1 D2:1
+(points 4 11 266 20 266 20 340 117 340))
+(connect I1:1 D3:1
+(points 6 11 266 20 266 20 340 100 340 100 470 130 470))
+(connect D0:1 D4:1
+(points 4 260 80 300 80 300 230 410 230))
+(connect D1:1 D4:2
+(points 4 270 210 290 210 290 260 410 260))
+(connect D2:1 D4:3
+(points 4 282 340 300 340 300 290 410 290))
+(connect D3:1 D4:4
+(points 4 290 470 310 470 310 320 410 320))
+(connect D4:1 O1:1
+(points 4 629 280 650 280 650 266 694 266)))
+(stackingOrder 0 1 2 3 4)))))
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "ramp(1024,1,1024)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 11 RECCONST
+(properties
+(name "Record")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(input 1
+(type control)
+(name "Default Value")
+(requires
+(datatype Record))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "Record")
+(lock name constraints)))
+(implementation
+(value Record
+(schema
+(numFields 4)
+(fieldName "max"
+(type Real64))
+(fieldName "min"
+(type Real64))
+(fieldName "mean"
+(type Real64))
+(fieldName "sdev"
+(type Real64)))
+(data 
+(record
+("max" 1024)
+("min" 1)
+("mean" 512.5)
+("sdev" 295.7476401709178))))))
+(device 12 FORMULA
+(properties
+(variableScope cont)
+(expr 2 "ArrayStats(A)" ""))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration
+(connect D2:1 D1:1)
+(connect D0:1 D2:1)))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 1111 570)
+(anchorPt -68 44)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 240 220))
+(devCarrierFor 11
+(active open)
+(icon)
+(open
+(extent 184 166)
+(formatters))
+(terminals on)
+(pinCenter 955 220))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 145 50))
+(terminals on)
+(pinCenter 550 220))
+(connect D2:1 D1:1
+(points 2 675 220 770 220))
+(connect D0:1 D2:1
+(points 2 379 220 445 220)))
+(stackingOrder 0 1 2))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
