@@ -1,0 +1,162 @@
+(saveFormat "7.0")
+(date "Thu 10/Feb/2022 15:33:10 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 3)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 PCEXECPROG
+(properties
+(variableScope cont)
+(command "cmd /c dir >> d:\\work\\vee\\bob")
+(runStyle Normal)
+(workingDir "d:\\"))
+(interface
+(output 1
+(name "Exit code")
+(lock name constraints))))
+(device 1 FROMFILE
+(properties
+(variableScope cont)
+(transactions 1 "READ TEXT x STR ARRAY:*"))
+(interface
+(output 1
+(name "X")
+(optional yes)))
+(implementation
+(attr iopath file read "D:\\work\\vee\\bob"
+(readTerm "\n")
+(fs " ")
+(eol "\n")
+(multiField fullSyntax)
+(arrayFormat block))))
+(device 2 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D0:0 D1:0)
+(connect D1:1 D2:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 997 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1225 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "c.icn"))
+(open
+(extent 291 110))
+(terminals on)
+(pinCenter 585 300))
+(devCarrierFor 1
+(active open)
+(icon)
+(open
+(extent 233 108))
+(terminals on)
+(pinCenter 550 510))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 294 386))
+(pinCenter 980 600))
+(connect D0:0 D1:0
+(points 4 600 357 600 380 550 380 550 435))
+(connect D1:1 D2:1
+(points 4 699 510 720 510 720 600 830 600)))
+(stackingOrder 1 2 0))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
