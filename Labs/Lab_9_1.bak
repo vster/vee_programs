@@ -1,0 +1,164 @@
+(saveFormat "7.0")
+(date "Thu 10/Feb/2022 15:51:40 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M F0)
+(sysconfig
+(iodevice "scope"
+(type GPIB-VISA)
+(channel 130)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(idFileName "hp54504a.id")
+(ppAddr "GPIB::20::INSTR")
+(model "")
+(eoiEnabled 1)
+(VISAddr "GPIB::20::INSTR")
+(model ""
+(standard 488)))
+(iodevice "scope2"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "fl8840a.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "scope3"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp54504a.id")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488)))
+(iodevice "fgen"
+(type GPIB-VISA)
+(channel 0)
+(readTerm "\n")
+(fs ",")
+(eol "\n")
+(multiField dataOnly)
+(arrayFormat linear)
+(timeout 5)
+(byteOrder 0)
+(isLive 0)
+(idFileName "hp3325b.cid")
+(ppAddr "")
+(model "")
+(eoiEnabled 1)
+(model ""
+(standard 488))))
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 1)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(UserFunctions
+(nextID 1)
+(context 0
+(properties
+(name "ArrayStats")
+(variableName ArrayStats)
+(variableScope glob)
+(trigMode deg)
+(nextID 0)
+(popupTitleText "UserFunction1")
+(popupMoveable 1))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(type data)
+(name "Max")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "Min")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "Mean")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "Sdev")
+(lock constraints)
+(optional yes)))
+(deviceList
+(configuration))
+(contextCarrier
+(wndOrigin 132 80)
+(wndState res)
+(active detail)
+(detail
+(extent 917 641)
+(anchorPt 0 0)
+(configuration)))))
+(device 0 FORMULA
+(properties
+(variableScope cont)
+(expr 1 "ramp(1024,1,1024)"))
+(interface
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(configuration))
+(contextCarrier
+(wndOrigin 2 2)
+(wndState res)
+(active detail)
+(detail
+(extent 997 641)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon)
+(open
+(extent 174 56))
+(terminals on)
+(pinCenter 380 240))))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

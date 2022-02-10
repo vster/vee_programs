@@ -1,0 +1,138 @@
+(saveFormat "7.0")
+(date "Thu 10/Feb/2022 16:41:01 ")
+(veerev "9.33.1811.0201")
+(platform "PC")
+(execMode v6)
+(prefExecMode v9)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(sysconfig)
+(SaveCF no)
+(device 0 ROOTCONTEXT
+(properties
+(variableName Main)
+(variableScope glob)
+(trigMode deg)
+(nextID 5)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(deleteGlobals 0))
+(deviceList
+(device 0 NOTE
+(properties
+(variableScope cont)
+(text2 1
+"{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset204{\\*\\fname Times New Roman;}Times New Roman CYR;}{\\f1\\fnil\\fcharset0 Times New Roman;}}\r\n{\\colortbl ;\\red0\\green0\\blue0;}\r\n\\viewkind4\\uc1\\pard\\cf1\\lang1049\\f0\\fs24\\\'dd\\\'f2\\\'e0 \\\'ef\\\'f0\\\'ee\\\'e3\\\'f0\\\'e0\\\'ec\\\'ec\\\'e0 \\lang1033\\f1 Random \\lang1049\\f0\\\'e3\\\'e5\\\'ed\\\'e5\\\'f0\\\'e8\\\'f2 \\\'e4\\\'e5\\\'e9\\\'f1\\\'f2\\\'e2\\\'e8\\\'f2\\\'e5\\\'eb\\\'fc\\\'ed\\\'ee\\\'e5\\par\r\n\\\'f7\\\'e8\\\'f1\\\'eb\\\'ee \\\'ec\\\'e5\\\'e6\\\'e4\\\'f3 0 \\\'e8 1, \\\'e7\\\'e0\\\'f2\\\'e5\\\'ec \\\'e2\\\'fb\\\'e2\\\'ee\\\'e4\\\'e8\\\'f2 \\\'ed\\\'e0 \\\'e4\\\'e8\\\'f1\\\'ef\\\'eb\\\'e5\\\'e9\\par\r\n\\\'f0\\\'e5\\\'e7\\\'f3\\\'eb\\\'fc\\\'f2\\\'e0\\\'f2\\\'fb.\\lang1033\\f1\\par\r\n}\r\n"
+)))
+(device 1 FORMULA
+(properties
+(name "random(low,high)")
+(variableScope cont)
+(expr 1 "random(low,high)"))
+(interface
+(input 1
+(name "low")
+(optional yes))
+(input 2
+(name "high")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  0))
+(initValue Int32
+(data  0))))
+(device 3 CONSTANT
+(properties
+(name "Int32")
+(variableScope cont)
+(enableEditing 1))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1))
+(initValue Int32
+(data  0))))
+(device 4 TEXTDISPLAY
+(properties
+(variableScope cont))
+(interface
+(input 1
+(name "Data"))))
+(configuration
+(connect D2:1 D1:1)
+(connect D3:1 D1:2)
+(connect D1:1 D4:1)))
+(contextCarrier
+(wndRestoredOrigin 2 2)
+(wndRestoredExtent 1374 641)
+(wndState max)
+(active detail)
+(detail
+(extent 1288 869)
+(anchorPt 0 0)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 394 106)
+(editing enabled))
+(pinCenter 610 190))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 105 0))
+(open
+(extent 131 50))
+(terminals on)
+(pinCenter 585 440))
+(devCarrierFor 2
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 310 400))
+(devCarrierFor 3
+(active open)
+(icon)
+(open
+(extent 67 29)
+(showFormat int))
+(pinCenter 310 500))
+(devCarrierFor 4
+(active open)
+(icon)
+(open
+(extent 121 22))
+(pinCenter 890 440))
+(connect D2:1 D1:1
+(points 4 346 400 370 400 370 430 477 430))
+(connect D3:1 D1:2
+(points 4 346 500 370 500 370 450 477 450))
+(connect D1:1 D4:1
+(points 2 703 440 827 440)))
+(stackingOrder 0 1 2 3 4))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))
