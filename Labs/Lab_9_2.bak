@@ -1,5 +1,5 @@
 (saveFormat "7.0")
-(date "Fri 18/Feb/2022 16:56:04 ")
+(date "Fri 18/Feb/2022 16:52:19 ")
 (veerev "9.33.1811.0201")
 (platform "PC")
 (execMode v6)
@@ -293,7 +293,7 @@
 (name "B")
 (optional yes)))
 (implementation
-(attr iopath file append "D:\\vst\\VEE_Programs\\Labs\\report.txt"
+(attr iopath file write "D:\\vst\\VEE_Programs\\Labs\\report.txt"
 (readTerm "\n")
 (fs "\r\n")
 (eol "\r\n")
@@ -413,7 +413,7 @@
 "WRITE TEXT \"=============\" EOL" "WRITE TEXT now() DATE:WDMY TIME:HM:H12 EOL"
 "WRITE TEXT \"=============\" EOL" "WRITE TEXT \"Value   Limit   Result\" EOL"))
 (implementation
-(attr iopath file append "D:\\vst\\VEE_Programs\\Labs\\report.txt"
+(attr iopath file write "D:\\vst\\VEE_Programs\\Labs\\report.txt"
 (readTerm "\n")
 (fs "\r\n")
 (eol "\r\n")
@@ -520,7 +520,7 @@
 (points 2 440 280 529 280))
 (connect D1:0 D2:0
 (points 2 650 308 650 394)))
-(stackingOrder 2 3 1 0))
+(stackingOrder 2 0 3 1))
 (numberFormats
 (realFormat standard)
 (realSigDigits 4)
